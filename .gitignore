@@ -1,0 +1,41 @@
+# Environment
+.env
+.venv/
+env/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Output
+output/
+temp/
+*.mp4
+*.mp3
+*.wav
+*.ass
+*.srt
+
+# Credentials
+config/client_secret.json
+.youtube_credentials.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Logs
+debug.log
+*.log
+
+# Claude Code
+.claude/
+
+# OS
+Thumbs.db
+.DS_Store
