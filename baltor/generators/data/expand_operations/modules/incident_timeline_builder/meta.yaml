@@ -1,0 +1,15 @@
+title: Incident timeline builder
+summary: Converts rough timestamped incident notes into a sorted UTC timeline with time-to-detect, acknowledge, mitigate and resolve, and flags missing or out-of-order milestones.
+subkind: incident-response
+tags: [incident-response, postmortem, timeline, mttr, sre, on-call]
+step_kinds: [operate, write, review]
+effects: {filesystem: read, executes: python}
+description: >-
+  Accepts lines starting with full timestamps (ISO 8601 or 'YYYY-MM-DD HH:MM', with Z/UTC/offsets) or bare HH:MM
+  times, optional [tag] markers (started/detected/acknowledged/declared/escalated/mitigated/resolved plus aliases
+  such as ack, alert, fixed, closed) and free text. Converts everything to UTC, rolls bare times over midnight,
+  sorts, and computes durations in minutes from impact start (or detection when the start is unknown). Outputs a
+  Markdown table for the postmortem or JSON matching the incident record schema's timeline shape.
+examples:
+  - "python incident_timeline_builder.py notes.txt --date 2026-10-10 > timeline.md"
+evidence_notes: pytest suite passes on synthetic notes, offsets and midnight rollover.

@@ -1290,6 +1290,10 @@ def import_trial(root: Path, task_id: str, arm: str, trial: int, src: Path, *, f
     if meta.get("arm") not in (None, arm):
         raise ShowcaseError(f"{src}: prepared for arm {meta['arm']}, not {arm}")
     usage_in = read_json(side / "usage.json") if (side / "usage.json").exists() else {}
+    reg = read_json(task_dir(root, task_id) / "registration.json")
+    if meta.get("started_at") and meta["started_at"] < reg["registered_at"]:
+        raise ShowcaseError(f"{src}: run started {meta['started_at']}, before the task was registered "
+                            f"({reg['registered_at']}); it cannot count as a pre-registered trial")
     tdir.mkdir(parents=True, exist_ok=True)
     rec = new_record(spec, arm, trial, item["index"], "manual")
     copy_tree(src, tdir / "workspace")
@@ -1386,13 +1390,14 @@ def replace(root: Path, task_id: str, run_id: str, reason: str) -> dict:
     _, arm, trial = run_id.split("/")
     p = runs_dir(root, task_id) / arm / trial / "run.json"
     rec = read_json(p)
-    if not rec["included"]:
-        raise ShowcaseError(f"{run_id} is already excluded")
-    rec["included"] = False
-    rec["exclusion_reason"] = f"replaced: {reason}"
-    write_json(p, rec)
     sched_path = runs_dir(root, task_id) / "schedule.json"
     sched = read_json(sched_path)
+    if any(i.get("replaces") == run_id for i in sched["items"]):
+        raise ShowcaseError(f"{run_id} already has a replacement trial")
+    if rec["included"]:
+        rec["included"] = False
+        rec["exclusion_reason"] = f"replaced: {reason}"
+        write_json(p, rec)
     new_trial = max(i["trial"] for i in sched["items"] if i["arm"] == arm) + 1
     item = {"index": len(sched["items"]), "arm": arm, "trial": new_trial, "replaces": run_id, "reason": reason}
     sched["items"].append(item)

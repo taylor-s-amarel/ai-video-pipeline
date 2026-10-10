@@ -10,7 +10,7 @@ import vre_detect_kit as kit
 HERE = Path(__file__).resolve().parent
 FPS = 25.0
 A = kit.synth_texture(108, 192, seed=31, rgb=True)
-B = kit.synth_texture(108, 192, seed=32, rgb=True)
+B = kit.synth_texture(108, 192, seed=32, rgb=True) * np.array([1.0, 0.6, 0.3]) + np.array([0, 20, 60])
 
 
 def assert_valid(env):
@@ -63,8 +63,8 @@ def test_sharp_static_has_no_whip():
 def test_cli_on_lavfi_blurred_pan(tmp_path):
     clip = tmp_path / "whip.mp4"
     graph = ("testsrc2=s=384x216:r=25:d=1.6,split[a][b];[a]trim=end=0.6,setpts=PTS-STARTPTS[a1];"
-             "[b]trim=start=0.6:end=0.76,setpts=PTS-STARTPTS,boxblur=luma_radius=0:chroma_radius=0:"
-             "luma_power=0,avgblur=sizeX=24:sizeY=1[b1];[a1][b1]concat=n=2:v=1:a=0[out0]")
+             "[b]trim=start=0.6,setpts=PTS-STARTPTS,split[c][d];[c]trim=end=0.16,dblur=angle=0:radius=30[c1];"
+             "[d]trim=start=0.16,setpts=PTS-STARTPTS[d1];[a1][c1][d1]concat=n=3:v=1:a=0[out0]")
     subprocess.run(["ffmpeg", "-v", "error", "-f", "lavfi", "-i", graph, "-pix_fmt", "yuv420p", str(clip)], check=True)
     env = m.detect_file(clip)
     assert_valid(env)

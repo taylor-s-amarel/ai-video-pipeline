@@ -1,0 +1,10 @@
+title: Commit message style linter (50/72, imperative, trailers)
+summary: Checks commit messages for subject length (50 soft / 72 hard), trailing period, blank line, imperative mood, 72-column body wrapping and well-formed Signed-off-by / Co-authored-by trailers; usable as a commit-msg hook.
+subkind: git-workflow
+tags: [git, commit-message, lint, trailers, commit-msg-hook]
+step_kinds: [build, verify, review]
+examples:
+  - "python commit_message_linter.py .git/COMMIT_EDITMSG"
+references:
+  - https://git-scm.com/docs/git-commit#_discussion
+  - https://git-scm.com/docs/git-interpret-trailers

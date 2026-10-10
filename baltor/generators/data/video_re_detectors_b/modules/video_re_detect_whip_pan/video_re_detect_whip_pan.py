@@ -2,16 +2,17 @@
 
 Method (grey frames at the source frame rate, long side 192):
 
-1. Per frame, Sobel gradient energies Ex = mean(gx^2) and Ey = mean(gy^2). Sharpness = Ex + Ey;
-   anisotropy = ln(Ey / Ex): horizontal motion blur wipes out horizontal gradients, so a
-   horizontal whip has a large positive anisotropy (vertical whip: large negative).
-2. A frame is part of a whip when its sharpness is at most ``sharp_drop`` x the median sharpness
-   of the surrounding ``window_s`` seconds and |anisotropy| >= ln(``min_aniso``). Runs of such frames
-   (gaps of one frame allowed) at least ``min_frames`` long are events.
+1. Per frame, Sobel gradient energies Ex = mean(gx^2) and Ey = mean(gy^2), and their medians over
+   the surrounding ``window_s`` seconds as the shot's own baseline (so a scene that is naturally
+   full of horizontal lines does not look blurred).
+2. A frame is part of a whip when its total gradient energy is at most ``sharp_drop`` x the
+   baseline and the loss is directional: (Ey/Ey_base) / (Ex/Ex_base) >= ``min_aniso`` (horizontal
+   motion blur removes horizontal gradients) or <= 1/``min_aniso`` (vertical whip). Runs of such
+   frames (one-frame gaps allowed) at least ``min_frames`` long are events.
 3. Direction: phase correlation between consecutive frames of the event (half size); content
    moving left means the camera whipped right. Low correlation peaks give ``unknown``.
 4. ``at_cut``: the colour histograms just before and just after the event differ by at least
-   ``cut_hist`` (the whip hides a cut between two shots).
+   ``cut_hist`` (the whip hides a cut between two differently coloured shots).
 
 Limits: a defocus or rack-focus blur is isotropic and is ignored on purpose; fast pans that
 stay sharp (high shutter speed) are not whips by this definition; diagonal whips are labelled
@@ -39,21 +40,20 @@ DEFAULTS = {
 PARAM_DOCS = {
     "window_s": "half-width of the window whose median sharpness is the baseline",
     "sharp_drop": "frame sharpness / baseline at or below which a frame is blurred",
-    "min_aniso": "gradient energy ratio (Ey/Ex or Ex/Ey) that makes the blur directional",
+    "min_aniso": "ratio of the per-axis energy losses that makes the blur directional",
     "min_frames": "fewest blurred frames in a whip",
     "min_peak": "phase-correlation peak needed to report a direction",
     "cut_hist": "histogram distance before vs after the whip that marks it as hiding a cut",
 }
 
 
-def frame_stats(gray: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
-    sharp, aniso = [], []
+def frame_energies(gray: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    ex, ey = [], []
     for g in gray:
         gx, gy = kit.gradients(g)
-        ex, ey = float((gx ** 2).mean()), float((gy ** 2).mean())
-        sharp.append(ex + ey)
-        aniso.append(math.log((ey + 1e-3) / (ex + 1e-3)))
-    return np.asarray(sharp), np.asarray(aniso)
+        ex.append(float((gx ** 2).mean()) + 1e-3)
+        ey.append(float((gy ** 2).mean()) + 1e-3)
+    return np.asarray(ex), np.asarray(ey)
 
 
 def analyse(frames, fps, p, ctx):
@@ -61,13 +61,18 @@ def analyse(frames, fps, p, ctx):
     gray = kit.as_gray(arr)
     N = len(gray)
     t0 = ctx["t0"]
-    sharp, aniso = frame_stats(gray)
+    ex, ey = frame_energies(gray)
     w = max(2, int(round(p["window_s"] * fps)))
     blurred = np.zeros(N, dtype=bool)
+    aniso = np.ones(N)
+    drop = np.ones(N)
     for i in range(N):
         lo, hi = max(0, i - w), min(N, i + w + 1)
-        base = float(np.median(sharp[lo:hi]))
-        blurred[i] = sharp[i] <= p["sharp_drop"] * base and abs(aniso[i]) >= math.log(p["min_aniso"])
+        bx, by = float(np.median(ex[lo:hi])), float(np.median(ey[lo:hi]))
+        drop[i] = (ex[i] + ey[i]) / (bx + by)
+        aniso[i] = (ey[i] / by) / (ex[i] / bx)
+        blurred[i] = drop[i] <= p["sharp_drop"] and max(aniso[i], 1 / aniso[i]) >= p["min_aniso"]
+    aniso = np.log(aniso)
     runs, i = [], 0
     while i < N:
         if not blurred[i]:
@@ -102,10 +107,9 @@ def analyse(frames, fps, p, ctx):
         at_cut = None
         if a > 0 and b + 1 < N:
             at_cut = bool(kit.hist_distances(np.stack([rgb[a - 1], rgb[b + 1]]))[0] >= p["cut_hist"])
-        base = float(np.median(sharp[max(0, a - w):min(N, b + w + 1)]))
         ev = {"t_start_s": t0 + a / fps, "t_end_s": t0 + (b + 1) / fps, "frames": b - a + 1, "axis": axis,
               "camera_direction": direction, "blur_anisotropy": float(math.exp(abs(ax))),
-              "sharpness_ratio": float(np.min(sharp[a:b + 1]) / max(base, 1e-6)), "at_cut": at_cut}
+              "sharpness_ratio": float(np.min(drop[a:b + 1])), "at_cut": at_cut}
         events.append(ev)
         conf = min(0.95, 0.5 + 0.1 * ev["frames"] + 0.1 * (ev["blur_anisotropy"] > 4))
         results.append(kit.result("whip_pan", conf, t_start_s=ev["t_start_s"], t_end_s=ev["t_end_s"],
