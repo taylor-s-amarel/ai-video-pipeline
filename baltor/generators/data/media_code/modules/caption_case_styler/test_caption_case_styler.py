@@ -14,7 +14,9 @@ def test_upper_with_keep():
 
 
 def test_sentence_case():
-    assert style("THE REEF WAS ALIVE. THEN NASA CALLED!", "sentence") == "The reef was alive. Then NASA called!"
+    assert style("THE REEF WAS ALIVE. THEN NASA CALLED!", "sentence", keep={"NASA"}) == \
+        "The reef was alive. Then NASA called!"
+    assert style("the reef was alive. then NASA called!", "sentence") == "The reef was alive. Then NASA called!"
 
 
 def test_whitespace_preserved_and_validation():

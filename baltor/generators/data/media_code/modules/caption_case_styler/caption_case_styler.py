@@ -4,7 +4,8 @@
   "iPhone" or "mRNA") whose casing is fixed;
 * ``title`` capitalises words except short function words (a, an, the, and,
   but, or, for, nor, on, at, to, by, of, in, up, as), which stay lower case
-  unless first or last; existing ALL-CAPS acronyms (NASA, DNA) stay;
+  unless first or last; existing ALL-CAPS acronyms (NASA, DNA) stay (when the
+  whole input is in capitals, only words in ``keep`` are protected);
 * ``sentence`` lower-cases words that are not acronyms and capitalises the
   first letter of each sentence.
 
@@ -43,6 +44,10 @@ def style(text: str, mode: str, keep=None) -> str:
     if mode not in ("upper", "title", "sentence"):
         raise ValueError("mode must be upper, title or sentence")
     kmap = _keep_map(keep)
+    letters = re.sub(r"[^A-Za-z]", "", text)
+    # in ALL-CAPS input every word looks like an acronym: then only ``keep`` protects casing
+    shouting = len(letters) > 3 and letters.isupper()
+    is_acro = (lambda w: False) if shouting else _is_acronym
     parts = _SPLIT.split(text)
     words_idx = [i for i, p in enumerate(parts) if p and not p.isspace()]
     out = list(parts)
@@ -56,16 +61,16 @@ def style(text: str, mode: str, keep=None) -> str:
         elif mode == "upper":
             res = w.upper()
         elif mode == "title":
-            if _is_acronym(w):
+            if is_acro(w):
                 res = w
             elif core.lower() in SMALL and 0 < n < len(words_idx) - 1:
                 res = w.lower()
             else:
                 res = "-".join(_cap(x) for x in w.split("-"))
         else:
-            res = w if _is_acronym(w) else w.lower()
-            if new_sentence:
-                res = _cap(res) if not _is_acronym(res) else res
+            res = w if is_acro(w) else w.lower()
+            if new_sentence and not is_acro(res):
+                res = _cap(res)
         out[i] = res
         new_sentence = bool(re.search(r"[.!?]['\")]*$", w))
     return "".join(out)

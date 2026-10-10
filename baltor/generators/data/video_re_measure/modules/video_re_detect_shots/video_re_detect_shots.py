@@ -6,7 +6,7 @@ Usage:
 Method 'frames' (default) decodes every frame at a small size (96 px wide) and scores each frame
 against the previous one:
 
-    score = 0.5 * colour-histogram distance (64-bin RGB, L1/2, 0..1)
+    score = 0.5 * colour-histogram distance (soft 16-bin Y, Cb, Cr histograms, mean L1/2, 0..1)
           + 0.5 * min(1, 2 * mean absolute grey difference / 255)
 
 A frame starts a new shot (hard cut) when its score is a local maximum, is at least ``min_score``
@@ -44,17 +44,28 @@ DEFAULTS = {"width": 96, "min_score": 0.12, "adaptive_ratio": 3.0, "window_s": 0
 
 
 def frame_features(rgb: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
-    """(64-bin normalised RGB histogram, grey image float32) for one frame."""
-    q = (rgb >> 6).astype(np.int32)  # 4 levels per channel
-    idx = q[..., 0] * 16 + q[..., 1] * 4 + q[..., 2]
-    hist = np.bincount(idx.ravel(), minlength=64).astype(np.float64)
-    hist /= max(1.0, hist.sum())
-    grey = rgb[..., 0] * 0.299 + rgb[..., 1] * 0.587 + rgb[..., 2] * 0.114
-    return hist, grey.astype(np.float32)
+    """(48-value soft histogram: 16 bins each of Y, Cb, Cr, each summing to 1; grey image float32).
+
+    Soft binning (each value split linearly between its two nearest bins) keeps the histogram
+    distance continuous, so a dissolve changes it a little every frame instead of in jumps.
+    """
+    f = rgb.astype(np.float32)
+    y = 0.299 * f[..., 0] + 0.587 * f[..., 1] + 0.114 * f[..., 2]
+    cb = 128.0 - 0.168736 * f[..., 0] - 0.331264 * f[..., 1] + 0.5 * f[..., 2]
+    cr = 128.0 + 0.5 * f[..., 0] - 0.418688 * f[..., 1] - 0.081312 * f[..., 2]
+    hs = []
+    for c in (y, cb, cr):
+        pos = np.clip(c, 0, 255).ravel() * (15.0 / 255.0)
+        lo = np.floor(pos).astype(np.int64)
+        fr = pos - lo
+        hi = np.minimum(lo + 1, 15)
+        h = np.bincount(lo, weights=1.0 - fr, minlength=16) + np.bincount(hi, weights=fr, minlength=16)
+        hs.append(h / max(1e-9, h.sum()))
+    return np.concatenate(hs), y
 
 
 def pair_score(h1: np.ndarray, g1: np.ndarray, h2: np.ndarray, g2: np.ndarray) -> float:
-    hist_d = 0.5 * float(np.abs(h1 - h2).sum())
+    hist_d = float(np.abs(h1 - h2).sum()) / 6.0
     pix_d = float(np.abs(g1 - g2).mean()) / 255.0
     return 0.5 * hist_d + 0.5 * min(1.0, 2.0 * pix_d)
 
@@ -77,7 +88,7 @@ def score_series(hists: np.ndarray, greys: np.ndarray, lag: int = 1) -> np.ndarr
     out = np.zeros(n)
     if n <= lag:
         return out
-    hist_d = 0.5 * np.abs(hists[lag:] - hists[:-lag]).sum(axis=1)
+    hist_d = np.abs(hists[lag:] - hists[:-lag]).sum(axis=1) / 6.0  # mean over 3 channels of L1/2
     pix_d = np.abs(greys[lag:] - greys[:-lag]).mean(axis=(1, 2)) / 255.0
     out[lag:] = 0.5 * hist_d + 0.5 * np.minimum(1.0, 2.0 * pix_d)
     return out
