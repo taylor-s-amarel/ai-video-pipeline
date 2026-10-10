@@ -1,0 +1,6 @@
+title: Directional motion blur
+summary: Numpy linear motion blur at any angle with sub-pixel shifts, a whip-pan blur profile for transition frames and a normalised line kernel.
+subkind: transition
+domain: video
+tags: [video, motion-blur, whip-pan, transition, numpy]
+step_kinds: [build, render]

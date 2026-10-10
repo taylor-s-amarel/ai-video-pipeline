@@ -1,0 +1,8 @@
+title: xfade transition chain builder
+summary: Builds ffmpeg filter_complex chains of xfade + acrossfade transitions for N clips with correct cumulative offsets, name validation and overlap checks.
+subkind: transition
+domain: video
+tags: [video, transitions, xfade, ffmpeg, crossfade, editing]
+step_kinds: [build, render]
+depends_on: [ffmpeg]
+references: ["https://ffmpeg.org/ffmpeg-filters.html#xfade"]

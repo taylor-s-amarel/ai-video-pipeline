@@ -1,0 +1,6 @@
+title: Constant-speed Bezier motion path
+summary: Chains of cubic Bezier segments with an arc-length table so objects move at constant speed, plus heading angles and smooth paths through waypoints.
+subkind: motion-preset
+domain: video
+tags: [video, motion, bezier, path, animation, arc-length]
+step_kinds: [build, render]

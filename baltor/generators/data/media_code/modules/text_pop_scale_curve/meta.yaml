@@ -1,0 +1,7 @@
+title: Text pop scale curve
+summary: Key-word pop curve (1.0 -> 1.12 -> 1.0 over 180 ms by default) as per-frame scales, an ffmpeg time expression and ASS transform tags, with ease and spring shapes.
+subkind: text-animation
+domain: video
+tags: [video, captions, text-pop, animation, ffmpeg, ass]
+step_kinds: [build, render]
+examples: ["Pop the number '14 days' when it is spoken", "Scale a drawtext caption word with a 180 ms pop"]

@@ -1,0 +1,6 @@
+title: Keyframe track interpolator
+summary: Keyframe tracks for scalar or vector properties with per-segment easing (hold, linear, quad, cubic, sine, back), frame sampling and JSON round-trip.
+subkind: motion-preset
+domain: video
+tags: [video, motion, keyframes, animation, interpolation]
+step_kinds: [build, render]

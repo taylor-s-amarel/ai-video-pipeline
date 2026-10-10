@@ -1,0 +1,6 @@
+title: Speed ramp time remapping
+summary: Maps output time to source time from linearly interpolated speed keyframes (exact integral), with per-frame source indices, duration solving and setpts helpers.
+subkind: motion-preset
+domain: video
+tags: [video, speed-ramp, slow-motion, time-remap, ffmpeg]
+step_kinds: [build, render]

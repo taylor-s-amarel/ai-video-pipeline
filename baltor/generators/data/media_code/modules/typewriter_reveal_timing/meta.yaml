@@ -1,0 +1,6 @@
+title: Typewriter reveal timing
+summary: Character-by-character reveal schedule with punctuation pauses and ASS events that keep line layout stable by drawing the untyped remainder fully transparent.
+subkind: text-animation
+domain: captions
+tags: [captions, typewriter, text-animation, ass, timing]
+step_kinds: [build, render]

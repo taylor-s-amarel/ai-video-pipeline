@@ -1,0 +1,5 @@
+title: SMPTE timecode conversion
+summary: Converts frames to and from HH:MM:SS:FF timecode, including 29.97 and 59.94 drop-frame, with validation of labels that do not exist in drop-frame.
+domain: video
+tags: [video, timecode, smpte, drop-frame, editing]
+step_kinds: [build, render, verify]

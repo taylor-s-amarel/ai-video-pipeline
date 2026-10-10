@@ -1,0 +1,6 @@
+title: Squash and stretch scales
+summary: Volume-preserving stretch from velocity, impact squash with spring-back, and a dropped-object bounce track for cartoon, icon and stick-figure animation.
+subkind: animation-style
+domain: video
+tags: [video, animation, squash-stretch, bounce, cartoon, motion]
+step_kinds: [build, render]

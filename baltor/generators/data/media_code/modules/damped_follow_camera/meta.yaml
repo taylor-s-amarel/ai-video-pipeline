@@ -1,0 +1,6 @@
+title: Damped follow camera
+summary: Critically damped (smooth-damp) 2D follow camera with dead zone, look-ahead and world bounds for top-down, side-on and map-flyover footage.
+subkind: camera-move
+domain: video
+tags: [video, camera, follow, smoothing, top-down, game-footage]
+step_kinds: [build, render]

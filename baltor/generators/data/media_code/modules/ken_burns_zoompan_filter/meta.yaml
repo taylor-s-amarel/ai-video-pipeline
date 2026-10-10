@@ -1,0 +1,9 @@
+title: Ken Burns zoompan filter builder
+summary: Builds ffmpeg zoompan filters for eased Ken Burns zooms on a still, cropped to the output aspect and pre-scaled to remove the integer-position jitter zoompan is known for.
+subkind: camera-move
+domain: video
+tags: [video, ken-burns, ffmpeg, zoompan, filter, photo]
+step_kinds: [build, render]
+effects: {side_effects: ["tests run ffmpeg when installed"]}
+depends_on: [ffmpeg]
+references: ["https://ffmpeg.org/ffmpeg-filters.html#zoompan"]

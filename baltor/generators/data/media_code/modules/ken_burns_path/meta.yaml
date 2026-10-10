@@ -1,0 +1,7 @@
+title: Ken Burns pan/zoom path generator
+summary: Per-frame crop rectangles for pan and zoom moves over a still, kept inside the image, log-space zoom, eased, with named presets and an upscale-risk measure.
+subkind: camera-move
+domain: video
+tags: [video, ken-burns, pan, zoom, camera, photo]
+step_kinds: [build, render]
+examples: ["Zoom in 15% on the subject's face over 5 seconds", "Pan right across a wide 4:3 photo for a 9:16 short"]

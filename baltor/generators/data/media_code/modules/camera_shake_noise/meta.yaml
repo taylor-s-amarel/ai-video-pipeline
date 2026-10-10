@@ -1,0 +1,7 @@
+title: Camera shake from smooth noise
+summary: Deterministic per-frame camera shake (x, y, rotation) from layered value noise with trauma decay, overscan calculation and an ffmpeg crop-based shake filter.
+subkind: camera-move
+domain: video
+tags: [video, camera, shake, noise, impact, ffmpeg]
+step_kinds: [build, render]
+depends_on: [ffmpeg]

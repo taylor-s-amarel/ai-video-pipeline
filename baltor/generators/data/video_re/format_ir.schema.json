@@ -1,0 +1,203 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/video-format-ir",
+  "title": "Video format IR",
+  "description": "The intermediate representation a video reverse-engineering swarm lifts out of one source video: a parametric, procedural format that can render any number of new videos. It describes structure and technique, never the source's footage, music or script. Every observed value carries evidence and confidence, like a decompiler annotating lifted code.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["spec", "format_id", "source", "parameters", "timeline", "visual", "typography", "motion", "audio", "generation_rules"],
+  "$defs": {
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method", "confidence"],
+      "properties": {
+        "method": { "enum": ["measured", "observed", "inferred", "assumed"] },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "timestamps_s": { "type": "array", "items": { "type": "number", "minimum": 0 } },
+        "tool": { "type": "string" },
+        "note": { "type": "string", "maxLength": 400 }
+      }
+    },
+    "observed_number": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "evidence"],
+      "properties": {
+        "value": { "type": "number" },
+        "unit": { "type": "string" },
+        "min": { "type": "number" },
+        "max": { "type": "number" },
+        "evidence": { "$ref": "#/$defs/evidence" }
+      }
+    },
+    "observed_text": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "evidence"],
+      "properties": {
+        "value": { "type": "string" },
+        "evidence": { "$ref": "#/$defs/evidence" }
+      }
+    },
+    "parameter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "type", "description"],
+      "properties": {
+        "name": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+        "type": { "enum": ["string", "integer", "number", "boolean", "enum", "color", "duration_s", "asset", "list"] },
+        "description": { "type": "string" },
+        "default": {},
+        "min": { "type": "number" },
+        "max": { "type": "number" },
+        "choices": { "type": "array" },
+        "derived_from": { "type": "string", "description": "which observation this parameter generalises" }
+      }
+    },
+    "beat": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "start_ratio", "end_ratio"],
+      "properties": {
+        "role": { "enum": ["hook", "title", "setup", "context", "item", "fact", "tip", "step", "escalation", "reversal", "reveal", "payoff", "recap", "cta", "outro", "transition"] },
+        "start_ratio": { "type": "number", "minimum": 0, "maximum": 1 },
+        "end_ratio": { "type": "number", "minimum": 0, "maximum": 1 },
+        "repeat": { "type": "string", "description": "parameter name that repeats this beat, e.g. n_items" },
+        "label_pattern": { "type": "string", "description": "e.g. 'FACT {n}'" },
+        "content_slot": { "type": "string", "description": "parameter or script slot that fills this beat" },
+        "shots_per_beat": { "$ref": "#/$defs/observed_number" },
+        "evidence": { "$ref": "#/$defs/evidence" }
+      }
+    },
+    "layer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["z", "kind", "opacity"],
+      "properties": {
+        "z": { "type": "integer", "minimum": 0 },
+        "kind": { "enum": ["background-video", "background-image", "gradient", "grid", "grid-2x2", "texture", "particles", "light", "haze", "photo", "illustration", "character", "chart", "map", "text-title", "text-caption", "text-label", "frosted-panel", "vignette", "grain", "overlay", "border"] },
+        "opacity": { "type": "number", "minimum": 0, "maximum": 1 },
+        "blend": { "enum": ["normal", "screen", "multiply", "overlay", "soft-light", "add", "unknown"] },
+        "motion": { "type": "string" },
+        "feather_px": { "type": "number", "minimum": 0 },
+        "frame_coverage": { "type": "number", "minimum": 0, "maximum": 1 },
+        "source_slot": { "type": "string" },
+        "evidence": { "$ref": "#/$defs/evidence" }
+      }
+    }
+  },
+  "properties": {
+    "spec": { "const": "baltor.video-format-ir/v1" },
+    "format_id": { "type": "string", "pattern": "^[a-z][a-z0-9-]{2,80}$" },
+    "title": { "type": "string" },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reference", "duration_s", "resolution", "rights_note"],
+      "properties": {
+        "reference": { "type": "string", "description": "URL or local file name of the analysed video" },
+        "duration_s": { "type": "number", "minimum": 0 },
+        "resolution": { "type": "string", "pattern": "^[0-9]+x[0-9]+$" },
+        "fps": { "type": "number" },
+        "platform": { "type": "string" },
+        "rights_note": { "type": "string", "description": "What may be reused. The IR keeps techniques and structure only; no footage, music, voice or script text from the source." }
+      }
+    },
+    "parameters": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/parameter" } },
+    "timeline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["target_duration_s", "beats"],
+      "properties": {
+        "target_duration_s": { "$ref": "#/$defs/observed_number" },
+        "beats": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/beat" } },
+        "cut_rate_per_min": { "$ref": "#/$defs/observed_number" },
+        "median_shot_s": { "$ref": "#/$defs/observed_number" },
+        "retention_devices": { "type": "array", "items": { "$ref": "#/$defs/observed_text" } }
+      }
+    },
+    "visual": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["layers"],
+      "properties": {
+        "aspect": { "type": "string" },
+        "layers": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/layer" } },
+        "palette": { "type": "array", "items": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" } },
+        "grade": { "$ref": "#/$defs/observed_text" },
+        "style_family": { "$ref": "#/$defs/observed_text" },
+        "subject_framing": { "$ref": "#/$defs/observed_text" },
+        "safe_area_respected": { "type": "boolean" }
+      }
+    },
+    "typography": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": { "type": "object" },
+        "captions": { "type": "object" },
+        "labels": { "type": "object" },
+        "words_on_screen_max": { "$ref": "#/$defs/observed_number" },
+        "evidence": { "$ref": "#/$defs/evidence" }
+      }
+    },
+    "motion": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "camera_moves": { "type": "array", "items": { "$ref": "#/$defs/observed_text" } },
+        "text_animations": { "type": "array", "items": { "$ref": "#/$defs/observed_text" } },
+        "transitions": { "type": "array", "items": { "$ref": "#/$defs/observed_text" } },
+        "background_motion_level": { "$ref": "#/$defs/observed_number" },
+        "easing": { "$ref": "#/$defs/observed_text" }
+      }
+    },
+    "audio": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "narration": { "type": "object" },
+        "words_per_minute": { "$ref": "#/$defs/observed_number" },
+        "music": { "type": "object" },
+        "sfx": { "type": "array", "items": { "$ref": "#/$defs/observed_text" } },
+        "integrated_lufs": { "$ref": "#/$defs/observed_number" },
+        "music_under_voice_db": { "$ref": "#/$defs/observed_number" },
+        "cuts_on_beat_ratio": { "$ref": "#/$defs/observed_number" }
+      }
+    },
+    "script": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "hook_pattern": { "$ref": "#/$defs/observed_text" },
+        "beat_patterns": { "type": "array", "items": { "$ref": "#/$defs/observed_text" } },
+        "reading_level": { "$ref": "#/$defs/observed_number" },
+        "claims_need_sources": { "type": "boolean" }
+      }
+    },
+    "generation_rules": {
+      "type": "array", "minItems": 1,
+      "items": { "type": "string", "maxLength": 400 },
+      "description": "Procedural rules that turn parameters into a timeline, e.g. 'each item beat lasts (target_duration_s - 8) / n_items seconds'"
+    },
+    "render_binding": {
+      "type": "object",
+      "description": "How parameters map onto a renderer spec, e.g. the short_video_spec contract schema",
+      "properties": {
+        "target_schema": { "type": "string" },
+        "mapping": { "type": "object" }
+      }
+    },
+    "open_questions": { "type": "array", "items": { "type": "string" } },
+    "fidelity": {
+      "type": "object",
+      "description": "Filled by the round-trip check: re-render a variant, re-analyse it, compare IRs",
+      "properties": {
+        "score": { "type": "number", "minimum": 0, "maximum": 1 },
+        "by_dimension": { "type": "object" },
+        "variant_reference": { "type": "string" }
+      }
+    }
+  }
+}

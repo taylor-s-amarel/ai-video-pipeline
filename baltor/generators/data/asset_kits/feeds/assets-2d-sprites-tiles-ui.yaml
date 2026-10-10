@@ -1,0 +1,301 @@
+id: assets-2d-sprites-tiles-ui
+title: "2D sprites, tilesets and UI kits (CC0 first, per-pack terms recorded)"
+description: >-
+  Pixel-art and vector 2D packs an agent can pull into a Godot 2D scene, a sprite-sheet animation or a
+  faceless explainer: Kenney packs (CC0), itch.io CC0 creators, OpenGameArt and Liberated Pixel Cup
+  collections. Each item records its licence and the cautions that matter (per-asset licences on
+  OpenGameArt, bundled music under different terms, mirrors that disagree on the licence).
+tags: [2d, sprites, tilesets, ui, pixel-art, game-assets]
+defaults:
+  kind: media-source
+  verification: search-result
+items:
+  - id: kenney-pixel-platformer
+    title: "Kenney Pixel Platformer (200 assets, 18x18 tiles)"
+    url: https://kenney.nl/assets/pixel-platformer
+    summary: "Side-view pixel tiles, characters and items on an 18x18 grid; the pack page lists 200 assets under CC0."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [platformer, pixel-art, tiles]
+  - id: kenney-pixel-platformer-blocks
+    title: "Kenney Pixel Platformer Blocks"
+    url: https://kenney.nl/assets/pixel-platformer-blocks
+    summary: "Companion block tiles for the Pixel Platformer style, CC0."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [platformer, pixel-art, tiles]
+  - id: kenney-new-platformer-pack
+    title: "Kenney New Platformer Pack (440 assets, 2025)"
+    url: https://kenney.nl/assets/new-platformer-pack
+    summary: "Vector-style platformer characters, tiles, enemies and backgrounds; listed as 440 assets, released 2025, CC0."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [platformer, vector, tiles, characters]
+  - id: kenney-platformer-pack-remastered
+    title: "Kenney Platformer Pack Remastered (360 assets)"
+    url: https://kenney.nl/assets/platformer-pack-remastered
+    summary: "Remastered classic Kenney platformer art: tiles, characters, items and HUD; 360 assets, CC0."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [platformer, vector]
+  - id: kenney-platformer-art-pixel
+    title: "Kenney Platformer Art Pixel"
+    url: https://kenney.nl/assets/platformer-art-pixel
+    summary: "Pixel redraw of the platformer art set for low-resolution side-scrollers, CC0."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [platformer, pixel-art]
+  - id: kenney-1-bit-platformer-pack
+    title: "Kenney 1-Bit Platformer Pack"
+    url: https://kenney.nl/assets/1-bit-platformer-pack
+    summary: "Monochrome platformer tiles and characters that recolour with a single palette swap, CC0."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [platformer, 1-bit, pixel-art]
+  - id: kenney-1-bit-pack
+    title: "Kenney 1-Bit Pack (1,078 assets, 16x16)"
+    url: https://kenney.nl/assets/1-bit-pack
+    summary: "1,078 monochrome 16x16 roguelike/RPG tiles, characters and icons (v1.0, 2021), CC0. Ideal for top-down maze and dungeon shorts."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [top-down, roguelike, 1-bit, maze]
+  - id: kenney-tiny-town
+    title: "Kenney Tiny Town (16x16 overworld)"
+    url: https://kenney.nl/assets/tiny-town
+    summary: "16x16 top-down town and overworld tiles (130 files, v1.0 2023 with a 1.1 fix), CC0."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [top-down, town, rpg]
+  - id: kenney-tiny-series
+    title: "Kenney Tiny series (Tiny Dungeon, Tiny Battle, Tiny Factory ...)"
+    url: https://kenney.nl/assets/series:Tiny
+    summary: "Listing of the matching 16x16 'Tiny' packs (Tiny Town, Tiny Dungeon, Tiny Battle, Tiny Factory); they share a grid so maps can mix packs. All CC0."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [top-down, series, pixel-art]
+  - id: kenney-tiny-battle
+    title: "Kenney Tiny Battle"
+    url: https://kenney.nl/assets/tiny-battle
+    summary: "16x16 tactics/war-game tiles and units in the Tiny style, CC0."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [top-down, strategy]
+  - id: kenney-tiny-factory
+    title: "Kenney Tiny Factory"
+    url: https://kenney.nl/assets/tiny-factory
+    summary: "16x16 factory/automation tiles (belts, machines) in the Tiny style, CC0."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [top-down, factory]
+  - id: kenney-micro-roguelike
+    title: "Kenney Micro Roguelike (8x8, 320 assets)"
+    url: https://kenney.nl/assets/micro-roguelike
+    summary: "320 tiny 8x8 roguelike tiles and characters; scales cleanly to 1080x1920 with integer nearest-neighbour scaling. CC0."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [roguelike, pixel-art, 8x8]
+  - id: kenney-roguelike-rpg-pack
+    title: "Kenney Roguelike/RPG pack (1,700 assets, 16x16)"
+    url: https://kenney.nl/assets/roguelike-rpg-pack
+    summary: "1,700 16x16 tiles for RPG maps: terrain, buildings, characters, items. CC0."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [rpg, top-down, tiles]
+  - id: kenney-roguelike-caves-dungeons
+    title: "Kenney Roguelike Caves & Dungeons (520 assets)"
+    url: https://kenney.nl/assets/roguelike-caves-dungeons
+    summary: "Cave and dungeon tiles matching the Roguelike/RPG pack, 520 assets, CC0."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [dungeon, top-down, tiles]
+  - id: kenney-rpg-urban-pack
+    title: "Kenney RPG Urban Pack"
+    url: https://kenney.nl/assets/rpg-urban-pack
+    summary: "Modern-city top-down tiles (roads, buildings, vehicles, people) for urban RPG or explainer maps, CC0."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [top-down, city, modern]
+  - id: kenney-top-down-shooter
+    title: "Kenney Top-down Shooter (580 assets)"
+    url: https://kenney.nl/assets/top-down-shooter
+    summary: "580 top-down characters, weapons and tiles; a pixel variant is also listed on the site. CC0."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [top-down, characters]
+  - id: kenney-isometric-tiles-city
+    title: "Kenney Isometric Tiles City (128 assets)"
+    url: https://kenney.nl/assets/isometric-tiles-city
+    summary: "128 isometric city tiles for an isometric town board, CC0."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [isometric, city, town]
+  - id: kenney-isometric-blocks
+    title: "Kenney Isometric Blocks (130 assets)"
+    url: https://kenney.nl/assets/isometric-blocks
+    summary: "130 isometric block tiles for voxel-like boards and puzzle maps, CC0."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [isometric, blocks]
+  - id: kenney-pirate-pack
+    title: "Kenney Pirate Pack"
+    url: https://kenney.nl/assets/pirate-pack
+    summary: "2D pirate ships, islands and water tiles, CC0."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [pirate, top-down, ships]
+  - id: kenney-ui-pack
+    title: "Kenney UI Pack 2.0 (430 assets)"
+    url: https://kenney.nl/assets/ui-pack
+    summary: "Completely remade UI pack (2.0): buttons, panels, sliders, arrows; 430 assets, CC0. Works for Godot themes and video lower-thirds."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [ui, buttons, panels]
+  - id: kenney-ui-pack-rpg-expansion
+    title: "Kenney UI Pack (RPG Expansion, 85 assets)"
+    url: https://kenney.nl/assets/ui-pack-rpg-expansion
+    summary: "85 RPG-style panels, bars and buttons extending the UI Pack, CC0."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [ui, rpg]
+  - id: kenney-particle-pack
+    title: "Kenney Particle Pack (80 assets)"
+    url: https://kenney.nl/assets/particle-pack
+    summary: "80 particle sprites (smoke, sparks, magic, light) for GPUParticles2D or video overlay layers, CC0."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [particles, vfx, overlay]
+  - id: kenney-all-in-1-preview
+    title: "Kenney Game Assets All-in-1 contents listing"
+    url: https://kenney.nl/data/itch/preview/
+    summary: "Public preview listing the contents of the paid All-in-1 bundle; useful to see which packs exist. Each pack is also free individually from its own page."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [index, bundle]
+    cautions: ["The All-in-1 bundle is a paid convenience download; the individual packs are free from kenney.nl."]
+  - id: pixelfrog-pixel-adventure-1
+    title: "Pixel Frog: Pixel Adventure 1"
+    url: https://pixelfrog-assets.itch.io/pixel-adventure-1
+    summary: "Platformer characters, tiles, traps and items (PNG only), name-your-price; itch.io page lists CC0."
+    licence: CC0-1.0
+    licence_url: https://creativecommons.org/publicdomain/zero/1.0/deed.en
+    tags: [platformer, pixel-art, itch-io]
+    cautions: ["The OpenGameArt mirror (opengameart.org/content/pixel-adventure-1) lists CC-BY 4.0; record which copy you downloaded and use the itch.io CC0 copy if you want no attribution duty."]
+  - id: oga-pixel-adventure-1-mirror
+    title: "Pixel Adventure 1 (OpenGameArt mirror)"
+    url: https://opengameart.org/content/pixel-adventure-1
+    summary: "OpenGameArt copy of Pixel Frog's Pixel Adventure, posted 2019-10-01, listed there as CC-BY 4.0."
+    licence: CC-BY-4.0
+    licence_url: https://creativecommons.org/licenses/by/4.0/deed.en
+    tags: [platformer, pixel-art, mirror]
+    cautions: ["Licence differs from the itch.io original (CC0). If you use this copy, credit Pixel Frog."]
+  - id: 0x72-dungeontileset-ii
+    title: "0x72: 16x16 DungeonTileset II"
+    url: https://0x72.itch.io/dungeontileset-ii
+    summary: "Free 16x16 dungeon tileset with animated characters and weapons; v1.7 added autotiles. Assets CC0, code MIT."
+    licence: CC0-1.0
+    licence_url: https://creativecommons.org/publicdomain/zero/1.0/deed.en
+    tags: [dungeon, top-down, animated, autotile]
+  - id: 0x72-dungeontileset-ii-sewers
+    title: "0x72: DungeonTileset II - Sewers extension"
+    url: https://0x72.itch.io/16x16-dungeontileset-ii-sewers
+    summary: "Official paid extension (USD 2 minimum) adding a slime/sewer biome and four animated characters, CC0."
+    licence: CC0-1.0
+    licence_url: https://creativecommons.org/publicdomain/zero/1.0/deed.en
+    tags: [dungeon, extension]
+    cautions: ["Paid (minimum price); CC0 lets you use it freely once bought, but do not re-host the pack as a download."]
+  - id: ansimuz-sunny-land
+    title: "Ansimuz: Sunny Land pixel game art"
+    url: https://ansimuz.itch.io/sunny-land-pixel-game-art/purchase
+    summary: "Side-scroller forest pack (player, enemies, tiles, parallax backgrounds) by Luis Zuno; the OpenGameArt listing of the art is CC0."
+    licence: CC0-1.0 (art); bundled music has its own attribution licence
+    licence_url: https://opengameart.org/content/sunnyland-forest
+    tags: [platformer, parallax, pixel-art]
+    cautions: ["Bundled music by Pascal Belisle is NOT CC0; it requires credit.", "The itch.io page result did not restate the licence; the CC0 statement comes from the OpenGameArt listing."]
+  - id: oga-sunnyland-woods
+    title: "Sunnyland Woods (OpenGameArt)"
+    url: https://opengameart.org/content/sunnyland-woods
+    summary: "Companion woods tileset in the Sunny Land style by ansimuz on OpenGameArt."
+    licence: "See page (per-asset licence on OpenGameArt)"
+    licence_url: https://opengameart.org/content/faq
+    tags: [platformer, parallax]
+    cautions: ["Licence not confirmed in search results; read the page's licence field before use."]
+  - id: itch-assets-cc0-free
+    title: "itch.io: free game assets under the CC0 licence filter"
+    url: https://itch.io/game-assets/assets-cc0/free
+    summary: "itch.io browse page filtered by the 'Creative Commons Zero v1.0 Universal' licence field and price free. The licence filter catches more packs than the cc0 tag."
+    licence: "Per pack (filter shows CC0-declared packs)"
+    licence_url: https://creativecommons.org/publicdomain/zero/1.0/deed.en
+    tags: [index, itch-io, cc0]
+    cautions: ["A licence field is self-declared by the uploader; check each pack page and keep a screenshot or copy of the licence statement with the download date."]
+  - id: itch-tag-2d-cc0
+    title: "itch.io: game assets tagged 2D and cc0"
+    url: https://itch.io/game-assets/tag-2d/tag-cc0
+    summary: "itch.io browse page for 2D packs tagged cc0."
+    licence: "Per pack"
+    licence_url: https://creativecommons.org/publicdomain/zero/1.0/deed.en
+    tags: [index, itch-io, 2d]
+    cautions: ["Tags are uploader-chosen; 'cc0' tags and the licence field can disagree. Check each pack."]
+  - id: itch-free-tag-cc0
+    title: "itch.io: free game assets tagged cc0"
+    url: https://itch.io/game-assets/free/tag-cc0
+    summary: "Free packs carrying the cc0 tag on itch.io."
+    licence: "Per pack"
+    licence_url: https://creativecommons.org/publicdomain/zero/1.0/deed.en
+    tags: [index, itch-io]
+    cautions: ["Uploader-declared; verify each pack's licence text."]
+  - id: itch-new-popular-cc0-free
+    title: "itch.io: new and popular free CC0 assets"
+    url: https://itch.io/game-assets/new-and-popular/assets-cc0/free
+    summary: "Recently added and trending free packs under the CC0 licence filter; a good recurring check for new kits."
+    licence: "Per pack"
+    licence_url: https://creativecommons.org/publicdomain/zero/1.0/deed.en
+    tags: [index, itch-io, new]
+  - id: lpc-collection-oga
+    title: "Liberated Pixel Cup collection (OpenGameArt)"
+    url: https://opengameart.org/content/liberated-pixel-cup-0
+    summary: "Collection of the 2012 LPC base sprites and map tiles plus compatible extensions; 32x32 top-down RPG style."
+    licence: "CC-BY-SA 3.0 / GPL 3.0 and later per asset (check each)"
+    licence_url: https://opengameart.org/content/faq
+    tags: [lpc, rpg, top-down, characters]
+    cautions: ["Per-asset licences; most require attribution and some are share-alike. Keep the credits file the generator exports."]
+  - id: lpc-style-guide
+    title: "Liberated Pixel Cup style guide"
+    url: https://lpc.opengameart.org/static/LPC-Style-Guide/build/styleguide.html
+    summary: "Official LPC style guide: 32x32 tiling base, top-down perspective, palette and shading rules, no dithering in base art."
+    licence: "Documentation (see site)"
+    licence_url: https://opengameart.org/content/faq
+    kind: guidance
+    tags: [lpc, style-guide]
+  - id: lpc-nearly-all-assets
+    title: "Nearly all the LPC assets in one place"
+    url: https://opengameart.org/content/nearly-all-the-lpc-assets-in-one-place
+    summary: "Large OpenGameArt collection gathering LPC and LPC-compatible art."
+    licence: "Mixed per asset"
+    licence_url: https://opengameart.org/content/faq
+    tags: [lpc, collection]
+    cautions: ["Mixed licences including share-alike; do not assume one licence for the whole collection."]
+  - id: lpc-compatible-terrain-tiles
+    title: "LPC compatible terrain/tiles"
+    url: https://opengameart.org/content/lpc-compatible-terraintiles
+    summary: "Collection of terrain tiles that approximately match the LPC style."
+    licence: "Mixed per asset"
+    licence_url: https://opengameart.org/content/faq
+    tags: [lpc, terrain]
+    cautions: ["Mixed licences; credit each author listed."]
+  - id: lpc-walls-bluecarrot16
+    title: "[LPC] Walls by bluecarrot16"
+    url: https://opengameart.org/content/lpc-walls
+    summary: "LPC-style wall tiles; listed under CC-BY-SA 3.0."
+    licence: CC-BY-SA-3.0
+    licence_url: https://opengameart.org/content/lpc-walls
+    tags: [lpc, walls]
+    cautions: ["Share-alike: modified tiles must be released under the same licence; credit required."]
+  - id: oga-faq-licences
+    title: "OpenGameArt FAQ (licences and credits)"
+    url: https://opengameart.org/content/faq
+    summary: "OpenGameArt's own guidance: every submission has its own licence (CC0, CC-BY, CC-BY-SA, OGA-BY, GPL ...); credit in the format the artist gives under 'Copyright/Attribution Notice'."
+    licence: "Per asset"
+    licence_url: https://opengameart.org/content/faq
+    kind: guidance
+    tags: [licensing, opengameart]
+    cautions: ["CC-BY 3.0 and CC-BY-SA 3.0 forbid applying technical restrictions (DRM) that limit the licence; OGA-BY was created to allow DRM platforms."]

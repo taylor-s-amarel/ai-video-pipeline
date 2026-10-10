@@ -1,0 +1,6 @@
+title: Staggered word entrance timing
+summary: Per-word entrance windows (fixed stagger or TTS word times) and per-frame opacity/rise state, capped at 98% opacity, for kinetic caption and title reveals.
+subkind: text-animation
+domain: captions
+tags: [captions, kinetic-typography, stagger, animation, timing]
+step_kinds: [build, render]

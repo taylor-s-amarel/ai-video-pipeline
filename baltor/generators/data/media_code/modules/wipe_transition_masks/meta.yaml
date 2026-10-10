@@ -1,0 +1,6 @@
+title: Wipe transition masks
+summary: Soft-edged numpy alpha masks for linear (any angle), radial, clock, diamond and blinds wipes that go exactly from clip A to clip B, plus a frame blender.
+subkind: transition
+domain: video
+tags: [video, transitions, wipe, mask, numpy, compositing]
+step_kinds: [build, render]

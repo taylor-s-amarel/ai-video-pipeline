@@ -1,0 +1,6 @@
+title: Seamless loop motion
+summary: Exactly periodic motion functions (orbit, breathe, wrapping drift, circle-sampled noise) plus a loop checker, for background layers that loop without a seam.
+subkind: motion-preset
+domain: video
+tags: [video, loop, background, motion, noise, seamless]
+step_kinds: [build, render]

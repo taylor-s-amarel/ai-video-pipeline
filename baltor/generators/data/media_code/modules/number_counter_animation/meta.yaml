@@ -1,0 +1,8 @@
+title: Number counter animation
+summary: Eased count-up/count-down frames with thousands separators, decimals, prefix and suffix that land exactly on the final number, plus a self-evaluating ffmpeg drawtext counter.
+subkind: text-animation
+domain: video
+tags: [video, numbers, counter, kinetic-typography, drawtext, facts]
+step_kinds: [build, render]
+depends_on: [ffmpeg]
+examples: ["Count up to '1,000 dogs' over 1.2 seconds", "Show 86.5% counting from zero"]

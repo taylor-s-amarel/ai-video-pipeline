@@ -1,0 +1,7 @@
+title: Ken Burns frame renderer
+summary: Renders crop-rectangle paths from a still into output frames with sub-pixel accurate Pillow EXTENT transforms (no zoom jitter), optional supersampling and an ffmpeg pipe argv.
+subkind: camera-move
+domain: video
+tags: [video, ken-burns, pillow, render, frames, photo]
+step_kinds: [render]
+depends_on: [ffmpeg]
