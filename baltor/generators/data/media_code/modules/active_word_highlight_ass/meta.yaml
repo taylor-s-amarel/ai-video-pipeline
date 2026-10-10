@@ -1,0 +1,6 @@
+title: Active-word highlight ASS events
+summary: Emits ASS events that keep a whole caption line visible while recolouring (and optionally scaling) the word currently spoken, with contiguous, flicker-free timing.
+subkind: caption-style
+domain: captions
+tags: [captions, ass, word-highlight, karaoke, shorts]
+step_kinds: [build, render]

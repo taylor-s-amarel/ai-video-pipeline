@@ -1,0 +1,222 @@
+# Subreddits to monitor, grouped by topic. Each entry: [name, summary, evidence, optional extra cautions].
+# The generator builds https://www.reddit.com/r/<name>/.rss for each one.
+# Evidence: reddit.com cannot be fetched or searched from the research environment, so each
+# community's existence was confirmed on 2026-10-10 through web search results (subreddit
+# directories such as GummySearch and The Hive Index, Reddit mirrors, Wikipedia, news articles).
+# Member counts seen in those results conflicted and were snapshots, so none are recorded.
+
+verified_on: "2026-10-10"
+verification: search-result
+licence: "Reddit User Agreement; posts and comments are copyright their authors"
+common_cautions:
+  - "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission."
+  - "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring."
+  - "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403."
+  - "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+common_tags: [subreddit, reddit, community, rss]
+
+collections:
+  community-reddit-ai-agents:
+    title: "Subreddits: AI coding agents, local models and LLM engineering"
+    description: "Communities where people who run Claude Code, Codex, OpenCode, Cursor, local models and MCP servers report what works, what breaks and what changed. RSS URLs follow Reddit's /r/<name>/.rss pattern."
+    tags: [ai, coding-agents, local-llm, mcp]
+    subs:
+      - [ClaudeAI, "Discussion of Claude and Claude Code: CLAUDE.md patterns, hooks, subagent workflows, usage limits and regressions people notice after releases.", "Hive Index profile and AI-builder community guides list it; the subreddit states it is not run or endorsed by Anthropic.", ["Unofficial community; product claims in posts are not Anthropic statements."]]
+      - [ClaudeCode, "Unofficial community centred on Anthropic's Claude Code CLI; frequent topics are subagents, usage limits, plugins and workflow setups.", "GummySearch profile describes it as an unofficial community centered on Claude Code.", ["Unofficial community."]]
+      - [codex, "OpenAI Codex CLI, IDE extension and Codex cloud: usage, limits, CLI behaviour and comparisons with other agents.", "GummySearch profile: covers Codex CLI, IDE extension and cloud; not an official OpenAI subreddit.", ["Not an official OpenAI subreddit."]]
+      - [opencodeCLI, "OpenCode, the open-source terminal coding agent: configuration, providers, MCP setup and release reactions.", "GummySearch profile for r/opencodeCLI found in search results."]
+      - [cursor, "Cursor editor users: agent mode, model choice, pricing changes and comparisons with Copilot and Claude Code.", "Directory listings and recent posts on a Reddit mirror in search results."]
+      - [GithubCopilot, "GitHub Copilot users: coding agent, chat, model access and IDE behaviour.", "Directory listings in search results."]
+      - [CLine, "Cline VS Code agent users: provider setup, MCP servers and workflows.", "GummySearch profile page in search results."]
+      - [ChatGPTCoding, "Coding with ChatGPT and other assistants: prompts, tool comparisons and agent workflows.", "Bitovi wiki community list and directories in search results."]
+      - [vibecoding, "Vibe coding: building apps by directing AI agents; mostly advice requests and project show-and-tell.", "GummySearch profile; 2026 article on vibe coding discussions on Reddit.", ["High share of self-promotion; weigh claims accordingly."]]
+      - [LocalLLaMA, "Running open-weight models locally: new model releases, benchmarks, quantization trade-offs and VRAM maths. Often the first place local-model news appears.", "Multiple directories and builder guides in search results describe it as the most rigorous local-model community."]
+      - [LocalLLM, "Local LLM setups and hardware: running models on consumer GPUs and Apple silicon.", "GummySearch profile in search results."]
+      - [ollama, "Ollama users: model choice for coding, GPU and VRAM troubleshooting, integrations.", "GummySearch profile in search results."]
+      - [LLMDevs, "Building applications on LLMs: RAG pipelines, prompt caching, evaluation and cost control.", "GummySearch and Hive Index profiles in search results."]
+      - [AI_Agents, "General agent-building community: frameworks, tool use, multi-agent patterns and product launches.", "Directory listings in search results.", ["Many posts promote products; verify claims against docs or code."]]
+      - [mcp, "Model Context Protocol community: servers, clients, transports and security questions.", "Directory listings in search results."]
+      - [LangChain, "LangChain and LangGraph users: agent graphs, retrieval and integrations.", "GummySearch profile in search results."]
+      - [Rag, "Retrieval-augmented generation: chunking, embeddings, hybrid search and evaluation.", "GummySearch profile in search results."]
+      - [PromptEngineering, "Prompt design techniques, templates and tool recommendations.", "GummySearch and Hive Index profiles in search results."]
+      - [MachineLearning, "Research-and-practice ML community using [R], [D], [P] and [N] post tags; good for paper releases and serious discussion.", "GummySearch and Hive Index profiles; guide describes post tags and that beginner questions go to r/learnmachinelearning."]
+      - [learnmachinelearning, "Learning-focused ML community for beginner and course questions.", "Listed among similar communities in GummySearch results."]
+      - [OpenAI, "OpenAI product news, model launches and user reports.", "GummySearch profile in search results."]
+      - [GeminiAI, "Google Gemini users: models, apps and CLI.", "GummySearch profile in search results."]
+      - [StableDiffusion, "Open image and video generation models: releases, workflows and fine-tunes.", "Aggregator listings in search results.", ["Generated media in posts may include likenesses and copyrighted styles; do not reuse images from posts."]]
+      - [comfyui, "ComfyUI node workflows for image, video and audio generation.", "Directory listing in search results."]
+      - [OpenSourceAI, "Open-source AI: open weights, open data and open tooling.", "GummySearch profile describes the focus as open weights, data and tooling."]
+      - [artificial, "General AI news and discussion.", "GummySearch profile: describes itself as Reddit's home for AI."]
+      - [singularity, "Speculative and news-driven discussion of AI progress.", "GummySearch profile in search results.", ["Speculative tone; not a source of facts."]]
+
+  community-reddit-gamedev-3d-animation:
+    title: "Subreddits: Godot, indie game dev, 3D, low-poly, pixel art and animation"
+    description: "Communities for the Godot, Blender and 2D/3D/animation side of the factory: engine news, asset and kit releases, workflow questions and critique. Useful for spotting new kits, common failure modes and what audiences respond to."
+    tags: [gamedev, godot, blender, 3d, 2d, animation]
+    subs:
+      - [godot, "Official Godot Engine subreddit maintained by the Godot Foundation: engine news, contributor posts and project sharing.", "GummySearch profile: the official subreddit, maintained by the Godot Foundation."]
+      - [madeWithGodot, "Showcase of games and apps made with Godot; engine news discussion is redirected to r/godot.", "GummySearch profile: links to things made with Godot."]
+      - [godotdev, "Godot development and engine internals discussion.", "Listed in a 2026 roundup of Godot subreddits in search results."]
+      - [gamedev, "The largest general game development community: postmortems, marketing, tools and career discussion.", "GummySearch profile in search results."]
+      - [IndieDev, "Indie developers sharing progress, launches and marketing lessons.", "GummySearch profile in search results.", ["Mostly self-promotion; useful for trend-spotting, weak as evidence."]]
+      - [IndieGaming, "Indie games news and player reactions to indie releases.", "GummySearch profile in search results."]
+      - [indiegamedev, "Indie game development discussion.", "GummySearch profile page in search results."]
+      - [GameDevelopment, "General game development questions.", "GummySearch profile page in search results."]
+      - [gamedesign, "Game design theory and critique.", "GummySearch profile page in search results."]
+      - [proceduralgeneration, "Procedural generation of media and levels: techniques and showcases.", "GummySearch profile (last updated 2026-06-08 per search result)."]
+      - [gamejams, "Game jam announcements and participants.", "GummySearch profile (last updated 2026-06-14 per search result)."]
+      - [Unity3D, "Unity developers; useful for cross-engine technique and asset-store news.", "GummySearch profile in search results."]
+      - [blender, "Main Blender community: renders, add-ons, release reactions and tutorials.", "GummySearch profile: home for the Blender community on Reddit."]
+      - [blenderhelp, "Help and troubleshooting for Blender.", "GummySearch profile: help and advice about using Blender."]
+      - [low_poly, "Stylised low-poly art, landscapes, environments and characters.", "GummySearch profile: dedicated to stylized low-poly art."]
+      - [3Dmodeling, "General 3D modelling showcase and critique across tools.", "GummySearch and Hive Index profiles in search results."]
+      - [cgi, "Computer-generated imagery discussion and showcases.", "GummySearch profile page in search results."]
+      - [vfx, "VFX industry professionals, students and hobbyists.", "GummySearch profile: community of VFX professionals, students and hobbyists."]
+      - [photogrammetry, "3D photogrammetry capture and modelling.", "GummySearch profile in search results."]
+      - [GaussianSplatting, "Gaussian splatting capture, tools and viewers.", "GummySearch profile and a Reddit mirror in search results."]
+      - [threejs, "three.js web 3D: shaders, scenes and projects.", "GummySearch profile in search results."]
+      - [creativecoding, "Creative coding: particles, flow fields and generative visuals.", "GummySearch profile in search results."]
+      - [PixelArt, "Large pixel-art community; 'Hand Pixelled' flair; Aseprite is the most discussed tool.", "GummySearch profile in search results."]
+      - [aseprite, "Aseprite users: pixel art, sprite animation and characters.", "GummySearch profile (last updated 2026-07-24 per search result)."]
+      - [PixelArtTutorials, "Pixel art tutorials, feedback requests and sharing.", "GummySearch profile in search results."]
+      - [AnimatedPixelArt, "Animated pixel art and sprite loops.", "GummySearch profile page in search results."]
+      - [GameArt, "Art made for game development.", "GummySearch profile: all things related to art made for game development."]
+      - [krita, "Krita artwork, painting and 2D animation help.", "GummySearch profile in search results."]
+      - [animation, "Large general animation community.", "GummySearch listings in search results."]
+      - [2DAnimation, "Traditional and digital 2D animation, character design and storyboarding.", "GummySearch profile in search results."]
+      - [Animators, "2D, 3D and stop-motion animators sharing work and techniques.", "GummySearch and Hive Index profiles in search results."]
+      - [learnanimation, "Learning animation: fundamentals and critique.", "GummySearch profile page in search results."]
+      - [MotionDesign, "Motion design showcases, reels and software questions.", "GummySearch profile and recent posts on a Reddit mirror in search results."]
+      - [motiongraphics, "Motion graphics techniques and showcases.", "GummySearch profile page in search results."]
+      - [AfterEffects, "After Effects users; good for motion-design technique that can be ported to open tools.", "GummySearch profile in search results."]
+      - [stopmotion, "Stop motion, claymation and LEGO animation.", "GummySearch profile in search results."]
+      - [manim, "Manim (Python math-animation engine) users; most common flair is 'made with manim'.", "GummySearch profile: Manim is an animation engine for explanatory math videos."]
+
+  community-reddit-video-audio-creators:
+    title: "Subreddits: video editing, ffmpeg, YouTube/TikTok growth, faceless channels, TTS and audio"
+    description: "Communities for production and growth of short and long-form video: editing tools, ffmpeg, creator growth, faceless channel workflows, AI video, voice-over and music. Watch here for platform policy reactions and tool changes."
+    tags: [video, creators, youtube, tiktok, faceless, audio, tts]
+    subs:
+      - [VideoEditing, "Video editing techniques and software recommendations, including free editors.", "Archived software threads on a Reddit mirror and similar-community lists in search results."]
+      - [editors, "Professional video editors: workflows, post-production and industry practice.", "GummySearch profile page in search results."]
+      - [ffmpeg, "FFmpeg command help and release discussion.", "GummySearch profile in search results (FFmpeg 8.0 thread among top topics)."]
+      - [davinciresolve, "DaVinci Resolve: editing, Fusion, audio and colour grading.", "GummySearch profile in search results."]
+      - [premiere, "Adobe Premiere Pro, Rush, Elements and Media Encoder users.", "GummySearch profile in search results."]
+      - [CapCut, "CapCut questions and editing issues; not affiliated with CapCut.", "GummySearch profile in search results.", ["Unofficial community."]]
+      - [shotcut, "Shotcut open-source editor users.", "GummySearch profile page in search results."]
+      - [obs, "OBS Studio: recording, streaming and audio setup.", "GummySearch profile in search results."]
+      - [Filmmakers, "Filmmakers, editors, VFX and sound people sharing work and tips.", "GummySearch profile in search results."]
+      - [aivideo, "Generative AI video tools and results.", "GummySearch profile: focused on professional use of full-motion generative AI video tools.", ["Mostly self-promotion; generated clips may include likenesses or copyrighted characters."]]
+      - [NewTubers, "Up-and-coming YouTube channels: resources, critiques and collaboration; good for growth questions and policy reactions.", "GummySearch profile in search results."]
+      - [PartneredYoutube, "Creators in the YouTube Partner Program: monetisation, policy changes and RPM discussion.", "GummySearch profile in search results."]
+      - [SmallYoutubers, "Small channels sharing long-form and short-form work.", "GummySearch profile in search results."]
+      - [youtubers, "General YouTube creator discussion.", "Listed among similar communities in GummySearch results."]
+      - [YouTubeCreators, "YouTube creator discussion.", "GummySearch profile page in search results."]
+      - [vidIQ, "Discussion around the vidIQ tool and YouTube analytics.", "GummySearch profile page in search results.", ["Vendor-adjacent community."]]
+      - [TikTok, "General TikTok discussion.", "GummySearch profile page in search results."]
+      - [TikTokMarketing, "TikTok marketing (small community).", "GummySearch profile in search results."]
+      - [socialmedia, "Social media platforms, features and marketing.", "Listed among similar communities in GummySearch results."]
+      - [creators, "Bloggers, newsletter writers, YouTubers and other creators.", "GummySearch profile in search results."]
+      - [contentcreation, "Content creation workflows.", "Listed as similar to faceless-creator communities in GummySearch results."]
+      - [aitubers, "Creators using AI in YouTube production.", "Listed as similar to faceless-creator communities in GummySearch results.", ["Check every 'AI channel' tactic against YouTube's inauthentic content policy before using it."]]
+      - [YT_Faceless, "Faceless YouTube creators sharing strategies, tips and tools (small community).", "GummySearch profile in search results.", ["Small and promotion-heavy; YouTube's inauthentic content policy (renamed 15 July 2025) makes mass-produced, near-identical faceless uploads ineligible for monetisation."]]
+      - [FacelessVideos, "Hub for faceless creators: workflow posts, critiques and questions (small community).", "GummySearch profile in search results.", ["Small and promotion-heavy; verify claims about monetisation against YouTube's own policy page."]]
+      - [audioengineering, "Recording, editing and producing audio: mixing, plugins, gear.", "GummySearch and Hive Index profiles in search results."]
+      - [musicproduction, "Music production tips for hobbyists and professionals.", "GummySearch profile in search results."]
+      - [WeAreTheMusicMakers, "Very large music-making community: production, collaboration, home vocal recording.", "GummySearch profile in search results."]
+      - [sounddesign, "Sound design for media and games.", "GummySearch profile in search results."]
+      - [GameAudio, "Game audio implementation and sound design.", "GummySearch profile and recent mirror posts in search results."]
+      - [AudioPost, "Audio post-production for film and video.", "GummySearch profile page in search results."]
+      - [podcasting, "Podcast production, hosting and growth.", "GummySearch profile in search results."]
+      - [recordthis, "Voice-over artists, vocalists and engineers; many casting calls.", "GummySearch profile in search results.", ["Casting posts involve real people's voices; never clone or reuse a voice without written consent."]]
+      - [SunoAI, "Suno AI music users; not affiliated with Suno.", "GummySearch profile in search results.", ["AI music terms differ by plan; check the generator's licence before using output commercially."]]
+
+  community-reddit-makers-home-cad:
+    title: "Subreddits: home automation, ESP32, CAD and 3D printing"
+    description: "Communities for the home-automation and parametric-CAD domain packs: Home Assistant, ESPHome-class devices, open CAD tools and 3D printing practice."
+    tags: [home-automation, cad, 3d-printing, maker]
+    subs:
+      - [homeassistant, "Home Assistant users: DIY builds, dashboards, Zigbee and integrations. Home Assistant's own help page has long listed it as a community channel.", "GummySearch and Hive Index profiles; Home Assistant docs reference /r/homeassistant."]
+      - [homeautomation, "Very large general home automation community.", "GummySearch profile (last updated 2026-06-03 per search result)."]
+      - [smarthome, "Smart home devices and ecosystems.", "GummySearch profile in search results."]
+      - [homebridge, "Homebridge (HomeKit bridging) users.", "GummySearch profile page in search results."]
+      - [esp32, "ESP32 boards: Wi-Fi, firmware and project help.", "GummySearch and Hive Index profiles in search results."]
+      - [arduino, "Arduino projects and help.", "GummySearch profile in search results."]
+      - [raspberry_pi, "Raspberry Pi projects: cameras, displays, power supplies.", "GummySearch profile in search results."]
+      - [selfhosted, "Self-hosting software at home; useful for open tool discovery.", "GummySearch profile in search results."]
+      - [3Dprinting, "Very large 3D printing community: print quality and printers.", "GummySearch profile in search results."]
+      - [functionalprint, "Prints with a practical function in everyday life.", "GummySearch and Hive Index profiles in search results.", ["Designs in posts keep their own licences; check before reusing a model."]]
+      - [prusa3d, "Prusa printers, Prusament and PrusaSlicer.", "GummySearch profile in search results."]
+      - [BambuLab, "Bambu Lab printers; moderated by the company per its profile.", "GummySearch profile in search results.", ["Company-moderated community."]]
+      - [FreeCAD, "FreeCAD: open-source parametric 3D CAD/CAM/FEM modeller.", "GummySearch profile in search results."]
+      - [Fusion360, "Autodesk Fusion users; good for CAD technique questions.", "GummySearch profile in search results."]
+      - [cad, "General CAD discussion.", "GummySearch profile page in search results."]
+      - [tinkercad, "Tinkercad beginners' CAD.", "GummySearch profile page in search results."]
+
+  community-reddit-marketing-security:
+    title: "Subreddits: marketing, SEO, analytics and defensive security"
+    description: "Communities for the marketing-measurement and security domain packs: SEO and paid search changes, analytics tooling, and defensive security news."
+    tags: [marketing, seo, analytics, security]
+    subs:
+      - [marketing, "Large general marketing community.", "GummySearch marketer rankings in search results."]
+      - [digital_marketing, "Digital marketing tactics and tools.", "GummySearch marketer rankings in search results."]
+      - [DigitalMarketing, "Digital marketing discussion (separate community from r/digital_marketing).", "GummySearch profile page in search results."]
+      - [SEO, "Search engine optimisation: ranking changes, Google updates, tools.", "GummySearch marketer rankings in search results.", ["SEO claims are often anecdotal; confirm against Google Search Central."]]
+      - [bigseo, "Professional SEO discussion.", "GummySearch marketer rankings in search results."]
+      - [PPC, "Paid search and paid social advertising.", "GummySearch marketer rankings in search results."]
+      - [GoogleAnalytics, "Google Analytics 4 help and alternatives.", "GummySearch profile in search results."]
+      - [content_marketing, "Content marketing strategy.", "Listed among related communities in GummySearch results."]
+      - [Emailmarketing, "Email marketing and newsletters.", "GummySearch marketer rankings in search results."]
+      - [SocialMediaMarketing, "Social media marketing tactics.", "GummySearch listings in search results (counts conflicted)."]
+      - [netsec, "Community-curated aggregator of technical security content.", "GummySearch profile in search results."]
+      - [AskNetsec, "Security questions and advice, including small-business security.", "GummySearch profile in search results."]
+      - [cybersecurity, "General cybersecurity discussion and news.", "Listed among similar communities in GummySearch results."]
+      - [blueteamsec, "Defensive security: detection, response and threat intel.", "Listed among similar communities in GummySearch results."]
+      - [netsecstudents, "Security learning and career questions.", "GummySearch profile page in search results."]
+      - [sysadmin, "System administrators: outages, patches and vendor changes.", "Listed among similar communities in GummySearch results."]
+
+  community-reddit-story-topic-mining:
+    title: "Subreddits: topic mining for facts, history, comparisons and relationship stories"
+    description: "Communities that surface facts, history, 'who would win' comparisons, data visualisations and relationship questions. Use them to find topics and then research primary sources; never lift a post's text, image or story into a video."
+    tags: [topics, story-ideas, facts, history, faceless]
+    subs:
+      - [todayilearned, "Specific facts people just learned; rules require a verifiable claim with a direct link to a reliable source, which makes each post a lead to a citable source.", "Rules page summarised in search results (verifiable claims, direct source link, no news older than two months)."]
+      - [explainlikeimfive, "Plain-language explanations of how things work; good for explainer hooks.", "GummySearch profile and detailed-rules wiki (mirror) in search results."]
+      - [AskHistorians, "Moderated history Q&A requiring in-depth, academic-level answers; follow the cited sources, not the answer text.", "GummySearch profile and rules wiki (mirror) in search results.", ["Answers are the authors' work; cite and link, never read them out."]]
+      - [history, "General history discussion with a resources wiki.", "Resources wiki page (mirror) in search results."]
+      - [space, "Space news and imagery.", "GummySearch profile in search results."]
+      - [spaceflight, "Launches and spaceflight news.", "GummySearch profile in search results."]
+      - [science, "Science news linking to research.", "Wikipedia article on r/science in search results.", ["Headlines often overstate studies; read the paper before using a number."]]
+      - [askscience, "Science Q&A answered by panelists.", "Listed among similar communities in GummySearch results."]
+      - [dataisbeautiful, "Data visualisations; original work is tagged [OC] with the data source and tools named, which gives a source to re-chart.", "Wikipedia article and GummySearch profile (updated 2026-06-10) in search results.", ["Charts are their authors' work; rebuild from the named data source instead of reusing an image."]]
+      - [MapPorn, "Maps of countries, history and statistics.", "GummySearch profile (updated 2026-08-08) in search results.", ["Maps are often copied without credit; trace the original source before use."]]
+      - [coolguides, "Picture-based reference guides.", "GummySearch profile and a sidebar snapshot in search results.", ["Guides are frequently uncredited copies; find the original author."]]
+      - [YouShouldKnow, "Practical tips people think others should know.", "GummySearch profile in search results."]
+      - [Damnthatsinteresting, "Interesting things on the internet, often news clips.", "GummySearch profile in search results.", ["Clips are third-party footage; never reuse them."]]
+      - [whowouldwin, "Hypothetical match-ups ('battle', 'challenge', 'matchmaker' flairs) between characters; a source of 'this vs that' formats.", "GummySearch profile (updated 2026-06-28) in search results.", ["Fictional characters are copyrighted and trademarked; use original or public-domain subjects in videos."]]
+      - [relationship_advice, "Very large relationship advice community; shows which relationship questions people actually ask.", "GummySearch profile (updated June 2026) in search results.", ["Posts describe real private people: use only aggregated themes, never a specific story."]]
+      - [relationships, "Relationship questions and advice.", "GummySearch profile (updated 2026-06-16) in search results.", ["Posts describe real private people: use only aggregated themes, never a specific story."]]
+      - [dating_advice, "Specific dating situations (longer-term relationship posts go to r/relationship_advice).", "GummySearch profile in search results.", ["Posts describe real private people: use only aggregated themes."]]
+      - [AmItheAsshole, "Interpersonal conflict stories; widely narrated by 'Reddit story' channels.", "Listed as a common story-video source in a 2026 creator guide in search results.", ["Authors hold copyright; narrating posts without permission invites takedowns, and YouTube's inauthentic content policy targets channels that upload near-identical narrated stories."]]
+      - [tifu, "First-person mishap stories; another common story-video source.", "Listed as a common story-video source in a creator guide in search results.", ["Authors hold copyright; do not narrate posts without permission."]]
+      - [HFY, "Original science-fiction short stories; moderators ask narrators to get the author's permission first.", "Moderator guidance on narration permission found via Reddit mirrors in search results.", ["Ask the author before any adaptation; respect a refusal."]]
+
+  community-pennsylvania-startups:
+    title: "Pennsylvania and startup communities and programmes"
+    description: "Pennsylvania communities and programmes relevant to the Ben Franklin Big Idea Contest and a PA showcase, plus founder communities. Most PA programme pages have no confirmed feed; they are listed as pages to check."
+    tags: [pennsylvania, startups, big-idea-contest]
+    subs:
+      - [Pennsylvania, "Statewide news and discussion for Pennsylvania.", "GummySearch profile (synced June-July 2026) in search results."]
+      - [pittsburgh, "Pittsburgh news, events and recommendations.", "GummySearch profile in search results."]
+      - [philadelphia, "Philadelphia news and discussion.", "GummySearch profile in search results."]
+      - [philly, "Philadelphia community (separate from r/philadelphia).", "GummySearch profile in search results."]
+      - [Harrisburg, "Harrisburg area; weekly Monday thread for events and recommendations.", "GummySearch profile and recent posts on a Reddit mirror in search results."]
+      - [Scranton, "Scranton area community.", "GummySearch profile page in search results."]
+      - [PennStateUniversity, "Penn State student and alumni community (began as r/PSU).", "Daily Collegian article and GummySearch profile in search results."]
+      - [startups, "Startup founders' questions and lessons.", "GummySearch 'startup founders' category in search results."]
+      - [Entrepreneur, "Very large entrepreneurship community.", "GummySearch profile in search results."]
+      - [smallbusiness, "Small business owners' operations questions; good for PA small-business use cases.", "GummySearch founders ranking in search results."]
+      - [SideProject, "Side projects and launches.", "GummySearch profile in search results.", ["Mostly launches and self-promotion."]]
+      - [SaaS, "SaaS founders: pricing, growth and churn.", "GummySearch profile in search results."]
+      - [indiehackers, "Bootstrapped founders sharing revenue and lessons.", "GummySearch founders ranking in search results."]
+      - [buildinpublic, "Founders building in public.", "GummySearch profile page in search results.", ["Mostly self-promotion."]]

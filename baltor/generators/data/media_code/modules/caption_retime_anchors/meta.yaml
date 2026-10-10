@@ -1,0 +1,6 @@
+title: Caption retiming from anchors
+summary: Fixes steadily drifting captions with a linear time map solved from two anchors or fitted from several (with residual report), plus shifts and frame-rate scale factors.
+subkind: qa-check
+domain: captions
+tags: [captions, retime, drift, sync, frame-rate]
+step_kinds: [render, verify]

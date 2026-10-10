@@ -1,0 +1,6 @@
+title: Caption case styler
+summary: Converts caption text to UPPER, Title or Sentence case while keeping acronyms and fixed-case brand or science terms (NASA, DNA, iPhone, mRNA) intact.
+subkind: typography
+domain: captions
+tags: [captions, typography, case, title-case, text]
+step_kinds: [build, render]

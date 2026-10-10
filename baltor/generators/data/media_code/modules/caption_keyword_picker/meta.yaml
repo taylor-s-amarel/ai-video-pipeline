@@ -1,0 +1,6 @@
+title: Caption keyword picker
+summary: Chooses the word that pops in each caption, preferring numbers, topic terms and proper nouns over long content words, and avoids popping the same word twice in a row.
+subkind: caption-style
+domain: captions
+tags: [captions, keyword-pop, emphasis, numbers, engagement]
+step_kinds: [build, render]
