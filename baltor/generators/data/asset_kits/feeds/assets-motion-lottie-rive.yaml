@@ -1,0 +1,165 @@
+id: assets-motion-lottie-rive
+title: "Motion graphics: Lottie, Rive, Spine and DragonBones (assets and runtimes)"
+description: >-
+  Vector animation sources and the runtimes that play them. Lottie files from LottieFiles use the Lottie
+  Simple License; Rive community files are CC BY; the Spine runtimes are source-available but need a
+  Spine Editor licence; DragonBones, lottie-web, dotlottie-web, ThorVG and the Rive runtimes are MIT.
+tags: [motion, lottie, rive, spine, vector-animation]
+defaults:
+  kind: library
+  verification: fetched
+items:
+  - id: lottie-simple-license
+    title: "Lottie Simple License (LottieFiles)"
+    url: https://lottiefiles.com/page/license
+    summary: "Licence for free public animations on LottieFiles: copy, modify, publish and distribute, including commercially; modifications stay under the same licence; no compiling files to build a competing service; attribution encouraged, not required."
+    licence: "Lottie Simple License"
+    licence_url: https://lottiefiles.com/page/license
+    kind: guidance
+    verification: search-result
+    tags: [lottie, licensing]
+    cautions: ["Do not bulk-collect LottieFiles animations into a library or service.", "The help centre also says not to resell or redistribute the original files as standalone animations."]
+  - id: lottiefiles-commercial-help
+    title: "LottieFiles help: can free animations be used commercially?"
+    url: https://help.lottiefiles.com/hc/en-us/articles/900002438343-Can-I-use-a-free-animation-on-Lottiefiles-for-commercial-business-use
+    summary: "Help-centre answer: free animations are under the Lottie Simple License and may be used for commercial business use."
+    licence: "Lottie Simple License"
+    licence_url: https://lottiefiles.com/page/license
+    kind: guidance
+    verification: search-result
+    tags: [lottie, licensing]
+  - id: lottiefiles-licensing-basics
+    title: "LottieFiles help: Animation licensing basics"
+    url: https://help.lottiefiles.com/animation-licensing-basics-
+    summary: "Help-centre overview of free versus premium animation licensing; creators may add restrictions on individual animations."
+    licence: "Lottie Simple License / premium terms"
+    licence_url: https://lottiefiles.com/page/license
+    kind: guidance
+    verification: search-result
+    tags: [lottie, licensing]
+    cautions: ["Read each animation page for creator-specific restrictions."]
+  - id: lottiefiles-commercial-attribution
+    title: "LottieFiles help: Commercial use and attribution"
+    url: https://help.lottiefiles.com/hc/en-us/articles/45243303062681-Commercial-Use-Attribution
+    summary: "Help article on commercial use and how to attribute when you choose to (attribution should be visible to end users)."
+    licence: "Lottie Simple License"
+    licence_url: https://lottiefiles.com/page/license
+    kind: guidance
+    verification: search-result
+    tags: [lottie, attribution]
+  - id: lottiefiles-free-noto
+    title: "LottieFiles: Noto animated emoji collection"
+    url: https://lottiefiles.com/free-animations/noto
+    summary: "Noto-style animated emoji as Lottie on LottieFiles; third-party packages describe Google's Noto Animated Emoji as CC BY 4.0."
+    licence: "CC-BY-4.0 (as reported for Noto Animated Emoji; confirm on the source)"
+    licence_url: https://creativecommons.org/licenses/by/4.0/deed.en
+    kind: media-source
+    verification: search-result
+    tags: [lottie, emoji, reactions]
+    cautions: ["Licence comes from secondary sources; confirm Google's licence file before use and credit Google Noto."]
+  - id: qt-lottie-attribution-example
+    title: "Qt docs: Lottie example attribution (Lottie Simple License text)"
+    url: https://doc.qt.io/QT-6/qtlottieanimation-attribution-happy-star.html
+    summary: "Qt documentation page that reproduces the Lottie Simple License (FL 9.13.21) for an example animation; shows how a product credits a LottieFiles animation."
+    licence: "Lottie Simple License"
+    licence_url: https://lottiefiles.com/page/license
+    kind: guidance
+    verification: search-result
+    tags: [lottie, attribution, example]
+  - id: lottie-web
+    title: "airbnb/lottie-web"
+    url: https://github.com/airbnb/lottie-web
+    summary: "Renders After Effects (Bodymovin) Lottie JSON on the web with SVG, canvas or HTML renderers; MIT. Useful for headless frame capture into video."
+    licence: MIT
+    licence_url: https://github.com/airbnb/lottie-web
+    tags: [lottie, runtime, web]
+  - id: dotlottie-web
+    title: "LottieFiles/dotlottie-web"
+    url: https://github.com/LottieFiles/dotlottie-web
+    summary: "Player for Lottie JSON and .lottie (bundled animations, themes, state machines, assets) on a Rust + WASM core powered by ThorVG; MIT."
+    licence: MIT
+    licence_url: https://github.com/LottieFiles/dotlottie-web
+    tags: [lottie, dotlottie, runtime]
+  - id: lottie-spec
+    title: "Lottie Animation Format specification (lottie-spec)"
+    url: https://github.com/lottie-animation-community/lottie-spec
+    summary: "Working-group repository specifying Lottie's JSON structure, semantics and rendering; developed under the Community Specification License 1.0."
+    licence: "Community Specification License 1.0"
+    licence_url: https://github.com/lottie-animation-community/lottie-spec
+    kind: standard
+    tags: [lottie, specification]
+  - id: thorvg
+    title: "ThorVG vector graphics engine"
+    url: https://github.com/thorvg/thorvg
+    summary: "C++ engine rendering SVG (Tiny) and Lottie JSON; MIT. Godot integrates ThorVG for vector UI and assets."
+    licence: MIT
+    licence_url: https://github.com/thorvg/thorvg
+    tags: [lottie, svg, godot, renderer]
+  - id: rive-community-overview
+    title: "Rive docs: Community overview"
+    url: https://rive.app/docs/community/community-overview
+    summary: "Rive community files are shared under CC BY and can be remixed into your own account as a starting point."
+    licence: "CC BY (version as shown on each file page)"
+    licence_url: https://rive.app/docs/community/community-overview
+    kind: guidance
+    verification: search-result
+    tags: [rive, community, licensing]
+    cautions: ["CC BY requires credit to the original file's author in your video or credits.", "The docs say 'CC BY' without a version on the overview; record the version shown on the file page."]
+  - id: rive-marketplace-overview
+    title: "Rive docs: Marketplace overview"
+    url: https://www.rive.app/docs/community/marketplace-overview
+    summary: "Rive Marketplace files are also shared under a CC BY licence."
+    licence: "CC BY (version as shown on each file page)"
+    licence_url: https://www.rive.app/docs/community/marketplace-overview
+    kind: guidance
+    verification: search-result
+    tags: [rive, marketplace]
+    cautions: ["Credit the author; confirm the CC BY version on the file page."]
+  - id: rive-runtime
+    title: "rive-app/rive-runtime"
+    url: https://github.com/rive-app/rive-runtime
+    summary: "Low-level C++ Rive runtime and renderer; MIT."
+    licence: MIT
+    licence_url: https://github.com/rive-app/rive-runtime
+    tags: [rive, runtime, cpp]
+  - id: rive-wasm
+    title: "rive-app/rive-wasm"
+    url: https://github.com/rive-app/rive-wasm
+    summary: "JavaScript/TypeScript + WebAssembly runtime for Rive animations; MIT."
+    licence: MIT
+    licence_url: https://github.com/rive-app/rive-wasm
+    tags: [rive, runtime, web]
+  - id: spine-runtimes
+    title: "EsotericSoftware/spine-runtimes (incl. spine-godot)"
+    url: https://github.com/EsotericSoftware/spine-runtimes
+    summary: "Official Spine runtimes for Godot, Unity, Unreal, web (spine-ts), C/C++ and more. Source is public but NOT open source: integration needs a Spine Editor licence."
+    licence: "Spine Runtimes License Agreement"
+    licence_url: https://eu.esotericsoftware.com/spine-runtimes-license
+    tags: [spine, runtime, godot, skeletal]
+    cautions: ["You need a valid Spine Editor licence when you integrate the runtimes, or every user of your product needs one.", "The Spine trial licence grants no right to use the runtimes."]
+  - id: spine-runtimes-license
+    title: "Spine Runtimes License Agreement"
+    url: https://eu.esotericsoftware.com/spine-runtimes-license
+    summary: "Terms for the Spine runtimes (updated 2025 on the English site): integration under Section 2 of the Spine Editor License Agreement."
+    licence: "Spine Runtimes License Agreement"
+    licence_url: https://eu.esotericsoftware.com/spine-runtimes-license
+    kind: guidance
+    verification: search-result
+    tags: [spine, licensing]
+  - id: spine-editor-license
+    title: "Spine Editor License Agreement"
+    url: https://en.esotericsoftware.com/spine-editor-license
+    summary: "The paid editor licence whose Section 2 permits integrating Spine runtimes into your products."
+    licence: "Spine Editor License Agreement"
+    licence_url: https://en.esotericsoftware.com/spine-editor-license
+    kind: guidance
+    verification: search-result
+    tags: [spine, licensing]
+  - id: dragonbones-js
+    title: "DragonBones/DragonBonesJS"
+    url: https://github.com/DragonBones/DragonBonesJS
+    summary: "TypeScript/JavaScript runtime for DragonBones skeletal animation (Egret, PixiJS, Phaser, Hilo, Cocos Creator); MIT. The README points to LoongBones for authoring."
+    licence: MIT
+    licence_url: https://github.com/DragonBones/DragonBonesJS
+    tags: [dragonbones, skeletal, runtime]
+    cautions: ["Older ecosystem: check activity and tooling before building a pipeline on it."]

@@ -1,0 +1,6 @@
+title: Caption reading-speed checker
+summary: Measures characters per second and words per minute per caption, flags too-fast, too-short and lingering cues, and extends fast cues into free time without overlaps.
+subkind: qa-check
+domain: captions
+tags: [captions, reading-speed, cps, qa, accessibility]
+step_kinds: [verify, render]

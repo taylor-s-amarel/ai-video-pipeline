@@ -1,0 +1,5 @@
+title: Caption disfluency filter
+summary: Removes filler words, immediate repeats and stutter fragments from transcripts (optionally discourse markers), normalises punctuation and keeps word timings for captions.
+domain: captions
+tags: [captions, transcript, cleanup, fillers, asr]
+step_kinds: [write, render]

@@ -1,0 +1,6 @@
+title: Caption line balancer
+summary: Splits a caption into one or two lines of balanced rendered width measured with the real font via Pillow, avoiding function-word and number-unit breaks.
+subkind: caption-style
+domain: captions
+tags: [captions, line-breaking, typography, pillow, readability]
+step_kinds: [build, render]

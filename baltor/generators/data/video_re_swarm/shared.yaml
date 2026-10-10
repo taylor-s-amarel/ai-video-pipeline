@@ -1,0 +1,81 @@
+# Shared conventions for the video reverse-engineering analyst swarm.
+# Read by generators/video_re_swarm.py and rendered into every question bank,
+# analyst, challenger, lifter, parameteriser and judge.
+
+boundary: >-
+  The swarm lifts technique and structure only. Never store, transcribe or reuse the source's
+  footage, frames, music, voice or script text. Keyframes and spectrograms are temporary
+  analysis files in a scratch directory and are never copied into the format IR or a variant.
+  On-screen text may be quoted only as a locating note in evidence.note, at most 6 words, and
+  narration is never quoted. Patterns replace content words with slots, e.g. 'FACT {n}' or
+  '{number} {unit} {noun}'. Analysing a public video for technique is fine; republishing its
+  content is not.
+
+methods:
+  measured: "A measurement tool produced the value (an evidence.json field or an ffmpeg/ffprobe filter output). Name the tool and the field."
+  observed: "You looked at extracted frames, crops, scopes, spectrograms or waveforms and saw it. Give the timestamps you looked at."
+  inferred: "Reasoned from measured or observed facts, e.g. 'synthetic voice' from flat pitch on a spectrogram. State the reasoning in the note."
+  assumed: "No direct evidence; a default or convention. Use only for gaps the format needs filled, and keep confidence at 0.3 or lower."
+
+confidence:
+  - "0.85-0.95: measured, the tool ran cleanly and the value is unambiguous (for example shot_stats.median_s)."
+  - "0.65-0.85: measured but sensitive to tool settings, or observed consistently on 3 or more instances."
+  - "0.45-0.65: observed on 1-2 instances, or inferred from measured values with one reasoning step."
+  - "0.25-0.45: inferred with several steps or from weak cues."
+  - "0.0-0.3: assumed, or not determinable (answer the string 'not determinable')."
+  - "These bands are the swarm's calibration convention, not a statistical guarantee; challengers move answers between bands."
+
+not_determinable: >-
+  When the evidence cannot answer a question, return the answer string "not determinable" with
+  method "assumed", confidence 0 and a note that names the missing evidence (for example
+  'audio.tempo_bpm is null: librosa unavailable'). Never guess to fill a slot.
+
+pointer_conventions:
+  - "ir_path is a JSON Pointer (RFC 6901) into the Video format IR (contract schema video_re_format_ir)."
+  - "A final '/-' means 'append this answer to the array' (the RFC 6901 end-of-array token), e.g. /motion/transitions/- or /generation_rules/-."
+  - "A '*' segment means 'each array element the answer is about'; the answer must say which elements (for example beats with role 'item'). The lifter resolves '*' to concrete indexes."
+  - "Paths under free-form objects (typography.title, typography.captions, typography.labels, audio.narration, audio.music, render_binding.mapping) use the snake_case key named in the question."
+
+answer_types:
+  number: '{"value": n, "unit": "..."} optionally with "min" and "max"; becomes an IR observed_number'
+  integer: '{"value": n}'
+  ratio: '{"value": r} with 0 <= r <= 1'
+  seconds: '{"value": s, "unit": "s"} optionally with "min"/"max"'
+  ms: '{"value": n, "unit": "ms"} optionally with "min"/"max"; signed when an offset (negative = earlier)'
+  range: '{"value": typical, "min": a, "max": b, "unit": "..."}'
+  distribution: '{"median": m, "p10": a, "p90": b, "n": count, "unit": "..."}'
+  boolean: "true or false"
+  enum: "exactly one of the question's choices (a string)"
+  color: '"#RRGGBB"'
+  palette: '["#RRGGBB", ...] ordered by area, at most 8'
+  text: "one technique description, at most 300 characters, no copied content"
+  pattern: "a template with {slots} in place of content words, e.g. 'FACT {n}: {number} {unit}'"
+  list: "array of short strings (technique names or kinds)"
+  timestamps: "array of seconds from the start of the source"
+  segments: '[{"start_s": a, "end_s": b, "label": "..."}]'
+  beats: "array of IR beat objects (role, start_ratio, end_ratio, optional repeat, label_pattern, content_slot)"
+  layers: "array of IR layer objects (z, kind, opacity, optional blend, motion, feather_px, frame_coverage, source_slot)"
+  parameter: "one IR parameter object (name, type, description, default, min/max or choices, derived_from)"
+  rule: "one procedural generation rule string, at most 400 characters, written in terms of parameters"
+  object: "a JSON object with the keys the question's how_to_answer names"
+
+recipes:
+  F1: 'Single frame: ffmpeg -v error -ss T -i "$SRC" -frames:v 1 -q:v 2 "$WORK/f_T.jpg"'
+  F2: 'Burst sheet, 10 frames over 1 s: ffmpeg -v error -ss T -t 1 -i "$SRC" -vf "fps=10,scale=270:-2,tile=5x2" -frames:v 1 "$WORK/burst_T.jpg"'
+  F3: 'Full-resolution crop (add ,scale=iw*2:-1:flags=lanczos to enlarge): ffmpeg -v error -ss T -i "$SRC" -frames:v 1 -vf "crop=W:H:X:Y" "$WORK/crop_T.png"'
+  F4: 'Whole-video contact sheet, 1 frame per second: ffmpeg -v error -i "$SRC" -vf "fps=1,scale=180:-2,tile=8x8" -frames:v 1 "$WORK/sheet.jpg" (or use the keyframes and contact sheet from video_re_keyframes_contact_sheet)'
+  F5: 'Per-frame motion in a region (mean absolute frame difference, 0-255): ffmpeg -v error -i "$SRC" -vf "crop=iw:ih*0.15:0:0,tblend=all_mode=difference,signalstats,metadata=mode=print:key=lavfi.signalstats.YAVG:file=$WORK/diff.txt" -an -f null -  (drop the crop for the full frame)'
+  F6: 'Per-frame colour statistics (YMIN, YAVG, YMAX, SATAVG, HUEMED, UAVG, VAVG): ffmpeg -v error -ss T -t D -i "$SRC" -vf "signalstats,metadata=mode=print:file=$WORK/stats.txt" -an -f null -'
+  F7: 'Scopes: ffmpeg -v error -ss T -i "$SRC" -frames:v 1 -vf "format=yuv444p,waveform=display=overlay" "$WORK/wave_T.png"; vectorscope with -vf "format=yuv444p,vectorscope=mode=color3"'
+  F8: 'Every frame in a short window (animation timing; frame k is at T + k/fps): ffmpeg -v error -ss T -t 0.5 -i "$SRC" -vf "scale=540:-2" "$WORK/step_T_%03d.png"'
+  F9: 'Average colour of a region: ffmpeg -v error -ss T -i "$SRC" -frames:v 1 -vf "crop=W:H:X:Y,scale=1:1:flags=area,format=rgb24" -f rawvideo - | od -An -tu1'
+  F10: 'Similarity of two frames (SSIM, 1.0 = identical): ffmpeg -i a.jpg -i b.jpg -lavfi "[0:v]scale=320:-2[a];[1:v]scale=320:-2[b];[a][b]ssim" -f null - 2>&1 | grep -o "All:[0-9.]*"'
+  F11: 'Per-frame scene-change score (finds dissolves and missed cuts): ffmpeg -v error -i "$SRC" -vf "select=''gte(scene,0)'',metadata=mode=print:key=lavfi.scene_score:file=$WORK/scene.txt" -an -f null -'
+  F12: 'Black frames: ffmpeg -i "$SRC" -vf "blackdetect=d=0.05:pix_th=0.10" -an -f null - 2>&1 | grep black_'
+  A1: 'Spectrogram image (add highpass=f=3000, before showspectrumpic to isolate clicks and whooshes): ffmpeg -v error -ss T -t D -i "$SRC" -lavfi "showspectrumpic=s=1200x600:legend=1" "$WORK/spec_T.png"'
+  A2: 'Waveform image: ffmpeg -v error -i "$SRC" -filter_complex "aformat=channel_layouts=mono,showwavespic=s=1800x300" -frames:v 1 "$WORK/wave.png"'
+  A3: 'Momentary loudness every 100 ms (LUFS): ffmpeg -v error -i "$SRC" -af "ebur128=metadata=1,ametadata=mode=print:key=lavfi.r128.M:file=$WORK/lufs_m.txt" -f null -'
+  A4: 'Silences: ffmpeg -i "$SRC" -af "silencedetect=noise=-35dB:d=0.25" -f null - 2>&1 | grep silence_'
+  A5: 'Side (L-R) channel loudness, which removes centre-panned voice and leaves most stereo music: replace the A3 filter with "pan=mono|c0=0.5*c0-0.5*c1,ebur128=metadata=1,ametadata=mode=print:key=lavfi.r128.M:file=$WORK/side_m.txt"; mid channel uses 0.5*c0+0.5*c1. Only meaningful for stereo sources.'
+  A6: 'RMS level per 100 ms at 48 kHz: ffmpeg -v error -i "$SRC" -af "aresample=48000,asetnsamples=n=4800,astats=metadata=1:reset=1,ametadata=mode=print:key=lavfi.astats.Overall.RMS_level:file=$WORK/rms.txt" -f null -'
+  A7: 'Stream facts: ffprobe -v error -show_streams -show_format -of json "$SRC"'

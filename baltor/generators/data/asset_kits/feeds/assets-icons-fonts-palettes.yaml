@@ -328,3 +328,51 @@ items:
     licence: "No licence stated; credit Lospec"
     licence_url: https://lospec.com/palette-list/lospec-gb
     tags: [palettes, 4-colours, handheld]
+  - id: dicebear
+    title: "DiceBear avatar library"
+    url: https://github.com/dicebear/dicebear
+    summary: "Deterministic avatar generator (styles such as Adventurer, Open Peeps, Pixel Art, Lorelei, Bottts, Initials) as SVG via JS library or HTTP API. Code MIT; each style keeps its creator's licence."
+    licence: "MIT (code); per-style artwork licences"
+    licence_url: https://github.com/dicebear/dicebear
+    verification: fetched
+    kind: library
+    tags: [avatars, svg, generator, faceless]
+    cautions: ["Many styles require attribution of the style's artist; check the style licence before using avatars as on-screen characters."]
+  - id: boring-avatars
+    title: "Boring Avatars"
+    url: https://github.com/boringdesigners/boring-avatars
+    summary: "React library that generates abstract SVG avatars from a name and a palette; MIT, no third-party artwork involved."
+    licence: MIT
+    licence_url: https://github.com/boringdesigners/boring-avatars
+    verification: fetched
+    kind: library
+    tags: [avatars, svg, generator]
+  - id: notion-avatar
+    title: "Notion Avatar maker"
+    url: https://github.com/Mayandev/notion-avatar
+    summary: "Notion-style line-art avatar maker; code MIT and avatar assets CC0, handy for faceless explainer narrator portraits."
+    licence: "MIT (code), CC0-1.0 (assets)"
+    licence_url: https://github.com/Mayandev/notion-avatar
+    verification: fetched
+    kind: library
+    tags: [avatars, illustration, faceless, cc0]
+  - id: avataaars-generator
+    title: "Avataaars generator"
+    url: https://github.com/fangpenlin/avataaars-generator
+    summary: "Web generator for Pablo Stanley's Avataaars cartoon avatars; generator code MIT."
+    licence: "MIT (code); artwork terms set by the original designer"
+    licence_url: https://github.com/fangpenlin/avataaars-generator
+    verification: fetched
+    kind: tool
+    tags: [avatars, cartoon]
+    cautions: ["The repo states no licence for the Avataaars artwork itself; confirm the designer's terms before commercial use."]
+  - id: xkcd-font
+    title: "xkcd font (ipython/xkcd-font)"
+    url: https://github.com/ipython/xkcd-font
+    summary: "Handwriting font derived from xkcd lettering; tempting for stick-figure explainers but licensed CC BY-NC 3.0."
+    licence: CC-BY-NC-3.0
+    licence_url: https://github.com/ipython/xkcd-font
+    verification: fetched
+    kind: media-source
+    tags: [fonts, handwriting, stick-figure, non-commercial]
+    cautions: ["Non-commercial: do not use in monetised videos. Use an OFL handwriting font from Google Fonts instead."]

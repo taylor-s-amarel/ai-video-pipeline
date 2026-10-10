@@ -1,0 +1,6 @@
+title: Caption timing gap fixer
+summary: Repairs caption timing by trimming overlaps, closing flicker gaps, enforcing a minimum frame gap and duration, and snapping cue times to the video frame grid.
+subkind: qa-check
+domain: captions
+tags: [captions, timing, cleanup, frames, qa]
+step_kinds: [render, verify]

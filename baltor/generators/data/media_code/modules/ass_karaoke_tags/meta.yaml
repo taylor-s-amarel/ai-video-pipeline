@@ -1,0 +1,6 @@
+title: ASS karaoke tags from word times
+summary: Converts word timestamps into ASS karaoke tags (\k, \kf, \ko) with a lead-in tag and rounding carried forward so highlight timing never drifts from the voice.
+subkind: text-animation
+domain: captions
+tags: [captions, ass, karaoke, word-highlight, timing]
+step_kinds: [build, render]

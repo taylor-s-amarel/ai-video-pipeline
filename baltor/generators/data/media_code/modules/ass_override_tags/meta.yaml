@@ -1,0 +1,6 @@
+title: ASS override tag builders
+summary: Range-checked builders for ASS override tags (position, move, fades, colours, inverted alpha, scale, rotation, blur, clip, transforms) and a safe block joiner.
+subkind: caption-style
+domain: captions
+tags: [captions, ass, override-tags, libass, styling]
+step_kinds: [build, render]

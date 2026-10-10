@@ -1,0 +1,7 @@
+title: Word-timestamp caption aligner with drift report
+summary: Retimes caption cues to spoken word timestamps (fuzzy token matching, interpolation for unrecognised cues, overlap repair) and reports per-cue drift against a 150 ms tolerance.
+subkind: qa-check
+domain: captions
+tags: [captions, alignment, word-timestamps, sync, tts, qa]
+step_kinds: [render, verify]
+examples: ["Fix captions that stay on screen 12.8 s while the speech lasts 4 s", "Report caption drift against TTS word times"]

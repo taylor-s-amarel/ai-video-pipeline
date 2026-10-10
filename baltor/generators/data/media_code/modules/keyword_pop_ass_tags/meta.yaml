@@ -1,0 +1,7 @@
+title: Keyword pop ASS tag builder
+summary: Builds ASS caption text where the key word scales 1.0->1.12->1.0 over 180 ms when spoken and turns house yellow, with all other text escaped against tag injection.
+subkind: text-animation
+domain: captions
+tags: [captions, ass, keyword-pop, text-animation, libass]
+step_kinds: [build, render]
+depends_on: [ffmpeg]

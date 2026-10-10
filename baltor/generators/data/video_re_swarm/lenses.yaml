@@ -1,0 +1,166 @@
+# The 18 analyst lenses. Each lens has a question bank in questions/<id>.yaml.
+# purpose: what the lens lifts; ir_focus: the IR areas it fills; evidence: the
+# evidence.json fields and measurement modules it leans on; inspect: what to look
+# at beyond evidence.json; pitfalls: the mistakes challengers look for first.
+
+- id: structure_beats
+  title: Structure and beats
+  purpose: Segments the video into beats (hook, setup, repeated items, payoff, outro), finds what repeats per item and what varies, and turns the timing into formulas so any number of items can be laid out.
+  ir_focus: [/timeline/beats, /timeline/target_duration_s, /script/beat_patterns, /generation_rules, /parameters]
+  evidence: ["shots[] (video_re_detect_shots)", "captions[] (video_re_caption_track or video_re_transcribe_adapter)", "audio.speech_segments (video_re_speech_segments)", "text_regions[] (video_re_text_regions)", "source.duration_s (video_re_probe_metadata)"]
+  inspect: Contact sheet (F4) for the whole video, then F1 frames at every candidate beat boundary and one burst (F2) inside each item beat.
+  pitfalls: ["Calling a run of shots a beat without a boundary cue (label, cut, music change, pause)", "Counting the hook or outro as an item", "Writing a timing formula that does not reproduce the observed beat times", "Generalising n_items limits from a single video without saying so"]
+  parameter_hints: ["n_items (integer, range justified by beat length limits)", "item_beat_s (derived)", "intro_s / outro_s", "item_order (enum)", "include_recap / include_cta (boolean)"]
+
+- id: hook_first_seconds
+  title: Hook and first seconds
+  purpose: Describes exactly what happens in the first frame and the first 3-5 seconds (title, voice, motion, sound) so the opening can be rebuilt with new content.
+  ir_focus: [/script/hook_pattern, /typography/title, /timeline/beats, /timeline/retention_devices, /audio/narration]
+  evidence: ["shots[0..3]", "text_regions[] with t_s < 5", "audio.speech_segments[0]", "audio.onsets_s < 3", "shots[0].motion_energy"]
+  inspect: F1 at 0.0, 0.5, 1.0, 2.0, 3.0 s; F8 over 0-0.5 s for the title entrance; A1 spectrogram over 0-3 s.
+  pitfalls: ["Reading frame 0 from a keyframe that is not at 0.0 s", "Treating a platform thumbnail as the first frame", "Confusing the hook line with the title text", "Quoting the hook instead of turning it into a slot pattern"]
+  parameter_hints: ["title_text (string slot)", "title_color (color)", "title_hold_s (duration_s)", "hook_pattern (enum)", "hero_visual (asset)"]
+
+- id: script_rhetoric
+  title: Script and rhetoric
+  purpose: Lifts the writing technique (point of view, sentence shape, per-item templates, specificity, rhetorical devices) without keeping any of the source's words.
+  ir_focus: [/script/beat_patterns, /script/reading_level, /script/claims_need_sources, /audio/narration, /generation_rules, /parameters]
+  evidence: ["captions[] text and timing (caption track or transcription adapter; analysis only, never copied)", "audio.speech_segments", "audio.speech_wpm (video_re_speech_rate)"]
+  inspect: Read the caption text in a scratch file only; count and classify, then delete. Use F1 frames to see on-screen wording roles.
+  pitfalls: ["Copying sentences or distinctive phrases into answers", "Classifying tone from one sentence", "Counting numbers in captions that came from OCR noise", "Computing reading level on fewer than 100 words without lowering confidence"]
+  parameter_hints: ["tone (enum)", "words_per_item (range)", "point_of_view (enum)", "numbers_per_item (integer)", "sources_required (boolean)"]
+
+- id: pacing_cut_rhythm
+  title: Pacing and cut rhythm
+  purpose: Measures shot lengths, cut rate, acceleration, holds and how cuts line up with speech and music, then states them as pacing rules.
+  ir_focus: [/timeline/median_shot_s, /timeline/cut_rate_per_min, /audio/cuts_on_beat_ratio, /generation_rules, /parameters]
+  evidence: ["shots[] start_s/end_s/duration_s (video_re_detect_shots)", "shot_stats (video_re_shot_stats)", "audio.onsets_s, audio.tempo_bpm (video_re_onsets_beats)", "audio.cuts_on_beat_ratio (video_re_cut_beat_alignment)", "audio.speech_segments"]
+  inspect: F11 scene scores to find dissolves and false cuts; F1 frames either side of doubtful cuts.
+  pitfalls: ["Trusting a shot detector on dissolves, flashes or fast pans", "Mixing mean and median", "Calling cuts on-beat when tempo detection failed or the tolerance is wider than half a beat", "Ignoring the hook when describing overall pacing"]
+  parameter_hints: ["target_median_shot_s (range)", "hook_median_shot_s", "max_static_s", "cut_on_beat (boolean)"]
+
+- id: shot_list_framing
+  title: Shot list and framing
+  purpose: Describes what kinds of shots and visual assets appear, how large the subject is, where negative space is left for text, and what an author must supply per item.
+  ir_focus: [/visual/subject_framing, /visual/layers, /visual/style_family, /timeline/beats, /parameters]
+  evidence: ["shots[].keyframe (video_re_keyframes_contact_sheet)", "shots[].palette", "text_regions[]"]
+  inspect: One F1 frame per shot (or the keyframe), F3 crops to judge sharpness, F10 to find reused images.
+  pitfalls: ["Labelling shot scale on a still graphic with no subject", "Assuming a source is stock footage from look alone", "Missing reused images because they are zoomed differently"]
+  parameter_hints: ["assets_per_item (integer)", "hero_asset_aspect (enum)", "min_asset_px (integer)", "shot_scale_sequence (list)"]
+
+- id: camera_motion
+  title: Camera and virtual camera motion
+  purpose: Lifts real and virtual camera moves (Ken Burns zooms, pans, punch-ins, parallax, shake) with speeds, easing and alternation rules.
+  ir_focus: [/motion/camera_moves, /motion/easing, /visual/layers, /generation_rules, /parameters]
+  evidence: ["shots[].camera.pan_x, pan_y, zoom (video_re_camera_motion)", "shots[].motion_energy (video_re_motion_energy)"]
+  inspect: F1 at the first and last frame of a shot to measure scale change; F8 for punch-ins and shake; F5 on a corner region.
+  pitfalls: ["Reading subject motion inside footage as camera motion", "Estimating zoom from text that animates separately", "Stating a speed without the shot duration it was measured over"]
+  parameter_hints: ["zoom_per_s (range)", "zoom_alternate (boolean)", "punch_in_scale", "parallax_ratio", "shake_px"]
+
+- id: layers_compositing
+  title: Layers and compositing
+  purpose: Reconstructs the layer stack back to front, opacity, blend, edges, masks and depth cues so the composite can be rebuilt from new assets.
+  ir_focus: [/visual/layers, /generation_rules, /parameters]
+  evidence: ["overlay.semi_transparent_ratio (video_re_overlay_transparency_probe)", "shots[].motion_energy center vs border"]
+  inspect: F3 crops at panel and inset edges, F9 average colour inside a panel over two different backgrounds to estimate opacity, F2 bursts to see which layers move.
+  pitfalls: ["Calling a layer semi-transparent without seeing a background change through it", "Counting a texture baked into a photo as a separate layer", "Guessing blend modes; say 'unknown' unless the behaviour shows it"]
+  parameter_hints: ["n_layers", "max_layer_opacity", "panel_opacity", "feather_px", "overlay_set (list)"]
+
+- id: background_system
+  title: Background system
+  purpose: Describes what sits behind the subject, how much and how it moves, how it changes per beat and how it could be generated procedurally.
+  ir_focus: [/visual/layers, /motion/background_motion_level, /visual/palette, /generation_rules, /parameters]
+  evidence: ["shots[].motion_energy.border (video_re_motion_energy)", "shots[].palette (video_re_palette_per_shot)"]
+  inspect: F5 on the border bands (top 15%, bottom 15%, side 10%) for motion; F1 frames per beat; F6 for luminance.
+  pitfalls: ["Measuring background motion in a region covered by text or the subject", "Calling a slow zoom on a photo a moving background", "Ignoring compression noise when the motion level is near zero"]
+  parameter_hints: ["background_kind (enum)", "background_asset (asset)", "background_motion_level (range)", "background_per_beat (boolean)"]
+
+- id: typography_captions
+  title: Typography and captions
+  purpose: Lifts title, caption and label styling (position, size, weight, case, colour, backing, chunking) and caption timing against speech.
+  ir_focus: [/typography/title, /typography/captions, /typography/labels, /typography/words_on_screen_max]
+  evidence: ["text_regions[] bbox, area_ratio, y_center_ratio (video_re_text_regions)", "captions[] (video_re_caption_track, video_re_ocr_adapter or video_re_transcribe_adapter)", "audio.speech_segments"]
+  inspect: F3 crops of caption, title and label regions enlarged 2x; F9 for text and backing colours; F8 around caption changes.
+  pitfalls: ["Naming a specific font from appearance; give a font class instead", "Measuring caption sync from a transcription whose own timing error is unknown", "Treating OCR misses as 'no caption'"]
+  parameter_hints: ["caption_font_class", "caption_color / highlight_color", "caption_max_words", "caption_y_ratio", "label_pattern"]
+
+- id: text_animation
+  title: Text animation
+  purpose: Measures how text enters, emphasises, idles and exits (pop scale, overshoot, duration, easing, stagger) frame by frame.
+  ir_focus: [/motion/text_animations, /motion/easing, /generation_rules, /parameters]
+  evidence: ["text_regions[] t_s and bbox changes", "audio.onsets_s for sound-synced pops", "source.fps"]
+  inspect: F8 frame steps over every text entrance you measure; measure bbox height per frame on the stepped frames.
+  pitfalls: ["Measuring durations in frames without converting by the real fps", "Generalising one animation to all text", "Confusing a camera zoom with a text scale animation"]
+  parameter_hints: ["pop_scale_peak", "pop_ms", "entrance_kind (enum)", "stagger_ms", "easing (enum)"]
+
+- id: color_grade
+  title: Colour and grade
+  purpose: Measures palette, luminance range, saturation, temperature and consistency, and turns them into a reproducible grade recipe.
+  ir_focus: [/visual/palette, /visual/grade, /generation_rules, /parameters]
+  evidence: ["shots[].palette (video_re_palette_per_shot)"]
+  inspect: F6 statistics per shot, F7 waveform and vectorscope on 3+ representative frames, F9 for accent colours.
+  pitfalls: ["Reporting a palette dominated by a text panel as the grade", "Comparing colours across differently compressed frames", "Calling a look 'cinematic' instead of measuring it"]
+  parameter_hints: ["palette (list of colors)", "accent_color (color)", "saturation_level", "grade_recipe (string)"]
+
+- id: characters_animation_style
+  title: Characters and animation style
+  purpose: Classifies the visual style family and, when characters or drawn elements appear, lifts their construction, frame rate, poses, lip sync and secondary motion.
+  ir_focus: [/visual/style_family, /visual/layers, /motion/camera_moves, /render_binding/mapping, /parameters]
+  evidence: ["shots[].keyframe", "shots[].motion_energy"]
+  inspect: F8 frame steps to count unique drawings per second; F3 crops for line weight and fill; F2 bursts for cycles.
+  pitfalls: ["Calling footage 'animation' because it is stylised", "Measuring frame holds over a section where the camera also moves", "Naming the tool used to make it as fact; it is inferred"]
+  parameter_hints: ["style_family (enum)", "character_rig (asset)", "animation_fps (enum)", "line_weight_px", "lip_sync (enum)"]
+
+- id: transitions_effects
+  title: Transitions and effects
+  purpose: Lists every transition and overlay effect with type, duration and sync, and expresses the reusable ones as ffmpeg-reproducible recipes.
+  ir_focus: [/motion/transitions, /visual/layers, /audio/sfx, /generation_rules, /parameters]
+  evidence: ["shots[] boundaries", "audio.onsets_s"]
+  inspect: F8 frame steps across each boundary (0.25 s either side); F11 scene scores for dissolves; A1 with highpass for whooshes.
+  pitfalls: ["Calling a hard cut a transition because the next shot zooms", "Counting compression flicker as a flash", "Inventing an xfade name that ffmpeg does not have"]
+  parameter_hints: ["transition_kind (enum)", "transition_ms", "transition_sfx (boolean)", "overlay_effects (list)"]
+
+- id: narration_voice
+  title: Narration and voice
+  purpose: Measures the delivery (coverage, words per minute, pauses, emphasis, processing) so a licensed or synthetic voice can reproduce it, without cloning or keeping the source voice.
+  ir_focus: [/audio/narration, /audio/words_per_minute, /render_binding/mapping, /parameters, /generation_rules]
+  evidence: ["audio.speech_segments (video_re_speech_segments)", "audio.speech_wpm (video_re_speech_rate)", "captions[] timing", "audio.integrated_lufs"]
+  inspect: A1 spectrograms of 2-3 sentences, A4 silences, A6 RMS for emphasis; never save or splice the voice.
+  pitfalls: ["Guessing speaker identity, age or ethnicity; describe pitch register and delivery only", "Calling a voice synthetic from quality alone", "Computing wpm over the whole runtime instead of speech time"]
+  parameter_hints: ["voice_engine (string)", "voice_id (string)", "words_per_minute (range)", "pause_ms (range)", "delivery (enum)"]
+
+- id: music_sfx_mix
+  title: Music, sound effects and mix
+  purpose: Measures music presence, tempo, level under the voice, ducking, sound effects and loudness, and writes a mix recipe and a licence-safe music brief.
+  ir_focus: [/audio/music, /audio/sfx, /audio/integrated_lufs, /audio/music_under_voice_db, /generation_rules, /parameters]
+  evidence: ["audio.integrated_lufs, audio.loudness_range (video_re_audio_loudness)", "audio.onsets_s, audio.tempo_bpm (video_re_onsets_beats)", "audio.speech_segments"]
+  inspect: A1 spectrograms (full band and highpassed), A3 momentary loudness, A5 side vs mid loudness for music under voice (stereo only), A6 RMS in speech gaps.
+  pitfalls: ["Naming a commercial track; never identify or reuse it", "Using side-channel loudness on a mono source", "Calling every onset a sound effect"]
+  parameter_hints: ["music_track (asset with licence)", "music_bpm (range)", "music_under_voice_db", "duck_db", "sfx_set (list)", "target_lufs"]
+
+- id: retention_cta
+  title: Retention devices and calls to action
+  purpose: Finds the devices that keep viewers watching (open loops, countdowns, re-hooks, pattern interrupts) and the call to action, with placement as ratios of runtime.
+  ir_focus: [/timeline/retention_devices, /timeline/beats, /generation_rules, /parameters]
+  evidence: ["captions[] timing", "text_regions[]", "shots[]", "audio.onsets_s"]
+  inspect: F4 contact sheet; F1 at each claimed device; the last 5 s frame by frame (F8) for the CTA.
+  pitfalls: ["Claiming a device works (retention effect) when only its presence is observable", "Calling every cut a pattern interrupt", "Missing a spoken-only CTA"]
+  parameter_hints: ["cta_kind (enum)", "cta_at_ratio", "rehook_at_ratio", "open_loop (boolean)"]
+
+- id: platform_fit_safe_areas
+  title: Platform fit and safe areas
+  purpose: Checks aspect, resolution, frame rate, encoding, loudness, safe-area use and sound-off readability, and records them as render settings and constraints.
+  ir_focus: [/source/resolution, /source/fps, /source/platform, /visual/aspect, /visual/safe_area_respected, /render_binding/mapping, /generation_rules]
+  evidence: ["source.* (video_re_probe_metadata)", "safe_area.violations (video_re_safe_area_probe)", "text_regions[]", "audio.integrated_lufs"]
+  inspect: A7 stream facts; F1 frames with a safe-area overlay drawn by drawbox; F12 black frames; F6 YAVG series for flashes.
+  pitfalls: ["Stating platform limits from memory; check current platform documentation and cite it, or say 'not checked'", "Treating a safe-area template from one app as universal", "Ignoring that the source may be a re-encode"]
+  parameter_hints: ["target_platforms (list)", "aspect (enum)", "fps (number)", "safe_box (object)", "target_lufs (number)"]
+
+- id: rights_originality_boundary
+  title: Rights and originality boundary
+  purpose: Separates reusable technique from protected content, lists the asset slots that need new licensed material, and blocks anything that should not be lifted.
+  ir_focus: [/source/rights_note, /source/reference, /script/claims_need_sources, /open_questions, /parameters, /generation_rules]
+  evidence: ["source.reference", "text_regions[] (watermarks, logos)", "captions[] (analysis only)", "all other analysts' answers"]
+  inspect: F1 frames at corners for watermarks and broadcaster marks; F4 sheet for logos, faces and characters; read the other lenses' answers for copied text.
+  pitfalls: ["Giving legal conclusions; flag risks and say what needs a human or licence check", "Identifying people or tracks by name", "Letting a distinctive series name or character into the reusable format"]
+  parameter_hints: ["asset slots with licence fields", "series_name (string, must be new)", "music_track (asset)", "voice (licensed or synthetic, never cloned)"]
