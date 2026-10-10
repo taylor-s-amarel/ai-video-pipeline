@@ -1,0 +1,19 @@
+title: GitHub Actions workflow security lint
+summary: Flags mutable action refs (not full SHAs), missing or write-all permissions, pull_request_target checkouts of PR code, script injection from event fields, missing timeouts and leaked checkout credentials.
+subkind: ci-template
+tags: [github-actions, ci, supply-chain, security, lint, sha-pinning]
+step_kinds: [review, secure, verify]
+effects: {filesystem: read, executes: python}
+depends_on:
+  - {identity: pyyaml, external: true}
+description: >-
+  Rules GA001-GA012: actions, reusable workflows and docker:// steps not pinned to a full commit SHA or digest
+  (the March 2026 trivy-action tag hijack is the case study: force-pushed tags ran a credential stealer in pipelines
+  pinned by tag); missing permissions (GA002); write-all (GA003); privileged triggers that check out PR head code
+  (GA004); untrusted event fields such as PR titles, branch names and comment bodies interpolated into run scripts
+  (GA005); jobs without timeout-minutes (GA006); secrets: inherit (GA007); self-hosted runners on PR events (GA008);
+  checkout persisting credentials (GA009); workflow-level id-token: write (GA010); ACTIONS_ALLOW_UNSECURE_COMMANDS
+  (GA012). Handles PyYAML's boolean `on` key. Complements actionlint (syntax/expressions) and zizmor.
+examples:
+  - "python gha_workflow_security_lint.py .github/workflows/*.yml --fail-on medium"
+evidence_notes: pytest suite passes on synthetic workflows; the repository's own CI templates were linted with it in the sandbox. Not a full zizmor replacement.

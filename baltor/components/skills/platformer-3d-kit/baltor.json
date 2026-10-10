@@ -1,0 +1,68 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "platformer_3d_kit",
+  "title": "3D platformer kit (low-poly variant)",
+  "kind": "skill",
+  "subkind": "rights-manifest",
+  "version": "1.0.0",
+  "summary": "Variant of the platformer kit for a 3D low-poly level - Kenney and KayKit platformer pieces, Kenney's Godot 4.6 starter kit and the official 3D platformer demo.",
+  "description": "Use when the platformer should be a 3D low-poly level. Lists Kenney's Platformer Kit and KayKit Platformer Pack (CC0), Kenney's MIT/CC0 Godot 3D platformer starter kit and the official 3D platformer demo, plus a sunset HDRI and UI sounds.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "plan",
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "media-pack",
+    "manifest",
+    "platformer",
+    "3d",
+    "low-poly",
+    "godot"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "media_pack_fetcher"
+    },
+    {
+      "identity": "asset_licence_checker"
+    }
+  ],
+  "variant_of": "platformer_2d_kit",
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits",
+    "parameters": {
+      "assets": 6,
+      "status": "manifest-only"
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

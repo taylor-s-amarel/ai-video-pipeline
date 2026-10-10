@@ -1,0 +1,60 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "opengameart_assets",
+  "title": "OpenGameArt (per-asset licences)",
+  "kind": "skill",
+  "subkind": "media-source",
+  "version": "1.0.0",
+  "summary": "Use OpenGameArt safely: per-asset licences, artist credit format, share-alike and DRM clauses, and LPC collections.",
+  "description": "Use when searching OpenGameArt for sprites, tiles, music or sound effects. Every submission has its own licence (CC0, CC-BY, CC-BY-SA, OGA-BY, GPL); this skill explains reading it, building credits in the artist's requested format, share-alike and DRM clauses, and LPC-style collections.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "notes": "Describes https://opengameart.org/content/faq (checked 2026-10-10); contains no third-party media."
+  },
+  "step_kinds": [
+    "research",
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "licensing",
+    "opengameart",
+    "cc-by-sa",
+    "sprites",
+    "sfx"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "asset_source_profile"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

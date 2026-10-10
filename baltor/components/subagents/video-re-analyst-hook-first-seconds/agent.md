@@ -206,7 +206,7 @@ it is there; the questions are repeated here so you can work without it.
    How: Track the title region in evidence.text_regions[] from first to last t_s; inspect F8 frames around the disappearance.
 15. `hook_first_seconds-015` [enum → `/motion/text_animations/-`] How does the title enter in its first 500 ms (pop with overshoot, scale-up, slide, type-on, fade, already present)? Choices: pop-overshoot, scale-up, slide, type-on, fade, already-present, other.
    How: F8 frame steps over 0-0.5 s; measure the title box height per frame on the stepped images.
-16. `hook_first_seconds-016` [object → `/typography/title/color`] What colour is the title text, and what is behind it (none, solid plate, frosted blur panel, stroke, drop shadow)?
+16. `hook_first_seconds-016` [object → `/typography/title/first_frame_style`] What colour is the title text, and what is behind it (none, solid plate, frosted blur panel, stroke, drop shadow)?
    How: F9 average colour on a crop inside a letter stroke (choose a thick stroke, 3x3 px), and F3 crop of the backing; compare the backing region in two frames with different backgrounds to tell blur from a solid plate.
 17. `hook_first_seconds-017` [ratio → `/typography/title/size_ratio`] How tall is the title text block relative to the frame height?
    How: bbox height from evidence.text_regions[] near t=0 divided by source.height; for multi-line titles also report lines and per-line height from an F3 crop.

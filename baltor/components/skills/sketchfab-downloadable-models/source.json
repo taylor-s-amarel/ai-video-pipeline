@@ -1,0 +1,52 @@
+{
+  "spec": "baltor.asset-source/v1",
+  "source_id": "sketchfab-downloadable-models",
+  "name": "Sketchfab downloadable models (per-model CC licences)",
+  "homepage": "https://help.sketchfab.com/en/articles/16152221-choosing-your-model-s-license",
+  "licence_summary": "Each downloadable model has a CC licence chosen by its author; CC BY requires credit, NC forbids commercial use, ND forbids modification. Store models use Standard or Editorial licences, and purchased models may never be offered for download to others.",
+  "licences": [
+    {
+      "id": "per-asset",
+      "url": "https://help.sketchfab.com/en/articles/16152221-choosing-your-model-s-license",
+      "applies_to": "downloadable models"
+    },
+    {
+      "id": "Sketchfab-Store",
+      "url": "https://help.sketchfab.com/en/articles/16152225-store-license-usage-faq",
+      "applies_to": "store purchases"
+    }
+  ],
+  "attribution": {
+    "required": "per-asset",
+    "credit_template": "\"{title}\" by {creator} on Sketchfab, licensed {licence}"
+  },
+  "redistribution": "per-asset",
+  "commercial_use": "per-asset",
+  "ai_training": "per-asset",
+  "automated_download": "unspecified",
+  "formats": [
+    "glb",
+    "gltf",
+    "fbx",
+    "obj",
+    "usdz"
+  ],
+  "search": [
+    {
+      "label": "Licence filters announcement",
+      "url": "https://sketchfab.com/blogs/community/refine-downloadable-model-searches-with-new-license-filters"
+    },
+    {
+      "label": "Crediting creators",
+      "url": "https://help.sketchfab.com/en/articles/16152215-crediting-users-for-3d-model-downloads"
+    }
+  ],
+  "cautions": [
+    "Editorial store licences cover news/public-interest use only, never promotion.",
+    "BY-NC models cannot be used in monetised videos; BY-ND models cannot be re-textured, cropped into new models or re-rigged."
+  ],
+  "verified": {
+    "on": "2026-10-10",
+    "how": "mixed"
+  }
+}

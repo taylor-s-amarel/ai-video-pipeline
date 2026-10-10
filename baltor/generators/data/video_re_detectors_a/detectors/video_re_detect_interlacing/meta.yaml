@@ -1,0 +1,13 @@
+title: Detect interlacing and field order
+summary: Detects combing from woven fields on moving pixels, decides top- or bottom-field-first from field-to-field distances, flags telecine-like patterns and adds ffmpeg idet counts and ffprobe field_order.
+description: >-
+  Decodes a native-resolution centre crop with even offsets, compares inter-field and intra-field second
+  differences on moving pixels to mark combed frames, and tests field order by which field pairing is closer in
+  time. The command line adds the ffmpeg idet filter's multi-frame counts.
+tags: [interlacing, combing, field-order, telecine, deinterlace]
+limits:
+  - Still or vertically uniform content cannot show combing.
+  - Scaled or deinterlaced video reads as progressive.
+contract:
+  title: Interlacing payload
+  summary: JSON Schema for the interlacing payload - interlaced flag, field order, telecine-like flag, combed share, field-order costs, ffprobe field_order and idet counts.

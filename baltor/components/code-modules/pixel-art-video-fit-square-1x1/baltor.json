@@ -1,0 +1,58 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "pixel_art_video_fit_square_1x1",
+  "title": "Pixel-art integer scaler preset: square-1x1 (1080x1080)",
+  "kind": "code-module",
+  "subkind": "aspect-format",
+  "version": "1.0.0",
+  "summary": "Pixel-art integer scaler pinned to 1080x1080 with [0.06, 0.06] safe margins; run with --preset-file preset.json.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "render"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "pixel_art_video_fit.py",
+  "tags": [
+    "pixel-art",
+    "scaling",
+    "video",
+    "square-1x1"
+  ],
+  "collection": "public-good",
+  "variant_of": "pixel_art_video_fit",
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits",
+    "parameters": {
+      "preset": "square-1x1",
+      "size": [
+        1080,
+        1080
+      ],
+      "margin": [
+        0.06,
+        0.06
+      ]
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

@@ -1,0 +1,18 @@
+title: Measure sharpness, blur and deliberate defocus per shot
+summary: Measures per-shot sharpness with variance of the Laplacian and the Crete-Roffet no-reference blur metric, labels shots sharp/soft/blurred and flags selective focus and blur-in/blur-out changes.
+description: >-
+  Works at a fixed analysis width so values are comparable within a video. A 3x3 grid separates selective focus
+  (sharp subject, soft background) from global softness; a blur-metric swing inside a shot marks rack focus,
+  blur-in or blur-out. Shots come from video_re_detect_shots or a fallback cut detector.
+tags: [sharpness, blur, focus, depth-of-field, per-shot]
+depends_on:
+  - identity: video_re_detect_shots
+references:
+  - "Crete-Roffet, F., Dolmiere, T., Ladret, P., Nicolas, M. (2007). The blur effect: perception and estimation with a new no-reference perceptual blur metric. Proc. SPIE 6492."
+  - "Pech-Pacheco, J. L., Cristobal, G., Chamorro-Martinez, J., Fernandez-Valdivia, J. (2000). Diatom autofocusing in brightfield microscopy: a comparative study. ICPR 2000."
+limits:
+  - VoL depends on content and contrast; compare within one video.
+  - Grain and noise read as sharpness; motion blur and defocus are not separated here.
+contract:
+  title: Sharpness and blur payload
+  summary: JSON Schema for the sharpness/blur payload - video and per-shot VoL and blur-metric medians, sharp/soft/blurred labels, selective-focus share and focus changes.

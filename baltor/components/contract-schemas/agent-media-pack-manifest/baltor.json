@@ -1,0 +1,53 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "agent_media_pack_manifest",
+  "title": "Agent media pack manifest",
+  "kind": "contract-schema",
+  "subkind": "rights-manifest",
+  "version": "1.0.0",
+  "summary": "JSON Schema for an agent-ready media pack: assets with source URL, licence, licence URL, exact credit, redistribution, sha256 once fetched, format and Godot/Blender/video import hints.",
+  "description": "Manifests point at sources and never contain media. Rules enforced by the schema: CC-BY/OGA-BY entries must require attribution and carry a credit line; fetched entries need sha256, bytes and file_name; direct fetches need an https download_url; assets whose redistribution is forbidden cannot be fetched directly. The space/NASA example records real SHA-256 values measured on 2026-10-10.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "plan",
+    "build",
+    "verify",
+    "secure"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "schema.json",
+  "tags": [
+    "assets",
+    "licensing",
+    "manifest",
+    "schema",
+    "credits",
+    "godot",
+    "blender"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

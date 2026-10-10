@@ -514,7 +514,7 @@
         "frames: F4",
         "item beat boundaries"
       ],
-      "ir_path": "/timeline/beats/*/content_slot",
+      "ir_path": "/parameters/-",
       "answer_type": "integer",
       "challenge": "Report the median and range."
     },

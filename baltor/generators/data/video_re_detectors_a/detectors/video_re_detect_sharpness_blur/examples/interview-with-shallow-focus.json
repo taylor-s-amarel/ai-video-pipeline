@@ -1,0 +1,10 @@
+{
+  "analysis_width": 480,
+  "video": { "vol_median": 412.6, "blur_median": 0.3112, "label": "sharp", "selective_focus_share": 0.58 },
+  "shots": [
+    { "index": 0, "start_s": 0.0, "end_s": 4.2, "label": "soft", "vol_median": 96.1, "blur_median": 0.4473, "selective_focus_share": 0.0, "focus_change": "blur-in" },
+    { "index": 1, "start_s": 4.2, "end_s": 11.8, "label": "sharp", "vol_median": 512.3, "blur_median": 0.2861, "selective_focus_share": 0.87, "focus_change": null }
+  ],
+  "shots_source": "given",
+  "frames_analysed": 24
+}

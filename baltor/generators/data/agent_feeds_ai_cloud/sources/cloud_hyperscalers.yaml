@@ -1,0 +1,76 @@
+collection:
+  id: updates-cloud-hyperscalers
+  title: "AWS, Azure and Google Cloud: service updates, API changes and tooling releases"
+  description: "Official update feeds and machine signals for the three hyperscalers: the Azure updates RSS, the Google Cloud all-products release notes feed, botocore's per-service API change log (every AWS API change, Bedrock included), and releases of the AWS CLI, Azure CLI and the Terraform providers that infrastructure agents generate code for. Fetched on 2026-10-10 unless marked search-result."
+  tags: [cloud, aws, azure, google-cloud, infrastructure]
+  defaults: {terms: github, poll: release, feed_format: github-releases, auth: none, verification: fetched,
+             change_types: [release, deprecation, breaking-change, security]}
+
+items:
+  - id: azure-updates-rss
+    title: "Azure service updates (RSS)"
+    url: "https://azure.microsoft.com/en-us/updates/"
+    feed_url: "https://www.microsoft.com/releasecommunications/api/v2/azure/rss"
+    feed_format: rss
+    terms: vendor-feed
+    poll: release
+    summary: "Microsoft's RSS feed of Azure updates: previews, general availability and retirements across all Azure services (the newest item on 2026-10-10 was a retirement notice for the Key Vault Secrets Provider extension for Arc-enabled Kubernetes). Retirement items are the ones an agent must act on."
+    vendor: Microsoft
+    products: [Azure]
+    seen: "'Retirement: Azure Key Vault Secrets Provider Extension for Azure Arc enabled Kubernetes clusters' on 2026-10-09"
+    change_types: [release, deprecation, breaking-change]
+    notes: "The feed is about 150 KB; the human page is the Azure updates site."
+  - id: google-cloud-release-notes-feed
+    title: "Google Cloud release notes (all products)"
+    url: "https://docs.cloud.google.com/release-notes"
+    feed_url: "https://cloud.google.com/feeds/gcp-release-notes.xml"
+    feed_format: atom
+    terms: vendor-feed
+    poll: release
+    summary: "Aggregate feed of Google Cloud release notes for the last 60 days across every product (Vertex AI, Cloud Run, BigQuery, GKE and more). Individual products publish their own feeds under docs.cloud.google.com/feeds/."
+    vendor: Google Cloud
+    products: [Google Cloud]
+    verification: search-result
+    notes: "On 2026-10-10 the feed URL answered 301 to https://docs.cloud.google.com/feeds/gcp-release-notes.xml, which the research network could not resolve; the feed URL itself is given on Google's release notes page (search result)."
+  - id: aws-whats-new
+    title: "What's New with AWS"
+    url: "https://aws.amazon.com/new/"
+    feed_format: html-diff
+    terms: vendor-docs
+    poll: release
+    verification: search-result
+    summary: "AWS's announcement stream for new services, features and regions. AWS's own blog tells readers to follow the What's New RSS feed, but no feed URL could be confirmed on 2026-10-10, so use the botocore change log for API-level changes and diff this page for announcements."
+    vendor: Amazon Web Services
+    products: [AWS]
+    change_types: [release, pricing]
+    cautions: ["Feed URL unconfirmed: a third-party directory says the page has no RSS of its own, while an AWS re:Post answer says it does."]
+  - id: botocore-changelog
+    title: "botocore CHANGELOG (AWS API changes per service)"
+    url: "https://github.com/boto/botocore/blob/develop/CHANGELOG.rst"
+    gh: boto/botocore
+    feed: "raw:develop:CHANGELOG.rst"
+    feed_format: html-diff
+    terms: github-raw
+    summary: "Every AWS SDK release lists 'api-change:`<service>`' lines describing new operations, parameters and enum values (for example new Deadline, MediaTailor and QuickSight API changes in 1.43.111). Filter by the services a project calls (bedrock, bedrock-runtime, bedrock-agent, lambda, s3...) to learn about API changes the day they ship."
+    vendor: Amazon Web Services
+    products: [AWS APIs, botocore, boto3]
+    seen: "1.43.111 with api-change entries for deadline, mediatailor, meteringmarketplace, quicksight, securityagent"
+    change_types: [release, deprecation]
+    cautions: ["The file is about 1.6 MB; fetch with If-None-Match and parse only the newest section."]
+  - {gh: boto/botocore, feed: tags, id: botocore-tags, title: "botocore tags", vendor: Amazon Web Services, products: [botocore], seen: "1.43.111 on 2026-10-09", summary: "Tag feed for botocore, one entry per AWS SDK release (near daily); use it as the trigger to read the CHANGELOG section for that version."}
+  - {gh: aws/aws-cli, feed: tags, id: aws-cli-tags, title: "AWS CLI v2 tags", vendor: Amazon Web Services, products: [AWS CLI], seen: "2.37.12 on 2026-10-09", summary: "Tag feed of the AWS CLI repository; v2 versions appear as tags rather than GitHub releases."}
+  - {gh: Azure/azure-cli, title: "Azure CLI releases", vendor: Microsoft, products: [Azure CLI], seen: "Azure CLI 2.91.0 on 2026-10-05", summary: "Release notes for the Azure CLI, including breaking-change announcements for command groups."}
+  - {gh: hashicorp/terraform-provider-aws, title: "Terraform AWS provider releases", vendor: HashiCorp, products: [terraform-provider-aws], seen: "v6.68.0 on 2026-10-07", summary: "Weekly release notes for the Terraform AWS provider: new resources and data sources, deprecations and breaking changes that generated infrastructure code must follow."}
+  - {gh: hashicorp/terraform-provider-google, title: "Terraform Google provider releases", vendor: HashiCorp, products: [terraform-provider-google], seen: "v8.6.0 on 2026-10-06", summary: "Release notes for the Terraform Google Cloud provider."}
+  - {gh: hashicorp/terraform-provider-azurerm, title: "Terraform AzureRM provider releases", vendor: HashiCorp, products: [terraform-provider-azurerm], seen: "v5.9.0 on 2026-10-08", summary: "Release notes for the Terraform Azure Resource Manager provider."}
+  - id: aws-bedrock-doc-history-ref
+    title: "Amazon Bedrock documentation history (see provider changelogs)"
+    url: "https://docs.aws.amazon.com/bedrock/latest/userguide/doc-history.html"
+    feed_format: html-diff
+    terms: vendor-docs
+    poll: changelog
+    verification: search-result
+    summary: "Cross-reference for cloud teams: Bedrock's dated documentation history (new models, Converse API and batch inference changes). The RSS candidate and notes are on the aws-bedrock-document-history item in updates-ai-provider-changelogs."
+    vendor: Amazon Web Services
+    products: [Amazon Bedrock]
+    change_types: [model-release, release]

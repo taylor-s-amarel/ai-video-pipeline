@@ -1,0 +1,52 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "asset_pack",
+  "title": "/asset-pack",
+  "kind": "command",
+  "subkind": "workflow",
+  "version": "1.0.0",
+  "summary": "Slash command that turns a project idea into a validated, licence-checked media pack manifest, fetches direct assets and writes CREDITS.md.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "plan",
+    "build"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "opencode",
+    "baltor-harness"
+  ],
+  "entry": "command.md",
+  "tags": [
+    "assets",
+    "command",
+    "manifest"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "media_pack_fetcher"
+    },
+    {
+      "identity": "asset_licence_checker"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

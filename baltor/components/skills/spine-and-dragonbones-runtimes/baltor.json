@@ -1,0 +1,61 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "spine_and_dragonbones_runtimes",
+  "title": "Skeletal 2D animation runtimes (Spine licence vs DragonBones MIT)",
+  "kind": "skill",
+  "subkind": "media-source",
+  "version": "1.0.0",
+  "summary": "Choose between Spine (licensed runtimes), DragonBones (MIT) and Godot Skeleton2D for 2D character animation.",
+  "description": "Use before choosing a 2D skeletal animation format. Spine runtimes (including spine-godot) are source-available but need a Spine Editor licence; DragonBones runtimes are MIT; Godot's own Skeleton2D needs no runtime. Explains which to pick for redistributable projects and videos.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "notes": "Describes https://github.com/EsotericSoftware/spine-runtimes (checked 2026-10-10); contains no third-party media."
+  },
+  "step_kinds": [
+    "research",
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "licensing",
+    "spine",
+    "dragonbones",
+    "skeletal",
+    "2d-animation",
+    "godot"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "asset_source_profile"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

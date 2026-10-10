@@ -1,0 +1,8 @@
+{
+  "moves": [
+    { "shot_index": 0, "t_start_s": 0.0, "t_end_s": 4.8, "zoom_from": 1.0, "zoom_to": 1.118, "zoom_direction": "in", "zoom_rate_per_s": 0.0232, "camera_pan": "right", "content_motion_fw_per_s": [-0.0081, 0.0004], "start_crop": [0.0, 0.0, 1.0, 1.0], "end_crop": [0.0875, 0.0525, 0.8945, 0.8945], "progress_r2": 0.998, "rigid_share": 0.91, "residual": 1.2 },
+    { "shot_index": 2, "t_start_s": 9.6, "t_end_s": 14.1, "zoom_from": 1.0, "zoom_to": 0.912, "zoom_direction": "out", "zoom_rate_per_s": -0.0205, "camera_pan": "none", "content_motion_fw_per_s": [0.0003, -0.0002], "start_crop": [0.0, 0.0, 1.0, 1.0], "end_crop": [-0.0482, -0.0482, 1.0965, 1.0965], "progress_r2": 0.87, "rigid_share": 0.88, "residual": 1.6 }
+  ],
+  "shots_checked": 4,
+  "share_of_shots": 0.5
+}

@@ -5,7 +5,7 @@
   "kind": "command",
   "subkind": "prompt-template",
   "version": "1.0.0",
-  "summary": "Owner's copy-ready task template, verbatim: Inspect the existing rig and animation.",
+  "summary": "Owner's template \"Improve a dance cycle\": Inspect the existing rig and animation. Replace uniform whole-body bobbing with a readable sequence of anticipation, weight shift, planted step, lifted step, turn, accent, and recovery.",
   "description": "The owner's copy-ready task template \"Improve a dance cycle\" (Animation and Video Production Master Guide (10 Oct 2026)), with the template text unchanged and its inputs passed as $ARGUMENTS. Instructions for bounded work, not a guarantee: missing inputs are marked unresolved, never invented.",
   "domain": "video",
   "licence": "MIT",

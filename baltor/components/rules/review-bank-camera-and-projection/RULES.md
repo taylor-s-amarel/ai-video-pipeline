@@ -23,7 +23,7 @@ owner's exact text. `questions.json` holds the same 32 records in the `adversari
 
 - Severity: 32 medium.
 - Modes: 32 visual.
-- Need listening: 0 (none are listening-only).
+- Need listening: 0; listening-only (no visual or machine route): none.
 - Need a human audience: 0.
 - Only answerable at final encode or delivery: none.
 - Limited by style filter: `AVQ-009-008` (3d, cutout, educational), `AVQ-009-013` (3d, cutout, educational).

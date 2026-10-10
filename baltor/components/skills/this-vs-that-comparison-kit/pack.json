@@ -1,0 +1,271 @@
+{
+  "spec": "baltor.media-pack/v1",
+  "pack_id": "this-vs-that-comparison-kit",
+  "title": "This-vs-that comparison kit",
+  "purpose": "Use when making split-screen 'this vs that' or ranking shorts. Lists CC0 Kenney props, a game-icons versus icon (CC BY 3.0 credit), MIT check/cross icons, OFL heavy title fonts, Kenney Casino Audio for reveals, Kenney UI panels and Twemoji reaction stickers (CC-BY credit).",
+  "status": "manifest-only",
+  "created": "2026-10-10",
+  "verified_on": "2026-10-10",
+  "targets": [
+    "ffmpeg-video",
+    "godot-4"
+  ],
+  "frame": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "licence_policy": {
+    "allow_non_commercial": false,
+    "allow_share_alike": false,
+    "require_redistributable": false,
+    "notes": "Monetised-video policy: no NC or ND assets; credit every CC-BY asset in the description."
+  },
+  "credits_file": "CREDITS.md",
+  "notes": [
+    "Manifest only: no media files are included. Fetch direct assets with the media_pack_fetcher module; open manual-page sources in a browser and record sha256 after download."
+  ],
+  "assets": [
+    {
+      "id": "kenney-food-kit",
+      "title": "Food Kit",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/food-kit",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "Food Kit by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "comparison props"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "game-icons-crossed-swords",
+      "title": "Crossed swords icon",
+      "creator": "Lorc",
+      "source_url": "https://game-icons.net/about.html",
+      "download_url": "https://raw.githubusercontent.com/game-icons/icons/master/lorc/crossed-swords.svg",
+      "licence": "CC-BY-3.0",
+      "licence_url": "https://creativecommons.org/licenses/by/3.0/deed.en",
+      "attribution": "Icon by Lorc. Available on https://game-icons.net (CC BY 3.0)",
+      "attribution_required": true,
+      "redistribution": "allowed-with-licence",
+      "commercial_use": "allowed",
+      "format": "svg",
+      "file_name": "crossed-swords.svg",
+      "intended_use": [
+        "versus divider"
+      ],
+      "fetch": {
+        "method": "direct",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "video": {
+          "role": "icon"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "tabler-icons",
+      "title": "Tabler Icons",
+      "creator": "Tabler",
+      "source_url": "https://github.com/tabler/tabler-icons",
+      "licence": "MIT",
+      "licence_url": "https://github.com/tabler/tabler-icons",
+      "attribution": "Tabler Icons by Tabler (MIT)",
+      "attribution_required": false,
+      "redistribution": "allowed-with-licence",
+      "commercial_use": "allowed",
+      "format": "svg",
+      "intended_use": [
+        "tick and cross"
+      ],
+      "fetch": {
+        "method": "git",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "video": {
+          "role": "icon"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "fetched"
+      }
+    },
+    {
+      "id": "font-anton",
+      "title": "Anton",
+      "creator": "Vernon Adams",
+      "source_url": "https://fonts.google.com/specimen/Anton?preview.text=Bebas+Neue+Regular&preview.text_type=custom",
+      "licence": "OFL-1.1",
+      "licence_url": "https://github.com/google/fonts/tree/main/ofl/anton",
+      "attribution": "Font: Anton by Vernon Adams (SIL OFL 1.1)",
+      "attribution_required": false,
+      "redistribution": "allowed-with-licence",
+      "commercial_use": "allowed",
+      "format": "ttf",
+      "intended_use": [
+        "side labels"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "font"
+        },
+        "video": {
+          "role": "font"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "font-bebas-neue",
+      "title": "Bebas Neue",
+      "creator": "Ryoichi Tsunekawa",
+      "source_url": "https://fonts.google.com/specimen/Bebas%2BNeue",
+      "licence": "OFL-1.1",
+      "licence_url": "https://github.com/google/fonts/tree/main/ofl/bebasneue",
+      "attribution": "Font: Bebas Neue by Ryoichi Tsunekawa (SIL OFL 1.1)",
+      "attribution_required": false,
+      "redistribution": "allowed-with-licence",
+      "commercial_use": "allowed",
+      "format": "ttf",
+      "intended_use": [
+        "hook title"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "font"
+        },
+        "video": {
+          "role": "font"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "kenney-casino-audio",
+      "title": "Casino Audio",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/casino-audio",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "Casino Audio by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "reveal sounds"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "video": {
+          "role": "sfx"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "kenney-ui-pack",
+      "title": "UI Pack 2.0",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/ui-pack",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "UI Pack 2.0 by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "score panels"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "texture",
+          "preset": "ui-lossless"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "twemoji",
+      "title": "Twemoji graphics",
+      "creator": "Twemoji contributors",
+      "source_url": "https://github.com/jdecked/twemoji",
+      "licence": "CC-BY-4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/deed.en",
+      "attribution": "Emoji graphics: Twemoji, CC-BY 4.0",
+      "attribution_required": true,
+      "redistribution": "allowed-with-licence",
+      "commercial_use": "allowed",
+      "format": "svg",
+      "intended_use": [
+        "reaction stickers"
+      ],
+      "fetch": {
+        "method": "git",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "video": {
+          "role": "icon"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "fetched"
+      }
+    }
+  ]
+}

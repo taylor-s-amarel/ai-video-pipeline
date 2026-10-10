@@ -42,7 +42,7 @@ optionally the change that triggered this pass. If the artifact cannot be read, 
 
 ## Notes for this area
 
-- 15 question(s) involve a human audience (`AVQ-026-002`, `AVQ-026-004`, `AVQ-026-006`, `AVQ-026-007`, `AVQ-026-008`, `AVQ-026-009`, `AVQ-026-015`, `AVQ-026-021`, `AVQ-026-022`, `AVQ-026-023`, `AVQ-026-024`, `AVQ-026-026`, `AVQ-026-027`, `AVQ-026-028`, `AVQ-026-029`). Your own critique is not audience validation. Answer only the part you can observe in the artifact; record audience response as `blocked` unless real audience or owner feedback for this version is supplied.
+- **Human audience** (`AVQ-026-002`, `AVQ-026-004`, `AVQ-026-006`, `AVQ-026-007`, `AVQ-026-008`, `AVQ-026-009`, `AVQ-026-015`, `AVQ-026-021`, `AVQ-026-022`, `AVQ-026-023`, `AVQ-026-024`, `AVQ-026-026`, `AVQ-026-027`, `AVQ-026-028`, `AVQ-026-029`). Your own critique is not audience validation. Answer only the part you can observe in the artifact; record audience response as `blocked` unless real audience or owner feedback for this version is supplied.
 - Only answerable on the exact final encode or delivery: `AVQ-026-011`, `AVQ-026-025`, `AVQ-026-032`. During planning they stay `untested`.
 - Style-limited questions (candidate filter only): `AVQ-026-007` (live-action, 3d), `AVQ-026-008` (live-action), `AVQ-026-009` (live-action, screen-recording), `AVQ-026-013` (typographic), `AVQ-026-023` (live-action), `AVQ-026-024` (live-action), `AVQ-026-028` (screen-recording), `AVQ-026-029` (3d, stop-motion, live-action).
 - Named passes that include questions from this area: `default_32` (1), `factual_puzzle` (10), `final_delivery` (8).

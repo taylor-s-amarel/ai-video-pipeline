@@ -1,0 +1,7 @@
+title: OKLab/OKLCH palette tools
+summary: OKLab and OKLCH conversions (Ottosson 2020) with chroma-reducing gamut mapping, perceptually even tint/shade ramps, hue rotation and OKLab colour distance.
+subkind: palette
+domain: video
+tags: [video, colour, oklab, oklch, palette, design]
+step_kinds: [design, build]
+references: ["https://bottosson.github.io/posts/oklab/"]

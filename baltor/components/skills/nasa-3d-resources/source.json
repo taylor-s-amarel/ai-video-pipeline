@@ -1,0 +1,51 @@
+{
+  "spec": "baltor.asset-source/v1",
+  "source_id": "nasa-3d-resources",
+  "name": "NASA 3D Resources (spacecraft, rovers, suits)",
+  "homepage": "https://github.com/nasa/NASA-3D-Resources",
+  "licence_summary": "The repository README says the assets are free and without copyright and points to NASA's usage guidelines. Do not use NASA insignia or imply NASA endorsement; some models come from outside contributors.",
+  "licences": [
+    {
+      "id": "Public domain statement (NASA)",
+      "url": "https://github.com/nasa/NASA-3D-Resources",
+      "applies_to": "repository assets, with NASA usage guidelines"
+    }
+  ],
+  "attribution": {
+    "required": "optional",
+    "credit_template": "3D model: {title}, NASA 3D Resources (github.com/nasa/NASA-3D-Resources)"
+  },
+  "redistribution": "allowed",
+  "commercial_use": "allowed",
+  "ai_training": "unspecified",
+  "automated_download": "allowed",
+  "formats": [
+    "glb",
+    "blend",
+    "lwo",
+    "png"
+  ],
+  "search": [
+    {
+      "label": "3D Models folder",
+      "url": "https://github.com/nasa/NASA-3D-Resources/tree/master/3D%20Models"
+    },
+    {
+      "label": "Apollo Lunar Module",
+      "url": "https://github.com/nasa/NASA-3D-Resources/tree/master/3D%20Models/Apollo%20Lunar%20Module"
+    },
+    {
+      "label": "Astronaut",
+      "url": "https://github.com/nasa/NASA-3D-Resources/tree/master/3D%20Models/Astronaut"
+    }
+  ],
+  "cautions": [
+    "Do not use NASA logos/insignia or imply endorsement; follow NASA's media usage guidelines.",
+    "Several GLBs require KHR_draco_mesh_compression and use EXT_texture_webp (checked 2026-10-10 on the Apollo LM, Astronaut and Hubble files).",
+    "Units vary: the Astronaut GLB is about 74 units tall and Hubble (A) about 525 units; normalise before placing."
+  ],
+  "verified": {
+    "on": "2026-10-10",
+    "how": "mixed"
+  }
+}

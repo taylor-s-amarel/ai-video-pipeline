@@ -1,0 +1,221 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/asset-source-profile",
+  "title": "Asset source profile",
+  "description": "Machine-readable licence and access profile of one asset source (a site, repository or library), as checked on a date. Skills ship one as source.json so agents and the licence checker can reason about a source without re-reading its terms.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "spec",
+    "source_id",
+    "name",
+    "homepage",
+    "licence_summary",
+    "licences",
+    "attribution",
+    "redistribution",
+    "commercial_use",
+    "automated_download",
+    "verified"
+  ],
+  "properties": {
+    "spec": {
+      "const": "baltor.asset-source/v1"
+    },
+    "source_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{1,63}$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 2
+    },
+    "homepage": {
+      "type": "string",
+      "format": "uri"
+    },
+    "licence_summary": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 600
+    },
+    "licences": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "url"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "applies_to": {
+            "type": "string",
+            "maxLength": 200
+          }
+        }
+      }
+    },
+    "attribution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "required"
+      ],
+      "properties": {
+        "required": {
+          "enum": [
+            "never",
+            "optional",
+            "required",
+            "per-asset"
+          ]
+        },
+        "credit_template": {
+          "type": "string",
+          "maxLength": 300
+        }
+      }
+    },
+    "redistribution": {
+      "enum": [
+        "allowed",
+        "allowed-with-licence",
+        "project-only",
+        "forbidden",
+        "per-asset"
+      ]
+    },
+    "commercial_use": {
+      "enum": [
+        "allowed",
+        "non-commercial-only",
+        "per-asset",
+        "check-terms"
+      ]
+    },
+    "ai_training": {
+      "enum": [
+        "allowed",
+        "forbidden",
+        "unspecified",
+        "per-asset"
+      ]
+    },
+    "automated_download": {
+      "enum": [
+        "allowed",
+        "api-only",
+        "forbidden",
+        "unspecified"
+      ]
+    },
+    "formats": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "search": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "label",
+          "url"
+        ],
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    },
+    "api": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "auth": {
+          "enum": [
+            "none",
+            "key",
+            "account"
+          ]
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "cautions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 300
+      }
+    },
+    "verified": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "on",
+        "how"
+      ],
+      "properties": {
+        "on": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "how": {
+          "enum": [
+            "fetched",
+            "search-result",
+            "mixed"
+          ]
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "attribution": {
+            "properties": {
+              "required": {
+                "const": "required"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "attribution": {
+            "required": [
+              "required",
+              "credit_template"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

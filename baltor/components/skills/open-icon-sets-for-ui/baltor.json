@@ -1,0 +1,62 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "open_icon_sets_for_ui",
+  "title": "Open UI icon sets (Lucide, Tabler, Phosphor, Material Symbols, Font Awesome Free)",
+  "kind": "skill",
+  "subkind": "media-source",
+  "version": "1.0.0",
+  "summary": "Pick an open UI icon set by licence, fetch SVGs, and keep the right notices (none on screen for ISC/MIT/Apache, credit for Font Awesome).",
+  "description": "Use when captions, lower thirds, explainer diagrams or Godot UI need clean interface icons. Lucide (ISC), Tabler (MIT), Phosphor (MIT) and Material Symbols (Apache-2.0) need no on-screen credit; Font Awesome Free icons are CC BY 4.0. Covers choosing a set, fetching SVGs and keeping notices.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "notes": "Describes https://github.com/iconify/icon-sets (checked 2026-10-10); contains no third-party media."
+  },
+  "step_kinds": [
+    "research",
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "licensing",
+    "icons",
+    "svg",
+    "ui",
+    "mit",
+    "isc",
+    "apache"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "asset_source_profile"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

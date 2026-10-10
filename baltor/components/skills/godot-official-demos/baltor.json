@@ -1,0 +1,61 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "godot_official_demos",
+  "title": "Godot official demo projects and TPS demo",
+  "kind": "skill",
+  "subkind": "media-source",
+  "version": "1.0.0",
+  "summary": "Reuse Godot's MIT demo projects for mechanics while keeping each demo's bundled art and music credits.",
+  "description": "Use when you need a working Godot 4 reference for a mechanic (2D/3D platformer, isometric sorting, AStarGrid2D navigation, voxel terrain, RPG dialogue) to copy into a short's scene. Demo code is MIT; some demos bundle CC-BY/CC-BY-SA art and music credited in their READMEs.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "notes": "Describes https://github.com/godotengine/godot-demo-projects (checked 2026-10-10); contains no third-party media."
+  },
+  "step_kinds": [
+    "research",
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "licensing",
+    "godot",
+    "demos",
+    "mit",
+    "templates",
+    "reference"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "asset_source_profile"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

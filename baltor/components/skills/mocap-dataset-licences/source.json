@@ -1,0 +1,59 @@
+{
+  "spec": "baltor.asset-source/v1",
+  "source_id": "mocap-dataset-licences",
+  "name": "Motion-capture datasets and their licences (CC0 alternatives first)",
+  "homepage": "https://github.com/BandaiNamcoResearchInc/Bandai-Namco-Research-Motiondataset",
+  "licence_summary": "Bandai Namco Research Motion Dataset: CC BY-NC 4.0 per its README (press reports say BY-NC-ND). The 4TU FBX conversion of CMU mocap is labelled CC BY-NC 4.0. Quaternius Universal Animation Library is CC0.",
+  "licences": [
+    {
+      "id": "CC-BY-NC-4.0",
+      "url": "https://github.com/BandaiNamcoResearchInc/Bandai-Namco-Research-Motiondataset",
+      "applies_to": "Bandai Namco BVH datasets"
+    },
+    {
+      "id": "CC-BY-NC-4.0",
+      "url": "https://data.4tu.nl/datasets/0448aab2-3332-449f-a8e2-d208cb58c7df",
+      "applies_to": "4TU FBX conversion of CMU mocap"
+    },
+    {
+      "id": "CC0-1.0",
+      "url": "https://quaternius.com/packs/universalanimationlibrary.html",
+      "applies_to": "Quaternius Universal Animation Library"
+    }
+  ],
+  "attribution": {
+    "required": "per-asset",
+    "credit_template": "Motion data: {dataset} ({licence})"
+  },
+  "redistribution": "per-asset",
+  "commercial_use": "per-asset",
+  "ai_training": "per-asset",
+  "automated_download": "allowed",
+  "formats": [
+    "bvh",
+    "fbx",
+    "glb"
+  ],
+  "search": [
+    {
+      "label": "Bandai Namco motion dataset",
+      "url": "https://github.com/BandaiNamcoResearchInc/Bandai-Namco-Research-Motiondataset"
+    },
+    {
+      "label": "CMU mocap FBX conversion (4TU)",
+      "url": "https://data.4tu.nl/datasets/0448aab2-3332-449f-a8e2-d208cb58c7df"
+    },
+    {
+      "label": "Quaternius Universal Animation Library (CC0)",
+      "url": "https://quaternius.com/packs/universalanimationlibrary.html"
+    }
+  ],
+  "cautions": [
+    "Non-commercial datasets cannot appear in monetised shorts.",
+    "Read each dataset's LICENSE file; converters can add their own terms."
+  ],
+  "verified": {
+    "on": "2026-10-10",
+    "how": "mixed"
+  }
+}

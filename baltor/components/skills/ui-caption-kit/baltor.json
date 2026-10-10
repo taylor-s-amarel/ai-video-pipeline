@@ -1,0 +1,68 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "ui_caption_kit",
+  "title": "UI and caption kit (fonts, panels, icons, pops)",
+  "kind": "skill",
+  "subkind": "rights-manifest",
+  "version": "1.0.0",
+  "summary": "Media pack manifest for caption and title styling - OFL title/caption fonts, CC0 UI panels and particles, MIT/ISC icons, CC-BY emoji and CC0 pop sounds.",
+  "description": "Use when styling hook titles, one-line captions, FACT labels, lower thirds and reaction stickers for 1080x1920 shorts or Godot UI. Lists OFL fonts (Bebas Neue, Anton, Montserrat, Inter), Kenney UI Pack, Lucide/Tabler icons, Twemoji (credit) and Kenney Interface Sounds.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "plan",
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "media-pack",
+    "manifest",
+    "captions",
+    "ui",
+    "fonts",
+    "icons",
+    "shorts"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "media_pack_fetcher"
+    },
+    {
+      "identity": "asset_licence_checker"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits",
+    "parameters": {
+      "assets": 10,
+      "status": "manifest-only"
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

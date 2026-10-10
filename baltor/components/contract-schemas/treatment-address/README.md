@@ -3,6 +3,7 @@
 Source: Animation and Video Production Master Guide (v1.1, 10 October 2026), Appendix C (`docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#exact-2400-treatment-address-map`).
 
 There are 240 underlying premises, 120 learning and 120 fiction, and 2,400 addressable candidate treatments. There were zero independently written complete treatment scripts, zero catalogue recipe renders and zero audience studies in that catalogue. Factual checkability is not factual verification. Lexically distinct ideas are not proven novel against all historical work. Select one premise for a concrete viewer task, resolve its facts and rights, write an actual storyboard and test its risky action.
+
 The four representation approaches are below. Their original pipeline wording is a historical candidate status. Current installed/used evidence is in the main architecture and tool sections.
 
 The stable ID is `R-{story_id}-{format_id}-{approach_id}`. Each story receives exactly ten rows. The four groups below preserve every actual format/approach/intro/motion assignment without copying hundreds of thousands of words of repeated template prose. Join the story record with its format, approach, intro and motion records in this same file. A compatible combination is still not a screenplay.

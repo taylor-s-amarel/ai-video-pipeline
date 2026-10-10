@@ -23,9 +23,17 @@ dimension, check that the variant is original, propose IR fixes, and decide whet
 
 ## Steps
 
-1. Measure the variant with `video_re_evidence_bundle` using the same settings as the source run (record them).
-2. Lift the variant when `VARIANT_IR` is missing: run the analysts restricted to questions answerable from
-   evidence.json and recipes, the challenger and the lifter, exactly as for the source.
+1. Measure the variant with `video_re_evidence_bundle` using the same options as the source run (read them from the source's
+   `details/_run.json`): `python3 .baltor/lib/video-re-evidence-bundle/video_re_evidence_bundle.py VARIANT --out-dir $WORK/variant_evidence ...`.
+2. Lift the variant when `VARIANT_IR` is missing: run the challenger and lifter exactly as for the source, after
+   the analysts of every lens that feeds a scored dimension:
+   - timeline: `video-re-analyst-structure-beats`, `video-re-analyst-hook-first-seconds`, `video-re-analyst-retention-cta`
+   - cut rhythm: `video-re-analyst-pacing-cut-rhythm`, `video-re-analyst-transitions-effects`
+   - layers: `video-re-analyst-layers-compositing`, `video-re-analyst-background-system`, `video-re-analyst-shot-list-framing`, `video-re-analyst-color-grade`
+   - typography: `video-re-analyst-typography-captions`, `video-re-analyst-text-animation`
+   - motion: `video-re-analyst-camera-motion`, `video-re-analyst-text-animation`, `video-re-analyst-transitions-effects`, `video-re-analyst-characters-animation-style`
+   - audio: `video-re-analyst-narration-voice`, `video-re-analyst-music-sfx-mix`
+   - script pattern: `video-re-analyst-script-rhetoric`, `video-re-analyst-structure-beats`
 3. Score with `video_re_ir_diff_fidelity` (`.baltor/lib/video-re-ir-diff-fidelity/`, `--help` first) on `SOURCE_IR` and `VARIANT_IR`.
    Dimensions: timeline, cut rhythm, layers, typography, motion, audio, script pattern. When installed, the
    registry detectors `video_re_similarity_format_ir_distance`, `video_re_similarity_reuse_risk`, `video_re_similarity_shot_sequence_alignment`, `video_re_similarity_ssim_compare`, `video_re_similarity_color_histogram_compare`, `video_re_similarity_audio_fingerprint` add measured comparisons.

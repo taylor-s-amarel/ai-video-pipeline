@@ -1,0 +1,9 @@
+title: Font file finder
+summary: Lists installed fonts with family and style read by Pillow and resolves a family/style request to a file through a fallback chain, using fc-match when available.
+subkind: typography
+domain: video
+tags: [video, fonts, typography, pillow, fontconfig]
+step_kinds: [build]
+effects:
+  filesystem: read
+  side_effects: ["walks font directories", "may run fc-match"]

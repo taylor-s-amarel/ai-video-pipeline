@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/video-re-contract-frame-rate-cadence",
+  "title": "Frame rate cadence payload",
+  "description": "Payload of video_re_detect_frame_rate_cadence.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["nominal_fps", "avg_fps", "effective_fps", "duplicate_ratio", "cadence", "hold_pattern", "vfr", "interval_ms", "active_share", "frames_analysed"],
+  "properties": {
+    "nominal_fps": { "type": ["number", "null"], "exclusiveMinimum": 0, "description": "container r_frame_rate" },
+    "avg_fps": { "type": ["number", "null"], "exclusiveMinimum": 0 },
+    "effective_fps": { "type": ["number", "null"], "exclusiveMinimum": 0, "description": "distinct images per second" },
+    "duplicate_ratio": { "type": ["number", "null"], "minimum": 0, "maximum": 1, "description": "share of active transitions that repeat the previous image" },
+    "cadence": { "type": "string", "pattern": "^(on-ones|on-twos|on-threes|on-fours|on-[0-9]+s|pattern|irregular|static)$" },
+    "hold_pattern": { "type": ["array", "null"], "items": { "type": "integer", "minimum": 1 }, "maxItems": 8, "description": "frames per image, e.g. [1,1,1,2] for 24 fps material in 30 fps" },
+    "vfr": { "type": "boolean" },
+    "interval_ms": {
+      "type": "object", "additionalProperties": false, "required": ["median", "min", "max", "cv"],
+      "properties": { "median": { "type": "number", "minimum": 0 }, "min": { "type": "number" }, "max": { "type": "number" }, "cv": { "type": "number", "minimum": 0 } }
+    },
+    "active_share": { "type": "number", "minimum": 0, "maximum": 1 },
+    "frames_analysed": { "type": "integer", "minimum": 1 }
+  }
+}

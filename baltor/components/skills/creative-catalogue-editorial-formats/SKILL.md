@@ -1,6 +1,6 @@
 ---
 name: "creative-catalogue-editorial-formats"
-description: "Use when choosing twenty editorial formats for a short animated or explainer film from the October 2026 creative catalogue. Twenty editorial formats (F01-F20) with structure, fit, gate, original proposed duration and the editorial treatment rules. Every row keeps its gate or check; these are proposals, not tested recipes."
+description: "Use when choosing the editorial structure of a short film (mechanism, prediction, fable, dilemma, dramatic irony, comedy chain and more). Twenty editorial formats (F01-F20) with structure, fit, gate, original proposed duration and the editorial treatment rules. From the October 2026 creative catalogue; every row keeps its gate or check, and these are proposals, not tested recipes."
 ---
 
 # Creative catalogue: twenty editorial formats

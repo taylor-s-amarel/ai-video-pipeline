@@ -5,7 +5,7 @@ description: "Use when choosing, developing or storyboarding catalogue premise E
 
 # EDU116 The Ratchet Refuses a Rewind
 
-**Catalogue family:** Learning, practical mechanisms (Appendix D, Learning practical mechanisms).  
+**Catalogue family:** Learning, practical mechanisms (Appendix D section "Learning practical mechanisms").  
 **Status:** idea. Not a completed script, not a rendered catalogue treatment, no audience study. Learning claims remain unverified until a claim-level check. Originality means authored for the catalogue, not an exhaustive prior-art search. The current story-first review may reject or substantially rewrite this premise.
 
 ## Premise (authored wording)
@@ -22,7 +22,7 @@ A toy counter wants to keep its last increment, but an ordinary wheel rolls back
 
 **Evidence class:** `requires_primary_source_review`. **Original format tags:** mechanism_cutaway, prediction_quiz, silent_visual, step_by_step, side_by_side.
 
-Factual checkability is not factual verification; the evidence class says what kind of check a claim would need, not that it was done.
+Factual checkability is not factual verification: the evidence class classifies how a claim could be checked; it does not record that any check was done.
 
 ## Beat structure as given
 

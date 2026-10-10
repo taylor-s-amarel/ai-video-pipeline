@@ -86,12 +86,13 @@ F11 scene scores to find dissolves and false cuts; F1 frames either side of doub
 ## IR paths this lens writes
 
 - `/audio/cuts_on_beat_ratio` (1)
-- `/audio/narration/pause_ms` (1)
+- `/audio/narration/speech_gap_ms` (1)
 - `/generation_rules/-` (23)
 - `/motion/camera_moves/-` (1)
 - `/motion/transitions/-` (3)
 - `/parameters/-` (1)
-- `/timeline/cut_rate_per_min` (2)
+- `/render_binding/mapping/measurement_precision/cut_detection` (1)
+- `/timeline/cut_rate_per_min` (1)
 - `/timeline/median_shot_s` (2)
 - `/timeline/retention_devices/-` (1)
 
@@ -269,7 +270,7 @@ F11 scene scores to find dissolves and false cuts; F1 frames either side of doub
 - Evidence required: evidence.shot_stats.median_s; evidence.audio.tempo_bpm
 - Challenge: If tempo_bpm is null or the music has no clear pulse (check A1), answer 'not determinable'.
 
-### pacing_cut_rhythm-020 · `distribution` → `/audio/narration/pause_ms`
+### pacing_cut_rhythm-020 · `distribution` → `/audio/narration/speech_gap_ms`
 
 **What are the median and maximum gaps between speech segments?**
 
@@ -359,12 +360,12 @@ F11 scene scores to find dissolves and false cuts; F1 frames either side of doub
 - Evidence required: F5; frames: F8
 - Challenge: Stills with no Ken Burns also show zero difference; a freeze must follow moving footage in the same shot.
 
-### pacing_cut_rhythm-030 · `number` → `/timeline/cut_rate_per_min`
+### pacing_cut_rhythm-030 · `ratio` → `/render_binding/mapping/measurement_precision/cut_detection`
 
-**After spot-checking 10 detected cuts for false positives (flashes, fast pans, text pops), what is the corrected cut rate per minute?**
+**Of 10 randomly sampled detected cuts, what share are real shot changes (shot-detector precision on this video)?**
 
 - Why it matters: Calibrates trust in shot_stats for this video.
-- How to answer: Pick 10 cuts at random from evidence.shots[]; inspect F8 at each; scale shot_stats.cut_rate_per_min by the share of real cuts. List the sampled cut times in the note.
+- How to answer: Pick 10 cuts at random from evidence.shots[]; inspect F8 at each and count real shot changes (not flashes, fast pans or text pops). Report the share and list the sampled cut times in the note; the challenger lowers pacing answers built on shot counts when it is below 0.9.
 - Evidence required: evidence.shots[]; frames: F8 at 10 cuts
 - Challenge: Report which cuts were sampled so the check can be repeated.
 
@@ -432,5 +433,5 @@ Read by the challenger's pre-pass script. The full bank with every field is `que
 
 <!-- machine-readable bank -->
 ```json
-[{"id": "pacing_cut_rhythm-001", "ir_path": "/timeline/median_shot_s", "answer_type": "seconds"}, {"id": "pacing_cut_rhythm-002", "ir_path": "/timeline/cut_rate_per_min", "answer_type": "number"}, {"id": "pacing_cut_rhythm-003", "ir_path": "/generation_rules/-", "answer_type": "object"}, {"id": "pacing_cut_rhythm-004", "ir_path": "/timeline/median_shot_s", "answer_type": "distribution"}, {"id": "pacing_cut_rhythm-005", "ir_path": "/generation_rules/-", "answer_type": "object"}, {"id": "pacing_cut_rhythm-006", "ir_path": "/audio/cuts_on_beat_ratio", "answer_type": "ratio"}, {"id": "pacing_cut_rhythm-007", "ir_path": "/generation_rules/-", "answer_type": "ratio"}, {"id": "pacing_cut_rhythm-008", "ir_path": "/generation_rules/-", "answer_type": "ratio"}, {"id": "pacing_cut_rhythm-009", "ir_path": "/generation_rules/-", "answer_type": "object"}, {"id": "pacing_cut_rhythm-010", "ir_path": "/motion/transitions/-", "answer_type": "object"}, {"id": "pacing_cut_rhythm-011", "ir_path": "/generation_rules/-", "answer_type": "object"}, {"id": "pacing_cut_rhythm-012", "ir_path": "/generation_rules/-", "answer_type": "object"}, {"id": "pacing_cut_rhythm-013", "ir_path": "/timeline/retention_devices/-", "answer_type": "number"}, {"id": "pacing_cut_rhythm-014", "ir_path": "/generation_rules/-", "answer_type": "seconds"}, {"id": "pacing_cut_rhythm-015", "ir_path": "/generation_rules/-", "answer_type": "ratio"}, {"id": "pacing_cut_rhythm-016", "ir_path": "/generation_rules/-", "answer_type": "enum", "choices": ["on-action", "on-stillness", "mixed", "not-applicable-stills"]}, {"id": "pacing_cut_rhythm-017", "ir_path": "/motion/transitions/-", "answer_type": "integer"}, {"id": "pacing_cut_rhythm-018", "ir_path": "/generation_rules/-", "answer_type": "number"}, {"id": "pacing_cut_rhythm-019", "ir_path": "/generation_rules/-", "answer_type": "number"}, {"id": "pacing_cut_rhythm-020", "ir_path": "/audio/narration/pause_ms", "answer_type": "distribution"}, {"id": "pacing_cut_rhythm-021", "ir_path": "/generation_rules/-", "answer_type": "boolean"}, {"id": "pacing_cut_rhythm-022", "ir_path": "/motion/transitions/-", "answer_type": "ratio"}, {"id": "pacing_cut_rhythm-023", "ir_path": "/generation_rules/-", "answer_type": "boolean"}, {"id": "pacing_cut_rhythm-024", "ir_path": "/generation_rules/-", "answer_type": "rule"}, {"id": "pacing_cut_rhythm-025", "ir_path": "/parameters/-", "answer_type": "parameter"}, {"id": "pacing_cut_rhythm-026", "ir_path": "/generation_rules/-", "answer_type": "ms"}, {"id": "pacing_cut_rhythm-027", "ir_path": "/generation_rules/-", "answer_type": "object"}, {"id": "pacing_cut_rhythm-028", "ir_path": "/generation_rules/-", "answer_type": "list"}, {"id": "pacing_cut_rhythm-029", "ir_path": "/motion/camera_moves/-", "answer_type": "timestamps"}, {"id": "pacing_cut_rhythm-030", "ir_path": "/timeline/cut_rate_per_min", "answer_type": "number"}, {"id": "pacing_cut_rhythm-031", "ir_path": "/generation_rules/-", "answer_type": "number"}, {"id": "pacing_cut_rhythm-032", "ir_path": "/generation_rules/-", "answer_type": "object"}, {"id": "pacing_cut_rhythm-033", "ir_path": "/generation_rules/-", "answer_type": "seconds"}, {"id": "pacing_cut_rhythm-034", "ir_path": "/generation_rules/-", "answer_type": "ratio"}, {"id": "pacing_cut_rhythm-035", "ir_path": "/generation_rules/-", "answer_type": "distribution"}]
+[{"id": "pacing_cut_rhythm-001", "ir_path": "/timeline/median_shot_s", "answer_type": "seconds"}, {"id": "pacing_cut_rhythm-002", "ir_path": "/timeline/cut_rate_per_min", "answer_type": "number"}, {"id": "pacing_cut_rhythm-003", "ir_path": "/generation_rules/-", "answer_type": "object"}, {"id": "pacing_cut_rhythm-004", "ir_path": "/timeline/median_shot_s", "answer_type": "distribution"}, {"id": "pacing_cut_rhythm-005", "ir_path": "/generation_rules/-", "answer_type": "object"}, {"id": "pacing_cut_rhythm-006", "ir_path": "/audio/cuts_on_beat_ratio", "answer_type": "ratio"}, {"id": "pacing_cut_rhythm-007", "ir_path": "/generation_rules/-", "answer_type": "ratio"}, {"id": "pacing_cut_rhythm-008", "ir_path": "/generation_rules/-", "answer_type": "ratio"}, {"id": "pacing_cut_rhythm-009", "ir_path": "/generation_rules/-", "answer_type": "object"}, {"id": "pacing_cut_rhythm-010", "ir_path": "/motion/transitions/-", "answer_type": "object"}, {"id": "pacing_cut_rhythm-011", "ir_path": "/generation_rules/-", "answer_type": "object"}, {"id": "pacing_cut_rhythm-012", "ir_path": "/generation_rules/-", "answer_type": "object"}, {"id": "pacing_cut_rhythm-013", "ir_path": "/timeline/retention_devices/-", "answer_type": "number"}, {"id": "pacing_cut_rhythm-014", "ir_path": "/generation_rules/-", "answer_type": "seconds"}, {"id": "pacing_cut_rhythm-015", "ir_path": "/generation_rules/-", "answer_type": "ratio"}, {"id": "pacing_cut_rhythm-016", "ir_path": "/generation_rules/-", "answer_type": "enum", "choices": ["on-action", "on-stillness", "mixed", "not-applicable-stills"]}, {"id": "pacing_cut_rhythm-017", "ir_path": "/motion/transitions/-", "answer_type": "integer"}, {"id": "pacing_cut_rhythm-018", "ir_path": "/generation_rules/-", "answer_type": "number"}, {"id": "pacing_cut_rhythm-019", "ir_path": "/generation_rules/-", "answer_type": "number"}, {"id": "pacing_cut_rhythm-020", "ir_path": "/audio/narration/speech_gap_ms", "answer_type": "distribution"}, {"id": "pacing_cut_rhythm-021", "ir_path": "/generation_rules/-", "answer_type": "boolean"}, {"id": "pacing_cut_rhythm-022", "ir_path": "/motion/transitions/-", "answer_type": "ratio"}, {"id": "pacing_cut_rhythm-023", "ir_path": "/generation_rules/-", "answer_type": "boolean"}, {"id": "pacing_cut_rhythm-024", "ir_path": "/generation_rules/-", "answer_type": "rule"}, {"id": "pacing_cut_rhythm-025", "ir_path": "/parameters/-", "answer_type": "parameter"}, {"id": "pacing_cut_rhythm-026", "ir_path": "/generation_rules/-", "answer_type": "ms"}, {"id": "pacing_cut_rhythm-027", "ir_path": "/generation_rules/-", "answer_type": "object"}, {"id": "pacing_cut_rhythm-028", "ir_path": "/generation_rules/-", "answer_type": "list"}, {"id": "pacing_cut_rhythm-029", "ir_path": "/motion/camera_moves/-", "answer_type": "timestamps"}, {"id": "pacing_cut_rhythm-030", "ir_path": "/render_binding/mapping/measurement_precision/cut_detection", "answer_type": "ratio"}, {"id": "pacing_cut_rhythm-031", "ir_path": "/generation_rules/-", "answer_type": "number"}, {"id": "pacing_cut_rhythm-032", "ir_path": "/generation_rules/-", "answer_type": "object"}, {"id": "pacing_cut_rhythm-033", "ir_path": "/generation_rules/-", "answer_type": "seconds"}, {"id": "pacing_cut_rhythm-034", "ir_path": "/generation_rules/-", "answer_type": "ratio"}, {"id": "pacing_cut_rhythm-035", "ir_path": "/generation_rules/-", "answer_type": "distribution"}]
 ```

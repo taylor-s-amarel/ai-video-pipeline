@@ -1,0 +1,61 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "makehuman_characters",
+  "title": "MakeHuman characters (CC0 exports)",
+  "kind": "skill",
+  "subkind": "media-source",
+  "version": "1.0.0",
+  "summary": "Generate CC0 human base meshes with MakeHuman, track any third-party clothes/hair licences, and import into Blender and Godot 4.",
+  "description": "Use when a realistic or semi-realistic human base mesh is needed. MakeHuman's code is AGPL but its bundled assets and exports from official builds (1.2.0+) are CC0; third-party community assets keep their own licences. Covers export settings, Blender and Godot import, and licence evidence.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "notes": "Describes https://static.makehumancommunity.org/about/license.html (checked 2026-10-10); contains no third-party media."
+  },
+  "step_kinds": [
+    "research",
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "licensing",
+    "makehuman",
+    "characters",
+    "cc0",
+    "humans",
+    "blender"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "asset_source_profile"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

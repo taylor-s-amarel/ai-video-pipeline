@@ -1,0 +1,61 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "ambientcg_materials",
+  "title": "ambientCG PBR materials and HDRIs (CC0, API v2/v3)",
+  "kind": "skill",
+  "subkind": "media-source",
+  "version": "1.0.0",
+  "summary": "Search ambientCG CC0 materials by API or site, download the right map set and build Godot 4 and Blender materials.",
+  "description": "Use when a Blender or Godot scene needs CC0 PBR materials (ground, wood, brick, metal ...) or HDRIs from ambientCG, by hand or through its JSON API. Covers the licence, the frozen v2 versus current v3 API, map naming, and Godot/Blender material setup.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "notes": "Describes https://ambientcg.com/ (checked 2026-10-10); contains no third-party media."
+  },
+  "step_kinds": [
+    "research",
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "licensing",
+    "ambientcg",
+    "cc0",
+    "pbr",
+    "materials",
+    "api"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "asset_source_profile"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

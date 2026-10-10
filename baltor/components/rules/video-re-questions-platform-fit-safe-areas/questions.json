@@ -209,7 +209,7 @@
       "evidence_required": [
         "evidence.audio.integrated_lufs"
       ],
-      "ir_path": "/audio/integrated_lufs",
+      "ir_path": "/render_binding/mapping/loudness_target_delta_lu",
       "answer_type": "number",
       "challenge": "Do not assert a platform's target from memory; cite or omit."
     },
@@ -406,7 +406,7 @@
         "A7",
         "frames: F3"
       ],
-      "ir_path": "/source/platform",
+      "ir_path": "/render_binding/mapping/source_is_reencode",
       "answer_type": "enum",
       "choices": [
         "likely-original-export",

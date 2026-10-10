@@ -1,0 +1,63 @@
+{
+  "spec": "baltor.asset-source/v1",
+  "source_id": "poly-haven-assets",
+  "name": "Poly Haven HDRIs, textures and models (CC0, with API)",
+  "homepage": "https://polyhaven.com/",
+  "licence_summary": "All Poly Haven assets are CC0. You may not claim to be the original author or re-license them as your own. The API is free for everyone including commercial use; Poly Haven asks API users to make clear to their users that the assets come from Poly Haven.",
+  "licences": [
+    {
+      "id": "CC0-1.0",
+      "url": "https://docs.polyhaven.com/en/faq",
+      "applies_to": "all HDRIs, textures and models"
+    }
+  ],
+  "attribution": {
+    "required": "optional",
+    "credit_template": "HDRI/texture: {title} from Poly Haven (polyhaven.com), CC0"
+  },
+  "redistribution": "allowed",
+  "commercial_use": "allowed",
+  "ai_training": "allowed",
+  "automated_download": "api-only",
+  "formats": [
+    "hdr",
+    "exr",
+    "jpg",
+    "png",
+    "glb",
+    "gltf",
+    "blend",
+    "fbx"
+  ],
+  "search": [
+    {
+      "label": "HDRIs",
+      "url": "https://polyhaven.com/hdris"
+    },
+    {
+      "label": "Textures",
+      "url": "https://polyhaven.com/textures"
+    },
+    {
+      "label": "Models",
+      "url": "https://polyhaven.com/models"
+    },
+    {
+      "label": "Sunrise/sunset HDRIs",
+      "url": "https://polyhaven.com/hdris/sunrise-sunset"
+    }
+  ],
+  "cautions": [
+    "CC0 does not clear trademarks or recognisable private places in scans.",
+    "Download only what the project uses; bulk mirroring wastes donated bandwidth."
+  ],
+  "verified": {
+    "on": "2026-10-10",
+    "how": "mixed"
+  },
+  "api": {
+    "url": "https://polyhaven.com/our-api",
+    "auth": "none",
+    "notes": "Lists assets with categories, tags, authors, download URLs, hashes and sizes; e.g. api.polyhaven.com/assets?type=hdris."
+  }
+}

@@ -5,7 +5,7 @@
   "kind": "command",
   "subkind": "prompt-template",
   "version": "1.0.0",
-  "summary": "Owner's copy-ready task template, verbatim: Implement the agreed layer manifest with at least twenty meaningful independently controllable visual roles appropriate to the scene.",
+  "summary": "Owner's template \"Build the twenty-plus-layer composition\": Implement the agreed layer manifest with at least twenty meaningful independently controllable visual roles appropriate to the scene.",
   "description": "The owner's copy-ready task template \"Build the twenty-plus-layer composition\" (Animation and Video Production Master Guide (10 Oct 2026)), with the template text unchanged and its inputs passed as $ARGUMENTS. Instructions for bounded work, not a guarantee: missing inputs are marked unresolved, never invented.",
   "domain": "video",
   "licence": "MIT",

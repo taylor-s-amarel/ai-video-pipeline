@@ -1,0 +1,17 @@
+title: SLO error budgets and burn-rate alert rules
+summary: Error-budget arithmetic (allowed downtime, burn rate, budget consumed) and generation of Prometheus multiwindow multi-burn-rate recording and alert rules (14.4x/1h, 6x/6h, 1x/3d).
+subkind: slo
+tags: [slo, sli, error-budget, burn-rate, prometheus, alerting, sre]
+step_kinds: [plan, build, measure, operate]
+effects: {filesystem: none, executes: python}
+description: >-
+  Implements the alerting approach from the Google SRE Workbook chapter "Alerting on SLOs" (starting policy for a
+  30-day window: page at 14.4x over 1h with a 5m short window, page at 6x over 6h with 30m, ticket at 1x over 3d
+  with 6h). allowed_downtime(), burn_rate(), budget_status(), threshold_for_budget() and evaluate() are plain
+  functions; prometheus_rules() emits a rule file with one recording rule per window and one alert per policy row
+  (labels slo/severity/long_window, summary, description, optional runbook_url). Adjust windows for backends that
+  cap lookback (Google Cloud Monitoring limits burn-rate lookback to 24h per secondary sources).
+examples:
+  - "python slo_burn_rate_alerts.py table --target 0.999"
+  - "python slo_burn_rate_alerts.py rules --name api --target 0.999 --errors '...[{w}]' --total '...[{w}]' > rules.yml && promtool check rules rules.yml"
+evidence_notes: pytest suite passes, including YAML structure of generated rules; promtool check of generated rules recorded separately when promtool was available.

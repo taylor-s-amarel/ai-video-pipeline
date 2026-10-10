@@ -1,0 +1,61 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "cc0_texture_sites",
+  "title": "Smaller CC0 texture libraries (cgbookcase, 3DTextures.me) and ShareTextures' limits",
+  "kind": "skill",
+  "subkind": "media-source",
+  "version": "1.0.0",
+  "summary": "Use cgbookcase and 3DTextures.me CC0 textures, and treat ShareTextures' custom licence (no automated downloads) correctly.",
+  "description": "Use when Poly Haven and ambientCG lack a material. cgbookcase and 3DTextures.me publish CC0 PBR textures; ShareTextures uses a custom CC0-based licence that forbids automated downloads and redistribution. Explains which to script, which to download by hand, and how to credit.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "notes": "Describes https://www.cgbookcase.com/ (checked 2026-10-10); contains no third-party media."
+  },
+  "step_kinds": [
+    "research",
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "licensing",
+    "textures",
+    "pbr",
+    "cc0",
+    "cgbookcase",
+    "sharetextures"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "asset_source_profile"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

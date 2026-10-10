@@ -1,0 +1,60 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "mocap_dataset_licences",
+  "title": "Motion-capture datasets and their licences (CC0 alternatives first)",
+  "kind": "skill",
+  "subkind": "media-source",
+  "version": "1.0.0",
+  "summary": "Choose motion data whose licence fits the use: CC0 Quaternius clips first, research mocap only for non-commercial work.",
+  "description": "Use before pulling motion capture into a short or a game. Many free mocap sets are research or non-commercial (Bandai Namco: CC BY-NC; a CMU FBX conversion: CC BY-NC), Mixamo forbids redistribution, and Quaternius offers CC0 humanoid clips. Explains choosing and recording them.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "notes": "Describes https://github.com/BandaiNamcoResearchInc/Bandai-Namco-Research-Motiondataset (checked 2026-10-10); contains no third-party media."
+  },
+  "step_kinds": [
+    "research",
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "licensing",
+    "mocap",
+    "bvh",
+    "animation",
+    "non-commercial"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "asset_source_profile"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

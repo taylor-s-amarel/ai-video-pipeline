@@ -1927,3 +1927,1188 @@ def look_spec_template(spec: dict, preset: dict, pid: str, tgt: dict) -> dict | 
         "music": {"title": "{{MUSIC_TITLE}}", "licence": "{{MUSIC_LICENCE}}", "gain_db": -18},
         "sources": [],
     }
+
+
+# --------------------------------------------------------------------------- SKILL.md templates
+
+KIT_NOTE = (f"The `{KIT}` code module has the maths used here (contrast, easing, springs, zoompan, xfade chains, "
+            f"grids, layer stacks, Pillow frosted panels). Place it with "
+            f"`python3 baltor/tools/baltor_catalog.py place {KIT} <step-dir>`; it lands in `.baltor/lib/{kebab(KIT)}/`.")
+KIT_IMPORT = f'sys.path.insert(0, ".baltor/lib/{kebab(KIT)}")  # where `place` puts the {KIT} module'
+
+
+def pct(x: float) -> str:
+    return f"{x * 100:.0f}%"
+
+
+def variant_line(preset: dict) -> str:
+    v = preset.get("variant")
+    if not v:
+        return ""
+    return f"> Variant of `{v['base']}`: {v['changed']}. Everything else matches the base preset.\n"
+
+
+def check_section(ptype: str) -> str:
+    return (f"## Check it\n\n```bash\npython3 scripts/check_preset.py   # schema, 0.98 opacity cap, contrast recomputed from the colours\n```\n\n"
+            f"`schema.json` is a copy of the `{SCHEMA_IDS[ptype]}` contract schema, so the check runs without the catalogue.")
+
+
+def margins_text(m: dict) -> str:
+    return f"top {pct(m['top'])}, bottom {pct(m['bottom'])}, left {pct(m['left'])}, right {pct(m['right'])}"
+
+
+def contrast_rows(contrast: dict) -> list[tuple]:
+    rows = []
+    for name, e in contrast.items():
+        if e["basis"] == "panel-worst-case":
+            basis = f"panel `{e['bg']}` at {pct(e['opacity'])}, worst case over any video"
+        elif e["basis"] == "stroke":
+            basis = f"outline `{e['bg']}` ({e.get('stroke_px', '?')} px)"
+        else:
+            basis = f"solid `{e['bg']}`"
+        need = f"{e['required']:g}:1" + (" (>= 24 px bold)" if e["required"] == 3.0 and "size_px" in e else
+                                         " (non-text graphic)" if "size_px" not in e else "")
+        rows.append((name, f"`{e['fg']}`", basis, f"{e['ratio']:.2f}:1", need))
+    return rows
+
+
+def font_fetch(font: dict) -> str:
+    fam = font["family"]
+    fdat = FONTS[fam]
+    local = f"fonts/{fdat['file']}"
+    static = static_font_file(fam, font["weight"])
+    lines = ["mkdir -p fonts", f'curl -L -o "{local}" "{fdat["file_url"]}"']
+    if fdat["variable_axes"]:
+        pins = [f"wght={font['weight']}"]
+        if "wdth" in fdat["variable_axes"]:
+            pins.append("wdth=100")
+        lines += ["pip install fonttools   # one-off: make a static weight for ffmpeg drawtext",
+                  f'python3 -m fontTools.varLib.instancer "{local}" {" ".join(pins)} -o fonts/{static}']
+    return "\n".join(lines)
+
+
+def ffmpeg_color(hex_: str, alpha: float | None = None) -> str:
+    return f"0x{hex_[1:]}" + (f"@{alpha:g}" if alpha is not None else "")
+
+
+def frosted_line_cmd(preset: dict, text: str, t0: float, t1: float, kind: str) -> str:
+    """Tested ffmpeg graph: frosted panel + one drawtext line over in.mp4 between t0 and t1."""
+    tgt = preset["target"]
+    W, H = tgt["width"], tgt["height"]
+    font = preset["font"]
+    size = font["size_px"]
+    b = preset["backing"]
+    sw = preset["stroke"]["width_px"]
+    pad_y, pad_x = b.get("padding_px", [0, 0])
+    est_w = int(len(text) * font["avg_char_em"] * size + 2 * pad_x + 2 * sw)
+    lay = preset.get("layout") or preset.get("position")
+    max_w = int(lay["max_width_fraction"] * W)
+    bw = even(min(max(est_w, 200), max_w if not b.get("full_width") else W))
+    bh = even(size * 1.3 + 2 * pad_y + 2 * sw)
+    cy = int(lay["center_y_fraction"] * H)
+    bx = even((W - bw) / 2) if not b.get("full_width") else 0
+    by = even(cy - bh / 2)
+    fontfile = f"fonts/{static_font_file(font['family'], font['weight'])}"
+    draw = (f"drawtext=fontfile={fontfile}:text='{text}':fontsize={size}:fontcolor={ffmpeg_color(preset['fill'])}"
+            + (f":borderw={sw}:bordercolor={ffmpeg_color(preset['stroke']['color'])}" if sw else "")
+            + f":x=(w-text_w)/2:y={cy}-text_h/2:enable='between(t,{t0:g},{t1:g})'")
+    if b["type"] == "none":
+        return f"[0:v]{draw}[v]"
+    blur = max(b.get("blur_px", 0), 0.5) if b["type"] == "frosted-glass" else 0
+    mask = kit._feather_mask_expr(b.get("feather_px", 0), min(b.get("radius_px", 0), bh // 2), 0.98)
+    blur_f = f"gblur=sigma={blur:g}," if blur else ""
+    return (f"[0:v]split=2[base][src];"
+            f"[src]crop={bw}:{bh}:{bx}:{by},{blur_f}drawbox=x=0:y=0:w=iw:h=ih:color={ffmpeg_color(b['tint'], b['opacity'])}:t=fill,"
+            f"format=yuva420p[glass];"
+            f"color=c=black:s={bw}x{bh}:r={FPS}:d=1,trim=end_frame=1,format=gray,geq=lum='{mask}',"
+            f"loop=loop=-1:size=1:start=0,setpts=N/({FPS}*TB)[mask];"
+            f"[glass][mask]alphamerge[panel];"
+            f"[base][panel]overlay={bx}:{by}:shortest=1:enable='between(t,{t0:g},{t1:g})',{draw}[v]")
+
+
+def skill_caption(p: dict) -> tuple[str, dict]:
+    t, f, b, lay, em = p["target"], p["font"], p["backing"], p["layout"], p["emphasis"]
+    W, H = t["width"], t["height"]
+    rows = [("Font", f"{f['family']} {f['weight']}, {f['size_px']} px (shrink to {f['min_size_px']} px before wrapping), {f['case']}"),
+            ("Fill", f"`{p['fill']}`")]
+    if b["type"] == "none":
+        rows.append(("Backing", "none; the outline carries the contrast"))
+    else:
+        desc = {"frosted-glass": "frosted glass", "solid": "solid panel", "pill": "pill", "scrim": "soft scrim", "sticker": "sticker card"}[b["type"]]
+        extra = [f"tint `{b['tint']}` at {pct(b['opacity'])}"]
+        if b.get("blur_px"):
+            extra.append(f"blur sigma {b['blur_px']} px")
+        if "radius_px" in b:
+            extra.append(f"radius {b['radius_px']} px")
+        if "padding_px" in b:
+            extra.append(f"padding {b['padding_px'][0]}/{b['padding_px'][1]} px")
+        if b.get("feather_px"):
+            extra.append(f"feather {b['feather_px']} px")
+        if b.get("rotation_deg"):
+            extra.append(f"rotated {b['rotation_deg']} deg")
+        if b.get("full_width"):
+            extra.append("full width")
+        rows.append(("Backing", f"{desc}: " + ", ".join(extra)))
+    rows.append(("Outline", f"{p['stroke']['width_px']} px `{p['stroke']['color']}`" if p["stroke"]["width_px"] else "none"))
+    if p.get("shadow"):
+        sh = p["shadow"]
+        rows.append(("Shadow/glow", f"`{sh['color']}` at {pct(sh['opacity'])}, blur {sh['blur_px']} px, offset {sh['offset_px']}"))
+    rows.append(("Position", f"centre at {pct(lay['center_y_fraction'])} of the height, max width {pct(lay['max_width_fraction'])}, aligned {lay['align']}"))
+    rows.append(("Safe area", margins_text(t["safe_margins"])))
+    rows.append(("Lines", f"{lay['max_lines']} line(s), at most {lay['max_words']} words and about {lay['max_chars']} characters per line"))
+    if em["mode"] != "none":
+        e = f"{em['mode']}: colour `{em.get('color')}`"
+        if em.get("scale_peak", 1) > 1:
+            e += f", scale to {em['scale_peak']}x and back over {em['duration_ms']} ms ({em['easing']})"
+        if em.get("text_color"):
+            e += f", text `{em['text_color']}` in a {pct(em['box_opacity'])} box"
+        rows.append(("Keyword", e))
+    tm = p["timing"]
+    rows.append(("Timing", f"within {tm['sync_tolerance_ms']} ms of the spoken word; on screen {tm.get('min_on_screen_ms', '?')}-{tm.get('max_on_screen_ms', '?')} ms"))
+    rows.append(("Entry", f"`{p['animation_in']}`" + (f"; keyword `{p['keyword_animation']}`" if p.get("keyword_animation") else "")))
+    sample = "One synced line at a time" if lay["max_words"] >= 6 else "Big bold words" if lay["max_words"] >= 3 else "WOW"
+    if f["case"] == "upper":
+        sample = sample.upper()
+    graph = frosted_line_cmd(p, sample, 0.5, 2.5, "caption")
+    body = f"""
+# {p['name']}
+
+{variant_line(p)}Caption style for {t['label']} ({W}x{H}). Palette `{p['palette']}`.{(' ' + p['notes']) if p.get('notes') else ''}
+
+## When to use
+{bullets(p['use_when'])}
+
+## Avoid when
+{bullets(p['avoid_when'])}
+{(chr(10) + '**House rules:** no ' + ', no '.join(p['forbid']) + '.' + chr(10)) if p.get('forbid') else ''}
+## Parameters
+
+{md_table(rows, ('Parameter', 'Value'))}
+
+All numbers are in `preset.json`. Sizes are pixels at {W}x{H}.
+
+## Contrast (WCAG 2.x, computed)
+
+{md_table(contrast_rows(p['contrast']), ('Pair', 'Text', 'Against', 'Ratio', 'Needs'))}
+
+Panel ratios are worst cases: the panel colour is computed over pure black and pure white video, so no
+frame underneath can make the text less readable than this. Thresholds: 4.5:1, or 3:1 only for text that
+is at least 24 px and weight 700 (stricter than WCAG's large-text rule). See {WCAG_URL}.
+
+## Render it
+
+### 1. Fonts ({f['licence']})
+
+```bash
+{font_fetch(f)}
+```
+
+### 2. One static line with ffmpeg
+
+Draws the {('panel and ' if b['type'] != 'none' else '')}line from 0.5 s to 2.5 s over `in.mp4` ({W}x{H}). Replace the text and times
+per caption (one `enable` window per line), or generate the graph per line from `preset.json`.
+
+```bash
+ffmpeg -y -i in.mp4 -filter_complex "{graph}" \\
+  -map "[v]" -map "0:a?" -c:a copy -c:v libx264 -crf 18 -pix_fmt yuv420p captioned.mp4
+```
+
+### 3. Per-word effects with Pillow
+
+ffmpeg's drawtext cannot pop one word inside a line. Render those frames with Pillow:
+
+```python
+import json, sys
+from PIL import Image
+{KIT_IMPORT}
+import style_kit as kit
+
+style = json.load(open("preset.json"))
+frame = Image.open("frame.png").convert("RGB")          # a {W}x{H} frame from your video
+words = "{sample}".split()
+out = kit.render_caption_preview(frame, words, style, keyword_index=1, t_ms=90,
+                                 font_path="fonts/{static_font_file(f['family'], f['weight'])}", margins=style["target"]["safe_margins"])
+out.save("caption_preview.png")
+```
+
+For a full video, extract frames (`ffmpeg -i in.mp4 frames/%06d.png`), draw each caption on the frames inside
+its time window with `t_ms` measured from the keyword's start, then encode
+(`ffmpeg -framerate {FPS} -i frames/%06d.png -i in.mp4 -map 0:v -map 1:a? -c:v libx264 -pix_fmt yuv420p out.mp4`).
+
+{KIT_NOTE}
+
+{check_section('caption-style')}
+
+## Sources
+- WCAG contrast minimum: {WCAG_URL}
+- Relative luminance definition: {LUM_URL}
+- ffmpeg filters (drawtext, gblur, alphamerge, overlay): {FFMPEG_DOCS}
+- Font licence: {f['licence_url']}
+"""
+    return body, {}
+
+
+def skill_title(p: dict) -> tuple[str, dict]:
+    t, f, b, pos, tx = p["target"], p["font"], p["backing"], p["position"], p["text"]
+    W, H = t["width"], t["height"]
+    rows = [("Font", f"{f['family']} {f['weight']}, {f['size_px']} px (down to {f['min_size_px']} px), {f['case']}"),
+            ("Fill", f"`{p['fill']}`"),
+            ("Outline", f"{p['stroke']['width_px']} px `{p['stroke']['color']}`" if p["stroke"]["width_px"] else "none")]
+    if b["type"] != "none":
+        rows.append(("Backing", f"{b['type']}: tint `{b['tint']}` at {pct(b['opacity'])}" + (f", blur sigma {b['blur_px']} px" if b.get('blur_px') else "")
+                     + (f", radius {b['radius_px']} px" if 'radius_px' in b else "") + (f", feather {b['feather_px']} px" if b.get('feather_px') else "")
+                     + (f", rotated {b['rotation_deg']} deg" if b.get('rotation_deg') else "")))
+    else:
+        rows.append(("Backing", "none; the outline carries the contrast"))
+    rows.append(("Position", f"{pos['region']}, centred at {pct(pos['center_y_fraction'])} of the height, over the {pos['over']}, max width {pct(pos['max_width_fraction'])}"))
+    if pos.get("never_move_photo"):
+        rows.append(("Photo", "never shrink or move the photo for the title; overlay it"))
+    rows.append(("Text", (f"template `{tx['template']}`, " if tx.get("template") else "") + f"{tx['min_words']}-{tx['max_words']} words, up to {tx['max_lines']} line(s), about {tx['max_chars_per_line']} characters per line"))
+    rows.append(("Timing", ("visible from frame 0" if p["timing"]["first_frame"] else "appears when its item starts") + f", hold {p['timing']['hold_s']} s"))
+    rows.append(("Entry", f"`{p['animation_in']}`"))
+    if p.get("secondary"):
+        s = p["secondary"]
+        rows.append(("Second line", f"{s['font']['family']} {s['font']['weight']}, {s['font'].get('size_px')} px, `{s['fill']}`: {s.get('content', '')}"))
+    sample = (tx.get("template") or "YOUR HOOK HERE").replace("{n}", "1").replace("{date}", "1 JAN")
+    sample = re.sub(r"[^A-Za-z0-9 #]", "", sample).strip() or "YOUR HOOK"
+    if f["case"] == "upper":
+        sample = sample.upper()
+    graph = frosted_line_cmd(p, sample, 0, p["timing"]["hold_s"], "title")
+    house = ""
+    if p.get("house"):
+        house = ("\n**House rules (checked):** fill `#FFD21F`, weight >= 700, centre no lower than 40% of the height, over the main "
+                 "photo, visible on the first frame, frosted backing at 55-75%. A hook is its own 2-7 word line, not the first caption.\n")
+    body = f"""
+# {p['name']}
+
+{variant_line(p)}Title style for {t['label']} ({W}x{H}). Palette `{p['palette']}`.{(' ' + p['notes']) if p.get('notes') else ''}
+{house}
+## When to use
+{bullets(p['use_when'])}
+
+## Avoid when
+{bullets(p['avoid_when'])}
+
+## Parameters
+
+{md_table(rows, ('Parameter', 'Value'))}
+
+## Contrast (WCAG 2.x, computed)
+
+{md_table(contrast_rows(p['contrast']), ('Pair', 'Text', 'Against', 'Ratio', 'Needs'))}
+
+Panel ratios are worst cases over any video underneath (panel colour computed over pure black and pure white).
+
+## Render it
+
+```bash
+{font_fetch(f)}
+ffmpeg -y -i in.mp4 -filter_complex "{graph}" \\
+  -map "[v]" -map "0:a?" -c:a copy -c:v libx264 -crf 18 -pix_fmt yuv420p titled.mp4
+```
+
+The graph blurs the region behind the title, tints it at the preset opacity, pastes it back through a
+rounded, feathered mask (98% at most, so nothing is fully opaque) and draws the line. For two lines,
+add a second `drawtext` with `y` moved by {int(f['size_px'] * 1.15)} px. For the entry animation, use the
+expressions in the `{p['animation_in']}` text-animation preset (drawtext `fontsize`/`alpha`) or render the
+title as RGBA frames with Pillow:
+
+```python
+import json, sys
+from PIL import Image, ImageDraw, ImageFont
+{KIT_IMPORT}
+import style_kit as kit
+
+st = json.load(open("preset.json"))
+frame = Image.open("first_frame.png").convert("RGB")
+font = ImageFont.truetype("fonts/{FONTS[f['family']]['file']}", st["font"]["size_px"])
+{'font.set_variation_by_axes([' + ', '.join(str(f['weight']) if ax == 'wght' else str(100.0) if ax == 'wdth' else str(FONTS[f['family']]['variable_axes'][ax][0]) for ax in FONTS[f['family']]['variable_axes']) + '])  # axis order as in the font' if FONTS[f['family']]['variable_axes'] else '# static font: no axes to set'}
+d = ImageDraw.Draw(frame)
+w = d.textlength("{sample}", font=font)
+x0 = int((frame.width - w) / 2) - {b.get('padding_px', [0, 0])[1]}
+y_c = int(st["position"]["center_y_fraction"] * frame.height)
+box = (x0, y_c - {int(f['size_px'] * 0.65 + b.get('padding_px', [0, 0])[0])}, frame.width - x0, y_c + {int(f['size_px'] * 0.65 + b.get('padding_px', [0, 0])[0])})
+{'frame = kit.frosted_panel(frame, box, st["backing"]["tint"], st["backing"]["opacity"], st["backing"].get("blur_px", 1), st["backing"].get("radius_px", 0), st["backing"].get("feather_px", 0))' if b['type'] != 'none' else '# no panel: the outline carries the contrast'}
+ImageDraw.Draw(frame).text((frame.width / 2, y_c), "{sample}", font=font, fill=st["fill"], anchor="mm",
+                           stroke_width=st["stroke"]["width_px"], stroke_fill=st["stroke"]["color"])
+frame.save("title_preview.png")
+```
+
+{KIT_NOTE}
+
+{check_section('title-style')}
+
+## Sources
+- WCAG contrast minimum: {WCAG_URL}
+- ffmpeg filters: {FFMPEG_DOCS}
+- Font licence: {f['licence_url']}
+"""
+    return body, {}
+
+
+def skill_palette(p: dict) -> tuple[str, dict]:
+    c = p["colors"]
+    sw = [(role, f"`{hexv}`") for role, hexv in c.items()]
+    pr = [(f"{x['fg_role']} `{x['fg']}`", f"{x['bg_role']} `{x['bg']}`" + (f" at {pct(x['opacity'])}" if 'opacity' in x else ''),
+           f"{x['ratio']:.2f}:1", x["use"]) for x in p["pairs"]]
+    src = f"\n- Palette source: {p['source']['name']}, {p['source']['url']}" if p.get("source") else ""
+    body = f"""
+# {p['name']}
+
+{p['notes']} Mode: {p['mode']}. Frosted panels use `{c['panel_tint']}` at {pct(p['panel_opacity'])}.
+
+## Colours
+
+{md_table(sw, ('Role', 'Hex'))}
+
+Gradient: `{p['gradient'][0]}` -> `{p['gradient'][1]}`. Five-stop ramp for recolouring procedural backgrounds:
+{', '.join(f'`{x}`' for x in p['ramp'])} (dark to light).
+
+## Text pairs that pass
+
+{md_table(pr, ('Text', 'On', 'Ratio', 'Use'))}
+
+`any-size` pairs reach 4.5:1. `large-bold-only` pairs reach 3:1 and may only be used for text that is at least
+24 px and weight 700. Ratios on `@panel` and `@card95` backgrounds are worst cases over any video underneath.
+{p['failed_pair_count']} candidate pair(s) fell below 3:1 and are deliberately not listed; do not use them for text.
+
+## Apply it
+
+- ffmpeg: `drawtext=...:fontcolor=0x{c['text'][1:]}` for captions, `fontcolor=0x{c['title'][1:]}` for titles;
+  frosted panels: `drawbox=...:color=0x{c['panel_tint'][1:]}@{p['panel_opacity']:g}:t=fill` over a blurred crop.
+- Pillow: `ImageDraw.text(..., fill="{c['text']}")`; `kit.frosted_panel(frame, box, "{c['panel_tint']}", {p['panel_opacity']:g})`.
+- Backgrounds: the `bg_layer_*_in_{p['id'][len('palette_'):]}` variants are the procedural backgrounds recoloured with this ramp.
+
+Recompute any pair yourself:
+
+```python
+import sys
+{KIT_IMPORT}
+import style_kit as kit
+print(kit.panel_contrast("{c['text']}", "{c['panel_tint']}", {p['panel_opacity']:g}))
+print(round(kit.contrast_ratio("{c['text']}", "{c['background']}"), 2))
+```
+
+{check_section('palette')}
+
+## Sources
+- WCAG contrast minimum: {WCAG_URL}
+- Relative luminance definition: {LUM_URL}{src}
+"""
+    return body, {}
+
+
+def skill_typography(p: dict) -> tuple[str, dict]:
+    t = p["target"]
+    slots = [("Display (hooks, labels)", p["display"]), ("Captions", p["text"])]
+    if p.get("numbers"):
+        slots.append(("Numbers", p["numbers"]))
+    rows = [(role, f"[{s['family']}]({s['specimen_url']})", s["weight"], s["licence"], f"[{s['file']}]({s['file_url']})",
+             f"{s['avg_char_em']:.3f} em") for role, s in slots]
+    sz = p["sizes"]
+    fetch = "\n".join(font_fetch({"family": s["family"], "weight": s["weight"]}) for _, s in slots)
+    fetch = "\n".join(dict.fromkeys(fetch.splitlines()))
+    disp = p["display"]
+    axes = FONTS[disp["family"]]["variable_axes"]
+    var_line = (f"font.set_variation_by_axes([{', '.join(str(disp['weight']) if a == 'wght' else '100.0' if a == 'wdth' else str(v[0]) for a, v in axes.items())}])  # axes: {', '.join(axes)}"
+                if axes else "# static font: nothing to set")
+    body = f"""
+# {p['name']}
+
+{variant_line(p)}{p['why']}
+
+Target frame: {t['label']} ({t['width']}x{t['height']}).
+
+## Fonts
+
+{md_table(rows, ('Role', 'Family', 'Weight', 'Licence', 'File', 'Average glyph width'))}
+
+All families come from the Google Fonts repository under the SIL Open Font License 1.1 or Apache 2.0, which allow
+use in videos and commercial work. If you redistribute the font files, include their licence; if you modify an
+OFL font and redistribute it, follow the licence's naming rules. Licence, family name and file were read from
+the repository on {TODAY}; average glyph widths were measured with Pillow on a sample sentence.
+
+## Sizes at {t['width']}x{t['height']}
+
+{md_table([('Hook title', f"{sz['title_px']} px, about {p['chars_per_line']['title']} characters per line"),
+           ('Captions', f"{sz['caption_px']} px (min {sz['min_caption_px']} px), about {p['chars_per_line']['caption']} characters per line"),
+           ('Labels (FACT N, STEP N)', f"{sz['label_px']} px"), ('Key numbers', f"{sz['number_px']} px")], ('Use', 'Size'))}
+
+Characters per line assume 88% of the frame width minus panel padding.
+
+## Install and use
+
+```bash
+{fetch}
+```
+
+```python
+from PIL import ImageFont
+font = ImageFont.truetype("fonts/{disp['file']}", {sz['title_px']})
+{var_line}
+```
+
+ffmpeg `drawtext` uses a variable font's default instance, so make a static weight first (the `fontTools`
+command above) and pass `fontfile=fonts/{static_font_file(disp['family'], disp['weight'])}`.
+
+{check_section('typography')}
+
+## Sources
+- Google Fonts repository (files and licences): https://github.com/google/fonts
+- Specimens: {disp['specimen_url']}
+"""
+    return body, {}
+
+
+def skill_background(p: dict, graph: str) -> tuple[str, dict]:
+    t, r, m = p["target"], p["render"], p["motion"]
+    W, H = t["width"], t["height"]
+    name = p["id"].replace("_", "-")
+    meas = ""
+    if "measured_mean_abs_frame_diff" in m:
+        meas = (f"Measured motion: mean absolute frame difference {m['measured_mean_abs_frame_diff']} on a 0-255 scale "
+                f"({m['class']}; {m['measured_on']}). The house rule asks for more than 0.6 across the background, "
+                + ("so this layer can carry the motion on its own." if m["measured_mean_abs_frame_diff"] >= 0.6 else
+                   "so pair this layer with a stronger moving layer."))
+    stops = ""
+    if r.get("colour_stops"):
+        stops = "\n\nColour stops (gray value -> colour): " + ", ".join(f"{s[0]} `{s[1]}`" for s in r["colour_stops"]) + "."
+    foot = ""
+    if p.get("footage"):
+        fo = p["footage"]
+        srows = [(s["name"], s["url"], s.get("terms_url", "see each item page"), s["note"]) for s in fo["sources"]]
+        foot = f"""
+## Use real footage instead
+
+This layer looks best with real footage. Search for: {', '.join(f'"{x}"' for x in fo['search_terms'])}; prefer {fo['prefer']}.
+
+{md_table(srows, ('Source', 'Site', 'Terms', 'Notes'))}
+
+- Accept: {'; '.join(fo['accepted_licences'])}.
+- Reject: {'; '.join(fo['rejected_licences'])}.
+- Record for every clip: {', '.join(fo['record'])}. Keep the clip outside this package and list it in your
+  project's rights manifest. "Fair use" is not a licence; do not rely on it for stock backgrounds.
+- Trim to a loop: `ffmpeg -ss 3 -i clip.mp4 -t 8 -vf "scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS}" -an -c:v libx264 -crf 18 -pix_fmt yuv420p {name}-footage.mp4`
+- Keep the procedural loop below as the fallback when no suitable licensed clip exists.
+"""
+    grid = ""
+    if p.get("grid"):
+        grid = f"\n\nThe four cells are {', '.join('`' + c + '`' for c in p['grid']['cells'])} laid out by `{p['grid']['preset']}`.\n"
+    body = f"""
+# {p['name']}
+
+{variant_line(p)}{p['look']} Category: {p['category']}; usual stack role: {p['role']}.{grid}
+
+## When to use
+{bullets(p['use_when'])}
+
+## Layer defaults
+
+{md_table([('Opacity', f"{p['default_opacity']} (house cap 0.98)"), ('Blend', p['default_blend']),
+           ('Motion', f"{m['type']}, seamless every {m['period_s']} s"), ('Size', f"{W}x{H} at {r['fps']} fps")], ('Setting', 'Value'))}
+
+{meas}
+
+## Render the loop (procedural, no downloads)
+
+```bash
+{render_cmd(f'{name}.mp4')}
+# stretch the loop under a full-length edit
+ffmpeg -y -stream_loop -1 -i {name}.mp4 -t 64 -c copy {name}-64s.mp4
+```
+
+`filtergraph.txt` builds the image with ffmpeg's `geq` (per-pixel expressions), `scroll`, `blend`, `displace`
+and a `lutrgb` gradient map, at reduced working resolution where the look is soft, then scales to {W}x{H}.
+Every time term repeats every {r['loop_period_s']} s and every scrolled texture moves a whole tile per loop,
+so the file loops without a seam. Tested with {r['tested_with']}.{stops}
+{foot}
+## Put it in a stack
+
+```bash
+# [base] is everything below this layer; ffmpeg's blend uses the first input as the base
+ffmpeg -i base.mp4 -i {name}.mp4 -filter_complex \\
+  "[0:v]format=gbrp[a];[1:v]format=gbrp[b];[a][b]blend=all_mode={kit.BLEND_MODES[p['default_blend']]}:all_opacity={p['default_opacity']}:shortest=1,format=yuv420p[v]" \\
+  -map "[v]" -c:v libx264 -crf 18 stacked.mp4
+```
+
+For `normal` blending put the layer first (`[b][a]blend=all_mode=normal`), because ffmpeg's normal mode weights
+the first input by the opacity. The `{KIT}` module's `layer_stack_filter` handles both orders for whole stacks.
+
+{check_section('background-layer')}
+
+## Sources
+- ffmpeg filters (geq, scroll, blend, displace, lutrgb): {FFMPEG_DOCS}
+"""
+    return body, {"filtergraph.txt": graph}
+
+
+def skill_grid(p: dict, graph: str) -> tuple[str, dict]:
+    t = p["target"]
+    W, H = t["width"], t["height"]
+    name = p["id"].replace("_", "-")
+    rects = md_table([(i + 1, x, y, w, h, c["source"], c["opacity"], c.get("mirror", "") or "-", c.get("start_offset_s", 0),
+                       c.get("reveal_delay_s", 0)) for i, ((x, y, w, h), c) in enumerate(zip(p["rects"], p["cells"]))],
+                     ("Cell", "x", "y", "w", "h", "Source", "Opacity", "Mirror", "Start offset s", "Reveal s"))
+    if p["render"]["standalone"]:
+        cmd = render_cmd(f"{name}.mp4")
+        how = "The graph renders the four procedural cell loops and a base gradient itself, so it runs with no inputs."
+    else:
+        cmd = (f'ffmpeg -y -i base.mp4 -i top.mp4 -i front.mp4 -i side.mp4 -i perspective.mp4 \\\n'
+               f'  -filter_complex "$(cat filtergraph.txt)" -map "[out]" -c:v libx264 -crf 18 -pix_fmt yuv420p {name}.mp4')
+        how = "Inputs: 0 = base video, 1-4 = the four synced view renders (top, front, side, perspective)."
+    body = f"""
+# {p['name']}
+
+{variant_line(p)}A 2x2 grid of moving sources for {t['label']} ({W}x{H}), used as a {p['placement']['as']} with `{p['placement']['blend']}` blending.
+
+## When to use
+{bullets(p['use_when'])}
+
+## Geometry
+
+Gutter {p['gutter_px']} px, margin {p['margin_px']} px, feather {p['feather_px']} px, corner radius {p['corner_radius_px']} px.
+
+{rects}
+
+Each cell's alpha mask is a rounded rectangle whose edge fades linearly over the feather width, scaled by
+the cell opacity (never above 0.98), so there are no hard rectangular cut-outs.
+
+## Render it
+
+```bash
+{cmd}
+```
+
+{how} Masks are drawn once with `geq` and looped, then joined to each cell with `alphamerge` and placed
+with `overlay`. A reveal delay fades a cell in over 0.4 s.
+
+Hard-edged alternative (no gutter, no feather) with `xstack`:
+
+```bash
+ffmpeg -i a.mp4 -i b.mp4 -i c.mp4 -i d.mp4 -filter_complex \\
+  "[0:v]scale={even(W / 2)}:{even(H / 2)}[a];[1:v]scale={even(W / 2)}:{even(H / 2)}[b];[2:v]scale={even(W / 2)}:{even(H / 2)}[c];[3:v]scale={even(W / 2)}:{even(H / 2)}[d];[a][b][c][d]xstack=inputs=4:layout=0_0|w0_0|0_h0|w0_h0[v]" \\
+  -map "[v]" -c:v libx264 -crf 18 -pix_fmt yuv420p grid-hard.mp4
+```
+
+In a stack, blend the grid at {pct(p['placement']['layer_opacity'] if p['placement']['as'] == 'main-content' else 0.35)} or less with `{p['placement']['blend']}` over the background
+(`{KIT}.grid_2x2_filter` builds the same graph from `preset.json`).
+
+{check_section('grid-system')}
+
+## Sources
+- ffmpeg filters (alphamerge, overlay, xstack, geq): {FFMPEG_DOCS}
+"""
+    return body, {"filtergraph.txt": graph}
+
+
+def skill_stack(p: dict, graph: str) -> tuple[str, dict]:
+    t = p["target"]
+    W, H = t["width"], t["height"]
+    name = p["id"].replace("_", "-")
+    rows = []
+    for layer in p["layers"]:
+        src = layer["source"]
+        s = src["ref"] + (f" ({', '.join(src['cells'])})" if src.get("cells") else "")
+        extra = []
+        if layer.get("rect"):
+            r = layer["rect"]
+            extra.append(f"rect x{r['x']} y{r['y']} w{r['w']} h{r['h']}")
+        if layer.get("feather_px"):
+            extra.append(f"feather {layer['feather_px']} px")
+        if layer.get("opacity_keyframes"):
+            extra.append("opacity keyframes " + " ".join(f"{a}s:{b}" for a, b in layer["opacity_keyframes"]))
+        for k, v in (layer.get("details") or {}).items():
+            extra.append(f"{k}: {v}")
+        rows.append((layer["z"], layer["id"], layer["role"], f"`{s}`", layer["opacity"], layer["blend"], layer["motion"]["type"],
+                     "; ".join(extra)))
+    fx = "\n".join(f"- `fx:{k}`: {v}" for k, v in p["effects"].items()) or "- none"
+    br = p["background_render"]
+    body = f"""
+# {p['name']}
+
+{variant_line(p)}{p['summary']} Theme `{p['theme']}`, palette `{p['palette']}`, {W}x{H} at {FPS} fps.
+
+## Layers (bottom to top)
+
+{md_table(rows, ('z', 'Layer', 'Role', 'Source', 'Opacity', 'Blend', 'Motion', 'Details'))}
+
+Every opacity is at most 0.98 (house rule), at least one background layer moves at all times, and the photo
+keeps at least 80% of the frame width with a feathered edge. Components named in the Source column are
+other presets from this library (`bg_layer_*`, `grid_2x2_*`, `title_*`, `caption_*`, `text_anim_*`, `camera_*`).
+
+Effects used:
+{fx}
+
+## Render it
+
+1. Background loop: `background_filtergraph.txt` composites the full-frame procedural layers
+   ({', '.join(br['included_layers'])}) in z order with their blend modes and opacities.
+
+   ```bash
+   {render_cmd(f'{name}-bg.mp4', graph_file='background_filtergraph.txt').replace(chr(10), chr(10) + '   ')}
+   ffmpeg -y -stream_loop -1 -i {name}-bg.mp4 -t 64 -c copy {name}-bg-64s.mp4
+   ```
+
+2. Photo pass: render each photo with its camera move preset (see the `camera` detail on the photo layer) and
+   overlay it at the photo rectangle with its feather, shadow and rim effects.
+3. Text pass: titles, labels and captions from their presets, as RGBA frames or drawtext filters, in z order.
+4. Cut-timed layers ({', '.join(br['rendered_separately']) or 'none'}) are added around each cut or inside the photo rectangle.
+
+To build a graph for your own inputs, give each layer an ffmpeg input index and let the kit write it:
+
+```python
+import json, sys
+{KIT_IMPORT}
+import style_kit as kit
+stack = json.load(open("preset.json"))
+print(kit.layer_stack_problems(stack))            # [] when the house rules hold
+layers = [dict(l, input=i) for i, l in enumerate(stack["layers"]) if l["source"]["kind"] == "component"]
+print(kit.layer_stack_filter(layers, {W}, {H}, {FPS}))
+```
+
+{check_section('layer-stack')}
+
+## Sources
+- ffmpeg filters (blend, overlay, alphamerge): {FFMPEG_DOCS}
+"""
+    return body, {"background_filtergraph.txt": graph}
+
+
+def skill_transition(p: dict) -> tuple[str, dict]:
+    d = p["duration_ms"] / 1000
+    if p["method"] == "cut":
+        cmd = ('ffmpeg -y -i A.mp4 -i B.mp4 -filter_complex \\\n'
+               f'  "[0:v]settb=AVTB,fps={FPS},format=yuv420p,setsar=1[a];[1:v]settb=AVTB,fps={FPS},format=yuv420p,setsar=1[b];[a][b]concat=n=2:v=1:a=0[v]" \\\n'
+               '  -map "[v]" -c:v libx264 -crf 18 -pix_fmt yuv420p cut.mp4')
+        how = "A hard cut is a concatenation; cut on a beat or a sentence break."
+    else:
+        overlay = ""
+        if p.get("overlay"):
+            o = p["overlay"]
+            overlay = (f";[2:v]settb=AVTB,fps={FPS},format=gbrp,setsar=1[leak];[x]format=gbrp[xg];"
+                       f"[xg][leak]blend=all_expr='A+(255-A)*B/255*{o['peak_opacity']}*max(0\\,1-abs(T-(${{OFF}}+{d / 2:g}))/{d / 2:g})':shortest=1,format=yuv420p[v]")
+        cmd = (f'A=$(ffprobe -v error -show_entries format=duration -of csv=p=0 A.mp4)\n'
+               f'OFF=$(awk -v a="$A" \'BEGIN {{ printf "%.3f", a - {d:g} }}\')\n'
+               f'ffmpeg -y -i A.mp4 -i B.mp4{" -stream_loop -1 -i light-leaks.mp4" if p.get("overlay") else ""} -filter_complex \\\n'
+               f'  "[0:v]settb=AVTB,fps={FPS},format=yuv420p,setsar=1[a];[1:v]settb=AVTB,fps={FPS},format=yuv420p,setsar=1[b];'
+               f'[a][b]xfade=transition={p["xfade"]}:duration={d:g}:offset=${{OFF}}{"[x]" + overlay if overlay else "[v]"}" \\\n'
+               f'  -map "[v]" -c:v libx264 -crf 18 -pix_fmt yuv420p joined.mp4')
+        how = (f"`xfade` needs both clips at the same size, frame rate and pixel format, and an `offset` equal to the first clip's "
+               f"length minus the transition ({d:g} s). The result is {d:g} s shorter than the two clips together. "
+               f"For audio use `acrossfade=d={d:g}` on the same pair.")
+        if p.get("overlay"):
+            how += (f" The light-leak pulse screens `{p['overlay']['source']}` (render its loop to `light-leaks.mp4`) over the "
+                    f"transition, peaking at {p['overlay']['peak_opacity']} opacity in the middle.")
+    extra = f"\nRequires an FFmpeg build with this xfade transition (tested with FFmpeg 6.1.1).\n" if p.get("min_ffmpeg") else ""
+    body = f"""
+# {p['name']}
+
+{variant_line(p)}{'Hard cut' if p['method'] == 'cut' else f"`xfade` transition `{p['xfade']}`"}, {p['duration_ms']} ms, tempo {p['tempo']}.
+{extra}
+## When to use
+{bullets(p['use_when'])}
+
+## Avoid when
+{bullets(p['avoid_when'])}
+
+## Render it
+
+```bash
+{cmd}
+```
+
+{how}
+
+For many clips, `{KIT}.xfade_chain(durations, transitions)` writes the whole graph with correct offsets:
+
+```python
+import sys
+{KIT_IMPORT}
+import style_kit as kit
+graph, total = kit.xfade_chain([4.0, 3.5, 5.0], [{{"xfade": "{p.get('xfade', 'fade')}", "duration_ms": {max(p['duration_ms'], 40)}}}, {{"cut": True}}])
+print(total)   # seconds after joining
+```
+
+{check_section('transition')}
+
+## Sources
+- ffmpeg xfade and concat filters: {FFMPEG_DOCS}
+"""
+    return body, {}
+
+
+def skill_camera(p: dict) -> tuple[str, dict]:
+    o = p["output"]
+    W, H = o["width"], o["height"]
+    rows = [("Duration", f"{p['duration_s']} s"), ("Zoom", f"{p['zoom']['from']} -> {p['zoom']['to']}"),
+            ("Centre", f"{p['center']['from']} -> {p['center']['to']} (fractions of the photo)"),
+            ("Easing", str(p["easing"])), ("Renderer", p["renderer"]), ("Output", f"{W}x{H} at {o['fps']} fps"),
+            ("Intensity", p["intensity"])]
+    if p.get("rotation_deg"):
+        rows.append(("Rotation", f"{p['rotation_deg']['from']} -> {p['rotation_deg']['to']} deg"))
+    if p.get("zoom_keyframes"):
+        rows.append(("Zoom keyframes", ", ".join(f"{k['t']}: {k['zoom']}" for k in p["zoom_keyframes"])))
+    if p.get("shake"):
+        rows.append(("Shake", f"amplitude {p['shake']['amplitude']} of the frame, {p['shake']['frequency_hz']} Hz"))
+    name = p["id"].replace("_", "-")
+    if p["renderer"] == "zoompan":
+        render = f"""```bash
+ffmpeg -y -i photo.jpg -vf "{p['ffmpeg']['filter']}" \\
+  -c:v libx264 -crf 18 -pix_fmt yuv420p {name}.mp4
+```
+
+The filter first covers the {W}x{H} frame, then upscales 4x before `zoompan` so its whole-pixel steps are a
+quarter of an output pixel (less jitter). Use it on a still image (no `-loop`); it outputs exactly
+{int(round(p['duration_s'] * FPS))} frames."""
+        if p["ffmpeg"].get("pair_filter"):
+            render += f"""
+
+The second shot of the pair reverses the move:
+
+```bash
+ffmpeg -y -i photo2.jpg -vf "{p['ffmpeg']['pair_filter']}" -c:v libx264 -crf 18 -pix_fmt yuv420p {name}-b.mp4
+```"""
+    elif p["renderer"] == "pillow":
+        render = f"""Rotation and shake are not expressible in `zoompan`; render frames with Pillow (bicubic, sub-pixel):
+
+```python
+import json, subprocess, sys
+from PIL import Image
+{KIT_IMPORT}
+import style_kit as kit
+
+move = json.load(open("preset.json"))
+enc = subprocess.Popen(["ffmpeg", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", "{W}x{H}", "-r", "{FPS}", "-i", "-",
+                        "-c:v", "libx264", "-crf", "18", "-pix_fmt", "yuv420p", "{name}.mp4"], stdin=subprocess.PIPE)
+for frame in kit.camera_frames(Image.open("photo.jpg"), move, ({W}, {H}), fps={FPS}):
+    enc.stdin.write(frame.tobytes())
+enc.stdin.close(); enc.wait()
+```"""
+    else:
+        travel = round((p["center"]["to"][0] - p["center"]["from"][0]) * W)
+        parts = []
+        for i, layer in enumerate(p["layers"]):
+            sc = round(1 + layer.get("zoom_extra", 0) + 0.08, 3)
+            parts.append((i, layer, sc))
+        chain = ";".join(f"[{i}:v]scale={even(W * sc)}:{even(H * sc)}[l{i}]" for i, _, sc in parts)
+        prog = f"(0.5-0.5*cos(PI*min(t,{p['duration_s']})/{p['duration_s']}))"
+        ov = f"color=c=black:s={W}x{H}:r={FPS}:d={p['duration_s']}[c0]"
+        last = "c0"
+        for i, layer, sc in parts:
+            nxt = "v" if i == len(parts) - 1 else f"c{i + 1}"
+            ov += f";[{last}][l{i}]overlay=x='(W-w)/2-{round(layer['speed'] * travel)}*{prog}':y='(H-h)/2':eval=frame:shortest=1[{nxt}]"
+            last = nxt
+        inputs = " ".join(f"-loop 1 -t {p['duration_s']} -i {layer['name'].replace('/', '_').replace(' ', '_')}.png" for _, layer, _ in parts)
+        render = f"""Cut the photo into layers saved as PNGs with transparency (background first). Each layer slides by
+`speed x {travel} px` with sine easing:
+
+```bash
+ffmpeg -y {inputs} -filter_complex \\
+  "{chain};{ov}" \\
+  -map "[v]" -c:v libx264 -crf 18 -pix_fmt yuv420p {name}.mp4
+```
+
+Layers are scaled 8% (plus their zoom_extra) beyond the frame so the slide never reveals an edge."""
+    body = f"""
+# {p['name']}
+
+{variant_line(p)}Camera move for stills and layered images, {W}x{H}.
+
+## When to use
+{bullets(p['use_when'])}
+
+## Parameters
+
+{md_table(rows, ('Parameter', 'Value'))}
+
+## Render it
+
+{render}
+
+Alternate moves between consecutive photos (in/out, left/right) so a slideshow never repeats the same motion.
+
+{KIT_NOTE}
+
+{check_section('camera-move')}
+
+## Sources
+- ffmpeg zoompan, overlay and tmix filters: {FFMPEG_DOCS}
+"""
+    return body, {}
+
+
+def skill_text_anim(p: dict) -> tuple[str, dict]:
+    rows = [("Unit", p["unit"]), ("Duration", f"{p['duration_ms']} ms per unit"), ("Stagger", f"{p['stagger_ms']} ms"),
+            ("Tempo", p["tempo"])]
+    if p.get("spring"):
+        sp, sm = p["spring"], p["spring_metrics"]
+        rows.append(("Spring", f"stiffness {sp['stiffness']}, damping {sp['damping']}, mass {sp['mass']}"))
+        rows.append(("Spring behaviour (computed)", f"damping ratio {sm['damping_ratio']}, peaks at {sm['peak']} after {sm['peak_time_s']} s, settles within 2% by {sm['settle_time_s']} s"))
+        rows.append(("From -> to", f"{p['from']} -> {p['to']}"))
+    else:
+        rows.append(("Keyframes", "; ".join(", ".join(f"{k}={v}" for k, v in kf.items()) for kf in p["keyframes"])))
+    if p.get("count"):
+        rows.append(("Count", f"from {p['count']['from']} to the final number with {p['count']['easing']}"))
+    if p.get("shake"):
+        rows.append(("Shake", f"{p['shake']['amplitude_px']} px for {p['shake']['frames']} frames after landing"))
+    if p.get("timing_source"):
+        rows.append(("Timing source", p["timing_source"]))
+    samples = md_table([(t, ", ".join(f"{k} {v}" for k, v in s.items())) for t, s in p["samples"]], ("t (ms)", "State of the first unit"))
+    dt = ""
+    if p.get("ffmpeg"):
+        e = p["ffmpeg"]
+        fs = f"fontsize='96*({e['fontsize_factor'].replace('T0', '1.0')})'" if "fontsize_factor" in e else "fontsize=96"
+        al = f":alpha='{e['alpha'].replace('T0', '1.0')}'" if "alpha" in e else ""
+        y = f"y='800-text_h/2+({e['y_offset'].replace('T0', '1.0')})'" if "y_offset" in e else "y=800-text_h/2"
+        dt = f"""
+### ffmpeg drawtext (whole line)
+
+Starting at T0 = 1.0 s, 96 px base size:
+
+```bash
+ffmpeg -y -f lavfi -i "color=c=0x0B1220:s=1080x1920:d=3:r={FPS}" -vf \\
+  "drawtext=fontfile=fonts/Inter-800.ttf:text='SAMPLE':fontcolor=0xFFD21F:{fs}{al}:x=(w-text_w)/2:{y}:enable='gte(t,1.0)'" \\
+  -c:v libx264 -pix_fmt yuv420p preview.mp4
+```
+
+Replace `1.0` with the line's start time and 96/800 with the size and centre from the caption or title preset.
+"""
+    body = f"""
+# {p['name']}
+
+{variant_line(p)}Text animation applied per {p['unit']}.
+
+## When to use
+{bullets(p['use_when'])}
+
+## Parameters
+
+{md_table(rows, ('Parameter', 'Value'))}
+
+Scale, opacity and offsets multiply the text layer's own values; the text layer's opacity stays at or below 0.98.
+
+## Computed samples
+
+{samples}
+{dt}
+### Pillow (any unit)
+
+```python
+import json, sys
+{KIT_IMPORT}
+import style_kit as kit
+anim = json.load(open("preset.json"))
+for t_ms in range(0, {p['duration_ms'] + p['stagger_ms'] * 3 + 1}, {max(1, 1000 // FPS)}):
+    states = kit.text_anim_state(anim, t_ms, n_units=4)   # one dict per {p['unit']}: scale, opacity, dy_px, reveal, ...
+    # draw each unit with its state (resize the glyph by scale about its centre, multiply alpha by opacity)
+```
+
+{check_section('text-animation')}
+"""
+    return body, {}
+
+
+def skill_anim_style(p: dict) -> tuple[str, dict]:
+    cam = p["camera"]
+    r = p["render"]
+    rows = [("Projection", p["projection"]), ("Camera", f"elevation {cam['elevation_deg']} deg, azimuth {cam['azimuth_deg']} deg, "
+                                                       + ("orthographic" if cam["orthographic"] else f"perspective{', FOV ' + str(cam['fov_deg']) + ' deg' if cam.get('fov_deg') else ''}")),
+            ("Shading", p["shading"]), ("Outline", f"{p['outline']['width_px']} px" if p["outline"].get("enabled") else "none"),
+            ("Timing", f"render at {p['timing']['render_fps']} fps, animate on {p['timing']['animate_on']}"),
+            ("Palette", (f"up to {p['palette']['max_colors']} colours; " if p["palette"].get("max_colors") else "") + p["palette"]["note"]),
+            ("Output", f"{r['width']}x{r['height']}" + (f"; pixel base {r['base_resolution'][0]}x{r['base_resolution'][1]}, {r['upscale']}" if r.get("base_resolution") else ""))]
+    if p.get("layers"):
+        rows.append(("Layers", ", ".join(f"{x['name']} {x['speed']}x" for x in p["layers"])))
+    if p.get("views"):
+        rows.append(("Views", ", ".join(p["views"])))
+    topic = ""
+    if p.get("topic"):
+        tp = p["topic"]
+        topic = (f"\n## Topic: {tp['label']}\n\n{tp['note']} Suggested palette `{p['suggested']['palette']}` and background "
+                 f"`{p['suggested']['background']}`.\n")
+    body = f"""
+# {p['name']}
+
+{variant_line(p)}{p['look']}
+
+## Best for
+{bullets(p['best_for'])}
+
+## Avoid
+{bullets(p['avoid'])}
+
+## Parameters
+
+{md_table(rows, ('Parameter', 'Value'))}
+{topic}
+## How to make it
+
+{chr(10).join(f'{i + 1}. {step}' for i, step in enumerate(p['recipe']))}
+
+## Pitfalls
+{bullets(p['pitfalls'])}
+
+Tools: {', '.join(p['tools'])} (all open source). These steps are guidance; they were not rendered for this
+preset, so check a test render before a full production.
+
+Keep the house rules on top of any style: hook title in the upper third over the main image, captions with
+contrast, nothing above 98% opacity, and a background that keeps moving.
+
+{check_section('animation-style')}
+
+## Sources
+- Blender manual: https://docs.blender.org/manual/en/latest/
+- Godot documentation: https://docs.godotengine.org/
+- ffmpeg filters: {FFMPEG_DOCS}
+"""
+    return body, {}
+
+
+def skill_aspect(p: dict) -> tuple[str, dict]:
+    W, H = p["width"], p["height"]
+    x0, y0, x1, y1 = p["safe_rect_px"]
+    e = p["encoding"]
+    z = p["zones"]
+    pr = z["photo_rect"]
+    body = f"""
+# {p['name']} ({p['aspect']}, {W}x{H})
+
+{variant_line(p)}{p['use']}
+
+## Safe area
+
+{md_table([('Margins', margins_text(p['safe_margins'])), ('Safe rectangle', f'x {x0}-{x1}, y {y0}-{y1} px'),
+           ('Title centre', f"{pct(z['title_center_y'])} of the height"), ('Caption centre', f"{pct(z['caption_center_y'])} of the height"),
+           ('Photo', f"x {pct(pr['x'])}, y {pct(pr['y'])}, {pct(pr['w'])} wide, {pct(pr['h'])} tall")], ('Zone', 'Value'))}
+
+{p['margins_basis']}
+
+Preview the safe area on a frame:
+
+```bash
+ffmpeg -y -i frame.png -vf "drawbox=x={x0}:y={y0}:w={x1 - x0}:h={y1 - y0}:color=0x00FF00@0.8:t=6" safe-area.png
+```
+
+## Export
+
+```bash
+ffmpeg -y -i master.mov -vf "scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={e['fps']},setsar=1" \\
+  {e['ffmpeg_args']} out.mp4
+```
+
+{e['source_summary']} Source: {e['source']}. House rule: full videos of at least {p['duration']['min_s']} seconds.
+
+{check_section('aspect-format')}
+"""
+    return body, {}
+
+
+def skill_thumbnail(p: dict) -> tuple[str, dict]:
+    t, tx, pn = p["target"], p["text"], p["panel"]
+    W, H = t["width"], t["height"]
+    f = tx["font"]
+    panel_line = ("kit.frosted_panel(img, box, st['panel']['tint'], st['panel']['opacity'], st['panel'].get('blur_px', 1), 24, 12)"
+                  if pn["type"] != "none" else "img  # no panel: the outline carries the contrast")
+    body = f"""
+# {p['name']}
+
+{variant_line(p)}{t['label']}, {W}x{H}. Palette `{p['palette']}`.
+
+## When to use
+{bullets(p['use_when'])}
+
+## Parameters
+
+{md_table([('Text', f"at most {tx['max_words']} words, {f['family']} {f['weight']}, {tx['size_px']} px, {tx['case']}, fill `{tx['fill']}`"),
+           ('Outline', f"{tx['stroke']['width_px']} px `{tx['stroke']['color']}`" if tx['stroke']['width_px'] else 'none'),
+           ('Panel', pn['type'] + (f", tint `{pn['tint']}` at {pct(pn['opacity'])}" if pn['type'] != 'none' else '')),
+           ('Layout', ', '.join(f'{k}: {v}' for k, v in p['layout'].items())),
+           ('Export', f"JPEG quality {p['export']['quality']}" + (f", under {p['export']['max_bytes']:,} bytes" if p['export']['max_bytes'] else ''))], ('Parameter', 'Value'))}
+
+{p['export']['note']}{(' Source: ' + p['export']['source']) if p['export'].get('source') else ''}
+
+## Contrast (computed)
+
+{md_table(contrast_rows(p['contrast']), ('Pair', 'Text', 'Against', 'Ratio', 'Needs'))}
+
+## Make it
+
+```bash
+ffmpeg -y -ss 12.5 -i video.mp4 -frames:v 1 -q:v 2 frame.jpg      # pick a sharp frame with the subject
+{font_fetch(f)}
+```
+
+```python
+import json, os, sys
+from PIL import Image, ImageDraw, ImageFont
+{KIT_IMPORT}
+import style_kit as kit
+
+st = json.load(open("preset.json"))
+img = Image.open("frame.jpg").convert("RGB")
+img = img.resize(({W}, int(img.height * {W} / img.width))).crop((0, 0, {W}, {H}))  # or crop around the subject
+font = ImageFont.truetype("fonts/{FONTS[f['family']]['file']}", st["text"]["size_px"])
+text = "YOUR HOOK"
+w = ImageDraw.Draw(img).textlength(text, font=font)
+box = (int(({W} - w) / 2) - 40, int({H} * 0.08), int(({W} + w) / 2) + 40, int({H} * 0.08 + st["text"]["size_px"] * 1.4))
+img = {panel_line}
+ImageDraw.Draw(img).text(({W} / 2, (box[1] + box[3]) / 2), text, font=font, fill=st["text"]["fill"], anchor="mm",
+                         stroke_width=st["text"]["stroke"]["width_px"], stroke_fill=st["text"]["stroke"]["color"])
+img.save("thumb.jpg", quality=st["export"]["quality"])
+print(os.path.getsize("thumb.jpg"), "bytes")
+```
+
+{check_section('thumbnail-style')}
+"""
+    return body, {}
+
+
+def skill_look(p: dict, spec_tpl: dict | None) -> tuple[str, dict]:
+    c = p["components"]
+    rows = [("Palette", c["palette"]), ("Typography", c["typography"]), ("Captions", c["caption_style"]),
+            ("Hook title", c["title_style"]), ("Item labels", c.get("label_style", "-")), ("Layer stack", c["layer_stack"] + (f" (theme {c['stack_theme']})" if c.get('stack_theme') else "")),
+            ("Text entry", c["text_in"]), ("Keyword emphasis", c["keyword"]), ("Camera moves", ", ".join(c["camera_moves"])),
+            ("Transitions", ", ".join(c["transitions"])), ("Thumbnail", c["thumbnail"]), ("Aspect", c["aspect_format"])]
+    if c.get("animation_style"):
+        rows.append(("Animation style", c["animation_style"]))
+    rows = [(a, f"`{b}`" if "," not in b else ", ".join(f"`{x.strip()}`" for x in b.split(","))) for a, b in rows]
+    pc = p["pacing"]
+    files = {}
+    tpl = ""
+    if spec_tpl is not None:
+        files["spec_template.json"] = dumps(spec_tpl)
+        tpl = ("\n`spec_template.json` is a starting `short_video_spec` (the render contract) for this look: four 16-second scenes "
+               "with the stack's layers already filled in. Replace every `{{PLACEHOLDER}}` with real values and sources before rendering; "
+               "it validates against the `short_video_spec` contract schema as shipped.\n")
+    t = p["target"]
+    body = f"""
+# {p['name']}
+
+{variant_line(p)}A complete look for {t['label']} ({t['width']}x{t['height']}).
+
+## Use for
+{bullets(p['use_for'])}
+
+## Avoid
+{bullets(p['avoid'])}
+
+## Components
+
+{md_table(rows, ('Part', 'Preset identity'))}
+
+Fetch any of them with `python3 baltor/tools/baltor_catalog.py read <identity>`.
+
+## Pacing
+
+Shots of {pc['shot_s'][0]}-{pc['shot_s'][1]} s, narration at {pc['words_per_minute'][0]}-{pc['words_per_minute'][1]} words per minute, cut on {pc['cut_on']}.
+
+## Rules that always apply
+
+- Full video of at least 60 seconds; never deliver a short preview instead.
+- Hook title on the first frame, in the upper third over the main photo; never shrink the photo for it.
+- No layer above 98% opacity; the background keeps moving for the whole video.
+- Every fact, date and number has a source URL; leave out anything you cannot source.
+- Captions stay in sync (within the caption preset's tolerance) and stay inside the safe area.
+{tpl}
+## Assemble
+
+1. Plan the script and facts with sources; write `spec.json` from `spec_template.json` (where present).
+2. Render the stack's background loop (`{c['layer_stack']}`), then photos with the camera moves listed above.
+3. Add title, labels and captions with their presets; join shots with the listed transitions.
+4. Export with the aspect preset's encoding; check with the house-rule reviewer before sending.
+
+{check_section('style-preset')}
+"""
+    return body, files
+
+
+# --------------------------------------------------------------------------- emission
+
+TAGS = {
+    "caption-style": ["captions", "subtitles", "typography", "accessibility"],
+    "title-style": ["titles", "hooks", "typography"],
+    "background-layer": ["background", "ffmpeg", "procedural", "loop"],
+    "layer-stack": ["layers", "compositing", "ffmpeg"],
+    "grid-system": ["grid", "split-screen", "ffmpeg"],
+    "transition": ["transitions", "xfade", "ffmpeg"],
+    "camera-move": ["camera", "ken-burns", "zoompan"],
+    "text-animation": ["text-animation", "motion", "springs"],
+    "palette": ["palette", "colour", "wcag", "contrast"],
+    "typography": ["fonts", "typography", "ofl", "google-fonts"],
+    "animation-style": ["animation", "blender", "art-direction"],
+    "aspect-format": ["aspect-ratio", "safe-area", "export"],
+    "thumbnail-style": ["thumbnails", "covers", "pillow"],
+    "style-preset": ["look", "style-guide", "workflow"],
+}
+STEPS = {
+    "caption-style": ["design", "render"], "title-style": ["design", "render"], "background-layer": ["render", "design"],
+    "layer-stack": ["render", "design"], "grid-system": ["render", "design"], "transition": ["render"],
+    "camera-move": ["render"], "text-animation": ["render", "design"], "palette": ["design", "verify"],
+    "typography": ["design", "build"], "animation-style": ["design", "plan", "render"], "aspect-format": ["render", "publish"],
+    "thumbnail-style": ["design", "publish"], "style-preset": ["plan", "design", "render", "review"],
+}
+BUILT: dict[str, dict] = {}
+VERIFIED = json.loads((DATA / "verified.json").read_text()) if (DATA / "verified.json").exists() else {}
+
+
+def evidence_for(ptype: str, preset: dict) -> tuple[str, str]:
+    ident = preset["id"]
+    v = VERIFIED.get(ident)
+    if v:
+        return v["stage"], v["notes"]
+    if ptype == "animation-style":
+        return "considered", "Written guidance with geometry-derived camera angles; no Blender or Godot render was run for this preset."
+    if ptype in ("palette",):
+        return "headless-tested", "Every listed pair's contrast was computed from the hex values; preset validated against its schema."
+    if ptype == "typography":
+        return "headless-tested", "Font names, licences and file URLs read from google/fonts and fetched (HTTP 200) on 2026-10-10; widths measured with Pillow; preset validated."
+    return "headless-tested", "Preset validated against its schema by the generator; contrast and opacity rules computed. No render recorded for this exact preset."
+
+
+def emit(run: GeneratorRun, ptype: str, preset: dict, body: str, files: dict, description: str, summary: str,
+         tags: list[str], base: str | None = None, params: dict | None = None, eff: dict | None = None,
+         depends: list[str] | None = None) -> None:
+    ident = preset["id"]
+    check_skill_identity(ident)
+    validate_preset(ptype, preset)
+    BUILT[ident] = preset
+    all_files = {"SKILL.md": skill_md(kebab(ident), description[:1024], body), "preset.json": dumps(preset),
+                 "schema.json": dumps(SCHEMAS[ptype]), "scripts/check_preset.py": CODE["check_preset.py"]}
+    all_files.update(files)
+    deps = [{"identity": SCHEMA_IDS[ptype]}, {"identity": KIT}] + [{"identity": d} for d in (depends or [])]
+    seen, uniq = set(), []
+    for d in deps:
+        if d["identity"] not in seen and d["identity"] != ident:
+            seen.add(d["identity"])
+            uniq.append(d)
+    stage, notes = evidence_for(ptype, preset)
+    run.component(
+        "skill", ident, title=preset["name"] if not base else f"{preset['name']} ({params_label(params)})",
+        summary=summary[:240], files=all_files, tags=(["video", "shorts"] + TAGS[ptype] + tags)[:24],
+        step_kinds=STEPS[ptype], subkind=SUBKIND[ptype], domain="video", effects_=eff or EFFECTS_RENDER,
+        depends_on=uniq, variant_of=base, parameters=params,
+        evidence_stage=stage, evidence_notes=notes,
+    )
+
+
+def params_label(params: dict | None) -> str:
+    if not params:
+        return ""
+    return ", ".join(f"{k} {v}" for k, v in params.items())
+
+
+def as_variant(preset: dict, base_id: str, new_id: str, changed: str) -> dict:
+    preset = dict(preset)
+    preset["id"] = new_id
+    preset["variant"] = {"base": base_id, "changed": changed}
+    return preset
+
+
+def uniq_tags(*groups) -> list[str]:
+    out = []
+    for g in groups:
+        for t in g:
+            t = re.sub(r"[^a-z0-9+.-]", "-", t.lower()).strip("-")
+            if t and t not in out:
+                out.append(t)
+    return out

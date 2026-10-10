@@ -1,0 +1,11 @@
+{
+  "kind": "letterbox",
+  "bars": [
+    { "side": "top", "px": 657, "color": "#000000", "style": "solid", "consistency": 0.97, "overlay_in_bar": true },
+    { "side": "bottom", "px": 657, "color": "#000000", "style": "solid", "consistency": 0.97, "overlay_in_bar": false }
+  ],
+  "content_rect": { "x": 0, "y": 657, "w": 1080, "h": 606 },
+  "content_aspect": 1.7822,
+  "frames_analysed": 64,
+  "px_precision": 2.25
+}

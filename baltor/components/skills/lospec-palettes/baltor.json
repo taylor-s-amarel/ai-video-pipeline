@@ -1,0 +1,60 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "lospec_palettes",
+  "title": "Lospec pixel-art palettes",
+  "kind": "skill",
+  "subkind": "media-source",
+  "version": "1.0.0",
+  "summary": "Pick a Lospec palette, credit its author, and enforce it on mixed packs with the palette quantiser module.",
+  "description": "Use when a pixel-art scene, thumbnail or mixed asset kit needs one coherent palette. Lospec hosts 2,500+ palettes downloadable as HEX, GPL, PAL, ASE, TXT and PNG; pages credit an author but state no licence. Covers choosing a palette, crediting its author and enforcing it with the quantiser module.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "notes": "Describes https://lospec.com/palette-list (checked 2026-10-10); contains no third-party media."
+  },
+  "step_kinds": [
+    "research",
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "licensing",
+    "palettes",
+    "pixel-art",
+    "lospec",
+    "style"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "asset_source_profile"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

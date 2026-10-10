@@ -1,0 +1,67 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "platformer_2d_kit",
+  "title": "2D platformer kit (pixel art)",
+  "kind": "skill",
+  "subkind": "rights-manifest",
+  "version": "1.0.0",
+  "summary": "Media pack manifest for 2D platformer shorts and Godot prototypes - CC0 pixel platformer tiles and characters, Godot demo, input glyphs, pixel font and retro SFX.",
+  "description": "Use when building a 2D side-scrolling platformer scene or short in Godot 4. Lists CC0 tiles and characters (Kenney, Pixel Frog, Ansimuz art), the MIT Godot 2D platformer demo, CC0 input-prompt glyphs, an OFL pixel font and CC0 retro sounds, with exclusions for licensed music.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "plan",
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "media-pack",
+    "manifest",
+    "platformer",
+    "2d",
+    "pixel-art",
+    "godot"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "media_pack_fetcher"
+    },
+    {
+      "identity": "asset_licence_checker"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits",
+    "parameters": {
+      "assets": 8,
+      "status": "manifest-only"
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

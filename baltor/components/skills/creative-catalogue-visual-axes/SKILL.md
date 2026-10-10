@@ -1,6 +1,6 @@
 ---
 name: "creative-catalogue-visual-axes"
-description: "Use when choosing twenty-five visual axes for a short animated or explainer film from the October 2026 creative catalogue. Twenty-five independent visual-axis choices (AX01-AX25) across camera, geometry, material, aesthetic and composition, with use and check. Every row keeps its gate or check; these are proposals, not tested recipes."
+description: "Use when specifying a film's look one decision at a time: projection, geometry, material, aesthetic, composition. Twenty-five independent visual-axis choices (AX01-AX25) across camera, geometry, material, aesthetic and composition, with use and check. From the October 2026 creative catalogue; every row keeps its gate or check, and these are proposals, not tested recipes."
 ---
 
 # Creative catalogue: twenty-five visual axes

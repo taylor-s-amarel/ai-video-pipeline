@@ -5,7 +5,7 @@ description: "Use when choosing, developing or storyboarding catalogue premise E
 
 # EDU017 The Air That Pushes Back
 
-**Catalogue family:** Learning, everyday science (Appendix D, Learning everyday science).  
+**Catalogue family:** Learning, everyday science (Appendix D section "Learning everyday science").  
 **Status:** idea. Not a completed script, not a rendered catalogue treatment, no audience study. Learning claims remain unverified until a claim-level check. Originality means authored for the catalogue, not an exhaustive prior-art search. The current story-first review may reject or substantially rewrite this premise.
 
 ## Premise (authored wording)
@@ -22,7 +22,7 @@ A mechanic wants to compress a sealed pocket of air, but treats the empty-lookin
 
 **Evidence class:** `requires_primary_source_review`. **Original format tags:** mechanism_cutaway, prediction_quiz, side_by_side, silent_visual, narrative_lesson.
 
-Factual checkability is not factual verification; the evidence class says what kind of check a claim would need, not that it was done.
+Factual checkability is not factual verification: the evidence class classifies how a claim could be checked; it does not record that any check was done.
 
 ## Beat structure as given
 

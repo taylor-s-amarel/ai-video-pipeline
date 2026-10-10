@@ -1,0 +1,73 @@
+{
+  "name": "asset-kits",
+  "version": "1.0.0",
+  "description": "Licence-checked 2D/3D/animation asset sourcing for Godot, Blender and short-video pipelines.",
+  "author": {
+    "name": "Baltor"
+  },
+  "license": "MIT",
+  "keywords": [
+    "assets",
+    "cc0",
+    "godot",
+    "blender",
+    "licensing",
+    "media-pack"
+  ],
+  "commands": [
+    "./commands/asset-pack.md",
+    "./commands/credit-assets.md"
+  ],
+  "agents": [
+    "./agents/asset-licence-auditor.md"
+  ],
+  "skills": [
+    "./skills/kenney-assets-cc0",
+    "./skills/quaternius-low-poly-assets",
+    "./skills/kaykit-asset-packs",
+    "./skills/poly-haven-assets",
+    "./skills/ambientcg-materials",
+    "./skills/poly-pizza-models",
+    "./skills/opengameart-assets",
+    "./skills/itch-io-cc0-assets",
+    "./skills/sketchfab-downloadable-models",
+    "./skills/khronos-gltf-sample-assets",
+    "./skills/blenderkit-and-fab-licences",
+    "./skills/cc0-texture-sites",
+    "./skills/nasa-3d-resources",
+    "./skills/smithsonian-open-access",
+    "./skills/gltf-cleanup-for-godot-and-video",
+    "./skills/mixamo-characters-and-animations",
+    "./skills/universal-lpc-spritesheets",
+    "./skills/makehuman-characters",
+    "./skills/mocap-dataset-licences",
+    "./skills/game-icons-net",
+    "./skills/open-icon-sets-for-ui",
+    "./skills/open-emoji-sets",
+    "./skills/google-fonts-for-video",
+    "./skills/lospec-palettes",
+    "./skills/lottiefiles-animations",
+    "./skills/rive-community-files",
+    "./skills/spine-and-dragonbones-runtimes",
+    "./skills/godot-asset-store-and-library",
+    "./skills/godot-official-demos",
+    "./skills/gdquest-open-source-demos",
+    "./skills/procedural-sfx-and-kenney-audio",
+    "./skills/avatar-generators-for-faceless-video",
+    "./skills/stick-figure-explainer-kit",
+    "./skills/low-poly-diorama-kit",
+    "./skills/top-down-maze-kit",
+    "./skills/top-down-maze-kit-3d",
+    "./skills/platformer-2d-kit",
+    "./skills/platformer-3d-kit",
+    "./skills/isometric-town-kit",
+    "./skills/isometric-town-kit-3d",
+    "./skills/space-nasa-kit",
+    "./skills/nature-backgrounds-kit",
+    "./skills/ui-caption-kit",
+    "./skills/pa-farm-diorama-kit",
+    "./skills/this-vs-that-comparison-kit",
+    "./skills/history-museum-kit",
+    "./skills/animal-crowd-story-kit"
+  ]
+}

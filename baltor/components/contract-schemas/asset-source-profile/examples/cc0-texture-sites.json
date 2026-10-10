@@ -1,0 +1,59 @@
+{
+  "spec": "baltor.asset-source/v1",
+  "source_id": "cc0-texture-sites",
+  "name": "Smaller CC0 texture libraries (cgbookcase, 3DTextures.me) and ShareTextures' limits",
+  "homepage": "https://www.cgbookcase.com/",
+  "licence_summary": "cgbookcase: CC0, 100% free. 3DTextures.me: recent pages state CC0 for the free resolutions (higher resolutions on Patreon). ShareTextures: custom CC0 with restrictions (no automated downloads, no embedding in apps/add-ons, no redistribution without permission).",
+  "licences": [
+    {
+      "id": "CC0-1.0",
+      "url": "https://www.cgbookcase.com/",
+      "applies_to": "cgbookcase textures"
+    },
+    {
+      "id": "CC0-1.0",
+      "url": "https://3dtextures.me/about/",
+      "applies_to": "3DTextures.me free textures"
+    },
+    {
+      "id": "ShareTextures-custom",
+      "url": "https://www.sharetextures.com/p/license",
+      "applies_to": "ShareTextures assets"
+    }
+  ],
+  "attribution": {
+    "required": "optional",
+    "credit_template": "Texture: {title} from {site}"
+  },
+  "redistribution": "per-asset",
+  "commercial_use": "allowed",
+  "ai_training": "unspecified",
+  "automated_download": "forbidden",
+  "formats": [
+    "jpg",
+    "png",
+    "zip"
+  ],
+  "search": [
+    {
+      "label": "cgbookcase textures",
+      "url": "https://www.cgbookcase.com/textures"
+    },
+    {
+      "label": "3DTextures.me",
+      "url": "https://3dtextures.me/"
+    },
+    {
+      "label": "ShareTextures licence",
+      "url": "https://www.sharetextures.com/p/license"
+    }
+  ],
+  "cautions": [
+    "ShareTextures: an agent must not bulk-download or script downloads; fetch by hand only.",
+    "3DTextures.me Patreon-only resolutions are not covered by the free CC0 statement."
+  ],
+  "verified": {
+    "on": "2026-10-10",
+    "how": "mixed"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "spec": "baltor.asset-source/v1",
+  "source_id": "lospec-palettes",
+  "name": "Lospec pixel-art palettes",
+  "homepage": "https://lospec.com/palette-list",
+  "licence_summary": "Palette pages name an author and offer downloads but state no licence. Credit the palette author by convention; the palette is a list of colours, the artwork you make with it is yours.",
+  "licences": [
+    {
+      "id": "No licence stated",
+      "url": "https://lospec.com/palette-list",
+      "applies_to": "palette pages"
+    }
+  ],
+  "attribution": {
+    "required": "optional",
+    "credit_template": "Palette: {palette} by {author} (lospec.com)"
+  },
+  "redistribution": "per-asset",
+  "commercial_use": "allowed",
+  "ai_training": "unspecified",
+  "automated_download": "unspecified",
+  "formats": [
+    "hex",
+    "gpl",
+    "pal",
+    "png",
+    "txt"
+  ],
+  "search": [
+    {
+      "label": "Palette list",
+      "url": "https://lospec.com/palette-list"
+    },
+    {
+      "label": "Endesga 32",
+      "url": "https://lospec.com/palette-list/endesga-32"
+    },
+    {
+      "label": "Resurrect 64",
+      "url": "https://lospec.com/palette-list/resurrect-64"
+    },
+    {
+      "label": "Sweetie 16",
+      "url": "https://lospec.com/palette-list/sweetie-16"
+    },
+    {
+      "label": "Lospec GB (4 colours)",
+      "url": "https://lospec.com/palette-list/lospec-gb"
+    }
+  ],
+  "cautions": [
+    "No licence is stated: do not redistribute palette files as your own product; credit the author."
+  ],
+  "verified": {
+    "on": "2026-10-10",
+    "how": "mixed"
+  }
+}

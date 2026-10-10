@@ -81,7 +81,6 @@ A7 stream facts; F1 frames with a safe-area overlay drawn by drawbox; F12 black 
 
 ## IR paths this lens writes
 
-- `/audio/integrated_lufs` (1)
 - `/generation_rules/-` (9)
 - `/parameters/-` (1)
 - `/render_binding/mapping/audio_layout` (1)
@@ -89,13 +88,15 @@ A7 stream facts; F1 frames with a safe-area overlay drawn by drawbox; F12 black 
 - `/render_binding/mapping/color_tags` (1)
 - `/render_binding/mapping/duration_constraints` (1)
 - `/render_binding/mapping/gop_s` (1)
+- `/render_binding/mapping/loudness_target_delta_lu` (1)
 - `/render_binding/mapping/reframe_16x9` (1)
 - `/render_binding/mapping/reframe_ok` (1)
+- `/render_binding/mapping/source_is_reencode` (1)
 - `/render_binding/mapping/text_margins_px` (1)
 - `/render_binding/mapping/variable_frame_rate` (1)
 - `/render_binding/mapping/video_format` (1)
 - `/source/fps` (1)
-- `/source/platform` (2)
+- `/source/platform` (1)
 - `/source/resolution` (1)
 - `/typography/captions/burned_in` (1)
 - `/typography/captions/cap_height_px_at_1080w` (1)
@@ -195,7 +196,7 @@ A7 stream facts; F1 frames with a safe-area overlay drawn by drawbox; F12 black 
 - Evidence required: A7
 - Challenge: Copy exactly from ffprobe.
 
-### platform_fit_safe_areas-011 · `number` → `/audio/integrated_lufs`
+### platform_fit_safe_areas-011 · `number` → `/render_binding/mapping/loudness_target_delta_lu`
 
 **How does integrated loudness compare with common streaming normalisation targets (difference in LU from a target the run specifies)?**
 
@@ -339,7 +340,7 @@ A7 stream facts; F1 frames with a safe-area overlay drawn by drawbox; F12 black 
 - Evidence required: platform answers
 - Challenge: Check the source's own text against the rule and report violations.
 
-### platform_fit_safe_areas-027 · `enum` → `/source/platform`
+### platform_fit_safe_areas-027 · `enum` → `/render_binding/mapping/source_is_reencode`
 
 **Is the file a re-encode of an earlier upload (double compression signs, burned UI, odd bitrate)?**
 
@@ -392,5 +393,5 @@ Read by the challenger's pre-pass script. The full bank with every field is `que
 
 <!-- machine-readable bank -->
 ```json
-[{"id": "platform_fit_safe_areas-001", "ir_path": "/source/resolution", "answer_type": "object"}, {"id": "platform_fit_safe_areas-002", "ir_path": "/source/fps", "answer_type": "number"}, {"id": "platform_fit_safe_areas-003", "ir_path": "/render_binding/mapping/duration_constraints", "answer_type": "object"}, {"id": "platform_fit_safe_areas-004", "ir_path": "/visual/safe_area_respected", "answer_type": "boolean"}, {"id": "platform_fit_safe_areas-005", "ir_path": "/generation_rules/-", "answer_type": "ratio"}, {"id": "platform_fit_safe_areas-006", "ir_path": "/generation_rules/-", "answer_type": "ratio"}, {"id": "platform_fit_safe_areas-007", "ir_path": "/generation_rules/-", "answer_type": "boolean"}, {"id": "platform_fit_safe_areas-008", "ir_path": "/render_binding/mapping/reframe_ok", "answer_type": "object"}, {"id": "platform_fit_safe_areas-009", "ir_path": "/generation_rules/-", "answer_type": "boolean"}, {"id": "platform_fit_safe_areas-010", "ir_path": "/render_binding/mapping/video_format", "answer_type": "object"}, {"id": "platform_fit_safe_areas-011", "ir_path": "/audio/integrated_lufs", "answer_type": "number"}, {"id": "platform_fit_safe_areas-012", "ir_path": "/source/platform", "answer_type": "object"}, {"id": "platform_fit_safe_areas-013", "ir_path": "/typography/captions/burned_in", "answer_type": "boolean"}, {"id": "platform_fit_safe_areas-014", "ir_path": "/typography/captions/sound_off_coverage", "answer_type": "ratio"}, {"id": "platform_fit_safe_areas-015", "ir_path": "/generation_rules/-", "answer_type": "boolean"}, {"id": "platform_fit_safe_areas-016", "ir_path": "/render_binding/mapping/color_tags", "answer_type": "object"}, {"id": "platform_fit_safe_areas-017", "ir_path": "/render_binding/mapping/audio_layout", "answer_type": "object"}, {"id": "platform_fit_safe_areas-018", "ir_path": "/render_binding/mapping/variable_frame_rate", "answer_type": "boolean"}, {"id": "platform_fit_safe_areas-019", "ir_path": "/render_binding/mapping/text_margins_px", "answer_type": "object"}, {"id": "platform_fit_safe_areas-020", "ir_path": "/render_binding/mapping/reframe_16x9", "answer_type": "text"}, {"id": "platform_fit_safe_areas-021", "ir_path": "/typography/labels/handle_slot", "answer_type": "boolean"}, {"id": "platform_fit_safe_areas-022", "ir_path": "/generation_rules/-", "answer_type": "segments"}, {"id": "platform_fit_safe_areas-023", "ir_path": "/generation_rules/-", "answer_type": "number"}, {"id": "platform_fit_safe_areas-024", "ir_path": "/typography/captions/cap_height_px_at_1080w", "answer_type": "number"}, {"id": "platform_fit_safe_areas-025", "ir_path": "/parameters/-", "answer_type": "list"}, {"id": "platform_fit_safe_areas-026", "ir_path": "/generation_rules/-", "answer_type": "rule"}, {"id": "platform_fit_safe_areas-027", "ir_path": "/source/platform", "answer_type": "enum", "choices": ["likely-original-export", "likely-re-encode", "not-determinable"]}, {"id": "platform_fit_safe_areas-028", "ir_path": "/render_binding/mapping/gop_s", "answer_type": "seconds"}, {"id": "platform_fit_safe_areas-029", "ir_path": "/render_binding/mapping/av_duration_delta_s", "answer_type": "seconds"}, {"id": "platform_fit_safe_areas-030", "ir_path": "/generation_rules/-", "answer_type": "boolean"}]
+[{"id": "platform_fit_safe_areas-001", "ir_path": "/source/resolution", "answer_type": "object"}, {"id": "platform_fit_safe_areas-002", "ir_path": "/source/fps", "answer_type": "number"}, {"id": "platform_fit_safe_areas-003", "ir_path": "/render_binding/mapping/duration_constraints", "answer_type": "object"}, {"id": "platform_fit_safe_areas-004", "ir_path": "/visual/safe_area_respected", "answer_type": "boolean"}, {"id": "platform_fit_safe_areas-005", "ir_path": "/generation_rules/-", "answer_type": "ratio"}, {"id": "platform_fit_safe_areas-006", "ir_path": "/generation_rules/-", "answer_type": "ratio"}, {"id": "platform_fit_safe_areas-007", "ir_path": "/generation_rules/-", "answer_type": "boolean"}, {"id": "platform_fit_safe_areas-008", "ir_path": "/render_binding/mapping/reframe_ok", "answer_type": "object"}, {"id": "platform_fit_safe_areas-009", "ir_path": "/generation_rules/-", "answer_type": "boolean"}, {"id": "platform_fit_safe_areas-010", "ir_path": "/render_binding/mapping/video_format", "answer_type": "object"}, {"id": "platform_fit_safe_areas-011", "ir_path": "/render_binding/mapping/loudness_target_delta_lu", "answer_type": "number"}, {"id": "platform_fit_safe_areas-012", "ir_path": "/source/platform", "answer_type": "object"}, {"id": "platform_fit_safe_areas-013", "ir_path": "/typography/captions/burned_in", "answer_type": "boolean"}, {"id": "platform_fit_safe_areas-014", "ir_path": "/typography/captions/sound_off_coverage", "answer_type": "ratio"}, {"id": "platform_fit_safe_areas-015", "ir_path": "/generation_rules/-", "answer_type": "boolean"}, {"id": "platform_fit_safe_areas-016", "ir_path": "/render_binding/mapping/color_tags", "answer_type": "object"}, {"id": "platform_fit_safe_areas-017", "ir_path": "/render_binding/mapping/audio_layout", "answer_type": "object"}, {"id": "platform_fit_safe_areas-018", "ir_path": "/render_binding/mapping/variable_frame_rate", "answer_type": "boolean"}, {"id": "platform_fit_safe_areas-019", "ir_path": "/render_binding/mapping/text_margins_px", "answer_type": "object"}, {"id": "platform_fit_safe_areas-020", "ir_path": "/render_binding/mapping/reframe_16x9", "answer_type": "text"}, {"id": "platform_fit_safe_areas-021", "ir_path": "/typography/labels/handle_slot", "answer_type": "boolean"}, {"id": "platform_fit_safe_areas-022", "ir_path": "/generation_rules/-", "answer_type": "segments"}, {"id": "platform_fit_safe_areas-023", "ir_path": "/generation_rules/-", "answer_type": "number"}, {"id": "platform_fit_safe_areas-024", "ir_path": "/typography/captions/cap_height_px_at_1080w", "answer_type": "number"}, {"id": "platform_fit_safe_areas-025", "ir_path": "/parameters/-", "answer_type": "list"}, {"id": "platform_fit_safe_areas-026", "ir_path": "/generation_rules/-", "answer_type": "rule"}, {"id": "platform_fit_safe_areas-027", "ir_path": "/render_binding/mapping/source_is_reencode", "answer_type": "enum", "choices": ["likely-original-export", "likely-re-encode", "not-determinable"]}, {"id": "platform_fit_safe_areas-028", "ir_path": "/render_binding/mapping/gop_s", "answer_type": "seconds"}, {"id": "platform_fit_safe_areas-029", "ir_path": "/render_binding/mapping/av_duration_delta_s", "answer_type": "seconds"}, {"id": "platform_fit_safe_areas-030", "ir_path": "/generation_rules/-", "answer_type": "boolean"}]
 ```

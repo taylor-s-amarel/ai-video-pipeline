@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/video-re-contract-interlacing",
+  "title": "Interlacing payload",
+  "description": "Payload of video_re_detect_interlacing.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["interlaced", "field_order", "telecine_like", "combed_frame_ratio", "comb_score_median", "moving_frames", "field_order_costs", "metadata_field_order", "idet", "frames_analysed"],
+  "properties": {
+    "interlaced": { "type": "boolean" },
+    "field_order": { "enum": ["tff", "bff", "progressive", "unknown"] },
+    "telecine_like": { "type": "boolean", "description": "two combed frames in every five (3:2 pulldown pattern)" },
+    "combed_frame_ratio": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+    "comb_score_median": { "type": ["number", "null"], "minimum": 0, "description": "inter-field / intra-field second-difference ratio on moving pixels" },
+    "moving_frames": { "type": "integer", "minimum": 0 },
+    "field_order_costs": {
+      "type": ["object", "null"], "additionalProperties": false, "required": ["tff", "bff"],
+      "properties": { "tff": { "type": "number", "minimum": 0 }, "bff": { "type": "number", "minimum": 0 } }
+    },
+    "metadata_field_order": { "type": ["string", "null"], "description": "ffprobe field_order (progressive, tt, bb, tb, bt, unknown)" },
+    "idet": {
+      "type": ["object", "null"], "additionalProperties": false, "required": ["tff", "bff", "progressive", "undetermined"],
+      "properties": { "tff": { "type": "integer", "minimum": 0 }, "bff": { "type": "integer", "minimum": 0 }, "progressive": { "type": "integer", "minimum": 0 }, "undetermined": { "type": "integer", "minimum": 0 } }
+    },
+    "frames_analysed": { "type": "integer", "minimum": 1 }
+  }
+}

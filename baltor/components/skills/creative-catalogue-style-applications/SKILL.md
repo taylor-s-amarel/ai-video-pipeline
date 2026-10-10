@@ -1,6 +1,6 @@
 ---
 name: "creative-catalogue-style-applications"
-description: "Use when choosing eighteen style applications for a short animated or explainer film from the October 2026 creative catalogue. Eighteen concrete style applications (SU01-SU18), each authored for one catalogue story: view, geometry, material, aesthetic, layout, why and check. Every row keeps its gate or check; these are proposals, not tested recipes."
+description: "Use when looking for a worked example of a full style specification for a catalogue story. Eighteen concrete style applications (SU01-SU18), each authored for one catalogue story: view, geometry, material, aesthetic, layout, why and check. From the October 2026 creative catalogue; every row keeps its gate or check, and these are proposals, not tested recipes."
 ---
 
 # Creative catalogue: eighteen style applications

@@ -5,7 +5,7 @@ description: "Use when choosing, developing or storyboarding catalogue premise E
 
 # EDU081 The Caption That Lost the Speaker
 
-**Catalogue family:** Learning, accessibility/inclusion (Appendix D, Learning accessibility/inclusion).  
+**Catalogue family:** Learning, accessibility/inclusion (Appendix D section "Learning accessibility/inclusion").  
 **Status:** idea. Not a completed script, not a rendered catalogue treatment, no audience study. Learning claims remain unverified until a claim-level check. Originality means authored for the catalogue, not an exhaustive prior-art search. The current story-first review may reject or substantially rewrite this premise.
 
 ## Premise (authored wording)
@@ -22,7 +22,7 @@ A viewer wants to follow a scene without its audio, but the caption shows words 
 
 **Evidence class:** `requires_primary_source_review`. **Original format tags:** side_by_side, narrative_lesson, step_by_step, prediction_quiz, behind_the_scenes.
 
-Factual checkability is not factual verification; the evidence class says what kind of check a claim would need, not that it was done.
+Factual checkability is not factual verification: the evidence class classifies how a claim could be checked; it does not record that any check was done.
 
 ## Beat structure as given
 

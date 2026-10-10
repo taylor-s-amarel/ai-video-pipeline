@@ -5,7 +5,7 @@
   "kind": "command",
   "subkind": "prompt-template",
   "version": "1.0.0",
-  "summary": "Owner's copy-ready task template, verbatim: Define the exact date, place, household or institution type, and availability standard.",
+  "summary": "Owner's template \"Evaluate a historical anomaly scene\": Define the exact date, place, household or institution type, and availability standard. Audit every visible prop and graphic detail against reliable evidence.",
   "description": "The owner's copy-ready task template \"Evaluate a historical anomaly scene\" (Animation and Video Production Master Guide (10 Oct 2026)), with the template text unchanged and its inputs passed as $ARGUMENTS. Instructions for bounded work, not a guarantee: missing inputs are marked unresolved, never invented.",
   "domain": "video",
   "licence": "MIT",

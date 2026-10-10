@@ -5,7 +5,7 @@ description: "Use when choosing, developing or storyboarding catalogue premise E
 
 # ENT064 The Shadow With an Extra Arm
 
-**Catalogue family:** Fiction, perception and hidden objects (Appendix D, Fiction perception and hidden objects).  
+**Catalogue family:** Fiction, perception and hidden objects (Appendix D section "Fiction perception and hidden objects").  
 **Status:** idea. Not a completed script, not a rendered catalogue treatment, no audience study. Fictional themes are not empirical claims. Originality means authored for the catalogue, not an exhaustive prior-art search. The current story-first review may reject or substantially rewrite this premise.
 
 ## Premise (authored wording)
@@ -22,7 +22,7 @@ A stagehand must find a supposed extra performer shown in a wall shadow, but the
 
 **Evidence class:** `fictional_demonstration`. **Original format tags:** narrative_lesson, prediction_quiz, mechanism_cutaway, side_by_side.
 
-Factual checkability is not factual verification; the evidence class says what kind of check a claim would need, not that it was done.
+Factual checkability is not factual verification: the evidence class classifies how a claim could be checked; it does not record that any check was done.
 
 ## Beat structure as given
 

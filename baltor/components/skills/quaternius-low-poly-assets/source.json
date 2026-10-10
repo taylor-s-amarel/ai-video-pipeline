@@ -1,0 +1,59 @@
+{
+  "spec": "baltor.asset-source/v1",
+  "source_id": "quaternius-low-poly-assets",
+  "name": "Quaternius low-poly packs (CC0)",
+  "homepage": "https://quaternius.com/",
+  "licence_summary": "Quaternius releases its free packs under CC0: commercial use allowed, no attribution required. Some MegaKits also sell a 'Source' tier with engine projects.",
+  "licences": [
+    {
+      "id": "CC0-1.0",
+      "url": "https://quaternius.com/",
+      "applies_to": "free pack downloads"
+    }
+  ],
+  "attribution": {
+    "required": "optional",
+    "credit_template": "Models by Quaternius (quaternius.com), CC0"
+  },
+  "redistribution": "allowed",
+  "commercial_use": "allowed",
+  "ai_training": "unspecified",
+  "automated_download": "unspecified",
+  "formats": [
+    "glb",
+    "gltf",
+    "fbx",
+    "obj",
+    "blend"
+  ],
+  "search": [
+    {
+      "label": "All packs",
+      "url": "https://quaternius.com/"
+    },
+    {
+      "label": "Universal Animation Library",
+      "url": "https://quaternius.com/packs/universalanimationlibrary.html"
+    },
+    {
+      "label": "Universal Base Characters",
+      "url": "https://quaternius.com/packs/universalbasecharacters.html"
+    },
+    {
+      "label": "Farm Buildings",
+      "url": "https://quaternius.com/packs/farmbuildings.html"
+    },
+    {
+      "label": "Ultimate Space Kit",
+      "url": "https://quaternius.com/packs/ultimatespacekit.html"
+    }
+  ],
+  "cautions": [
+    "MegaKit 'Source' tiers (Unity/Unreal/Godot implementations) are paid; the free download is the model set.",
+    "CC0 has no warranty: check scale, pivots and animation names after import."
+  ],
+  "verified": {
+    "on": "2026-10-10",
+    "how": "mixed"
+  }
+}

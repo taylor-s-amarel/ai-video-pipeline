@@ -1,0 +1,57 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "media_pack_commit_guard",
+  "title": "Block commits of unlicensed or project-only media",
+  "kind": "hook",
+  "subkind": "guardrail",
+  "version": "1.0.0",
+  "summary": "PreToolUse hook that refuses a git commit when staged images, models, audio or fonts are missing from every media pack manifest or are marked project-only/forbidden.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "secure",
+    "build"
+  ],
+  "effects": {
+    "filesystem": "read",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "runs git diff --cached, git ls-files and git rev-parse",
+      "hashes staged media files"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "hook.json",
+  "tags": [
+    "assets",
+    "licensing",
+    "git",
+    "guardrail",
+    "hook"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

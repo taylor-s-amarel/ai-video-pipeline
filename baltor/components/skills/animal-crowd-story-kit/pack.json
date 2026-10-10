@@ -1,0 +1,275 @@
+{
+  "spec": "baltor.media-pack/v1",
+  "pack_id": "animal-crowd-story-kit",
+  "title": "Animal crowd story kit (silly stories, many animals)",
+  "purpose": "Use when a ridiculous story needs many animals on screen (a crowd of pets, a farm stampede). Lists CC0 Quaternius animated animal packs, Kenney mini and blocky characters, nature props, a CC0 sunny HDRI, ZzFX for generated sounds and Kenney Interface Sounds.",
+  "status": "manifest-only",
+  "created": "2026-10-10",
+  "verified_on": "2026-10-10",
+  "targets": [
+    "godot-4",
+    "blender-4",
+    "ffmpeg-video"
+  ],
+  "frame": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "licence_policy": {
+    "allow_non_commercial": false,
+    "allow_share_alike": false,
+    "require_redistributable": false,
+    "notes": "Monetised-video policy: no NC or ND assets; credit every CC-BY asset in the description."
+  },
+  "credits_file": "CREDITS.md",
+  "notes": [
+    "Manifest only: no media files are included. Fetch direct assets with the media_pack_fetcher module; open manual-page sources in a browser and record sha256 after download."
+  ],
+  "assets": [
+    {
+      "id": "quaternius-ultimate-animated-animals",
+      "title": "Ultimate Animated Animal Pack",
+      "creator": "Quaternius",
+      "source_url": "https://quaternius.com/packs/ultimateanimatedanimals.html",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/packs/ultimateanimatedanimals.html",
+      "attribution": "Ultimate Animated Animal Pack by Quaternius (quaternius.com), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "animated animal crowd"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        },
+        "video": {
+          "role": "character"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "quaternius-farm-animals",
+      "title": "Farm Animal Pack",
+      "creator": "Quaternius",
+      "source_url": "https://quaternius.com/packs/farmanimal.html",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/packs/farmanimal.html",
+      "attribution": "Farm Animal Pack by Quaternius (quaternius.com), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "extra farm animals"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        },
+        "video": {
+          "role": "character"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "kenney-mini-characters",
+      "title": "Mini Characters",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/mini-characters",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "Mini Characters by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "owners and bystanders"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        },
+        "video": {
+          "role": "character"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "kenney-blocky-characters",
+      "title": "Blocky Characters",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/blocky-characters",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "Blocky Characters by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "cartoon townsfolk"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        },
+        "video": {
+          "role": "character"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "kenney-nature-kit",
+      "title": "Nature Kit",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/nature-kit",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "Nature Kit by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "park setting"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "polyhaven-sunset-fairway",
+      "title": "Sunset Fairway HDRI",
+      "creator": "Poly Haven",
+      "source_url": "https://polyhaven.com/a/sunset_fairway",
+      "licence": "CC0-1.0",
+      "licence_url": "https://docs.polyhaven.com/en/faq",
+      "attribution": "Sunset Fairway HDRI from Poly Haven (polyhaven.com), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "hdr",
+      "intended_use": [
+        "grassy hill lighting"
+      ],
+      "fetch": {
+        "method": "api",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "video": {
+          "role": "hdri-lighting"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "zzfx",
+      "title": "ZzFX sound synth (generate original effects)",
+      "creator": "KilledByAPixel",
+      "source_url": "https://github.com/KilledByAPixel/ZzFX",
+      "licence": "MIT",
+      "licence_url": "https://github.com/KilledByAPixel/ZzFX",
+      "attribution": "ZzFX sound synth (generate original effects) by KilledByAPixel (MIT)",
+      "attribution_required": false,
+      "redistribution": "allowed-with-licence",
+      "commercial_use": "allowed",
+      "format": "json",
+      "intended_use": [
+        "generated boing and pop sounds"
+      ],
+      "fetch": {
+        "method": "git",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "video": {
+          "role": "sfx"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "fetched"
+      }
+    },
+    {
+      "id": "kenney-interface-sounds",
+      "title": "Interface Sounds",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/interface-sounds",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "Interface Sounds by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "caption pops"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "video": {
+          "role": "sfx"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    }
+  ]
+}

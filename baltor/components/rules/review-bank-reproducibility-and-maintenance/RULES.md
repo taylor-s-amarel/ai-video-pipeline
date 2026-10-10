@@ -23,7 +23,7 @@ owner's exact text. `questions.json` holds the same 32 records in the `adversari
 
 - Severity: 1 critical, 22 high, 9 medium.
 - Modes: 7 visual, 2 auditory, 32 machine, 2 human-audience.
-- Need listening: 2 (none are listening-only).
+- Need listening: 2; listening-only (no visual or machine route): none.
 - Need a human audience: 2.
 - Only answerable at final encode or delivery: none.
 - Limited by style filter: `AVQ-032-012` (puzzle, typographic).

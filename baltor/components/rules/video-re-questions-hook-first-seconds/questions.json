@@ -332,7 +332,7 @@
         "frames: F9 text colour",
         "frames: F3 backing crop"
       ],
-      "ir_path": "/typography/title/color",
+      "ir_path": "/typography/title/first_frame_style",
       "answer_type": "object",
       "challenge": "Anti-aliased edges and compression shift colour; resample in two other letters and report the spread."
     },

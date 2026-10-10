@@ -1,0 +1,68 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "nature_backgrounds_kit",
+  "title": "Nature backgrounds kit (moving HDRI skies and foliage)",
+  "kind": "skill",
+  "subkind": "rights-manifest",
+  "version": "1.0.0",
+  "summary": "Media pack manifest for moving nature backgrounds behind facts - five CC0 sunset/sky HDRIs, CC0 foliage packs, PBR ground materials and particle overlays.",
+  "description": "Use when a short needs calm, moving nature backgrounds (panning skies, swaying foliage, drifting particles) behind photos and captions. Lists CC0 Poly Haven HDRIs, Quaternius and Kenney nature models, ambientCG and cgbookcase materials, and Kenney particles.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "plan",
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "media-pack",
+    "manifest",
+    "nature",
+    "backgrounds",
+    "hdri",
+    "foliage",
+    "shorts"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "media_pack_fetcher"
+    },
+    {
+      "identity": "asset_licence_checker"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits",
+    "parameters": {
+      "assets": 10,
+      "status": "manifest-only"
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

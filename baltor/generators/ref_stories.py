@@ -33,6 +33,7 @@ from __future__ import annotations
 import copy
 import json
 import re
+import shutil
 import sys
 from pathlib import Path
 
@@ -61,6 +62,8 @@ PROV = D["provenance"]
 PREMISES = APPD["premises"]
 BANKS = APPC["banks"]
 CAT = PROV["creative_catalogue_bundle"]
+SLATE_STATUS = re.sub(r"^Status:\s*", "", SLATE["status"])
+SLATE_STATUS = SLATE_STATUS[:1].upper() + SLATE_STATUS[1:]
 
 # ----------------------------------------------------------------------------- counts the guide states
 assert len(PREMISES) == 240, f"expected 240 premises, parsed {len(PREMISES)}"
@@ -169,6 +172,14 @@ def clip(text: str, limit: int) -> str:
 
 def sentences(text: str) -> list[str]:
     return [s.strip() for s in re.split(r"(?<=[.!?])\s+(?=[A-Z“\"'(*])", text) if s.strip()]
+
+
+def blocks(paras: list[str]) -> list[str]:
+    """Markdown lines for a list of paragraphs, each followed by a blank line."""
+    out: list[str] = []
+    for para in paras:
+        out += [para, ""]
+    return out
 
 
 def md_table(columns: list[str], rows: list[list[str]]) -> str:
@@ -554,7 +565,7 @@ def premise_skill(p: dict) -> str:
     claim_note = ("Learning claims remain unverified until a claim-level check." if p["family"] == "learning"
                   else "Fictional themes are not empirical claims.")
     L: list[str] = [f"# {p['id']} {p['title']}", ""]
-    L.append(f"**Catalogue family:** {fam_word}, {p['category']} (Appendix D, {p['category_heading']}).  ")
+    L.append(f"**Catalogue family:** {fam_word}, {p['category']} (Appendix D section \"{p['category_heading']}\").  ")
     L.append(f"**Status:** idea. Not a completed script, not a rendered catalogue treatment, no audience study. "
              f"{claim_note} Originality means authored for the catalogue, not an exhaustive prior-art search. "
              "The current story-first review may reject or substantially rewrite this premise.")
@@ -562,8 +573,8 @@ def premise_skill(p: dict) -> str:
           f"**Hook:** {p['hook']}", "", f"**Visible action:** {p['visible_action']}", "",
           f"**Intended takeaway or theme:** {p['intended_takeaway_or_theme']}", "", f"**Gate:** {p['gate']}", "",
           f"**Evidence class:** `{p['evidence_class']}`. **Original format tags:** {', '.join(p['original_format_tags'])}.",
-          "", "Factual checkability is not factual verification; the evidence class says what kind of check a claim "
-          "would need, not that it was done.", ""]
+          "", "Factual checkability is not factual verification: the evidence class classifies how a claim could be "
+          "checked; it does not record that any check was done.", ""]
 
     L += ["## Beat structure as given", "",
           "The guide gives this premise as one paragraph and one visible-action line. They are split below in their "
@@ -663,7 +674,7 @@ POST_FIELDS = ["midpoint_change", "why_watch_next_beat", "alternate_ending", "ob
 
 def board_skill(b: dict) -> str:
     L = [f"# {b['title']} (timed storyboard {b['number']} of 3)", ""]
-    L += [f"**Status:** {SLATE['status']}", "",
+    L += [f"**Status:** {SLATE_STATUS}", "",
           f"**Scope:** {SLATE['scope']}", "",
           f"**Editorial recommendation:** {recommendation_for(b['title'])} {SLATE['recommendation'][1]}", ""]
     for k in PRE_FIELDS:
@@ -693,7 +704,8 @@ def board_skill(b: dict) -> str:
 
 def pitch_skill(p: dict) -> str:
     L = [f"# {p['title']} (development pitch {p['number']} of 8)", ""]
-    L += [f"**Status:** {' '.join(SLATE['slate_intro'])} {SLATE['status']}", "",
+    L += ["**Status:** pitch, proposed.", "", f"From the guide's development slate: {' '.join(SLATE['slate_intro'])}",
+          "", f"Slate status, from the guide: {SLATE_STATUS}", "",
           f"**Scope:** {SLATE['scope']}", ""]
     for k in ("opening_frame", "question_and_goals", "rule", "causal_escalation", "plant_and_payoff", "visual_test"):
         L += [f"**{p['field_labels'][k]}:** {p[k]}", ""]
@@ -744,6 +756,20 @@ BANK_SPECS = {
                   "not current owner-approved selections."),
 }
 
+BANK_USE = {
+    "approaches": "when deciding how a short film represents its story: diagrammatic vector, sketch and cutaway, "
+                  "tactile miniature 3D, or layered 2.5D illustration.",
+    "hooks": "when writing the opening hook or first line of a short animated or explainer film.",
+    "intros": "when designing the first frame and first seconds of a short animated or explainer film.",
+    "styles": "when picking a visual style for a short animated or explainer film.",
+    "motions": "when choosing camera or object motion that carries a story beat or an explanation.",
+    "formats": "when choosing the editorial structure of a short film (mechanism, prediction, fable, dilemma, "
+               "dramatic irony, comedy chain and more).",
+    "axes": "when specifying a film's look one decision at a time: projection, geometry, material, aesthetic, composition.",
+    "style_applications": "when looking for a worked example of a full style specification for a catalogue story.",
+    "top_picks": "when looking for the catalogue's historically recommended starting premises.",
+}
+
 BANK_GUIDANCE = {
     "approaches": ["Every treatment address names one approach. Learning stories use A01 and A02; fiction stories use "
                    "A01 with A03 (group 3) or with A04 (group 4).",
@@ -784,8 +810,6 @@ def bank_skill(key: str) -> tuple[str, dict]:
     heading = (APPC["count_contract"]["approaches"]["heading"] if key == "approaches" else BANKS[key]["heading"])
     anchor = (APPC["count_contract"]["anchor"] if key == "approaches" else BANKS[key]["anchor"])
     L = [f"# {title}", "", f"**Status:** {APPC['intro'][0]}", ""]
-    if key == "approaches":
-        L += [p for p in APPC["count_contract"]["paragraphs"]] + [""]
     for n in notes:
         L += [n, ""]
     for gtxt in BANK_GUIDANCE[key]:
@@ -906,8 +930,8 @@ def comedy_md() -> str:
           "Related hook patterns whose catalogued use is comedy (a join made by the generator from the hook bank's Use "
           "column; each keeps its guard):", ""]
     L += [f"- {h['id']} {h['pattern']}: \"{h['copy_seed']}\" Guard: {h['guard']}" for h in hooks]
-    L += ["", "BOXED IN lesson: repeated unsuccessful attempts are not automatically an arc; three versions of the same "
-          "failed push is the overcomplicated-solution failure. See `story_contract_rules`.", "", STATUS_LADDER_NOTE]
+    L += ["", "BOXED IN lesson (see `story_contract_rules`): repeated unsuccessful attempts are not automatically an "
+          "arc.", "", STATUS_LADDER_NOTE]
     return "\n".join(L)
 
 
@@ -925,7 +949,7 @@ def suspense_md() -> str:
     L += [f"{n}. {r}" for n, r in enumerate(suspense_rules(), 1)]
     tail = sentences(SQ["story_contract"]["after"][0])[-1]
     L += ["", f"From the story contract: {tail}", "",
-          "Check on a board: write the concrete question in one sentence; point to the shots that show success and "
+          "Operational check added for this package (not guide wording): write the concrete question in one sentence; point to the shots that show success and "
           "failure; list the choices still open after each shot and confirm the list narrows; for any clock, name the "
           "decision it changes; for any apparent escape, name its cost or the relationship it reveals.", "",
           STATUS_LADDER_NOTE]
@@ -1080,6 +1104,50 @@ def module_files(name: str) -> dict[str, str]:
 
 # ============================================================================= write everything
 
+def self_check() -> None:
+    """Validate generated JSON against the schemas this generator ships, and boards against the structure check."""
+    try:
+        import jsonschema  # type: ignore
+    except ImportError:  # pragma: no cover
+        print("ref_stories: jsonschema not installed; skipping self-check", file=sys.stderr)
+        return
+    V = jsonschema.Draft202012Validator
+    for schema in (STORY_PREMISE_SCHEMA, TIMED_STORYBOARD_SCHEMA, STORY_CONTRACT_SCHEMA, TREATMENT_ADDRESS_SCHEMA):
+        V.check_schema(schema)
+    pv = V(STORY_PREMISE_SCHEMA)
+    for p in PREMISES:
+        errs = list(pv.iter_errors(premise_record(p)))
+        assert not errs, f"{p['id']}: {errs[0].message}"
+    bv = V(TIMED_STORYBOARD_SCHEMA)
+    for rec in [board_record(b) for b in SLATE["boards"]] + [pitch_record(p) for p in SLATE["pitches"]]:
+        errs = list(bv.iter_errors(rec))
+        assert not errs, f"{rec['id']}: {errs[0].message}"
+    assert not list(V(STORY_CONTRACT_SCHEMA).iter_errors(DECOY_CONTRACT))
+    av = V(TREATMENT_ADDRESS_SCHEMA)
+    for p in PREMISES:
+        for t in treatments(p):
+            rec = address_record(p["id"], t["format_id"], t["approach_id"])
+            assert av.is_valid(rec), rec["address"]
+    # The module reads storyboard_rules.json next to itself; load a temporary copy with the generated rules.
+    import importlib.util
+    import tempfile
+    with tempfile.TemporaryDirectory() as tmp:
+        shutil.copy(MODULES / ID_CHECK / f"{ID_CHECK}.py", Path(tmp) / f"{ID_CHECK}.py")
+        (Path(tmp) / "storyboard_rules.json").write_text(dumps(storyboard_rules_json()), encoding="utf-8")
+        spec = importlib.util.spec_from_file_location("_tsc", Path(tmp) / f"{ID_CHECK}.py")
+        mod = importlib.util.module_from_spec(spec)
+        sys.modules["_tsc"] = mod
+        try:
+            spec.loader.exec_module(mod)
+        finally:
+            sys.modules.pop("_tsc", None)
+        for rec in [board_record(b) for b in SLATE["boards"]] + [pitch_record(p) for p in SLATE["pitches"]]:
+            found = mod.check_board(rec)
+            assert not found, f"{rec['id']}: {found}"
+
+
+self_check()
+
 COMMON_TAGS = ["story"]
 NO_FX = effects()
 CONSIDERED_RULE_NOTE = ("Editorial guidance from the owner's guide, written after Taylor rejected BOXED IN's story "
@@ -1152,7 +1220,7 @@ with GeneratorRun(__file__, data=DATA_REL) as run:
 
     tm = APPC["treatment_map"]
     readme = ["# Treatment address", "", f"Source: {GUIDE_TITLE}, Appendix C (`{GUIDE_REL}#{tm['anchor']}`).", ""]
-    readme += APPC["count_contract"]["paragraphs"] + [""] + tm["intro"] + [""]
+    readme += blocks(APPC["count_contract"]["paragraphs"]) + blocks(tm["intro"])
     readme += ["## Representation approaches", "",
                md_table(APPC["count_contract"]["approaches"]["columns"],
                         [[r[k] for k in APPC["count_contract"]["approaches"]["keys"]]
@@ -1424,8 +1492,8 @@ with GeneratorRun(__file__, data=DATA_REL) as run:
                            "production or timed board; to be developed only if its central visual test works.",
         )
     slate_md = ["# Suspense and comedy development slate (October 2026)", "",
-                f"**Scope:** {SLATE['scope']}", "", f"**Status:** {SLATE['status']}", "", "## Recommendation", ""]
-    slate_md += SLATE["recommendation"] + [""] + SLATE["slate_intro"] + [""]
+                f"**Scope:** {SLATE['scope']}", "", f"**Status:** {SLATE_STATUS}", "", "## Recommendation", ""]
+    slate_md += blocks(SLATE["recommendation"]) + blocks(SLATE["slate_intro"])
     slate_md += [md_table(["#", "Title", "Type", "Length", "Question", "Skill"], slate_rows), "",
                  "## Production-independent story tests", ""] + STORY_TESTS["intro"] + [""] + story_test_lines()
     slate_md += [""] + STORY_TESTS["after"] + ["", STORY_TESTS["global_kill_criteria_text"], "",
@@ -1468,9 +1536,8 @@ with GeneratorRun(__file__, data=DATA_REL) as run:
             subkind="idea-bank", domain="story",
             files={"SKILL.md": skill_md(
                 ident.replace("_", "-"),
-                clip(f"Use when choosing {title.split(': ', 1)[1]} for a short animated or explainer film from the "
-                     f"October 2026 creative catalogue. {summary} Every row keeps its gate or check; these are "
-                     "proposals, not tested recipes.", 1020),
+                clip(f"Use {BANK_USE[key]} {summary} From the October 2026 creative catalogue; every row keeps its "
+                     "gate or check, and these are proposals, not tested recipes.", 1020),
                 body),
                 "bank.json": dumps(bank)},
             tags=COMMON_TAGS + ["idea-bank", "creative-catalogue", key.replace("_", "-")],
@@ -1509,8 +1576,8 @@ with GeneratorRun(__file__, data=DATA_REL) as run:
             evidence_stage="considered",
             evidence_notes=clip(f"Idea from the 10 Oct 2026 creative catalogue ({CAT_REF_PLAIN}), preserved in guide "
                                 f"Appendix D line {p['line']}. Not a completed script, not rendered, no audience study. "
-                                f"Evidence class {p['evidence_class']} names the check a claim would need, not a check "
-                                f"done. Its ten treatment addresses ({tr[0]['address']} ...) are candidates, not "
+                                f"Evidence class {p['evidence_class']} is a classification, not a completed "
+                                f"check. Its ten treatment addresses ({tr[0]['address']} ...) are candidates, not "
                                 "screenplays.", 1000),
         )
 

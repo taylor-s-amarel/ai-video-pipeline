@@ -1,0 +1,60 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "rive_community_files",
+  "title": "Rive community and marketplace files (CC BY)",
+  "kind": "skill",
+  "subkind": "media-source",
+  "version": "1.0.0",
+  "summary": "Remix Rive community files under CC BY with credit, export .riv, and play or render them with the MIT runtimes.",
+  "description": "Use when an interactive or state-machine animation from the Rive community would fit a scene or UI. Community and Marketplace files are shared under CC BY, so they need credit; runtimes are MIT. Covers remixing, credit, exporting .riv and playing it on the web or rendering to video.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "notes": "Describes https://rive.app/docs/community/community-overview (checked 2026-10-10); contains no third-party media."
+  },
+  "step_kinds": [
+    "research",
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "licensing",
+    "rive",
+    "motion",
+    "cc-by",
+    "runtime"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "asset_source_profile"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

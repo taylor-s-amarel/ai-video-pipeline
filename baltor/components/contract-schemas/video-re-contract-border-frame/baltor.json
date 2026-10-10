@@ -1,0 +1,54 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "video_re_contract_border_frame",
+  "title": "Border frame payload",
+  "kind": "contract-schema",
+  "version": "1.0.0",
+  "summary": "JSON Schema for the border frame detector payload - per-side widths in source px, style, colour or gradient, inner corner radius and content rectangle.",
+  "description": "Emitted as the envelope payload by video_re_detect_border_frame; the envelope itself follows the baltor.video-detection/v1 schema.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "measure",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "schema.json",
+  "tags": [
+    "video",
+    "reverse-engineering",
+    "contract",
+    "detector-payload",
+    "geometry",
+    "border",
+    "frame",
+    "padding",
+    "corner-radius"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/video_re_detectors_a.py",
+    "data": "generators/data/video_re_detectors_a"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Valid example validates and invalid example fails (Draft 2020-12); the detector's tests validate every emitted payload against this schema."
+  }
+}

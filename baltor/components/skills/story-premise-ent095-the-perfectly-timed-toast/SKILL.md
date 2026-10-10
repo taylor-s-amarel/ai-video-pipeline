@@ -5,7 +5,7 @@ description: "Use when choosing, developing or storyboarding catalogue premise E
 
 # ENT095 The Perfectly Timed Toast
 
-**Catalogue family:** Fiction, everyday microdramas (Appendix D, Fiction everyday microdramas).  
+**Catalogue family:** Fiction, everyday microdramas (Appendix D section "Fiction everyday microdramas").  
 **Status:** idea. Not a completed script, not a rendered catalogue treatment, no audience study. Fictional themes are not empirical claims. Originality means authored for the catalogue, not an exhaustive prior-art search. The current story-first review may reject or substantially rewrite this premise.
 
 ## Premise (authored wording)
@@ -22,7 +22,7 @@ A figure wants butter and toast ready together, but repeatedly prepares one long
 
 **Evidence class:** `fictional_demonstration`. **Original format tags:** narrative_lesson, silent_visual, step_by_step.
 
-Factual checkability is not factual verification; the evidence class says what kind of check a claim would need, not that it was done.
+Factual checkability is not factual verification: the evidence class classifies how a claim could be checked; it does not record that any check was done.
 
 ## Beat structure as given
 

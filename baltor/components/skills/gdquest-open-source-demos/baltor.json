@@ -1,0 +1,61 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "gdquest_open_source_demos",
+  "title": "GDQuest open-source Godot demos (MIT code, some NC art)",
+  "kind": "skill",
+  "subkind": "media-source",
+  "version": "1.0.0",
+  "summary": "Reuse GDQuest's MIT Godot code while treating its CC-BY-NC-SA 4.0 character art as non-commercial only.",
+  "description": "Use when borrowing GDQuest's Godot 4 controllers, shaders or premade characters. Code is MIT, but several art sets (godot-4-3D-Characters, third-person controller models) are CC-BY-NC-SA 4.0 and cannot appear in monetised work. Explains reusing code while swapping art.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "notes": "Describes https://github.com/gdquest-demos (checked 2026-10-10); contains no third-party media."
+  },
+  "step_kinds": [
+    "research",
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "licensing",
+    "godot",
+    "gdquest",
+    "mit",
+    "non-commercial",
+    "characters"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "asset_source_profile"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

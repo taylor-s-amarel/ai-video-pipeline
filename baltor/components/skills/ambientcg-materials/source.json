@@ -1,0 +1,54 @@
+{
+  "spec": "baltor.asset-source/v1",
+  "source_id": "ambientcg-materials",
+  "name": "ambientCG PBR materials and HDRIs (CC0, API v2/v3)",
+  "homepage": "https://ambientcg.com/",
+  "licence_summary": "All ambientCG assets are under CC0 1.0 Universal; credit is not required but appreciated.",
+  "licences": [
+    {
+      "id": "CC0-1.0",
+      "url": "https://docs.ambientcg.com/license/",
+      "applies_to": "all assets"
+    }
+  ],
+  "attribution": {
+    "required": "optional",
+    "credit_template": "Materials from ambientCG.com, CC0"
+  },
+  "redistribution": "allowed",
+  "commercial_use": "allowed",
+  "ai_training": "unspecified",
+  "automated_download": "api-only",
+  "formats": [
+    "jpg",
+    "png",
+    "exr",
+    "zip"
+  ],
+  "search": [
+    {
+      "label": "Asset search",
+      "url": "https://ambientcg.com/list"
+    },
+    {
+      "label": "API overview",
+      "url": "https://docs.ambientcg.com/api/"
+    },
+    {
+      "label": "API v2 /full_json",
+      "url": "https://docs.ambientcg.com/api/v2/full_json/"
+    }
+  ],
+  "cautions": [
+    "Watch the technical updates page before relying on API response shapes."
+  ],
+  "verified": {
+    "on": "2026-10-10",
+    "how": "mixed"
+  },
+  "api": {
+    "url": "https://docs.ambientcg.com/api/",
+    "auth": "none",
+    "notes": "v2 is frozen; new projects should use v3. The v2 zipContent field now always returns []."
+  }
+}

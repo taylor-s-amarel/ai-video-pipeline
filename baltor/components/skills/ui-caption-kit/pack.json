@@ -1,0 +1,335 @@
+{
+  "spec": "baltor.media-pack/v1",
+  "pack_id": "ui-caption-kit",
+  "title": "UI and caption kit (fonts, panels, icons, pops)",
+  "purpose": "Use when styling hook titles, one-line captions, FACT labels, lower thirds and reaction stickers for 1080x1920 shorts or Godot UI. Lists OFL fonts (Bebas Neue, Anton, Montserrat, Inter), Kenney UI Pack, Lucide/Tabler icons, Twemoji (credit) and Kenney Interface Sounds.",
+  "status": "manifest-only",
+  "created": "2026-10-10",
+  "verified_on": "2026-10-10",
+  "targets": [
+    "ffmpeg-video",
+    "godot-4",
+    "web"
+  ],
+  "frame": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "licence_policy": {
+    "allow_non_commercial": false,
+    "allow_share_alike": false,
+    "require_redistributable": false,
+    "notes": "Monetised-video policy: no NC or ND assets; credit every CC-BY asset in the description."
+  },
+  "credits_file": "CREDITS.md",
+  "notes": [
+    "Manifest only: no media files are included. Fetch direct assets with the media_pack_fetcher module; open manual-page sources in a browser and record sha256 after download."
+  ],
+  "assets": [
+    {
+      "id": "font-bebas-neue",
+      "title": "Bebas Neue",
+      "creator": "Ryoichi Tsunekawa",
+      "source_url": "https://fonts.google.com/specimen/Bebas%2BNeue",
+      "licence": "OFL-1.1",
+      "licence_url": "https://github.com/google/fonts/tree/main/ofl/bebasneue",
+      "attribution": "Font: Bebas Neue by Ryoichi Tsunekawa (SIL OFL 1.1)",
+      "attribution_required": false,
+      "redistribution": "allowed-with-licence",
+      "commercial_use": "allowed",
+      "format": "ttf",
+      "intended_use": [
+        "hook titles"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "font"
+        },
+        "video": {
+          "role": "font"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "font-anton",
+      "title": "Anton",
+      "creator": "Vernon Adams",
+      "source_url": "https://fonts.google.com/specimen/Anton?preview.text=Bebas+Neue+Regular&preview.text_type=custom",
+      "licence": "OFL-1.1",
+      "licence_url": "https://github.com/google/fonts/tree/main/ofl/anton",
+      "attribution": "Font: Anton by Vernon Adams (SIL OFL 1.1)",
+      "attribution_required": false,
+      "redistribution": "allowed-with-licence",
+      "commercial_use": "allowed",
+      "format": "ttf",
+      "intended_use": [
+        "alternative heavy title"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "font"
+        },
+        "video": {
+          "role": "font"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "font-montserrat",
+      "title": "Montserrat",
+      "creator": "Montserrat authors (see OFL.txt)",
+      "source_url": "https://fonts.google.com/specimen/Montserrat/license",
+      "licence": "OFL-1.1",
+      "licence_url": "https://github.com/google/fonts/tree/main/ofl/montserrat",
+      "attribution": "Font: Montserrat by Montserrat authors (see OFL.txt) (SIL OFL 1.1)",
+      "attribution_required": false,
+      "redistribution": "allowed-with-licence",
+      "commercial_use": "allowed",
+      "format": "ttf",
+      "intended_use": [
+        "captions"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "font"
+        },
+        "video": {
+          "role": "font"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "font-inter",
+      "title": "Inter",
+      "creator": "Rasmus Andersson",
+      "source_url": "https://fonts.google.com/specimen/Inter",
+      "licence": "OFL-1.1",
+      "licence_url": "https://github.com/google/fonts/tree/main/ofl/inter",
+      "attribution": "Font: Inter by Rasmus Andersson (SIL OFL 1.1)",
+      "attribution_required": false,
+      "redistribution": "allowed-with-licence",
+      "commercial_use": "allowed",
+      "format": "ttf",
+      "intended_use": [
+        "small labels and sources line"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "font"
+        },
+        "video": {
+          "role": "font"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "kenney-ui-pack",
+      "title": "UI Pack 2.0",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/ui-pack",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "UI Pack 2.0 by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "panels and arrows"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "texture",
+          "preset": "ui-lossless"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "lucide-icons",
+      "title": "Lucide icons",
+      "creator": "Lucide contributors",
+      "source_url": "https://github.com/lucide-icons/lucide",
+      "licence": "ISC",
+      "licence_url": "https://github.com/lucide-icons/lucide",
+      "attribution": "Lucide icons by Lucide contributors (ISC)",
+      "attribution_required": false,
+      "redistribution": "allowed-with-licence",
+      "commercial_use": "allowed",
+      "format": "svg",
+      "intended_use": [
+        "inline caption icons"
+      ],
+      "fetch": {
+        "method": "git",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "video": {
+          "role": "icon"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "fetched"
+      }
+    },
+    {
+      "id": "tabler-icons",
+      "title": "Tabler Icons",
+      "creator": "Tabler",
+      "source_url": "https://github.com/tabler/tabler-icons",
+      "licence": "MIT",
+      "licence_url": "https://github.com/tabler/tabler-icons",
+      "attribution": "Tabler Icons by Tabler (MIT)",
+      "attribution_required": false,
+      "redistribution": "allowed-with-licence",
+      "commercial_use": "allowed",
+      "format": "svg",
+      "intended_use": [
+        "check and cross marks"
+      ],
+      "fetch": {
+        "method": "git",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "video": {
+          "role": "icon"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "fetched"
+      }
+    },
+    {
+      "id": "twemoji",
+      "title": "Twemoji graphics",
+      "creator": "Twemoji contributors",
+      "source_url": "https://github.com/jdecked/twemoji",
+      "licence": "CC-BY-4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/deed.en",
+      "attribution": "Emoji graphics: Twemoji, CC-BY 4.0",
+      "attribution_required": true,
+      "redistribution": "allowed-with-licence",
+      "commercial_use": "allowed",
+      "format": "svg",
+      "intended_use": [
+        "reaction stickers"
+      ],
+      "fetch": {
+        "method": "git",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "video": {
+          "role": "icon"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "fetched"
+      }
+    },
+    {
+      "id": "kenney-particle-pack",
+      "title": "Particle Pack",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/particle-pack",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "Particle Pack by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "keyword sparkle"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "texture",
+          "preset": "ui-lossless"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "kenney-interface-sounds",
+      "title": "Interface Sounds",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/interface-sounds",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "Interface Sounds by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "pop and click"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "video": {
+          "role": "sfx"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    }
+  ]
+}

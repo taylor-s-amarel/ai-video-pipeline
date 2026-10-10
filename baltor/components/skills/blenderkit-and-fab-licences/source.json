@@ -1,0 +1,52 @@
+{
+  "spec": "baltor.asset-source/v1",
+  "source_id": "blenderkit-and-fab-licences",
+  "name": "Royalty-free marketplaces (BlenderKit, Fab) - what you may not do",
+  "homepage": "https://www.blenderkit.com/docs/licenses/",
+  "licence_summary": "BlenderKit Royalty Free: commercial use without credit, but no resale or redistribution of the asset itself (including inside asset packs or game levels sold on marketplaces); BlenderKit also hosts CC0 assets. Fab Standard License: use in any engine or tool under Epic's terms; files are licensed to the claiming account.",
+  "licences": [
+    {
+      "id": "BlenderKit-Royalty-Free",
+      "url": "https://www.blenderkit.com/docs/licenses/",
+      "applies_to": "BlenderKit RF assets"
+    },
+    {
+      "id": "Fab-Standard-License",
+      "url": "https://www.cgchannel.com/2024/10/epic-games-has-made-megascans-free-to-all-but-only-until-the-end-of-2024/",
+      "applies_to": "Fab/Megascans (read the current licence on fab.com)"
+    }
+  ],
+  "attribution": {
+    "required": "never",
+    "credit_template": "Asset: {title} ({marketplace}), used under {licence}"
+  },
+  "redistribution": "project-only",
+  "commercial_use": "allowed",
+  "ai_training": "unspecified",
+  "automated_download": "forbidden",
+  "formats": [
+    "blend",
+    "fbx",
+    "glb",
+    "jpg",
+    "exr"
+  ],
+  "search": [
+    {
+      "label": "BlenderKit licences",
+      "url": "https://www.blenderkit.com/docs/licenses/"
+    },
+    {
+      "label": "Fab launch (Sketchfab blog)",
+      "url": "https://sketchfab.com/blogs/community/epics-unified-marketplace-fab-launches-today"
+    }
+  ],
+  "cautions": [
+    "Never commit Royalty Free or Fab files to a public repository or a Baltor package; ship a manifest entry with redistribution: project-only.",
+    "Fab terms changed in 2024-2025; re-read the current Fab Standard License before each project."
+  ],
+  "verified": {
+    "on": "2026-10-10",
+    "how": "mixed"
+  }
+}

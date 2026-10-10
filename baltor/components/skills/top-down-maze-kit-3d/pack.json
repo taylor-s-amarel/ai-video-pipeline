@@ -1,0 +1,240 @@
+{
+  "spec": "baltor.media-pack/v1",
+  "pack_id": "top-down-maze-kit-3d",
+  "title": "Top-down maze kit (3D low-poly variant)",
+  "purpose": "Use when the maze short should be a 3D low-poly scene seen from a high angle instead of pixel art. Swaps the tiles for KayKit Dungeon Remastered and Kenney Modular Dungeon Kit pieces and adds CC0 characters; pathfinding still runs on a grid.",
+  "status": "manifest-only",
+  "created": "2026-10-10",
+  "verified_on": "2026-10-10",
+  "targets": [
+    "godot-4",
+    "ffmpeg-video"
+  ],
+  "frame": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "licence_policy": {
+    "allow_non_commercial": false,
+    "allow_share_alike": false,
+    "require_redistributable": false,
+    "notes": "Monetised-video policy: no NC or ND assets; credit every CC-BY asset in the description."
+  },
+  "credits_file": "CREDITS.md",
+  "notes": [
+    "Manifest only: no media files are included. Fetch direct assets with the media_pack_fetcher module; open manual-page sources in a browser and record sha256 after download."
+  ],
+  "assets": [
+    {
+      "id": "kaykit-dungeon-remastered",
+      "title": "KayKit Dungeon Pack Remastered (free tier)",
+      "creator": "Kay Lousberg",
+      "source_url": "https://kaylousberg.itch.io/kaykit-dungeon-remastered",
+      "licence": "CC0-1.0",
+      "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "attribution": "KayKit Dungeon Pack Remastered (free tier) by Kay Lousberg (KayKit), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "restrictions": [
+        "Author asks: do not resell unmodified copies or claim them as your own."
+      ],
+      "intended_use": [
+        "modular dungeon walls, props and chests"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "kenney-modular-dungeon-kit",
+      "title": "Modular Dungeon Kit",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/modular-dungeon-kit",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "Modular Dungeon Kit by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "alternative modular rooms"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "kaykit-skeletons-github",
+      "title": "KayKit Character Pack Skeletons 1.0",
+      "creator": "Kay Lousberg",
+      "source_url": "https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Skeletons-1.0",
+      "licence": "CC0-1.0",
+      "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "attribution": "KayKit Character Pack Skeletons 1.0 by Kay Lousberg (KayKit), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "restrictions": [
+        "Author asks: do not resell unmodified copies or claim them as your own."
+      ],
+      "intended_use": [
+        "skeleton characters chasing the hero"
+      ],
+      "fetch": {
+        "method": "git",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        },
+        "video": {
+          "role": "character"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "fetched"
+      }
+    },
+    {
+      "id": "kenney-mini-characters",
+      "title": "Mini Characters",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/mini-characters",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "Mini Characters by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "the hero"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        },
+        "video": {
+          "role": "character"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "godot-demo-navigation-astar",
+      "title": "Godot demo: AStarGrid2D navigation",
+      "creator": "Godot Engine contributors",
+      "source_url": "https://github.com/godotengine/godot-demo-projects/tree/master/2d/navigation_astar",
+      "licence": "MIT",
+      "licence_url": "https://github.com/godotengine/godot-demo-projects/blob/master/LICENSE.md",
+      "attribution": "Godot demo: AStarGrid2D navigation by Godot Engine contributors (MIT)",
+      "attribution_required": false,
+      "redistribution": "allowed-with-licence",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "grid pathfinding logic"
+      ],
+      "fetch": {
+        "method": "git",
+        "status": "to-fetch"
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "fetched"
+      }
+    },
+    {
+      "id": "polyhaven-industrial-sunset-puresky",
+      "title": "Industrial Sunset (Pure Sky) HDRI",
+      "creator": "Poly Haven",
+      "source_url": "https://polyhaven.com/a/industrial_sunset_puresky",
+      "licence": "CC0-1.0",
+      "licence_url": "https://docs.polyhaven.com/en/faq",
+      "attribution": "Industrial Sunset (Pure Sky) HDRI from Poly Haven (polyhaven.com), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "hdr",
+      "intended_use": [
+        "ambient lighting from above"
+      ],
+      "fetch": {
+        "method": "api",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "video": {
+          "role": "hdri-lighting"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "kenney-rpg-audio",
+      "title": "RPG Audio",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/rpg-audio",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "RPG Audio by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "footsteps and doors"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "video": {
+          "role": "sfx"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    }
+  ]
+}

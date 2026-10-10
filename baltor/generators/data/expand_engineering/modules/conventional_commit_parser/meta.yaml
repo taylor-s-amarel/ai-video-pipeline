@@ -1,0 +1,10 @@
+title: Conventional Commits parser and validator
+summary: Parses and validates commit messages against Conventional Commits 1.0.0 (scope, !, BREAKING CHANGE footers) and reports the SemVer bump each commit implies.
+subkind: release-engineering
+tags: [conventional-commits, git, commit-message, semver, release]
+step_kinds: [build, verify, publish]
+examples:
+  - "python conventional_commit_parser.py --file .git/COMMIT_EDITMSG"
+  - "git log -1 --format=%B | python conventional_commit_parser.py --json"
+references:
+  - https://www.conventionalcommits.org/en/v1.0.0/

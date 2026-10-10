@@ -5,7 +5,7 @@ description: "Use when choosing, developing or storyboarding catalogue premise E
 
 # ENT103 The Planet With a Pause Button
 
-**Catalogue family:** Fiction, fantasy and science fiction (Appendix D, Fiction fantasy and science fiction).  
+**Catalogue family:** Fiction, fantasy and science fiction (Appendix D section "Fiction fantasy and science fiction").  
 **Status:** idea. Not a completed script, not a rendered catalogue treatment, no audience study. Fictional themes are not empirical claims. Originality means authored for the catalogue, not an exhaustive prior-art search. The current story-first review may reject or substantially rewrite this premise.
 
 ## Premise (authored wording)
@@ -22,7 +22,7 @@ A traveler needs to cross a tiny rotating planet to meet a friend, but pressing 
 
 **Evidence class:** `fictional_demonstration`. **Original format tags:** narrative_lesson, prediction_quiz, silent_visual, interactive_branch.
 
-Factual checkability is not factual verification; the evidence class says what kind of check a claim would need, not that it was done.
+Factual checkability is not factual verification: the evidence class classifies how a claim could be checked; it does not record that any check was done.
 
 ## Beat structure as given
 

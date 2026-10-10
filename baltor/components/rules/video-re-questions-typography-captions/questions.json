@@ -141,7 +141,7 @@
       "id": "typography_captions-005",
       "question": "What weight are captions (regular, medium, bold, black)?",
       "why_it_matters": "Fills caption weight.",
-      "how_to_answer": "Stroke thickness relative to letter height on F3 crops: stem width / cap height above about 0.18 is bold, above 0.24 black.",
+      "how_to_answer": "Measure stem width / cap height on enlarged F3 crops and report the ratio. Rough guide (this swarm's convention, not a type standard): about 0.10-0.15 reads as regular, about 0.2 as bold, 0.25 or more as black.",
       "evidence_required": [
         "frames: F3 enlarged"
       ],
@@ -253,7 +253,7 @@
       "evidence_required": [
         "sync offsets"
       ],
-      "ir_path": "/typography/captions/sync_offset_ms",
+      "ir_path": "/typography/captions/sync_relation",
       "answer_type": "enum",
       "choices": [
         "before",
@@ -505,7 +505,7 @@
       "id": "typography_captions-031",
       "question": "Is letter spacing tight, normal or wide in captions?",
       "why_it_matters": "Fills tracking.",
-      "how_to_answer": "Gap between letters relative to stem width on F3 crops; tight below 0.5, wide above 1.2.",
+      "how_to_answer": "Measure the gap between letters relative to stem width on F3 crops and report it; this swarm calls below 0.5 tight and above 1.2 wide (a convention, not a standard).",
       "evidence_required": [
         "frames: F3"
       ],

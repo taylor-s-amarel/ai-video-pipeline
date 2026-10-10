@@ -1,0 +1,68 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "this_vs_that_comparison_kit",
+  "title": "This-vs-that comparison kit",
+  "kind": "skill",
+  "subkind": "rights-manifest",
+  "version": "1.0.0",
+  "summary": "Media pack manifest for 'this vs that' comparison shorts - CC0 food/props, versus icon (CC BY), tick/cross icons, heavy title fonts, reveal sounds and UI panels.",
+  "description": "Use when making split-screen 'this vs that' or ranking shorts. Lists CC0 Kenney props, a game-icons versus icon (CC BY 3.0 credit), MIT check/cross icons, OFL heavy title fonts, Kenney Casino Audio for reveals, Kenney UI panels and Twemoji reaction stickers (CC-BY credit).",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "plan",
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "media-pack",
+    "manifest",
+    "comparison",
+    "versus",
+    "split-screen",
+    "shorts",
+    "ranking"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "media_pack_fetcher"
+    },
+    {
+      "identity": "asset_licence_checker"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits",
+    "parameters": {
+      "assets": 8,
+      "status": "manifest-only"
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

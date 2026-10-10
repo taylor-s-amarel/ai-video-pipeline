@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/video-re-contract-safe-margin-usage",
+  "title": "Safe margin usage payload",
+  "description": "Payload of video_re_detect_safe_margin_usage: closest approach of overlays (or given text boxes) to each frame edge, in source pixels.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["min_margin_px", "min_margin_ratio", "p10_margin_px", "closest_t_s", "source", "windows_with_overlay", "static_background", "frames_analysed"],
+  "$defs": {
+    "sides_int": { "type": ["object", "null"], "additionalProperties": false, "required": ["top", "bottom", "left", "right"],
+      "properties": { "top": { "type": "integer", "minimum": 0 }, "bottom": { "type": "integer", "minimum": 0 }, "left": { "type": "integer", "minimum": 0 }, "right": { "type": "integer", "minimum": 0 } } },
+    "sides_ratio": { "type": ["object", "null"], "additionalProperties": false, "required": ["top", "bottom", "left", "right"],
+      "properties": { "top": { "type": "number", "minimum": 0, "maximum": 1 }, "bottom": { "type": "number", "minimum": 0, "maximum": 1 }, "left": { "type": "number", "minimum": 0, "maximum": 1 }, "right": { "type": "number", "minimum": 0, "maximum": 1 } } },
+    "sides_time": { "type": ["object", "null"], "additionalProperties": false, "required": ["top", "bottom", "left", "right"],
+      "properties": { "top": { "type": ["number", "null"], "minimum": 0 }, "bottom": { "type": ["number", "null"], "minimum": 0 }, "left": { "type": ["number", "null"], "minimum": 0 }, "right": { "type": ["number", "null"], "minimum": 0 } } }
+  },
+  "properties": {
+    "min_margin_px": { "$ref": "#/$defs/sides_int" },
+    "min_margin_ratio": { "$ref": "#/$defs/sides_ratio", "description": "min margin / frame height (top, bottom) or width (left, right)" },
+    "p10_margin_px": { "$ref": "#/$defs/sides_int", "description": "10th percentile over windows: a typical close approach" },
+    "closest_t_s": { "$ref": "#/$defs/sides_time" },
+    "source": { "enum": ["static-detail", "regions"] },
+    "windows_with_overlay": { "type": "integer", "minimum": 0 },
+    "static_background": { "type": "boolean" },
+    "frames_analysed": { "type": "integer", "minimum": 1 }
+  }
+}

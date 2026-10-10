@@ -1,0 +1,62 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "kaykit_asset_packs",
+  "title": "KayKit packs by Kay Lousberg (CC0, paid extras)",
+  "kind": "skill",
+  "subkind": "media-source",
+  "version": "1.0.0",
+  "summary": "Use KayKit CC0 low-poly packs and rigged characters, respecting free versus paid tiers, with Godot 4 and Blender import steps.",
+  "description": "Use when a project wants stylised low-poly KayKit models (dungeon, medieval hexagon, platformer, city builder, adventurer and skeleton characters). Covers the CC0 free tiers, paid Extra/Source tiers, the author's no-resale request, GitHub mirrors for scripted download, and import steps.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "notes": "Describes https://kaylousberg.itch.io/ (checked 2026-10-10); contains no third-party media."
+  },
+  "step_kinds": [
+    "research",
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "licensing",
+    "kaykit",
+    "cc0",
+    "3d",
+    "low-poly",
+    "characters",
+    "godot"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "asset_source_profile"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "spec": "baltor.asset-source/v1",
+  "source_id": "kaykit-asset-packs",
+  "name": "KayKit packs by Kay Lousberg (CC0, paid extras)",
+  "homepage": "https://kaylousberg.itch.io/",
+  "licence_summary": "Free KayKit tiers are CC0 (free for personal and commercial use, no attribution). The author asks that unmodified copies are not resold or claimed as your own. Extra and Source tiers are paid.",
+  "licences": [
+    {
+      "id": "CC0-1.0",
+      "url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "applies_to": "free-tier downloads, as stated on each itch.io page"
+    }
+  ],
+  "attribution": {
+    "required": "optional",
+    "credit_template": "KayKit assets by Kay Lousberg (kaylousberg.itch.io), CC0"
+  },
+  "redistribution": "allowed",
+  "commercial_use": "allowed",
+  "ai_training": "unspecified",
+  "automated_download": "unspecified",
+  "formats": [
+    "glb",
+    "gltf",
+    "fbx",
+    "obj",
+    "blend"
+  ],
+  "search": [
+    {
+      "label": "All KayKit packs on itch.io",
+      "url": "https://kaylousberg.itch.io/"
+    },
+    {
+      "label": "Dungeon Pack Remastered",
+      "url": "https://kaylousberg.itch.io/kaykit-dungeon-remastered"
+    },
+    {
+      "label": "Medieval Hexagon Pack",
+      "url": "https://kaylousberg.itch.io/kaykit-medieval-hexagon"
+    },
+    {
+      "label": "Character Pack: Adventurers",
+      "url": "https://kaylousberg.itch.io/kaykit-adventurers"
+    },
+    {
+      "label": "GitHub mirrors",
+      "url": "https://github.com/KayKit-Game-Assets"
+    }
+  ],
+  "cautions": [
+    "Do not resell unmodified copies or present them as your own work (author's request alongside CC0).",
+    "Record which tier you downloaded; Extra and Source tier files are paid."
+  ],
+  "verified": {
+    "on": "2026-10-10",
+    "how": "mixed"
+  }
+}

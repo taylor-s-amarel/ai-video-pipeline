@@ -1,0 +1,6 @@
+title: Text to RGBA renderer
+summary: Renders titles and captions to transparent RGBA with Pillow, fitting the largest wrapped size into a box, with stroke, alignment, supersampled sharp edges and a 0.98 opacity default.
+subkind: typography
+domain: video
+tags: [video, text, typography, pillow, titles, captions]
+step_kinds: [build, render]

@@ -1,0 +1,56 @@
+{
+  "spec": "baltor.asset-source/v1",
+  "source_id": "godot-asset-store-and-library",
+  "name": "Godot Asset Store and legacy Asset Library",
+  "homepage": "https://store.godotengine.org/",
+  "licence_summary": "Each asset declares its own licence (MIT is common). The Asset Store is the successor to the Asset Library; assets were not migrated automatically.",
+  "licences": [
+    {
+      "id": "per-asset",
+      "url": "https://docs.godotengine.org/en/stable/community/asset_store/what_is_asset_store.html",
+      "applies_to": "each listing"
+    }
+  ],
+  "attribution": {
+    "required": "per-asset",
+    "credit_template": "{addon} by {author} ({licence})"
+  },
+  "redistribution": "per-asset",
+  "commercial_use": "per-asset",
+  "ai_training": "per-asset",
+  "automated_download": "allowed",
+  "formats": [
+    "zip"
+  ],
+  "search": [
+    {
+      "label": "Godot Asset Store",
+      "url": "https://store.godotengine.org/"
+    },
+    {
+      "label": "About the Asset Store (docs)",
+      "url": "https://docs.godotengine.org/en/stable/community/asset_store/what_is_asset_store.html"
+    },
+    {
+      "label": "Legacy Asset Library",
+      "url": "https://godotengine.org/asset-library/asset"
+    },
+    {
+      "label": "Legacy API reference (API.md)",
+      "url": "https://raw.githubusercontent.com/godotengine/godot-asset-library/master/API.md"
+    }
+  ],
+  "cautions": [
+    "Read an addon's code before enabling it: plugins run in the editor with full project access.",
+    "Templates are standalone projects; addons go into res://addons/."
+  ],
+  "verified": {
+    "on": "2026-10-10",
+    "how": "mixed"
+  },
+  "api": {
+    "url": "https://raw.githubusercontent.com/godotengine/godot-asset-library/master/API.md",
+    "auth": "none",
+    "notes": "GET /asset?type=any&godot_version=4.x&filter=...&max_results=50 ; GET /asset/{id}. Omitting godot_version lists only 2.1 assets."
+  }
+}

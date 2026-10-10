@@ -1,0 +1,275 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/schemas/loop_engine/transcribed/records.schema.json",
+  "title": "loop-engine candidate catalogue records (transcribed)",
+  "$comment": "Transcribed by hand from loop-engine commit 3513b9f9bb3311cfa12d6c85ced943b46a63edad. loop-engine validates these records in Python with exact field sets; it ships no JSON Schema for them. Each $def names the code it transcribes. Only the keywords that tools/export_to_loop_engine.py implements are used: $ref (local), type, const, enum, required, properties, additionalProperties, propertyNames, items, contains, minItems, maxItems, uniqueItems, minLength, maxLength, pattern, minimum, maximum, minProperties, maxProperties. Rules a schema cannot state (canonical document bytes, case-folded path collisions, executable roles needing spawns_process, item/specification agreement) are checked in code by --check.",
+  "$defs": {
+    "digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "revision": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "identity": {"type": "string", "pattern": "^[a-z][a-z0-9]*(?:_[a-z0-9]+)*$", "maxLength": 64},
+    "placement_path": {
+      "$comment": "catalogue_packages.py:94-110 placement_path; the '.', '..' and '.git' segment rules are checked in code",
+      "type": "string", "minLength": 1, "maxLength": 200,
+      "pattern": "^[A-Za-z0-9._@+-]{1,100}(?:/[A-Za-z0-9._@+-]{1,100}){0,7}$"
+    },
+    "role": {
+      "$comment": "catalogue_packages.py:57-60 FILE_ROLES",
+      "enum": ["instruction_file", "skill_definition", "skill_script", "skill_reference", "skill_asset",
+               "subagent_definition", "command", "hook", "protocol_server_configuration", "plugin_manifest",
+               "executable_tool", "configuration", "other"]
+    },
+    "effect": {"$comment": "facets.py:34-35 EFFECTS", "enum": ["pure", "reads_fs", "writes_fs", "reads_secret", "network", "spawns_process"]},
+    "package_file": {
+      "$comment": "catalogue_packages.py:113-141 CataloguePackageFile; from_dict requires exactly these five fields",
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "digest", "size_bytes", "media_type", "role"],
+      "properties": {
+        "path": {"$ref": "#/$defs/placement_path"},
+        "digest": {"$ref": "#/$defs/digest"},
+        "size_bytes": {"type": "integer", "minimum": 0, "maximum": 8388608},
+        "media_type": {"type": "string", "pattern": "^[a-z0-9][a-z0-9!#$&^_.+-]{0,62}/[a-z0-9][a-z0-9!#$&^_.+-]{0,126}$"},
+        "role": {"$ref": "#/$defs/role"}
+      }
+    },
+    "package": {
+      "$comment": "catalogue_packages.py:144-206 CataloguePackage.to_dict/from_dict; native candidates require body_form package (native_harness_candidates.py:74-75)",
+      "type": "object", "additionalProperties": false, "required": ["body_form", "files"],
+      "properties": {
+        "body_form": {"const": "package"},
+        "files": {"type": "array", "minItems": 1, "maxItems": 64, "items": {"$ref": "#/$defs/package_file"}}
+      }
+    },
+    "package_document": {
+      "$comment": "catalogue_packages.py:171-175 document(); parse_package_document 209-224 requires exactly record_type and files, in canonical form",
+      "type": "object", "additionalProperties": false, "required": ["record_type", "files"],
+      "properties": {
+        "record_type": {"const": "catalogue_package/v1"},
+        "files": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/package_file"}}
+      }
+    },
+    "tags": {
+      "$comment": "intelligence_tagging.py:34-44 and TagSet.to_dict 108-110; values are lowercased by _clean",
+      "type": "object", "additionalProperties": false, "required": ["record_type"],
+      "properties": {
+        "record_type": {"const": "intelligence_tags/v1"},
+        "role": {"$ref": "#/$defs/tag_values"},
+        "domain": {"$ref": "#/$defs/tag_values"},
+        "geography": {"$ref": "#/$defs/tag_values"},
+        "language": {"$ref": "#/$defs/tag_values"},
+        "data_sensitivity": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["public", "internal", "confidential", "regulated"]}},
+        "authentication": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["none", "tenant", "user_delegated", "operator"]}},
+        "lifecycle": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["candidate", "qualified", "deprecated"]}}
+      }
+    },
+    "tag_values": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 160}},
+    "proposal_tags": {
+      "$comment": "prepare_harness_candidates.py:258-264: lists of nonblank strings of at most 160 characters; lifecycle may not be set by a proposal",
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "role": {"$ref": "#/$defs/proposal_tag_values"},
+        "domain": {"$ref": "#/$defs/proposal_tag_values"},
+        "geography": {"$ref": "#/$defs/proposal_tag_values"},
+        "language": {"$ref": "#/$defs/proposal_tag_values"},
+        "data_sensitivity": {"type": "array", "items": {"enum": ["public", "internal", "confidential", "regulated"]}},
+        "authentication": {"type": "array", "items": {"enum": ["none", "tenant", "user_delegated", "operator"]}}
+      }
+    },
+    "proposal_tag_values": {"type": "array", "items": {"type": "string", "minLength": 1, "maxLength": 160, "pattern": "\\S"}},
+    "string_list": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 160, "pattern": "\\S"}},
+    "producer": {
+      "$comment": "native_harness_candidates.py:51-58 and native.py:248-254",
+      "type": "object", "additionalProperties": false, "required": ["producer_identity", "family", "method_identity"],
+      "properties": {
+        "producer_identity": {"type": "string", "minLength": 1, "maxLength": 160, "pattern": "^[^\\u0000-\\u001f]*\\S[^\\u0000-\\u001f]*$"},
+        "family": {"type": "string", "minLength": 1, "maxLength": 160, "pattern": "^[^\\u0000-\\u001f]*\\S[^\\u0000-\\u001f]*$"},
+        "method_identity": {"type": "string", "maxLength": 160, "pattern": "^[a-z][a-z0-9_.-]*(?:/[a-z0-9_.-]+)*/v[1-9][0-9]*$"}
+      }
+    },
+    "dependencies": {
+      "$comment": "native.py:279-281 (at most 64 nonblank strings of at most 200 characters) and native_harness_candidates.py:59",
+      "type": "array", "maxItems": 64, "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 160, "pattern": "\\S"}
+    },
+    "styles": {"type": "array", "maxItems": 20, "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 160, "pattern": "\\S"}},
+    "declared_effects": {"type": "array", "maxItems": 20, "uniqueItems": true, "items": {"$ref": "#/$defs/effect"}},
+    "licence_binding": {
+      "$comment": "prepare_harness_candidates.py:191-195; native.py:235-238: only the root MIT licence record",
+      "type": "object", "additionalProperties": false, "required": ["expression", "path", "sha256"],
+      "properties": {
+        "expression": {"const": "MIT"},
+        "path": {"const": "LICENSE"},
+        "sha256": {"$ref": "#/$defs/digest"}
+      }
+    },
+    "source_digests": {
+      "type": "object",
+      "propertyNames": {"type": "string", "minLength": 1, "maxLength": 512, "pattern": "^(?!/)(?!.*(?:^|/)\\.)[^\\\\:\\u0000]+$"},
+      "additionalProperties": {"$ref": "#/$defs/digest"}
+    },
+    "reference": {
+      "$comment": "harness_intelligence.py:184-197 reference(); native.py:54-55 REFERENCE_FIELDS; native.py:270-273 requires harness_local, harness and the exact package digest and served size",
+      "type": "object", "additionalProperties": false,
+      "required": ["record_type", "identity", "kind", "purpose", "digest", "source_layer", "source_ref", "family",
+                   "size_bytes", "license", "declared_effects", "styles", "tags", "exposure", "availability", "body_included"],
+      "properties": {
+        "record_type": {"const": "harness_intelligence_item/v1"},
+        "identity": {"$ref": "#/$defs/identity"},
+        "kind": {"enum": ["skill", "tool", "instruction_file"]},
+        "purpose": {"type": "string", "minLength": 1, "maxLength": 1024, "pattern": "^[^\\u0000-\\u001f]*\\S[^\\u0000-\\u001f]*$"},
+        "digest": {"$ref": "#/$defs/digest"},
+        "source_layer": {"const": "harness_local"},
+        "source_ref": {"type": "string", "pattern": "^[^@]+@[0-9a-f]{40}$"},
+        "family": {"const": "harness"},
+        "size_bytes": {"type": "integer", "minimum": 1},
+        "license": {"const": "MIT"},
+        "declared_effects": {"$ref": "#/$defs/declared_effects"},
+        "styles": {"$ref": "#/$defs/styles"},
+        "tags": {"$ref": "#/$defs/tags"},
+        "exposure": {"const": "metadata_only"},
+        "availability": {"const": "remote"},
+        "body_included": {"const": false}
+      }
+    },
+    "item_row": {
+      "$comment": "native_harness_candidates.py:155-157; native.py:53 ITEM_FIELDS; package_root and body_path bind the identity (native.py:275-277)",
+      "type": "object", "additionalProperties": false,
+      "required": ["reference", "body_path", "package", "package_root", "producer", "dependencies"],
+      "properties": {
+        "reference": {"$ref": "#/$defs/reference"},
+        "body_path": {"type": "string", "pattern": "^bodies/[a-z][a-z0-9]*(?:_[a-z0-9]+)*\\.package\\.json$"},
+        "package": {"$ref": "#/$defs/package"},
+        "package_root": {"type": "string", "pattern": "^packages/[a-z][a-z0-9]*(?:_[a-z0-9]+)*$"},
+        "producer": {"$ref": "#/$defs/producer"},
+        "dependencies": {"$ref": "#/$defs/dependencies"}
+      }
+    },
+    "items_v3": {
+      "$comment": "native_harness_candidates.py:170-172; native.py:170-178 (publication must be not_published; 1 to 10000 items)",
+      "type": "object", "additionalProperties": false,
+      "required": ["record_type", "source_revision", "source_digests", "publication", "items"],
+      "properties": {
+        "record_type": {"const": "starter_catalogue_candidate_items/v3"},
+        "source_revision": {"$ref": "#/$defs/revision"},
+        "source_digests": {"allOf": [{"$ref": "#/$defs/source_digests"}, {"required": ["LICENSE"]}]},
+        "publication": {"const": "not_published"},
+        "items": {"type": "array", "minItems": 1, "maxItems": 10000, "items": {"$ref": "#/$defs/item_row"}}
+      }
+    },
+    "provenance": {
+      "$comment": "native_harness_candidates.py:147-149 and 247-250; native.py:230-246",
+      "type": "object", "additionalProperties": false,
+      "required": ["authoring", "source_revision", "source_digests", "license"],
+      "properties": {
+        "authoring": {"const": "original_assistant_authored"},
+        "source_revision": {"$ref": "#/$defs/revision"},
+        "source_digests": {"$ref": "#/$defs/source_digests"},
+        "license": {"$ref": "#/$defs/licence_binding"}
+      }
+    },
+    "specification": {
+      "$comment": "native_harness_candidates.py:36-38 SPEC_FIELDS and 150-154; prepare_harness_candidates.py:277-279 for the first eight fields",
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "layer", "family", "title", "tags", "text", "sources", "symbols", "kind", "purpose", "styles",
+                   "dependencies", "producer", "declared_effects", "package", "package_digest", "package_root",
+                   "body_path", "provenance"],
+      "properties": {
+        "id": {"$ref": "#/$defs/identity"},
+        "layer": {"enum": ["context", "code", "runtime_history_solution", "user_feedback"]},
+        "family": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+        "title": {"type": "string", "minLength": 1, "maxLength": 160, "pattern": "^[^\\u0000-\\u001f]*\\S[^\\u0000-\\u001f]*$"},
+        "tags": {"allOf": [{"$ref": "#/$defs/string_list"}, {"minItems": 1, "maxItems": 20}]},
+        "text": {"type": "string", "minLength": 1, "maxLength": 12000, "pattern": "^# "},
+        "sources": {"type": "array", "minItems": 2, "maxItems": 21, "uniqueItems": true, "items": {"type": "string", "minLength": 1}, "contains": {"const": "LICENSE"}},
+        "symbols": {"allOf": [{"$ref": "#/$defs/string_list"}, {"maxItems": 30}]},
+        "kind": {"enum": ["skill", "tool", "instruction_file"]},
+        "purpose": {"type": "string", "minLength": 1, "maxLength": 1024, "pattern": "^[^\\u0000-\\u001f]*\\S[^\\u0000-\\u001f]*$"},
+        "styles": {"$ref": "#/$defs/styles"},
+        "dependencies": {"$ref": "#/$defs/dependencies"},
+        "producer": {"$ref": "#/$defs/producer"},
+        "declared_effects": {"$ref": "#/$defs/declared_effects"},
+        "package": {"$ref": "#/$defs/package"},
+        "package_digest": {"$ref": "#/$defs/digest"},
+        "package_root": {"type": "string", "pattern": "^packages/[a-z][a-z0-9]*(?:_[a-z0-9]+)*$"},
+        "body_path": {"type": "string", "pattern": "^bodies/[a-z][a-z0-9]*(?:_[a-z0-9]+)*\\.package\\.json$"},
+        "provenance": {"$ref": "#/$defs/provenance"}
+      }
+    },
+    "specifications_v3": {
+      "$comment": "native_harness_candidates.py:163-169; native.py:185-199 (populations numbered 1..n, complete)",
+      "type": "object", "additionalProperties": false, "required": ["record_type", "population", "populations", "specifications"],
+      "properties": {
+        "record_type": {"const": "candidate_intelligence_specifications/v3"},
+        "population": {"type": "integer", "minimum": 1},
+        "populations": {"type": "integer", "minimum": 1},
+        "specifications": {"type": "array", "minItems": 1, "maxItems": 50, "items": {"$ref": "#/$defs/specification"}}
+      }
+    },
+    "proposal_file": {
+      "$comment": "native_harness_candidates.py:40 FILE_FIELDS and 85-104",
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "digest", "size_bytes", "media_type", "role", "content_base64"],
+      "properties": {
+        "path": {"$ref": "#/$defs/placement_path"},
+        "digest": {"$ref": "#/$defs/digest"},
+        "size_bytes": {"type": "integer", "minimum": 0, "maximum": 8388608},
+        "media_type": {"type": "string", "pattern": "^[a-z0-9][a-z0-9!#$&^_.+-]{0,62}/[a-z0-9][a-z0-9!#$&^_.+-]{0,126}$"},
+        "role": {"$ref": "#/$defs/role"},
+        "content_base64": {"type": "string", "pattern": "^[A-Za-z0-9+/]*={0,2}$"}
+      }
+    },
+    "proposal": {
+      "$comment": "native_harness_candidates.py:34-35 NATIVE_FIELDS (exact set) and 51-66; prepare_harness_candidates.py:226-260",
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "title", "purpose", "sources", "layer", "family", "search_tags", "tags", "symbols",
+                   "declared_effects", "kind", "styles", "dependencies", "producer", "files"],
+      "properties": {
+        "id": {"$ref": "#/$defs/identity"},
+        "title": {"type": "string", "minLength": 1, "maxLength": 160, "pattern": "^[^\\u0000-\\u001f]*\\S[^\\u0000-\\u001f]*$"},
+        "purpose": {"type": "string", "minLength": 1, "maxLength": 1024, "pattern": "^[^\\u0000-\\u001f]*\\S[^\\u0000-\\u001f]*$"},
+        "sources": {"allOf": [{"$ref": "#/$defs/string_list"}, {"minItems": 1, "maxItems": 20}]},
+        "layer": {"enum": ["context", "code", "runtime_history_solution", "user_feedback"]},
+        "family": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+        "search_tags": {"allOf": [{"$ref": "#/$defs/string_list"}, {"minItems": 1, "maxItems": 20}]},
+        "tags": {"$ref": "#/$defs/proposal_tags"},
+        "symbols": {"allOf": [{"$ref": "#/$defs/string_list"}, {"maxItems": 30}]},
+        "declared_effects": {"$ref": "#/$defs/declared_effects"},
+        "kind": {"enum": ["skill", "tool", "instruction_file"]},
+        "styles": {"$ref": "#/$defs/styles"},
+        "dependencies": {"$ref": "#/$defs/dependencies"},
+        "producer": {"$ref": "#/$defs/producer"},
+        "files": {"type": "array", "minItems": 1, "maxItems": 64, "items": {"$ref": "#/$defs/proposal_file"}}
+      }
+    },
+    "proposals_v2": {
+      "$comment": "prepare_harness_candidates.py:54 INPUT_FIELDS, 169-213; tools/PREPARE-HARNESS-CANDIDATES.md:84-117",
+      "type": "object", "additionalProperties": false,
+      "required": ["record_type", "source_revision", "license", "sources", "proposals"],
+      "properties": {
+        "record_type": {"const": "harness_candidate_batch_proposals/v2"},
+        "source_revision": {"$ref": "#/$defs/revision"},
+        "license": {"$ref": "#/$defs/licence_binding"},
+        "sources": {"allOf": [{"$ref": "#/$defs/source_digests"}, {"minProperties": 1}]},
+        "proposals": {"type": "array", "minItems": 1, "maxItems": 5000, "items": {"$ref": "#/$defs/proposal"}}
+      }
+    },
+    "preparation_report_v2": {
+      "$comment": "native_harness_candidates.py:173-178",
+      "type": "object", "additionalProperties": false,
+      "required": ["record_type", "complete", "candidates", "payload_files", "unique_payload_digests", "population_files",
+                   "source_revision", "input_sha256", "approved", "hosted_publication", "semantic_grounding_verified", "limits"],
+      "properties": {
+        "record_type": {"const": "harness_candidate_preparation_report/v2"},
+        "complete": {"const": true},
+        "candidates": {"type": "integer", "minimum": 1},
+        "payload_files": {"type": "integer", "minimum": 1},
+        "unique_payload_digests": {"type": "integer", "minimum": 1},
+        "population_files": {"type": "array", "minItems": 1, "items": {"type": "string", "pattern": "^specifications-[0-9]{3}\\.json$"}},
+        "source_revision": {"$ref": "#/$defs/revision"},
+        "input_sha256": {"$ref": "#/$defs/digest"},
+        "approved": {"const": false},
+        "hosted_publication": {"const": false},
+        "semantic_grounding_verified": {"const": false},
+        "limits": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

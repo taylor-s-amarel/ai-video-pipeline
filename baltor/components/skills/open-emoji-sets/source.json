@@ -1,0 +1,67 @@
+{
+  "spec": "baltor.asset-source/v1",
+  "source_id": "open-emoji-sets",
+  "name": "Open emoji artwork (Twemoji, Noto, OpenMoji, Fluent)",
+  "homepage": "https://github.com/jdecked/twemoji",
+  "licence_summary": "Twemoji (jdecked fork): graphics CC-BY 4.0, code MIT. Noto Emoji: fonts OFL 1.1, images and tools Apache 2.0, flags public domain. OpenMoji: graphics CC BY-SA 4.0. Fluent UI Emoji: repository MIT.",
+  "licences": [
+    {
+      "id": "CC-BY-4.0",
+      "url": "https://github.com/jdecked/twemoji",
+      "applies_to": "Twemoji graphics"
+    },
+    {
+      "id": "Apache-2.0",
+      "url": "https://github.com/googlefonts/noto-emoji",
+      "applies_to": "Noto Emoji images"
+    },
+    {
+      "id": "CC-BY-SA-4.0",
+      "url": "https://github.com/hfg-gmuend/openmoji",
+      "applies_to": "OpenMoji graphics"
+    },
+    {
+      "id": "MIT",
+      "url": "https://github.com/microsoft/fluentui-emoji",
+      "applies_to": "Fluent UI Emoji"
+    }
+  ],
+  "attribution": {
+    "required": "per-asset",
+    "credit_template": "Emoji: {set} ({licence})"
+  },
+  "redistribution": "allowed-with-licence",
+  "commercial_use": "allowed",
+  "ai_training": "unspecified",
+  "automated_download": "allowed",
+  "formats": [
+    "svg",
+    "png"
+  ],
+  "search": [
+    {
+      "label": "Twemoji",
+      "url": "https://github.com/jdecked/twemoji"
+    },
+    {
+      "label": "Noto Emoji",
+      "url": "https://github.com/googlefonts/noto-emoji"
+    },
+    {
+      "label": "OpenMoji",
+      "url": "https://github.com/hfg-gmuend/openmoji"
+    },
+    {
+      "label": "Fluent UI Emoji",
+      "url": "https://github.com/microsoft/fluentui-emoji"
+    }
+  ],
+  "cautions": [
+    "Emoji depicting brands or flags carry trademark/flag-use limits beyond the artwork licence.",
+    "OpenMoji is share-alike: modified emoji must stay CC BY-SA 4.0."
+  ],
+  "verified": {
+    "on": "2026-10-10",
+    "how": "mixed"
+  }
+}

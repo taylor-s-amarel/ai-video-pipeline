@@ -5,7 +5,7 @@
   "kind": "command",
   "subkind": "prompt-template",
   "version": "1.0.0",
-  "summary": "Owner's copy-ready task template, verbatim: Compare the current catalog with the proposed new episode.",
+  "summary": "Owner's template \"Expand variety without padding\": Compare the current catalog with the proposed new episode. State which viewer task, story mechanism, interaction, evidence, or visual construction is genuinely different.",
   "description": "The owner's copy-ready task template \"Expand variety without padding\" (Animation and Video Production Master Guide (10 Oct 2026)), with the template text unchanged and its inputs passed as $ARGUMENTS. Instructions for bounded work, not a guarantee: missing inputs are marked unresolved, never invented.",
   "domain": "video",
   "licence": "MIT",

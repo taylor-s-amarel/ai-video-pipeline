@@ -1,0 +1,63 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "kenney_assets_cc0",
+  "title": "Kenney game assets (CC0)",
+  "kind": "skill",
+  "subkind": "media-source",
+  "version": "1.0.0",
+  "summary": "Find, credit and import Kenney's CC0 2D, 3D, UI, font and audio packs into Godot 4, Blender and video renders.",
+  "description": "Use when a project needs free, consistent 2D sprites, tiles, UI, 3D low-poly kits, fonts or sound effects with no attribution duty: Kenney's packs are CC0. Covers finding the right pack, the optional credit line, Godot 4 and Blender import, and pitfalls (logo use, paid All-in-1 bundle).",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "notes": "Describes https://kenney.nl/support (checked 2026-10-10); contains no third-party media."
+  },
+  "step_kinds": [
+    "research",
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "licensing",
+    "kenney",
+    "cc0",
+    "2d",
+    "3d",
+    "ui",
+    "audio",
+    "godot"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "asset_source_profile"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

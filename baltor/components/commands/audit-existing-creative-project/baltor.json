@@ -5,7 +5,7 @@
   "kind": "command",
   "subkind": "prompt-template",
   "version": "1.0.0",
-  "summary": "Owner's copy-ready task template, verbatim: Inspect the selected project and its current outputs.",
+  "summary": "Owner's template \"Audit an existing creative project\": Inspect the selected project and its current outputs. Identify the latest source revision and owner correction.",
   "description": "The owner's copy-ready task template \"Audit an existing creative project\" (Animation and Video Production Master Guide (10 Oct 2026)), with the template text unchanged and its inputs passed as $ARGUMENTS. Instructions for bounded work, not a guarantee: missing inputs are marked unresolved, never invented.",
   "domain": "video",
   "licence": "MIT",

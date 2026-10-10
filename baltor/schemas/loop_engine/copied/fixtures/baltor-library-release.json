@@ -1,0 +1,101 @@
+{
+  "record_type": "baltor_library_integration_release/v1",
+  "name": "baltor-library",
+  "version": "0.4.1",
+  "skill_folder": "skills/baltor-library",
+  "files": [
+    {
+      "path": "LICENSE",
+      "digest": "663e093e45c8440e61d1dd5e5db8181eb1f305402aad1e91ce3765408b7a46ea",
+      "size_bytes": 1068,
+      "media_type": "text/plain",
+      "role": "other"
+    },
+    {
+      "path": "SKILL.md",
+      "digest": "df4032288cbd2a795c749520c1ec95e3358816615abcba4c29517527a97bae88",
+      "size_bytes": 4474,
+      "media_type": "text/markdown",
+      "role": "skill_definition"
+    },
+    {
+      "path": "assets/client.example.json",
+      "digest": "7c0e2fe661534d39c190e361243e466cb716ab15e18fc591edc3f3069f706892",
+      "size_bytes": 226,
+      "media_type": "application/json",
+      "role": "skill_asset"
+    },
+    {
+      "path": "references/client.md",
+      "digest": "e59062a5e3afa43932526ab2411128e50fee7cb8cebccecd359f2777ee19ba1e",
+      "size_bytes": 9485,
+      "media_type": "text/markdown",
+      "role": "skill_reference"
+    },
+    {
+      "path": "scripts/baltor.py",
+      "digest": "3993c0398a2c51599c23894dd59ec8c799bc91b32865b13e499af3ca8ac21f79",
+      "size_bytes": 43253,
+      "media_type": "text/x-python",
+      "role": "skill_script"
+    },
+    {
+      "path": "verification/test_client.py",
+      "digest": "00a4bf9f2fb7f0da6533a03644be58f51dd83ad08067b591458c25fdb71a723e",
+      "size_bytes": 30969,
+      "media_type": "text/x-python",
+      "role": "skill_script"
+    }
+  ],
+  "package": {
+    "record_type": "catalogue_package/v1",
+    "body_form": "package",
+    "package_digest": "b1e61714cf272e413833e7a2d1d9bd3314e0e37fbcb107461c4536619a442d4a",
+    "catalogue_identity": "baltor_library_client",
+    "declared_effects": [
+      "reads_fs",
+      "writes_fs",
+      "reads_secret",
+      "network",
+      "spawns_process"
+    ],
+    "producer_family": "openai",
+    "admission": "candidate_awaiting_independent_review",
+    "catalogue_publication": "not_published"
+  },
+  "manifests": {
+    "claude_code_plugin": ".claude-plugin/plugin.json",
+    "claude_code_marketplace": ".claude-plugin/marketplace.json",
+    "codex_plugin": ".codex-plugin/plugin.json",
+    "codex_marketplace": ".agents/plugins/marketplace.json",
+    "pi_package": "package.json"
+  },
+  "native_skill_folders": {
+    "claude-code": {
+      "project": ".claude/skills/baltor-library",
+      "user": "~/.claude/skills/baltor-library"
+    },
+    "codex": {
+      "project": ".agents/skills/baltor-library",
+      "user": "~/.agents/skills/baltor-library"
+    },
+    "opencode": {
+      "project": ".opencode/skills/baltor-library",
+      "user": "~/.config/opencode/skills/baltor-library"
+    },
+    "pi": {
+      "project": ".pi/skills/baltor-library",
+      "user": "~/.pi/agent/skills/baltor-library"
+    }
+  },
+  "configuration": {
+    "record_type": "baltor_library_client_configuration/v2",
+    "default_path": "~/.config/baltor/client.json",
+    "credential_environment": "BALTOR_SERVICE_TOKEN"
+  },
+  "source": {
+    "delivery": "2026-10-01-user-acceptance-path-confinement-and-proxy",
+    "previous_version": "0.4.0",
+    "previous_package_digest": "c27908e828db2ca64e1749bee0215a6253c5bb7a1ec03e771d1e3bbbfc224d20"
+  }
+}

@@ -38,7 +38,7 @@
   question: "Are blacks crushed, natural, or lifted (faded look)?"
   choices: [crushed, natural, lifted]
   why: "Fills the contrast style."
-  how: "From YMIN medians: lifted when the darkest areas stay above about 30 (8-bit, limited range 16-235); crushed when large areas sit at 16 on a waveform (F7)."
+  how: "From YMIN medians and F7 waveforms: as a rough convention, lifted when the darkest areas stay above about 30 (8-bit, limited range 16-235) and crushed when large areas sit flat at 16. Report the values."
   evidence: ["F6 YMIN", "F7 waveform"]
   ir_path: "/visual/grade"
   type: enum
@@ -48,7 +48,7 @@
   question: "Is the colour temperature warm, neutral or cool on average?"
   choices: [warm, neutral, cool]
   why: "Fills temperature in the grade."
-  how: "F6 UAVG and VAVG medians (128 neutral in 8-bit): V above U by more than 4 suggests warm, U above V suggests cool; confirm on an F7 vectorscope."
+  how: "F6 UAVG and VAVG medians (128 is neutral in 8-bit): V clearly above U suggests warm, U above V cool (this swarm uses a difference of 4 as the cut-off; report the values); confirm on an F7 vectorscope."
   evidence: ["F6 UAVG/VAVG", "F7 vectorscope"]
   ir_path: "/visual/grade"
   type: enum
@@ -159,7 +159,7 @@
   question: "Is the look high-key, mid-key or low-key (median YAVG)?"
   choices: [high-key, mid-key, low-key]
   why: "Fills key in the grade."
-  how: "Median F6 YAVG: high-key above about 150, low-key below about 80 (8-bit limited range)."
+  how: "Median F6 YAVG; this swarm's convention is high-key above about 150 and low-key below about 80 (8-bit limited range). Report the value."
   evidence: ["F6"]
   ir_path: "/visual/grade"
   type: enum

@@ -1,0 +1,7 @@
+{
+  "moves": [
+    { "shot_index": 0, "t_start_s": 0.0, "t_end_s": 4.8, "zoom_from": 1.3, "zoom_to": -1, "zoom_direction": "push", "zoom_rate_per_s": 0.0232, "camera_pan": "right", "content_motion_fw_per_s": [-0.0081], "start_crop": [0.0, 0.0, 1.0, 1.0], "end_crop": [0.0875, 0.0525, 0.8945, 0.8945], "progress_r2": 0.998, "rigid_share": 0.91, "residual": 1.2 }
+  ],
+  "shots_checked": 4,
+  "share_of_shots": 0.25
+}

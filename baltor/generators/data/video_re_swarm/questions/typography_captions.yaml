@@ -39,7 +39,7 @@
   question: "What weight are captions (regular, medium, bold, black)?"
   choices: [regular, medium, bold, black]
   why: "Fills caption weight."
-  how: "Stroke thickness relative to letter height on F3 crops: stem width / cap height above about 0.18 is bold, above 0.24 black."
+  how: "Measure stem width / cap height on enlarged F3 crops and report the ratio. Rough guide (this swarm's convention, not a type standard): about 0.10-0.15 reads as regular, about 0.2 as bold, 0.25 or more as black."
   evidence: ["frames: F3 enlarged"]
   ir_path: "/typography/captions/weight"
   type: enum
@@ -107,7 +107,7 @@
   why: "Summarises sync behaviour for the caption timing rule."
   how: "From 011: 'on' when the mean is within +/-100 ms and the spread is under 150 ms."
   evidence: ["sync offsets"]
-  ir_path: "/typography/captions/sync_offset_ms"
+  ir_path: "/typography/captions/sync_relation"
   type: enum
   challenge: "Must agree with the numbers in 011."
 
@@ -280,7 +280,7 @@
   question: "Is letter spacing tight, normal or wide in captions?"
   choices: [tight, normal, wide]
   why: "Fills tracking."
-  how: "Gap between letters relative to stem width on F3 crops; tight below 0.5, wide above 1.2."
+  how: "Measure the gap between letters relative to stem width on F3 crops and report it; this swarm calls below 0.5 tight and above 1.2 wide (a convention, not a standard)."
   evidence: ["frames: F3"]
   ir_path: "/typography/captions/tracking"
   type: enum

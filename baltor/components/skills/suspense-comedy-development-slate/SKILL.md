@@ -7,11 +7,12 @@ description: "Use when choosing which new suspense or comedy film to develop nex
 
 **Scope:** Eight new development topics: three complete timed storyboards and five additional pitches. They are separate from the earlier 240-premise catalogue and its 2,400 treatment candidates. Boards and pitches are not added together as eleven stories.
 
-**Status:** Status: proposed concepts and unrendered storyboards. These are editorial recommendations, not measured audience results or claims of user acceptance. The earlier BOXED IN film's technical progress does not establish that its story worked. The next production should pass a story test before final animation.
+**Status:** Proposed concepts and unrendered storyboards. These are editorial recommendations, not measured audience results or claims of user acceptance. The earlier BOXED IN film's technical progress does not establish that its story worked. The next production should pass a story test before final animation.
 
 ## Recommendation
 
 Start with **The Decoy Job**. It has the clearest visual setup, a real conflict between two characters, a reversal planted in ordinary objects, and an ending that changes the protagonist's situation. **Inventory Space** is the most distinctive game-world idea, but its carry rule must survive a rough animatic test. **The Extra** has recognizable social pressure and a cooperative ending, but needs expressive acting and clear separation between the movie camera and our camera.
+
 Editorial ranking considers opening clarity, causal escalation, character agency, earned surprise, visual comedy, and production risk. It does not predict views or retention.
 
 These are pitches, not approved productions or timed boards. Together with the three fully boarded films above, they make eight topics. They should be developed only if their central visual test works; a striking premise is not yet a finished film.

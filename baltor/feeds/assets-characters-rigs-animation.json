@@ -1,0 +1,551 @@
+{
+  "spec": "baltor.feed-collection/v1",
+  "id": "assets-characters-rigs-animation",
+  "title": "Characters, rigs and animation sources (licence-checked)",
+  "description": "Rigged characters, humanoid animation libraries and motion-capture sets for stick-figure, low-poly and 2D sprite shorts. Licences range from CC0 (Kenney, Quaternius, KayKit, MakeHuman exports) to use-but-do-not-redistribute (Mixamo) and non-commercial research data (Bandai Namco). The cautions field says what you may not do with each.",
+  "updated": "2026-10-10",
+  "tags": [
+    "characters",
+    "rigs",
+    "animation",
+    "mocap",
+    "retargeting"
+  ],
+  "items": [
+    {
+      "id": "mixamo",
+      "title": "Mixamo (Adobe): auto-rigger and animation library",
+      "url": "https://www.mixamo.com/",
+      "summary": "Free auto-rigger and large humanoid animation library (FBX/DAE download). Characters and animations are royalty free for personal, commercial and non-profit projects.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "Adobe Mixamo terms (royalty-free use in projects; no redistribution of raw files)",
+      "licence_url": "https://helpx.adobe.com/creative-cloud/faq/mixamo-faq.html",
+      "tags": [
+        "mixamo",
+        "humanoid",
+        "fbx",
+        "auto-rig"
+      ],
+      "cautions": [
+        "Never redistribute raw Mixamo character or animation files (FBX/DAE), alone or inside asset packs, templates or engine projects meant as products.",
+        "Mixamo content may not be used to train machine-learning models (per the FAQ as reposted on Adobe's community forum).",
+        "Bipedal humanoids only. Keep Mixamo files out of public repositories and Baltor packages; ship a manifest that tells the user to download them."
+      ]
+    },
+    {
+      "id": "mixamo-faq",
+      "title": "Mixamo FAQ (Adobe Help Center)",
+      "url": "https://helpx.adobe.com/creative-cloud/faq/mixamo-faq.html",
+      "summary": "Adobe's FAQ: Mixamo is free with an Adobe ID; characters and animations are royalty free for personal, commercial and non-profit projects (illustration, 3D printing, film, games).",
+      "kind": "guidance",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "Adobe terms",
+      "licence_url": "https://helpx.adobe.com/creative-cloud/faq/mixamo-faq.html",
+      "tags": [
+        "mixamo",
+        "licensing"
+      ]
+    },
+    {
+      "id": "mixamo-faq-community-repost",
+      "title": "Mixamo FAQ: licensing, royalties, ownership (Adobe community repost)",
+      "url": "https://community.adobe.com/questions-696/mixamo-faq-licensing-royalties-ownership-eula-and-tos-589400",
+      "summary": "Community-forum repost of the fuller Mixamo licensing FAQ: use in any creative project; the one thing you cannot do is distribute the raw character and animation files; no ML training.",
+      "kind": "guidance",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "Adobe terms",
+      "licence_url": "https://helpx.adobe.com/creative-cloud/faq/mixamo-faq.html",
+      "tags": [
+        "mixamo",
+        "licensing"
+      ],
+      "cautions": [
+        "Secondary source (forum repost). Treat the Adobe Help Center FAQ and Adobe General Terms as authoritative."
+      ]
+    },
+    {
+      "id": "mixamo-animate-help",
+      "title": "Animate 3D characters with Mixamo (Adobe Help)",
+      "url": "https://helpx.adobe.com/creative-cloud/help/animate-characters-mixamo.html",
+      "summary": "Adobe help page for applying animations (speed, arm spacing, in-place) and downloading.",
+      "kind": "guidance",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "Adobe terms",
+      "licence_url": "https://helpx.adobe.com/creative-cloud/faq/mixamo-faq.html",
+      "tags": [
+        "mixamo",
+        "workflow"
+      ]
+    },
+    {
+      "id": "mixamo-rigging-help",
+      "title": "Upload and rig 3D characters with Mixamo (Adobe Help)",
+      "url": "https://helpx.adobe.com/creative-cloud/help/mixamo-rigging-animation.html",
+      "summary": "Upload FBX/OBJ/ZIP characters to the auto-rigger; embed media in FBX and zip OBJ with .mtl and textures; neutral pose at the origin works best.",
+      "kind": "guidance",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "Adobe terms",
+      "licence_url": "https://helpx.adobe.com/creative-cloud/faq/mixamo-faq.html",
+      "tags": [
+        "mixamo",
+        "rigging"
+      ]
+    },
+    {
+      "id": "godot-retargeting-3d-skeletons",
+      "title": "Godot docs: Retargeting 3D skeletons",
+      "url": "https://docs.godotengine.org/en/stable/tutorials/assets_pipeline/retargeting_3d_skeletons.html",
+      "summary": "Official guide to sharing animations between rigs in Godot 4 with BoneMap and SkeletonProfileHumanoid; covers Rest Fixer options (Overwrite Axis, Fix Silhouette for A-pose rigs).",
+      "kind": "guidance",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC-BY-3.0",
+      "licence_url": "https://creativecommons.org/licenses/by/3.0/deed.en",
+      "tags": [
+        "godot",
+        "retargeting",
+        "mixamo"
+      ],
+      "cautions": [
+        "Godot documentation prose is CC-BY 3.0 (Juan Linietsky, Ariel Manzur and the Godot community); class reference pages are MIT. Quote with credit."
+      ]
+    },
+    {
+      "id": "godot-skeletonprofilehumanoid",
+      "title": "Godot class reference: SkeletonProfileHumanoid",
+      "url": "https://docs.godotengine.org/en/stable/classes/class_skeletonprofilehumanoid.html",
+      "summary": "The humanoid profile (56 bones in 4 groups, Root and Hips) that Godot uses to auto-map Mixamo-style rigs.",
+      "kind": "guidance",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "MIT",
+      "licence_url": "https://github.com/godotengine/godot-docs",
+      "tags": [
+        "godot",
+        "skeleton"
+      ]
+    },
+    {
+      "id": "godot-bonemap",
+      "title": "Godot class reference: BoneMap",
+      "url": "https://docs.godotengine.org/en/stable/classes/class_bonemap.html",
+      "summary": "Maps a model's bone names to a SkeletonProfile at import so animations retarget.",
+      "kind": "guidance",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "MIT",
+      "licence_url": "https://github.com/godotengine/godot-docs",
+      "tags": [
+        "godot",
+        "skeleton",
+        "import"
+      ]
+    },
+    {
+      "id": "quaternius-universal-animation-library",
+      "title": "Quaternius Universal Animation Library (120+ animations)",
+      "url": "https://quaternius.com/packs/universalanimationlibrary.html",
+      "summary": "120+ CC0 animations on a universal humanoid rig (locomotion, combat, emotes), compatible with Godot, Unity and Unreal; the free alternative to Mixamo for redistributable projects.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/packs/universalanimationlibrary.html",
+      "tags": [
+        "animation",
+        "humanoid",
+        "quaternius",
+        "cc0"
+      ]
+    },
+    {
+      "id": "quaternius-universal-base-characters",
+      "title": "Quaternius Universal Base Characters",
+      "url": "https://quaternius.com/packs/universalbasecharacters.html",
+      "summary": "6 rigged base characters compatible with the Universal Animation Library, CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/packs/universalbasecharacters.html",
+      "tags": [
+        "characters",
+        "rigged",
+        "quaternius"
+      ]
+    },
+    {
+      "id": "quaternius-ultimate-animated-character",
+      "title": "Quaternius Ultimate Animated Character Pack",
+      "url": "https://quaternius.com/packs/ultimatedanimatedcharacter.html",
+      "summary": "Low-poly animated character pack, CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/packs/ultimatedanimatedcharacter.html",
+      "tags": [
+        "characters",
+        "animated",
+        "quaternius"
+      ]
+    },
+    {
+      "id": "quaternius-ultimate-modular-men",
+      "title": "Quaternius Ultimate Modular Men Pack",
+      "url": "https://quaternius.com/packs/ultimatemodularcharacters.html",
+      "summary": "Modular male characters with swappable parts, CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/packs/ultimatemodularcharacters.html",
+      "tags": [
+        "characters",
+        "modular",
+        "quaternius"
+      ]
+    },
+    {
+      "id": "quaternius-modular-outfits-fantasy",
+      "title": "Quaternius Modular Character Outfits - Fantasy",
+      "url": "https://quaternius.com/packs/modularcharacteroutfitsfantasy.html",
+      "summary": "Fantasy outfits for the modular/universal characters, CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/packs/modularcharacteroutfitsfantasy.html",
+      "tags": [
+        "characters",
+        "outfits",
+        "quaternius"
+      ]
+    },
+    {
+      "id": "quaternius-ultimate-animated-animals",
+      "title": "Quaternius Ultimate Animated Animal Pack",
+      "url": "https://quaternius.com/packs/ultimateanimatedanimals.html",
+      "summary": "Animated low-poly animal pack for animal and nature stories, CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/packs/ultimateanimatedanimals.html",
+      "tags": [
+        "animals",
+        "animated",
+        "quaternius"
+      ]
+    },
+    {
+      "id": "kaykit-adventurers",
+      "title": "KayKit Character Pack: Adventurers",
+      "url": "https://kaylousberg.itch.io/kaykit-adventurers",
+      "summary": "5 rigged and animated stylised adventurers (+3 in the paid Extra tier), CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "tags": [
+        "characters",
+        "rigged",
+        "kaykit"
+      ],
+      "cautions": [
+        "Extra tier characters are paid."
+      ]
+    },
+    {
+      "id": "kaykit-adventurers-github",
+      "title": "KayKit Character Pack Adventures 1.0 (GitHub)",
+      "url": "https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+      "summary": "Four rigged, textured and animated dungeon adventurers with 75 animations and 25+ accessories (FBX, glTF); repo states CC0 1.0, no attribution required.",
+      "kind": "repository",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "licence": "CC0-1.0",
+      "licence_url": "https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+      "tags": [
+        "characters",
+        "github",
+        "kaykit",
+        "animated"
+      ],
+      "cautions": [
+        "The GitHub 1.0 release has four characters; the current itch.io page lists five plus three paid Extra characters."
+      ]
+    },
+    {
+      "id": "kaykit-skeletons-github",
+      "title": "KayKit Character Pack Skeletons 1.0 (GitHub)",
+      "url": "https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Skeletons-1.0",
+      "summary": "Four rigged and animated skeleton characters with weapons, accessories and 90+ animations (FBX, glTF); repo states CC0 1.0. Good for Halloween, dungeon and myth shorts.",
+      "kind": "repository",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "licence": "CC0-1.0",
+      "licence_url": "https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Skeletons-1.0",
+      "tags": [
+        "characters",
+        "skeletons",
+        "kaykit",
+        "animated"
+      ]
+    },
+    {
+      "id": "kenney-mini-characters",
+      "title": "Kenney Mini Characters (25 assets, animated)",
+      "url": "https://kenney.nl/assets/mini-characters",
+      "summary": "25 small animated 3D characters in Kenney style, CC0; good crowd fillers for dioramas.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "tags": [
+        "characters",
+        "animated",
+        "kenney"
+      ]
+    },
+    {
+      "id": "kenney-blocky-characters",
+      "title": "Kenney Blocky Characters (20 assets, v2.0)",
+      "url": "https://kenney.nl/assets/blocky-characters",
+      "summary": "20 blocky animated characters (remade in 2.0), CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "tags": [
+        "characters",
+        "blocky",
+        "kenney"
+      ]
+    },
+    {
+      "id": "kenney-animated-characters-series",
+      "title": "Kenney Animated Characters series",
+      "url": "https://kenney.nl/assets/series:Animated%20Characters",
+      "summary": "Kenney's rigged animated character packs (Protagonists, Survivors, Retro), CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "tags": [
+        "characters",
+        "animated",
+        "kenney",
+        "index"
+      ]
+    },
+    {
+      "id": "kenney-animated-characters-protagonists",
+      "title": "Kenney Animated Characters: Protagonists",
+      "url": "https://kenney.nl/assets/animated-characters-protagonists",
+      "summary": "Rigged human protagonists with animations, CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "tags": [
+        "characters",
+        "animated",
+        "kenney"
+      ]
+    },
+    {
+      "id": "kenney-animated-characters-survivors",
+      "title": "Kenney Animated Characters: Survivors",
+      "url": "https://kenney.nl/assets/animated-characters-survivors",
+      "summary": "8 survival/zombie-themed animated characters, CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "tags": [
+        "characters",
+        "zombie",
+        "kenney"
+      ]
+    },
+    {
+      "id": "kenney-modular-characters-2d",
+      "title": "Kenney Modular Characters (2D, 425 assets)",
+      "url": "https://kenney.nl/assets/modular-characters",
+      "summary": "425-asset modular character pack (listed under 2D) for assembling flat explainer characters or Skeleton2D rigs, CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "tags": [
+        "characters",
+        "2d",
+        "modular",
+        "kenney"
+      ]
+    },
+    {
+      "id": "universal-lpc-generator-repo",
+      "title": "Universal LPC Spritesheet Character Generator (repo)",
+      "url": "https://github.com/LiberatedPixelCup/Universal-LPC-Spritesheet-Character-Generator",
+      "summary": "Layered LPC sprite-sheet generator (walk, slash, cast, shoot ... animations); CREDITS.csv lists author, licence and source URL for every image; the tool exports a credits file for your selection.",
+      "kind": "repository",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "licence": "Per image: CC0, CC-BY, CC-BY-SA, OGA-BY or GPL",
+      "licence_url": "https://github.com/LiberatedPixelCup/Universal-LPC-Spritesheet-Character-Generator",
+      "tags": [
+        "lpc",
+        "sprites",
+        "2d",
+        "generator"
+      ],
+      "cautions": [
+        "Credit all authors of every non-CC0 layer you use; ship the exported credits (or CREDITS.csv) where users can find it.",
+        "CC-BY-SA derivatives must be CC-BY-SA 4.0 or later; GPL derivatives GPL 3.0 or later; CC-BY/CC-BY-SA forbid DRM, OGA-BY allows it."
+      ]
+    },
+    {
+      "id": "makehuman-licence",
+      "title": "MakeHuman licence (code AGPL, bundled assets and exports CC0)",
+      "url": "https://static.makehumancommunity.org/about/license.html",
+      "summary": "MakeHuman source is AGPL; bundled assets (base mesh, targets, textures, clothes, poses, expressions) are CC0, and since 1.2.0 exports from official builds are CC0.",
+      "kind": "guidance",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0 (assets/exports); AGPL-3.0 (code)",
+      "licence_url": "https://static.makehumancommunity.org/about/license.html",
+      "tags": [
+        "makehuman",
+        "licensing",
+        "humans"
+      ],
+      "cautions": [
+        "Third-party community assets (hair, clothes) keep their own licences.",
+        "Exports from versions before 1.2.0 were under AGPL terms."
+      ]
+    },
+    {
+      "id": "makehuman-asset-packs",
+      "title": "MakeHuman asset packs",
+      "url": "https://static.makehumancommunity.org/assets/assetpacks.html",
+      "summary": "Official downloadable asset packs (clothes, hair, skins) for MakeHuman.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "Mostly CC0; check each pack",
+      "licence_url": "https://static.makehumancommunity.org/about/license.html",
+      "tags": [
+        "makehuman",
+        "clothes",
+        "hair"
+      ],
+      "cautions": [
+        "Some community packs are CC-BY; record each pack's licence."
+      ]
+    },
+    {
+      "id": "makehuman-faq-files-free",
+      "title": "MakeHuman FAQ: Are MakeHuman files free?",
+      "url": "https://static.makehumancommunity.org/makehuman/faq/are_makehuman_files_free.html",
+      "summary": "FAQ confirming exported models end up CC0 and may be used commercially and in closed-source games.",
+      "kind": "guidance",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://static.makehumancommunity.org/about/license.html",
+      "tags": [
+        "makehuman",
+        "faq"
+      ]
+    },
+    {
+      "id": "makehuman-github-licence",
+      "title": "makehumancommunity/makehuman LICENSE.md",
+      "url": "https://github.com/makehumancommunity/makehuman/blob/master/LICENSE.md",
+      "summary": "The licence file in the MakeHuman repository (AGPL code, CC0 assets).",
+      "kind": "guidance",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "AGPL-3.0 / CC0-1.0",
+      "licence_url": "https://github.com/makehumancommunity/makehuman/blob/master/LICENSE.md",
+      "tags": [
+        "makehuman",
+        "licence"
+      ]
+    },
+    {
+      "id": "bandai-namco-motion-dataset",
+      "title": "Bandai Namco Research Motion Dataset (BVH)",
+      "url": "https://github.com/BandaiNamcoResearchInc/Bandai-Namco-Research-Motiondataset",
+      "summary": "Two BVH datasets by three professional actors: 17 content types x 15 styles (36,673 frames) and 10 locomotion/hand types x 7 styles (384,931 frames). Blender viewer scripts are MIT.",
+      "kind": "dataset",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "licence": "CC-BY-NC-4.0",
+      "licence_url": "https://github.com/BandaiNamcoResearchInc/Bandai-Namco-Research-Motiondataset",
+      "tags": [
+        "mocap",
+        "bvh",
+        "research",
+        "non-commercial"
+      ],
+      "cautions": [
+        "Non-commercial: do not use in monetised videos or commercial products.",
+        "The README says CC BY-NC 4.0; some press reports say CC BY-NC-ND 4.0. Read the LICENSE file in each dataset folder before use."
+      ]
+    },
+    {
+      "id": "cmu-mocap-fbx-4tu",
+      "title": "FBX conversion of the CMU Graphics Lab Motion Capture Database (4TU)",
+      "url": "https://data.4tu.nl/datasets/0448aab2-3332-449f-a8e2-d208cb58c7df",
+      "summary": "FBX conversion of the CMU mocap set (2,235 sequences of 144 subjects in the original ASF/AMC data) hosted on 4TU.ResearchData.",
+      "kind": "dataset",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC BY-NC 4.0 on this conversion (original CMU data has its own permissive terms)",
+      "licence_url": "https://data.4tu.nl/datasets/0448aab2-3332-449f-a8e2-d208cb58c7df",
+      "tags": [
+        "mocap",
+        "fbx",
+        "cmu"
+      ],
+      "cautions": [
+        "This conversion is labelled non-commercial; for commercial work go back to the original CMU data and its terms at mocap.cs.cmu.edu (not verified here)."
+      ]
+    },
+    {
+      "id": "rokoko-free-moves-news",
+      "title": "CG Channel: 150 free mocap moves in Rokoko's Motion Library (2020)",
+      "url": "https://www.cgchannel.com/2020/03/get-150-free-mocap-moves-from-rokokos-motion-library",
+      "summary": "2020 report that Rokoko Studio's Motion Library includes 150 free moves licensed for commercial projects (FBX/BVH/CSV export).",
+      "kind": "article",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "Rokoko terms (check current)",
+      "licence_url": "https://www.cgchannel.com/2020/03/get-150-free-mocap-moves-from-rokokos-motion-library",
+      "tags": [
+        "mocap",
+        "rokoko",
+        "news"
+      ],
+      "cautions": [
+        "2020 article; current Rokoko terms not verified. Read the licence inside Rokoko Studio before use and do not redistribute raw files."
+      ]
+    }
+  ]
+}

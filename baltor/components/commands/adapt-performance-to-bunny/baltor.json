@@ -5,7 +5,7 @@
   "kind": "command",
   "subkind": "prompt-template",
   "version": "1.0.0",
-  "summary": "Owner's copy-ready task template, verbatim: Create an original bunny performance within the established scene style.",
+  "summary": "Owner's template \"Adapt the performance to a bunny\": Create an original bunny performance within the established scene style.",
   "description": "The owner's copy-ready task template \"Adapt the performance to a bunny\" (Animation and Video Production Master Guide (10 Oct 2026)), with the template text unchanged and its inputs passed as $ARGUMENTS. Instructions for bounded work, not a guarantee: missing inputs are marked unresolved, never invented.",
   "domain": "video",
   "licence": "MIT",

@@ -93,7 +93,7 @@
   why: "Sets the loudness target for the render."
   how: "evidence.audio.integrated_lufs minus the target given in the run parameters; if none, report the value only."
   evidence: ["evidence.audio.integrated_lufs"]
-  ir_path: "/audio/integrated_lufs"
+  ir_path: "/render_binding/mapping/loudness_target_delta_lu"
   type: number
   challenge: "Do not assert a platform's target from memory; cite or omit."
 
@@ -238,7 +238,7 @@
   why: "Calibrates trust in colour, sharpness and audio measurements."
   how: "A7 encoder tags, F3 crops for blocking, burned-in UI from 012; method inferred."
   evidence: ["A7", "frames: F3"]
-  ir_path: "/source/platform"
+  ir_path: "/render_binding/mapping/source_is_reencode"
   type: enum
   challenge: "Encoder tags can be stripped; low confidence unless two cues agree."
 

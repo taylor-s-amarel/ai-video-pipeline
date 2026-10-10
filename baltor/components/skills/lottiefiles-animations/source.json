@@ -1,0 +1,52 @@
+{
+  "spec": "baltor.asset-source/v1",
+  "source_id": "lottiefiles-animations",
+  "name": "LottieFiles free animations (Lottie Simple License)",
+  "homepage": "https://lottiefiles.com/page/license",
+  "licence_summary": "Lottie Simple License: download, modify, publish and distribute public files including commercially; derivatives stay under the same licence; no collecting files to build a similar or competing service; attribution encouraged, not required. The help centre adds: do not resell or redistribute originals as standalone files.",
+  "licences": [
+    {
+      "id": "Lottie-Simple-License",
+      "url": "https://lottiefiles.com/page/license",
+      "applies_to": "free public animations"
+    }
+  ],
+  "attribution": {
+    "required": "optional",
+    "credit_template": "Animation: \"{title}\" by {creator} on LottieFiles (Lottie Simple License)"
+  },
+  "redistribution": "project-only",
+  "commercial_use": "allowed",
+  "ai_training": "unspecified",
+  "automated_download": "forbidden",
+  "formats": [
+    "json-lottie",
+    "dotlottie"
+  ],
+  "search": [
+    {
+      "label": "Lottie Simple License",
+      "url": "https://lottiefiles.com/page/license"
+    },
+    {
+      "label": "Commercial use (help)",
+      "url": "https://help.lottiefiles.com/hc/en-us/articles/900002438343-Can-I-use-a-free-animation-on-Lottiefiles-for-commercial-business-use"
+    },
+    {
+      "label": "lottie-web player",
+      "url": "https://github.com/airbnb/lottie-web"
+    },
+    {
+      "label": "dotlottie-web player",
+      "url": "https://github.com/LottieFiles/dotlottie-web"
+    }
+  ],
+  "cautions": [
+    "Do not bulk-collect LottieFiles animations into a library, package or service.",
+    "Creators can add restrictions on individual animations; read each page."
+  ],
+  "verified": {
+    "on": "2026-10-10",
+    "how": "mixed"
+  }
+}

@@ -1,0 +1,278 @@
+{
+  "spec": "baltor.media-pack/v1",
+  "pack_id": "history-museum-kit",
+  "title": "History and museum kit (CC0 records, ruins, castles)",
+  "purpose": "Use when a history short ('today in history', battles, ancient sites) needs props and sources. Lists Smithsonian Open Access metadata (CC0 records), the NASA Apollo LM GLB (hashed), CC0 Kenney castle and graveyard kits, Quaternius modular ruins, KayKit skeletons and CC0 textures.",
+  "status": "partially-fetched",
+  "created": "2026-10-10",
+  "verified_on": "2026-10-10",
+  "targets": [
+    "blender-4",
+    "godot-4",
+    "ffmpeg-video"
+  ],
+  "frame": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "licence_policy": {
+    "allow_non_commercial": false,
+    "allow_share_alike": false,
+    "require_redistributable": false,
+    "notes": "Monetised-video policy: no NC or ND assets; credit every CC-BY asset in the description."
+  },
+  "credits_file": "CREDITS.md",
+  "notes": [
+    "Manifest only: no media files are included. Fetch direct assets with the media_pack_fetcher module; open manual-page sources in a browser and record sha256 after download."
+  ],
+  "assets": [
+    {
+      "id": "smithsonian-openaccess",
+      "title": "Smithsonian Open Access metadata (CC0 records)",
+      "creator": "Smithsonian Institution",
+      "source_url": "https://github.com/Smithsonian/OpenAccess",
+      "licence": "CC0-1.0",
+      "licence_url": "https://github.com/Smithsonian/OpenAccess",
+      "attribution": "Smithsonian Open Access metadata (CC0 records) (Smithsonian Institution), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "json",
+      "intended_use": [
+        "real object records and dates"
+      ],
+      "fetch": {
+        "method": "git",
+        "status": "to-fetch"
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "fetched"
+      }
+    },
+    {
+      "id": "nasa-apollo-lm",
+      "title": "Apollo Lunar Module",
+      "creator": "NASA",
+      "source_url": "https://github.com/nasa/NASA-3D-Resources/tree/master/3D%20Models/Apollo%20Lunar%20Module",
+      "download_url": "https://raw.githubusercontent.com/nasa/NASA-3D-Resources/master/3D%20Models/Apollo%20Lunar%20Module/Apollo%20Lunar%20Module.glb",
+      "licence": "Public domain statement (NASA) + NASA usage guidelines",
+      "licence_url": "https://github.com/nasa/NASA-3D-Resources",
+      "attribution": "Apollo Lunar Module 3D model, NASA 3D Resources",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "glb",
+      "restrictions": [
+        "Do not use NASA insignia or imply NASA endorsement (NASA media usage guidelines).",
+        "GLB requires KHR_draco_mesh_compression and uses WebP textures (checked 2026-10-10)."
+      ],
+      "file_name": "Apollo Lunar Module.glb",
+      "sha256": "379101dfcee399267addf771709107c35e826b0b9e5233272f123e4c8a585c4e",
+      "bytes": 716840,
+      "intended_use": [
+        "1969 Moon landing beat"
+      ],
+      "fetch": {
+        "method": "direct",
+        "status": "fetched",
+        "fetched_on": "2026-10-10"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        },
+        "blender": {
+          "operator": "bpy.ops.import_scene.gltf"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "fetched"
+      }
+    },
+    {
+      "id": "kenney-castle-kit",
+      "title": "Castle Kit",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/castle-kit",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "Castle Kit by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "castle reconstructions"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "quaternius-ultimate-modular-ruins",
+      "title": "Ultimate Modular Ruins Pack",
+      "creator": "Quaternius",
+      "source_url": "https://quaternius.com/packs/ultimatemodularruins.html",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/packs/ultimatemodularruins.html",
+      "attribution": "Ultimate Modular Ruins Pack by Quaternius (quaternius.com), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "ancient ruins"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "kenney-graveyard-kit",
+      "title": "Graveyard Kit",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/graveyard-kit",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "Graveyard Kit by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "graveyard scenes"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "kaykit-skeletons-github",
+      "title": "KayKit Character Pack Skeletons 1.0",
+      "creator": "Kay Lousberg",
+      "source_url": "https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Skeletons-1.0",
+      "licence": "CC0-1.0",
+      "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "attribution": "KayKit Character Pack Skeletons 1.0 by Kay Lousberg (KayKit), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "restrictions": [
+        "Author asks: do not resell unmodified copies or claim them as your own."
+      ],
+      "intended_use": [
+        "skeleton characters"
+      ],
+      "fetch": {
+        "method": "git",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        },
+        "video": {
+          "role": "character"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "fetched"
+      }
+    },
+    {
+      "id": "cgbookcase-textures",
+      "title": "cgbookcase textures (pick per surface)",
+      "creator": "cgbookcase",
+      "source_url": "https://www.cgbookcase.com/textures",
+      "licence": "CC0-1.0",
+      "licence_url": "https://www.cgbookcase.com/",
+      "attribution": "Textures from cgbookcase.com, CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "stone and wood surfaces"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "texture",
+          "preset": "texture-3d"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "polyhaven-textures",
+      "title": "Poly Haven textures (pick per surface)",
+      "creator": "Poly Haven",
+      "source_url": "https://polyhaven.com/textures",
+      "licence": "CC0-1.0",
+      "licence_url": "https://docs.polyhaven.com/en/faq",
+      "attribution": "Poly Haven textures (pick per surface) from Poly Haven (polyhaven.com), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "extra PBR surfaces"
+      ],
+      "fetch": {
+        "method": "api",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "texture",
+          "preset": "texture-3d"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    }
+  ]
+}

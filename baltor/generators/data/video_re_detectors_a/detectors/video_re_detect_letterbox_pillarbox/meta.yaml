@@ -14,4 +14,4 @@ limits:
   - Sizes are measured at the analysis width (default 480 px) and scaled; px_precision gives the step.
 contract:
   title: Letterbox / pillarbox payload
-  summary: JSON Schema for the letterbox/pillarbox detector payload: bar kind, per-side thickness in source px, colour, solid vs blurred-fill style and the content rectangle.
+  summary: JSON Schema for the letterbox/pillarbox detector payload - bar kind, per-side thickness in source px, colour, solid vs blurred-fill style and the content rectangle.

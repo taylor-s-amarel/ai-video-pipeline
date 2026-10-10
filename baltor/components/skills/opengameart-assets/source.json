@@ -1,0 +1,52 @@
+{
+  "spec": "baltor.asset-source/v1",
+  "source_id": "opengameart-assets",
+  "name": "OpenGameArt (per-asset licences)",
+  "homepage": "https://opengameart.org/content/faq",
+  "licence_summary": "Each OpenGameArt submission has its own licence (CC0, CC-BY, CC-BY-SA, OGA-BY, GPL ...). You may use art commercially if you follow its licence. Credit in the artist's 'Copyright/Attribution Notice' format when one is given.",
+  "licences": [
+    {
+      "id": "per-asset",
+      "url": "https://opengameart.org/content/faq",
+      "applies_to": "every submission"
+    }
+  ],
+  "attribution": {
+    "required": "per-asset",
+    "credit_template": "\"{title}\" by {creator} (opengameart.org), {licence}"
+  },
+  "redistribution": "per-asset",
+  "commercial_use": "per-asset",
+  "ai_training": "per-asset",
+  "automated_download": "unspecified",
+  "formats": [
+    "png",
+    "ogg",
+    "wav",
+    "mp3",
+    "zip"
+  ],
+  "search": [
+    {
+      "label": "FAQ and licences",
+      "url": "https://opengameart.org/content/faq"
+    },
+    {
+      "label": "Liberated Pixel Cup collection",
+      "url": "https://opengameart.org/content/liberated-pixel-cup-0"
+    },
+    {
+      "label": "512 retro sound effects (CC0)",
+      "url": "https://opengameart.org/content/512-sound-effects-8-bit-style"
+    }
+  ],
+  "cautions": [
+    "CC-BY 3.0 and CC-BY-SA forbid adding technical restrictions (DRM); OGA-BY exists to allow DRM platforms.",
+    "Collections mix licences; credit every contributing author.",
+    "Mirrors can disagree with the original (Pixel Adventure is CC0 on itch.io, CC-BY 4.0 on OGA)."
+  ],
+  "verified": {
+    "on": "2026-10-10",
+    "how": "mixed"
+  }
+}

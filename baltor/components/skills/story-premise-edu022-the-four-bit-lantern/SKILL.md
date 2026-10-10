@@ -5,7 +5,7 @@ description: "Use when choosing, developing or storyboarding catalogue premise E
 
 # EDU022 The Four-Bit Lantern
 
-**Catalogue family:** Learning, computing/data (Appendix D, Learning computing/data).  
+**Catalogue family:** Learning, computing/data (Appendix D section "Learning computing/data").  
 **Status:** idea. Not a completed script, not a rendered catalogue treatment, no audience study. Learning claims remain unverified until a claim-level check. Originality means authored for the catalogue, not an exhaustive prior-art search. The current story-first review may reject or substantially rewrite this premise.
 
 ## Premise (authored wording)
@@ -22,7 +22,7 @@ A technician must display thirteen using four binary lamps, but initially reads 
 
 **Evidence class:** `mathematically_checkable`. **Original format tags:** serial_challenge, prediction_quiz, step_by_step, mechanism_cutaway, silent_visual.
 
-Factual checkability is not factual verification; the evidence class says what kind of check a claim would need, not that it was done.
+Factual checkability is not factual verification: the evidence class classifies how a claim could be checked; it does not record that any check was done.
 
 ## Beat structure as given
 

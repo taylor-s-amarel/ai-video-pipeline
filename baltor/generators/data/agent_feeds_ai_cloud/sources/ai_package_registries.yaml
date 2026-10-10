@@ -1,0 +1,62 @@
+collection:
+  id: updates-ai-package-registries
+  title: "Package registry feeds for AI SDKs, agent frameworks and coding-agent CLIs"
+  description: "What is actually installable, straight from PyPI and npm: per-project PyPI release RSS and the npm registry's /latest document for the AI and agent packages most projects pin. Registry feeds catch versions that never get a GitHub release (or whose repository moved), and they are what a lockfile bump compares against. Each endpoint was fetched and parsed on 2026-10-10; 'seen' is the newest version at that time. Pair with updates-agents-frameworks-sdks for the release notes behind each version."
+  tags: [ai, agents, pypi, npm, dependencies, registry]
+  defaults: {poll: registry, auth: none, verification: fetched, change_types: [release, breaking-change, security]}
+
+items:
+  # ---------------------------------------------------------------- PyPI
+  - {pypi: anthropic, title: "PyPI: anthropic", vendor: Anthropic, products: [Anthropic Python SDK], seen: "1.13.0 on 2026-10-09", summary: "New versions of the Anthropic Python SDK as published to PyPI."}
+  - {pypi: claude-agent-sdk, title: "PyPI: claude-agent-sdk", vendor: Anthropic, products: [Claude Agent SDK (Python)], seen: "0.2.165 on 2026-10-08", summary: "New versions of the Claude Agent SDK for Python; it bundles a Claude Code CLI version, so bumps can change agent behaviour."}
+  - {pypi: openai, title: "PyPI: openai", vendor: OpenAI, products: [OpenAI Python SDK], seen: "3.28.0 on 2026-10-09", summary: "New versions of the OpenAI Python SDK."}
+  - {pypi: openai-agents, title: "PyPI: openai-agents", vendor: OpenAI, products: [OpenAI Agents SDK], seen: "0.23.1 on 2026-10-02", summary: "New versions of the OpenAI Agents SDK for Python (pre-1.0: minor versions may break)."}
+  - {pypi: google-genai, title: "PyPI: google-genai", vendor: Google, products: [Google GenAI SDK], seen: "2.29.0 on 2026-10-07", summary: "New versions of the Google Gen AI SDK for Python (Gemini API and Vertex AI)."}
+  - {pypi: google-adk, title: "PyPI: google-adk", vendor: Google, products: [Agent Development Kit], seen: "2.11.0 on 2026-10-02", summary: "New versions of Google's Agent Development Kit for Python."}
+  - {pypi: mistralai, title: "PyPI: mistralai", vendor: Mistral AI, products: [Mistral Python client], seen: "3.2.0 on 2026-10-09", summary: "New versions of the Mistral AI Python client."}
+  - {pypi: cohere, title: "PyPI: cohere", vendor: Cohere, products: [Cohere Python SDK], seen: "7.2.0 on 2026-09-28", summary: "New versions of the Cohere Python SDK; cleaner than the repository's release feed, which carries generator tags."}
+  - {pypi: groq, title: "PyPI: groq", vendor: Groq, products: [Groq Python SDK], seen: "1.7.0 on 2026-08-26", summary: "New versions of the Groq Python SDK."}
+  - {pypi: together, title: "PyPI: together", vendor: Together AI, products: [Together Python SDK], seen: "2.40.0 on 2026-10-07", summary: "New versions of the Together AI Python SDK. The old togethercomputer/together-python GitHub releases stopped at v1.5.35 in January 2026 while PyPI moved to 2.x, so use this feed."}
+  - {pypi: replicate, title: "PyPI: replicate", vendor: Replicate, products: [Replicate Python client], seen: "2.0.0b4 on 2025-12-18", summary: "New versions of the Replicate Python client; 2.x was still in beta on 2026-10-10.", cautions: ["Pre-release versions only since 2025; pin the 1.x line or test 2.x betas deliberately."]}
+  - {pypi: ollama, title: "PyPI: ollama", vendor: Ollama, products: [Ollama Python library], seen: "0.6.3 on 2026-09-29", summary: "New versions of the Ollama Python client."}
+  - {pypi: huggingface-hub, title: "PyPI: huggingface-hub", vendor: Hugging Face, products: [huggingface_hub], seen: "2.2.0 on 2026-10-08", summary: "New versions of the Hugging Face Hub client and hf CLI."}
+  - {pypi: transformers, title: "PyPI: transformers", vendor: Hugging Face, products: [Transformers], seen: "5.19.0 on 2026-10-06", summary: "New versions of Transformers; the GitHub release feed is very large, this RSS is a light alternative for version checks."}
+  - {pypi: vllm, title: "PyPI: vllm", vendor: vLLM, products: [vLLM], seen: "0.31.0 on 2026-10-05", summary: "New vLLM wheels on PyPI (the GitHub feed also carries non-library tags such as proto-v0.5.0)."}
+  - {pypi: sglang, title: "PyPI: sglang", vendor: SGLang, products: [SGLang], seen: "0.5.21 on 2026-10-01", summary: "New SGLang versions on PyPI."}
+  - {pypi: litellm, title: "PyPI: litellm", vendor: BerriAI, products: [LiteLLM], seen: "1.106.0.dev3 on 2026-10-09", summary: "New LiteLLM versions; dev builds are published to PyPI too.", cautions: ["Filter '.dev' versions unless you track nightlies."]}
+  - {pypi: langchain, title: "PyPI: langchain", vendor: LangChain, products: [LangChain], seen: "1.4.4 on 2026-10-08", summary: "New versions of the langchain package."}
+  - {pypi: langgraph, title: "PyPI: langgraph", vendor: LangChain, products: [LangGraph], seen: "1.2.14 on 2026-10-06", summary: "New versions of LangGraph for Python."}
+  - {pypi: llama-index, title: "PyPI: llama-index", vendor: LlamaIndex, products: [LlamaIndex], seen: "0.14.25 on 2026-09-21", summary: "New versions of the llama-index meta-package."}
+  - {pypi: dspy, title: "PyPI: dspy", vendor: Stanford NLP, products: [DSPy], seen: "3.4.0 on 2026-09-25", summary: "New DSPy versions."}
+  - {pypi: pydantic-ai, title: "PyPI: pydantic-ai", vendor: Pydantic, products: [Pydantic AI], seen: "2.55.0 on 2026-10-09", summary: "New Pydantic AI versions (frequent minor releases)."}
+  - {pypi: crewai, title: "PyPI: crewai", vendor: CrewAI, products: [CrewAI], seen: "1.15.27.dev20261010 on 2026-10-10", summary: "New CrewAI versions, including dated dev builds.", cautions: ["Filter '.dev' versions for stable releases."]}
+  - {pypi: agno, title: "PyPI: agno", vendor: Agno, products: [Agno], seen: "3.1.2 on 2026-10-08", summary: "New Agno versions."}
+  - {pypi: strands-agents, title: "PyPI: strands-agents", vendor: Amazon Web Services, products: [Strands Agents], seen: "1.59.0 on 2026-10-08", summary: "New versions of the Strands Agents Python SDK."}
+  - {pypi: instructor, title: "PyPI: instructor", vendor: 567 Labs, products: [Instructor], seen: "1.17.0 on 2026-09-09", summary: "New Instructor versions."}
+  - {pypi: mcp, title: "PyPI: mcp", vendor: Model Context Protocol, products: [MCP Python SDK], seen: "2.3.0 on 2026-10-02", summary: "New versions of the official MCP Python SDK."}
+  - {pypi: fastmcp, title: "PyPI: fastmcp", vendor: Prefect, products: [FastMCP], seen: "4.1.0 on 2026-10-08", summary: "New FastMCP versions."}
+  - {pypi: langfuse, title: "PyPI: langfuse", vendor: Langfuse, products: [Langfuse Python SDK], seen: "4.17.0 on 2026-10-05", summary: "New versions of the Langfuse tracing SDK."}
+  - {pypi: boto3, title: "PyPI: boto3", vendor: Amazon Web Services, products: [AWS SDK for Python], seen: "1.43.111 on 2026-10-09", summary: "New boto3 versions (near daily); pair with the botocore CHANGELOG feed to see which service APIs (Bedrock included) changed.", cautions: ["Releases almost every weekday; digest weekly unless you need a new API."]}
+  # ---------------------------------------------------------------- npm
+  - {npm: "@anthropic-ai/sdk", title: "npm: @anthropic-ai/sdk", vendor: Anthropic, products: [Anthropic TypeScript SDK], seen: "0.133.0", summary: "Latest published version of the Anthropic TypeScript SDK."}
+  - {npm: "@anthropic-ai/claude-code", title: "npm: @anthropic-ai/claude-code", vendor: Anthropic, products: [Claude Code], seen: "2.1.296", summary: "Latest Claude Code CLI version on npm; compare with the CHANGELOG.md headings to see what a bump brings.", notes: "Package licence field: 'SEE LICENSE IN README.md' (proprietary)."}
+  - {npm: "@anthropic-ai/claude-agent-sdk", title: "npm: @anthropic-ai/claude-agent-sdk", vendor: Anthropic, products: [Claude Agent SDK (TypeScript)], seen: "0.3.296", summary: "Latest Claude Agent SDK for TypeScript on npm."}
+  - {npm: openai, title: "npm: openai", vendor: OpenAI, products: [OpenAI Node SDK], seen: "7.32.0", summary: "Latest OpenAI Node/TypeScript SDK on npm."}
+  - {npm: "@openai/codex", title: "npm: @openai/codex", vendor: OpenAI, products: [Codex CLI], seen: "0.162.1", summary: "Latest stable Codex CLI on npm; the GitHub release feed mixes in alpha builds, this document gives the version 'npm install' resolves."}
+  - {npm: "@openai/agents", title: "npm: @openai/agents", vendor: OpenAI, products: [OpenAI Agents SDK (JS)], seen: "0.20.0", summary: "Latest OpenAI Agents SDK for TypeScript on npm."}
+  - {npm: "@google/genai", title: "npm: @google/genai", vendor: Google, products: [Google GenAI SDK (JS)], seen: "2.28.0", summary: "Latest Google Gen AI SDK for JavaScript on npm."}
+  - {npm: "@google/gemini-cli", title: "npm: @google/gemini-cli", vendor: Google, products: [Gemini CLI], seen: "0.63.0", summary: "Latest stable Gemini CLI on npm (the GitHub feed is dominated by nightlies)."}
+  - {npm: ai, title: "npm: ai (Vercel AI SDK)", vendor: Vercel, products: [Vercel AI SDK], seen: "7.0.137", summary: "Latest version of the Vercel AI SDK core package."}
+  - {npm: "@modelcontextprotocol/sdk", title: "npm: @modelcontextprotocol/sdk", vendor: Model Context Protocol, products: [MCP TypeScript SDK], seen: "1.32.1", summary: "Latest official MCP TypeScript SDK on npm."}
+  - {npm: opencode-ai, title: "npm: opencode-ai", vendor: SST, products: [OpenCode], seen: "1.18.35", summary: "Latest OpenCode CLI version on npm.", cautions: ["The npm 'latest' tag (1.18.35 on 2026-10-10) did not match the 2.x versions reported for OpenCode's GitHub releases in community-releases-agents-ai; check which channel your install uses."]}
+  - {npm: "@mistralai/mistralai", title: "npm: @mistralai/mistralai", vendor: Mistral AI, products: [Mistral TypeScript client], seen: "2.7.0", summary: "Latest Mistral TypeScript client on npm."}
+  - {npm: groq-sdk, title: "npm: groq-sdk", vendor: Groq, products: [Groq TypeScript SDK], seen: "1.6.0", summary: "Latest Groq TypeScript SDK on npm."}
+  - {npm: "@langchain/core", title: "npm: @langchain/core", vendor: LangChain, products: [LangChain.js], seen: "1.2.17", summary: "Latest @langchain/core on npm; the per-package GitHub feed is noisy, this is one clean version."}
+  - {npm: "@mastra/core", title: "npm: @mastra/core", vendor: Mastra, products: [Mastra], seen: "1.75.0", summary: "Latest Mastra core package on npm."}
+  - {npm: ollama, title: "npm: ollama", vendor: Ollama, products: [Ollama JS library], seen: "0.6.4", summary: "Latest Ollama JavaScript client on npm."}
+  - {npm: "@github/copilot", title: "npm: @github/copilot", vendor: GitHub, products: [GitHub Copilot CLI], seen: "1.0.95", summary: "Latest GitHub Copilot CLI on npm.", notes: "Licence field: 'SEE LICENSE IN LICENSE.md'."}
+  - {npm: "@qwen-code/qwen-code", title: "npm: @qwen-code/qwen-code", vendor: Alibaba Qwen, products: [Qwen Code], seen: "0.25.0", summary: "Latest stable Qwen Code CLI on npm."}
+  - {npm: "@charmland/crush", title: "npm: @charmland/crush", vendor: Charm, products: [Crush], seen: "0.98.1", summary: "Latest Crush CLI on npm (licence FSL-1.1-MIT)."}
+  - {npm: "@kilocode/cli", title: "npm: @kilocode/cli", vendor: Kilo Code, products: [Kilo CLI], seen: "7.8.8", summary: "Latest Kilo Code CLI on npm."}
+  - {npm: "@augmentcode/auggie", title: "npm: @augmentcode/auggie", vendor: Augment Code, products: [Auggie], seen: "0.36.0", summary: "Latest Auggie CLI on npm.", cautions: ["npm 'latest' (0.36.0) and the GitHub 'auggie-v2' pre-release line differ; pick the channel deliberately."]}
+  - {npm: "@mariozechner/pi-coding-agent", title: "npm: @mariozechner/pi-coding-agent", vendor: Mario Zechner, products: [Pi coding agent], seen: "0.73.1", summary: "Latest Pi coding agent CLI on npm (from the badlogic/pi-mono repository)."}

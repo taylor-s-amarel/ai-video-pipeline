@@ -68,7 +68,7 @@
   why: "Sets assets_per_item for the content slot."
   how: "Within each item, group shots whose keyframes have SSIM above 0.7 (F10) as one asset; count groups."
   evidence: ["evidence.shots[].keyframe", "frames: F10", "item beat boundaries"]
-  ir_path: "/timeline/beats/*/content_slot"
+  ir_path: "/parameters/-"
   type: integer
   challenge: "A zoomed crop of the same photo is one asset; check grouping by eye on one item."
 
@@ -217,7 +217,7 @@
   why: "Defines the per-item shot list template."
   how: "From items, list the recurring shot roles in order; keep roles present in at least two thirds of items."
   evidence: ["shot types per item"]
-  ir_path: "/timeline/beats/*/content_slot"
+  ir_path: "/generation_rules/-"
   type: list
   challenge: "Test the list on one item not used to build it."
 

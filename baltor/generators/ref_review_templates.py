@@ -330,6 +330,10 @@ def ids_line(ids: list[str]) -> str:
     return ", ".join(f"`{i}`" for i in ids) if ids else "none"
 
 
+def ids_or_all(ids: list[str], total: int) -> str:
+    return f"all {total}" if len(ids) == total else ids_line(ids)
+
+
 # --------------------------------------------------------------------------- contract schemas
 
 def question_schema(bank: dict) -> dict:
@@ -604,7 +608,7 @@ owner's exact text. `questions.json` holds the same 32 records in the `adversari
 
 - Severity: {counter_text(facts['severity'], ['critical', 'high', 'medium', 'low'])}.
 - Modes: {counter_text(facts['modes'], MODES)}.
-- Need listening: {len(facts['listening'])} ({ids_line(facts['listening_only'])} are listening-only).
+- Need listening: {len(facts['listening'])}; listening-only (no visual or machine route): {ids_or_all(facts['listening_only'], len(qs))}.
 - Need a human audience: {len(facts['audience'])}.
 - Only answerable at final encode or delivery: {ids_line(facts['final_only'])}.
 - Limited by style filter: {", ".join(f"`{i}` ({', '.join(s)})" for i, s in facts['styled']) or "none"}.
@@ -621,20 +625,29 @@ owner's exact text. `questions.json` holds the same 32 records in the `adversari
 
 def lens_md(area: dict, qs: list[dict], facts: dict, bank_identity: str) -> str:
     listen = facts["listening"]
+    listen_only = facts["listening_only"]
+    listen_mixed = [i for i in listen if i not in listen_only]
     audience = facts["audience"]
+    n = len(qs)
     mode_notes = []
     if listen:
-        mode_notes.append(
-            f"- {len(listen)} question(s) need listening ({ids_line(listen)}). Only an actual listening pass of the "
-            "exact final audio answers them. You cannot listen: mark them `blocked` (\"no listener or audio access in "
-            "this pass\") unless the caller supplies a named listener's notes for this exact file. Loudness, clipping "
-            "and silence measurements are separate machine checks; report them as such and never pass a listening "
-            "question on them.")
+        parts = [f"- **Listening** ({ids_or_all(listen, n)} need it)."]
+        if listen_only:
+            parts.append(f"Listening-only questions ({ids_or_all(listen_only, n)}) are answered only by an actual "
+                         "listening pass of the target's audio.")
+        if listen_mixed:
+            parts.append(f"Questions that pair listening with a visual or machine check ({ids_or_all(listen_mixed, n)}) "
+                         "cannot pass on the visual or machine part alone.")
+        parts.append("Unless the caller supplies a named listener's notes for this exact file, record the listening part "
+                     "as `blocked` (\"no listener or audio access in this pass\"). Loudness, peak, clipping and silence "
+                     "measurements are machine checks: quote them as measured values, use them for `observed-fail` only "
+                     "when the measurement itself demonstrates the defect, and never pass a listening question on them.")
+        mode_notes.append(" ".join(parts))
     if audience:
         mode_notes.append(
-            f"- {len(audience)} question(s) involve a human audience ({ids_line(audience)}). Your own critique is not "
-            "audience validation. Answer only the part you can observe in the artifact; record audience response as "
-            "`blocked` unless real audience or owner feedback for this version is supplied.")
+            f"- **Human audience** ({ids_or_all(audience, n)}). Your own critique is not audience validation. Answer "
+            "only the part you can observe in the artifact; record audience response as `blocked` unless real audience "
+            "or owner feedback for this version is supplied.")
     if facts["final_only"]:
         mode_notes.append(
             f"- Only answerable on the exact final encode or delivery: {ids_line(facts['final_only'])}. During planning "
@@ -1165,11 +1178,16 @@ The guide's own record (an `adversarial_review_result` instance):
 - `adversarial_review_kit`: `select` a pass, `plan` honest starting records, `validate` results against the target
   hash, `summary` of statuses and what was not checked.
 
+Placed with `baltor_catalog.py place`, each bank lands at `.baltor/rules/review-bank-<area>.md` and the kit at
+`.baltor/lib/adversarial-review-kit/`; the kit reads the placed bank files directly.
+
 ```bash
-python3 adversarial_review_kit.py plan --bank .baltor/rules --pass default_32 --target final.mp4 \\
+KIT=.baltor/lib/adversarial-review-kit/adversarial_review_kit.py
+python3 $KIT plan --bank .baltor/rules --pass default_32 --target final.mp4 \\
   --stage final-encode --modes visual,machine > review.json
 # ...observe, then update records with evidence...
-python3 adversarial_review_kit.py validate review.json --bank .baltor/rules --target final.mp4
+python3 $KIT validate review.json --bank .baltor/rules --target final.mp4
+python3 $KIT summary review.json
 ```
 
 ## What has been observed with this method (the guide's record; do not generalise)
@@ -1218,10 +1236,13 @@ contract; they do not establish that the whole films were watched continuously o
         for t in tpl["templates"]:
             meta = TEMPLATE_META[t["title"]]
             ident, hint, _what, steps, tags, fs = meta
-            first = re.split(r"(?<=[.!?])\s", t["prompt"].strip("“”\""), maxsplit=1)[0]
-            summary = f"Owner's copy-ready task template, verbatim: {first}"
-            if len(summary) > 240:
-                summary = summary[:236].rsplit(" ", 1)[0] + " ..."
+            summary = f"Owner's template \"{t['title']}\":"
+            for sentence in re.split(r"(?<=[.!?])\s+", t["prompt"].strip("“”\"")):
+                if len(summary) + 1 + len(sentence) > 240:
+                    break
+                summary += " " + sentence
+            if summary.endswith(":"):
+                summary = (summary + " " + t["prompt"].strip("“”\""))[:236].rsplit(" ", 1)[0] + " ..."
             run.component(
                 "command", ident,
                 title=f"/{ident.replace('_', '-')}",
@@ -1374,7 +1395,7 @@ Source: {GUIDE_TITLE}, "Reusable components and actual intake". Rules are the ow
 
 ## Keep the states separate
 
-7. Keep these states separate: {", ".join(states[:-1])}, and {states[-1]}. One never implies the next.
+7. Keep these states separate: {", ".join(states[:-1])}, and {states[-1]}.
 8. Neutral packages stay neutral until the real current target contract is inspected and tested.
 9. Do not invent producer/source bindings, write directly to a production database, bypass admission, or infer
    publication from a private Library save.

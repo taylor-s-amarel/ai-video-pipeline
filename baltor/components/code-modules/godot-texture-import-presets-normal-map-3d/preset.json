@@ -1,0 +1,4 @@
+{
+  "preset": "normal-map-3d",
+  "why": "normal maps imported as RGTC with mipmaps"
+}

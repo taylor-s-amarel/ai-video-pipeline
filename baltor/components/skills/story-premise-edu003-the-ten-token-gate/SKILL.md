@@ -5,7 +5,7 @@ description: "Use when choosing, developing or storyboarding catalogue premise E
 
 # EDU003 The Ten-Token Gate
 
-**Catalogue family:** Learning, basic math (Appendix D, Learning basic math).  
+**Catalogue family:** Learning, basic math (Appendix D section "Learning basic math").  
 **Status:** idea. Not a completed script, not a rendered catalogue treatment, no audience study. Learning claims remain unverified until a claim-level check. Originality means authored for the catalogue, not an exhaustive prior-art search. The current story-first review may reject or substantially rewrite this premise.
 
 ## Premise (authored wording)
@@ -22,7 +22,7 @@ A tally keeper must display thirteen tokens using two slots, but the ones slot a
 
 **Evidence class:** `mathematically_checkable`. **Original format tags:** mechanism_cutaway, step_by_step, prediction_quiz, silent_visual, narrative_lesson.
 
-Factual checkability is not factual verification; the evidence class says what kind of check a claim would need, not that it was done.
+Factual checkability is not factual verification: the evidence class classifies how a claim could be checked; it does not record that any check was done.
 
 ## Beat structure as given
 

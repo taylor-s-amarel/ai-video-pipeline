@@ -1,14 +1,11 @@
 ---
 name: "creative-catalogue-representation-approaches"
-description: "Use when choosing four representation approaches for a short animated or explainer film from the October 2026 creative catalogue. The four representation approaches (A01-A04) every catalogue treatment uses, with construction, communicative difference and gate for each. Every row keeps its gate or check; these are proposals, not tested recipes."
+description: "Use when deciding how a short film represents its story: diagrammatic vector, sketch and cutaway, tactile miniature 3D, or layered 2.5D illustration. The four representation approaches (A01-A04) every catalogue treatment uses, with construction, communicative difference and gate for each. From the October 2026 creative catalogue; every row keeps its gate or check, and these are proposals, not tested recipes."
 ---
 
 # Creative catalogue: four representation approaches
 
 **Status:** The following banks were materialized from the 10 October 2026 catalogue and are preserved here as usable text. They remain proposals. The catalogue's earlier statement that a second film was in progress and that zero twelve-style slots were qualified is a historical assembly snapshot; it is not today's completed-film ledger. This guide does not retroactively mark individual catalogue recipes rendered because a similarly named film exists.
-
-There are 240 underlying premises, 120 learning and 120 fiction, and 2,400 addressable candidate treatments. There were zero independently written complete treatment scripts, zero catalogue recipe renders and zero audience studies in that catalogue. Factual checkability is not factual verification. Lexically distinct ideas are not proven novel against all historical work. Select one premise for a concrete viewer task, resolve its facts and rights, write an actual storyboard and test its risky action.
-The four representation approaches are below. Their original pipeline wording is a historical candidate status. Current installed/used evidence is in the main architecture and tool sections.
 
 There are 240 underlying premises, 120 learning and 120 fiction, and 2,400 addressable candidate treatments. There were zero independently written complete treatment scripts, zero catalogue recipe renders and zero audience studies in that catalogue. Factual checkability is not factual verification. Lexically distinct ideas are not proven novel against all historical work. Select one premise for a concrete viewer task, resolve its facts and rights, write an actual storyboard and test its risky action.
 

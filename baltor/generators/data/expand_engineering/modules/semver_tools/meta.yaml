@@ -1,0 +1,11 @@
+title: SemVer 2.0.0 precedence, bumps and npm-style ranges
+summary: Parses SemVer 2.0.0 versions with the official regex, orders them by spec precedence, bumps major/minor/patch/prerelease and checks npm-style ranges (^, ~, x, hyphen, ||) including the pre-release rule.
+subkind: release-engineering
+tags: [semver, versioning, release, npm, ranges]
+step_kinds: [build, verify, publish]
+examples:
+  - "python semver_tools.py compare 1.0.0-rc.1 1.0.0"
+  - "python semver_tools.py satisfies 1.4.2 '^1.2 || >=3'"
+references:
+  - https://semver.org/spec/v2.0.0.html
+  - https://github.com/npm/node-semver#ranges

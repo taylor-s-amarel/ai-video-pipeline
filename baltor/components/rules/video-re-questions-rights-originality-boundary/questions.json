@@ -175,7 +175,7 @@
       "evidence_required": [
         "frames: F3"
       ],
-      "ir_path": "/source/platform",
+      "ir_path": "/open_questions/-",
       "answer_type": "object",
       "challenge": "Record position and kind only."
     },

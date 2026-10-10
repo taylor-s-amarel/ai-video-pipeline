@@ -12,9 +12,11 @@ Boundary: The swarm lifts technique and structure only. Never store, transcribe 
 
 0. Preflight. Check the file exists and that the user supplied it or may analyse it. Do not download anything:
    if only a URL was given, ask for the file. Never upload or republish the source.
-1. Measure (load and disassemble). Run the `video_re_evidence_bundle` code module (`.baltor/lib/video-re-evidence-bundle/`, `--help`
-   for its options) on the file, with caption text masked unless the user asked for full text, writing
-   `OUT/evidence/evidence.json`, keyframes and the contact sheet. Report every `errors[]` entry.
+1. Measure (load and disassemble). Run the `video_re_evidence_bundle` code module on the file:
+   `python3 .baltor/lib/video-re-evidence-bundle/video_re_evidence_bundle.py VIDEO --out-dir OUT/evidence --text-mode masked`
+   (`--text-mode full` only when the user asked for it; `--fast` for a quicker pass; `--help` for the rest). It
+   writes `evidence.json`, `details/<module>.json`, keyframes and contact sheets. Report every `errors[]` entry:
+   those measurements are missing, not zero.
 2. Analyse. Start one subagent per lens, in parallel, each with `EVIDENCE`, `SRC`, `WORK=OUT/work/<lens>` and
    `OUT=OUT/answers/<lens>.json`: `video-re-analyst-structure-beats`, `video-re-analyst-hook-first-seconds`, `video-re-analyst-script-rhetoric`, `video-re-analyst-pacing-cut-rhythm`, `video-re-analyst-shot-list-framing`, `video-re-analyst-camera-motion`, `video-re-analyst-layers-compositing`, `video-re-analyst-background-system`, `video-re-analyst-typography-captions`, `video-re-analyst-text-animation`, `video-re-analyst-color-grade`, `video-re-analyst-characters-animation-style`, `video-re-analyst-transitions-effects`, `video-re-analyst-narration-voice`, `video-re-analyst-music-sfx-mix`, `video-re-analyst-retention-cta`, `video-re-analyst-platform-fit-safe-areas`, `video-re-analyst-rights-originality-boundary`.
 3. Challenge. Run `video-re-challenger` on each lens's answers in parallel (`OUT/challenge/<lens>.json`), then

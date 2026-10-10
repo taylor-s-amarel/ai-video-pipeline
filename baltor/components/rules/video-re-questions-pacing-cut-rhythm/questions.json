@@ -340,7 +340,7 @@
       "evidence_required": [
         "evidence.audio.speech_segments"
       ],
-      "ir_path": "/audio/narration/pause_ms",
+      "ir_path": "/audio/narration/speech_gap_ms",
       "answer_type": "distribution",
       "challenge": "Check two long gaps with A4 silencedetect; music-filled gaps may be missed by VAD."
     },
@@ -461,15 +461,15 @@
     },
     {
       "id": "pacing_cut_rhythm-030",
-      "question": "After spot-checking 10 detected cuts for false positives (flashes, fast pans, text pops), what is the corrected cut rate per minute?",
+      "question": "Of 10 randomly sampled detected cuts, what share are real shot changes (shot-detector precision on this video)?",
       "why_it_matters": "Calibrates trust in shot_stats for this video.",
-      "how_to_answer": "Pick 10 cuts at random from evidence.shots[]; inspect F8 at each; scale shot_stats.cut_rate_per_min by the share of real cuts. List the sampled cut times in the note.",
+      "how_to_answer": "Pick 10 cuts at random from evidence.shots[]; inspect F8 at each and count real shot changes (not flashes, fast pans or text pops). Report the share and list the sampled cut times in the note; the challenger lowers pacing answers built on shot counts when it is below 0.9.",
       "evidence_required": [
         "evidence.shots[]",
         "frames: F8 at 10 cuts"
       ],
-      "ir_path": "/timeline/cut_rate_per_min",
-      "answer_type": "number",
+      "ir_path": "/render_binding/mapping/measurement_precision/cut_detection",
+      "answer_type": "ratio",
       "challenge": "Report which cuts were sampled so the check can be repeated."
     },
     {

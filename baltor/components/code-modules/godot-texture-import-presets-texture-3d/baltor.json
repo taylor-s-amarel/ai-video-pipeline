@@ -1,0 +1,51 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "godot_texture_import_presets_texture_3d",
+  "title": "Godot 4 texture import preset: texture-3d",
+  "kind": "code-module",
+  "subkind": "godot",
+  "version": "1.0.0",
+  "summary": "The Godot texture import preset writer pinned to 'texture-3d': photoreal PBR maps from Poly Haven/ambientCG (VRAM compressed, mipmaps).",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "godot_texture_import_presets.py",
+  "tags": [
+    "godot",
+    "import",
+    "textures",
+    "texture-3d"
+  ],
+  "collection": "public-good",
+  "variant_of": "godot_texture_import_presets",
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits",
+    "parameters": {
+      "preset": "texture-3d"
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

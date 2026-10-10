@@ -1,0 +1,71 @@
+{
+  "spec": "baltor.asset-source/v1",
+  "source_id": "google-fonts-for-video",
+  "name": "Google Fonts and Kenney fonts for captions and titles (OFL, Apache, CC0)",
+  "homepage": "https://github.com/google/fonts",
+  "licence_summary": "google/fonts groups files by licence folder (ofl/, apache/, ufl/); most families are SIL OFL 1.1. OFL fonts may be embedded and redistributed with software but not sold alone; documents (and renders) made with them are not bound by the licence. Kenney Fonts are CC0.",
+  "licences": [
+    {
+      "id": "OFL-1.1",
+      "url": "https://openfontlicense.org/open-font-license-official-text/",
+      "applies_to": "families in ofl/"
+    },
+    {
+      "id": "Apache-2.0",
+      "url": "https://github.com/google/fonts/tree/main/apache",
+      "applies_to": "families in apache/ (e.g. Luckiest Guy)"
+    },
+    {
+      "id": "CC0-1.0",
+      "url": "https://kenney.nl/assets/kenney-fonts",
+      "applies_to": "Kenney Fonts"
+    }
+  ],
+  "attribution": {
+    "required": "never",
+    "credit_template": "Font: {family} ({licence})"
+  },
+  "redistribution": "allowed-with-licence",
+  "commercial_use": "allowed",
+  "ai_training": "unspecified",
+  "automated_download": "allowed",
+  "formats": [
+    "ttf",
+    "otf",
+    "woff2"
+  ],
+  "search": [
+    {
+      "label": "google/fonts repository",
+      "url": "https://github.com/google/fonts"
+    },
+    {
+      "label": "Google Fonts FAQ",
+      "url": "https://developers.google.com/fonts/faq?tid=311165647"
+    },
+    {
+      "label": "Bebas Neue",
+      "url": "https://fonts.google.com/specimen/Bebas%2BNeue"
+    },
+    {
+      "label": "Montserrat licence tab",
+      "url": "https://fonts.google.com/specimen/Montserrat/license"
+    },
+    {
+      "label": "Press Start 2P",
+      "url": "https://fonts.google.com/specimen/Press+Start+2P"
+    },
+    {
+      "label": "Kenney Fonts",
+      "url": "https://kenney.nl/assets/kenney-fonts"
+    }
+  ],
+  "cautions": [
+    "Never sell or bundle a font file alone; keep OFL.txt next to any redistributed font.",
+    "Check the folder: a family under apache/ is Apache-2.0, not OFL."
+  ],
+  "verified": {
+    "on": "2026-10-10",
+    "how": "mixed"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "pixel_art_video_fit_landscape_16x9",
+  "title": "Pixel-art integer scaler preset: landscape-16x9 (1920x1080)",
+  "kind": "code-module",
+  "subkind": "aspect-format",
+  "version": "1.0.0",
+  "summary": "Pixel-art integer scaler pinned to 1920x1080 with [0.06, 0.08] safe margins; run with --preset-file preset.json.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "render"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "pixel_art_video_fit.py",
+  "tags": [
+    "pixel-art",
+    "scaling",
+    "video",
+    "landscape-16x9"
+  ],
+  "collection": "public-good",
+  "variant_of": "pixel_art_video_fit",
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits",
+    "parameters": {
+      "preset": "landscape-16x9",
+      "size": [
+        1920,
+        1080
+      ],
+      "margin": [
+        0.06,
+        0.08
+      ]
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

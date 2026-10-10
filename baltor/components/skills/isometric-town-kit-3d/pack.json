@@ -1,0 +1,199 @@
+{
+  "spec": "baltor.media-pack/v1",
+  "pack_id": "isometric-town-kit-3d",
+  "title": "Isometric town kit (3D city-kit variant)",
+  "purpose": "Use when the town should be 3D under an orthographic isometric camera, for example a city growth timelapse. Lists Kenney City Kits (Suburban, Commercial, Roads), Car Kit, the Godot 4.6 city-builder starter kit and an evening HDRI.",
+  "status": "manifest-only",
+  "created": "2026-10-10",
+  "verified_on": "2026-10-10",
+  "targets": [
+    "godot-4",
+    "ffmpeg-video"
+  ],
+  "frame": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "licence_policy": {
+    "allow_non_commercial": false,
+    "allow_share_alike": false,
+    "require_redistributable": false,
+    "notes": "Monetised-video policy: no NC or ND assets; credit every CC-BY asset in the description."
+  },
+  "credits_file": "CREDITS.md",
+  "notes": [
+    "Manifest only: no media files are included. Fetch direct assets with the media_pack_fetcher module; open manual-page sources in a browser and record sha256 after download."
+  ],
+  "assets": [
+    {
+      "id": "kenney-starter-kit-city-builder",
+      "title": "Starter Kit City Builder (Godot 4.6)",
+      "creator": "Kenney",
+      "source_url": "https://github.com/KenneyNL/Starter-Kit-City-Builder",
+      "licence": "MIT (code), CC0-1.0 (assets)",
+      "licence_url": "https://github.com/KenneyNL/Starter-Kit-City-Builder",
+      "attribution": "Starter Kit City Builder (Godot 4.6) by Kenney: code MIT, assets CC0",
+      "attribution_required": false,
+      "redistribution": "allowed-with-licence",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "Godot 4.6 city-builder template"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "fetched"
+      }
+    },
+    {
+      "id": "kenney-city-kit-suburban",
+      "title": "City Kit (Suburban)",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/city-kit-suburban",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "City Kit (Suburban) by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "houses"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "kenney-city-kit-commercial",
+      "title": "City Kit (Commercial)",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/city-kit-commercial",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "City Kit (Commercial) by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "shops and towers"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "kenney-city-kit-roads",
+      "title": "City Kit (Roads)",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/city-kit-roads",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "City Kit (Roads) by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "roads, signs and lights"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "kenney-car-kit",
+      "title": "Car Kit",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/car-kit",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "Car Kit by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "traffic"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "polyhaven-evening-road-01-puresky",
+      "title": "Evening Road 01 (Pure Sky) HDRI",
+      "creator": "Poly Haven",
+      "source_url": "https://polyhaven.com/a/evening_road_01_puresky",
+      "licence": "CC0-1.0",
+      "licence_url": "https://docs.polyhaven.com/en/faq",
+      "attribution": "Evening Road 01 (Pure Sky) HDRI from Poly Haven (polyhaven.com), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "hdr",
+      "intended_use": [
+        "evening lighting"
+      ],
+      "fetch": {
+        "method": "api",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "video": {
+          "role": "hdri-lighting"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    }
+  ]
+}

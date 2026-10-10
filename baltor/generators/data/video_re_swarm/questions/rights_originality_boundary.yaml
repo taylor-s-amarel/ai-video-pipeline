@@ -75,7 +75,7 @@
   why: "Records marks to exclude and helps attribute the analysis."
   how: "F3 corner crops at 3 times."
   evidence: ["frames: F3"]
-  ir_path: "/source/platform"
+  ir_path: "/open_questions/-"
   type: object
   challenge: "Record position and kind only."
 

@@ -1,0 +1,19 @@
+title: Prometheus rules and metric-name lint
+summary: Lints Prometheus alerting/recording rules (for, severity, summary/description, runbook_url on pages, level:metric:operations names, rate() on counters) and /metrics names (_total, base units).
+subkind: observability
+tags: [prometheus, alerting, recording-rules, metrics, naming, lint, observability]
+step_kinds: [review, verify, operate]
+effects: {filesystem: read, executes: python}
+depends_on:
+  - {identity: pyyaml, external: true}
+description: >-
+  Rule-file checks PR001-PR008: alerts without a for duration, missing or unknown severity labels, missing summary or
+  description, paging alerts without runbook_url, recording rules not named level:metric:operations, CamelCase alert
+  names, rate()/increase() applied to non-counter names, ranges under 60s, empty expressions, unnamed groups and
+  duplicate alerts. Metric-name checks PM001-PM004 on the text exposition format: snake_case without colons,
+  counters ending in _total (and non-counters not), base units (seconds, bytes, ratio) and status codes or methods
+  baked into names. Complements `promtool check rules`, which validates PromQL syntax.
+examples:
+  - "python prometheus_rules_lint.py alerts/*.yml && promtool check rules alerts/*.yml"
+  - "curl -s localhost:9100/metrics | python prometheus_rules_lint.py --metrics -"
+evidence_notes: pytest suite passes on synthetic rule files and exposition text.

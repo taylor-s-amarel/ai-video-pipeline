@@ -74,7 +74,8 @@ BANKS: dict[str, list[dict]] = {
 ALL_IDS = {q["id"] for qs in BANKS.values() for q in qs}
 
 NUMERIC = {"number", "integer", "ratio", "seconds", "ms", "range", "distribution"}
-MULTI_WRITER_TEXT = {"/visual/grade", "/visual/subject_framing", "/visual/style_family", "/script/hook_pattern"}
+MULTI_WRITER_TEXT = {"/visual/grade", "/visual/subject_framing", "/visual/style_family", "/script/hook_pattern",
+                     "/motion/easing"}
 
 
 def kebab(identity: str) -> str:
@@ -350,6 +351,27 @@ def detectors_md(key: str) -> str:
     return ", ".join(f"`{d}`" for d in dets) if dets else "none listed"
 
 
+def check_examples_against_contract() -> None:
+    """When the format builder's answer contract exists, the shape examples in every analyst must validate."""
+    if not ANSWER_CONTRACT.exists():
+        print(f"video_re_swarm: {ANSWER_SCHEMA} contract not built yet; example answers not cross-checked")
+        return
+    try:
+        import jsonschema
+    except ImportError:
+        return
+    schema = json.loads(ANSWER_CONTRACT.read_text(encoding="utf-8"))
+    validator = jsonschema.validators.validator_for(schema)(schema)
+    problems = []
+    for lid in LENS_IDS:
+        for ans in json.loads(example_answers(lid)):
+            # the contract may describe one answer or an array of answers
+            inst = ans if schema.get("type") != "array" else [ans]
+            problems += [f"{lid} {ans['question_id']}: {e.message}" for e in validator.iter_errors(inst)]
+    if problems:
+        raise SystemExit("example answers do not match the video_re_analyst_answer contract:\n  " + "\n  ".join(problems))
+
+
 # --------------------------------------------------------------------------- rules (question banks)
 
 def rules_md(lens: dict) -> str:
@@ -558,11 +580,34 @@ for a, b, _ in CROSS_CHECKS:
     assert a in ALL_IDS and b in ALL_IDS, (a, b)
 
 
+DIMENSIONS = {
+    "timeline": ["structure_beats", "hook_first_seconds", "retention_cta"],
+    "cut rhythm": ["pacing_cut_rhythm", "transitions_effects"],
+    "layers": ["layers_compositing", "background_system", "shot_list_framing", "color_grade"],
+    "typography": ["typography_captions", "text_animation"],
+    "motion": ["camera_motion", "text_animation", "transitions_effects", "characters_animation_style"],
+    "audio": ["narration_voice", "music_sfx_mix"],
+    "script pattern": ["script_rhetoric", "structure_beats"],
+}
+assert all(lid in LENS_IDS for v in DIMENSIONS.values() for lid in v)
+
+
+def analyst_names(lens_ids: list[str]) -> str:
+    return ", ".join("`" + kebab("video_re_analyst_" + lid) + "`" for lid in lens_ids)
+
+
+DIMENSION_MD = "\n".join(f"   - {dim}: {analyst_names(v)}" for dim, v in DIMENSIONS.items())
+MULTI_WRITER_MD = ", ".join(f"`{p}`" for p in sorted(MULTI_WRITER_TEXT))
+
+
 def path_owners_md() -> str:
-    rows = []
-    for lens in LENSES:
-        rows.append(f"- `{lens['id']}`: {', '.join(f'`{p}`' for p in lens['ir_focus'])}")
-    return "\n".join(rows)
+    """Per IR area, the lenses that write it, most central first (position in ir_focus, then lens order)."""
+    owners: dict[str, list[tuple[int, int, str]]] = {}
+    for order, lens in enumerate(LENSES):
+        for pos, path in enumerate(lens["ir_focus"]):
+            owners.setdefault(path, []).append((pos, order, lens["id"]))
+    return "\n".join(f"- `{path}`: {' > '.join(f'`{lid}`' for _, _, lid in sorted(v))}"
+                     for path, v in sorted(owners.items()))
 
 
 CHALLENGER = f"""
@@ -693,7 +738,7 @@ representation. You do not analyse the video again and you never invent a value.
 1. Collect every surviving answer into `$OUT/answers.surviving.json` (one array) and count them per lens.
 2. Group answers by `ir_path`. When several answers write the same scalar path, keep, in order of preference:
    (a) the stronger method (measured > observed > inferred > assumed), (b) the higher confidence, (c) the lens
-   that owns the path (table below). Record each overruled alternative that differs materially in
+   listed first for that IR area in the priority table below. Record each overruled alternative that differs materially in
    `open_questions` as `conflict at <path>: <kept> vs <other> (<question ids>)`.
 3. Paths ending in `/-` append (drop exact duplicates). Paths with `*` apply to the array elements the answer
    names (for example beats whose role is `item`); when the scope is unclear, move the answer to
@@ -702,12 +747,16 @@ representation. You do not analyse the video again and you never invent a value.
    - numeric answers (number, integer, ratio, seconds, ms, range, distribution) become `observed_number`
      `{{value, unit, min, max, evidence}}` (a distribution's median is the value; p10/p90 become min/max);
    - text, pattern and enum answers become `observed_text` `{{value, evidence}}`;
-   - the multi-writer fields `/visual/grade`, `/visual/subject_framing`, `/visual/style_family` and
-     `/script/hook_pattern` join their parts as `key: value; ...` in one `observed_text` whose method is the
-     weakest contributor's and whose confidence is the mean;
+   - a `distribution` or `range` answer to a path that already holds a value fills its `min`/`max`;
+     `seconds` answers to `*_ratio` paths are divided by `source.duration_s`;
+   - the multi-writer fields {MULTI_WRITER_MD} join their parts as
+     `key: value; ...` in one `observed_text` (for easing: `camera: ...; text: ...; characters: ...`) whose method
+     is the weakest contributor's and whose confidence is the mean;
    - answers of other types appended to `observed_text` arrays become a short `topic: value` string with the
      answer's evidence;
    - `/visual/layers/-` answers become layer objects (`z`, `kind`, `opacity`, ...); a `false` answer adds no layer;
+   - `render_binding.mapping.measurement_precision` keeps spot-check results (for example shot-detector
+     precision) that the round-trip judge uses to weight comparisons;
    - answers to `/parameters/-` and non-rule answers to `/generation_rules/-` are proposals: write them to
      `$OUT/proposals.json` for the parameteriser; only `rule` answers go straight into `generation_rules`.
 5. Merge with the `{IR_MERGE}` code module (placed at `.baltor/lib/{kebab(IR_MERGE)}/`). Run its CLI with
@@ -726,7 +775,7 @@ representation. You do not analyse the video again and you never invent a value.
 9. Write `$OUT/format_ir.json` and `$OUT/lift_report.json`:
    `{{"answers_in": n, "answers_used": n, "conflicts": [...], "proposals": n, "open_questions": n, "validation": "ok"}}`.
 
-## Path ownership (tie-breaker in step 2)
+## Lens priority per IR area (tie-breaker in step 2)
 
 {path_owners_md()}
 """
@@ -804,9 +853,11 @@ dimension, check that the variant is original, propose IR fixes, and decide whet
 
 ## Steps
 
-1. Measure the variant with `{MEASURE}` using the same settings as the source run (record them).
-2. Lift the variant when `VARIANT_IR` is missing: run the analysts restricted to questions answerable from
-   evidence.json and recipes, the challenger and the lifter, exactly as for the source.
+1. Measure the variant with `{MEASURE}` using the same options as the source run (read them from the source's
+   `details/_run.json`): `python3 .baltor/lib/{kebab(MEASURE)}/{MEASURE}.py VARIANT --out-dir $WORK/variant_evidence ...`.
+2. Lift the variant when `VARIANT_IR` is missing: run the challenger and lifter exactly as for the source, after
+   the analysts of every lens that feeds a scored dimension:
+{DIMENSION_MD}
 3. Score with `{IR_DIFF}` (`.baltor/lib/{kebab(IR_DIFF)}/`, `--help` first) on `SOURCE_IR` and `VARIANT_IR`.
    Dimensions: timeline, cut rhythm, layers, typography, motion, audio, script pattern. When installed, the
    registry detectors {detectors_md('round_trip_judge')} add measured comparisons.
@@ -831,7 +882,7 @@ dimension, check that the variant is original, propose IR fixes, and decide whet
 
 # --------------------------------------------------------------------------- commands
 
-LENS_LIST = ", ".join(f"`{kebab('video_re_analyst_' + lid)}`" for lid in LENS_IDS)
+LENS_LIST = analyst_names(LENS_IDS)
 
 CMD_REVERSE = f"""
 Reverse-engineer this video into a reusable, parametric format: $ARGUMENTS
@@ -843,9 +894,11 @@ Boundary: {BOUNDARY}
 
 0. Preflight. Check the file exists and that the user supplied it or may analyse it. Do not download anything:
    if only a URL was given, ask for the file. Never upload or republish the source.
-1. Measure (load and disassemble). Run the `{MEASURE}` code module (`.baltor/lib/{kebab(MEASURE)}/`, `--help`
-   for its options) on the file, with caption text masked unless the user asked for full text, writing
-   `OUT/evidence/evidence.json`, keyframes and the contact sheet. Report every `errors[]` entry.
+1. Measure (load and disassemble). Run the `{MEASURE}` code module on the file:
+   `python3 .baltor/lib/{kebab(MEASURE)}/{MEASURE}.py VIDEO --out-dir OUT/evidence --text-mode masked`
+   (`--text-mode full` only when the user asked for it; `--fast` for a quicker pass; `--help` for the rest). It
+   writes `evidence.json`, `details/<module>.json`, keyframes and contact sheets. Report every `errors[]` entry:
+   those measurements are missing, not zero.
 2. Analyse. Start one subagent per lens, in parallel, each with `EVIDENCE`, `SRC`, `WORK=OUT/work/<lens>` and
    `OUT=OUT/answers/<lens>.json`: {LENS_LIST}.
 3. Challenge. Run `video-re-challenger` on each lens's answers in parallel (`OUT/challenge/<lens>.json`), then
@@ -928,6 +981,8 @@ DESCRIPTION_BOUNDARY = ("Captures technique and structure only; never stores or 
 def lens_tag(lid: str) -> str:
     return kebab(lid)[:40]
 
+
+check_examples_against_contract()
 
 with GeneratorRun(__file__, data="generators/data/video_re_swarm") as run:
     total = sum(len(v) for v in BANKS.values())

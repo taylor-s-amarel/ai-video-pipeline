@@ -1,0 +1,11 @@
+{
+  "blockiness_score": 1.4,
+  "label": "bad",
+  "ratio": { "x": 1.412 },
+  "ratio_flat_areas": { "x": null, "y": null },
+  "grid_phase": { "x": 0, "y": 0 },
+  "grid_ratios": { "8": 1.4 },
+  "ringing_ratio": null,
+  "native_pixels": true,
+  "frames_analysed": 12
+}

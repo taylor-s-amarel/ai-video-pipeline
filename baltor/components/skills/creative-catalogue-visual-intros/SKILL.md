@@ -1,6 +1,6 @@
 ---
 name: "creative-catalogue-visual-intros"
-description: "Use when choosing thirty visual intros for a short animated or explainer film from the October 2026 creative catalogue. Thirty visual intros (I01-I30): first frame, action, text seed, sound and fit. Every row keeps its gate or check; these are proposals, not tested recipes."
+description: "Use when designing the first frame and first seconds of a short animated or explainer film. Thirty visual intros (I01-I30): first frame, action, text seed, sound and fit. From the October 2026 creative catalogue; every row keeps its gate or check, and these are proposals, not tested recipes."
 ---
 
 # Creative catalogue: thirty visual intros

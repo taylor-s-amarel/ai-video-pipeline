@@ -1,0 +1,445 @@
+{
+  "spec": "baltor.feed-collection/v1",
+  "id": "assets-pbr-textures-hdris",
+  "title": "PBR materials, textures and HDRIs (CC0 sources and their fine print)",
+  "description": "Physically based materials and HDR environment maps for Blender renders, Godot 4 WorldEnvironment skies and moving background plates. Poly Haven, ambientCG, cgbookcase and 3dtextures.me are CC0; ShareTextures is \"custom CC0\" that forbids automated downloads; BlenderKit and Fab use their own royalty-free licences.",
+  "updated": "2026-10-10",
+  "tags": [
+    "pbr",
+    "textures",
+    "hdri",
+    "materials",
+    "environment"
+  ],
+  "items": [
+    {
+      "id": "polyhaven-home",
+      "title": "Poly Haven (HDRIs, textures, models)",
+      "url": "https://polyhaven.com/",
+      "summary": "Unclipped HDRIs up to 16k+, photoscanned PBR textures at 8k+ and hyperreal models, all CC0, no account needed.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://docs.polyhaven.com/en/faq",
+      "tags": [
+        "polyhaven",
+        "hdri",
+        "pbr",
+        "models"
+      ],
+      "cautions": [
+        "CC0 does not clear trademarks or real-world locations/brands visible in scans.",
+        "You may not claim to be the original author or re-license the assets as your own."
+      ]
+    },
+    {
+      "id": "polyhaven-faq",
+      "title": "Poly Haven FAQ (licence)",
+      "url": "https://docs.polyhaven.com/en/faq",
+      "summary": "Official FAQ: assets are CC0; the only restriction is not claiming authorship or re-licensing; AI training is allowed.",
+      "kind": "guidance",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://docs.polyhaven.com/en/faq",
+      "tags": [
+        "polyhaven",
+        "licensing"
+      ]
+    },
+    {
+      "id": "polyhaven-hdris",
+      "title": "Poly Haven HDRIs",
+      "url": "https://polyhaven.com/hdris",
+      "summary": "HDRI catalogue by category (Pure Skies, Coast & Water, Fields & Countryside, Studio, Streets & Town ...). Use as Blender world lighting or Godot PanoramaSkyMaterial.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://docs.polyhaven.com/en/faq",
+      "tags": [
+        "polyhaven",
+        "hdri",
+        "sky"
+      ]
+    },
+    {
+      "id": "polyhaven-textures",
+      "title": "Poly Haven textures",
+      "url": "https://polyhaven.com/textures",
+      "summary": "PBR texture sets by category (Brick, Concrete, Ground & Terrain, Metal, Wood, Textiles ...).",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://docs.polyhaven.com/en/faq",
+      "tags": [
+        "polyhaven",
+        "pbr",
+        "textures"
+      ]
+    },
+    {
+      "id": "polyhaven-models",
+      "title": "Poly Haven models",
+      "url": "https://polyhaven.com/models",
+      "summary": "Photoreal CC0 props and furniture with PBR materials (glTF/Blend/FBX).",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://docs.polyhaven.com/en/faq",
+      "tags": [
+        "polyhaven",
+        "models",
+        "photoreal"
+      ]
+    },
+    {
+      "id": "polyhaven-sunrise-sunset-hdris",
+      "title": "Poly Haven: sunrise/sunset HDRIs",
+      "url": "https://polyhaven.com/hdris/sunrise-sunset",
+      "summary": "Category of golden-hour HDRIs, the quickest route to warm moving-sky backgrounds.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://docs.polyhaven.com/en/faq",
+      "tags": [
+        "polyhaven",
+        "hdri",
+        "sunset",
+        "background"
+      ]
+    },
+    {
+      "id": "polyhaven-belfast-sunset-puresky",
+      "title": "Poly Haven: Belfast Sunset (Pure Sky) HDRI",
+      "url": "https://polyhaven.com/a/belfast_sunset_puresky",
+      "summary": "24K unclipped low-contrast sunset over calm water with a sky-only edit; also offered as 8K JPG.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://docs.polyhaven.com/en/faq",
+      "tags": [
+        "hdri",
+        "sunset",
+        "sky",
+        "background"
+      ]
+    },
+    {
+      "id": "polyhaven-grasslands-sunset",
+      "title": "Poly Haven: Grasslands Sunset HDRI",
+      "url": "https://polyhaven.com/a/grasslands_sunset",
+      "summary": "20K open grassland at sunset with low golden sun and pastel sky; good for farm and nature scenes.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://docs.polyhaven.com/en/faq",
+      "tags": [
+        "hdri",
+        "sunset",
+        "farm",
+        "nature"
+      ]
+    },
+    {
+      "id": "polyhaven-industrial-sunset-puresky",
+      "title": "Poly Haven: Industrial Sunset (Pure Sky) HDRI",
+      "url": "https://polyhaven.com/a/industrial_sunset_puresky",
+      "summary": "16K sky-only HDRI with warm horizon glow and cool blue sky.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://docs.polyhaven.com/en/faq",
+      "tags": [
+        "hdri",
+        "sky"
+      ]
+    },
+    {
+      "id": "polyhaven-evening-road-01-puresky",
+      "title": "Poly Haven: Evening Road 01 (Pure Sky) HDRI",
+      "url": "https://polyhaven.com/a/evening_road_01_puresky",
+      "summary": "16K evening sky with low golden sun and scattered clouds.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://docs.polyhaven.com/en/faq",
+      "tags": [
+        "hdri",
+        "sky",
+        "evening"
+      ]
+    },
+    {
+      "id": "polyhaven-rosendal-park-sunset-puresky",
+      "title": "Poly Haven: Rosendal Park Sunset (Pure Sky) HDRI",
+      "url": "https://polyhaven.com/a/rosendal_park_sunset_puresky",
+      "summary": "20K low-contrast sunset, warm horizon and clear sky.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://docs.polyhaven.com/en/faq",
+      "tags": [
+        "hdri",
+        "sky",
+        "sunset"
+      ]
+    },
+    {
+      "id": "polyhaven-sunset-fairway",
+      "title": "Poly Haven: Sunset Fairway HDRI",
+      "url": "https://polyhaven.com/a/sunset_fairway",
+      "summary": "16K grassy hill with pond reflections at sunset.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://docs.polyhaven.com/en/faq",
+      "tags": [
+        "hdri",
+        "sunset",
+        "nature"
+      ]
+    },
+    {
+      "id": "ambientcg-home",
+      "title": "ambientCG (materials, HDRIs, models)",
+      "url": "https://ambientcg.com/",
+      "summary": "Large CC0 library of PBR materials, HDRIs and some models with a filterable list and a JSON API.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://docs.ambientcg.com/license/",
+      "tags": [
+        "ambientcg",
+        "pbr",
+        "hdri"
+      ]
+    },
+    {
+      "id": "ambientcg-licence",
+      "title": "ambientCG licence page",
+      "url": "https://docs.ambientcg.com/license/",
+      "summary": "All ambientCG assets are under CC0 1.0 Universal; credit is not required but appreciated.",
+      "kind": "guidance",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://docs.ambientcg.com/license/",
+      "tags": [
+        "ambientcg",
+        "licensing"
+      ]
+    },
+    {
+      "id": "ambientcg-list",
+      "title": "ambientCG asset search",
+      "url": "https://ambientcg.com/list",
+      "summary": "Filterable asset list; its filters can be copied into the v2/v3 API query.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://docs.ambientcg.com/license/",
+      "tags": [
+        "ambientcg",
+        "search"
+      ]
+    },
+    {
+      "id": "ambientcg-wood-026",
+      "title": "ambientCG: Wood 026 material",
+      "url": "https://ambientcg.com/view?id=Wood026",
+      "summary": "Example material page with downloadable map sets at several resolutions.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://docs.ambientcg.com/license/",
+      "tags": [
+        "ambientcg",
+        "wood",
+        "example"
+      ]
+    },
+    {
+      "id": "cgbookcase-home",
+      "title": "cgbookcase",
+      "url": "https://www.cgbookcase.com/",
+      "summary": "Free CC0 tileable PBR textures (base colour, normal, height, roughness, AO, metallic) by Dorian Zgraggen.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://www.cgbookcase.com/",
+      "tags": [
+        "cgbookcase",
+        "pbr",
+        "textures"
+      ]
+    },
+    {
+      "id": "cgbookcase-textures",
+      "title": "cgbookcase texture catalogue",
+      "url": "https://www.cgbookcase.com/textures",
+      "summary": "Browse every cgbookcase texture set; each page carries the CC0 label.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://www.cgbookcase.com/",
+      "tags": [
+        "cgbookcase",
+        "catalogue"
+      ]
+    },
+    {
+      "id": "cgbookcase-texture-tiling-tool",
+      "title": "cgbookcase Texture Tiling Tool",
+      "url": "https://www.cgbookcase.com/texture-tiling-tool",
+      "summary": "Open-source tool from cgbookcase that makes organic photoscanned surfaces seamless and tileable.",
+      "kind": "tool",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "Open source (see tool page)",
+      "licence_url": "https://www.cgbookcase.com/texture-tiling-tool",
+      "tags": [
+        "tiling",
+        "tool"
+      ]
+    },
+    {
+      "id": "threedtextures-me-home",
+      "title": "3DTextures.me",
+      "url": "https://3dtextures.me/",
+      "summary": "Seamless PBR materials for Blender, Unreal, Unity and Godot; recent pages state CC0, free for personal and commercial use, no attribution.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://3dtextures.me/about/",
+      "tags": [
+        "pbr",
+        "textures",
+        "godot"
+      ],
+      "cautions": [
+        "Some higher resolutions (for example 4K) or source files are Patreon-only; the CC0 statement covers the free downloads."
+      ]
+    },
+    {
+      "id": "threedtextures-me-faq",
+      "title": "3DTextures.me FAQ / textures licence",
+      "url": "https://3dtextures.me/about/",
+      "summary": "FAQ page: textures are free; the author forbids claiming authorship; redistribution allowed.",
+      "kind": "guidance",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://3dtextures.me/about/",
+      "tags": [
+        "licensing"
+      ]
+    },
+    {
+      "id": "sharetextures-home",
+      "title": "ShareTextures",
+      "url": "https://www.sharetextures.com/",
+      "summary": "1,600+ textures and 250+ models (site figures) under a 'custom CC0' licence with extra restrictions.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "Custom: CC0-based with restrictions (see licence page)",
+      "licence_url": "https://www.sharetextures.com/p/license",
+      "tags": [
+        "sharetextures",
+        "pbr",
+        "models"
+      ],
+      "cautions": [
+        "Automated downloads and embedding in third-party apps (for example Blender add-ons) are NOT allowed: an agent must not bulk-fetch from this site.",
+        "Redistribution on other sites, plugins or collections needs written permission. Use only files you downloaded from sharetextures.com yourself."
+      ]
+    },
+    {
+      "id": "sharetextures-licence",
+      "title": "ShareTextures licence",
+      "url": "https://www.sharetextures.com/p/license",
+      "summary": "Custom CC0 terms: commercial use allowed, attribution optional, but no redistribution without permission, no automated downloads, no hateful/violent/illegal use.",
+      "kind": "guidance",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "Custom: CC0-based with restrictions",
+      "licence_url": "https://www.sharetextures.com/p/license",
+      "tags": [
+        "licensing",
+        "sharetextures"
+      ]
+    },
+    {
+      "id": "blenderkit-licences",
+      "title": "BlenderKit licences (Royalty Free and CC0)",
+      "url": "https://www.blenderkit.com/docs/licenses/",
+      "summary": "BlenderKit assets are either Royalty Free (commercial use without credit, no resale of the asset in original form, including inside asset packs or game levels sold on marketplaces) or CC0.",
+      "kind": "guidance",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "Royalty Free (BlenderKit) or CC0, per asset",
+      "licence_url": "https://www.blenderkit.com/docs/licenses/",
+      "tags": [
+        "blenderkit",
+        "licensing",
+        "blender"
+      ],
+      "cautions": [
+        "Royalty Free assets cannot be redistributed as assets; never copy them into a Baltor package or public repo."
+      ]
+    },
+    {
+      "id": "fab-megascans-2024-news",
+      "title": "CG Channel: Megascans free on Fab until end of 2024",
+      "url": "https://www.cgchannel.com/2024/10/epic-games-has-made-megascans-free-to-all-but-only-until-the-end-of-2024/",
+      "summary": "October 2024 report: Megascans moved to Epic's Fab under the Fab Standard License (usable in any engine or tool); the free period ended with 2024, with a smaller free cross-section promised for 2025.",
+      "kind": "article",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "Fab Standard License (not CC0)",
+      "licence_url": "https://www.cgchannel.com/2024/10/epic-games-has-made-megascans-free-to-all-but-only-until-the-end-of-2024/",
+      "tags": [
+        "fab",
+        "megascans",
+        "news"
+      ],
+      "cautions": [
+        "2024 article; read the current Fab Standard License on fab.com before use.",
+        "Fab assets are licensed to the account that claimed them; never redistribute the files."
+      ]
+    },
+    {
+      "id": "sketchfab-fab-launch",
+      "title": "Sketchfab blog: Epic's unified marketplace Fab launches",
+      "url": "https://sketchfab.com/blogs/community/epics-unified-marketplace-fab-launches-today",
+      "summary": "Sketchfab's announcement of Fab, Epic's unified marketplace for models, materials and Megascans.",
+      "kind": "article",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "Per listing",
+      "licence_url": "https://sketchfab.com/blogs/community/epics-unified-marketplace-fab-launches-today",
+      "tags": [
+        "fab",
+        "sketchfab",
+        "news"
+      ]
+    }
+  ]
+}

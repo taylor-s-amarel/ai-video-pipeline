@@ -1,0 +1,62 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "universal_lpc_spritesheets",
+  "title": "Universal LPC sprite sheets (CC0 / CC-BY / CC-BY-SA / OGA-BY / GPL per layer)",
+  "kind": "skill",
+  "subkind": "media-source",
+  "version": "1.0.0",
+  "summary": "Build LPC characters, export the per-layer credits file, meet CC-BY-SA/GPL duties, and import the sheet into Godot 4.",
+  "description": "Use when a top-down RPG or explainer needs layered 2D characters with walk, slash, cast and shoot animations from the Universal LPC Spritesheet Character Generator. Every layer has its own licence; this skill shows how to export the credits, meet share-alike/GPL duties and import into Godot.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "notes": "Describes https://github.com/LiberatedPixelCup/Universal-LPC-Spritesheet-Character-Generator (checked 2026-10-10); contains no third-party media."
+  },
+  "step_kinds": [
+    "research",
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "licensing",
+    "lpc",
+    "sprites",
+    "2d",
+    "characters",
+    "cc-by-sa",
+    "gpl"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "asset_source_profile"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

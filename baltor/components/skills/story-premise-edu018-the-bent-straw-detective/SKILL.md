@@ -5,7 +5,7 @@ description: "Use when choosing, developing or storyboarding catalogue premise E
 
 # EDU018 The Bent Straw Detective
 
-**Catalogue family:** Learning, everyday science (Appendix D, Learning everyday science).  
+**Catalogue family:** Learning, everyday science (Appendix D section "Learning everyday science").  
 **Status:** idea. Not a completed script, not a rendered catalogue treatment, no audience study. Learning claims remain unverified until a claim-level check. Originality means authored for the catalogue, not an exhaustive prior-art search. The current story-first review may reject or substantially rewrite this premise.
 
 ## Premise (authored wording)
@@ -22,7 +22,7 @@ An illustrator wants to draw a straw crossing a water surface, but a straight co
 
 **Evidence class:** `requires_primary_source_review`. **Original format tags:** side_by_side, mechanism_cutaway, myth_check, prediction_quiz, narrative_lesson.
 
-Factual checkability is not factual verification; the evidence class says what kind of check a claim would need, not that it was done.
+Factual checkability is not factual verification: the evidence class classifies how a claim could be checked; it does not record that any check was done.
 
 ## Beat structure as given
 

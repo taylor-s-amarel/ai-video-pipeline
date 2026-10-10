@@ -1,0 +1,12 @@
+{
+  "interlaced": true,
+  "field_order": "tff",
+  "telecine_like": false,
+  "combed_frame_ratio": 0.8812,
+  "comb_score_median": 2.41,
+  "moving_frames": 101,
+  "field_order_costs": { "tff": 6.212, "bff": 11.874 },
+  "metadata_field_order": "tt",
+  "idet": { "tff": 271, "bff": 0, "progressive": 12, "undetermined": 17 },
+  "frames_analysed": 120
+}

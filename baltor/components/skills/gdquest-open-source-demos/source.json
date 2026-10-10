@@ -1,0 +1,53 @@
+{
+  "spec": "baltor.asset-source/v1",
+  "source_id": "gdquest-open-source-demos",
+  "name": "GDQuest open-source Godot demos (MIT code, some NC art)",
+  "homepage": "https://github.com/gdquest-demos",
+  "licence_summary": "GDQuest demo code is MIT. Art in godot-4-3D-Characters and godot-4-3d-third-person-controller is CC-BY-NC-SA 4.0 (non-commercial, share-alike, credit GDQuest).",
+  "licences": [
+    {
+      "id": "MIT",
+      "url": "https://github.com/gdquest-demos/godot-4-3d-third-person-controller",
+      "applies_to": "code"
+    },
+    {
+      "id": "CC-BY-NC-SA-4.0",
+      "url": "https://raw.githubusercontent.com/gdquest-demos/godot-4-3D-Characters/main/LICENSE",
+      "applies_to": "3D character art"
+    }
+  ],
+  "attribution": {
+    "required": "per-asset",
+    "credit_template": "Character art by GDQuest (CC BY-NC-SA 4.0)"
+  },
+  "redistribution": "per-asset",
+  "commercial_use": "per-asset",
+  "ai_training": "unspecified",
+  "automated_download": "allowed",
+  "formats": [
+    "glb",
+    "gd",
+    "tscn"
+  ],
+  "search": [
+    {
+      "label": "GDQuest demos",
+      "url": "https://github.com/gdquest-demos"
+    },
+    {
+      "label": "Premade 3D characters",
+      "url": "https://github.com/gdquest-demos/godot-4-3D-Characters"
+    },
+    {
+      "label": "Third-person controller",
+      "url": "https://github.com/gdquest-demos/godot-4-3d-third-person-controller"
+    }
+  ],
+  "cautions": [
+    "Do not use the GDQuest characters (Sophia, Gobot, GDbot ...) in monetised videos or commercial games."
+  ],
+  "verified": {
+    "on": "2026-10-10",
+    "how": "mixed"
+  }
+}

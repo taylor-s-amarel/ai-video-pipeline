@@ -1,0 +1,175 @@
+{
+  "spec": "baltor.media-pack/v1",
+  "pack_id": "isometric-town-kit",
+  "title": "Isometric town kit (2D tiles)",
+  "purpose": "Use when a short or Godot scene shows a town, city plan or map in 2D isometric view. Lists CC0 Kenney isometric tiles and blocks, the MIT Godot isometric demo for depth sorting, caption fonts and CC0 sounds.",
+  "status": "manifest-only",
+  "created": "2026-10-10",
+  "verified_on": "2026-10-10",
+  "targets": [
+    "godot-4",
+    "ffmpeg-video"
+  ],
+  "frame": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "licence_policy": {
+    "allow_non_commercial": false,
+    "allow_share_alike": false,
+    "require_redistributable": false,
+    "notes": "Monetised-video policy: no NC or ND assets; credit every CC-BY asset in the description."
+  },
+  "credits_file": "CREDITS.md",
+  "notes": [
+    "Manifest only: no media files are included. Fetch direct assets with the media_pack_fetcher module; open manual-page sources in a browser and record sha256 after download."
+  ],
+  "assets": [
+    {
+      "id": "kenney-isometric-tiles-city",
+      "title": "Isometric Tiles City",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/isometric-tiles-city",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "Isometric Tiles City by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "roads, buildings and parks"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "texture",
+          "preset": "smooth-2d"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "kenney-isometric-blocks",
+      "title": "Isometric Blocks",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/isometric-blocks",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "Isometric Blocks by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "terrain blocks"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "texture",
+          "preset": "smooth-2d"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "godot-demo-2d-isometric",
+      "title": "Godot demo: 2D isometric",
+      "creator": "Godot Engine contributors",
+      "source_url": "https://github.com/godotengine/godot-demo-projects/tree/master/2d/isometric",
+      "licence": "MIT",
+      "licence_url": "https://github.com/godotengine/godot-demo-projects/blob/master/LICENSE.md",
+      "attribution": "Godot demo: 2D isometric by Godot Engine contributors (MIT)",
+      "attribution_required": false,
+      "redistribution": "allowed-with-licence",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "depth sorting reference"
+      ],
+      "fetch": {
+        "method": "git",
+        "status": "to-fetch"
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "fetched"
+      }
+    },
+    {
+      "id": "font-inter",
+      "title": "Inter",
+      "creator": "Rasmus Andersson",
+      "source_url": "https://fonts.google.com/specimen/Inter",
+      "licence": "OFL-1.1",
+      "licence_url": "https://github.com/google/fonts/tree/main/ofl/inter",
+      "attribution": "Font: Inter by Rasmus Andersson (SIL OFL 1.1)",
+      "attribution_required": false,
+      "redistribution": "allowed-with-licence",
+      "commercial_use": "allowed",
+      "format": "ttf",
+      "intended_use": [
+        "labels above buildings"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "font"
+        },
+        "video": {
+          "role": "font"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "kenney-interface-sounds",
+      "title": "Interface Sounds",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/interface-sounds",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "Interface Sounds by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "label pops"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "video": {
+          "role": "sfx"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    }
+  ]
+}

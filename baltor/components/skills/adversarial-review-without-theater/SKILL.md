@@ -142,11 +142,16 @@ The guide's own record (an `adversarial_review_result` instance):
 - `adversarial_review_kit`: `select` a pass, `plan` honest starting records, `validate` results against the target
   hash, `summary` of statuses and what was not checked.
 
+Placed with `baltor_catalog.py place`, each bank lands at `.baltor/rules/review-bank-<area>.md` and the kit at
+`.baltor/lib/adversarial-review-kit/`; the kit reads the placed bank files directly.
+
 ```bash
-python3 adversarial_review_kit.py plan --bank .baltor/rules --pass default_32 --target final.mp4 \
+KIT=.baltor/lib/adversarial-review-kit/adversarial_review_kit.py
+python3 $KIT plan --bank .baltor/rules --pass default_32 --target final.mp4 \
   --stage final-encode --modes visual,machine > review.json
 # ...observe, then update records with evidence...
-python3 adversarial_review_kit.py validate review.json --bank .baltor/rules --target final.mp4
+python3 $KIT validate review.json --bank .baltor/rules --target final.mp4
+python3 $KIT summary review.json
 ```
 
 ## What has been observed with this method (the guide's record; do not generalise)

@@ -1,0 +1,59 @@
+{
+  "spec": "baltor.asset-source/v1",
+  "source_id": "poly-pizza-models",
+  "name": "Poly Pizza low-poly models (per-model CC0 or CC-BY)",
+  "homepage": "https://poly.pizza/",
+  "licence_summary": "Licence is per model: many are CC0 (Kenney, Quaternius uploads), many archived Poly by Google models are CC-BY and need credit.",
+  "licences": [
+    {
+      "id": "CC0-1.0",
+      "url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "applies_to": "models marked CC0"
+    },
+    {
+      "id": "CC-BY",
+      "url": "https://creativecommons.org/licenses/by/4.0/deed.en",
+      "applies_to": "models marked Creative Commons Attribution (check the version on the page)"
+    }
+  ],
+  "attribution": {
+    "required": "per-asset",
+    "credit_template": "{title} by {creator} [CC-BY] via Poly Pizza (poly.pizza)"
+  },
+  "redistribution": "per-asset",
+  "commercial_use": "allowed",
+  "ai_training": "unspecified",
+  "automated_download": "unspecified",
+  "formats": [
+    "glb",
+    "gltf",
+    "obj"
+  ],
+  "search": [
+    {
+      "label": "Search",
+      "url": "https://poly.pizza/search/Low%20Poly%20Art"
+    },
+    {
+      "label": "Example CC0 model (Kenney pizza)",
+      "url": "https://poly.pizza/m/fJsz9IVM8f"
+    },
+    {
+      "label": "Example CC-BY model (Poly by Google forest)",
+      "url": "https://poly.pizza/m/2_fv3tn3NG_"
+    }
+  ],
+  "cautions": [
+    "Paid packs from other studios appear in search results; skip anything not free.",
+    "Record the exact CC-BY version shown on each model page."
+  ],
+  "verified": {
+    "on": "2026-10-10",
+    "how": "mixed"
+  },
+  "api": {
+    "url": "https://poly.pizza/docs/press",
+    "auth": "key",
+    "notes": "The press page describes an API (free for hobby use, pay-as-you-go commercially); check current docs."
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "forbid_in_monetised": [
+    "NC"
+  ],
+  "forbid_when_modified": [
+    "ND"
+  ],
+  "project_only_licences": [
+    "Adobe Mixamo terms",
+    "BlenderKit Royalty Free",
+    "Fab Standard License",
+    "ShareTextures custom",
+    "Store EULA"
+  ],
+  "attribution_licences": [
+    "CC-BY-*",
+    "CC-BY-SA-*",
+    "OGA-BY-*",
+    "GPL-*"
+  ],
+  "no_drm_licences": [
+    "CC-BY-3.0",
+    "CC-BY-SA-*",
+    "GPL-*"
+  ],
+  "require_sha256_after_fetch": true,
+  "automated_download_forbidden": [
+    "sharetextures.com"
+  ],
+  "use_profiles": [
+    "ai-training",
+    "baltor-package",
+    "client-work",
+    "drm-platform-game",
+    "monetised-video",
+    "open-source-repo",
+    "personal-study"
+  ]
+}

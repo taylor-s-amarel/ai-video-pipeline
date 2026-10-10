@@ -1,0 +1,58 @@
+{
+  "spec": "baltor.asset-source/v1",
+  "source_id": "itch-io-cc0-assets",
+  "name": "itch.io free CC0 asset packs (per-pack terms)",
+  "homepage": "https://itch.io/game-assets/assets-cc0/free",
+  "licence_summary": "Terms are per pack. The 'Creative Commons Zero v1.0 Universal' licence filter and the cc0 tag are uploader-declared; read the pack page before use.",
+  "licences": [
+    {
+      "id": "per-asset",
+      "url": "https://itch.io/game-assets/assets-cc0/free",
+      "applies_to": "each pack's own licence field and description"
+    }
+  ],
+  "attribution": {
+    "required": "per-asset",
+    "credit_template": "{title} by {creator} (itch.io), {licence}"
+  },
+  "redistribution": "per-asset",
+  "commercial_use": "per-asset",
+  "ai_training": "per-asset",
+  "automated_download": "unspecified",
+  "formats": [
+    "png",
+    "zip",
+    "ogg",
+    "wav"
+  ],
+  "search": [
+    {
+      "label": "Free assets, CC0 licence filter",
+      "url": "https://itch.io/game-assets/assets-cc0/free"
+    },
+    {
+      "label": "2D + cc0 tag",
+      "url": "https://itch.io/game-assets/tag-2d/tag-cc0"
+    },
+    {
+      "label": "New and popular CC0",
+      "url": "https://itch.io/game-assets/new-and-popular/assets-cc0/free"
+    },
+    {
+      "label": "0x72 DungeonTileset II",
+      "url": "https://0x72.itch.io/dungeontileset-ii"
+    },
+    {
+      "label": "Pixel Frog: Pixel Adventure",
+      "url": "https://pixelfrog-assets.itch.io/pixel-adventure-1"
+    }
+  ],
+  "cautions": [
+    "Bundled music can have a different licence from the art (Sunny Land's music requires credit).",
+    "Name-your-price packs are free to download, but paid extensions are not."
+  ],
+  "verified": {
+    "on": "2026-10-10",
+    "how": "mixed"
+  }
+}

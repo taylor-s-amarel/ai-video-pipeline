@@ -1,0 +1,55 @@
+{
+  "spec": "baltor.asset-source/v1",
+  "source_id": "makehuman-characters",
+  "name": "MakeHuman characters (CC0 exports)",
+  "homepage": "https://static.makehumancommunity.org/about/license.html",
+  "licence_summary": "MakeHuman source is AGPL; the bundled assets (base mesh, targets, textures, clothes, poses, expressions) are CC0, and since 1.2.0 exports from official, unmodified builds are CC0. Third-party assets keep their own licences.",
+  "licences": [
+    {
+      "id": "CC0-1.0",
+      "url": "https://static.makehumancommunity.org/about/license.html",
+      "applies_to": "bundled assets and exports"
+    },
+    {
+      "id": "AGPL-3.0",
+      "url": "https://github.com/makehumancommunity/makehuman/blob/master/LICENSE.md",
+      "applies_to": "MakeHuman code"
+    }
+  ],
+  "attribution": {
+    "required": "optional",
+    "credit_template": "Character base mesh made with MakeHuman (CC0)"
+  },
+  "redistribution": "allowed",
+  "commercial_use": "allowed",
+  "ai_training": "unspecified",
+  "automated_download": "unspecified",
+  "formats": [
+    "fbx",
+    "obj",
+    "dae",
+    "mhx2"
+  ],
+  "search": [
+    {
+      "label": "Licence",
+      "url": "https://static.makehumancommunity.org/about/license.html"
+    },
+    {
+      "label": "Asset packs",
+      "url": "https://static.makehumancommunity.org/assets/assetpacks.html"
+    },
+    {
+      "label": "FAQ: are MakeHuman files free?",
+      "url": "https://static.makehumancommunity.org/makehuman/faq/are_makehuman_files_free.html"
+    }
+  ],
+  "cautions": [
+    "Community clothes/hair packs can be CC-BY; record each one.",
+    "Exports made with versions before 1.2.0 were under AGPL terms."
+  ],
+  "verified": {
+    "on": "2026-10-10",
+    "how": "mixed"
+  }
+}

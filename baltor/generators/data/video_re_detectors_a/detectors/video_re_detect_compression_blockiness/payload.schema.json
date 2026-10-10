@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/video-re-contract-compression-blockiness",
+  "title": "Compression blockiness payload",
+  "description": "Payload of video_re_detect_compression_blockiness. Ratios are boundary / interior mean absolute luma differences; 1.0 = no grid.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["blockiness_score", "label", "ratio", "ratio_flat_areas", "grid_phase", "grid_ratios", "ringing_ratio", "native_pixels", "frames_analysed"],
+  "properties": {
+    "blockiness_score": { "type": "number", "minimum": 0, "maximum": 1, "description": "clip(max axis ratio - 1, 0, 1)" },
+    "label": { "enum": ["clean", "mild", "visible", "heavy"] },
+    "ratio": {
+      "type": "object", "additionalProperties": false, "required": ["x", "y"],
+      "properties": { "x": { "type": "number", "minimum": 0 }, "y": { "type": "number", "minimum": 0 } }
+    },
+    "ratio_flat_areas": {
+      "type": "object", "additionalProperties": false, "required": ["x", "y"],
+      "properties": { "x": { "type": ["number", "null"], "minimum": 0 }, "y": { "type": ["number", "null"], "minimum": 0 } }
+    },
+    "grid_phase": {
+      "type": "object", "additionalProperties": false, "required": ["x", "y"],
+      "properties": { "x": { "type": "integer", "minimum": 0, "maximum": 15 }, "y": { "type": "integer", "minimum": 0, "maximum": 15 } }
+    },
+    "grid_ratios": {
+      "type": "object", "additionalProperties": false, "required": ["4", "8", "16"],
+      "properties": { "4": { "type": "number", "minimum": 0 }, "8": { "type": "number", "minimum": 0 }, "16": { "type": "number", "minimum": 0 } }
+    },
+    "ringing_ratio": { "type": ["number", "null"], "minimum": 0, "description": "high-pass std beside strong edges / in flat areas" },
+    "native_pixels": { "type": "boolean", "description": "false when frames were scaled, which breaks the grid measurement" },
+    "frames_analysed": { "type": "integer", "minimum": 1 }
+  }
+}

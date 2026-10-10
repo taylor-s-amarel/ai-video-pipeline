@@ -1,6 +1,6 @@
 ---
 name: "creative-catalogue-visual-styles"
-description: "Use when choosing forty visual styles for a short animated or explainer film from the October 2026 creative catalogue. Forty visual styles (S01-S40): visual language, value, check and the representation families each fits. Every row keeps its gate or check; these are proposals, not tested recipes."
+description: "Use when picking a visual style for a short animated or explainer film. Forty visual styles (S01-S40): visual language, value, check and the representation families each fits. From the October 2026 creative catalogue; every row keeps its gate or check, and these are proposals, not tested recipes."
 ---
 
 # Creative catalogue: forty visual styles

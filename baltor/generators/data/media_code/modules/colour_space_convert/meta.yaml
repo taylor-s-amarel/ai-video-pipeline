@@ -1,0 +1,6 @@
+title: Colour space conversions
+summary: Vectorised numpy sRGB/linear transfer, RGB to and from HSV and HSL (checked against colorsys), hex parsing and Rec. 709 luma for grading and compositing code.
+subkind: palette
+domain: video
+tags: [video, colour, srgb, hsv, hsl, numpy]
+step_kinds: [build, render]

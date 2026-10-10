@@ -1,0 +1,61 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "poly_pizza_models",
+  "title": "Poly Pizza low-poly models (per-model CC0 or CC-BY)",
+  "kind": "skill",
+  "subkind": "media-source",
+  "version": "1.0.0",
+  "summary": "Find single low-poly models on Poly Pizza, record the per-model CC0/CC-BY licence and credit line, and import the GLB.",
+  "description": "Use when you need one specific low-poly object fast (a pizza, a car, a cloud) from Poly Pizza's library, which mixes CC0 uploads with CC-BY models such as the archived Poly by Google set. Explains reading each model's licence, building the credit line, and importing the GLB.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "notes": "Describes https://poly.pizza/ (checked 2026-10-10); contains no third-party media."
+  },
+  "step_kinds": [
+    "research",
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "licensing",
+    "poly-pizza",
+    "low-poly",
+    "cc-by",
+    "cc0",
+    "3d"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "asset_source_profile"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

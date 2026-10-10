@@ -1,0 +1,69 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "top_down_maze_kit_3d",
+  "title": "Top-down maze kit (3D low-poly variant)",
+  "kind": "skill",
+  "subkind": "rights-manifest",
+  "version": "1.0.0",
+  "summary": "Variant of the maze kit for an angled 3D camera - KayKit and Kenney modular dungeon pieces, skeleton characters and the same grid pathfinding.",
+  "description": "Use when the maze short should be a 3D low-poly scene seen from a high angle instead of pixel art. Swaps the tiles for KayKit Dungeon Remastered and Kenney Modular Dungeon Kit pieces and adds CC0 characters; pathfinding still runs on a grid.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "plan",
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "media-pack",
+    "manifest",
+    "maze",
+    "3d",
+    "low-poly",
+    "dungeon",
+    "godot"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "media_pack_fetcher"
+    },
+    {
+      "identity": "asset_licence_checker"
+    }
+  ],
+  "variant_of": "top_down_maze_kit",
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits",
+    "parameters": {
+      "assets": 7,
+      "status": "manifest-only"
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

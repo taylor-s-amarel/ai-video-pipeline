@@ -1,0 +1,11 @@
+{
+  "blockiness_score": 0.412,
+  "label": "visible",
+  "ratio": { "x": 1.412, "y": 1.388 },
+  "ratio_flat_areas": { "x": 1.951, "y": 1.873 },
+  "grid_phase": { "x": 0, "y": 0 },
+  "grid_ratios": { "4": 1.183, "8": 1.412, "16": 1.506 },
+  "ringing_ratio": 1.74,
+  "native_pixels": true,
+  "frames_analysed": 12
+}

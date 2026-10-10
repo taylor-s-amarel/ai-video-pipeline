@@ -1,0 +1,73 @@
+{
+  "spec": "baltor.asset-source/v1",
+  "source_id": "open-icon-sets-for-ui",
+  "name": "Open UI icon sets (Lucide, Tabler, Phosphor, Material Symbols, Font Awesome Free)",
+  "homepage": "https://github.com/iconify/icon-sets",
+  "licence_summary": "Lucide ISC; Tabler Icons MIT; Phosphor MIT; Material Symbols/Icons Apache-2.0 (attribution appreciated, not required); Font Awesome Free icons CC BY 4.0, fonts OFL 1.1, code MIT. Iconify lists each set's licence.",
+  "licences": [
+    {
+      "id": "ISC",
+      "url": "https://github.com/lucide-icons/lucide",
+      "applies_to": "Lucide"
+    },
+    {
+      "id": "MIT",
+      "url": "https://github.com/tabler/tabler-icons",
+      "applies_to": "Tabler Icons"
+    },
+    {
+      "id": "MIT",
+      "url": "https://github.com/phosphor-icons/core",
+      "applies_to": "Phosphor"
+    },
+    {
+      "id": "Apache-2.0",
+      "url": "https://github.com/google/material-design-icons",
+      "applies_to": "Material Symbols and Icons"
+    },
+    {
+      "id": "CC-BY-4.0",
+      "url": "https://fontawesome.com/license/free",
+      "applies_to": "Font Awesome Free icons"
+    }
+  ],
+  "attribution": {
+    "required": "per-asset",
+    "credit_template": "Icons: {set} ({licence})"
+  },
+  "redistribution": "allowed-with-licence",
+  "commercial_use": "allowed",
+  "ai_training": "unspecified",
+  "automated_download": "allowed",
+  "formats": [
+    "svg",
+    "png",
+    "woff2"
+  ],
+  "search": [
+    {
+      "label": "Iconify icon sets and licences",
+      "url": "https://github.com/iconify/icon-sets"
+    },
+    {
+      "label": "Lucide",
+      "url": "https://github.com/lucide-icons/lucide"
+    },
+    {
+      "label": "Tabler Icons",
+      "url": "https://github.com/tabler/tabler-icons"
+    },
+    {
+      "label": "Font Awesome Free licence",
+      "url": "https://fontawesome.com/license/free"
+    }
+  ],
+  "cautions": [
+    "Keep the licence notice file when you redistribute icon files (MIT/ISC/Apache).",
+    "Font Awesome Pro icons are not free; an SVG copied from the website may carry a Pro header."
+  ],
+  "verified": {
+    "on": "2026-10-10",
+    "how": "mixed"
+  }
+}

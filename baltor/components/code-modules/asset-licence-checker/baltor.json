@@ -1,0 +1,60 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "asset_licence_checker",
+  "title": "Asset licence checker for media packs",
+  "kind": "code-module",
+  "subkind": "rights-manifest",
+  "version": "1.0.0",
+  "summary": "Checks a media pack manifest against a use profile (monetised video, open-source repo, DRM platform, AI training ...) and flags NC, ND, no-redistribution, missing credits and share-alike duties.",
+  "description": "A rule checklist, not legal advice. Fair use is never treated as a licence.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "verify",
+    "review",
+    "secure"
+  ],
+  "effects": {
+    "filesystem": "read",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "asset_licence_checker.py",
+  "tags": [
+    "licensing",
+    "cc-by",
+    "cc0",
+    "mixamo",
+    "attribution",
+    "compliance"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "examples": [
+    "python asset_licence_checker.py pack.json --use monetised-video",
+    "python asset_licence_checker.py pack.json --use open-source-repo --modified hero-sprite"
+  ],
+  "review": {
+    "status": "unreviewed"
+  }
+}

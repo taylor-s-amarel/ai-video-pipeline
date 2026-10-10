@@ -1,0 +1,61 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "game_icons_net",
+  "title": "game-icons.net SVG icons (CC BY 3.0)",
+  "kind": "skill",
+  "subkind": "media-source",
+  "version": "1.0.0",
+  "summary": "Fetch game-icons.net SVGs from GitHub, recolour them, and credit each icon's author under CC BY 3.0.",
+  "description": "Use when a thumbnail, caption, 'this vs that' board or game UI needs crisp single-colour SVG icons. game-icons.net icons are CC BY 3.0 per author; this skill gives the exact credit line, scripted download from GitHub, recolouring, and Godot/Blender import.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "notes": "Describes https://game-icons.net/about.html (checked 2026-10-10); contains no third-party media."
+  },
+  "step_kinds": [
+    "research",
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "licensing",
+    "icons",
+    "svg",
+    "cc-by",
+    "game-icons",
+    "thumbnails"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "asset_source_profile"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

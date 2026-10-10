@@ -187,7 +187,7 @@
         "frames: F10",
         "item beat boundaries"
       ],
-      "ir_path": "/timeline/beats/*/content_slot",
+      "ir_path": "/parameters/-",
       "answer_type": "integer",
       "challenge": "A zoomed crop of the same photo is one asset; check grouping by eye on one item."
     },
@@ -422,7 +422,7 @@
       "evidence_required": [
         "shot types per item"
       ],
-      "ir_path": "/timeline/beats/*/content_slot",
+      "ir_path": "/generation_rules/-",
       "answer_type": "list",
       "challenge": "Test the list on one item not used to build it."
     },

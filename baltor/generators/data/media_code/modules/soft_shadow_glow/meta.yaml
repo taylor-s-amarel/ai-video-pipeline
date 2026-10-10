@@ -1,0 +1,6 @@
+title: Drop shadow and outer glow
+summary: Adds alpha-derived drop shadows (blurred, tinted, offset) and outer glows (dilated, blurred) to RGBA layers with Pillow, growing the canvas so nothing clips.
+subkind: typography
+domain: video
+tags: [video, shadow, glow, text, pillow, compositing]
+step_kinds: [build, render]

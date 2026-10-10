@@ -146,7 +146,8 @@
     - "Record which tier you downloaded; Extra and Source tier files are paid."
   search_howto: |
     Each itch.io page shows the free tier contents and the paid tiers. For scripted downloads, several packs are
-    mirrored in the KayKit-Game-Assets GitHub organisation; check each repository's LICENSE before relying on it.
+    mirrored in the KayKit-Game-Assets GitHub organisation (the Adventurers, Skeletons and City Builder Bits repos
+    state CC0 1.0 in LICENSE.txt; GitHub 1.0 releases can contain fewer items than the current itch.io tiers).
   godot: |
     - Import GLB; KayKit characters come rigged and animated, so enable animation import and check clip names.
     - Hex tiles: build a GridMap MeshLibrary from the tile scenes (Scene > Export As > MeshLibrary).
@@ -418,7 +419,7 @@
   example_asset:
     id: dungeontileset-ii
     title: 16x16 DungeonTileset II
-    creator: 0x72
+    creator: "0x72"
     source_url: https://0x72.itch.io/dungeontileset-ii
     licence: CC0-1.0
     licence_url: https://creativecommons.org/publicdomain/zero/1.0/deed.en

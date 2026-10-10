@@ -1,0 +1,41 @@
+{
+  "spec": "baltor.asset-source/v1",
+  "source_id": "smithsonian-open-access",
+  "name": "Smithsonian Open Access (CC0 records)",
+  "homepage": "https://github.com/Smithsonian/OpenAccess",
+  "licence_summary": "The Open Access metadata repository is CC0-1.0. Media is CC0 only where the record says Open Access; other media keep their own rights.",
+  "licences": [
+    {
+      "id": "CC0-1.0",
+      "url": "https://github.com/Smithsonian/OpenAccess",
+      "applies_to": "Open Access metadata and media marked CC0"
+    }
+  ],
+  "attribution": {
+    "required": "optional",
+    "credit_template": "{title}, {unit}, Smithsonian Institution (Open Access, CC0)"
+  },
+  "redistribution": "per-asset",
+  "commercial_use": "per-asset",
+  "ai_training": "per-asset",
+  "automated_download": "allowed",
+  "formats": [
+    "json",
+    "jpg",
+    "glb"
+  ],
+  "search": [
+    {
+      "label": "OpenAccess metadata (line-delimited JSON)",
+      "url": "https://github.com/Smithsonian/OpenAccess"
+    }
+  ],
+  "cautions": [
+    "The GitHub repo is read-only; the archive moved to AWS.",
+    "CC0 does not clear publicity rights of people shown or trademarks on objects."
+  ],
+  "verified": {
+    "on": "2026-10-10",
+    "how": "mixed"
+  }
+}

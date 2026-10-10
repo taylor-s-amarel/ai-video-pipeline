@@ -159,11 +159,11 @@ def label_for(pan_x, pan_y, zoom, thr: float = LABEL_THRESHOLD) -> str:
 def phase_correlate_batch(a: np.ndarray, b: np.ndarray, win: np.ndarray) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
     """phase_correlate for stacks of equally sized patches (n, h, w), in one FFT call per stack."""
     n, h, w = a.shape
-    fa = np.fft.fft2((a - a.mean(axis=(1, 2), keepdims=True)) * win, axes=(1, 2))
-    fb = np.fft.fft2((b - b.mean(axis=(1, 2), keepdims=True)) * win, axes=(1, 2))
+    fa = np.fft.rfft2((a - a.mean(axis=(1, 2), keepdims=True)) * win, axes=(1, 2))
+    fb = np.fft.rfft2((b - b.mean(axis=(1, 2), keepdims=True)) * win, axes=(1, 2))
     r = np.conj(fa) * fb
     r /= np.abs(r) + 1e-9
-    corr = np.fft.ifft2(r, axes=(1, 2)).real
+    corr = np.fft.irfft2(r, s=(h, w), axes=(1, 2))
     flat = corr.reshape(n, -1).argmax(axis=1)
     py, px = np.unravel_index(flat, (h, w))
     idx = np.arange(n)
@@ -290,15 +290,17 @@ def analyse(video: str, shots: list[dict], width: int = 192, stride_s: float = 0
         return None
 
     est, recent, pairs = None, [], []
+    sample = -1
     for i, (t, f) in enumerate(iter_frames(video, width=width, pix_fmt="gray",
                                           fps=fps if src_fps > max_fps else None, info=info)):
         if i % half:
             continue
+        sample += 1
         if est is None:
             est = PairEstimator(*f.shape)
         recent = (recent + [(t, f, shot_of(t))])[-3:]
-        if len(recent) < 2:
-            continue
+        if len(recent) < 2 or (len(recent) == 3 and sample % 2 and recent[0][2] == recent[2][2]):
+            continue  # one long pair per stride; odd samples only matter when a cut broke the long pair
         cands = [recent[0], recent[1]] if len(recent) == 3 else [recent[0]]
         t1, f1, s1 = recent[-1]
         for t0, f0, s0 in cands:  # long pair first (better zoom precision), short pair if it fails

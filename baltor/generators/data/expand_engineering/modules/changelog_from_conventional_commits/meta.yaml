@@ -1,0 +1,11 @@
+title: Changelog section from Conventional Commits
+summary: Groups commits between two refs into a Keep a Changelog 1.1.0 section (Added/Changed/Deprecated/Removed/Fixed/Security), marks breaking changes, computes the next version and inserts it under [Unreleased].
+subkind: release-engineering
+tags: [changelog, keep-a-changelog, conventional-commits, release, git]
+step_kinds: [write, publish]
+effects: {filesystem: write, executes: python, side_effects: ["runs git log", "rewrites CHANGELOG.md when --write is given"]}
+examples:
+  - "python changelog_from_conventional_commits.py --from v1.4.0 --current 1.4.0 --write CHANGELOG.md"
+references:
+  - https://keepachangelog.com/en/1.1.0/
+  - https://www.conventionalcommits.org/en/v1.0.0/

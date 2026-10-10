@@ -1,0 +1,18 @@
+title: JSON structured logging for Python services
+summary: Standard-library JSON log formatter with contextvars-bound request fields, optional OpenTelemetry trace/span ids and recursive redaction of credential-looking keys and bearer tokens.
+subkind: observability
+tags: [logging, structured-logging, json, observability, opentelemetry, redaction, python]
+step_kinds: [build, operate]
+effects: {filesystem: none, executes: python}
+depends_on:
+  - {identity: opentelemetry-api, external: true}
+description: >-
+  configure_logging() installs one JSON handler (idempotent); bind_context() adds request_id/tenant/user fields to
+  every line in a block (async-safe); extra={} fields become top-level keys; exceptions become an error object with
+  type, message and a bounded stack. If opentelemetry-api is importable and a span is active, trace_id/span_id are
+  added so logs join traces. Keys matching password/secret/token/authorization/api_key/cookie/session_id are
+  replaced with [REDACTED] at any depth and Bearer/Basic credentials in messages are masked. Field names follow
+  ts/level/logger/msg; map them to your backend's conventions if needed.
+examples:
+  - "configure_logging(service='checkout'); with bind_context(request_id=rid): log.info('paid', extra={'amount_cents': 1999})"
+evidence_notes: pytest suite passes without OpenTelemetry installed; trace-id injection path not exercised here.

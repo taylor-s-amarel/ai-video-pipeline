@@ -1,0 +1,68 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "isometric_town_kit",
+  "title": "Isometric town kit (2D tiles)",
+  "kind": "skill",
+  "subkind": "rights-manifest",
+  "version": "1.0.0",
+  "summary": "Media pack manifest for isometric town and city explainers - CC0 isometric city tiles and blocks, the Godot isometric depth-sorting demo, fonts and UI sounds.",
+  "description": "Use when a short or Godot scene shows a town, city plan or map in 2D isometric view. Lists CC0 Kenney isometric tiles and blocks, the MIT Godot isometric demo for depth sorting, caption fonts and CC0 sounds.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "plan",
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "media-pack",
+    "manifest",
+    "isometric",
+    "town",
+    "city",
+    "2d",
+    "godot"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "media_pack_fetcher"
+    },
+    {
+      "identity": "asset_licence_checker"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits",
+    "parameters": {
+      "assets": 5,
+      "status": "manifest-only"
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

@@ -1,0 +1,6 @@
+title: Automatic white balance
+summary: Estimates the illuminant with gray-world, white-patch or shades-of-gray and applies clamped linear-light channel gains with adjustable strength to remove colour casts from photos and frames.
+subkind: lut
+domain: video
+tags: [video, white-balance, colour-correction, photo, numpy]
+step_kinds: [build, render]

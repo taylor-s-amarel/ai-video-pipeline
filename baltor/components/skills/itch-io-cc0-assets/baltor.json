@@ -1,0 +1,60 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "itch_io_cc0_assets",
+  "title": "itch.io free CC0 asset packs (per-pack terms)",
+  "kind": "skill",
+  "subkind": "media-source",
+  "version": "1.0.0",
+  "summary": "Browse itch.io's CC0 asset filters, confirm each pack's own licence, keep evidence, and avoid bundled-music and mirror traps.",
+  "description": "Use when browsing itch.io for free game assets. The licence field and tags are set by each uploader, so this skill shows the CC0 filter pages, how to confirm a pack's terms, what to save as evidence, and creator examples (0x72, Pixel Frog, Ansimuz) with their fine print.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "notes": "Describes https://itch.io/game-assets/assets-cc0/free (checked 2026-10-10); contains no third-party media."
+  },
+  "step_kinds": [
+    "research",
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "licensing",
+    "itch-io",
+    "cc0",
+    "sprites",
+    "packs"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "asset_source_profile"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

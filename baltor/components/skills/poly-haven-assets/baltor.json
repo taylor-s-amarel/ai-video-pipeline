@@ -1,0 +1,63 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "poly_haven_assets",
+  "title": "Poly Haven HDRIs, textures and models (CC0, with API)",
+  "kind": "skill",
+  "subkind": "media-source",
+  "version": "1.0.0",
+  "summary": "Fetch Poly Haven CC0 HDRIs, PBR textures and models via its API, verify hashes, and set them up in Godot 4 and Blender.",
+  "description": "Use when a render or Godot scene needs photoreal HDRI lighting/skies, PBR textures or models. Poly Haven assets are CC0 and its public JSON API lists every asset with download URLs and hashes. Covers API use, credit expectations, Godot sky/material setup and Blender world lighting.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "notes": "Describes https://polyhaven.com/ (checked 2026-10-10); contains no third-party media."
+  },
+  "step_kinds": [
+    "research",
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "licensing",
+    "polyhaven",
+    "cc0",
+    "hdri",
+    "pbr",
+    "api",
+    "godot",
+    "blender"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "asset_source_profile"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "video_re_detect_safe_margin_usage",
+  "title": "Measure how close overlays get to the frame edges",
+  "kind": "code-module",
+  "subkind": "evaluator",
+  "version": "1.0.0",
+  "summary": "Measures the closest approach of captions, titles, logos and other static overlays to each frame edge (px, share of frame, time), from static-detail masks or text boxes from evidence.json.",
+  "description": "Overlays are detailed pixels that hold still while the picture under them changes. Per 2-second window the overlay mask's extreme pixels give distances to each edge; the payload keeps the minimum, a 10th percentile and the time of the closest approach. No platform UI zone is assumed; compare with a zone map.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "measure",
+    "review"
+  ],
+  "effects": {
+    "filesystem": "read",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "runs ffprobe and ffmpeg as subprocesses to decode the input video"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "video_re_detect_safe_margin_usage.py",
+  "tags": [
+    "video",
+    "reverse-engineering",
+    "detector",
+    "geometry",
+    "framing",
+    "safe-area",
+    "margins",
+    "captions",
+    "overlays",
+    "platform-ui"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "video_re_contract_safe_margin_usage"
+    },
+    {
+      "identity": "ffmpeg",
+      "external": true
+    },
+    {
+      "identity": "ffprobe",
+      "external": true
+    },
+    {
+      "identity": "numpy",
+      "external": true
+    },
+    {
+      "identity": "jsonschema",
+      "external": true
+    },
+    {
+      "identity": "pytest",
+      "external": true
+    },
+    {
+      "identity": "video_re_text_regions"
+    },
+    {
+      "identity": "video_re_safe_area_probe"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_re_detectors_a.py",
+    "data": "generators/data/video_re_detectors_a",
+    "parameters": {
+      "family": "geometry",
+      "property": "safe_margin_usage",
+      "defaults": {
+        "window_s": 2.0,
+        "grad_abs": 8.0,
+        "grad_rel": 2.5,
+        "static_tstd": 8.0,
+        "block": 8,
+        "block_frac": 0.1,
+        "static_bg_share": 0.5,
+        "regions": null
+      },
+      "decode": {
+        "width": 360,
+        "fps": 2.0,
+        "max_frames": 240
+      },
+      "question_bank": "video_re_qbank_safe_margin_usage"
+    }
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "pytest passed on synthetic fixtures with known ground truth (Python 3.13, numpy 2.x, jsonschema 4.x) including a lossless FFV1 command-line round trip with ffmpeg 6.1."
+  }
+}

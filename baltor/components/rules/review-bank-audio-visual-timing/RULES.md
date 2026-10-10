@@ -23,7 +23,7 @@ owner's exact text. `questions.json` holds the same 32 records in the `adversari
 
 - Severity: 21 high, 11 medium.
 - Modes: 29 visual, 32 auditory, 20 machine, 14 human-audience.
-- Need listening: 32 (none are listening-only).
+- Need listening: 32; listening-only (no visual or machine route): none.
 - Need a human audience: 14.
 - Only answerable at final encode or delivery: `AVQ-025-004`, `AVQ-025-012`, `AVQ-025-013`, `AVQ-025-014`, `AVQ-025-027`, `AVQ-025-028`, `AVQ-025-031`.
 - Limited by style filter: `AVQ-025-001` (live-action, fiction, 3d, cutout), `AVQ-025-002` (3d, cutout, stop-motion, fiction, live-action), `AVQ-025-003` (fiction), `AVQ-025-006` (educational), `AVQ-025-007` (educational), `AVQ-025-017` (educational, live-action, 3d), `AVQ-025-018` (puzzle), `AVQ-025-019` (educational), `AVQ-025-020` (screen-recording, educational, typographic), `AVQ-025-022` (vector, typographic), `AVQ-025-023` (educational), `AVQ-025-025` (fiction), `AVQ-025-029` (live-action, fiction, 3d).

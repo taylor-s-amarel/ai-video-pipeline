@@ -1,0 +1,61 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "avatar_generators_for_faceless_video",
+  "title": "Avatar generators for faceless narrators (DiceBear, Boring Avatars, Notion Avatar)",
+  "kind": "skill",
+  "subkind": "media-source",
+  "version": "1.0.0",
+  "summary": "Generate consistent SVG narrator avatars with DiceBear, Boring Avatars or Notion Avatar while respecting per-style licences.",
+  "description": "Use when a faceless channel needs a consistent narrator or 'commenter' avatars without photos of real people. DiceBear (MIT code, per-style artwork licences), Boring Avatars (MIT, abstract), and Notion Avatar (MIT code, CC0 assets) generate SVG avatars deterministically. Warns about the NC xkcd font.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "notes": "Describes https://github.com/dicebear/dicebear (checked 2026-10-10); contains no third-party media."
+  },
+  "step_kinds": [
+    "research",
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "licensing",
+    "avatars",
+    "faceless",
+    "svg",
+    "characters",
+    "cc0"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "asset_source_profile"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

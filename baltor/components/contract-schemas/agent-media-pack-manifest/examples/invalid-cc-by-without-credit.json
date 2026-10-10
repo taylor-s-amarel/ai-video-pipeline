@@ -1,0 +1,52 @@
+{
+  "spec": "baltor.media-pack/v1",
+  "pack_id": "hero-run-cycle",
+  "title": "Hero run cycle (project-only files)",
+  "purpose": "Shows how a Mixamo download is recorded: usable in the render, never committed or redistributed.",
+  "status": "manifest-only",
+  "created": "2026-10-10",
+  "targets": [
+    "godot-4",
+    "ffmpeg-video"
+  ],
+  "assets": [
+    {
+      "id": "icon",
+      "title": "Running",
+      "creator": "Adobe Mixamo",
+      "source_url": "https://www.mixamo.com/",
+      "licence": "CC-BY-3.0",
+      "licence_url": "https://helpx.adobe.com/creative-cloud/faq/mixamo-faq.html",
+      "attribution": "",
+      "attribution_required": false,
+      "redistribution": "allowed-with-licence",
+      "commercial_use": "allowed",
+      "ai_training": "forbidden",
+      "restrictions": [
+        "Keep the FBX in a git-ignored folder.",
+        "Not for ML training."
+      ],
+      "format": "svg",
+      "intended_use": [
+        "run cycle for the hero"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "manual"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene",
+          "notes": "BoneMap + SkeletonProfileHumanoid"
+        },
+        "blender": {
+          "operator": "bpy.ops.import_scene.fbx"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    }
+  ]
+}

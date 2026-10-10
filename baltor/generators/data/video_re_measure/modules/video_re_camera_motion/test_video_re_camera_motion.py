@@ -61,3 +61,36 @@ def test_labels():
     assert m.label_for(0.0, 0.0, 0.0) == "static"
     assert m.label_for(0.05, 0.0, 0.03) == "pan-right+zoom-in"
     assert m.label_for(None, None, None) == "unknown"
+
+
+def with_static_overlays(frames):
+    from PIL import Image, ImageDraw, ImageFont
+    font = ImageFont.load_default(size=30)
+    for f in frames:
+        g = f.astype(float)
+        g[120:170, 20:300] = 0.6 * np.array([20, 20, 30]) + 0.4 * g[120:170, 20:300]  # semi-transparent panel
+        img = Image.fromarray(g.astype(np.uint8))
+        ImageDraw.Draw(img).text((90, 10), "FACT 1", font=font, fill=(255, 210, 31))
+        yield np.asarray(img)
+
+
+@ffmpeg
+def test_static_title_and_panel_do_not_hide_the_pan(tmp_path):
+    shot = measure(tmp_path, "overlay", with_static_overlays(synth.pan_frames(40, SIZE, dx_per_frame=2.0)))
+    assert shot["pan_x"] == pytest.approx(2.0 * 25 / 320, rel=0.1)
+    assert shot["mean_inliers"] < 1.0  # the overlay blocks were outvoted, not averaged in
+
+
+@ffmpeg
+def test_locked_off_shot_with_a_moving_subject_is_static(tmp_path):
+    bg = synth.texture(320, 180, 3)
+
+    def frames():
+        for i in range(40):
+            f = bg.copy()
+            x = 120 + int(30 * np.sin(i / 4))
+            f[60:120, x:x + 50] = (230, 60, 60)
+            yield f
+
+    shot = measure(tmp_path, "subject", frames())
+    assert shot["label"] == "static"

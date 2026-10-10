@@ -1,0 +1,16 @@
+title: Measure compression blockiness and ringing
+summary: Estimates encode quality from the 8x8 block-boundary to interior gradient ratio with grid-phase search (also 4 and 16 px periods and flat areas only) plus a mosquito-ringing ratio near edges.
+description: >-
+  Decodes native pixels on a 16 px aligned crop so the codec grid keeps its phase, compares mean absolute luma
+  differences at block boundaries with interior positions per axis, labels clean/mild/visible/heavy with stated
+  heuristic thresholds, and measures high-pass energy beside strong edges for ringing.
+tags: [compression, blockiness, artifacts, encode-quality, ringing]
+references:
+  - "Wang, Z., Sheikh, H. R., Bovik, A. C. (2002). No-reference perceptual quality assessment of JPEG compressed images. Proc. IEEE ICIP 2002 (block-boundary differences as a blockiness feature)."
+limits:
+  - Deblocking filters and variable block sizes in H.264/HEVC/AV1 weaken the fixed-grid signal.
+  - Scaling after encoding moves the grid off the 8 px period.
+  - Ringing ratio is a heuristic that also rises with fine texture near edges.
+contract:
+  title: Compression blockiness payload
+  summary: JSON Schema for the blockiness payload - score, label, per-axis boundary ratios (all and flat areas), grid phase, 4/8/16 px ratios and ringing ratio.

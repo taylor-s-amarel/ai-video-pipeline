@@ -1,0 +1,7 @@
+{
+  "detected": true,
+  "border": { "top": 45, "style": "glow", "color": "#14213D" },
+  "content_rect": null,
+  "static_content": false,
+  "frames_analysed": 60
+}

@@ -1,6 +1,6 @@
 ---
 name: "creative-catalogue-top-twenty-picks"
-description: "Use when choosing original top twenty editorial picks for a short animated or explainer film from the October 2026 creative catalogue. The catalogue's historical top-twenty editorial picks with reason, proposed first version and gate; not current owner-approved selections. Every row keeps its gate or check; these are proposals, not tested recipes."
+description: "Use when looking for the catalogue's historically recommended starting premises. The catalogue's historical top-twenty editorial picks with reason, proposed first version and gate; not current owner-approved selections. From the October 2026 creative catalogue; every row keeps its gate or check, and these are proposals, not tested recipes."
 ---
 
 # Creative catalogue: original top twenty editorial picks

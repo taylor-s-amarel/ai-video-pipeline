@@ -1,0 +1,56 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "pixel_art_video_fit",
+  "title": "Pixel-art integer scaler for video frames (9:16 default)",
+  "kind": "code-module",
+  "subkind": "aspect-format",
+  "version": "1.0.0",
+  "summary": "Scales pixel art by the largest whole-number factor that fits a 1080x1920 safe area with nearest neighbour, on a solid or tiled background, one scale per animation.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "render"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "pixel_art_video_fit.py",
+  "tags": [
+    "pixel-art",
+    "scaling",
+    "shorts",
+    "9x16",
+    "video"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "pillow",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "examples": [
+    "python pixel_art_video_fit.py frames/*.png --out-dir fitted/ --bg '#1a1c2c'"
+  ],
+  "review": {
+    "status": "unreviewed"
+  }
+}

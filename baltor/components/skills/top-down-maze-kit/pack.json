@@ -1,0 +1,288 @@
+{
+  "spec": "baltor.media-pack/v1",
+  "pack_id": "top-down-maze-kit",
+  "title": "Top-down maze kit (2D pixel art)",
+  "purpose": "Use when making a top-down maze or dungeon escape short ('one small adjustment', 'stuck in a maze') in Godot 4 at pixel-art scale. Lists CC0 tiles and characters, the MIT AStarGrid2D pathfinding demo, a 4-colour palette, a pixel font and CC0 retro sounds, with import presets.",
+  "status": "manifest-only",
+  "created": "2026-10-10",
+  "verified_on": "2026-10-10",
+  "targets": [
+    "godot-4",
+    "ffmpeg-video"
+  ],
+  "frame": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "licence_policy": {
+    "allow_non_commercial": false,
+    "allow_share_alike": false,
+    "require_redistributable": false,
+    "notes": "Monetised-video policy: no NC or ND assets; credit every CC-BY asset in the description."
+  },
+  "credits_file": "CREDITS.md",
+  "notes": [
+    "Manifest only: no media files are included. Fetch direct assets with the media_pack_fetcher module; open manual-page sources in a browser and record sha256 after download."
+  ],
+  "assets": [
+    {
+      "id": "dungeontileset-ii",
+      "title": "16x16 DungeonTileset II",
+      "creator": "0x72",
+      "source_url": "https://0x72.itch.io/dungeontileset-ii",
+      "licence": "CC0-1.0",
+      "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "attribution": "16x16 DungeonTileset II by 0x72, CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "dungeon walls, floors and animated heroes"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "texture",
+          "preset": "pixel-art-2d"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "kenney-1-bit-pack",
+      "title": "1-Bit Pack",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/1-bit-pack",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "1-Bit Pack by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "alternative monochrome maze tiles and icons"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "texture",
+          "preset": "pixel-art-2d"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "kenney-micro-roguelike",
+      "title": "Micro Roguelike",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/micro-roguelike",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "Micro Roguelike by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "8x8 variant for very small mazes"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "texture",
+          "preset": "pixel-art-2d"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "kenney-tiny-series",
+      "title": "Tiny series (Tiny Dungeon, Tiny Town ...)",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/series:Tiny",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "Tiny series (Tiny Dungeon, Tiny Town ...) by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "Tiny Dungeon tiles on the shared 16x16 grid"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "texture",
+          "preset": "pixel-art-2d"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "godot-demo-navigation-astar",
+      "title": "Godot demo: AStarGrid2D navigation",
+      "creator": "Godot Engine contributors",
+      "source_url": "https://github.com/godotengine/godot-demo-projects/tree/master/2d/navigation_astar",
+      "licence": "MIT",
+      "licence_url": "https://github.com/godotengine/godot-demo-projects/blob/master/LICENSE.md",
+      "attribution": "Godot demo: AStarGrid2D navigation by Godot Engine contributors (MIT)",
+      "attribution_required": false,
+      "redistribution": "allowed-with-licence",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "pathfinding logic for the maze solver"
+      ],
+      "fetch": {
+        "method": "git",
+        "status": "to-fetch"
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "fetched"
+      }
+    },
+    {
+      "id": "lospec-gb",
+      "title": "Lospec GB palette (4 colours)",
+      "creator": "Lospec",
+      "source_url": "https://lospec.com/palette-list/lospec-gb",
+      "licence": "No licence stated (credit the palette author)",
+      "licence_url": "https://lospec.com/palette-list/lospec-gb",
+      "attribution": "Palette: Lospec GB palette (4 colours) by Lospec (lospec.com)",
+      "attribution_required": false,
+      "redistribution": "project-only",
+      "commercial_use": "allowed",
+      "format": "hex",
+      "intended_use": [
+        "optional 4-colour handheld palette"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "font-press-start-2p",
+      "title": "Press Start 2P",
+      "creator": "CodeMan38",
+      "source_url": "https://fonts.google.com/specimen/Press+Start+2P",
+      "licence": "OFL-1.1",
+      "licence_url": "https://github.com/google/fonts/tree/main/ofl/pressstart2p",
+      "attribution": "Font: Press Start 2P by CodeMan38 (SIL OFL 1.1)",
+      "attribution_required": false,
+      "redistribution": "allowed-with-licence",
+      "commercial_use": "allowed",
+      "format": "ttf",
+      "intended_use": [
+        "pixel captions and step counter"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "font"
+        },
+        "video": {
+          "role": "font"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "oga-512-sfx",
+      "title": "512 Sound Effects (8-bit style)",
+      "creator": "SubspaceAudio",
+      "source_url": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+      "licence": "CC0-1.0",
+      "licence_url": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+      "attribution": "512 Sound Effects (8-bit style) by SubspaceAudio, CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "footsteps, pickups, door sounds"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "video": {
+          "role": "sfx"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "kenney-interface-sounds",
+      "title": "Interface Sounds",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/interface-sounds",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "Interface Sounds by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "caption pops"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "video": {
+          "role": "sfx"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    }
+  ]
+}

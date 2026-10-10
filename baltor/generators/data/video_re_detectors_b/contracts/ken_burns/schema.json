@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/video-re-contract-ken-burns",
+  "title": "Ken Burns moves payload",
+  "description": "Payload of video_re_detect_ken_burns: slow, rigid pan/zoom moves over stills, one per qualifying shot. Zoom is relative to the shot's first frame (zoom_from is always 1.0). Crops are [x, y, w, h] as ratios of the start frame; end_crop values outside 0-1 mean the end view shows more than the start frame (zoom out).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["moves", "shots_checked", "share_of_shots"],
+  "$defs": {
+    "crop": { "type": "array", "items": { "type": "number" }, "minItems": 4, "maxItems": 4 }
+  },
+  "properties": {
+    "moves": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["shot_index", "t_start_s", "t_end_s", "zoom_from", "zoom_to", "zoom_direction", "zoom_rate_per_s", "camera_pan", "content_motion_fw_per_s", "start_crop", "end_crop", "progress_r2", "rigid_share", "residual"],
+        "properties": {
+          "shot_index": { "type": "integer", "minimum": 0 },
+          "t_start_s": { "type": "number", "minimum": 0 },
+          "t_end_s": { "type": "number", "minimum": 0 },
+          "zoom_from": { "const": 1.0 },
+          "zoom_to": { "type": "number", "exclusiveMinimum": 0 },
+          "zoom_direction": { "enum": ["in", "out", "none"] },
+          "zoom_rate_per_s": { "type": "number", "description": "natural-log scale change per second" },
+          "camera_pan": { "enum": ["left", "right", "up", "down", "none"], "description": "virtual camera direction (content moves the opposite way)" },
+          "content_motion_fw_per_s": { "type": "array", "items": { "type": "number" }, "minItems": 2, "maxItems": 2, "description": "frame widths and heights per second" },
+          "start_crop": { "$ref": "#/$defs/crop" },
+          "end_crop": { "$ref": "#/$defs/crop" },
+          "progress_r2": { "type": ["number", "null"], "maximum": 1, "description": "R^2 of zoom (or pan) progress against a straight line; low values suggest easing" },
+          "rigid_share": { "type": "number", "minimum": 0, "maximum": 1 },
+          "residual": { "type": "number", "minimum": 0, "description": "median grey-level residual after compensation" }
+        }
+      }
+    },
+    "shots_checked": { "type": "integer", "minimum": 0 },
+    "share_of_shots": { "type": ["number", "null"], "minimum": 0, "maximum": 1 }
+  }
+}

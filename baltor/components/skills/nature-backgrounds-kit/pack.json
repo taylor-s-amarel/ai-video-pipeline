@@ -1,0 +1,324 @@
+{
+  "spec": "baltor.media-pack/v1",
+  "pack_id": "nature-backgrounds-kit",
+  "title": "Nature backgrounds kit (moving HDRI skies and foliage)",
+  "purpose": "Use when a short needs calm, moving nature backgrounds (panning skies, swaying foliage, drifting particles) behind photos and captions. Lists CC0 Poly Haven HDRIs, Quaternius and Kenney nature models, ambientCG and cgbookcase materials, and Kenney particles.",
+  "status": "manifest-only",
+  "created": "2026-10-10",
+  "verified_on": "2026-10-10",
+  "targets": [
+    "blender-4",
+    "godot-4",
+    "ffmpeg-video"
+  ],
+  "frame": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "licence_policy": {
+    "allow_non_commercial": false,
+    "allow_share_alike": false,
+    "require_redistributable": false,
+    "notes": "Monetised-video policy: no NC or ND assets; credit every CC-BY asset in the description."
+  },
+  "credits_file": "CREDITS.md",
+  "notes": [
+    "Manifest only: no media files are included. Fetch direct assets with the media_pack_fetcher module; open manual-page sources in a browser and record sha256 after download."
+  ],
+  "assets": [
+    {
+      "id": "polyhaven-belfast-sunset-puresky",
+      "title": "Belfast Sunset (Pure Sky) HDRI",
+      "creator": "Poly Haven",
+      "source_url": "https://polyhaven.com/a/belfast_sunset_puresky",
+      "licence": "CC0-1.0",
+      "licence_url": "https://docs.polyhaven.com/en/faq",
+      "attribution": "Belfast Sunset (Pure Sky) HDRI from Poly Haven (polyhaven.com), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "hdr",
+      "intended_use": [
+        "sunset over water"
+      ],
+      "fetch": {
+        "method": "api",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "video": {
+          "role": "hdri-lighting"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "polyhaven-grasslands-sunset",
+      "title": "Grasslands Sunset HDRI",
+      "creator": "Poly Haven",
+      "source_url": "https://polyhaven.com/a/grasslands_sunset",
+      "licence": "CC0-1.0",
+      "licence_url": "https://docs.polyhaven.com/en/faq",
+      "attribution": "Grasslands Sunset HDRI from Poly Haven (polyhaven.com), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "hdr",
+      "intended_use": [
+        "golden field"
+      ],
+      "fetch": {
+        "method": "api",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "video": {
+          "role": "hdri-lighting"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "polyhaven-rosendal-park-sunset-puresky",
+      "title": "Rosendal Park Sunset (Pure Sky) HDRI",
+      "creator": "Poly Haven",
+      "source_url": "https://polyhaven.com/a/rosendal_park_sunset_puresky",
+      "licence": "CC0-1.0",
+      "licence_url": "https://docs.polyhaven.com/en/faq",
+      "attribution": "Rosendal Park Sunset (Pure Sky) HDRI from Poly Haven (polyhaven.com), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "hdr",
+      "intended_use": [
+        "clear warm sky"
+      ],
+      "fetch": {
+        "method": "api",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "video": {
+          "role": "hdri-lighting"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "polyhaven-evening-road-01-puresky",
+      "title": "Evening Road 01 (Pure Sky) HDRI",
+      "creator": "Poly Haven",
+      "source_url": "https://polyhaven.com/a/evening_road_01_puresky",
+      "licence": "CC0-1.0",
+      "licence_url": "https://docs.polyhaven.com/en/faq",
+      "attribution": "Evening Road 01 (Pure Sky) HDRI from Poly Haven (polyhaven.com), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "hdr",
+      "intended_use": [
+        "evening sky"
+      ],
+      "fetch": {
+        "method": "api",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "video": {
+          "role": "hdri-lighting"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "polyhaven-industrial-sunset-puresky",
+      "title": "Industrial Sunset (Pure Sky) HDRI",
+      "creator": "Poly Haven",
+      "source_url": "https://polyhaven.com/a/industrial_sunset_puresky",
+      "licence": "CC0-1.0",
+      "licence_url": "https://docs.polyhaven.com/en/faq",
+      "attribution": "Industrial Sunset (Pure Sky) HDRI from Poly Haven (polyhaven.com), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "hdr",
+      "intended_use": [
+        "sky-only gradient"
+      ],
+      "fetch": {
+        "method": "api",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "video": {
+          "role": "hdri-lighting"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "quaternius-ultimate-nature",
+      "title": "Ultimate Nature Pack",
+      "creator": "Quaternius",
+      "source_url": "https://quaternius.com/packs/ultimatenature.html",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/packs/ultimatenature.html",
+      "attribution": "Ultimate Nature Pack by Quaternius (quaternius.com), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "foreground foliage"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "kenney-nature-kit",
+      "title": "Nature Kit",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/nature-kit",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "Nature Kit by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "stylised foliage"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "ambientcg-materials",
+      "title": "ambientCG materials (pick per surface)",
+      "creator": "ambientCG",
+      "source_url": "https://ambientcg.com/list",
+      "licence": "CC0-1.0",
+      "licence_url": "https://docs.ambientcg.com/license/",
+      "attribution": "Materials from ambientCG.com, CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "ground and rock materials"
+      ],
+      "fetch": {
+        "method": "api",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "texture",
+          "preset": "texture-3d"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "cgbookcase-textures",
+      "title": "cgbookcase textures (pick per surface)",
+      "creator": "cgbookcase",
+      "source_url": "https://www.cgbookcase.com/textures",
+      "licence": "CC0-1.0",
+      "licence_url": "https://www.cgbookcase.com/",
+      "attribution": "Textures from cgbookcase.com, CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "extra ground textures"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "texture",
+          "preset": "texture-3d"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "kenney-particle-pack",
+      "title": "Particle Pack",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/particle-pack",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "Particle Pack by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "drifting particles layer"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "texture",
+          "preset": "ui-lossless"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    }
+  ]
+}

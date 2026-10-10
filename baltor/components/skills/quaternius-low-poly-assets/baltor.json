@@ -1,0 +1,63 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "quaternius_low_poly_assets",
+  "title": "Quaternius low-poly packs (CC0)",
+  "kind": "skill",
+  "subkind": "media-source",
+  "version": "1.0.0",
+  "summary": "Choose, credit and import Quaternius CC0 low-poly packs and the Universal Animation Library into Godot 4 and Blender.",
+  "description": "Use when a scene needs free low-poly 3D models or humanoid animations (nature, farm, medieval, sci-fi, animals, characters, Universal Animation Library) under CC0. Explains free versus paid Source tiers, credit, glTF import into Godot 4 and Blender, and retargeting the animation library.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "notes": "Describes https://quaternius.com/ (checked 2026-10-10); contains no third-party media."
+  },
+  "step_kinds": [
+    "research",
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "licensing",
+    "quaternius",
+    "cc0",
+    "3d",
+    "low-poly",
+    "animation",
+    "godot",
+    "blender"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "asset_source_profile"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

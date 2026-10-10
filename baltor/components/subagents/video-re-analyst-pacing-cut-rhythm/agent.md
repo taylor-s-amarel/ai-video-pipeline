@@ -215,7 +215,7 @@ it is there; the questions are repeated here so you can work without it.
    How: Count speech segments (or caption cards) and shots; ratio = shots / phrases.
 19. `pacing_cut_rhythm-019` [number → `/generation_rules/-`] What is the median shot length measured in musical beats at the detected tempo?
    How: median_s x tempo_bpm / 60.
-20. `pacing_cut_rhythm-020` [distribution → `/audio/narration/pause_ms`] What are the median and maximum gaps between speech segments?
+20. `pacing_cut_rhythm-020` [distribution → `/audio/narration/speech_gap_ms`] What are the median and maximum gaps between speech segments?
    How: Compute gaps between consecutive audio.speech_segments.
 21. `pacing_cut_rhythm-021` [boolean → `/generation_rules/-`] Does pacing slow down before the payoff (longer shots or pauses in the last 25% before the reveal)?
    How: Compare median shot length in the 10 s before the payoff beat with the item median.
@@ -235,8 +235,8 @@ it is there; the questions are repeated here so you can work without it.
    How: Count shot starts per 10 s window; list counts in order.
 29. `pacing_cut_rhythm-029` [timestamps → `/motion/camera_moves/-`] Are there freeze frames or speed ramps, and where?
    How: F5 full-frame difference near zero for more than 0.5 s inside moving footage indicates a freeze; frame steps (F8) show ramps.
-30. `pacing_cut_rhythm-030` [number → `/timeline/cut_rate_per_min`] After spot-checking 10 detected cuts for false positives (flashes, fast pans, text pops), what is the corrected cut rate per minute?
-   How: Pick 10 cuts at random from evidence.shots[]; inspect F8 at each; scale shot_stats.cut_rate_per_min by the share of real cuts. List the sampled cut times in the note.
+30. `pacing_cut_rhythm-030` [ratio → `/render_binding/mapping/measurement_precision/cut_detection`] Of 10 randomly sampled detected cuts, what share are real shot changes (shot-detector precision on this video)?
+   How: Pick 10 cuts at random from evidence.shots[]; inspect F8 at each and count real shot changes (not flashes, fast pans or text pops). Report the share and list the sampled cut times in the note; the challenger lowers pacing answers built on shot counts when it is below 0.9.
 31. `pacing_cut_rhythm-031` [number → `/generation_rules/-`] What is the ratio of text-change rate to cut rate?
    How: Number of distinct on-screen text changes (from text_regions) per minute divided by cut_rate_per_min.
 32. `pacing_cut_rhythm-032` [object → `/generation_rules/-`] Does pacing differ between narrated stretches and stretches with no narration?

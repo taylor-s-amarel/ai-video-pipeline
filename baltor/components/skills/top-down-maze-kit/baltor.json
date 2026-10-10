@@ -1,0 +1,68 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "top_down_maze_kit",
+  "title": "Top-down maze kit (2D pixel art)",
+  "kind": "skill",
+  "subkind": "rights-manifest",
+  "version": "1.0.0",
+  "summary": "Media pack manifest for top-down maze and dungeon shorts - CC0 1-bit and 16x16 tiles, animated heroes, AStarGrid2D demo, handheld palette, pixel font and retro SFX.",
+  "description": "Use when making a top-down maze or dungeon escape short ('one small adjustment', 'stuck in a maze') in Godot 4 at pixel-art scale. Lists CC0 tiles and characters, the MIT AStarGrid2D pathfinding demo, a 4-colour palette, a pixel font and CC0 retro sounds, with import presets.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "plan",
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "media-pack",
+    "manifest",
+    "maze",
+    "top-down",
+    "pixel-art",
+    "godot",
+    "dungeon"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "media_pack_fetcher"
+    },
+    {
+      "identity": "asset_licence_checker"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits",
+    "parameters": {
+      "assets": 9,
+      "status": "manifest-only"
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

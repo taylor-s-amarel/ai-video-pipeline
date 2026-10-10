@@ -6,8 +6,12 @@ Usage:
 Method 'frames' (default) decodes every frame at a small size (96 px wide) and scores each frame
 against the previous one:
 
-    score = 0.5 * colour-histogram distance (soft 16-bin Y, Cb, Cr histograms, mean L1/2, 0..1)
-          + 0.5 * min(1, 2 * mean absolute grey difference / 255)
+    score = 0.4 * colour-histogram distance (soft 16-bin Y, Cb, Cr histograms, mean L1/2, 0..1)
+          + 0.3 * min(1, 2 * mean absolute grey difference / 255)
+          + 0.3 * min(1, 3 * mean absolute difference of 16-column block-mean thumbnails / 255)
+
+The thumbnail term barely moves under pans and zooms but changes when the picture changes, which
+catches cuts between two shots with similar colours.
 
 A frame starts a new shot (hard cut) when its score is a local maximum, is at least ``min_score``
 and is at least ``adaptive_ratio`` times the median score of the surrounding ``window_s`` seconds,
@@ -64,10 +68,26 @@ def frame_features(rgb: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
     return np.concatenate(hs), y
 
 
+def thumbnails(greys: np.ndarray, cols: int = 16) -> np.ndarray:
+    """Block-mean thumbnails (n, rows, cols) of grey frames: insensitive to small motion, sensitive to
+    a change of picture."""
+    n, h, w = greys.shape
+    bw = max(1, w // cols)
+    rows = max(1, int(round(h / bw)))
+    bh = max(1, h // rows)
+    g = greys[:, :rows * bh, :cols * bw]
+    return g.reshape(n, rows, bh, cols, bw).mean(axis=(2, 4))
+
+
+def combine(hist_d, pix_d, thumb_d):
+    return 0.4 * hist_d + 0.3 * np.minimum(1.0, 2.0 * pix_d) + 0.3 * np.minimum(1.0, 3.0 * thumb_d)
+
+
 def pair_score(h1: np.ndarray, g1: np.ndarray, h2: np.ndarray, g2: np.ndarray) -> float:
     hist_d = float(np.abs(h1 - h2).sum()) / 6.0
     pix_d = float(np.abs(g1 - g2).mean()) / 255.0
-    return 0.5 * hist_d + 0.5 * min(1.0, 2.0 * pix_d)
+    t1, t2 = thumbnails(g1[None])[0], thumbnails(g2[None])[0]
+    return float(combine(hist_d, pix_d, float(np.abs(t1 - t2).mean()) / 255.0))
 
 
 def compute_features(video: str, width: int = 96, info: dict | None = None):
@@ -90,7 +110,9 @@ def score_series(hists: np.ndarray, greys: np.ndarray, lag: int = 1) -> np.ndarr
         return out
     hist_d = np.abs(hists[lag:] - hists[:-lag]).sum(axis=1) / 6.0  # mean over 3 channels of L1/2
     pix_d = np.abs(greys[lag:] - greys[:-lag]).mean(axis=(1, 2)) / 255.0
-    out[lag:] = 0.5 * hist_d + 0.5 * np.minimum(1.0, 2.0 * pix_d)
+    th = thumbnails(greys)
+    thumb_d = np.abs(th[lag:] - th[:-lag]).mean(axis=(1, 2)) / 255.0
+    out[lag:] = combine(hist_d, pix_d, thumb_d)
     return out
 
 

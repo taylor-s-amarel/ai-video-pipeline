@@ -1,0 +1,55 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "video_re_contract_interlacing",
+  "title": "Interlacing payload",
+  "kind": "contract-schema",
+  "version": "1.0.0",
+  "summary": "JSON Schema for the interlacing payload - interlaced flag, field order, telecine-like flag, combed share, field-order costs, ffprobe field_order and idet counts.",
+  "description": "Emitted as the envelope payload by video_re_detect_interlacing; the envelope itself follows the baltor.video-detection/v1 schema.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "measure",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "schema.json",
+  "tags": [
+    "video",
+    "reverse-engineering",
+    "contract",
+    "detector-payload",
+    "geometry",
+    "interlacing",
+    "combing",
+    "field-order",
+    "telecine",
+    "deinterlace"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/video_re_detectors_a.py",
+    "data": "generators/data/video_re_detectors_a"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Valid example validates and invalid example fails (Draft 2020-12); the detector's tests validate every emitted payload against this schema."
+  }
+}

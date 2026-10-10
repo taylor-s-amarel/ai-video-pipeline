@@ -1,0 +1,61 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "mixamo_characters_and_animations",
+  "title": "Mixamo characters and animations (use in work, never redistribute raw files)",
+  "kind": "skill",
+  "subkind": "media-source",
+  "version": "1.0.0",
+  "summary": "Use Mixamo rigs and animations inside renders and games while keeping raw files out of repos, packages and training data.",
+  "description": "Use when a humanoid needs quick rigging or mocap-style animations from Adobe Mixamo. Mixamo content is royalty free inside your projects, but raw character/animation files may not be redistributed or used to train ML models. Covers keeping files out of repos and packages, Godot retargeting and Blender.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "notes": "Describes https://helpx.adobe.com/creative-cloud/faq/mixamo-faq.html (checked 2026-10-10); contains no third-party media."
+  },
+  "step_kinds": [
+    "research",
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "licensing",
+    "mixamo",
+    "animation",
+    "rigging",
+    "godot",
+    "blender"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "asset_source_profile"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

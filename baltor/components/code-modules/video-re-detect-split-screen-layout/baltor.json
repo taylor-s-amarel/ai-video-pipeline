@@ -1,0 +1,104 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "video_re_detect_split_screen_layout",
+  "title": "Detect split-screen and grid layouts",
+  "kind": "code-module",
+  "subkind": "evaluator",
+  "version": "1.0.0",
+  "summary": "Finds split-screen and grid layouts (1x2, 2x1, 2x2, 3-up, custom) and their panel rectangles, gutter width and colour from seams where neighbouring pixels belong to different pictures over time.",
+  "description": "Builds time-averaged cross-boundary difference maps, keeps seam pixels that stand out from their neighbourhood, and splits the frame recursively along seams that span the region, merging gutter edges. A striped-texture guard keeps patterned backgrounds from being read as grids.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "measure",
+    "review"
+  ],
+  "effects": {
+    "filesystem": "read",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "runs ffprobe and ffmpeg as subprocesses to decode the input video"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "video_re_detect_split_screen_layout.py",
+  "tags": [
+    "video",
+    "reverse-engineering",
+    "detector",
+    "geometry",
+    "framing",
+    "split-screen",
+    "grid",
+    "layout",
+    "panels",
+    "2x2"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "video_re_contract_split_screen_layout"
+    },
+    {
+      "identity": "ffmpeg",
+      "external": true
+    },
+    {
+      "identity": "ffprobe",
+      "external": true
+    },
+    {
+      "identity": "numpy",
+      "external": true
+    },
+    {
+      "identity": "jsonschema",
+      "external": true
+    },
+    {
+      "identity": "pytest",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_re_detectors_a.py",
+    "data": "generators/data/video_re_detectors_a",
+    "parameters": {
+      "family": "geometry",
+      "property": "split_screen_layout",
+      "defaults": {
+        "ratio_thr": 2.0,
+        "abs_min": 3.0,
+        "span_thr": 0.8,
+        "max_gutter_frac": 0.04,
+        "min_panel_frac": 0.12,
+        "max_depth": 3,
+        "texture_guard": 3,
+        "edge_margin_frac": 0.06
+      },
+      "decode": {
+        "width": 320,
+        "fps": 2.0,
+        "max_frames": 60
+      },
+      "question_bank": "video_re_qbank_split_screen_layout"
+    }
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "pytest passed on synthetic fixtures with known ground truth (Python 3.13, numpy 2.x, jsonschema 4.x) including a lossless FFV1 command-line round trip with ffmpeg 6.1."
+  }
+}

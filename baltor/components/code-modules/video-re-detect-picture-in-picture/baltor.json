@@ -1,0 +1,109 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "video_re_detect_picture_in_picture",
+  "title": "Detect picture-in-picture insets",
+  "kind": "code-module",
+  "subkind": "evaluator",
+  "version": "1.0.0",
+  "summary": "Finds inset windows (facecams, reaction clips, overlaid photos) as rectangles whose outline stays put while the pictures change, with corner, margins, border, drop-shadow direction and on-screen interval.",
+  "description": "Computes edge persistence per one-second window, pairs persistent straight runs into rectangles, merges nested rectangles into a bordered inset, compares bands outside opposite sides for a drop shadow and links windows by overlap into time intervals.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "measure",
+    "review"
+  ],
+  "effects": {
+    "filesystem": "read",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "runs ffprobe and ffmpeg as subprocesses to decode the input video"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "video_re_detect_picture_in_picture.py",
+  "tags": [
+    "video",
+    "reverse-engineering",
+    "detector",
+    "geometry",
+    "framing",
+    "picture-in-picture",
+    "inset",
+    "facecam",
+    "overlay",
+    "layout"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "video_re_contract_picture_in_picture"
+    },
+    {
+      "identity": "ffmpeg",
+      "external": true
+    },
+    {
+      "identity": "ffprobe",
+      "external": true
+    },
+    {
+      "identity": "numpy",
+      "external": true
+    },
+    {
+      "identity": "jsonschema",
+      "external": true
+    },
+    {
+      "identity": "pytest",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_re_detectors_a.py",
+    "data": "generators/data/video_re_detectors_a",
+    "parameters": {
+      "family": "geometry",
+      "property": "picture_in_picture",
+      "defaults": {
+        "window_s": 1.0,
+        "persist_thr": 0.7,
+        "min_area": 0.02,
+        "max_area": 0.5,
+        "max_span": 0.9,
+        "nest_px": 12,
+        "link_iou": 0.6,
+        "max_gap": 8,
+        "min_cover": 0.6,
+        "max_missed_windows": 1,
+        "shadow_band": 6,
+        "shadow_min_diff": 8.0,
+        "corner_gap": 6
+      },
+      "decode": {
+        "width": 320,
+        "fps": 4.0,
+        "max_frames": 480
+      },
+      "question_bank": "video_re_qbank_picture_in_picture"
+    }
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "pytest passed on synthetic fixtures with known ground truth (Python 3.13, numpy 2.x, jsonschema 4.x) including a lossless FFV1 command-line round trip with ffmpeg 6.1."
+  }
+}

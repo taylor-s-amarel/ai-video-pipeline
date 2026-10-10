@@ -1,0 +1,105 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "video_re_detect_rounded_corners",
+  "title": "Detect corner radius of panels and photos",
+  "kind": "code-module",
+  "subkind": "evaluator",
+  "version": "1.0.0",
+  "summary": "Measures the corner radius of cards, panels, photos and insets by fitting circles to the outline insets at each corner, from static-element masks over moving backgrounds, edge maps or given rectangles.",
+  "description": "Static elements over moving backgrounds give an exact mask; otherwise outlines come from persistent edges and seams. Each corner's inset profile (rows and columns next to the corner) is fitted with a circle by grid search; the element radius is the median corner, with shape rect / rounded / pill and fit error.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "measure",
+    "review"
+  ],
+  "effects": {
+    "filesystem": "read",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "runs ffprobe and ffmpeg as subprocesses to decode the input video"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "video_re_detect_rounded_corners.py",
+  "tags": [
+    "video",
+    "reverse-engineering",
+    "detector",
+    "geometry",
+    "framing",
+    "corner-radius",
+    "rounded-corners",
+    "cards",
+    "panels",
+    "shape"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "video_re_contract_rounded_corners"
+    },
+    {
+      "identity": "ffmpeg",
+      "external": true
+    },
+    {
+      "identity": "ffprobe",
+      "external": true
+    },
+    {
+      "identity": "numpy",
+      "external": true
+    },
+    {
+      "identity": "jsonschema",
+      "external": true
+    },
+    {
+      "identity": "pytest",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_re_detectors_a.py",
+    "data": "generators/data/video_re_detectors_a",
+    "parameters": {
+      "family": "geometry",
+      "property": "rounded_corners",
+      "defaults": {
+        "static_tstd": 3.0,
+        "moving_min_tstd": 6.0,
+        "min_area": 0.01,
+        "max_area": 0.6,
+        "min_fill": 0.6,
+        "edge_thr": 0.6,
+        "pill_ratio": 0.45,
+        "rect_corner_gap": 24,
+        "rects": null
+      },
+      "decode": {
+        "width": 480,
+        "fps": 2.0,
+        "max_frames": 60
+      },
+      "question_bank": "video_re_qbank_rounded_corners"
+    }
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "pytest passed on synthetic fixtures with known ground truth (Python 3.13, numpy 2.x, jsonschema 4.x) including a lossless FFV1 command-line round trip with ffmpeg 6.1."
+  }
+}

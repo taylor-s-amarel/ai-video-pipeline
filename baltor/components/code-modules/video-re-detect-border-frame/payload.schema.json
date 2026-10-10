@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/video-re-contract-border-frame",
+  "title": "Border frame payload",
+  "description": "Payload of video_re_detect_border_frame. Pixel values are source pixels.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["detected", "border", "content_rect", "static_content", "frames_analysed"],
+  "$defs": { "hex": { "type": "string", "pattern": "^#[0-9A-F]{6}$" } },
+  "properties": {
+    "detected": { "type": "boolean" },
+    "border": {
+      "type": ["object", "null"], "additionalProperties": false,
+      "required": ["top", "right", "bottom", "left", "style", "color", "gradient", "inner_radius_px", "corner_radii_px"],
+      "properties": {
+        "top": { "type": "integer", "minimum": 0 },
+        "right": { "type": "integer", "minimum": 0 },
+        "bottom": { "type": "integer", "minimum": 0 },
+        "left": { "type": "integer", "minimum": 0 },
+        "style": { "enum": ["solid", "gradient", "textured"] },
+        "color": { "$ref": "#/$defs/hex", "description": "median border colour" },
+        "gradient": {
+          "type": ["object", "null"], "additionalProperties": false, "required": ["from", "to", "angle_deg", "r2"],
+          "properties": {
+            "from": { "$ref": "#/$defs/hex" }, "to": { "$ref": "#/$defs/hex" },
+            "angle_deg": { "type": "number", "minimum": 0, "exclusiveMaximum": 180, "description": "axis of the colour ramp from 'from' to 'to': 0 = left to right, 90 = top to bottom, 45 = top-left to bottom-right" },
+            "r2": { "type": "number", "maximum": 1 }
+          }
+        },
+        "inner_radius_px": { "type": "number", "minimum": 0, "description": "median fitted radius of the content rectangle's corners" },
+        "corner_radii_px": { "type": "array", "items": { "type": "number", "minimum": 0 }, "minItems": 4, "maxItems": 4, "description": "top-left, top-right, bottom-right, bottom-left" }
+      }
+    },
+    "content_rect": {
+      "type": ["object", "null"], "additionalProperties": false, "required": ["x", "y", "w", "h"],
+      "properties": { "x": { "type": "integer" }, "y": { "type": "integer" }, "w": { "type": "integer" }, "h": { "type": "integer" } }
+    },
+    "static_content": { "type": "boolean", "description": "true when the content barely moves, so the result is unreliable" },
+    "frames_analysed": { "type": "integer", "minimum": 1 }
+  }
+}

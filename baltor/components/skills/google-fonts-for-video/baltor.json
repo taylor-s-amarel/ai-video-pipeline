@@ -1,0 +1,61 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "google_fonts_for_video",
+  "title": "Google Fonts and Kenney fonts for captions and titles (OFL, Apache, CC0)",
+  "kind": "skill",
+  "subkind": "media-source",
+  "version": "1.0.0",
+  "summary": "Choose OFL/Apache/CC0 caption and title fonts, verify each family's licence folder, and load them in Godot 4, Blender and FFmpeg.",
+  "description": "Use when picking caption, hook-title or pixel fonts for shorts and Godot UI. Most Google Fonts are SIL OFL 1.1 (a few Apache-2.0), Kenney Fonts are CC0. Covers verifying a family's licence in the google/fonts repo, what OFL allows in videos, and Godot/Blender font import.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "notes": "Describes https://github.com/google/fonts (checked 2026-10-10); contains no third-party media."
+  },
+  "step_kinds": [
+    "research",
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "licensing",
+    "fonts",
+    "ofl",
+    "captions",
+    "titles",
+    "pixel-fonts"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "asset_source_profile"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

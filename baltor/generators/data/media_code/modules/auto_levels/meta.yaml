@@ -1,0 +1,7 @@
+title: Auto levels
+summary: Sets black and white points from percentiles (luma or per channel) with an optional midtone gamma, applies it as a LUT to images and emits the equivalent ffmpeg colorlevels filter.
+subkind: lut
+domain: video
+tags: [video, levels, contrast, colour-correction, ffmpeg, numpy]
+step_kinds: [build, render]
+depends_on: [ffmpeg]

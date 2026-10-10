@@ -1,0 +1,68 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "space_nasa_kit",
+  "title": "Space and NASA kit (real spacecraft + stylised extras)",
+  "kind": "skill",
+  "subkind": "rights-manifest",
+  "version": "1.0.0",
+  "summary": "Media pack manifest for space shorts - NASA 3D Resources GLBs with recorded SHA-256 (Apollo LM, astronaut, Hubble), Gateway and Curiosity, plus CC0 stylised space kits.",
+  "description": "Use when a space or Moon-landing short needs real spacecraft models plus stylised filler. Three NASA GLBs were downloaded and hashed on 2026-10-10 (all need Draco decoding); others are listed to fetch. Includes NASA usage rules (no insignia, no implied endorsement) and CC0 Kenney/Quaternius space kits.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "plan",
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "media-pack",
+    "manifest",
+    "space",
+    "nasa",
+    "3d",
+    "history",
+    "science"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "media_pack_fetcher"
+    },
+    {
+      "identity": "asset_licence_checker"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits",
+    "parameters": {
+      "assets": 8,
+      "status": "partially-fetched"
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

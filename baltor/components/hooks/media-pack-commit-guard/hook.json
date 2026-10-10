@@ -1,0 +1,8 @@
+{
+  "events": [
+    "PreToolUse"
+  ],
+  "matcher": "Bash",
+  "command": "python3 .baltor/hooks/media-pack-commit-guard/hook.py",
+  "timeout": 30
+}

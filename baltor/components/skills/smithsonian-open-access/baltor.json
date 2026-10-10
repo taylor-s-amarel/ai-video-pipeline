@@ -1,0 +1,61 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "smithsonian_open_access",
+  "title": "Smithsonian Open Access (CC0 records)",
+  "kind": "skill",
+  "subkind": "media-source",
+  "version": "1.0.0",
+  "summary": "Find CC0 Smithsonian Open Access objects via the metadata dump, confirm each record's rights, and credit the museum.",
+  "description": "Use for history and science shorts that need museum objects. Smithsonian Open Access publishes CC0 metadata (11M+ records) and CC0 media for objects marked Open Access; this skill shows how to query the metadata dump, check each record's rights, and avoid people/trademark problems.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "notes": "Describes https://github.com/Smithsonian/OpenAccess (checked 2026-10-10); contains no third-party media."
+  },
+  "step_kinds": [
+    "research",
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "licensing",
+    "smithsonian",
+    "museum",
+    "cc0",
+    "history",
+    "metadata"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "asset_source_profile"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

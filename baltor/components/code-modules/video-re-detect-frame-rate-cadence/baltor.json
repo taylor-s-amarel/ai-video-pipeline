@@ -1,0 +1,106 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "video_re_detect_frame_rate_cadence",
+  "title": "Detect frame-rate cadence and duplicate frames",
+  "kind": "code-module",
+  "subkind": "evaluator",
+  "version": "1.0.0",
+  "summary": "Compares nominal and effective frame rate from repeated frames, names the cadence (on ones/twos/threes or a hold pattern such as 1-1-1-2 for 24-in-30) and flags variable frame rate from timestamps.",
+  "description": "Decodes every frame of a window with timestamps, marks repeats where the frame difference falls far below its local level, turns them into hold lengths and finds the cadence or repeating hold pattern; frame intervals give variable-frame-rate evidence.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "measure",
+    "review"
+  ],
+  "effects": {
+    "filesystem": "read",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "runs ffprobe and ffmpeg as subprocesses to decode the input video"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "video_re_detect_frame_rate_cadence.py",
+  "tags": [
+    "video",
+    "reverse-engineering",
+    "detector",
+    "geometry",
+    "framing",
+    "frame-rate",
+    "cadence",
+    "animation",
+    "on-twos",
+    "pulldown",
+    "vfr"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "video_re_contract_frame_rate_cadence"
+    },
+    {
+      "identity": "ffmpeg",
+      "external": true
+    },
+    {
+      "identity": "ffprobe",
+      "external": true
+    },
+    {
+      "identity": "numpy",
+      "external": true
+    },
+    {
+      "identity": "jsonschema",
+      "external": true
+    },
+    {
+      "identity": "pytest",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_re_detectors_a.py",
+    "data": "generators/data/video_re_detectors_a",
+    "parameters": {
+      "family": "geometry",
+      "property": "frame_rate_cadence",
+      "defaults": {
+        "dup_rel": 0.2,
+        "active_thr": 1.0,
+        "local_window": 12,
+        "on_n_share": 0.7,
+        "pattern_match": 0.85,
+        "max_period": 8,
+        "vfr_dev": 0.1,
+        "vfr_share": 0.01
+      },
+      "decode": {
+        "width": 160,
+        "fps": 0,
+        "max_frames": 600,
+        "duration_s": 20.0
+      },
+      "question_bank": "video_re_qbank_frame_rate_cadence"
+    }
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "pytest passed on synthetic fixtures with known ground truth (Python 3.13, numpy 2.x, jsonschema 4.x) including a lossless FFV1 command-line round trip with ffmpeg 6.1."
+  }
+}

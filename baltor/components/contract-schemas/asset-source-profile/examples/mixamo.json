@@ -1,0 +1,49 @@
+{
+  "spec": "baltor.asset-source/v1",
+  "source_id": "mixamo-characters-and-animations",
+  "name": "Mixamo characters and animations (use in work, never redistribute raw files)",
+  "homepage": "https://helpx.adobe.com/creative-cloud/faq/mixamo-faq.html",
+  "licence_summary": "Adobe's FAQ: Mixamo characters and animations are royalty free for personal, commercial and non-profit projects. The fuller licensing FAQ (reposted on Adobe's forum) says the raw files may not be distributed, including in asset packs or engine templates, and may not be used to train machine-learning models.",
+  "licences": [
+    {
+      "id": "Adobe-Mixamo-terms",
+      "url": "https://helpx.adobe.com/creative-cloud/faq/mixamo-faq.html",
+      "applies_to": "all Mixamo characters and animations"
+    }
+  ],
+  "attribution": {
+    "required": "never",
+    "credit_template": "Animation: Adobe Mixamo"
+  },
+  "redistribution": "forbidden",
+  "commercial_use": "allowed",
+  "ai_training": "forbidden",
+  "automated_download": "forbidden",
+  "formats": [
+    "fbx",
+    "dae"
+  ],
+  "search": [
+    {
+      "label": "Mixamo",
+      "url": "https://www.mixamo.com/"
+    },
+    {
+      "label": "Animate characters (Adobe Help)",
+      "url": "https://helpx.adobe.com/creative-cloud/help/animate-characters-mixamo.html"
+    },
+    {
+      "label": "Licensing FAQ repost",
+      "url": "https://community.adobe.com/questions-696/mixamo-faq-licensing-royalties-ownership-eula-and-tos-589400"
+    }
+  ],
+  "cautions": [
+    "Never commit Mixamo FBX/DAE files to a public repository, a template or a Baltor package; record them with redistribution: forbidden.",
+    "Do not use Mixamo files as machine-learning training data.",
+    "Bipedal humanoids only; the site keeps only the last uploaded character."
+  ],
+  "verified": {
+    "on": "2026-10-10",
+    "how": "mixed"
+  }
+}

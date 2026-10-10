@@ -1,0 +1,175 @@
+collection:
+  id: updates-ai-model-catalogs
+  title: "Model catalogues, prices and new open-weight models"
+  description: "Machine-readable catalogues that tell an agent which models exist, what they cost and what context they support: the models.dev and LiteLLM price tables (cross-provider), the OpenRouter models API, and Hugging Face Hub listings of the newest repositories from major open-weight model publishers. Use them to pick a current model id, to notice price or context changes, and to spot new open-weight releases."
+  tags: [ai, models, pricing, catalog, open-weights]
+  defaults: {terms: vendor-docs, poll: catalog, auth: none, change_types: [model-release, pricing]}
+
+items:
+  - id: models-dev-catalog-commits
+    title: "models.dev catalogue commits"
+    gh: sst/models.dev
+    feed: "commits:dev"
+    feed_format: atom
+    terms: github
+    poll: changelog
+    summary: "Commit feed of models.dev, the open catalogue of model ids, prices, context limits and capabilities across providers that OpenCode and other harnesses read. Provider syncs (for example 'update OpenRouter model catalog') appear here several times a day."
+    vendor: SST
+    products: [models.dev]
+    seen: "'chore(sync): update OpenRouter model catalog (#9311)' on 2026-10-10"
+    verification: fetched
+    notes: "Default branch is dev. The published JSON is served from the models.dev site (api.json, from prior research); that host was not reachable from the research network, so the commit feed is the verified signal."
+  - id: litellm-model-prices-json
+    title: "LiteLLM model prices and context window table (raw JSON)"
+    url: "https://github.com/BerriAI/litellm/blob/main/model_prices_and_context_window.json"
+    feed_url: "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json"
+    feed_format: json-api
+    terms: github-raw
+    summary: "LiteLLM's community-maintained JSON of per-token prices, context windows and capability flags for thousands of model ids across OpenAI, Anthropic, Bedrock, Vertex, Azure and others. Diff it to detect price changes and new model ids; the file is large, so use conditional requests."
+    vendor: BerriAI
+    products: [LiteLLM]
+    verification: fetched
+    seen: "HTTP 200 text/plain JSON on 2026-10-10"
+    cautions: ["Community-maintained: confirm a price on the provider's pricing page before quoting it."]
+  - id: litellm-model-prices-commits
+    title: "LiteLLM model price table commits"
+    gh: BerriAI/litellm
+    feed: "path:main:model_prices_and_context_window.json"
+    feed_format: atom
+    terms: github
+    poll: changelog
+    summary: "Commit feed limited to LiteLLM's price and context table, so each new model id or price change arrives as one entry (for example new Azure AI Cohere embed models on 2026-10-10)."
+    vendor: BerriAI
+    products: [LiteLLM]
+    seen: "'feat(azure): add azure_ai/Cohere-Embed-V5-Fast ...' on 2026-10-10"
+    verification: fetched
+  - id: openrouter-models-api
+    title: "OpenRouter models API"
+    url: "https://openrouter.ai/api/v1/models"
+    feed_url: "https://openrouter.ai/api/v1/models"
+    feed_format: json-api
+    terms: api-key
+    summary: "OpenRouter's GET /api/v1/models returns every routed model with context length, pricing per token and supported parameters; GET /api/v1/models/{author}/{slug}/endpoints gives per-provider endpoints. Diff daily for new models and price changes across hundreds of providers."
+    vendor: OpenRouter
+    products: [OpenRouter API]
+    verification: search-result
+    auth: api-key
+    cautions: ["Third-party summaries of the OpenAPI document say requests are authenticated by default; send a key unless you confirm the list endpoint is public."]
+  - id: huggingface-hub-models-api
+    title: "Hugging Face Hub models API"
+    url: "https://huggingface.co/docs/hub/api"
+    feed_url: "https://huggingface.co/api/models?sort=createdAt&direction=-1&limit=50"
+    feed_format: json-api
+    terms: registry-api
+    summary: "Hub API for listing model repositories with author, search, filter, sort and direction parameters and Link-header pagination. Sorting newest first surfaces new open-weight releases across the Hub; filter by author for one publisher."
+    vendor: Hugging Face
+    products: [Hugging Face Hub]
+    verification: search-result
+    cautions: ["'createdAt' as a sort key comes from community documentation, not the official parameter list; repositories created before creation dates were stored share the placeholder 2022-03-02T23:29:04Z."]
+  - id: hf-org-qwen
+    title: "Hugging Face: newest Qwen models"
+    url: "https://huggingface.co/Qwen"
+    feed_url: "https://huggingface.co/api/models?author=Qwen&sort=createdAt&direction=-1&limit=20"
+    feed_format: json-api
+    terms: registry-api
+    summary: "Newest model repositories from Alibaba's Qwen team (Qwen3.x, Qwen3-Coder and their quantised variants), which often ship weeks before hosted API availability elsewhere."
+    vendor: Alibaba Qwen
+    products: [Qwen]
+    verification: search-result
+    notes: "Organisation name confirmed in provider model lists in search results on 2026-10-10."
+  - id: hf-org-deepseek-ai
+    title: "Hugging Face: newest DeepSeek models"
+    url: "https://huggingface.co/deepseek-ai"
+    feed_url: "https://huggingface.co/api/models?author=deepseek-ai&sort=createdAt&direction=-1&limit=20"
+    feed_format: json-api
+    terms: registry-api
+    summary: "Newest open-weight repositories from DeepSeek (V-series and R-series models and their technical reports)."
+    vendor: DeepSeek
+    products: [DeepSeek models]
+    verification: search-result
+  - id: hf-org-moonshotai
+    title: "Hugging Face: newest Moonshot AI (Kimi) models"
+    url: "https://huggingface.co/moonshotai"
+    feed_url: "https://huggingface.co/api/models?author=moonshotai&sort=createdAt&direction=-1&limit=20"
+    feed_format: json-api
+    terms: registry-api
+    summary: "Newest Kimi model repositories from Moonshot AI, including the K2 thinking and agentic coding models used by several coding harnesses."
+    vendor: Moonshot AI
+    products: [Kimi]
+    verification: search-result
+  - id: hf-org-zai-org
+    title: "Hugging Face: newest Z.ai (GLM) models"
+    url: "https://huggingface.co/zai-org"
+    feed_url: "https://huggingface.co/api/models?author=zai-org&sort=createdAt&direction=-1&limit=20"
+    feed_format: json-api
+    terms: registry-api
+    summary: "Newest GLM model repositories from Z.ai (Zhipu), the organisation formerly published as THUDM."
+    vendor: Z.ai
+    products: [GLM]
+    verification: search-result
+  - id: hf-org-minimaxai
+    title: "Hugging Face: newest MiniMax models"
+    url: "https://huggingface.co/MiniMaxAI"
+    feed_url: "https://huggingface.co/api/models?author=MiniMaxAI&sort=createdAt&direction=-1&limit=20"
+    feed_format: json-api
+    terms: registry-api
+    summary: "Newest MiniMax M-series model repositories; the Dynamo and vLLM release feeds often add support for these within days."
+    vendor: MiniMax
+    products: [MiniMax M-series]
+    verification: search-result
+  - id: hf-org-meta-llama
+    title: "Hugging Face: newest Meta Llama models"
+    url: "https://huggingface.co/meta-llama"
+    feed_url: "https://huggingface.co/api/models?author=meta-llama&sort=createdAt&direction=-1&limit=20"
+    feed_format: json-api
+    terms: registry-api
+    summary: "Newest Llama model repositories published by Meta; gated repositories require accepting Meta's licence with a Hugging Face account before download."
+    vendor: Meta
+    products: [Llama]
+    verification: from-prior-research
+    auth: none
+    cautions: ["Organisation name from prior research; the Hub was not reachable from the research network on 2026-10-10."]
+  - id: hf-org-mistralai
+    title: "Hugging Face: newest Mistral AI models"
+    url: "https://huggingface.co/mistralai"
+    feed_url: "https://huggingface.co/api/models?author=mistralai&sort=createdAt&direction=-1&limit=20"
+    feed_format: json-api
+    terms: registry-api
+    summary: "Newest open-weight repositories from Mistral AI (Mistral Small, Devstral, Magistral and others)."
+    vendor: Mistral AI
+    products: [Mistral open-weight models]
+    verification: from-prior-research
+    cautions: ["Organisation name from prior research; the Hub was not reachable from the research network on 2026-10-10."]
+  - id: hf-org-google
+    title: "Hugging Face: newest Google models (Gemma)"
+    url: "https://huggingface.co/google"
+    feed_url: "https://huggingface.co/api/models?author=google&sort=createdAt&direction=-1&limit=20"
+    feed_format: json-api
+    terms: registry-api
+    summary: "Newest model repositories from Google, mainly the Gemma family that local runtimes (Ollama, llama.cpp, MLX) add support for after release."
+    vendor: Google
+    products: [Gemma]
+    verification: from-prior-research
+    cautions: ["Organisation name from prior research; the Hub was not reachable from the research network on 2026-10-10. Gemma has its own terms of use."]
+  - id: hf-org-openai
+    title: "Hugging Face: newest OpenAI open-weight models"
+    url: "https://huggingface.co/openai"
+    feed_url: "https://huggingface.co/api/models?author=openai&sort=createdAt&direction=-1&limit=20"
+    feed_format: json-api
+    terms: registry-api
+    summary: "OpenAI's open-weight repositories (gpt-oss and related releases) on the Hub."
+    vendor: OpenAI
+    products: [gpt-oss]
+    verification: from-prior-research
+    cautions: ["Organisation name from prior research; the Hub was not reachable from the research network on 2026-10-10."]
+  - id: hf-org-nvidia
+    title: "Hugging Face: newest NVIDIA models"
+    url: "https://huggingface.co/nvidia"
+    feed_url: "https://huggingface.co/api/models?author=nvidia&sort=createdAt&direction=-1&limit=20"
+    feed_format: json-api
+    terms: registry-api
+    summary: "Newest NVIDIA model repositories (Nemotron language models, speech and embedding models, quantised checkpoints for TensorRT-LLM)."
+    vendor: NVIDIA
+    products: [Nemotron]
+    verification: from-prior-research
+    cautions: ["Organisation name from prior research; the Hub was not reachable from the research network on 2026-10-10."]

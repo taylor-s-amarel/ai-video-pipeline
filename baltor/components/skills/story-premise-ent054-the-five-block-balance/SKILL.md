@@ -5,7 +5,7 @@ description: "Use when choosing, developing or storyboarding catalogue premise E
 
 # ENT054 The Five-Block Balance
 
-**Catalogue family:** Fiction, mechanical puzzles (Appendix D, Fiction mechanical puzzles).  
+**Catalogue family:** Fiction, mechanical puzzles (Appendix D section "Fiction mechanical puzzles").  
 **Status:** idea. Not a completed script, not a rendered catalogue treatment, no audience study. Fictional themes are not empirical claims. Originality means authored for the catalogue, not an exhaustive prior-art search. The current story-first review may reject or substantially rewrite this premise.
 
 ## Premise (authored wording)
@@ -22,7 +22,7 @@ A maker must place blocks of weights 1, 2, 3, 4, and 5 on a toy balance while le
 
 **Evidence class:** `mathematically_checkable`. **Original format tags:** narrative_lesson, prediction_quiz, step_by_step, mechanism_cutaway.
 
-Factual checkability is not factual verification; the evidence class says what kind of check a claim would need, not that it was done.
+Factual checkability is not factual verification: the evidence class classifies how a claim could be checked; it does not record that any check was done.
 
 ## Beat structure as given
 

@@ -1,0 +1,51 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "godot_texture_import_presets_pixel_art_2d",
+  "title": "Godot 4 texture import preset: pixel-art-2d",
+  "kind": "code-module",
+  "subkind": "godot",
+  "version": "1.0.0",
+  "summary": "The Godot texture import preset writer pinned to 'pixel-art-2d': crisp 2D pixel art (Kenney Tiny/1-Bit, LPC, itch.io sheets).",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "godot_texture_import_presets.py",
+  "tags": [
+    "godot",
+    "import",
+    "textures",
+    "pixel-art-2d"
+  ],
+  "collection": "public-good",
+  "variant_of": "godot_texture_import_presets",
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits",
+    "parameters": {
+      "preset": "pixel-art-2d"
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

@@ -184,7 +184,7 @@ it is there; the questions are repeated here so you can work without it.
 4. `typography_captions-004` [enum → `/typography/captions/font_class`] What font class do captions use (geometric sans, grotesque sans, condensed sans, rounded sans, serif, slab, handwritten, display)? Choices: geometric-sans, grotesque-sans, condensed-sans, rounded-sans, serif, slab, handwritten, display.
    How: Enlarged F3 crops: check letter shapes (round 'o' and 'e' for geometric; narrow letters for condensed; serifs).
 5. `typography_captions-005` [enum → `/typography/captions/weight`] What weight are captions (regular, medium, bold, black)? Choices: regular, medium, bold, black.
-   How: Stroke thickness relative to letter height on F3 crops: stem width / cap height above about 0.18 is bold, above 0.24 black.
+   How: Measure stem width / cap height on enlarged F3 crops and report the ratio. Rough guide (this swarm's convention, not a type standard): about 0.10-0.15 reads as regular, about 0.2 as bold, 0.25 or more as black.
 6. `typography_captions-006` [enum → `/typography/captions/case`] What case do captions use (all caps, sentence case, title case, lower case)? Choices: all-caps, sentence, title, lower, mixed.
    How: F3 crops at 6 times.
 7. `typography_captions-007` [object → `/typography/captions/colors`] What colour is caption text, and what colour marks highlighted or key words?
@@ -197,7 +197,7 @@ it is there; the questions are repeated here so you can work without it.
    How: Measure the cap height of an upper-case letter in px on an F3 crop / source.height.
 11. `typography_captions-011` [ms → `/typography/captions/sync_offset_ms`] What is the mean offset between caption appearance and the matching spoken word (ms; negative = caption early)?
    How: For 10 caption cards, compare the on-screen appearance time (F8 at caption changes, or text_regions t_s) with the speech onset of the first word (A1 spectrogram or speech_segments).
-12. `typography_captions-012` [enum → `/typography/captions/sync_offset_ms`] Do captions appear before, on, or after the spoken word? Choices: before, on, after, varies.
+12. `typography_captions-012` [enum → `/typography/captions/sync_relation`] Do captions appear before, on, or after the spoken word? Choices: before, on, after, varies.
    How: From 011: 'on' when the mean is within +/-100 ms and the spread is under 150 ms.
 13. `typography_captions-013` [enum → `/typography/captions/mode`] Are captions shown as phrase cards, word-by-word reveals, or karaoke-style highlighting within a card? Choices: phrase-cards, word-by-word, karaoke-highlight, none.
    How: F8 frame steps across a caption: watch whether words appear one at a time or highlights move.
@@ -236,7 +236,7 @@ it is there; the questions are repeated here so you can work without it.
 30. `typography_captions-030` [integer → `/generation_rules/-`] How many distinct text styles appear in the whole video (title, caption, label, number, source line, CTA)?
    How: Group F3 crops of all text roles by font class, weight, colour and size.
 31. `typography_captions-031` [enum → `/typography/captions/tracking`] Is letter spacing tight, normal or wide in captions? Choices: tight, normal, wide.
-   How: Gap between letters relative to stem width on F3 crops; tight below 0.5, wide above 1.2.
+   How: Measure the gap between letters relative to stem width on F3 crops and report it; this swarm calls below 0.5 tight and above 1.2 wide (a convention, not a standard).
 32. `typography_captions-032` [boolean → `/typography/captions/safe_area_ok`] Do captions stay clear of the bottom 20% and the right-hand 15% of the frame where vertical-video apps often draw controls?
    How: Check caption bboxes in evidence.text_regions[] against those bands; read evidence.safe_area.violations for the template used.
 33. `typography_captions-033` [enum → `/typography/captions/source`] Are captions burned into the picture, supplied as a separate subtitle track, or absent? Choices: burned-in, subtitle-track, both, none.

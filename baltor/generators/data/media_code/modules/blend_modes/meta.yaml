@@ -1,0 +1,7 @@
+title: Blend modes (W3C formulas)
+summary: Numpy implementations of the W3C separable blend modes (multiply, screen, overlay, dodge, burn, hard/soft light, difference, exclusion...) plus add, mixed by opacity and source alpha.
+subkind: layer-stack
+domain: video
+tags: [video, blend-modes, compositing, numpy, layers]
+step_kinds: [build, render]
+references: ["https://www.w3.org/TR/compositing-1/"]

@@ -1,0 +1,58 @@
+{
+  "spec": "baltor.asset-source/v1",
+  "source_id": "avatar-generators-for-faceless-video",
+  "name": "Avatar generators for faceless narrators (DiceBear, Boring Avatars, Notion Avatar)",
+  "homepage": "https://github.com/dicebear/dicebear",
+  "licence_summary": "DiceBear code is MIT and each avatar style keeps its creator's licence (many need attribution). Boring Avatars is MIT. Notion Avatar code is MIT and its assets CC0. The xkcd font (ipython/xkcd-font) is CC BY-NC 3.0 and not for monetised work.",
+  "licences": [
+    {
+      "id": "MIT",
+      "url": "https://github.com/dicebear/dicebear",
+      "applies_to": "DiceBear code"
+    },
+    {
+      "id": "MIT",
+      "url": "https://github.com/boringdesigners/boring-avatars",
+      "applies_to": "Boring Avatars"
+    },
+    {
+      "id": "CC0-1.0",
+      "url": "https://github.com/Mayandev/notion-avatar",
+      "applies_to": "Notion Avatar assets"
+    }
+  ],
+  "attribution": {
+    "required": "per-asset",
+    "credit_template": "Avatar style \"{style}\" by {artist} via DiceBear ({licence})"
+  },
+  "redistribution": "per-asset",
+  "commercial_use": "per-asset",
+  "ai_training": "unspecified",
+  "automated_download": "allowed",
+  "formats": [
+    "svg",
+    "png"
+  ],
+  "search": [
+    {
+      "label": "DiceBear",
+      "url": "https://github.com/dicebear/dicebear"
+    },
+    {
+      "label": "Boring Avatars",
+      "url": "https://github.com/boringdesigners/boring-avatars"
+    },
+    {
+      "label": "Notion Avatar",
+      "url": "https://github.com/Mayandev/notion-avatar"
+    }
+  ],
+  "cautions": [
+    "Check the licence of the specific DiceBear style before using it on screen.",
+    "Avoid the xkcd font for monetised stick-figure videos (CC BY-NC 3.0)."
+  ],
+  "verified": {
+    "on": "2026-10-10",
+    "how": "mixed"
+  }
+}

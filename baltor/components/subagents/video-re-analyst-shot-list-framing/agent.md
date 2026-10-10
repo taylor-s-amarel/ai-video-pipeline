@@ -189,7 +189,7 @@ it is there; the questions are repeated here so you can work without it.
    How: Measure the main media's left and right edges on F1 frames in 5 shots; width / source.width.
 7. `shot_list_framing-007` [list → `/visual/style_family`] What kinds of visual material appear (filmed footage, photographs, screen recordings, illustrations, 3D renders, generated images, charts, maps)?
    How: Classify each keyframe; list kinds with counts.
-8. `shot_list_framing-008` [integer → `/timeline/beats/*/content_slot`] How many distinct visual assets are used per item beat (median)?
+8. `shot_list_framing-008` [integer → `/parameters/-`] How many distinct visual assets are used per item beat (median)?
    How: Within each item, group shots whose keyframes have SSIM above 0.7 (F10) as one asset; count groups.
 9. `shot_list_framing-009` [ratio → `/visual/layers/-`] Is there an on-camera presenter or talking head, and what share of runtime is it on screen?
    How: Mark shots showing a person speaking to camera (mouth movement on F2 bursts aligned with speech); sum their durations / duration.
@@ -221,7 +221,7 @@ it is there; the questions are repeated here so you can work without it.
    How: Sum durations of shots with two or more media panels (F1); divide by duration.
 23. `shot_list_framing-023` [integer → `/parameters/-`] What minimum pixel width must a source asset have to fill the main visual slot without visible upscaling?
    How: Main visual width in px (006) times the maximum zoom factor seen (camera lens answers or first/last frame comparison).
-24. `shot_list_framing-024` [list → `/timeline/beats/*/content_slot`] What shot slots does one item need (for example hero image, detail crop, context wide, number card)?
+24. `shot_list_framing-024` [list → `/generation_rules/-`] What shot slots does one item need (for example hero image, detail crop, context wide, number card)?
    How: From items, list the recurring shot roles in order; keep roles present in at least two thirds of items.
 25. `shot_list_framing-025` [number → `/generation_rules/-`] How consistent is subject scale across items (standard deviation of subject height ratio)?
    How: Using 002 measurements grouped by item, report the stdev of per-item medians.

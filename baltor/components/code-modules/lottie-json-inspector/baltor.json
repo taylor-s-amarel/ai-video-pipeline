@@ -1,0 +1,51 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "lottie_json_inspector",
+  "title": "Lottie / dotLottie inspector",
+  "kind": "code-module",
+  "subkind": "qa-check",
+  "version": "1.0.0",
+  "summary": "Reports a Lottie or .lottie file's fps, length, canvas and aspect, layer types (spec core vs other), external images, fonts, expressions and 3D layers before it becomes a video overlay.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "verify",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "read",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "lottie_json_inspector.py",
+  "tags": [
+    "lottie",
+    "dotlottie",
+    "motion",
+    "overlay",
+    "inspection"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "examples": [
+    "python lottie_json_inspector.py confetti.json --target 1080x1920 --min-seconds 2"
+  ],
+  "review": {
+    "status": "unreviewed"
+  }
+}

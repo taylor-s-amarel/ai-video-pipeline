@@ -65,5 +65,5 @@
     "status": "unreviewed"
   },
   "evidence_stage": "considered",
-  "evidence_notes": "Idea from the 10 Oct 2026 creative catalogue (Creative Catalogue JSON Bundle 2026-10-10, Library libfile_ff6a4ae010508191b42073985cd7a4a1 v0, SHA-256 1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e), preserved in guide Appendix D line 6020. Not a completed script, not rendered, no audience study. Evidence class fictional_demonstration names the check a claim would need, not a check done. Its ten treatment addresses (R-ENT119-F06-A01 ...) are candidates, not screenplays."
+  "evidence_notes": "Idea from the 10 Oct 2026 creative catalogue (Creative Catalogue JSON Bundle 2026-10-10, Library libfile_ff6a4ae010508191b42073985cd7a4a1 v0, SHA-256 1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e), preserved in guide Appendix D line 6020. Not a completed script, not rendered, no audience study. Evidence class fictional_demonstration is a classification, not a completed check. Its ten treatment addresses (R-ENT119-F06-A01 ...) are candidates, not screenplays."
 }

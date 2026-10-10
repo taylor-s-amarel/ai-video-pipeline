@@ -5,7 +5,7 @@ description: "Use when choosing, developing or storyboarding catalogue premise E
 
 # EDU118 The Zipper Slider Makes Two Paths Meet
 
-**Catalogue family:** Learning, practical mechanisms (Appendix D, Learning practical mechanisms).  
+**Catalogue family:** Learning, practical mechanisms (Appendix D section "Learning practical mechanisms").  
 **Status:** idea. Not a completed script, not a rendered catalogue treatment, no audience study. Learning claims remain unverified until a claim-level check. Originality means authored for the catalogue, not an exhaustive prior-art search. The current story-first review may reject or substantially rewrite this premise.
 
 ## Premise (authored wording)
@@ -22,7 +22,7 @@ A character wants to understand a zipper without hiding the slider, but the outs
 
 **Evidence class:** `requires_primary_source_review`. **Original format tags:** mechanism_cutaway, silent_visual, prediction_quiz, step_by_step, behind_the_scenes.
 
-Factual checkability is not factual verification; the evidence class says what kind of check a claim would need, not that it was done.
+Factual checkability is not factual verification: the evidence class classifies how a claim could be checked; it does not record that any check was done.
 
 ## Beat structure as given
 

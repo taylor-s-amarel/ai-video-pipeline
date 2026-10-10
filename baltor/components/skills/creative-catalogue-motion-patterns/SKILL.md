@@ -1,6 +1,6 @@
 ---
 name: "creative-catalogue-motion-patterns"
-description: "Use when choosing thirty motion patterns for a short animated or explainer film from the October 2026 creative catalogue. Thirty motion patterns (M01-M30): mechanism, fit and the check each needs. Every row keeps its gate or check; these are proposals, not tested recipes."
+description: "Use when choosing camera or object motion that carries a story beat or an explanation. Thirty motion patterns (M01-M30): mechanism, fit and the check each needs. From the October 2026 creative catalogue; every row keeps its gate or check, and these are proposals, not tested recipes."
 ---
 
 # Creative catalogue: thirty motion patterns

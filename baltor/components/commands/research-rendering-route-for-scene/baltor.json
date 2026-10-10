@@ -5,7 +5,7 @@
   "kind": "command",
   "subkind": "prompt-template",
   "version": "1.0.0",
-  "summary": "Owner's copy-ready task template, verbatim: For the specified scene and quality target, compare several materially different routes using current primary documentation and actual available tools.",
+  "summary": "Owner's template \"Research a rendering route\": For the specified scene and quality target, compare several materially different routes using current primary documentation and actual available tools.",
   "description": "The owner's copy-ready task template \"Research a rendering route\" (Animation and Video Production Master Guide (10 Oct 2026)), with the template text unchanged and its inputs passed as $ARGUMENTS. Instructions for bounded work, not a guarantee: missing inputs are marked unresolved, never invented.",
   "domain": "video",
   "licence": "MIT",

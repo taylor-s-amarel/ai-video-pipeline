@@ -143,7 +143,7 @@
   why: "Fills title colour and backing, both common parameters."
   how: "F9 average colour on a crop inside a letter stroke (choose a thick stroke, 3x3 px), and F3 crop of the backing; compare the backing region in two frames with different backgrounds to tell blur from a solid plate."
   evidence: ["frames: F9 text colour", "frames: F3 backing crop"]
-  ir_path: "/typography/title/color"
+  ir_path: "/typography/title/first_frame_style"
   type: object
   challenge: "Anti-aliased edges and compression shift colour; resample in two other letters and report the spread."
 

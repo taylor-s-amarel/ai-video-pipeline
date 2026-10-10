@@ -1,0 +1,61 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "sketchfab_downloadable_models",
+  "title": "Sketchfab downloadable models (per-model CC licences)",
+  "kind": "skill",
+  "subkind": "media-source",
+  "version": "1.0.0",
+  "summary": "Pick Sketchfab downloads whose per-model licence fits the use, credit them correctly, and avoid NC, ND and Editorial traps.",
+  "description": "Use when a scan, museum object or hero model is only available on Sketchfab. Downloadable models carry a per-model Creative Commons licence (CC0, BY, BY-SA, BY-ND, BY-NC); store purchases use Standard or Editorial licences. Covers filters, credit format, NC/ND pitfalls and import.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "notes": "Describes https://help.sketchfab.com/en/articles/16152221-choosing-your-model-s-license (checked 2026-10-10); contains no third-party media."
+  },
+  "step_kinds": [
+    "research",
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "licensing",
+    "sketchfab",
+    "cc-by",
+    "scans",
+    "museum",
+    "3d"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "asset_source_profile"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

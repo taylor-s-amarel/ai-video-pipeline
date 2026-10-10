@@ -1,0 +1,60 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "blenderkit_and_fab_licences",
+  "title": "Royalty-free marketplaces (BlenderKit, Fab) - what you may not do",
+  "kind": "skill",
+  "subkind": "media-source",
+  "version": "1.0.0",
+  "summary": "Handle BlenderKit Royalty Free and Fab Standard License assets: use them in renders, never redistribute the files.",
+  "description": "Use when an asset comes from BlenderKit (Royalty Free or CC0) or Epic's Fab (Fab Standard License, formerly Megascans). These are not CC licences: use inside your work is broad, but redistributing the asset files is not allowed. Explains how to keep them out of repositories and Baltor packages.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "notes": "Describes https://www.blenderkit.com/docs/licenses/ (checked 2026-10-10); contains no third-party media."
+  },
+  "step_kinds": [
+    "research",
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "licensing",
+    "blenderkit",
+    "fab",
+    "megascans",
+    "royalty-free"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "asset_source_profile"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

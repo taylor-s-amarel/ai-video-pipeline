@@ -1,0 +1,82 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "asset_kits_plugin",
+  "title": "Asset Kits plugin",
+  "kind": "plugin-manifest",
+  "subkind": "plugin-bundle",
+  "version": "1.0.0",
+  "summary": "Claude Code plugin manifest bundling the asset source skills, starter-pack manifests, the licence auditor subagent and the /asset-pack and /credit-assets commands.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code"
+  ],
+  "entry": "plugin.json",
+  "tags": [
+    "plugin",
+    "assets",
+    "claude-code"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "kenney_assets_cc0"
+    },
+    {
+      "identity": "quaternius_low_poly_assets"
+    },
+    {
+      "identity": "kaykit_asset_packs"
+    },
+    {
+      "identity": "poly_haven_assets"
+    },
+    {
+      "identity": "ambientcg_materials"
+    },
+    {
+      "identity": "poly_pizza_models"
+    },
+    {
+      "identity": "opengameart_assets"
+    },
+    {
+      "identity": "itch_io_cc0_assets"
+    },
+    {
+      "identity": "sketchfab_downloadable_models"
+    },
+    {
+      "identity": "khronos_gltf_sample_assets"
+    },
+    {
+      "identity": "asset_licence_auditor"
+    },
+    {
+      "identity": "asset_pack"
+    },
+    {
+      "identity": "credit_assets"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

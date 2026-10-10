@@ -1,0 +1,9 @@
+{
+  "events": [
+    { "t_s": 2.08, "kind": "jump-cut", "direction": "in", "scale_jump": 0, "duration_s": 0.0, "ncc": 1.4, "on_beat": "yes", "beat_offset_s": -0.021 }
+  ],
+  "count": 1,
+  "per_minute": 6.4,
+  "median_scale_in": 0.5,
+  "beats_available": true
+}

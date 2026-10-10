@@ -1,0 +1,47 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "asset_sourcing_step_instructions",
+  "title": "Instructions for an asset sourcing step",
+  "kind": "instruction-file",
+  "subkind": "step-template",
+  "version": "1.0.0",
+  "summary": "CLAUDE.md / AGENTS.md section for a step that sources 2D/3D/audio assets: manifest first, CC0 first, project-only files ignored, inspect and preset before import.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "plan",
+    "build"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "INSTRUCTIONS.md",
+  "tags": [
+    "assets",
+    "instructions",
+    "claude-md",
+    "agents-md"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

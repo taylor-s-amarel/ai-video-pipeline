@@ -1,0 +1,52 @@
+{
+  "spec": "baltor.asset-source/v1",
+  "source_id": "spine-and-dragonbones-runtimes",
+  "name": "Skeletal 2D animation runtimes (Spine licence vs DragonBones MIT)",
+  "homepage": "https://github.com/EsotericSoftware/spine-runtimes",
+  "licence_summary": "Spine Runtimes License: integrating the runtimes requires a valid Spine Editor licence (or every user needs one); the trial grants no runtime rights. DragonBonesJS is MIT.",
+  "licences": [
+    {
+      "id": "Spine-Runtimes-License",
+      "url": "https://eu.esotericsoftware.com/spine-runtimes-license",
+      "applies_to": "Spine runtimes incl. spine-godot"
+    },
+    {
+      "id": "MIT",
+      "url": "https://github.com/DragonBones/DragonBonesJS",
+      "applies_to": "DragonBones JS runtime"
+    }
+  ],
+  "attribution": {
+    "required": "never",
+    "credit_template": ""
+  },
+  "redistribution": "per-asset",
+  "commercial_use": "check-terms",
+  "ai_training": "unspecified",
+  "automated_download": "allowed",
+  "formats": [
+    "json",
+    "png"
+  ],
+  "search": [
+    {
+      "label": "Spine runtimes",
+      "url": "https://github.com/EsotericSoftware/spine-runtimes"
+    },
+    {
+      "label": "Spine Editor licence",
+      "url": "https://en.esotericsoftware.com/spine-editor-license"
+    },
+    {
+      "label": "DragonBonesJS",
+      "url": "https://github.com/DragonBones/DragonBonesJS"
+    }
+  ],
+  "cautions": [
+    "Do not ship spine-godot in a public template unless you hold a Spine Editor licence and follow its terms."
+  ],
+  "verified": {
+    "on": "2026-10-10",
+    "how": "mixed"
+  }
+}

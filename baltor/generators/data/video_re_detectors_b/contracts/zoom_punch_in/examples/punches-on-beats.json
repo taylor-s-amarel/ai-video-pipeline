@@ -1,0 +1,11 @@
+{
+  "events": [
+    { "t_s": 2.08, "kind": "instant", "direction": "in", "scale_jump": 1.152, "duration_s": 0.0, "ncc": 0.93, "on_beat": true, "beat_offset_s": -0.021 },
+    { "t_s": 3.16, "kind": "instant", "direction": "out", "scale_jump": 0.868, "duration_s": 0.0, "ncc": 0.94, "on_beat": true, "beat_offset_s": 0.012 },
+    { "t_s": 7.4, "kind": "ramp", "direction": "in", "scale_jump": 1.21, "duration_s": 0.2, "ncc": null, "on_beat": false, "beat_offset_s": 0.18 }
+  ],
+  "count": 3,
+  "per_minute": 6.4,
+  "median_scale_in": 1.181,
+  "beats_available": true
+}

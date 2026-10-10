@@ -1,0 +1,78 @@
+collection:
+  id: updates-agents-coding-agents
+  title: "Coding agents and harnesses: changelogs, CI actions and plugin catalogues"
+  description: "Changelog files, release feeds and changelog pages for coding agents and their CI integrations: the Claude Code CHANGELOG.md, Claude Code and Codex GitHub Actions, GitHub Copilot CLI and agentic workflows, Cursor, Windsurf, Roo Code, Kilo Code, Zed, Crush, Qwen Code, Auggie, OpenClaw and others. Settings keys, hook events, permission rules and plugin formats change here, so an agent that ships harness files should watch the harnesses its users run. Release feeds for Claude Code, Codex CLI, OpenCode, Pi, Gemini CLI, Aider, Cline, Continue, goose and OpenHands are in community-releases-agents-ai and are not repeated."
+  tags: [coding-agents, harness, changelog, ci]
+  defaults: {terms: github, poll: release, feed_format: github-releases, auth: none, verification: fetched,
+             change_types: [release, breaking-change, deprecation, security]}
+
+items:
+  - id: claude-code-changelog-md
+    title: "Claude Code CHANGELOG.md"
+    url: "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md"
+    gh: anthropics/claude-code
+    feed: "raw:main:CHANGELOG.md"
+    feed_format: html-diff
+    terms: github-raw
+    poll: release
+    summary: "The full Markdown changelog for Claude Code, one heading per version with every settings key, hook, subagent frontmatter field and plugin change (2.1.296 added a 'code' key to Claude apps gateway managed policies and autoCompactWindow in subagent frontmatter). Diff the headings to get per-version change lists that the release feed only links to."
+    vendor: Anthropic
+    products: [Claude Code]
+    seen: "newest heading 2.1.296"
+    cautions: ["The file is close to 1 MB; fetch with If-None-Match and parse only new headings."]
+  - {gh: anthropics/claude-code-action, title: "Claude Code GitHub Action releases", vendor: Anthropic, products: [claude-code-action], seen: "Claude Code GitHub Action v1.0 on 2026-10-09", summary: "Release notes for anthropics/claude-code-action, which runs Claude Code in GitHub Actions for PR review and issue work; input names and permissions change here."}
+  - id: claude-plugins-official-commits
+    title: "Claude Code official plugin directory commits"
+    gh: anthropics/claude-plugins-official
+    feed: "commits:main"
+    feed_format: atom
+    summary: "Commit feed of Anthropic's official Claude Code plugin directory; new and bumped plugins arrive as commits (for example a Snowflake Cortex Code plugin bump on 2026-10-09)."
+    vendor: Anthropic
+    products: [Claude Code plugins]
+    seen: "'bump(snowflake-cortex-code) ...' on 2026-10-09"
+    change_types: [release, security]
+  - {gh: openai/codex-action, title: "Codex GitHub Action releases", vendor: OpenAI, products: [codex-action], seen: "v1.13 on 2026-10-05", summary: "Release notes for openai/codex-action, which runs Codex in GitHub Actions workflows."}
+  - {gh: github/copilot-cli, title: "GitHub Copilot CLI releases", vendor: GitHub, products: [GitHub Copilot CLI], seen: "1.0.96-2 on 2026-10-10", summary: "Release notes for GitHub Copilot CLI, the terminal coding agent (npm @github/copilot); several releases a week."}
+  - {gh: github/gh-aw, title: "GitHub Agentic Workflows (gh-aw) releases", vendor: GitHub, products: [gh-aw], seen: "v0.91.7 on 2026-10-09", summary: "Release notes for gh-aw, GitHub's CLI extension for agentic workflows written in Markdown and compiled to GitHub Actions."}
+  - {gh: google-github-actions/run-gemini-cli, title: "Run Gemini CLI GitHub Action releases", vendor: Google, products: [run-gemini-cli], seen: "v0.1.22 on 2026-04-24", summary: "Release notes for the GitHub Action that runs Gemini CLI in workflows."}
+  - {gh: RooCodeInc/Roo-Code, title: "Roo Code releases", vendor: Roo Code, products: [Roo Code], seen: "Release v3.54.0 on 2026-05-15", summary: "Release notes for Roo Code, the VS Code agent extension.", cautions: ["No release between May and October 2026; check project status before recommending it."]}
+  - {gh: Kilo-Org/kilocode, title: "Kilo Code releases", vendor: Kilo Code, products: [Kilo Code, Kilo CLI], seen: "kilo-v2-checkpoints-2026-09 on 2026-10-08", summary: "Release feed for Kilo Code (VS Code/JetBrains extension and CLI).", cautions: ["Checkpoint tags share the feed with versions; the npm @kilocode/cli feed gives clean versions."]}
+  - {gh: zed-industries/zed, title: "Zed releases", vendor: Zed Industries, products: [Zed], seen: "nightly 'agent: Use ACP v2 content for native prompts' on 2026-10-09", summary: "Release notes for the Zed editor, whose agent panel and Agent Client Protocol support change quickly.", cautions: ["Stable, preview and nightly releases share the feed; filter by title."]}
+  - {gh: charmbracelet/crush, title: "Crush releases", vendor: Charm, products: [Crush], seen: "nightly on 2026-10-10", summary: "Release notes for Crush, Charm's terminal coding agent (npm @charmland/crush, licence FSL-1.1-MIT).", cautions: ["Nightly entries share the feed."]}
+  - {gh: QwenLM/qwen-code, title: "Qwen Code releases", vendor: Alibaba Qwen, products: [Qwen Code], seen: "Release v0.25.1-preview.1 on 2026-10-09", summary: "Release notes for Qwen Code, the terminal coding agent derived from Gemini CLI and tuned for Qwen coder models.", cautions: ["Feed is about 1.3 MB; previews share it."]}
+  - {gh: augmentcode/auggie, title: "Auggie CLI releases", vendor: Augment Code, products: [Auggie], seen: "auggie-v2 v1.2.0-prerelease on 2026-10-09", summary: "Release feed for Augment Code's Auggie CLI agent.", cautions: ["Pre-releases share the feed."]}
+  - {gh: openclaw/openclaw, title: "OpenClaw releases", vendor: OpenClaw, products: [OpenClaw], seen: "openclaw 2026.9.9 on 2026-10-08", summary: "Release notes for OpenClaw, the self-hosted personal agent gateway with Agent Skills support.", cautions: ["Feed is about 930 KB."]}
+  - {gh: voideditor/void, title: "Void editor releases", vendor: Void, products: [Void], seen: "Beta on 2026-05-13", summary: "Release feed for Void, an open-source AI code editor."}
+  - {gh: SWE-agent/SWE-agent, title: "SWE-agent releases", vendor: Princeton/Stanford SWE-agent team, products: [SWE-agent], seen: "v1.1.0 on 2025-05-22", summary: "Release feed for SWE-agent, the research software-engineering agent.", cautions: ["No release since May 2025."]}
+  - {gh: TabbyML/tabby, title: "Tabby releases", vendor: TabbyML, products: [Tabby], seen: "nightly on 2026-03-02", summary: "Release feed for Tabby, a self-hosted coding assistant.", cautions: ["No release since March 2026."]}
+  - id: cursor-changelog
+    title: "Cursor changelog"
+    url: "https://cursor.com/changelog"
+    feed_format: html-diff
+    terms: vendor-docs
+    poll: changelog
+    verification: search-result
+    summary: "Cursor's changelog with one page per release (models, agent mode, rules, MCP and CLI changes). Search results returned versioned and paged URLs under cursor.com/changelog."
+    vendor: Anysphere
+    products: [Cursor, Cursor CLI]
+    cautions: ["No feed URL was confirmed; diff the index page."]
+  - id: windsurf-changelog
+    title: "Windsurf changelog"
+    url: "https://windsurf.com/changelog"
+    feed_format: html-diff
+    terms: vendor-docs
+    poll: changelog
+    verification: search-result
+    summary: "Windsurf editor changelog, linked from the site's resources footer; model additions (for example GPT-5.5 support in 2.0.67) and Cascade changes appear here."
+    vendor: Cognition
+    products: [Windsurf]
+  - id: gemini-cli-changelog-page
+    title: "Gemini CLI release notes page"
+    url: "https://geminicli.com/docs/changelogs/"
+    feed_format: html-diff
+    terms: vendor-docs
+    poll: changelog
+    verification: search-result
+    summary: "Human-written Gemini CLI release notes with weekly highlights, complementing the nightly-heavy GitHub release feed in community-releases-agents-ai."
+    vendor: Google
+    products: [Gemini CLI]

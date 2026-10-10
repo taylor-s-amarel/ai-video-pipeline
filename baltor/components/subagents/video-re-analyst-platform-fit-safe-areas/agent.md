@@ -195,7 +195,7 @@ it is there; the questions are repeated here so you can work without it.
    How: ffmpeg cropdetect over 10 s: ffmpeg -i SRC -vf cropdetect -t 10 -f null - 2>&1 | tail -3.
 10. `platform_fit_safe_areas-010` [object → `/render_binding/mapping/video_format`] What are the video codec, profile, pixel format and bitrate?
    How: A7 stream and format fields.
-11. `platform_fit_safe_areas-011` [number → `/audio/integrated_lufs`] How does integrated loudness compare with common streaming normalisation targets (difference in LU from a target the run specifies)?
+11. `platform_fit_safe_areas-011` [number → `/render_binding/mapping/loudness_target_delta_lu`] How does integrated loudness compare with common streaming normalisation targets (difference in LU from a target the run specifies)?
    How: evidence.audio.integrated_lufs minus the target given in the run parameters; if none, report the value only.
 12. `platform_fit_safe_areas-012` [object → `/source/platform`] Are platform UI elements, usernames or watermarks burned into the frames?
    How: F3 crops of corners and edges at 3 times.
@@ -227,7 +227,7 @@ it is there; the questions are repeated here so you can work without it.
    How: Collect 001, 002, 004, 011 and 019.
 26. `platform_fit_safe_areas-026` [rule → `/generation_rules/-`] Write the safe-box rule for text and key subjects as fractions of width and height.
    How: From 005-007 and 019, for example 'text inside x 0.06-0.85, y 0.10-0.80'.
-27. `platform_fit_safe_areas-027` [enum → `/source/platform`] Is the file a re-encode of an earlier upload (double compression signs, burned UI, odd bitrate)? Choices: likely-original-export, likely-re-encode, not-determinable.
+27. `platform_fit_safe_areas-027` [enum → `/render_binding/mapping/source_is_reencode`] Is the file a re-encode of an earlier upload (double compression signs, burned UI, odd bitrate)? Choices: likely-original-export, likely-re-encode, not-determinable.
    How: A7 encoder tags, F3 crops for blocking, burned-in UI from 012; method inferred.
 28. `platform_fit_safe_areas-028` [seconds → `/render_binding/mapping/gop_s`] What keyframe (GOP) interval does the file use?
    How: ffprobe -select_streams v -skip_frame nokey -show_entries frame=pts_time -of csv SRC | head -20; median interval.

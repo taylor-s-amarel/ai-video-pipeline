@@ -16,6 +16,6 @@ Each sentence of the guide's section is one rule, in its original order:
 
 From the story contract: Suspense comes from uncertainty with understandable consequences, not merely dark music or a slowly opening door.
 
-Check on a board: write the concrete question in one sentence; point to the shots that show success and failure; list the choices still open after each shot and confirm the list narrows; for any clock, name the decision it changes; for any apparent escape, name its cost or the relationship it reveals.
+Operational check added for this package (not guide wording): write the concrete question in one sentence; point to the shots that show success and failure; list the choices still open after each shot and confirm the list narrows; for any clock, name the decision it changes; for any apparent escape, name its cost or the relationship it reveals.
 
 Status language: an idea or proposal is not a script; a storyboard is not a render; a render is not a delivery; a technical delivery is not creative acceptance; an editorial review is not audience evidence. Record the strongest stage actually observed and never upgrade it.

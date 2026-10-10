@@ -1,0 +1,6 @@
+title: Alpha compositing (Porter-Duff over)
+summary: Numpy Porter-Duff OVER for straight and premultiplied RGBA, clipped placement of layers at positions and a bottom-up layer stack with the 0.98 opacity cap, matching Pillow results.
+subkind: layer-stack
+domain: video
+tags: [video, compositing, alpha, porter-duff, numpy, layers]
+step_kinds: [build, render]

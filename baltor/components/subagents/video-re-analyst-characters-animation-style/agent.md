@@ -233,7 +233,7 @@ it is there; the questions are repeated here so you can work without it.
    How: Inspect F1 frames for text attached to objects.
 30. `characters_animation_style-030` [boolean → `/generation_rules/-`] Does a character's appearance stay consistent between shots (same proportions, colours, features)?
    How: F10 and F3 comparisons of the same character in different shots.
-31. `characters_animation_style-031` [integer → `/timeline/beats/*/content_slot`] How many scenes (distinct environments) does each item use?
+31. `characters_animation_style-031` [integer → `/parameters/-`] How many scenes (distinct environments) does each item use?
    How: Group shots per item by environment.
 32. `characters_animation_style-032` [distribution → `/render_binding/mapping/impact_pause_ms`] Before a comedic or dramatic impact, how long is the pause (ms) between set-up and impact?
    How: F8 and A1 around 3 impacts; time from the last set-up motion to impact.

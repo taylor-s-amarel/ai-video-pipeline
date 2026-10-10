@@ -1,0 +1,105 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "video_re_detect_letterbox_pillarbox",
+  "title": "Detect letterbox and pillarbox bars",
+  "kind": "code-module",
+  "subkind": "evaluator",
+  "version": "1.0.0",
+  "summary": "Finds solid or blurred-fill bars on each frame edge of a video and reports their size in source pixels, colour, style and the content rectangle, as a detection envelope.",
+  "description": "Scans rows and columns inwards from each edge of sampled frames. Solid bars are lines whose pixels stay within a colour tolerance of the bar colour; static titles inside a bar are allowed when the bar resumes after them. Blurred-fill bars (a blurred copy of the video behind a fitted clip) are low-gradient edge regions that change over time. Thickness uses a low percentile across frames so dark scenes do not widen the bar.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "measure",
+    "review"
+  ],
+  "effects": {
+    "filesystem": "read",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "runs ffprobe and ffmpeg as subprocesses to decode the input video"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "video_re_detect_letterbox_pillarbox.py",
+  "tags": [
+    "video",
+    "reverse-engineering",
+    "detector",
+    "geometry",
+    "framing",
+    "letterbox",
+    "pillarbox",
+    "bars",
+    "aspect"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "video_re_contract_letterbox_pillarbox"
+    },
+    {
+      "identity": "ffmpeg",
+      "external": true
+    },
+    {
+      "identity": "ffprobe",
+      "external": true
+    },
+    {
+      "identity": "numpy",
+      "external": true
+    },
+    {
+      "identity": "jsonschema",
+      "external": true
+    },
+    {
+      "identity": "pytest",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_re_detectors_a.py",
+    "data": "generators/data/video_re_detectors_a",
+    "parameters": {
+      "family": "geometry",
+      "property": "letterbox_pillarbox",
+      "defaults": {
+        "tol": 12.0,
+        "pixel_frac": 0.97,
+        "frame_quorum": 0.9,
+        "blur_ratio": 0.2,
+        "min_bar_px": 2,
+        "overlay_frac": 0.5,
+        "overlay_tstd": 3.0
+      },
+      "decode": {
+        "width": 480,
+        "fps": 1.0,
+        "max_frames": 90
+      },
+      "question_bank": "video_re_qbank_letterbox_pillarbox"
+    }
+  },
+  "examples": [
+    "python3 video_re_detect_letterbox_pillarbox.py short.mp4 --out letterbox.json"
+  ],
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "pytest passed on synthetic fixtures with known ground truth (Python 3.13, numpy 2.x, jsonschema 4.x) including a lossless FFV1 command-line round trip with ffmpeg 6.1."
+  }
+}

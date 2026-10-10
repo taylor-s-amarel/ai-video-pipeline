@@ -176,12 +176,12 @@ it is there; the questions are repeated here so you can work without it.
 1. `background_system-001` [enum → `/visual/layers/-`] What is the background made of (looping video, still image, gradient, procedural pattern, blurred copy of the foreground, solid colour)? Choices: video-loop, still, gradient, procedural-pattern, blurred-foreground-copy, solid, mixed.
    How: Inspect border regions on F1 frames across beats and F2 bursts; a blurred copy mirrors foreground colours and shapes.
 2. `background_system-002` [boolean → `/generation_rules/-`] Does the background move during every shot?
-   How: F5 on the top 15% and bottom 15% bands (regions without text); a shot passes when the mean difference exceeds 0.6 (0-255 scale) for every 2 s window. Also read evidence.shots[].motion_energy.border.
+   How: F5 on the top 15% and bottom 15% bands (regions without text); a shot passes when the mean difference exceeds 0.6 (0-255 scale, the threshold the short_video_house_style rules use) for every 2 s window. Also read evidence.shots[].motion_energy.border.
 3. `background_system-003` [number → `/motion/background_motion_level`] What is the background motion level (mean absolute frame difference in background regions, median over shots)?
    How: Median over shots of evidence.shots[].motion_energy.border (video_re_motion_energy: mean absolute grey-level difference between consecutive frames, 0-255, at 160 px analysis width, outside the central 60% x 60% box). Cross-check 3 shots with F5 on text-free bands.
 4. `background_system-004` [enum → `/parameters/-`] Does the background change per beat, per shot, or stay the same for the whole video? Choices: per-shot, per-beat, constant, mixed.
    How: F10 SSIM between background crops at the start of each beat.
-5. `background_system-005` [palette → `/visual/palette`] What are the background's dominant colours?
+5. `background_system-005` [palette → `/parameters/-`] What are the background's dominant colours?
    How: F9 average colour of background crops in 5 shots, or evidence.shots[].palette when the background dominates the frame.
 6. `background_system-006` [number → `/generation_rules/-`] How much darker or lighter is the background than the foreground subject (luma difference)?
    How: F6 YAVG on a background crop versus a subject crop in 5 shots.
@@ -222,7 +222,7 @@ it is there; the questions are repeated here so you can work without it.
 24. `background_system-024` [boolean → `/generation_rules/-`] Is the background kept calm behind text (less detail or motion where captions and titles sit)?
    How: Compare edge density and F5 motion in the caption band against other bands.
 25. `background_system-025` [ratio → `/generation_rules/-`] How busy is the background directly behind the captions (edge density or local contrast)?
-   How: On F3 crops of the caption band without text, run an edge filter (ffmpeg -vf edgedetect) and report the share of edge pixels.
+   How: On F3 crops of the caption band without text, run ffmpeg -vf edgedetect,signalstats and read YAVG: YAVG / 255 approximates the share of edge pixels. Report crop coordinates and the value.
 26. `background_system-026` [list → `/visual/layers/-`] Are there depth cues inside the background (bokeh circles, haze, perspective lines)?
    How: Inspect F3 background crops.
 27. `background_system-027` [boolean → `/generation_rules/-`] Is the background in the hook different from the body background?

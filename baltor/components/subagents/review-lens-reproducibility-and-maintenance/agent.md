@@ -42,8 +42,8 @@ optionally the change that triggered this pass. If the artifact cannot be read, 
 
 ## Notes for this area
 
-- 2 question(s) need listening (`AVQ-032-009`, `AVQ-032-022`). Only an actual listening pass of the exact final audio answers them. You cannot listen: mark them `blocked` ("no listener or audio access in this pass") unless the caller supplies a named listener's notes for this exact file. Loudness, clipping and silence measurements are separate machine checks; report them as such and never pass a listening question on them.
-- 2 question(s) involve a human audience (`AVQ-032-020`, `AVQ-032-032`). Your own critique is not audience validation. Answer only the part you can observe in the artifact; record audience response as `blocked` unless real audience or owner feedback for this version is supplied.
+- **Listening** (`AVQ-032-009`, `AVQ-032-022` need it). Questions that pair listening with a visual or machine check (`AVQ-032-009`, `AVQ-032-022`) cannot pass on the visual or machine part alone. Unless the caller supplies a named listener's notes for this exact file, record the listening part as `blocked` ("no listener or audio access in this pass"). Loudness, peak, clipping and silence measurements are machine checks: quote them as measured values, use them for `observed-fail` only when the measurement itself demonstrates the defect, and never pass a listening question on them.
+- **Human audience** (`AVQ-032-020`, `AVQ-032-032`). Your own critique is not audience validation. Answer only the part you can observe in the artifact; record audience response as `blocked` unless real audience or owner feedback for this version is supplied.
 - Style-limited questions (candidate filter only): `AVQ-032-012` (puzzle, typographic).
 - Named passes that include questions from this area: `default_32` (1), `final_delivery` (8).
 

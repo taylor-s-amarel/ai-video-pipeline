@@ -1,0 +1,57 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "asset_licence_auditor",
+  "title": "Asset licence auditor",
+  "kind": "subagent",
+  "subkind": "review-lens",
+  "version": "1.0.0",
+  "summary": "Subagent that matches every media file to a manifest entry by name or SHA-256, runs the licence checker for the project's use profile and reports credits and redistribution problems.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "review",
+    "verify",
+    "secure"
+  ],
+  "effects": {
+    "filesystem": "read",
+    "network": "none",
+    "executes": "shell",
+    "secrets": [],
+    "side_effects": [
+      "runs sha256sum, git ls-files and the licence checker"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "opencode",
+    "baltor-harness"
+  ],
+  "entry": "agent.md",
+  "tags": [
+    "assets",
+    "licensing",
+    "review",
+    "subagent"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "asset_licence_checker"
+    },
+    {
+      "identity": "agent_media_pack_manifest"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

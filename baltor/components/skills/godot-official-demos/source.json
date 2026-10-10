@@ -1,0 +1,62 @@
+{
+  "spec": "baltor.asset-source/v1",
+  "source_id": "godot-official-demos",
+  "name": "Godot official demo projects and TPS demo",
+  "homepage": "https://github.com/godotengine/godot-demo-projects",
+  "licence_summary": "godot-demo-projects is MIT. Bundled third-party textures, fonts and music keep their own licences (e.g. the voxel demo's Minetest textures are CC BY-SA 3.0/CC0). The TPS demo's code is MIT and its assets and music CC-BY 3.0.",
+  "licences": [
+    {
+      "id": "MIT",
+      "url": "https://github.com/godotengine/godot-demo-projects/blob/master/LICENSE.md",
+      "applies_to": "demo code"
+    },
+    {
+      "id": "CC-BY-3.0",
+      "url": "https://raw.githubusercontent.com/godotengine/tps-demo/master/LICENSE.md",
+      "applies_to": "TPS demo assets and music"
+    }
+  ],
+  "attribution": {
+    "required": "per-asset",
+    "credit_template": "Based on Godot demo projects (MIT); assets per demo README"
+  },
+  "redistribution": "allowed-with-licence",
+  "commercial_use": "allowed",
+  "ai_training": "unspecified",
+  "automated_download": "allowed",
+  "formats": [
+    "tscn",
+    "gd",
+    "png",
+    "glb"
+  ],
+  "search": [
+    {
+      "label": "Demo repository",
+      "url": "https://github.com/godotengine/godot-demo-projects"
+    },
+    {
+      "label": "2D platformer",
+      "url": "https://github.com/godotengine/godot-demo-projects/tree/master/2d/platformer"
+    },
+    {
+      "label": "Isometric",
+      "url": "https://github.com/godotengine/godot-demo-projects/tree/master/2d/isometric"
+    },
+    {
+      "label": "AStarGrid2D navigation",
+      "url": "https://github.com/godotengine/godot-demo-projects/tree/master/2d/navigation_astar"
+    },
+    {
+      "label": "TPS demo",
+      "url": "https://github.com/godotengine/tps-demo"
+    }
+  ],
+  "cautions": [
+    "Read each demo's README credits before reusing its art or music."
+  ],
+  "verified": {
+    "on": "2026-10-10",
+    "how": "mixed"
+  }
+}

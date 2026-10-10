@@ -1,0 +1,51 @@
+{
+  "spec": "baltor.asset-source/v1",
+  "source_id": "rive-community-files",
+  "name": "Rive community and marketplace files (CC BY)",
+  "homepage": "https://rive.app/docs/community/community-overview",
+  "licence_summary": "Rive docs: community files and marketplace files are shared under a CC BY licence (record the version shown on the file page). The Rive runtimes (rive-runtime, rive-wasm) are MIT.",
+  "licences": [
+    {
+      "id": "CC-BY",
+      "url": "https://rive.app/docs/community/community-overview",
+      "applies_to": "community files"
+    },
+    {
+      "id": "MIT",
+      "url": "https://github.com/rive-app/rive-wasm",
+      "applies_to": "web runtime"
+    }
+  ],
+  "attribution": {
+    "required": "required",
+    "credit_template": "Animation: \"{title}\" by {creator}, Rive community (CC BY)"
+  },
+  "redistribution": "allowed-with-licence",
+  "commercial_use": "allowed",
+  "ai_training": "unspecified",
+  "automated_download": "unspecified",
+  "formats": [
+    "riv"
+  ],
+  "search": [
+    {
+      "label": "Community overview",
+      "url": "https://rive.app/docs/community/community-overview"
+    },
+    {
+      "label": "Marketplace overview",
+      "url": "https://www.rive.app/docs/community/marketplace-overview"
+    },
+    {
+      "label": "rive-wasm runtime",
+      "url": "https://github.com/rive-app/rive-wasm"
+    }
+  ],
+  "cautions": [
+    "Credit the original author of every remixed file."
+  ],
+  "verified": {
+    "on": "2026-10-10",
+    "how": "mixed"
+  }
+}

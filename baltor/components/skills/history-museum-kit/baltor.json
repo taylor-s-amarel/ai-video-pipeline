@@ -1,0 +1,68 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "history_museum_kit",
+  "title": "History and museum kit (CC0 records, ruins, castles)",
+  "kind": "skill",
+  "subkind": "rights-manifest",
+  "version": "1.0.0",
+  "summary": "Media pack manifest for history shorts - Smithsonian CC0 records, NASA Apollo model, CC0 castle, ruins, graveyard and skeleton kits, and CC0 stone/wood textures.",
+  "description": "Use when a history short ('today in history', battles, ancient sites) needs props and sources. Lists Smithsonian Open Access metadata (CC0 records), the NASA Apollo LM GLB (hashed), CC0 Kenney castle and graveyard kits, Quaternius modular ruins, KayKit skeletons and CC0 textures.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "plan",
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "media-pack",
+    "manifest",
+    "history",
+    "museum",
+    "castle",
+    "ruins",
+    "shorts"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "media_pack_fetcher"
+    },
+    {
+      "identity": "asset_licence_checker"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits",
+    "parameters": {
+      "assets": 8,
+      "status": "partially-fetched"
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

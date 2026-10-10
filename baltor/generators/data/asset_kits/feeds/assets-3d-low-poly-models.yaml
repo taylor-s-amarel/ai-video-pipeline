@@ -301,11 +301,10 @@ items:
   - id: kaykit-city-builder-bits-github
     title: "KayKit City Builder Bits 1.0 (GitHub)"
     url: https://github.com/KayKit-Game-Assets/KayKit-City-Builder-Bits-1.0
-    summary: "GitHub-hosted KayKit city-building set for planning, simulation and RTS scenes; direct git/raw download suits agents."
-    licence_url: https://creativecommons.org/publicdomain/zero/1.0/deed.en
+    summary: "Low-poly city-building set for planning, simulation and RTS scenes in OBJ, FBX and glTF; the repo states CC0 1.0 Universal, no attribution required. Direct git/raw download suits agents."
+    licence_url: https://github.com/KayKit-Game-Assets/KayKit-City-Builder-Bits-1.0
     verification: fetched
     tags: [city, github, kaykit]
-    cautions: ["The organisation page lists no licence text; confirm the repo's LICENSE file before relying on CC0."]
   - id: kaykit-github-org
     title: "KayKit-Game-Assets GitHub organisation"
     url: https://github.com/KayKit-Game-Assets
@@ -314,7 +313,7 @@ items:
     verification: fetched
     kind: repository
     tags: [github, kaykit, index]
-    cautions: ["Licence text is per repository; check each LICENSE file."]
+    cautions: ["Licence text is per repository (the City Builder Bits, Adventurers and Skeletons repos state CC0 1.0)."]
   - id: poly-pizza
     title: "Poly Pizza: free low-poly models"
     url: https://poly.pizza/

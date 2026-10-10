@@ -1,0 +1,66 @@
+{
+  "spec": "baltor.asset-source/v1",
+  "source_id": "procedural-sfx-and-kenney-audio",
+  "name": "Sound effects - Kenney CC0 audio and procedural generators (ZzFX, jsfxr, rFXGen)",
+  "homepage": "https://kenney.nl/assets/category:Audio",
+  "licence_summary": "Kenney audio packs are CC0. ZzFX is MIT, jsfxr Unlicense, rFXGen zlib/libpng, Bfxr Apache-2.0; those licences cover the tools, and the sounds you synthesise from your own parameters are your own work (record the parameters).",
+  "licences": [
+    {
+      "id": "CC0-1.0",
+      "url": "https://kenney.nl/support",
+      "applies_to": "Kenney audio packs"
+    },
+    {
+      "id": "MIT",
+      "url": "https://github.com/KilledByAPixel/ZzFX",
+      "applies_to": "ZzFX"
+    },
+    {
+      "id": "Unlicense",
+      "url": "https://github.com/chr15m/jsfxr",
+      "applies_to": "jsfxr"
+    },
+    {
+      "id": "Zlib",
+      "url": "https://github.com/raysan5/rfxgen",
+      "applies_to": "rFXGen"
+    }
+  ],
+  "attribution": {
+    "required": "optional",
+    "credit_template": "Sound effects: Kenney (CC0) / generated with ZzFX"
+  },
+  "redistribution": "allowed",
+  "commercial_use": "allowed",
+  "ai_training": "unspecified",
+  "automated_download": "allowed",
+  "formats": [
+    "ogg",
+    "wav"
+  ],
+  "search": [
+    {
+      "label": "Kenney audio packs",
+      "url": "https://kenney.nl/assets/category:Audio"
+    },
+    {
+      "label": "Kenney Interface Sounds",
+      "url": "https://kenney.nl/assets/interface-sounds"
+    },
+    {
+      "label": "ZzFX",
+      "url": "https://github.com/KilledByAPixel/ZzFX"
+    },
+    {
+      "label": "rFXGen",
+      "url": "https://github.com/raysan5/rfxgen"
+    }
+  ],
+  "cautions": [
+    "Keep the generator name and parameter array in the manifest so the effect can be regenerated."
+  ],
+  "verified": {
+    "on": "2026-10-10",
+    "how": "mixed"
+  }
+}

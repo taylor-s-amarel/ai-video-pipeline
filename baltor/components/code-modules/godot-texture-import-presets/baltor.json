@@ -1,0 +1,53 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "godot_texture_import_presets",
+  "title": "Godot 4 texture import presets (.import sidecars, materials, project settings)",
+  "kind": "code-module",
+  "subkind": "godot",
+  "version": "1.0.0",
+  "summary": "Writes Godot 4 .import sidecars, StandardMaterial3D .tres and project.godot settings for pixel-art versus smooth, 3D, normal-map and UI textures, and checks existing imports.",
+  "description": "Option names and enum values were taken from Godot's own sources (ResourceImporterTexture, BaseMaterial3D.TextureFilter/Transparency, Viewport.DefaultCanvasItemTextureFilter); the official 2D platformer demo uses the same default_texture_filter=0 and integer stretch scaling.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "godot_texture_import_presets.py",
+  "tags": [
+    "godot",
+    "import",
+    "pixel-art",
+    "textures",
+    "tres"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "examples": [
+    "python godot_texture_import_presets.py apply mygame --preset pixel-art-2d --glob 'art/**/*.png'",
+    "python godot_texture_import_presets.py check mygame --preset texture-3d --glob 'materials/**/*.jpg'"
+  ],
+  "review": {
+    "status": "unreviewed"
+  }
+}

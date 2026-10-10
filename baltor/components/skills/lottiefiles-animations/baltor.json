@@ -1,0 +1,59 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "lottiefiles_animations",
+  "title": "LottieFiles free animations (Lottie Simple License)",
+  "kind": "skill",
+  "subkind": "media-source",
+  "version": "1.0.0",
+  "summary": "Use LottieFiles free animations under the Lottie Simple License, inspect them, and render them as video overlays.",
+  "description": "Use when a short needs vector motion overlays (confetti, arrows, icons, loaders) from LottieFiles. Free animations use the Lottie Simple License: commercial use allowed, modifications stay under the same licence, no compiling a competing library. Covers checks with the Lottie inspector and rendering.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "notes": "Describes https://lottiefiles.com/page/license (checked 2026-10-10); contains no third-party media."
+  },
+  "step_kinds": [
+    "research",
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "licensing",
+    "lottie",
+    "motion",
+    "overlays"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "asset_source_profile"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

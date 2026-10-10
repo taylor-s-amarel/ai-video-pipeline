@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/video-re-contract-sharpness-blur",
+  "title": "Sharpness and blur payload",
+  "description": "Payload of video_re_detect_sharpness_blur. VoL values are only comparable at the same analysis_width.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["analysis_width", "video", "shots", "shots_source", "frames_analysed"],
+  "$defs": { "label": { "enum": ["sharp", "soft", "blurred", "flat"] } },
+  "properties": {
+    "analysis_width": { "type": "integer", "minimum": 1 },
+    "video": {
+      "type": ["object", "null"], "additionalProperties": false, "required": ["vol_median", "blur_median", "label", "selective_focus_share"],
+      "properties": {
+        "vol_median": { "type": "number", "minimum": 0, "description": "variance of the Laplacian, 0-255 luma" },
+        "blur_median": { "type": "number", "minimum": 0, "maximum": 1, "description": "Crete-Roffet blur metric, 0 sharp .. 1 blurred" },
+        "label": { "$ref": "#/$defs/label" },
+        "selective_focus_share": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "shots": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["index", "start_s", "end_s", "label", "vol_median", "blur_median", "selective_focus_share", "focus_change"],
+        "properties": {
+          "index": { "type": "integer", "minimum": 0 },
+          "start_s": { "type": "number", "minimum": 0 },
+          "end_s": { "type": "number", "minimum": 0 },
+          "label": { "$ref": "#/$defs/label" },
+          "vol_median": { "type": ["number", "null"], "minimum": 0 },
+          "blur_median": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+          "selective_focus_share": { "type": "number", "minimum": 0, "maximum": 1 },
+          "focus_change": { "enum": ["blur-in", "blur-out", null] }
+        }
+      }
+    },
+    "shots_source": { "enum": ["given", "fallback-cut-detector"] },
+    "frames_analysed": { "type": "integer", "minimum": 1 }
+  }
+}

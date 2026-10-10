@@ -1,0 +1,278 @@
+{
+  "spec": "baltor.feed-collection/v1",
+  "id": "assets-space-museum-scans-3d",
+  "title": "Space, museum and scanned 3D models (NASA, Smithsonian, reference scans)",
+  "description": "Real-object 3D models for space, science and history shorts: NASA's 3D Resources repository (GLB, BLEND, LWO; 'free and without copyright', with NASA brand rules), Smithsonian Open Access metadata (CC0), classic research scans, and the Sketchfab licence rules that govern most museum uploads.",
+  "updated": "2026-10-10",
+  "tags": [
+    "3d",
+    "space",
+    "nasa",
+    "museum",
+    "scans",
+    "history"
+  ],
+  "items": [
+    {
+      "id": "nasa-3d-resources",
+      "title": "nasa/NASA-3D-Resources",
+      "url": "https://github.com/nasa/NASA-3D-Resources",
+      "summary": "NASA's collection of 3D models, textures, images and visualisations from Ames, Goddard, JPL and Johnson plus outside contributors; the README says the assets are free and without copyright.",
+      "kind": "repository",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "licence": "Public domain statement ('free and without copyright') + NASA usage guidelines",
+      "licence_url": "https://github.com/nasa/NASA-3D-Resources",
+      "tags": [
+        "nasa",
+        "space",
+        "gltf"
+      ],
+      "cautions": [
+        "Follow NASA's media usage guidelines: do not use NASA insignia/logos or imply NASA endorsement.",
+        "Some models come from outside organisations (Ball Aerospace, DigitalSpace ...); check each folder's notes.",
+        "Some GLBs use KHR_draco_mesh_compression; decode before importing into tools without Draco support."
+      ]
+    },
+    {
+      "id": "nasa-3d-models-folder",
+      "title": "NASA 3D Resources: 3D Models folder",
+      "url": "https://github.com/nasa/NASA-3D-Resources/tree/master/3D%20Models",
+      "summary": "One folder per model (spacecraft, rovers, suits, telescopes, supernova remnants ...), usually a .glb or .blend plus a .png preview.",
+      "kind": "repository",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "licence": "Public domain statement + NASA usage guidelines",
+      "licence_url": "https://github.com/nasa/NASA-3D-Resources",
+      "tags": [
+        "nasa",
+        "index"
+      ]
+    },
+    {
+      "id": "nasa-apollo-lunar-module",
+      "title": "NASA 3D: Apollo Lunar Module (GLB)",
+      "url": "https://github.com/nasa/NASA-3D-Resources/tree/master/3D%20Models/Apollo%20Lunar%20Module",
+      "summary": "Apollo Lunar Module as a 700 KB Draco-compressed GLB (134 meshes, 12 materials, WebP textures with PNG fallbacks) plus preview PNG.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "licence": "Public domain statement + NASA usage guidelines",
+      "licence_url": "https://github.com/nasa/NASA-3D-Resources",
+      "tags": [
+        "nasa",
+        "apollo",
+        "moon",
+        "history"
+      ],
+      "cautions": [
+        "Requires KHR_draco_mesh_compression and uses WebP textures; Blender's glTF importer handles both, other engines may need the file decoded first."
+      ]
+    },
+    {
+      "id": "nasa-curiosity-rover",
+      "title": "NASA 3D: Curiosity Rover (MSL)",
+      "url": "https://github.com/nasa/NASA-3D-Resources/tree/master/3D%20Models/Curiosity%20Rover%20(MSL)",
+      "summary": "Curiosity rover as Blender files in Clean and Dirty versions with preview PNGs.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "licence": "Public domain statement + NASA usage guidelines",
+      "licence_url": "https://github.com/nasa/NASA-3D-Resources",
+      "tags": [
+        "nasa",
+        "mars",
+        "rover"
+      ],
+      "cautions": [
+        ".blend only: export to GLB from Blender for Godot."
+      ]
+    },
+    {
+      "id": "nasa-hubble-space-telescope-a",
+      "title": "NASA 3D: Hubble Space Telescope (A)",
+      "url": "https://github.com/nasa/NASA-3D-Resources/tree/master/3D%20Models/Hubble%20Space%20Telescope%20(A)",
+      "summary": "Hubble Space Telescope GLB with preview image.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "licence": "Public domain statement + NASA usage guidelines",
+      "licence_url": "https://github.com/nasa/NASA-3D-Resources",
+      "tags": [
+        "nasa",
+        "telescope"
+      ]
+    },
+    {
+      "id": "nasa-astronaut",
+      "title": "NASA 3D: Astronaut",
+      "url": "https://github.com/nasa/NASA-3D-Resources/tree/master/3D%20Models/Astronaut",
+      "summary": "Astronaut figure GLB with preview image; a ready narrator stand-in for space explainers.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "licence": "Public domain statement + NASA usage guidelines",
+      "licence_url": "https://github.com/nasa/NASA-3D-Resources",
+      "tags": [
+        "nasa",
+        "astronaut",
+        "character"
+      ]
+    },
+    {
+      "id": "nasa-gateway",
+      "title": "NASA 3D: Gateway",
+      "url": "https://github.com/nasa/NASA-3D-Resources/tree/master/3D%20Models/Gateway",
+      "summary": "Gateway Core GLB plus a low lunar orbit backdrop image.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "licence": "Public domain statement + NASA usage guidelines",
+      "licence_url": "https://github.com/nasa/NASA-3D-Resources",
+      "tags": [
+        "nasa",
+        "artemis",
+        "moon"
+      ]
+    },
+    {
+      "id": "nasa-ben-franklin",
+      "title": "NASA 3D: Ben Franklin",
+      "url": "https://github.com/nasa/NASA-3D-Resources/tree/master/3D%20Models/Ben%20Franklin",
+      "summary": "Model folder named 'Ben Franklin' (GLB, LWO and preview PNG); the folder gives no description, so check the preview before captioning what it depicts.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "licence": "Public domain statement + NASA usage guidelines",
+      "licence_url": "https://github.com/nasa/NASA-3D-Resources",
+      "tags": [
+        "nasa",
+        "history"
+      ],
+      "cautions": [
+        "Subject not described in the folder; verify what the model shows before using it in a history claim."
+      ]
+    },
+    {
+      "id": "khronos-duck-glb",
+      "title": "Khronos glTF sample: Duck (GLB)",
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/Duck/glTF-Binary/Duck.glb",
+      "summary": "120 KB single-mesh textured GLB (COLLADA2GLTF export); a standard smoke test for importers and the glTF inspector.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "licence": "Per model (see Models/Duck/README.md)",
+      "licence_url": "https://github.com/KhronosGroup/glTF-Sample-Assets",
+      "tags": [
+        "gltf",
+        "test-asset"
+      ],
+      "cautions": [
+        "Licence and credit live in the model's README; keep them with the file."
+      ]
+    },
+    {
+      "id": "smithsonian-openaccess",
+      "title": "Smithsonian/OpenAccess metadata",
+      "url": "https://github.com/Smithsonian/OpenAccess",
+      "summary": "11 million+ Smithsonian Open Access metadata records as line-delimited JSON (CC0); the archive has moved to AWS and the repo is read-only. Use it to find CC0 objects and their media links.",
+      "kind": "dataset",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "licence": "CC0-1.0",
+      "licence_url": "https://github.com/Smithsonian/OpenAccess",
+      "tags": [
+        "smithsonian",
+        "museum",
+        "metadata"
+      ],
+      "cautions": [
+        "CC0 applies only to records/media marked Open Access; other Smithsonian media keep their own rights.",
+        "Images of people and trademarks can carry rights CC0 does not clear."
+      ]
+    },
+    {
+      "id": "common-3d-test-models",
+      "title": "alecjacobson/common-3d-test-models",
+      "url": "https://github.com/alecjacobson/common-3d-test-models",
+      "summary": "Famous research meshes (Stanford Bunny, Dragon, Happy Buddha, Lucy, Spot, Suzanne, Utah Teapot, Nefertiti ...) with source and first appearance per model.",
+      "kind": "dataset",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "licence": "Per model; the table lists sources, not licences",
+      "licence_url": "https://github.com/alecjacobson/common-3d-test-models",
+      "tags": [
+        "scans",
+        "research",
+        "reference"
+      ],
+      "cautions": [
+        "No licence column: treat each model as 'rights unknown' until you check its original source; several have research-only histories."
+      ]
+    },
+    {
+      "id": "sketchfab-crediting",
+      "title": "Sketchfab help: Crediting users for 3D model downloads",
+      "url": "https://help.sketchfab.com/en/articles/16152215-crediting-users-for-3d-model-downloads",
+      "summary": "How to credit Sketchfab creators for CC-licensed downloads (most museum scans on Sketchfab are CC BY, CC BY-NC or CC0 per model).",
+      "kind": "guidance",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "Per model",
+      "licence_url": "https://help.sketchfab.com/en/articles/16152215-crediting-users-for-3d-model-downloads",
+      "tags": [
+        "sketchfab",
+        "attribution"
+      ]
+    },
+    {
+      "id": "sketchfab-choosing-licence",
+      "title": "Sketchfab help: Choosing your model's licence",
+      "url": "https://help.sketchfab.com/en/articles/16152221-choosing-your-model-s-license",
+      "summary": "Explains the CC licence options on downloadable models (CC0, CC BY, BY-SA, BY-ND, BY-NC ...) and what each allows.",
+      "kind": "guidance",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "Per model",
+      "licence_url": "https://help.sketchfab.com/en/articles/16152221-choosing-your-model-s-license",
+      "tags": [
+        "sketchfab",
+        "licensing"
+      ],
+      "cautions": [
+        "BY-NC models are not usable in monetised videos; BY-ND models cannot be modified."
+      ]
+    },
+    {
+      "id": "sketchfab-store-licence-faq",
+      "title": "Sketchfab help: Store licence usage FAQ",
+      "url": "https://help.sketchfab.com/en/articles/16152225-store-license-usage-faq",
+      "summary": "Standard vs Editorial store licences; Editorial covers news/public-interest use only, and purchased models may never be offered for download to others.",
+      "kind": "guidance",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "Sketchfab Store licences",
+      "licence_url": "https://help.sketchfab.com/en/articles/16152225-store-license-usage-faq",
+      "tags": [
+        "sketchfab",
+        "store",
+        "licensing"
+      ]
+    },
+    {
+      "id": "sketchfab-600000-free",
+      "title": "Sketchfab blog: 600,000 free 3D models",
+      "url": "https://sketchfab.com/blogs/community/600000-free-3d-models-on-sketchfab",
+      "summary": "Sketchfab post about its free downloadable model library (count as stated in the post title).",
+      "kind": "article",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "Per model",
+      "licence_url": "https://help.sketchfab.com/en/articles/16152221-choosing-your-model-s-license",
+      "tags": [
+        "sketchfab",
+        "news"
+      ]
+    }
+  ]
+}

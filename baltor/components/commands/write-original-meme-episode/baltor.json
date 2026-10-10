@@ -5,7 +5,7 @@
   "kind": "command",
   "subkind": "prompt-template",
   "version": "1.0.0",
-  "summary": "Owner's copy-ready task template, verbatim: Develop an original short character meme using the stated duck/bunny cast and visual setting.",
+  "summary": "Owner's template \"Write an original meme episode\": Develop an original short character meme using the stated duck/bunny cast and visual setting. Define the setup, expectation, reaction, reversal, and payoff.",
   "description": "The owner's copy-ready task template \"Write an original meme episode\" (Animation and Video Production Master Guide (10 Oct 2026)), with the template text unchanged and its inputs passed as $ARGUMENTS. Instructions for bounded work, not a guarantee: missing inputs are marked unresolved, never invented.",
   "domain": "video",
   "licence": "MIT",

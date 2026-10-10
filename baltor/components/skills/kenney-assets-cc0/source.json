@@ -1,0 +1,72 @@
+{
+  "spec": "baltor.asset-source/v1",
+  "source_id": "kenney-assets-cc0",
+  "name": "Kenney game assets (CC0)",
+  "homepage": "https://kenney.nl/support",
+  "licence_summary": "All game assets on Kenney's asset pages are CC0 (public domain dedication). Credit is optional. Do not use the Kenney logo, which is reserved for official projects.",
+  "licences": [
+    {
+      "id": "CC0-1.0",
+      "url": "https://kenney.nl/support",
+      "applies_to": "all asset packs on kenney.nl"
+    },
+    {
+      "id": "MIT",
+      "url": "https://github.com/KenneyNL/Starter-Kit-3D-Platformer",
+      "applies_to": "code of the Godot starter kits"
+    }
+  ],
+  "attribution": {
+    "required": "optional",
+    "credit_template": "Assets by Kenney (kenney.nl), CC0"
+  },
+  "redistribution": "allowed",
+  "commercial_use": "allowed",
+  "ai_training": "unspecified",
+  "automated_download": "unspecified",
+  "formats": [
+    "png",
+    "svg",
+    "glb",
+    "fbx",
+    "obj",
+    "ogg",
+    "wav",
+    "ttf"
+  ],
+  "search": [
+    {
+      "label": "3D kits",
+      "url": "https://kenney.nl/assets/category:3D"
+    },
+    {
+      "label": "Audio packs",
+      "url": "https://kenney.nl/assets/category:Audio"
+    },
+    {
+      "label": "Tiny 16x16 series",
+      "url": "https://kenney.nl/assets/series:Tiny"
+    },
+    {
+      "label": "Godot starter kits",
+      "url": "https://kenney.nl/starter-kits"
+    },
+    {
+      "label": "Kenney on the Godot Asset Store",
+      "url": "https://store.godotengine.org/publisher/kenney/"
+    },
+    {
+      "label": "KenneyNL on GitHub",
+      "url": "https://github.com/KenneyNL"
+    }
+  ],
+  "cautions": [
+    "Do not use the Kenney logo or imply an official Kenney project.",
+    "The All-in-1 bundle is a paid convenience; every pack is free from its own page.",
+    "Input-prompt packs show console controllers: CC0 covers the art, not the platform trademarks."
+  ],
+  "verified": {
+    "on": "2026-10-10",
+    "how": "mixed"
+  }
+}

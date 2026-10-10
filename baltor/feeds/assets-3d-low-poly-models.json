@@ -1,0 +1,917 @@
+{
+  "spec": "baltor.feed-collection/v1",
+  "id": "assets-3d-low-poly-models",
+  "title": "Low-poly 3D model kits (Kenney, Quaternius, KayKit, Poly Pizza, glTF samples)",
+  "description": "Game-ready low-poly 3D kits for dioramas, explainers and Godot/Blender scenes. Almost all are CC0; Poly Pizza mixes CC0 and CC-BY per model and Khronos sample models carry per-model licences. Prefer glTF/GLB downloads: Godot 4 and Blender import them natively.",
+  "updated": "2026-10-10",
+  "tags": [
+    "3d",
+    "low-poly",
+    "models",
+    "gltf",
+    "game-assets"
+  ],
+  "items": [
+    {
+      "id": "kenney-3d-category",
+      "title": "Kenney 3D asset category",
+      "url": "https://kenney.nl/assets/category:3D",
+      "summary": "Index of every Kenney 3D kit (all CC0, most with GLB/FBX/OBJ downloads).",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "tags": [
+        "index",
+        "kenney"
+      ]
+    },
+    {
+      "id": "kenney-platformer-kit",
+      "title": "Kenney Platformer Kit (3D, 150 assets)",
+      "url": "https://kenney.nl/assets/platformer-kit",
+      "summary": "150-asset 3D platformer kit, CC0; the same visual family as Kenney's Godot 3D platformer starter kit.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "tags": [
+        "platformer",
+        "kenney",
+        "diorama"
+      ]
+    },
+    {
+      "id": "kenney-prototype-kit",
+      "title": "Kenney Prototype Kit (145 assets)",
+      "url": "https://kenney.nl/assets/prototype-kit",
+      "summary": "145-asset prototyping kit (includes animation) for blocking out scenes before final art.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "tags": [
+        "prototype",
+        "greybox",
+        "kenney"
+      ]
+    },
+    {
+      "id": "kenney-nature-kit",
+      "title": "Kenney Nature Kit (330 files)",
+      "url": "https://kenney.nl/assets/nature-kit",
+      "summary": "3D nature kit (page lists 330 files, first released 2020), CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "tags": [
+        "nature",
+        "diorama",
+        "kenney"
+      ]
+    },
+    {
+      "id": "kenney-tower-defense-kit",
+      "title": "Kenney Tower Defense Kit",
+      "url": "https://kenney.nl/assets/tower-defense-kit",
+      "summary": "Tower-defense kit for tile-based 3D boards (page lists 160 files; an older index says 140).",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "tags": [
+        "tiles",
+        "board",
+        "kenney"
+      ]
+    },
+    {
+      "id": "kenney-graveyard-kit",
+      "title": "Kenney Graveyard Kit (5.0 remake)",
+      "url": "https://kenney.nl/assets/graveyard-kit",
+      "summary": "Graveyard, crypt and spooky props, some animated (v5.0 remake, 90 files) for Halloween or history shorts.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "tags": [
+        "horror",
+        "halloween",
+        "kenney"
+      ]
+    },
+    {
+      "id": "kenney-modular-dungeon-kit",
+      "title": "Kenney Modular Dungeon Kit (v2.1)",
+      "url": "https://kenney.nl/assets/modular-dungeon-kit",
+      "summary": "Snap-together dungeon rooms and corridors with animated pieces; the page suggests pairing with Modular Cave Kit and Mini Dungeon.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "tags": [
+        "dungeon",
+        "modular",
+        "maze",
+        "kenney"
+      ]
+    },
+    {
+      "id": "kenney-fantasy-town-kit",
+      "title": "Kenney Fantasy Town Kit",
+      "url": "https://kenney.nl/assets/fantasy-town-kit",
+      "summary": "Fantasy town kit for a low-poly village diorama, CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "tags": [
+        "town",
+        "fantasy",
+        "kenney"
+      ]
+    },
+    {
+      "id": "kenney-retro-fantasy-kit",
+      "title": "Kenney Retro Fantasy Kit",
+      "url": "https://kenney.nl/assets/retro-fantasy-kit",
+      "summary": "Retro fantasy kit in Kenney's 3D style, CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "tags": [
+        "fantasy",
+        "retro",
+        "kenney"
+      ]
+    },
+    {
+      "id": "kenney-castle-kit",
+      "title": "Kenney Castle Kit",
+      "url": "https://kenney.nl/assets/castle-kit",
+      "summary": "Castle kit for medieval scenes, CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "tags": [
+        "castle",
+        "medieval",
+        "history",
+        "kenney"
+      ]
+    },
+    {
+      "id": "kenney-city-kit-suburban",
+      "title": "Kenney City Kit (Suburban, 40 assets)",
+      "url": "https://kenney.nl/assets/city-kit-suburban",
+      "summary": "40-asset suburban city kit; combine with the Roads kit for an isometric town. CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "tags": [
+        "city",
+        "town",
+        "isometric",
+        "kenney"
+      ]
+    },
+    {
+      "id": "kenney-city-kit-commercial",
+      "title": "Kenney City Kit (Commercial, 50 assets)",
+      "url": "https://kenney.nl/assets/city-kit-commercial",
+      "summary": "50-asset commercial city kit (tagged skyscrapers, buildings), CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "tags": [
+        "city",
+        "skyscrapers",
+        "kenney"
+      ]
+    },
+    {
+      "id": "kenney-city-kit-roads",
+      "title": "Kenney City Kit (Roads, 90 assets)",
+      "url": "https://kenney.nl/assets/city-kit-roads",
+      "summary": "90 road tiles, crossings, signs and traffic lights (v2.1 added signs and lights).",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "tags": [
+        "city",
+        "roads",
+        "kenney"
+      ]
+    },
+    {
+      "id": "kenney-city-kit-industrial",
+      "title": "Kenney City Kit (Industrial, 40 assets)",
+      "url": "https://kenney.nl/assets/city-kit-industrial",
+      "summary": "40-asset industrial city kit, CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "tags": [
+        "city",
+        "industrial",
+        "kenney"
+      ]
+    },
+    {
+      "id": "kenney-building-kit",
+      "title": "Kenney Building Kit (80 assets)",
+      "url": "https://kenney.nl/assets/building-kit",
+      "summary": "80-asset modular building kit, CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "tags": [
+        "modular",
+        "buildings",
+        "kenney"
+      ]
+    },
+    {
+      "id": "kenney-furniture-kit",
+      "title": "Kenney Furniture Kit (140 assets)",
+      "url": "https://kenney.nl/assets/furniture-kit",
+      "summary": "140-asset furniture kit for room dioramas and explainer sets, CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "tags": [
+        "interior",
+        "furniture",
+        "kenney"
+      ]
+    },
+    {
+      "id": "kenney-car-kit",
+      "title": "Kenney Car Kit (45 assets)",
+      "url": "https://kenney.nl/assets/car-kit",
+      "summary": "45-asset low-poly car kit, CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "tags": [
+        "vehicles",
+        "cars",
+        "kenney"
+      ]
+    },
+    {
+      "id": "kenney-space-kit",
+      "title": "Kenney Space Kit (150 assets)",
+      "url": "https://kenney.nl/assets/space-kit",
+      "summary": "150-asset space kit for sci-fi or space explainers, CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "tags": [
+        "space",
+        "sci-fi",
+        "kenney"
+      ]
+    },
+    {
+      "id": "kenney-food-kit",
+      "title": "Kenney Food Kit (200 files)",
+      "url": "https://kenney.nl/assets/food-kit",
+      "summary": "200-file food kit; handy for recipe, nutrition and 'this vs that' comparison shorts. CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "tags": [
+        "food",
+        "props",
+        "kenney"
+      ]
+    },
+    {
+      "id": "kenney-factory-kit",
+      "title": "Kenney Factory Kit",
+      "url": "https://kenney.nl/assets/factory-kit",
+      "summary": "Factory kit for manufacturing explainers, CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "tags": [
+        "factory",
+        "manufacturing",
+        "kenney"
+      ]
+    },
+    {
+      "id": "quaternius-home",
+      "title": "Quaternius free game assets",
+      "url": "https://quaternius.com/",
+      "summary": "Index of Quaternius low-poly packs (nature, characters, sci-fi, medieval, vehicles), CC0, mostly FBX/OBJ/glTF/Blend.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/",
+      "tags": [
+        "index",
+        "quaternius"
+      ],
+      "cautions": [
+        "Some MegaKits offer a free standard download and a paid 'Source' tier (Patreon) with engine projects; only the free tier is assumed here."
+      ]
+    },
+    {
+      "id": "quaternius-ultimate-nature",
+      "title": "Quaternius Ultimate Nature Pack (150 models)",
+      "url": "https://quaternius.com/packs/ultimatenature.html",
+      "summary": "150 trees, rocks, plants and terrain pieces (June 2019), CC0, FBX/OBJ/Blend.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/packs/ultimatenature.html",
+      "tags": [
+        "nature",
+        "quaternius"
+      ]
+    },
+    {
+      "id": "quaternius-ultimate-stylized-nature",
+      "title": "Quaternius Ultimate Stylized Nature Pack (63 models)",
+      "url": "https://quaternius.com/packs/ultimatestylizednature.html",
+      "summary": "63 stylised nature models (May 2022), CC0, FBX/OBJ/glTF/Blend.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/packs/ultimatestylizednature.html",
+      "tags": [
+        "nature",
+        "stylized",
+        "quaternius"
+      ]
+    },
+    {
+      "id": "quaternius-stylized-nature-megakit",
+      "title": "Quaternius Stylized Nature MegaKit",
+      "url": "https://quaternius.com/packs/stylizednaturemegakit.html",
+      "summary": "116-model nature kit; the Source version adds Unity, Unreal and Godot implementations.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/packs/stylizednaturemegakit.html",
+      "tags": [
+        "nature",
+        "megakit",
+        "quaternius",
+        "godot"
+      ],
+      "cautions": [
+        "The Source tier with engine projects is a paid/pledge download; check what the free tier includes."
+      ]
+    },
+    {
+      "id": "quaternius-simple-nature",
+      "title": "Quaternius Simple Nature Pack",
+      "url": "https://quaternius.com/packs/simplenature.html",
+      "summary": "Simple low-poly nature pack, CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/packs/simplenature.html",
+      "tags": [
+        "nature",
+        "quaternius"
+      ]
+    },
+    {
+      "id": "quaternius-textured-fantasy-nature",
+      "title": "Quaternius Textured Fantasy Nature Pack",
+      "url": "https://quaternius.com/packs/texturedfantasynature.html",
+      "summary": "11 fantasy nature models with gradient-based textures, FBX/OBJ/Blend.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/packs/texturedfantasynature.html",
+      "tags": [
+        "nature",
+        "fantasy",
+        "quaternius"
+      ]
+    },
+    {
+      "id": "quaternius-ultimate-crops",
+      "title": "Quaternius Ultimate Crops Pack",
+      "url": "https://quaternius.com/packs/ultimatecrops.html",
+      "summary": "Crop models for farm and agriculture explainers, CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/packs/ultimatecrops.html",
+      "tags": [
+        "farm",
+        "crops",
+        "quaternius"
+      ]
+    },
+    {
+      "id": "quaternius-farm-buildings",
+      "title": "Quaternius Farm Buildings Pack (13 models)",
+      "url": "https://quaternius.com/packs/farmbuildings.html",
+      "summary": "Barn, silo, fences and farm buildings (September 2018), CC0, FBX/OBJ/Blend.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/packs/farmbuildings.html",
+      "tags": [
+        "farm",
+        "buildings",
+        "quaternius"
+      ]
+    },
+    {
+      "id": "quaternius-farm-animals",
+      "title": "Quaternius Farm Animal Pack (7 animated animals)",
+      "url": "https://quaternius.com/packs/farmanimal.html",
+      "summary": "7 farm animals each with their own animations (June 2018), CC0, FBX/OBJ/Blend.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/packs/farmanimal.html",
+      "tags": [
+        "farm",
+        "animals",
+        "animated",
+        "quaternius"
+      ]
+    },
+    {
+      "id": "quaternius-ultimate-modular-ruins",
+      "title": "Quaternius Ultimate Modular Ruins Pack",
+      "url": "https://quaternius.com/packs/ultimatemodularruins.html",
+      "summary": "Modular ruins pack for history and fantasy scenes, CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/packs/ultimatemodularruins.html",
+      "tags": [
+        "ruins",
+        "history",
+        "modular",
+        "quaternius"
+      ]
+    },
+    {
+      "id": "quaternius-ultimate-fantasy-rts",
+      "title": "Quaternius Ultimate Fantasy RTS",
+      "url": "https://quaternius.com/packs/ultimatefantasyrts.html",
+      "summary": "Fantasy RTS pack for top-down strategy boards, CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/packs/ultimatefantasyrts.html",
+      "tags": [
+        "rts",
+        "fantasy",
+        "quaternius"
+      ]
+    },
+    {
+      "id": "quaternius-medieval-village",
+      "title": "Quaternius Medieval Village Pack (44 models)",
+      "url": "https://quaternius.com/packs/medievalvillage.html",
+      "summary": "44 medieval buildings and props (December 2020), CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/packs/medievalvillage.html",
+      "tags": [
+        "medieval",
+        "village",
+        "quaternius"
+      ]
+    },
+    {
+      "id": "quaternius-medieval-village-megakit",
+      "title": "Quaternius Medieval Village MegaKit",
+      "url": "https://quaternius.com/packs/medievalvillagemegakit.html",
+      "summary": "300+ grid-snapping modular pieces for complete medieval villages.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/packs/medievalvillagemegakit.html",
+      "tags": [
+        "medieval",
+        "megakit",
+        "modular",
+        "quaternius"
+      ],
+      "cautions": [
+        "Check which files the free tier includes versus the paid Source tier."
+      ]
+    },
+    {
+      "id": "quaternius-modular-medieval-buildings",
+      "title": "Quaternius Modular Medieval Building Pack",
+      "url": "https://quaternius.com/packs/modularmedievalbuildings.html",
+      "summary": "Modular medieval building pieces, CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/packs/modularmedievalbuildings.html",
+      "tags": [
+        "medieval",
+        "modular",
+        "quaternius"
+      ]
+    },
+    {
+      "id": "quaternius-downtown-city-megakit",
+      "title": "Quaternius Downtown City MegaKit",
+      "url": "https://quaternius.com/packs/downtowncitymegakit.html",
+      "summary": "300+ modular pieces for Boston/NYC-style city blocks.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/packs/downtowncitymegakit.html",
+      "tags": [
+        "city",
+        "megakit",
+        "quaternius"
+      ],
+      "cautions": [
+        "Check which files the free tier includes versus the paid Source tier."
+      ]
+    },
+    {
+      "id": "quaternius-ultimate-space-kit",
+      "title": "Quaternius Ultimate Space Kit (92 models)",
+      "url": "https://quaternius.com/packs/ultimatespacekit.html",
+      "summary": "92 models: animated astronauts and enemies, vehicles, planets and alien vegetation, CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/packs/ultimatespacekit.html",
+      "tags": [
+        "space",
+        "sci-fi",
+        "animated",
+        "quaternius"
+      ]
+    },
+    {
+      "id": "quaternius-ultimate-modular-scifi",
+      "title": "Quaternius Ultimate Modular Sci-Fi Pack",
+      "url": "https://quaternius.com/packs/ultimatemodularscifi.html",
+      "summary": "Modular sci-fi interior walls, floors and props (no characters).",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/packs/ultimatemodularscifi.html",
+      "tags": [
+        "sci-fi",
+        "interior",
+        "modular",
+        "quaternius"
+      ]
+    },
+    {
+      "id": "quaternius-modular-scifi-megakit",
+      "title": "Quaternius Modular Sci-Fi MegaKit",
+      "url": "https://quaternius.com/packs/modularscifimegakit.html",
+      "summary": "Grid-based sci-fi environment kit with 270+ pieces including alien-themed items.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/packs/modularscifimegakit.html",
+      "tags": [
+        "sci-fi",
+        "megakit",
+        "quaternius"
+      ]
+    },
+    {
+      "id": "quaternius-scifi-essentials",
+      "title": "Quaternius Sci-Fi Essentials Kit",
+      "url": "https://quaternius.com/packs/scifiessentialskit.html",
+      "summary": "Sci-fi essentials kit for quick space-station scenes, CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/packs/scifiessentialskit.html",
+      "tags": [
+        "sci-fi",
+        "props",
+        "quaternius"
+      ]
+    },
+    {
+      "id": "kaykit-itch-home",
+      "title": "KayKit by Kay Lousberg (itch.io)",
+      "url": "https://kaylousberg.itch.io/",
+      "summary": "All KayKit packs: stylised low-poly 3D kits with free tiers under CC0 and paid Extra/Source tiers.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "tags": [
+        "index",
+        "kaykit"
+      ],
+      "cautions": [
+        "Author asks: do not resell unmodified copies or claim them as your own.",
+        "Extra and Source tiers are paid; record which tier you downloaded."
+      ]
+    },
+    {
+      "id": "kaykit-dungeon-remastered",
+      "title": "KayKit Dungeon Pack Remastered (200+ assets)",
+      "url": "https://kaylousberg.itch.io/kaykit-dungeon-remastered",
+      "summary": "200+ stylised dungeon pieces: modular walls, furniture, barrels, chests, potions, weapons.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "tags": [
+        "dungeon",
+        "maze",
+        "kaykit"
+      ]
+    },
+    {
+      "id": "kaykit-medieval-hexagon",
+      "title": "KayKit Medieval Hexagon Pack (200+ assets)",
+      "url": "https://kaylousberg.itch.io/kaykit-medieval-hexagon",
+      "summary": "200+ hex tiles, buildings and props for hex-map strategy and diorama scenes; free tier about 33 MB.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "tags": [
+        "hexagon",
+        "medieval",
+        "diorama",
+        "kaykit"
+      ],
+      "cautions": [
+        "Extra tier (USD 9.99) and Source tier (USD 14.99) add assets and .blend files; not covered by the free download."
+      ]
+    },
+    {
+      "id": "kaykit-platformer",
+      "title": "KayKit Platformer Pack (120 unique / 370 with recolours)",
+      "url": "https://kaylousberg.itch.io/kaykit-platformer",
+      "summary": "Stylised 3D platformer pieces; itch.io lists Creative Commons Zero v1.0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "tags": [
+        "platformer",
+        "kaykit"
+      ]
+    },
+    {
+      "id": "kaykit-prototype-bits",
+      "title": "KayKit Prototype Bits",
+      "url": "https://kaylousberg.itch.io/prototype-bits",
+      "summary": "Prototyping pieces in KayKit style, CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "tags": [
+        "prototype",
+        "kaykit"
+      ]
+    },
+    {
+      "id": "kaykit-block-bits",
+      "title": "KayKit Block Bits",
+      "url": "https://kaylousberg.itch.io/block-bits",
+      "summary": "Block/voxel-look terrain and props; free for personal and commercial use, no attribution (CC0).",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "tags": [
+        "blocks",
+        "voxel",
+        "kaykit"
+      ]
+    },
+    {
+      "id": "kaykit-furniture-bits",
+      "title": "KayKit Furniture Bits",
+      "url": "https://kaylousberg.itch.io/furniture-bits",
+      "summary": "Stylised KayKit furniture set for room dioramas, CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "tags": [
+        "interior",
+        "furniture",
+        "kaykit"
+      ]
+    },
+    {
+      "id": "kaykit-resource-bits",
+      "title": "KayKit Resource Bits",
+      "url": "https://kaylousberg.itch.io/resource-bits",
+      "summary": "Resource props for strategy and builder scenes, CC0.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC0-1.0",
+      "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "tags": [
+        "resources",
+        "props",
+        "kaykit"
+      ]
+    },
+    {
+      "id": "kaykit-city-builder-bits-github",
+      "title": "KayKit City Builder Bits 1.0 (GitHub)",
+      "url": "https://github.com/KayKit-Game-Assets/KayKit-City-Builder-Bits-1.0",
+      "summary": "Low-poly city-building set for planning, simulation and RTS scenes in OBJ, FBX and glTF; the repo states CC0 1.0 Universal, no attribution required. Direct git/raw download suits agents.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "licence": "CC0-1.0",
+      "licence_url": "https://github.com/KayKit-Game-Assets/KayKit-City-Builder-Bits-1.0",
+      "tags": [
+        "city",
+        "github",
+        "kaykit"
+      ]
+    },
+    {
+      "id": "kaykit-github-org",
+      "title": "KayKit-Game-Assets GitHub organisation",
+      "url": "https://github.com/KayKit-Game-Assets",
+      "summary": "Ten public repos mirroring KayKit packs (Adventurers, Skeletons, City Builder Bits, Medieval Hexagon, Dungeon Remastered, Prototype Bits ...).",
+      "kind": "repository",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "licence": "CC0-1.0",
+      "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "tags": [
+        "github",
+        "kaykit",
+        "index"
+      ],
+      "cautions": [
+        "Licence text is per repository (the City Builder Bits, Adventurers and Skeletons repos state CC0 1.0)."
+      ]
+    },
+    {
+      "id": "poly-pizza",
+      "title": "Poly Pizza: free low-poly models",
+      "url": "https://poly.pizza/",
+      "summary": "Searchable library of 10,000+ low-poly models (homepage figure) with OBJ/GLTF downloads, including the Poly by Google archive, Kenney and Quaternius uploads.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "Per model: CC0 or CC-BY",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/deed.en",
+      "tags": [
+        "index",
+        "low-poly",
+        "search"
+      ],
+      "cautions": [
+        "Licence is per model; most Poly by Google models are CC-BY and need a credit line naming the creator.",
+        "Paid packs from other studios appear in results; skip anything not free."
+      ]
+    },
+    {
+      "id": "poly-pizza-poly-by-google-forest",
+      "title": "Poly Pizza: 'Forest' by Poly by Google",
+      "url": "https://poly.pizza/m/2_fv3tn3NG_",
+      "summary": "Example archived Poly by Google model (pine forest, 2017) under CC-BY; shows the per-model licence and credit pattern.",
+      "kind": "media-source",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "CC-BY (version as shown on the model page)",
+      "licence_url": "https://poly.pizza/m/2_fv3tn3NG_",
+      "tags": [
+        "nature",
+        "poly-by-google",
+        "example"
+      ],
+      "cautions": [
+        "Credit: 'Forest by Poly by Google [CC-BY] via Poly Pizza'. Record the exact CC-BY version from the model page when you download."
+      ]
+    },
+    {
+      "id": "poly-pizza-auto-asset-packs",
+      "title": "Poly Pizza: Auto Asset Packs feature",
+      "url": "https://poly.pizza/posts/New-feature:-Auto-Asset-Packs-1yU5R",
+      "summary": "Poly Pizza post describing automatically assembled asset packs and an updated Unity API example.",
+      "kind": "article",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "Per model",
+      "licence_url": "https://poly.pizza/",
+      "tags": [
+        "packs",
+        "api"
+      ]
+    },
+    {
+      "id": "khronos-gltf-sample-assets",
+      "title": "Khronos glTF Sample Assets",
+      "url": "https://github.com/KhronosGroup/glTF-Sample-Assets",
+      "summary": "Reference glTF/GLB models for testing importers and viewers; each model folder has a README with its licence and the generated Models.md lists credits.",
+      "kind": "repository",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "licence": "Per model (many CC-BY-4.0, some CC0)",
+      "licence_url": "https://github.com/KhronosGroup/glTF-Sample-Assets",
+      "tags": [
+        "gltf",
+        "testing",
+        "reference"
+      ],
+      "cautions": [
+        "Licence is per model; read Models/<Name>/README.md and keep the credit."
+      ]
+    },
+    {
+      "id": "sketchfab-licence-filters",
+      "title": "Sketchfab: downloadable model licence filters",
+      "url": "https://sketchfab.com/blogs/community/refine-downloadable-model-searches-with-new-license-filters",
+      "summary": "Sketchfab blog post on filtering downloadable models by licence (CC0, CC-BY, NC/ND/SA variants).",
+      "kind": "guidance",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "licence": "Per model",
+      "licence_url": "https://help.sketchfab.com/en/articles/16152215-crediting-users-for-3d-model-downloads",
+      "tags": [
+        "sketchfab",
+        "licensing",
+        "search"
+      ],
+      "cautions": [
+        "NC models cannot be used in monetised videos; ND models cannot be modified (no re-texturing or re-rigging)."
+      ]
+    }
+  ]
+}

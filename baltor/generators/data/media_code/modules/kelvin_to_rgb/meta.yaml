@@ -1,0 +1,6 @@
+title: Kelvin to RGB and white-balance gains
+summary: Black-body colour for any temperature from Planck's law and analytic CIE 1931 colour-matching functions (Wyman et al. 2013), plus white-balance gains and an ffmpeg colorchannelmixer filter.
+subkind: lut
+domain: video
+tags: [video, colour-temperature, white-balance, grading, kelvin]
+step_kinds: [build, render]

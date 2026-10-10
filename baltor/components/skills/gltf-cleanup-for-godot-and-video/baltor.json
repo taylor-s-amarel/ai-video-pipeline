@@ -1,0 +1,62 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "gltf_cleanup_for_godot_and_video",
+  "title": "Clean up downloaded 3D models for Godot, Blender and video",
+  "kind": "skill",
+  "subkind": "media-source",
+  "version": "1.0.0",
+  "summary": "Inspect, decode, rescale, optimise and validate downloaded 3D models before they enter a Godot scene or render.",
+  "description": "Use after downloading any GLB/FBX/OBJ: inspect it, decode Draco or meshopt if needed, fix scale and units, reduce triangles and textures, validate, then import. Uses the gltf_glb_inspector module and open tools (glTF-Transform, gltfpack, glTF-Validator, obj2gltf, Blender).",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "notes": "Describes https://github.com/donmccurdy/glTF-Transform (checked 2026-10-10); contains no third-party media."
+  },
+  "step_kinds": [
+    "research",
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "licensing",
+    "gltf",
+    "optimisation",
+    "validation",
+    "godot",
+    "blender",
+    "pipeline"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "asset_source_profile"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/video-re-contract-true-resolution",
+  "title": "True resolution payload",
+  "description": "Payload of video_re_detect_true_resolution: container size, effective detail size and the spectral evidence.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["container", "effective", "upscale_factor", "per_axis", "cutoff_cycles_per_px", "verdict", "tiles", "frames_analysed"],
+  "$defs": {
+    "size": { "type": "object", "additionalProperties": false, "required": ["w", "h"], "properties": { "w": { "type": "integer", "minimum": 1 }, "h": { "type": "integer", "minimum": 1 } } },
+    "xy": { "type": "object", "additionalProperties": false, "required": ["x", "y"], "properties": { "x": { "type": "number", "exclusiveMinimum": 0 }, "y": { "type": "number", "exclusiveMinimum": 0 } } }
+  },
+  "properties": {
+    "container": { "$ref": "#/$defs/size" },
+    "effective": { "oneOf": [{ "$ref": "#/$defs/size" }, { "type": "null" }], "description": "container size divided by the per-axis upscale factor" },
+    "upscale_factor": { "type": ["number", "null"], "minimum": 1, "description": "geometric mean of the per-axis factors; 1 = native detail" },
+    "per_axis": { "oneOf": [{ "$ref": "#/$defs/xy" }, { "type": "null" }] },
+    "cutoff_cycles_per_px": { "oneOf": [{ "$ref": "#/$defs/xy" }, { "type": "null" }], "description": "0.5 = detail up to Nyquist" },
+    "verdict": { "enum": ["native", "upscaled", "mixed", "insufficient-detail"], "description": "mixed = some tiles native (e.g. graphics rendered at output size) and others upscaled" },
+    "tiles": {
+      "type": "object", "additionalProperties": false, "required": ["analysed", "total", "upscaled_share"],
+      "properties": { "analysed": { "type": "integer", "minimum": 0 }, "total": { "type": "integer", "minimum": 0 }, "upscaled_share": { "type": ["number", "null"], "minimum": 0, "maximum": 1 } }
+    },
+    "frames_analysed": { "type": "integer", "minimum": 1 }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "pa_farm_diorama_kit",
+  "title": "Pennsylvania farm diorama kit (Godot 3D showcase)",
+  "kind": "skill",
+  "subkind": "rights-manifest",
+  "version": "1.0.0",
+  "summary": "Media pack manifest for a low-poly farm diorama in Godot 4 - CC0 farm buildings, animated animals, crops, vehicles, terrain addon, city-builder template and a golden-field HDRI.",
+  "description": "Use when building a farm or rural-business 3D visualisation in Godot 4 (for example a contest showcase of a small farm's product or service). Lists CC0 Quaternius farm buildings, animals and crops, Kenney nature and car kits, Kenney's MIT/CC0 city-builder template for placement, the MIT Terrain3D addon and a CC0 HDRI.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "plan",
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "media-pack",
+    "manifest",
+    "farm",
+    "diorama",
+    "godot",
+    "3d",
+    "showcase"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "media_pack_fetcher"
+    },
+    {
+      "identity": "asset_licence_checker"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits",
+    "parameters": {
+      "assets": 10,
+      "status": "manifest-only"
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

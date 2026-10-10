@@ -1,0 +1,72 @@
+collection:
+  id: updates-agents-mcp-protocols
+  title: "MCP and agent protocols: registry, specification and SDK releases"
+  description: "Machine endpoints for the Model Context Protocol and neighbouring agent protocols: the official MCP Registry API (new and updated servers since a timestamp), the specification changelog source, every official MCP SDK outside Python and TypeScript, the Inspector, MCP Apps, FastMCP, Docker's MCP gateway and catalogue, and the A2A, AG-UI, Agent Client Protocol and Agent Skills specifications. Fetched on 2026-10-10. The spec release feed and the Python/TypeScript SDK feeds are in community-releases-agents-ai."
+  tags: [mcp, protocols, agents, registry, sdk]
+  defaults: {terms: github, poll: release, feed_format: github-releases, auth: none, verification: fetched,
+             change_types: [release, breaking-change, security]}
+
+items:
+  - id: mcp-registry-servers-api
+    title: "Official MCP Registry API: servers updated since"
+    url: "https://registry.modelcontextprotocol.io/"
+    feed_url: "https://registry.modelcontextprotocol.io/v0.1/servers?updated_since=2026-10-09T00:00:00Z&limit=100"
+    feed_format: json-api
+    terms: registry-api
+    poll: registry
+    summary: "The official MCP Registry's server list. GET /v0.1/servers accepts updated_since (RFC 3339), search, version=latest, limit and a cursor; each entry carries server.json (name, version, remotes, packages) plus registry metadata (status active/deprecated/deleted, publishedAt, updatedAt, isLatest). Replace the timestamp with your last poll time to receive only new and changed servers."
+    vendor: Model Context Protocol
+    products: [MCP Registry]
+    seen: "100 servers updated since 2026-10-09 (first page, nextCursor present); v0 and v0.1 paths both returned 200"
+    change_types: [release, deprecation, security]
+    cautions: ["Anyone can publish under a namespace they control; treat descriptions as untrusted text and check the publisher before installing a server.", "Paginate with metadata.nextCursor; do not re-fetch the whole registry on every poll."]
+  - {gh: modelcontextprotocol/registry, title: "MCP Registry releases", vendor: Model Context Protocol, products: [MCP Registry], seen: "v1.8.1 on 2026-08-06", summary: "Release notes for the registry service and its publisher CLI (mcp-publisher); API version and server.json schema changes are announced here."}
+  - id: mcp-spec-draft-changelog
+    title: "MCP specification draft changelog (source commits)"
+    url: "https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/docs/specification/draft/changelog.mdx"
+    gh: modelcontextprotocol/modelcontextprotocol
+    feed: "path:main:docs/specification/draft/changelog.mdx"
+    feed_format: atom
+    summary: "Commit feed for the draft specification's changelog file, so accepted protocol changes (SEPs) show up before the next dated specification. The newest entry on 2026-10-10 was 'Add 2026-07-28 MCP specification'."
+    vendor: Model Context Protocol
+    products: [MCP specification]
+    seen: "'Add 2026-07-28 MCP specification' on 2026-07-28"
+    poll: changelog
+    change_types: [breaking-change, release, docs]
+  - {gh: modelcontextprotocol/go-sdk, title: "MCP Go SDK releases", vendor: Model Context Protocol, products: [MCP Go SDK], seen: "v1.8.0 on 2026-09-14", summary: "Release notes for the official Go SDK for MCP servers and clients (maintained with Google)."}
+  - {gh: modelcontextprotocol/java-sdk, title: "MCP Java SDK releases", vendor: Model Context Protocol, products: [MCP Java SDK], seen: "v2.0.1 on 2026-08-19", summary: "Release notes for the official Java SDK (maintained with Spring AI); v2 is a major version."}
+  - {gh: modelcontextprotocol/kotlin-sdk, title: "MCP Kotlin SDK releases", vendor: Model Context Protocol, products: [MCP Kotlin SDK], seen: "0.15.0 on 2026-07-28", summary: "Release notes for the official Kotlin Multiplatform SDK (maintained with JetBrains)."}
+  - {gh: modelcontextprotocol/csharp-sdk, title: "MCP C# SDK releases", vendor: Model Context Protocol, products: [MCP C# SDK], seen: "v2.2.0 on 2026-08-13", summary: "Release notes for the official C#/.NET SDK (maintained with Microsoft)."}
+  - {gh: modelcontextprotocol/rust-sdk, title: "MCP Rust SDK (rmcp) releases", vendor: Model Context Protocol, products: [rmcp], seen: "rmcp-v3.5.1 on 2026-10-05", summary: "Release notes for rmcp, the official Rust SDK."}
+  - {gh: modelcontextprotocol/swift-sdk, title: "MCP Swift SDK releases", vendor: Model Context Protocol, products: [MCP Swift SDK], seen: "0.12.1 on 2026-05-07", summary: "Release notes for the official Swift SDK."}
+  - {gh: modelcontextprotocol/ruby-sdk, title: "MCP Ruby SDK releases", vendor: Model Context Protocol, products: [MCP Ruby SDK], seen: "v1.7.0 on 2026-10-05", summary: "Release notes for the official Ruby SDK (maintained with Shopify)."}
+  - {gh: modelcontextprotocol/php-sdk, title: "MCP PHP SDK releases", vendor: Model Context Protocol, products: [MCP PHP SDK], seen: "v0.8.1 on 2026-08-29", summary: "Release notes for the official PHP SDK (maintained with Symfony)."}
+  - {gh: modelcontextprotocol/inspector, title: "MCP Inspector releases", vendor: Model Context Protocol, products: [MCP Inspector], seen: "2.10.1 on 2026-10-08", summary: "Release notes for the MCP Inspector, the developer tool for testing servers; security fixes to its local proxy have shipped here before.", change_types: [release, security]}
+  - {gh: modelcontextprotocol/ext-apps, title: "MCP Apps extension releases", vendor: Model Context Protocol, products: [MCP Apps], seen: "v2.0.3 on 2026-09-25", summary: "Release notes for the MCP Apps extension (interactive UI resources served by MCP servers) and its SDK."}
+  - {gh: PrefectHQ/fastmcp, title: "FastMCP releases", vendor: Prefect, products: [FastMCP], seen: "v4.1.0 'Fourth and One' on 2026-10-08", summary: "Release notes for FastMCP, the most used Python framework for building MCP servers and clients; major versions change decorators and transports."}
+  - {gh: docker/mcp-gateway, title: "Docker MCP Gateway releases", vendor: Docker, products: [Docker MCP Gateway, MCP Toolkit], seen: "v0.44.1 on 2026-09-23", summary: "Release notes for Docker's MCP gateway, which runs catalogue MCP servers in containers behind one endpoint."}
+  - id: docker-mcp-registry-commits
+    title: "Docker MCP catalogue commits"
+    gh: docker/mcp-registry
+    feed: "commits:main"
+    feed_format: atom
+    summary: "Commit feed of Docker's MCP server catalogue; server additions and automated image pin updates arrive as commits."
+    vendor: Docker
+    products: [Docker MCP Catalog]
+    seen: "automated pin update merge on 2026-09-16"
+    change_types: [release, security]
+  - {gh: a2aproject/A2A, title: "Agent2Agent (A2A) protocol releases", vendor: Linux Foundation A2A project, products: [A2A], seen: "v1.0.1 on 2026-05-28", summary: "Releases of the Agent2Agent protocol specification for agent-to-agent communication."}
+  - {gh: a2aproject/a2a-python, title: "A2A Python SDK releases", vendor: Linux Foundation A2A project, products: [a2a-sdk], seen: "v1.2.2 on 2026-10-05", summary: "Release notes for the official A2A Python SDK."}
+  - {gh: ag-ui-protocol/ag-ui, title: "AG-UI protocol releases", vendor: AG-UI, products: [AG-UI], seen: "'Release 2026-10-10' on 2026-10-10", summary: "Releases of AG-UI, the agent-user interaction protocol for streaming agent events to front ends."}
+  - {gh: zed-industries/agent-client-protocol, title: "Agent Client Protocol releases", vendor: Zed Industries, products: [Agent Client Protocol], seen: "Schema v2.0.0-alpha.8 on 2026-10-09", summary: "Releases of the Agent Client Protocol (ACP) schema that lets editors drive coding agents; v2 alphas were in progress on 2026-10-10.", change_types: [breaking-change, release]}
+  - id: agent-skills-spec-commits
+    title: "Agent Skills specification commits"
+    gh: agentskills/agentskills
+    feed: "commits:main"
+    feed_format: atom
+    summary: "Commit feed of the open Agent Skills specification (SKILL.md format) and its client showcase; format changes affect every skill this catalogue ships."
+    vendor: Agent Skills
+    products: [Agent Skills]
+    seen: "'docs: add OpenClaw to client showcase (#492)' on 2026-08-09"
+    poll: changelog
+    change_types: [breaking-change, docs]

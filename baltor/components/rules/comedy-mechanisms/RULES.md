@@ -25,6 +25,6 @@ Related hook patterns whose catalogued use is comedy (a join made by the generat
 - H41 Repetition with change: "The first two attempts teach you the rhythm. The third changes it." Guard: The third beat must alter an expectation, not repeat a color change.
 - H50 Conflicting goals: "One character wants silence. The other runs a bell shop." Guard: Give both characters understandable motives.
 
-BOXED IN lesson: repeated unsuccessful attempts are not automatically an arc; three versions of the same failed push is the overcomplicated-solution failure. See `story_contract_rules`.
+BOXED IN lesson (see `story_contract_rules`): repeated unsuccessful attempts are not automatically an arc.
 
 Status language: an idea or proposal is not a script; a storyboard is not a render; a render is not a delivery; a technical delivery is not creative acceptance; an editorial review is not audience evidence. Record the strongest stage actually observed and never upgrade it.

@@ -1,0 +1,49 @@
+{
+  "spec": "baltor.asset-source/v1",
+  "source_id": "universal-lpc-spritesheets",
+  "name": "Universal LPC sprite sheets (CC0 / CC-BY / CC-BY-SA / OGA-BY / GPL per layer)",
+  "homepage": "https://github.com/LiberatedPixelCup/Universal-LPC-Spritesheet-Character-Generator",
+  "licence_summary": "Each image is available under one or more of CC0, CC-BY, CC-BY-SA, OGA-BY or GPL. Credit all authors except for CC0 art; CC-BY-SA derivatives must be CC-BY-SA 4.0+, GPL derivatives GPL 3.0+; CC-BY/CC-BY-SA may not be DRM-protected, OGA-BY may.",
+  "licences": [
+    {
+      "id": "per-asset",
+      "url": "https://github.com/LiberatedPixelCup/Universal-LPC-Spritesheet-Character-Generator",
+      "applies_to": "every layer, listed in CREDITS.csv"
+    }
+  ],
+  "attribution": {
+    "required": "required",
+    "credit_template": "Sprites contributed as part of the Liberated Pixel Cup project from OpenGameArt.org; authors: {authors from the exported credits}"
+  },
+  "redistribution": "allowed-with-licence",
+  "commercial_use": "allowed",
+  "ai_training": "per-asset",
+  "automated_download": "allowed",
+  "formats": [
+    "png",
+    "csv",
+    "txt"
+  ],
+  "search": [
+    {
+      "label": "Generator repository (README, CREDITS.csv)",
+      "url": "https://github.com/LiberatedPixelCup/Universal-LPC-Spritesheet-Character-Generator"
+    },
+    {
+      "label": "LPC collection on OpenGameArt",
+      "url": "https://opengameart.org/content/liberated-pixel-cup-0"
+    },
+    {
+      "label": "LPC style guide",
+      "url": "https://lpc.opengameart.org/static/LPC-Style-Guide/build/styleguide.html"
+    }
+  ],
+  "cautions": [
+    "Ship the exported credits (or CREDITS.csv) where users can find them, e.g. a credits screen or the video description link.",
+    "Share-alike layers make derived sprites share-alike too; keep them out of packages with other licences."
+  ],
+  "verified": {
+    "on": "2026-10-10",
+    "how": "mixed"
+  }
+}

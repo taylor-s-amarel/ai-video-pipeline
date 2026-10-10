@@ -189,7 +189,7 @@ it is there; the questions are repeated here so you can work without it.
    How: Review text crops and the pattern answers from other lenses; flag any pattern that preserves distinctive words.
 8. `rights_originality_boundary-008` [boolean → `/generation_rules/-`] Are there distinctive characters or mascots whose design is the creator's own?
    How: From characters_animation_style answers and F4.
-9. `rights_originality_boundary-009` [object → `/source/platform`] Are watermarks or creator credits burned into the video?
+9. `rights_originality_boundary-009` [object → `/open_questions/-`] Are watermarks or creator credits burned into the video?
    How: F3 corner crops at 3 times.
 10. `rights_originality_boundary-010` [rule → `/generation_rules/-`] Which elements together form the source's distinctive identity (series name, signature colour plus layout plus label, recurring character) and should be varied by default in new videos?
    How: List combinations of title colour, layout, label pattern and naming that together identify the source; propose which parameter defaults must differ.

@@ -1,0 +1,53 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "third_party_asset_rules",
+  "title": "Third-party asset rules",
+  "kind": "rules",
+  "subkind": "rule-set",
+  "version": "1.0.0",
+  "summary": "Twelve checkable rules for using free 2D/3D/audio assets: manifest first, no NC in monetised work, no ND edits, project-only files never committed, credits verbatim.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "plan",
+    "review",
+    "secure"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "RULES.md",
+  "tags": [
+    "assets",
+    "licensing",
+    "rules",
+    "credits"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "asset_licence_checker"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

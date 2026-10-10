@@ -1,0 +1,68 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "low_poly_diorama_kit",
+  "title": "Low-poly diorama kit (3D, Godot/Blender)",
+  "kind": "skill",
+  "subkind": "rights-manifest",
+  "version": "1.0.0",
+  "summary": "Media pack manifest for a low-poly island or village diorama - CC0 nature, town and hex tiles, mini characters, sunset HDRI and particles for slow orbit shots.",
+  "description": "Use when a short needs a cute low-poly diorama (island, village, hex board) rendered in Godot 4 or Blender with a slow camera orbit. Lists CC0 kits from Kenney, Quaternius and KayKit plus a Poly Haven sunset HDRI, with licences and import hints, as a manifest to fetch.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "plan",
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "media-pack",
+    "manifest",
+    "low-poly",
+    "diorama",
+    "3d",
+    "godot",
+    "blender"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "media_pack_fetcher"
+    },
+    {
+      "identity": "asset_licence_checker"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits",
+    "parameters": {
+      "assets": 8,
+      "status": "manifest-only"
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

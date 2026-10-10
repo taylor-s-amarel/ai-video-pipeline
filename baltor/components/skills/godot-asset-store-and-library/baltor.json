@@ -1,0 +1,61 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "godot_asset_store_and_library",
+  "title": "Godot Asset Store and legacy Asset Library",
+  "kind": "skill",
+  "subkind": "media-source",
+  "version": "1.0.0",
+  "summary": "Find Godot addons and templates on the Asset Store or legacy Asset Library API, check each licence, and install safely.",
+  "description": "Use when a Godot 4 project needs an addon or a template project. The Asset Store (store.godotengine.org) replaces the legacy Asset Library, which is being deprecated; each listing carries its own licence. Covers searching, licence checks, the legacy REST API and installing safely.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "notes": "Describes https://store.godotengine.org/ (checked 2026-10-10); contains no third-party media."
+  },
+  "step_kinds": [
+    "research",
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "licensing",
+    "godot",
+    "addons",
+    "templates",
+    "asset-store",
+    "api"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "asset_source_profile"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

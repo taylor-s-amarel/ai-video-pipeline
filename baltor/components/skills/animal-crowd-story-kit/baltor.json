@@ -1,0 +1,68 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "animal_crowd_story_kit",
+  "title": "Animal crowd story kit (silly stories, many animals)",
+  "kind": "skill",
+  "subkind": "rights-manifest",
+  "version": "1.0.0",
+  "summary": "Media pack manifest for silly animal-crowd stories - CC0 animated animal packs, small characters, nature kit, a sunny HDRI and generated or CC0 sound effects.",
+  "description": "Use when a ridiculous story needs many animals on screen (a crowd of pets, a farm stampede). Lists CC0 Quaternius animated animal packs, Kenney mini and blocky characters, nature props, a CC0 sunny HDRI, ZzFX for generated sounds and Kenney Interface Sounds.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "plan",
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "media-pack",
+    "manifest",
+    "animals",
+    "crowd",
+    "story",
+    "3d",
+    "shorts"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "media_pack_fetcher"
+    },
+    {
+      "identity": "asset_licence_checker"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits",
+    "parameters": {
+      "assets": 8,
+      "status": "manifest-only"
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

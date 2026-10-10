@@ -1,0 +1,52 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "credit_assets",
+  "title": "/credit-assets",
+  "kind": "command",
+  "subkind": "attribution",
+  "version": "1.0.0",
+  "summary": "Slash command that re-verifies hashes, re-runs the licence checker and regenerates CREDITS.md and the description credit block for a project's media packs.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "verify",
+    "publish"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "opencode",
+    "baltor-harness"
+  ],
+  "entry": "command.md",
+  "tags": [
+    "assets",
+    "credits",
+    "command"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "media_pack_fetcher"
+    },
+    {
+      "identity": "asset_licence_checker"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

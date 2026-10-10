@@ -1,0 +1,68 @@
+{
+  "spec": "baltor.asset-source/v1",
+  "source_id": "gltf-cleanup-for-godot-and-video",
+  "name": "Clean up downloaded 3D models for Godot, Blender and video",
+  "homepage": "https://github.com/donmccurdy/glTF-Transform",
+  "licence_summary": "Tools: glTF-Transform MIT, meshoptimizer/gltfpack MIT, glTF-Validator Apache-2.0, obj2gltf Apache-2.0. Tool licences do not change the model's own licence.",
+  "licences": [
+    {
+      "id": "MIT",
+      "url": "https://github.com/donmccurdy/glTF-Transform",
+      "applies_to": "glTF-Transform"
+    },
+    {
+      "id": "MIT",
+      "url": "https://github.com/zeux/meshoptimizer",
+      "applies_to": "meshoptimizer and gltfpack"
+    },
+    {
+      "id": "Apache-2.0",
+      "url": "https://github.com/KhronosGroup/glTF-Validator",
+      "applies_to": "glTF-Validator"
+    },
+    {
+      "id": "Apache-2.0",
+      "url": "https://github.com/CesiumGS/obj2gltf",
+      "applies_to": "obj2gltf"
+    }
+  ],
+  "attribution": {
+    "required": "never",
+    "credit_template": ""
+  },
+  "redistribution": "allowed",
+  "commercial_use": "allowed",
+  "ai_training": "unspecified",
+  "automated_download": "allowed",
+  "formats": [
+    "glb",
+    "gltf",
+    "obj",
+    "fbx"
+  ],
+  "search": [
+    {
+      "label": "glTF-Transform",
+      "url": "https://github.com/donmccurdy/glTF-Transform"
+    },
+    {
+      "label": "glTF-Validator",
+      "url": "https://github.com/KhronosGroup/glTF-Validator"
+    },
+    {
+      "label": "meshoptimizer / gltfpack",
+      "url": "https://github.com/zeux/meshoptimizer"
+    },
+    {
+      "label": "Godot: available 3D formats",
+      "url": "https://docs.godotengine.org/en/stable/tutorials/assets_pipeline/importing_3d_scenes/available_formats.html"
+    }
+  ],
+  "cautions": [
+    "Optimising never changes the licence: carry the source, licence and credit into the new file's manifest entry."
+  ],
+  "verified": {
+    "on": "2026-10-10",
+    "how": "mixed"
+  }
+}

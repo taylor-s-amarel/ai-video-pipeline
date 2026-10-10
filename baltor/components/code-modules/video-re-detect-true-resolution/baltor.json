@@ -1,0 +1,112 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "video_re_detect_true_resolution",
+  "title": "Detect true (effective) resolution and upscaling",
+  "kind": "code-module",
+  "subkind": "evaluator",
+  "version": "1.0.0",
+  "summary": "Estimates how much detail a video really holds versus its container size from the high-frequency power spectrum, per axis and per tile, and flags upscaled footage or native graphics over upscaled footage.",
+  "description": "Decodes a native-resolution centre crop, computes row and column power spectra, fits a power law on the low band and finds the frequency above which the spectrum is missing (10 dB below prediction). upscale_factor = 0.5 / cut-off. Per-tile estimates separate native overlays from upscaled footage.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "measure",
+    "review"
+  ],
+  "effects": {
+    "filesystem": "read",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "runs ffprobe and ffmpeg as subprocesses to decode the input video"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "video_re_detect_true_resolution.py",
+  "tags": [
+    "video",
+    "reverse-engineering",
+    "detector",
+    "geometry",
+    "framing",
+    "resolution",
+    "upscaling",
+    "spectrum",
+    "sharpness"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "video_re_contract_true_resolution"
+    },
+    {
+      "identity": "ffmpeg",
+      "external": true
+    },
+    {
+      "identity": "ffprobe",
+      "external": true
+    },
+    {
+      "identity": "numpy",
+      "external": true
+    },
+    {
+      "identity": "jsonschema",
+      "external": true
+    },
+    {
+      "identity": "pytest",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_re_detectors_a.py",
+    "data": "generators/data/video_re_detectors_a",
+    "parameters": {
+      "family": "geometry",
+      "property": "true_resolution",
+      "defaults": {
+        "tile": 128,
+        "fit_band": [
+          0.015,
+          0.07
+        ],
+        "drop_db": 10.0,
+        "band_frac": 0.9,
+        "min_tile_std": 6.0,
+        "upscaled_factor": 1.15,
+        "mixed_share": [
+          0.25,
+          0.75
+        ]
+      },
+      "decode": {
+        "width": 0,
+        "fps": 0.5,
+        "max_frames": 8,
+        "crop": [
+          1280,
+          1280
+        ]
+      },
+      "question_bank": "video_re_qbank_true_resolution"
+    }
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "pytest passed on synthetic fixtures with known ground truth (Python 3.13, numpy 2.x, jsonschema 4.x) including a lossless FFV1 command-line round trip with ffmpeg 6.1."
+  }
+}

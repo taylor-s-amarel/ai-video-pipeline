@@ -132,23 +132,22 @@ items:
   - id: kaykit-adventurers-github
     title: "KayKit Character Pack Adventures 1.0 (GitHub)"
     url: https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0
-    summary: "GitHub copy of the KayKit Adventurers characters, convenient for scripted downloads."
+    summary: "Four rigged, textured and animated dungeon adventurers with 75 animations and 25+ accessories (FBX, glTF); repo states CC0 1.0, no attribution required."
     licence: CC0-1.0
-    licence_url: https://creativecommons.org/publicdomain/zero/1.0/deed.en
+    licence_url: https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0
     verification: fetched
     kind: repository
-    tags: [characters, github, kaykit]
-    cautions: ["Confirm the repo LICENSE file; the org page shows none."]
+    tags: [characters, github, kaykit, animated]
+    cautions: ["The GitHub 1.0 release has four characters; the current itch.io page lists five plus three paid Extra characters."]
   - id: kaykit-skeletons-github
     title: "KayKit Character Pack Skeletons 1.0 (GitHub)"
     url: https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Skeletons-1.0
-    summary: "Four stylised low-poly skeleton characters on GitHub (Halloween, dungeon and history-myth shorts)."
+    summary: "Four rigged and animated skeleton characters with weapons, accessories and 90+ animations (FBX, glTF); repo states CC0 1.0. Good for Halloween, dungeon and myth shorts."
     licence: CC0-1.0
-    licence_url: https://creativecommons.org/publicdomain/zero/1.0/deed.en
+    licence_url: https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Skeletons-1.0
     verification: fetched
     kind: repository
-    tags: [characters, skeletons, kaykit]
-    cautions: ["Confirm the repo LICENSE file; the org page shows none."]
+    tags: [characters, skeletons, kaykit, animated]
   - id: kenney-mini-characters
     title: "Kenney Mini Characters (25 assets, animated)"
     url: https://kenney.nl/assets/mini-characters
@@ -203,16 +202,6 @@ items:
     cautions:
       - "Credit all authors of every non-CC0 layer you use; ship the exported credits (or CREDITS.csv) where users can find it."
       - "CC-BY-SA derivatives must be CC-BY-SA 4.0 or later; GPL derivatives GPL 3.0 or later; CC-BY/CC-BY-SA forbid DRM, OGA-BY allows it."
-  - id: universal-lpc-generator-app
-    title: "Universal LPC Spritesheet Character Generator (hosted app)"
-    url: https://liberatedpixelcup.github.io/Universal-LPC-Spritesheet-Character-Generator/
-    summary: "Browser version of the generator: pick body, hair, clothes and weapons, then export the sheet and its credits."
-    licence: "Per image (see credits export)"
-    licence_url: https://github.com/LiberatedPixelCup/Universal-LPC-Spritesheet-Character-Generator
-    verification: unverified
-    kind: tool
-    tags: [lpc, sprites, generator]
-    cautions: ["URL taken from the fetched repo README, not fetched itself."]
   - id: makehuman-licence
     title: "MakeHuman licence (code AGPL, bundled assets and exports CC0)"
     url: https://static.makehumancommunity.org/about/license.html

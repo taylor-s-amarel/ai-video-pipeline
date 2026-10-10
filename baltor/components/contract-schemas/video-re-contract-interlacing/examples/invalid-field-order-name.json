@@ -1,0 +1,12 @@
+{
+  "interlaced": "yes",
+  "field_order": "upper-first",
+  "telecine_like": false,
+  "combed_frame_ratio": 88,
+  "comb_score_median": 2.41,
+  "moving_frames": 101,
+  "field_order_costs": null,
+  "metadata_field_order": "tt",
+  "idet": null,
+  "frames_analysed": 120
+}

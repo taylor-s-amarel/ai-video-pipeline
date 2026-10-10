@@ -1,0 +1,53 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "gltf_glb_inspector",
+  "title": "glTF/GLB inspector (counts, world bounds, extensions, licence fields)",
+  "kind": "code-module",
+  "subkind": "qa-check",
+  "version": "1.0.0",
+  "summary": "Parses GLB/glTF JSON without a 3D library and reports mesh, material, node and animation counts, world-space bounds, risky required extensions (Draco, meshopt, KTX2) and asset.copyright.",
+  "description": "Ships fixtures/tiny_cube.glb, a 1.3 KB cube with a one-second animation produced by make_cube_glb(), and the builder itself so other tests can create GLBs. Checked during development against NASA's Apollo Lunar Module GLB (Draco-compressed, WebP textures) and the Khronos Duck sample.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "verify",
+    "build"
+  ],
+  "effects": {
+    "filesystem": "read",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "gltf_glb_inspector.py",
+  "tags": [
+    "gltf",
+    "glb",
+    "3d",
+    "inspection",
+    "godot",
+    "blender"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "examples": [
+    "python gltf_glb_inspector.py model.glb --deny-ext KHR_draco_mesh_compression --max-triangles 150000"
+  ],
+  "review": {
+    "status": "unreviewed"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "nasa_3d_resources",
+  "title": "NASA 3D Resources (spacecraft, rovers, suits)",
+  "kind": "skill",
+  "subkind": "media-source",
+  "version": "1.0.0",
+  "summary": "Download NASA 3D Resources GLB/BLEND models from GitHub, handle Draco and WebP, normalise scale, and follow NASA usage rules.",
+  "description": "Use for space and science shorts that need real spacecraft models (Apollo Lunar Module, Hubble, Curiosity, astronaut, Gateway). NASA's repository states the assets are free and without copyright, subject to NASA's media usage guidelines. Covers download from GitHub, Draco/WebP pitfalls and scale.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "notes": "Describes https://github.com/nasa/NASA-3D-Resources (checked 2026-10-10); contains no third-party media."
+  },
+  "step_kinds": [
+    "research",
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "licensing",
+    "nasa",
+    "space",
+    "3d",
+    "gltf",
+    "public-domain"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "asset_source_profile"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

@@ -29,7 +29,7 @@ representation. You do not analyse the video again and you never invent a value.
 1. Collect every surviving answer into `$OUT/answers.surviving.json` (one array) and count them per lens.
 2. Group answers by `ir_path`. When several answers write the same scalar path, keep, in order of preference:
    (a) the stronger method (measured > observed > inferred > assumed), (b) the higher confidence, (c) the lens
-   that owns the path (table below). Record each overruled alternative that differs materially in
+   listed first for that IR area in the priority table below. Record each overruled alternative that differs materially in
    `open_questions` as `conflict at <path>: <kept> vs <other> (<question ids>)`.
 3. Paths ending in `/-` append (drop exact duplicates). Paths with `*` apply to the array elements the answer
    names (for example beats whose role is `item`); when the scope is unclear, move the answer to
@@ -38,12 +38,16 @@ representation. You do not analyse the video again and you never invent a value.
    - numeric answers (number, integer, ratio, seconds, ms, range, distribution) become `observed_number`
      `{value, unit, min, max, evidence}` (a distribution's median is the value; p10/p90 become min/max);
    - text, pattern and enum answers become `observed_text` `{value, evidence}`;
-   - the multi-writer fields `/visual/grade`, `/visual/subject_framing`, `/visual/style_family` and
-     `/script/hook_pattern` join their parts as `key: value; ...` in one `observed_text` whose method is the
-     weakest contributor's and whose confidence is the mean;
+   - a `distribution` or `range` answer to a path that already holds a value fills its `min`/`max`;
+     `seconds` answers to `*_ratio` paths are divided by `source.duration_s`;
+   - the multi-writer fields `/motion/easing`, `/script/hook_pattern`, `/visual/grade`, `/visual/style_family`, `/visual/subject_framing` join their parts as
+     `key: value; ...` in one `observed_text` (for easing: `camera: ...; text: ...; characters: ...`) whose method
+     is the weakest contributor's and whose confidence is the mean;
    - answers of other types appended to `observed_text` arrays become a short `topic: value` string with the
      answer's evidence;
    - `/visual/layers/-` answers become layer objects (`z`, `kind`, `opacity`, ...); a `false` answer adds no layer;
+   - `render_binding.mapping.measurement_precision` keeps spot-check results (for example shot-detector
+     precision) that the round-trip judge uses to weight comparisons;
    - answers to `/parameters/-` and non-rule answers to `/generation_rules/-` are proposals: write them to
      `$OUT/proposals.json` for the parameteriser; only `rule` answers go straight into `generation_rules`.
 5. Merge with the `video_re_ir_merge` code module (placed at `.baltor/lib/video-re-ir-merge/`). Run its CLI with
@@ -62,23 +66,46 @@ representation. You do not analyse the video again and you never invent a value.
 9. Write `$OUT/format_ir.json` and `$OUT/lift_report.json`:
    `{"answers_in": n, "answers_used": n, "conflicts": [...], "proposals": n, "open_questions": n, "validation": "ok"}`.
 
-## Path ownership (tie-breaker in step 2)
+## Lens priority per IR area (tie-breaker in step 2)
 
-- `structure_beats`: `/timeline/beats`, `/timeline/target_duration_s`, `/script/beat_patterns`, `/generation_rules`, `/parameters`
-- `hook_first_seconds`: `/script/hook_pattern`, `/typography/title`, `/timeline/beats`, `/timeline/retention_devices`, `/audio/narration`
-- `script_rhetoric`: `/script/beat_patterns`, `/script/reading_level`, `/script/claims_need_sources`, `/audio/narration`, `/generation_rules`, `/parameters`
-- `pacing_cut_rhythm`: `/timeline/median_shot_s`, `/timeline/cut_rate_per_min`, `/audio/cuts_on_beat_ratio`, `/generation_rules`, `/parameters`
-- `shot_list_framing`: `/visual/subject_framing`, `/visual/layers`, `/visual/style_family`, `/timeline/beats`, `/parameters`
-- `camera_motion`: `/motion/camera_moves`, `/motion/easing`, `/visual/layers`, `/generation_rules`, `/parameters`
-- `layers_compositing`: `/visual/layers`, `/generation_rules`, `/parameters`
-- `background_system`: `/visual/layers`, `/motion/background_motion_level`, `/visual/palette`, `/generation_rules`, `/parameters`
-- `typography_captions`: `/typography/title`, `/typography/captions`, `/typography/labels`, `/typography/words_on_screen_max`
-- `text_animation`: `/motion/text_animations`, `/motion/easing`, `/generation_rules`, `/parameters`
-- `color_grade`: `/visual/palette`, `/visual/grade`, `/generation_rules`, `/parameters`
-- `characters_animation_style`: `/visual/style_family`, `/visual/layers`, `/motion/camera_moves`, `/render_binding/mapping`, `/parameters`
-- `transitions_effects`: `/motion/transitions`, `/visual/layers`, `/audio/sfx`, `/generation_rules`, `/parameters`
-- `narration_voice`: `/audio/narration`, `/audio/words_per_minute`, `/render_binding/mapping`, `/parameters`, `/generation_rules`
-- `music_sfx_mix`: `/audio/music`, `/audio/sfx`, `/audio/integrated_lufs`, `/audio/music_under_voice_db`, `/generation_rules`, `/parameters`
-- `retention_cta`: `/timeline/retention_devices`, `/timeline/beats`, `/generation_rules`, `/parameters`
-- `platform_fit_safe_areas`: `/source/resolution`, `/source/fps`, `/source/platform`, `/visual/aspect`, `/visual/safe_area_respected`, `/render_binding/mapping`, `/generation_rules`
-- `rights_originality_boundary`: `/source/rights_note`, `/source/reference`, `/script/claims_need_sources`, `/open_questions`, `/parameters`, `/generation_rules`
+- `/audio/cuts_on_beat_ratio`: `pacing_cut_rhythm`
+- `/audio/integrated_lufs`: `music_sfx_mix`
+- `/audio/music`: `music_sfx_mix`
+- `/audio/music_under_voice_db`: `music_sfx_mix`
+- `/audio/narration`: `narration_voice` > `script_rhetoric` > `hook_first_seconds`
+- `/audio/sfx`: `music_sfx_mix` > `transitions_effects`
+- `/audio/words_per_minute`: `narration_voice`
+- `/generation_rules`: `layers_compositing` > `text_animation` > `color_grade` > `retention_cta` > `structure_beats` > `pacing_cut_rhythm` > `camera_motion` > `background_system` > `transitions_effects` > `script_rhetoric` > `narration_voice` > `music_sfx_mix` > `rights_originality_boundary` > `platform_fit_safe_areas`
+- `/motion/background_motion_level`: `background_system`
+- `/motion/camera_moves`: `camera_motion` > `characters_animation_style`
+- `/motion/easing`: `camera_motion` > `text_animation`
+- `/motion/text_animations`: `text_animation`
+- `/motion/transitions`: `transitions_effects`
+- `/open_questions`: `rights_originality_boundary`
+- `/parameters`: `layers_compositing` > `text_animation` > `color_grade` > `narration_voice` > `retention_cta` > `structure_beats` > `pacing_cut_rhythm` > `shot_list_framing` > `camera_motion` > `background_system` > `characters_animation_style` > `transitions_effects` > `rights_originality_boundary` > `script_rhetoric` > `music_sfx_mix`
+- `/render_binding/mapping`: `narration_voice` > `characters_animation_style` > `platform_fit_safe_areas`
+- `/script/beat_patterns`: `script_rhetoric` > `structure_beats`
+- `/script/claims_need_sources`: `script_rhetoric` > `rights_originality_boundary`
+- `/script/hook_pattern`: `hook_first_seconds`
+- `/script/reading_level`: `script_rhetoric`
+- `/source/fps`: `platform_fit_safe_areas`
+- `/source/platform`: `platform_fit_safe_areas`
+- `/source/reference`: `rights_originality_boundary`
+- `/source/resolution`: `platform_fit_safe_areas`
+- `/source/rights_note`: `rights_originality_boundary`
+- `/timeline/beats`: `structure_beats` > `retention_cta` > `hook_first_seconds` > `shot_list_framing`
+- `/timeline/cut_rate_per_min`: `pacing_cut_rhythm`
+- `/timeline/median_shot_s`: `pacing_cut_rhythm`
+- `/timeline/retention_devices`: `retention_cta` > `hook_first_seconds`
+- `/timeline/target_duration_s`: `structure_beats`
+- `/typography/captions`: `typography_captions`
+- `/typography/labels`: `typography_captions`
+- `/typography/title`: `typography_captions` > `hook_first_seconds`
+- `/typography/words_on_screen_max`: `typography_captions`
+- `/visual/aspect`: `platform_fit_safe_areas`
+- `/visual/grade`: `color_grade`
+- `/visual/layers`: `layers_compositing` > `background_system` > `shot_list_framing` > `characters_animation_style` > `transitions_effects` > `camera_motion`
+- `/visual/palette`: `color_grade` > `background_system`
+- `/visual/safe_area_respected`: `platform_fit_safe_areas`
+- `/visual/style_family`: `characters_animation_style` > `shot_list_framing`
+- `/visual/subject_framing`: `shot_list_framing`

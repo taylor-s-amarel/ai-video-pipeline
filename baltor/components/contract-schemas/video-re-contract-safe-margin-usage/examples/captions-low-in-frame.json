@@ -1,0 +1,10 @@
+{
+  "min_margin_px": { "top": 212, "bottom": 168, "left": 72, "right": 69 },
+  "min_margin_ratio": { "top": 0.1104, "bottom": 0.0875, "left": 0.0667, "right": 0.0639 },
+  "p10_margin_px": { "top": 240, "bottom": 300, "left": 96, "right": 96 },
+  "closest_t_s": { "top": 0.0, "bottom": 41.5, "left": 12.0, "right": 12.0 },
+  "source": "static-detail",
+  "windows_with_overlay": 31,
+  "static_background": false,
+  "frames_analysed": 128
+}

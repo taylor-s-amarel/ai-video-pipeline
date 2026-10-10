@@ -1,0 +1,6 @@
+title: Rounded backing panel
+summary: Draws rounded RGBA backing panels for titles and captions with capped opacity, optional vertical gradient and border, and a blurred-alpha feathered edge instead of a hard cutout.
+subkind: caption-style
+domain: video
+tags: [video, panel, captions, titles, pillow, feather]
+step_kinds: [build, render]

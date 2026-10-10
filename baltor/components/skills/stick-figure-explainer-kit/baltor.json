@@ -1,0 +1,68 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "stick_figure_explainer_kit",
+  "title": "Stick-figure explainer kit (faceless 2D)",
+  "kind": "skill",
+  "subkind": "rights-manifest",
+  "version": "1.0.0",
+  "summary": "Media pack manifest for faceless stick-figure explainer shorts - CC0 flat characters, narrator avatar, icons, caption fonts, UI panels and pop sounds.",
+  "description": "Use when building a faceless stick-figure or flat-character explainer short (1080x1920). Lists CC0/OFL/MIT sources for characters, a narrator avatar, concept icons, caption and title fonts, UI panels, particles and pop sounds, with licences and credit lines, as a manifest to fetch (no files included).",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "plan",
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "media-pack",
+    "manifest",
+    "stick-figure",
+    "explainer",
+    "faceless",
+    "2d",
+    "shorts"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "media_pack_fetcher"
+    },
+    {
+      "identity": "asset_licence_checker"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits",
+    "parameters": {
+      "assets": 10,
+      "status": "manifest-only"
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

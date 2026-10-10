@@ -1,0 +1,63 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "sprite_sheet_slicer",
+  "title": "Sprite sheet slicer (grid, auto-detect, Aseprite JSON -> Godot SpriteFrames)",
+  "kind": "code-module",
+  "subkind": "procedural-asset",
+  "version": "1.0.0",
+  "summary": "Slices sprite sheets by grid, by alpha connected components or from Aseprite JSON, exports frames and writes a Godot 4 SpriteFrames .tres using AtlasTexture regions.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "sprite_sheet_slicer.py",
+  "tags": [
+    "sprites",
+    "sprite-sheet",
+    "aseprite",
+    "godot",
+    "spriteframes",
+    "pillow"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "pillow",
+      "external": true
+    },
+    {
+      "identity": "numpy",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "examples": [
+    "python sprite_sheet_slicer.py grid kenney_sheet.png --size 16x16 --spacing 1 --out frames/",
+    "python sprite_sheet_slicer.py aseprite hero.json --out frames/ --tres hero_frames.tres --res-path res://art/hero.png"
+  ],
+  "review": {
+    "status": "unreviewed"
+  }
+}

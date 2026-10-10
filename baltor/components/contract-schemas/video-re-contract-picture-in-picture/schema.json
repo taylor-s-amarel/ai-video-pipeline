@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/video-re-contract-picture-in-picture",
+  "title": "Picture-in-picture payload",
+  "description": "Payload of video_re_detect_picture_in_picture. bbox and margins are source pixels [x, y, w, h].",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["insets", "frames_analysed", "window_s"],
+  "properties": {
+    "insets": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["bbox", "corner", "margin_px", "border", "shadow", "t_start_s", "t_end_s", "support"],
+        "properties": {
+          "bbox": { "type": "array", "items": { "type": "integer", "minimum": 0 }, "minItems": 4, "maxItems": 4 },
+          "corner": { "enum": ["top-left", "top-right", "bottom-left", "bottom-right", "middle-left", "middle-right", "top", "bottom", "center"] },
+          "margin_px": {
+            "type": "object", "additionalProperties": false, "required": ["left", "top", "right", "bottom"],
+            "properties": { "left": { "type": "integer" }, "top": { "type": "integer" }, "right": { "type": "integer" }, "bottom": { "type": "integer" } }
+          },
+          "border": {
+            "type": ["object", "null"], "additionalProperties": false, "required": ["px", "color", "uniform"],
+            "properties": { "px": { "type": "number", "minimum": 0 }, "color": { "type": "string", "pattern": "^#[0-9A-F]{6}$" }, "uniform": { "type": "boolean" } }
+          },
+          "shadow": {
+            "type": ["object", "null"], "additionalProperties": false, "required": ["direction", "darkening", "offset_px"],
+            "properties": {
+              "direction": { "enum": ["top", "bottom", "left", "right", "top-left", "top-right", "bottom-left", "bottom-right"] },
+              "darkening": { "type": ["number", "null"], "minimum": 0, "maximum": 1, "description": "luma drop of the darker outside band, 0-1" },
+              "offset_px": { "type": ["array", "null"], "items": { "type": "integer" }, "minItems": 2, "maxItems": 2, "description": "[dx, dy] of a hard-edged offset shadow; null for soft shadows" }
+            }
+          },
+          "t_start_s": { "type": "number", "minimum": 0 },
+          "t_end_s": { "type": "number", "minimum": 0 },
+          "support": { "type": "number", "minimum": 0, "maximum": 1, "description": "mean persistence of the four sides" }
+        }
+      }
+    },
+    "frames_analysed": { "type": "integer", "minimum": 1 },
+    "window_s": { "type": "number", "exclusiveMinimum": 0 }
+  }
+}

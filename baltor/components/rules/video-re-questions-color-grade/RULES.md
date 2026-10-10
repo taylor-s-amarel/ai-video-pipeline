@@ -130,7 +130,7 @@ F6 statistics per shot, F7 waveform and vectorscope on 3+ representative frames,
 
 - Choices: `crushed`, `natural`, `lifted`
 - Why it matters: Fills the contrast style.
-- How to answer: From YMIN medians: lifted when the darkest areas stay above about 30 (8-bit, limited range 16-235); crushed when large areas sit at 16 on a waveform (F7).
+- How to answer: From YMIN medians and F7 waveforms: as a rough convention, lifted when the darkest areas stay above about 30 (8-bit, limited range 16-235) and crushed when large areas sit flat at 16. Report the values.
 - Evidence required: F6 YMIN; F7 waveform
 - Challenge: Check the stream colour range in A7; full-range sources shift these values.
 
@@ -140,7 +140,7 @@ F6 statistics per shot, F7 waveform and vectorscope on 3+ representative frames,
 
 - Choices: `warm`, `neutral`, `cool`
 - Why it matters: Fills temperature in the grade.
-- How to answer: F6 UAVG and VAVG medians (128 neutral in 8-bit): V above U by more than 4 suggests warm, U above V suggests cool; confirm on an F7 vectorscope.
+- How to answer: F6 UAVG and VAVG medians (128 is neutral in 8-bit): V clearly above U suggests warm, U above V cool (this swarm uses a difference of 4 as the cut-off; report the values); confirm on an F7 vectorscope.
 - Evidence required: F6 UAVG/VAVG; F7 vectorscope
 - Challenge: Content colours (a blue ocean) shift averages without any grade; check neutral elements (white text) with F9.
 
@@ -251,7 +251,7 @@ F6 statistics per shot, F7 waveform and vectorscope on 3+ representative frames,
 
 - Choices: `high-key`, `mid-key`, `low-key`
 - Why it matters: Fills key in the grade.
-- How to answer: Median F6 YAVG: high-key above about 150, low-key below about 80 (8-bit limited range).
+- How to answer: Median F6 YAVG; this swarm's convention is high-key above about 150 and low-key below about 80 (8-bit limited range). Report the value.
 - Evidence required: F6
 - Challenge: State the thresholds used and the value.
 

@@ -1,0 +1,312 @@
+{
+  "spec": "baltor.media-pack/v1",
+  "pack_id": "space-nasa-kit",
+  "title": "Space and NASA kit (real spacecraft + stylised extras)",
+  "purpose": "Use when a space or Moon-landing short needs real spacecraft models plus stylised filler. Three NASA GLBs were downloaded and hashed on 2026-10-10 (all need Draco decoding); others are listed to fetch. Includes NASA usage rules (no insignia, no implied endorsement) and CC0 Kenney/Quaternius space kits.",
+  "status": "partially-fetched",
+  "created": "2026-10-10",
+  "verified_on": "2026-10-10",
+  "targets": [
+    "blender-4",
+    "godot-4",
+    "ffmpeg-video"
+  ],
+  "frame": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "licence_policy": {
+    "allow_non_commercial": false,
+    "allow_share_alike": false,
+    "require_redistributable": false,
+    "notes": "Monetised-video policy: no NC or ND assets; credit every CC-BY asset in the description."
+  },
+  "credits_file": "CREDITS.md",
+  "notes": [
+    "Manifest only: no media files are included. Fetch direct assets with the media_pack_fetcher module; open manual-page sources in a browser and record sha256 after download."
+  ],
+  "assets": [
+    {
+      "id": "nasa-apollo-lm",
+      "title": "Apollo Lunar Module",
+      "creator": "NASA",
+      "source_url": "https://github.com/nasa/NASA-3D-Resources/tree/master/3D%20Models/Apollo%20Lunar%20Module",
+      "download_url": "https://raw.githubusercontent.com/nasa/NASA-3D-Resources/master/3D%20Models/Apollo%20Lunar%20Module/Apollo%20Lunar%20Module.glb",
+      "licence": "Public domain statement (NASA) + NASA usage guidelines",
+      "licence_url": "https://github.com/nasa/NASA-3D-Resources",
+      "attribution": "Apollo Lunar Module 3D model, NASA 3D Resources",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "glb",
+      "restrictions": [
+        "Do not use NASA insignia or imply NASA endorsement (NASA media usage guidelines).",
+        "GLB requires KHR_draco_mesh_compression and uses WebP textures (checked 2026-10-10)."
+      ],
+      "file_name": "Apollo Lunar Module.glb",
+      "bytes": 716840,
+      "intended_use": [
+        "Moon landing hero model"
+      ],
+      "fetch": {
+        "method": "direct",
+        "status": "fetched",
+        "fetched_on": "2026-10-10"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        },
+        "blender": {
+          "operator": "bpy.ops.import_scene.gltf"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "fetched"
+      }
+    },
+    {
+      "id": "nasa-astronaut",
+      "title": "Astronaut",
+      "creator": "NASA",
+      "source_url": "https://github.com/nasa/NASA-3D-Resources/tree/master/3D%20Models/Astronaut",
+      "download_url": "https://raw.githubusercontent.com/nasa/NASA-3D-Resources/master/3D%20Models/Astronaut/Astronaut.glb",
+      "licence": "Public domain statement (NASA) + NASA usage guidelines",
+      "licence_url": "https://github.com/nasa/NASA-3D-Resources",
+      "attribution": "Astronaut 3D model, NASA 3D Resources",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "glb",
+      "restrictions": [
+        "Do not use NASA insignia or imply NASA endorsement (NASA media usage guidelines).",
+        "GLB requires KHR_draco_mesh_compression and uses WebP textures (checked 2026-10-10)."
+      ],
+      "file_name": "Astronaut.glb",
+      "sha256": "d18c141410542b935113d1c25a9271d90c40d44015a64295b7b68a30f0ce2820",
+      "bytes": 762988,
+      "intended_use": [
+        "astronaut figure"
+      ],
+      "fetch": {
+        "method": "direct",
+        "status": "fetched",
+        "fetched_on": "2026-10-10"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        },
+        "blender": {
+          "operator": "bpy.ops.import_scene.gltf"
+        },
+        "video": {
+          "role": "character"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "fetched"
+      }
+    },
+    {
+      "id": "nasa-hubble-a",
+      "title": "Hubble Space Telescope (A)",
+      "creator": "NASA",
+      "source_url": "https://github.com/nasa/NASA-3D-Resources/tree/master/3D%20Models/Hubble%20Space%20Telescope%20(A)",
+      "download_url": "https://raw.githubusercontent.com/nasa/NASA-3D-Resources/master/3D%20Models/Hubble%20Space%20Telescope%20(A)/Hubble%20Space%20Telescope%20(A).glb",
+      "licence": "Public domain statement (NASA) + NASA usage guidelines",
+      "licence_url": "https://github.com/nasa/NASA-3D-Resources",
+      "attribution": "Hubble Space Telescope (A) 3D model, NASA 3D Resources",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "glb",
+      "restrictions": [
+        "Do not use NASA insignia or imply NASA endorsement (NASA media usage guidelines).",
+        "GLB requires KHR_draco_mesh_compression and uses WebP textures (checked 2026-10-10)."
+      ],
+      "file_name": "Hubble Space Telescope (A).glb",
+      "sha256": "e5ba4de15c7d359ac8fa1ab7e286aff42dec09c0fadae3db99252587f39fa384",
+      "bytes": 1694988,
+      "intended_use": [
+        "telescope explainer"
+      ],
+      "fetch": {
+        "method": "direct",
+        "status": "fetched",
+        "fetched_on": "2026-10-10"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        },
+        "blender": {
+          "operator": "bpy.ops.import_scene.gltf"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "fetched"
+      }
+    },
+    {
+      "id": "nasa-gateway-core",
+      "title": "Gateway Core",
+      "creator": "NASA",
+      "source_url": "https://github.com/nasa/NASA-3D-Resources/tree/master/3D%20Models/Gateway",
+      "download_url": "https://raw.githubusercontent.com/nasa/NASA-3D-Resources/master/3D%20Models/Gateway/Gateway%20Core.glb",
+      "licence": "Public domain statement (NASA) + NASA usage guidelines",
+      "licence_url": "https://github.com/nasa/NASA-3D-Resources",
+      "attribution": "Gateway Core 3D model, NASA 3D Resources",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "glb",
+      "restrictions": [
+        "Do not use NASA insignia or imply NASA endorsement (NASA media usage guidelines)."
+      ],
+      "file_name": "Gateway Core.glb",
+      "intended_use": [
+        "Artemis-era station"
+      ],
+      "fetch": {
+        "method": "direct",
+        "status": "to-fetch",
+        "notes": "Over 10 MB; not fetched during verification. Hash is recorded on first fetch."
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        },
+        "blender": {
+          "operator": "bpy.ops.import_scene.gltf"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "fetched"
+      }
+    },
+    {
+      "id": "nasa-curiosity-rover",
+      "title": "Curiosity Rover (MSL), Clean",
+      "creator": "NASA",
+      "source_url": "https://github.com/nasa/NASA-3D-Resources/tree/master/3D%20Models/Curiosity%20Rover%20(MSL)",
+      "licence": "Public domain statement (NASA) + NASA usage guidelines",
+      "licence_url": "https://github.com/nasa/NASA-3D-Resources",
+      "attribution": "Curiosity Rover (MSL), Clean 3D model, NASA 3D Resources",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "blend",
+      "restrictions": [
+        "Do not use NASA insignia or imply NASA endorsement (NASA media usage guidelines)."
+      ],
+      "intended_use": [
+        "Mars rover beat"
+      ],
+      "fetch": {
+        "method": "git",
+        "status": "to-fetch",
+        "notes": "Blender file only: export a GLB from Blender for Godot."
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "fetched"
+      }
+    },
+    {
+      "id": "kenney-space-kit",
+      "title": "Space Kit",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/space-kit",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "Space Kit by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "stylised base and rockets"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "quaternius-ultimate-space-kit",
+      "title": "Ultimate Space Kit",
+      "creator": "Quaternius",
+      "source_url": "https://quaternius.com/packs/ultimatespacekit.html",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/packs/ultimatespacekit.html",
+      "attribution": "Ultimate Space Kit by Quaternius (quaternius.com), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "stylised astronauts, planets and enemies"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "font-inter",
+      "title": "Inter",
+      "creator": "Rasmus Andersson",
+      "source_url": "https://fonts.google.com/specimen/Inter",
+      "licence": "OFL-1.1",
+      "licence_url": "https://github.com/google/fonts/tree/main/ofl/inter",
+      "attribution": "Font: Inter by Rasmus Andersson (SIL OFL 1.1)",
+      "attribution_required": false,
+      "redistribution": "allowed-with-licence",
+      "commercial_use": "allowed",
+      "format": "ttf",
+      "intended_use": [
+        "clean data captions"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "font"
+        },
+        "video": {
+          "role": "font"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    }
+  ]
+}

@@ -1,0 +1,277 @@
+{
+  "spec": "baltor.media-pack/v1",
+  "pack_id": "platformer-2d-kit",
+  "title": "2D platformer kit (pixel art)",
+  "purpose": "Use when building a 2D side-scrolling platformer scene or short in Godot 4. Lists CC0 tiles and characters (Kenney, Pixel Frog, Ansimuz art), the MIT Godot 2D platformer demo, CC0 input-prompt glyphs, an OFL pixel font and CC0 retro sounds, with exclusions for licensed music.",
+  "status": "manifest-only",
+  "created": "2026-10-10",
+  "verified_on": "2026-10-10",
+  "targets": [
+    "godot-4",
+    "ffmpeg-video"
+  ],
+  "frame": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "licence_policy": {
+    "allow_non_commercial": false,
+    "allow_share_alike": false,
+    "require_redistributable": false,
+    "notes": "Monetised-video policy: no NC or ND assets; credit every CC-BY asset in the description."
+  },
+  "credits_file": "CREDITS.md",
+  "notes": [
+    "Manifest only: no media files are included. Fetch direct assets with the media_pack_fetcher module; open manual-page sources in a browser and record sha256 after download."
+  ],
+  "assets": [
+    {
+      "id": "kenney-pixel-platformer",
+      "title": "Pixel Platformer",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/pixel-platformer",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "Pixel Platformer by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "tiles, hero and enemies"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "texture",
+          "preset": "pixel-art-2d"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "pixel-adventure-1",
+      "title": "Pixel Adventure 1 (itch.io copy)",
+      "creator": "Pixel Frog",
+      "source_url": "https://pixelfrog-assets.itch.io/pixel-adventure-1",
+      "licence": "CC0-1.0",
+      "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "attribution": "Pixel Adventure 1 (itch.io copy) by Pixel Frog, CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "restrictions": [
+        "Use the itch.io copy (CC0); the OpenGameArt mirror is labelled CC-BY 4.0."
+      ],
+      "intended_use": [
+        "alternative hero and traps"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "texture",
+          "preset": "pixel-art-2d"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "sunny-land-art",
+      "title": "Sunny Land (art only)",
+      "creator": "Ansimuz (Luis Zuno)",
+      "source_url": "https://ansimuz.itch.io/sunny-land-pixel-game-art/purchase",
+      "licence": "CC0-1.0",
+      "licence_url": "https://opengameart.org/content/sunnyland-forest",
+      "attribution": "Sunny Land (art only) by Ansimuz (Luis Zuno), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "restrictions": [
+        "Bundled music by Pascal Belisle is not CC0 and needs credit: leave it out or credit it."
+      ],
+      "intended_use": [
+        "parallax forest backgrounds"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "texture",
+          "preset": "pixel-art-2d"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "kenney-pattern-pack-pixel",
+      "title": "Pattern Pack Pixel",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/pattern-pack-pixel",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "Pattern Pack Pixel by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "scrolling background layers"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "texture",
+          "preset": "pixel-art-2d"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "godot-demo-2d-platformer",
+      "title": "Godot demo: 2D platformer",
+      "creator": "Godot Engine contributors",
+      "source_url": "https://github.com/godotengine/godot-demo-projects/tree/master/2d/platformer",
+      "licence": "MIT",
+      "licence_url": "https://github.com/godotengine/godot-demo-projects/blob/master/LICENSE.md",
+      "attribution": "Godot demo: 2D platformer by Godot Engine contributors (MIT)",
+      "attribution_required": false,
+      "redistribution": "allowed-with-licence",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "restrictions": [
+        "Music 'Pompy' by Hubert Lamontagne is credited in the README; credit it if reused."
+      ],
+      "intended_use": [
+        "character controller reference"
+      ],
+      "fetch": {
+        "method": "git",
+        "status": "to-fetch"
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "fetched"
+      }
+    },
+    {
+      "id": "kenney-input-prompts-pixel",
+      "title": "Input Prompts Pixel",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/input-prompts-pixel",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "Input Prompts Pixel by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "restrictions": [
+        "Console button glyphs: platform trademarks are not licensed by CC0."
+      ],
+      "intended_use": [
+        "tutorial button glyphs"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "texture",
+          "preset": "pixel-art-2d"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "font-pixelify-sans",
+      "title": "Pixelify Sans",
+      "creator": "Stefie Justprince",
+      "source_url": "https://fonts.google.com/specimen/Pixelify%2BSans",
+      "licence": "OFL-1.1",
+      "licence_url": "https://github.com/google/fonts/tree/main/ofl/pixelifysans",
+      "attribution": "Font: Pixelify Sans by Stefie Justprince (SIL OFL 1.1)",
+      "attribution_required": false,
+      "redistribution": "allowed-with-licence",
+      "commercial_use": "allowed",
+      "format": "ttf",
+      "intended_use": [
+        "pixel captions"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "font"
+        },
+        "video": {
+          "role": "font"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "oga-512-sfx",
+      "title": "512 Sound Effects (8-bit style)",
+      "creator": "SubspaceAudio",
+      "source_url": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+      "licence": "CC0-1.0",
+      "licence_url": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+      "attribution": "512 Sound Effects (8-bit style) by SubspaceAudio, CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "jump, coin and hit sounds"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "video": {
+          "role": "sfx"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    }
+  ]
+}

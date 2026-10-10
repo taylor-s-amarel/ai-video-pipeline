@@ -11,7 +11,7 @@
 - id: background_system-002
   question: "Does the background move during every shot?"
   why: "Checks the moving-background rule."
-  how: "F5 on the top 15% and bottom 15% bands (regions without text); a shot passes when the mean difference exceeds 0.6 (0-255 scale) for every 2 s window. Also read evidence.shots[].motion_energy.border."
+  how: "F5 on the top 15% and bottom 15% bands (regions without text); a shot passes when the mean difference exceeds 0.6 (0-255 scale, the threshold the short_video_house_style rules use) for every 2 s window. Also read evidence.shots[].motion_energy.border."
   evidence: ["F5 on border bands", "evidence.shots[].motion_energy.border"]
   ir_path: "/generation_rules/-"
   type: boolean
@@ -41,7 +41,7 @@
   why: "Adds background colours to the palette."
   how: "F9 average colour of background crops in 5 shots, or evidence.shots[].palette when the background dominates the frame."
   evidence: ["frames: F9", "evidence.shots[].palette"]
-  ir_path: "/visual/palette"
+  ir_path: "/parameters/-"
   type: palette
   challenge: "Palettes from whole frames include the photo; use background-only crops."
 
@@ -222,7 +222,7 @@
 - id: background_system-025
   question: "How busy is the background directly behind the captions (edge density or local contrast)?"
   why: "Gives a measurable busyness limit for caption areas."
-  how: "On F3 crops of the caption band without text, run an edge filter (ffmpeg -vf edgedetect) and report the share of edge pixels."
+  how: "On F3 crops of the caption band without text, run ffmpeg -vf edgedetect,signalstats and read YAVG: YAVG / 255 approximates the share of edge pixels. Report crop coordinates and the value."
   evidence: ["frames: F3 with edgedetect"]
   ir_path: "/generation_rules/-"
   type: ratio

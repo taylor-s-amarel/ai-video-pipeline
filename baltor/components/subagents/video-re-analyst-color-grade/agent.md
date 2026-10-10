@@ -185,9 +185,9 @@ it is there; the questions are repeated here so you can work without it.
 4. `color_grade-004` [object → `/visual/grade`] What are the luma black and white points (median YMIN and YMAX per shot)?
    How: F6 YMIN/YMAX per sampled shot; report medians.
 5. `color_grade-005` [enum → `/visual/grade`] Are blacks crushed, natural, or lifted (faded look)? Choices: crushed, natural, lifted.
-   How: From YMIN medians: lifted when the darkest areas stay above about 30 (8-bit, limited range 16-235); crushed when large areas sit at 16 on a waveform (F7).
+   How: From YMIN medians and F7 waveforms: as a rough convention, lifted when the darkest areas stay above about 30 (8-bit, limited range 16-235) and crushed when large areas sit flat at 16. Report the values.
 6. `color_grade-006` [enum → `/visual/grade`] Is the colour temperature warm, neutral or cool on average? Choices: warm, neutral, cool.
-   How: F6 UAVG and VAVG medians (128 neutral in 8-bit): V above U by more than 4 suggests warm, U above V suggests cool; confirm on an F7 vectorscope.
+   How: F6 UAVG and VAVG medians (128 is neutral in 8-bit): V clearly above U suggests warm, U above V cool (this swarm uses a difference of 4 as the cut-off; report the values); confirm on an F7 vectorscope.
 7. `color_grade-007` [object → `/generation_rules/-`] How consistent is the grade across shots (standard deviation of per-shot SATAVG and HUEMED)?
    How: F6 per shot; report stdev of SATAVG and of HUEMED (circular).
 8. `color_grade-008` [boolean → `/visual/grade`] Is there a teal-and-orange split (cool shadows, warm highlights)?
@@ -211,7 +211,7 @@ it is there; the questions are repeated here so you can work without it.
 17. `color_grade-017` [boolean → `/visual/grade`] Is there film emulation (grain plus halation plus faded blacks)?
    How: Combine grain (layers lens), lifted blacks (005) and red halos around highlights (F3).
 18. `color_grade-018` [enum → `/visual/grade`] Is the look high-key, mid-key or low-key (median YAVG)? Choices: high-key, mid-key, low-key.
-   How: Median F6 YAVG: high-key above about 150, low-key below about 80 (8-bit limited range).
+   How: Median F6 YAVG; this swarm's convention is high-key above about 150 and low-key below about 80 (8-bit limited range). Report the value.
 19. `color_grade-019` [ratio → `/visual/grade`] What share of pixels are clipped at the top of the range in typical frames?
    How: F7 waveform shows a flat line at the top; or count pixels with Y at max using a histogram on 3 frames.
 20. `color_grade-020` [enum → `/parameters/-`] Is the palette tied to the topic (derived from the subject) or a fixed brand palette? Choices: topic-derived, fixed-brand, mixed.

@@ -1,0 +1,47 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "asset_source_profile",
+  "title": "Asset source licence profile",
+  "kind": "contract-schema",
+  "subkind": "rights-manifest",
+  "version": "1.0.0",
+  "summary": "JSON Schema for a machine-readable profile of one asset source: licences, attribution rule and credit template, redistribution, commercial use, AI training and automated-download policy.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "research",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "schema.json",
+  "tags": [
+    "assets",
+    "licensing",
+    "schema",
+    "sources"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

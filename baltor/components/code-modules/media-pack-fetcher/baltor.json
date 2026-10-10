@@ -1,0 +1,68 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "media_pack_fetcher",
+  "title": "Media pack fetcher (allow-listed, hash-verified, writes CREDITS.md)",
+  "kind": "code-module",
+  "subkind": "rights-manifest",
+  "version": "1.0.0",
+  "summary": "Downloads the direct assets of an agent media pack manifest from allow-listed HTTPS hosts only, verifies or records SHA-256, and writes CREDITS.md and a lock file.",
+  "description": "Never fetches pages that need a human (fetch.method manual-page), never fetches assets whose redistribution is forbidden (Mixamo, store EULAs), re-checks the allow-list on every redirect, caps file size, writes atomically and refuses hash mismatches. Tests use an injected fake fetcher, so they never touch the network.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "verify",
+    "secure"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "declared",
+    "executes": "python",
+    "secrets": [],
+    "hosts": [
+      "raw.githubusercontent.com",
+      "github.com"
+    ],
+    "side_effects": [
+      "downloads only assets with fetch.method=direct from allow-listed https hosts (defaults above; --allow-host extends the list)",
+      "writes files under --out plus pack.lock.json and CREDITS.md"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "media_pack_fetcher.py",
+  "tags": [
+    "assets",
+    "download",
+    "sha256",
+    "credits",
+    "licensing",
+    "manifest"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "examples": [
+    "python media_pack_fetcher.py pack.json --out assets/ --dry-run",
+    "python media_pack_fetcher.py pack.json --out assets/ --allow-host dl.example.org"
+  ],
+  "review": {
+    "status": "unreviewed"
+  }
+}

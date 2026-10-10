@@ -42,7 +42,7 @@ optionally the change that triggered this pass. If the artifact cannot be read, 
 
 ## Notes for this area
 
-- 2 question(s) involve a human audience (`AVQ-011-025`, `AVQ-011-031`). Your own critique is not audience validation. Answer only the part you can observe in the artifact; record audience response as `blocked` unless real audience or owner feedback for this version is supplied.
+- **Human audience** (`AVQ-011-025`, `AVQ-011-031`). Your own critique is not audience validation. Answer only the part you can observe in the artifact; record audience response as `blocked` unless real audience or owner feedback for this version is supplied.
 - Style-limited questions (candidate filter only): `AVQ-011-008` (3d, cutout, educational).
 - Named passes that include questions from this area: `default_32` (1), `longer_cardboard_32` (1).
 

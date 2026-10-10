@@ -1,0 +1,19 @@
+{
+  "layout": "2x2",
+  "rows": 2,
+  "cols": 2,
+  "panels": [
+    { "x": 0, "y": 0, "w": 534, "h": 954 },
+    { "x": 546, "y": 0, "w": 534, "h": 954 },
+    { "x": 0, "y": 966, "w": 534, "h": 954 },
+    { "x": 546, "y": 966, "w": 534, "h": 954 }
+  ],
+  "gutter_px": 12.0,
+  "gutter_color": "#FFFFFF",
+  "seams": [
+    { "orientation": "vertical", "position_px": 540.0, "span": 0.97 },
+    { "orientation": "horizontal", "position_px": 960.0, "span": 0.95 },
+    { "orientation": "horizontal", "position_px": 960.0, "span": 0.94 }
+  ],
+  "frames_analysed": 60
+}

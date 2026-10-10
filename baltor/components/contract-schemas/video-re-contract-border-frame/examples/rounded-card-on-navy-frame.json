@@ -1,0 +1,7 @@
+{
+  "detected": true,
+  "border": { "top": 45, "right": 45, "bottom": 45, "left": 45, "style": "solid", "color": "#14213D", "gradient": null, "inner_radius_px": 36.0, "corner_radii_px": [36.0, 36.56, 35.44, 36.0] },
+  "content_rect": { "x": 45, "y": 45, "w": 990, "h": 1830 },
+  "static_content": false,
+  "frames_analysed": 60
+}

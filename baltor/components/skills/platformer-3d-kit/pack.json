@@ -1,0 +1,197 @@
+{
+  "spec": "baltor.media-pack/v1",
+  "pack_id": "platformer-3d-kit",
+  "title": "3D platformer kit (low-poly variant)",
+  "purpose": "Use when the platformer should be a 3D low-poly level. Lists Kenney's Platformer Kit and KayKit Platformer Pack (CC0), Kenney's MIT/CC0 Godot 3D platformer starter kit and the official 3D platformer demo, plus a sunset HDRI and UI sounds.",
+  "status": "manifest-only",
+  "created": "2026-10-10",
+  "verified_on": "2026-10-10",
+  "targets": [
+    "godot-4",
+    "ffmpeg-video"
+  ],
+  "frame": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "licence_policy": {
+    "allow_non_commercial": false,
+    "allow_share_alike": false,
+    "require_redistributable": false,
+    "notes": "Monetised-video policy: no NC or ND assets; credit every CC-BY asset in the description."
+  },
+  "credits_file": "CREDITS.md",
+  "notes": [
+    "Manifest only: no media files are included. Fetch direct assets with the media_pack_fetcher module; open manual-page sources in a browser and record sha256 after download."
+  ],
+  "assets": [
+    {
+      "id": "kenney-starter-kit-3d-platformer",
+      "title": "Starter Kit 3D Platformer (Godot 4.6)",
+      "creator": "Kenney",
+      "source_url": "https://github.com/KenneyNL/Starter-Kit-3D-Platformer",
+      "licence": "MIT (code), CC0-1.0 (assets)",
+      "licence_url": "https://github.com/KenneyNL/Starter-Kit-3D-Platformer",
+      "attribution": "Starter Kit 3D Platformer (Godot 4.6) by Kenney: code MIT, assets CC0",
+      "attribution_required": false,
+      "redistribution": "allowed-with-licence",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "ready Godot 4.6 template"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "fetched"
+      }
+    },
+    {
+      "id": "kenney-platformer-kit",
+      "title": "Platformer Kit (3D)",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/platformer-kit",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "Platformer Kit (3D) by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "level blocks and props"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "kaykit-platformer",
+      "title": "KayKit Platformer Pack (free tier)",
+      "creator": "Kay Lousberg",
+      "source_url": "https://kaylousberg.itch.io/kaykit-platformer",
+      "licence": "CC0-1.0",
+      "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "attribution": "KayKit Platformer Pack (free tier) by Kay Lousberg (KayKit), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "restrictions": [
+        "Author asks: do not resell unmodified copies or claim them as your own."
+      ],
+      "intended_use": [
+        "alternative stylised pieces"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "godot-demo-3d-platformer",
+      "title": "Godot demo: 3D platformer",
+      "creator": "Godot Engine contributors",
+      "source_url": "https://github.com/godotengine/godot-demo-projects/tree/master/3d/platformer",
+      "licence": "MIT",
+      "licence_url": "https://github.com/godotengine/godot-demo-projects/blob/master/LICENSE.md",
+      "attribution": "Godot demo: 3D platformer by Godot Engine contributors (MIT)",
+      "attribution_required": false,
+      "redistribution": "allowed-with-licence",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "CharacterBody3D reference"
+      ],
+      "fetch": {
+        "method": "git",
+        "status": "to-fetch"
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "fetched"
+      }
+    },
+    {
+      "id": "polyhaven-sunset-fairway",
+      "title": "Sunset Fairway HDRI",
+      "creator": "Poly Haven",
+      "source_url": "https://polyhaven.com/a/sunset_fairway",
+      "licence": "CC0-1.0",
+      "licence_url": "https://docs.polyhaven.com/en/faq",
+      "attribution": "Sunset Fairway HDRI from Poly Haven (polyhaven.com), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "hdr",
+      "intended_use": [
+        "sky and lighting"
+      ],
+      "fetch": {
+        "method": "api",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "video": {
+          "role": "hdri-lighting"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "kenney-interface-sounds",
+      "title": "Interface Sounds",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/interface-sounds",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "Interface Sounds by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "UI and pickup sounds"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "video": {
+          "role": "sfx"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    }
+  ]
+}

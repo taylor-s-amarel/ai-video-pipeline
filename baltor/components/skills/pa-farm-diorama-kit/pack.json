@@ -1,0 +1,316 @@
+{
+  "spec": "baltor.media-pack/v1",
+  "pack_id": "pa-farm-diorama-kit",
+  "title": "Pennsylvania farm diorama kit (Godot 3D showcase)",
+  "purpose": "Use when building a farm or rural-business 3D visualisation in Godot 4 (for example a contest showcase of a small farm's product or service). Lists CC0 Quaternius farm buildings, animals and crops, Kenney nature and car kits, Kenney's MIT/CC0 city-builder template for placement, the MIT Terrain3D addon and a CC0 HDRI.",
+  "status": "manifest-only",
+  "created": "2026-10-10",
+  "verified_on": "2026-10-10",
+  "targets": [
+    "godot-4",
+    "ffmpeg-video"
+  ],
+  "frame": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "licence_policy": {
+    "allow_non_commercial": false,
+    "allow_share_alike": false,
+    "require_redistributable": false,
+    "notes": "Monetised-video policy: no NC or ND assets; credit every CC-BY asset in the description."
+  },
+  "credits_file": "CREDITS.md",
+  "notes": [
+    "Manifest only: no media files are included. Fetch direct assets with the media_pack_fetcher module; open manual-page sources in a browser and record sha256 after download."
+  ],
+  "assets": [
+    {
+      "id": "quaternius-farm-buildings",
+      "title": "Farm Buildings Pack",
+      "creator": "Quaternius",
+      "source_url": "https://quaternius.com/packs/farmbuildings.html",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/packs/farmbuildings.html",
+      "attribution": "Farm Buildings Pack by Quaternius (quaternius.com), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "barn, silo and fences"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "quaternius-farm-animals",
+      "title": "Farm Animal Pack",
+      "creator": "Quaternius",
+      "source_url": "https://quaternius.com/packs/farmanimal.html",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/packs/farmanimal.html",
+      "attribution": "Farm Animal Pack by Quaternius (quaternius.com), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "animated cows, pigs and chickens"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        },
+        "video": {
+          "role": "character"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "quaternius-ultimate-crops",
+      "title": "Ultimate Crops Pack",
+      "creator": "Quaternius",
+      "source_url": "https://quaternius.com/packs/ultimatecrops.html",
+      "licence": "CC0-1.0",
+      "licence_url": "https://quaternius.com/packs/ultimatecrops.html",
+      "attribution": "Ultimate Crops Pack by Quaternius (quaternius.com), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "crop rows"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "kenney-nature-kit",
+      "title": "Nature Kit",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/nature-kit",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "Nature Kit by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "trees and rocks"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "kenney-car-kit",
+      "title": "Car Kit",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/car-kit",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "Car Kit by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "delivery vehicles"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "scene"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "kenney-starter-kit-city-builder",
+      "title": "Starter Kit City Builder (Godot 4.6)",
+      "creator": "Kenney",
+      "source_url": "https://github.com/KenneyNL/Starter-Kit-City-Builder",
+      "licence": "MIT (code), CC0-1.0 (assets)",
+      "licence_url": "https://github.com/KenneyNL/Starter-Kit-City-Builder",
+      "attribution": "Starter Kit City Builder (Godot 4.6) by Kenney: code MIT, assets CC0",
+      "attribution_required": false,
+      "redistribution": "allowed-with-licence",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "placement and save/load template"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "fetched"
+      }
+    },
+    {
+      "id": "terrain3d",
+      "title": "Terrain3D addon",
+      "creator": "TokisanGames",
+      "source_url": "https://github.com/TokisanGames/Terrain3D",
+      "licence": "MIT",
+      "licence_url": "https://github.com/TokisanGames/Terrain3D",
+      "attribution": "Terrain3D addon by TokisanGames (MIT)",
+      "attribution_required": false,
+      "redistribution": "allowed-with-licence",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "editable terrain"
+      ],
+      "fetch": {
+        "method": "git",
+        "status": "to-fetch"
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "fetched"
+      }
+    },
+    {
+      "id": "polyhaven-grasslands-sunset",
+      "title": "Grasslands Sunset HDRI",
+      "creator": "Poly Haven",
+      "source_url": "https://polyhaven.com/a/grasslands_sunset",
+      "licence": "CC0-1.0",
+      "licence_url": "https://docs.polyhaven.com/en/faq",
+      "attribution": "Grasslands Sunset HDRI from Poly Haven (polyhaven.com), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "hdr",
+      "intended_use": [
+        "golden-hour lighting"
+      ],
+      "fetch": {
+        "method": "api",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "video": {
+          "role": "hdri-lighting"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "font-inter",
+      "title": "Inter",
+      "creator": "Rasmus Andersson",
+      "source_url": "https://fonts.google.com/specimen/Inter",
+      "licence": "OFL-1.1",
+      "licence_url": "https://github.com/google/fonts/tree/main/ofl/inter",
+      "attribution": "Font: Inter by Rasmus Andersson (SIL OFL 1.1)",
+      "attribution_required": false,
+      "redistribution": "allowed-with-licence",
+      "commercial_use": "allowed",
+      "format": "ttf",
+      "intended_use": [
+        "building labels"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "godot": {
+          "importer": "font"
+        },
+        "video": {
+          "role": "font"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    },
+    {
+      "id": "kenney-interface-sounds",
+      "title": "Interface Sounds",
+      "creator": "Kenney",
+      "source_url": "https://kenney.nl/assets/interface-sounds",
+      "licence": "CC0-1.0",
+      "licence_url": "https://kenney.nl/support",
+      "attribution": "Interface Sounds by Kenney (kenney.nl), CC0",
+      "attribution_required": false,
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "format": "zip",
+      "intended_use": [
+        "UI sounds"
+      ],
+      "fetch": {
+        "method": "manual-page",
+        "status": "to-fetch"
+      },
+      "import_hints": {
+        "video": {
+          "role": "sfx"
+        }
+      },
+      "verification": {
+        "on": "2026-10-10",
+        "how": "search-result"
+      }
+    }
+  ]
+}

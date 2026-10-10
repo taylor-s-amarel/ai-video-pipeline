@@ -1,0 +1,108 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "video_re_detect_interlacing",
+  "title": "Detect interlacing and field order",
+  "kind": "code-module",
+  "subkind": "evaluator",
+  "version": "1.0.0",
+  "summary": "Detects combing from woven fields on moving pixels, decides top- or bottom-field-first from field-to-field distances, flags telecine-like patterns and adds ffmpeg idet counts and ffprobe field_order.",
+  "description": "Decodes a native-resolution centre crop with even offsets, compares inter-field and intra-field second differences on moving pixels to mark combed frames, and tests field order by which field pairing is closer in time. The command line adds the ffmpeg idet filter's multi-frame counts.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "measure",
+    "review"
+  ],
+  "effects": {
+    "filesystem": "read",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "runs ffprobe and ffmpeg as subprocesses to decode the input video"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "video_re_detect_interlacing.py",
+  "tags": [
+    "video",
+    "reverse-engineering",
+    "detector",
+    "geometry",
+    "framing",
+    "interlacing",
+    "combing",
+    "field-order",
+    "telecine",
+    "deinterlace"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "video_re_contract_interlacing"
+    },
+    {
+      "identity": "ffmpeg",
+      "external": true
+    },
+    {
+      "identity": "ffprobe",
+      "external": true
+    },
+    {
+      "identity": "numpy",
+      "external": true
+    },
+    {
+      "identity": "jsonschema",
+      "external": true
+    },
+    {
+      "identity": "pytest",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_re_detectors_a.py",
+    "data": "generators/data/video_re_detectors_a",
+    "parameters": {
+      "family": "geometry",
+      "property": "interlacing",
+      "defaults": {
+        "motion_thr": 6.0,
+        "min_moving_share": 0.01,
+        "comb_ratio": 1.3,
+        "interlaced_share": 0.3,
+        "order_margin": 0.15,
+        "field_blur": 2.0,
+        "idet_frames": 300
+      },
+      "decode": {
+        "width": 0,
+        "fps": 0,
+        "max_frames": 120,
+        "crop": [
+          720,
+          480
+        ],
+        "crop_align": 4
+      },
+      "question_bank": "video_re_qbank_interlacing"
+    }
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "pytest passed on synthetic fixtures with known ground truth (Python 3.13, numpy 2.x, jsonschema 4.x) including a lossless FFV1 command-line round trip with ffmpeg 6.1."
+  }
+}

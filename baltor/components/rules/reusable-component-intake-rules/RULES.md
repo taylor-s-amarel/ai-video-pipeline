@@ -23,7 +23,7 @@ Source: Animation and Video Production Master Guide (10 Oct 2026), "Reusable com
 
 ## Keep the states separate
 
-7. Keep these states separate: authored, rights-reviewed, focused-tested, source-reopened, minimally invoked by a consumer, actual isolated intake-qualified, admitted, published, and used successfully. One never implies the next.
+7. Keep these states separate: authored, rights-reviewed, focused-tested, source-reopened, minimally invoked by a consumer, actual isolated intake-qualified, admitted, published, and used successfully.
 8. Neutral packages stay neutral until the real current target contract is inspected and tested.
 9. Do not invent producer/source bindings, write directly to a production database, bypass admission, or infer
    publication from a private Library save.

@@ -1,0 +1,60 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "khronos_gltf_sample_assets",
+  "title": "Khronos glTF Sample Assets (test models)",
+  "kind": "skill",
+  "subkind": "media-source",
+  "version": "1.0.0",
+  "summary": "Use Khronos glTF Sample Assets as importer test files, reading each model's README for its licence and credit.",
+  "description": "Use when you need known-good glTF/GLB files to test an importer, a Godot scene loader, a Blender script or the glTF inspector. Each model folder documents its own licence and credit.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "notes": "Describes https://github.com/KhronosGroup/glTF-Sample-Assets (checked 2026-10-10); contains no third-party media."
+  },
+  "step_kinds": [
+    "research",
+    "build",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "licensing",
+    "gltf",
+    "testing",
+    "khronos",
+    "reference"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "asset_source_profile"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

@@ -282,7 +282,7 @@
   why: "Sizes scene assets per item."
   how: "Group shots per item by environment."
   evidence: ["frames: F4", "item beat boundaries"]
-  ir_path: "/timeline/beats/*/content_slot"
+  ir_path: "/parameters/-"
   type: integer
   challenge: "Report the median and range."
 

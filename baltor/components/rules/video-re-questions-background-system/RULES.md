@@ -83,14 +83,13 @@ F5 on the border bands (top 15%, bottom 15%, side 10%) for motion; F1 frames per
 - `/generation_rules/-` (10)
 - `/motion/background_motion_level` (1)
 - `/motion/transitions/-` (1)
-- `/parameters/-` (3)
+- `/parameters/-` (4)
 - `/visual/grade` (1)
 - `/visual/layers` (1)
 - `/visual/layers/*/frame_coverage` (1)
 - `/visual/layers/*/motion` (7)
 - `/visual/layers/*/source_slot` (1)
 - `/visual/layers/-` (5)
-- `/visual/palette` (1)
 
 ## Questions (32)
 
@@ -109,7 +108,7 @@ F5 on the border bands (top 15%, bottom 15%, side 10%) for motion; F1 frames per
 **Does the background move during every shot?**
 
 - Why it matters: Checks the moving-background rule.
-- How to answer: F5 on the top 15% and bottom 15% bands (regions without text); a shot passes when the mean difference exceeds 0.6 (0-255 scale) for every 2 s window. Also read evidence.shots[].motion_energy.border.
+- How to answer: F5 on the top 15% and bottom 15% bands (regions without text); a shot passes when the mean difference exceeds 0.6 (0-255 scale, the threshold the short_video_house_style rules use) for every 2 s window. Also read evidence.shots[].motion_energy.border.
 - Evidence required: F5 on border bands; evidence.shots[].motion_energy.border
 - Challenge: Make sure the measured band contains no text, subject or camera zoom; a zoom on a photo moves the band too.
 
@@ -132,7 +131,7 @@ F5 on the border bands (top 15%, bottom 15%, side 10%) for motion; F1 frames per
 - Evidence required: frames: F10 on background crops
 - Challenge: A looping video gives different frames over time; compare the same loop phase or judge by content.
 
-### background_system-005 · `palette` → `/visual/palette`
+### background_system-005 · `palette` → `/parameters/-`
 
 **What are the background's dominant colours?**
 
@@ -320,7 +319,7 @@ F5 on the border bands (top 15%, bottom 15%, side 10%) for motion; F1 frames per
 **How busy is the background directly behind the captions (edge density or local contrast)?**
 
 - Why it matters: Gives a measurable busyness limit for caption areas.
-- How to answer: On F3 crops of the caption band without text, run an edge filter (ffmpeg -vf edgedetect) and report the share of edge pixels.
+- How to answer: On F3 crops of the caption band without text, run ffmpeg -vf edgedetect,signalstats and read YAVG: YAVG / 255 approximates the share of edge pixels. Report crop coordinates and the value.
 - Evidence required: frames: F3 with edgedetect
 - Challenge: Report crop coordinates so the measurement can be repeated.
 
@@ -408,5 +407,5 @@ Read by the challenger's pre-pass script. The full bank with every field is `que
 
 <!-- machine-readable bank -->
 ```json
-[{"id": "background_system-001", "ir_path": "/visual/layers/-", "answer_type": "enum", "choices": ["video-loop", "still", "gradient", "procedural-pattern", "blurred-foreground-copy", "solid", "mixed"]}, {"id": "background_system-002", "ir_path": "/generation_rules/-", "answer_type": "boolean"}, {"id": "background_system-003", "ir_path": "/motion/background_motion_level", "answer_type": "number"}, {"id": "background_system-004", "ir_path": "/parameters/-", "answer_type": "enum", "choices": ["per-shot", "per-beat", "constant", "mixed"]}, {"id": "background_system-005", "ir_path": "/visual/palette", "answer_type": "palette"}, {"id": "background_system-006", "ir_path": "/generation_rules/-", "answer_type": "number"}, {"id": "background_system-007", "ir_path": "/visual/layers/*/motion", "answer_type": "enum", "choices": ["sharp", "soft", "heavy"]}, {"id": "background_system-008", "ir_path": "/visual/layers/-", "answer_type": "object"}, {"id": "background_system-009", "ir_path": "/visual/layers/*/motion", "answer_type": "seconds"}, {"id": "background_system-010", "ir_path": "/visual/layers/*/motion", "answer_type": "enum", "choices": ["up", "down", "sideways", "radial", "rotating", "turbulent", "none"]}, {"id": "background_system-011", "ir_path": "/visual/layers", "answer_type": "integer"}, {"id": "background_system-012", "ir_path": "/generation_rules/-", "answer_type": "boolean"}, {"id": "background_system-013", "ir_path": "/visual/layers/*/motion", "answer_type": "number"}, {"id": "background_system-014", "ir_path": "/generation_rules/-", "answer_type": "number"}, {"id": "background_system-015", "ir_path": "/parameters/-", "answer_type": "enum", "choices": ["topic-themed", "generic", "mixed"]}, {"id": "background_system-016", "ir_path": "/visual/layers/*/frame_coverage", "answer_type": "ratio"}, {"id": "background_system-017", "ir_path": "/visual/layers/-", "answer_type": "boolean"}, {"id": "background_system-018", "ir_path": "/visual/layers/-", "answer_type": "object"}, {"id": "background_system-019", "ir_path": "/visual/layers/*/motion", "answer_type": "range"}, {"id": "background_system-020", "ir_path": "/visual/layers/*/motion", "answer_type": "number"}, {"id": "background_system-021", "ir_path": "/generation_rules/-", "answer_type": "ratio"}, {"id": "background_system-022", "ir_path": "/generation_rules/-", "answer_type": "rule"}, {"id": "background_system-023", "ir_path": "/parameters/-", "answer_type": "list"}, {"id": "background_system-024", "ir_path": "/generation_rules/-", "answer_type": "boolean"}, {"id": "background_system-025", "ir_path": "/generation_rules/-", "answer_type": "ratio"}, {"id": "background_system-026", "ir_path": "/visual/layers/-", "answer_type": "list"}, {"id": "background_system-027", "ir_path": "/generation_rules/-", "answer_type": "boolean"}, {"id": "background_system-028", "ir_path": "/visual/layers/*/source_slot", "answer_type": "enum", "choices": ["vertical-native", "cropped-horizontal", "generated", "not-footage"]}, {"id": "background_system-029", "ir_path": "/visual/layers/*/motion", "answer_type": "enum", "choices": ["slow-drift", "moderate", "busy"]}, {"id": "background_system-030", "ir_path": "/generation_rules/-", "answer_type": "object"}, {"id": "background_system-031", "ir_path": "/visual/grade", "answer_type": "range"}, {"id": "background_system-032", "ir_path": "/motion/transitions/-", "answer_type": "segments"}]
+[{"id": "background_system-001", "ir_path": "/visual/layers/-", "answer_type": "enum", "choices": ["video-loop", "still", "gradient", "procedural-pattern", "blurred-foreground-copy", "solid", "mixed"]}, {"id": "background_system-002", "ir_path": "/generation_rules/-", "answer_type": "boolean"}, {"id": "background_system-003", "ir_path": "/motion/background_motion_level", "answer_type": "number"}, {"id": "background_system-004", "ir_path": "/parameters/-", "answer_type": "enum", "choices": ["per-shot", "per-beat", "constant", "mixed"]}, {"id": "background_system-005", "ir_path": "/parameters/-", "answer_type": "palette"}, {"id": "background_system-006", "ir_path": "/generation_rules/-", "answer_type": "number"}, {"id": "background_system-007", "ir_path": "/visual/layers/*/motion", "answer_type": "enum", "choices": ["sharp", "soft", "heavy"]}, {"id": "background_system-008", "ir_path": "/visual/layers/-", "answer_type": "object"}, {"id": "background_system-009", "ir_path": "/visual/layers/*/motion", "answer_type": "seconds"}, {"id": "background_system-010", "ir_path": "/visual/layers/*/motion", "answer_type": "enum", "choices": ["up", "down", "sideways", "radial", "rotating", "turbulent", "none"]}, {"id": "background_system-011", "ir_path": "/visual/layers", "answer_type": "integer"}, {"id": "background_system-012", "ir_path": "/generation_rules/-", "answer_type": "boolean"}, {"id": "background_system-013", "ir_path": "/visual/layers/*/motion", "answer_type": "number"}, {"id": "background_system-014", "ir_path": "/generation_rules/-", "answer_type": "number"}, {"id": "background_system-015", "ir_path": "/parameters/-", "answer_type": "enum", "choices": ["topic-themed", "generic", "mixed"]}, {"id": "background_system-016", "ir_path": "/visual/layers/*/frame_coverage", "answer_type": "ratio"}, {"id": "background_system-017", "ir_path": "/visual/layers/-", "answer_type": "boolean"}, {"id": "background_system-018", "ir_path": "/visual/layers/-", "answer_type": "object"}, {"id": "background_system-019", "ir_path": "/visual/layers/*/motion", "answer_type": "range"}, {"id": "background_system-020", "ir_path": "/visual/layers/*/motion", "answer_type": "number"}, {"id": "background_system-021", "ir_path": "/generation_rules/-", "answer_type": "ratio"}, {"id": "background_system-022", "ir_path": "/generation_rules/-", "answer_type": "rule"}, {"id": "background_system-023", "ir_path": "/parameters/-", "answer_type": "list"}, {"id": "background_system-024", "ir_path": "/generation_rules/-", "answer_type": "boolean"}, {"id": "background_system-025", "ir_path": "/generation_rules/-", "answer_type": "ratio"}, {"id": "background_system-026", "ir_path": "/visual/layers/-", "answer_type": "list"}, {"id": "background_system-027", "ir_path": "/generation_rules/-", "answer_type": "boolean"}, {"id": "background_system-028", "ir_path": "/visual/layers/*/source_slot", "answer_type": "enum", "choices": ["vertical-native", "cropped-horizontal", "generated", "not-footage"]}, {"id": "background_system-029", "ir_path": "/visual/layers/*/motion", "answer_type": "enum", "choices": ["slow-drift", "moderate", "busy"]}, {"id": "background_system-030", "ir_path": "/generation_rules/-", "answer_type": "object"}, {"id": "background_system-031", "ir_path": "/visual/grade", "answer_type": "range"}, {"id": "background_system-032", "ir_path": "/motion/transitions/-", "answer_type": "segments"}]
 ```

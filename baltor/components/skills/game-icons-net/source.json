@@ -1,0 +1,48 @@
+{
+  "spec": "baltor.asset-source/v1",
+  "source_id": "game-icons-net",
+  "name": "game-icons.net SVG icons (CC BY 3.0)",
+  "homepage": "https://game-icons.net/about.html",
+  "licence_summary": "Icons are provided under Creative Commons BY 3.0; credit the original author, e.g. 'Icons made by {author}. Available on https://game-icons.net'.",
+  "licences": [
+    {
+      "id": "CC-BY-3.0",
+      "url": "https://game-icons.net/about.html",
+      "applies_to": "all icons"
+    }
+  ],
+  "attribution": {
+    "required": "required",
+    "credit_template": "Icons made by {author}. Available on https://game-icons.net (CC BY 3.0)"
+  },
+  "redistribution": "allowed-with-licence",
+  "commercial_use": "allowed",
+  "ai_training": "unspecified",
+  "automated_download": "allowed",
+  "formats": [
+    "svg",
+    "png"
+  ],
+  "search": [
+    {
+      "label": "About and licence",
+      "url": "https://game-icons.net/about.html"
+    },
+    {
+      "label": "Source SVGs by author",
+      "url": "https://github.com/game-icons/icons"
+    },
+    {
+      "label": "Iconify browser for the set",
+      "url": "https://icon-sets.iconify.design/game-icons/"
+    }
+  ],
+  "cautions": [
+    "Credit per author (the GitHub folder name), not just the site.",
+    "CC BY 3.0 forbids adding DRM that restricts the licence; fine for videos, check for locked platforms."
+  ],
+  "verified": {
+    "on": "2026-10-10",
+    "how": "mixed"
+  }
+}

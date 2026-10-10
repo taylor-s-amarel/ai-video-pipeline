@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/video-re-contract-zoom-punch-in",
+  "title": "Zoom punch-in payload",
+  "description": "Payload of video_re_detect_zoom_punch_in: sudden scale jumps (instant between two frames, or ramps no longer than a few tenths of a second), with optional alignment to audio onsets.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["events", "count", "per_minute", "median_scale_in", "beats_available"],
+  "properties": {
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["t_s", "kind", "direction", "scale_jump", "duration_s", "ncc", "on_beat", "beat_offset_s"],
+        "properties": {
+          "t_s": { "type": "number", "minimum": 0, "description": "first frame showing the new scale (instant) or ramp start" },
+          "kind": { "enum": ["instant", "ramp"] },
+          "direction": { "enum": ["in", "out"] },
+          "scale_jump": { "type": "number", "exclusiveMinimum": 0, "description": "new scale / old scale (1.15 = 15% punch-in)" },
+          "duration_s": { "type": "number", "minimum": 0 },
+          "ncc": { "type": ["number", "null"], "minimum": -1, "maximum": 1, "description": "match after the best zoom (instant punches only)" },
+          "on_beat": { "type": ["boolean", "null"], "description": "null when no onsets were given" },
+          "beat_offset_s": { "type": ["number", "null"], "description": "nearest onset time minus event time" }
+        }
+      }
+    },
+    "count": { "type": "integer", "minimum": 0 },
+    "per_minute": { "type": ["number", "null"], "minimum": 0 },
+    "median_scale_in": { "type": ["number", "null"], "minimum": 1 },
+    "beats_available": { "type": "boolean" }
+  }
+}

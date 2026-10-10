@@ -1,0 +1,8 @@
+{
+  "kind": "letterbox",
+  "bars": [ { "side": "top", "px": -4, "color": "black", "style": "gradient", "consistency": 1.2, "overlay_in_bar": false } ],
+  "content_rect": { "x": 0, "y": 0, "w": 1080, "h": 1920 },
+  "content_aspect": 0.5625,
+  "frames_analysed": 10,
+  "px_precision": 1
+}

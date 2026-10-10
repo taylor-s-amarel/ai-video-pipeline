@@ -66,7 +66,7 @@ def readme(det: dict, meta: dict, consts: dict) -> str:
              f"Registry: family `{det['family']}`, property `{det['property']}`. Detects: {det['detects']}.",
              f"Payload contract: `{det['contract']}` (copied here as `payload.schema.json`). "
              f"Analysts answer the `{det['questions']}` question bank citing this envelope.", "",
-             "## Method", "", first.strip(), "", rest.strip(), "",
+             "## Method", "", rest.strip(), "",
              "## Command line", "", "```sh",
              f"python3 {ident}.py video.mp4 --out {det['property']}.json",
              f"python3 {ident}.py video.mp4 --param key=value   # override a default below",

@@ -1,0 +1,69 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "isometric_town_kit_3d",
+  "title": "Isometric town kit (3D city-kit variant)",
+  "kind": "skill",
+  "subkind": "rights-manifest",
+  "version": "1.0.0",
+  "summary": "Variant of the town kit built from Kenney's 3D city kits with an orthographic camera and Kenney's MIT/CC0 Godot city-builder starter kit.",
+  "description": "Use when the town should be 3D under an orthographic isometric camera, for example a city growth timelapse. Lists Kenney City Kits (Suburban, Commercial, Roads), Car Kit, the Godot 4.6 city-builder starter kit and an evening HDRI.",
+  "domain": "asset-pipeline",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "plan",
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "assets",
+    "media-pack",
+    "manifest",
+    "isometric",
+    "city",
+    "3d",
+    "godot",
+    "timelapse"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "agent_media_pack_manifest"
+    },
+    {
+      "identity": "media_pack_fetcher"
+    },
+    {
+      "identity": "asset_licence_checker"
+    }
+  ],
+  "variant_of": "isometric_town_kit",
+  "provenance": {
+    "generator": "generators/asset_kits.py",
+    "data": "generators/data/asset_kits",
+    "parameters": {
+      "assets": 6,
+      "status": "manifest-only"
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

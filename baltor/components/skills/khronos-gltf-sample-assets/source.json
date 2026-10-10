@@ -1,0 +1,43 @@
+{
+  "spec": "baltor.asset-source/v1",
+  "source_id": "khronos-gltf-sample-assets",
+  "name": "Khronos glTF Sample Assets (test models)",
+  "homepage": "https://github.com/KhronosGroup/glTF-Sample-Assets",
+  "licence_summary": "Licences are per model and stated in Models/<Name>/README.md (many CC-BY 4.0, some CC0); keep the credit with the file.",
+  "licences": [
+    {
+      "id": "per-asset",
+      "url": "https://github.com/KhronosGroup/glTF-Sample-Assets",
+      "applies_to": "each model folder"
+    }
+  ],
+  "attribution": {
+    "required": "per-asset",
+    "credit_template": "{title} from Khronos glTF Sample Assets, {licence}, {credit from README}"
+  },
+  "redistribution": "per-asset",
+  "commercial_use": "per-asset",
+  "ai_training": "per-asset",
+  "automated_download": "allowed",
+  "formats": [
+    "gltf",
+    "glb"
+  ],
+  "search": [
+    {
+      "label": "Repository",
+      "url": "https://github.com/KhronosGroup/glTF-Sample-Assets"
+    },
+    {
+      "label": "Duck GLB (raw)",
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/Duck/glTF-Binary/Duck.glb"
+    }
+  ],
+  "cautions": [
+    "Do not ship sample models in a product without checking their individual licence."
+  ],
+  "verified": {
+    "on": "2026-10-10",
+    "how": "mixed"
+  }
+}

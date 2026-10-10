@@ -1,6 +1,6 @@
 ---
 name: "creative-catalogue-hook-patterns"
-description: "Use when choosing sixty hook patterns for a short animated or explainer film from the October 2026 creative catalogue. Sixty opening hook patterns (H01-H60) with copy seed, use and the guard each must satisfy. Every row keeps its gate or check; these are proposals, not tested recipes."
+description: "Use when writing the opening hook or first line of a short animated or explainer film. Sixty opening hook patterns (H01-H60) with copy seed, use and the guard each must satisfy. From the October 2026 creative catalogue; every row keeps its gate or check, and these are proposals, not tested recipes."
 ---
 
 # Creative catalogue: sixty hook patterns
