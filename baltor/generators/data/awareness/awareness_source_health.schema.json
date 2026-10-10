@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/awareness-source-health",
+  "title": "Source health",
+  "description": "A collector that silently stops gives false reassurance. These states are shown to agents.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "source_id",
+    "state",
+    "checked_at"
+  ],
+  "properties": {
+    "source_id": {
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "ok-new-items",
+        "ok-no-new-items",
+        "collection-failed",
+        "parsing-failed",
+        "access-expired",
+        "rate-limited",
+        "source-withdrawn",
+        "webhook-suspended",
+        "coverage-incomplete",
+        "stale"
+      ]
+    },
+    "checked_at": {
+      "type": "string"
+    },
+    "last_success_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "cursor": {
+      "type": "string"
+    },
+    "etag": {
+      "type": "string"
+    },
+    "consecutive_failures": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "next_poll_at": {
+      "type": "string"
+    },
+    "renew_by": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "e.g. Gmail watch renewal deadline"
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

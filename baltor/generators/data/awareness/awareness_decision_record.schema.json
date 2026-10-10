@@ -1,0 +1,204 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/awareness-decision-record",
+  "title": "Decision record with revisit conditions",
+  "description": "Remembers why work was postponed or a choice was made, and the evidence that would justify revisiting it (the 'revisit this decision' feed).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "decision_id",
+    "project_id",
+    "question",
+    "outcome",
+    "blockers",
+    "revisit_when"
+  ],
+  "properties": {
+    "decision_id": {
+      "type": "string"
+    },
+    "project_id": {
+      "type": "string"
+    },
+    "question": {
+      "type": "string"
+    },
+    "outcome": {
+      "enum": [
+        "postponed",
+        "rejected",
+        "chosen",
+        "holding"
+      ]
+    },
+    "chosen_option": {
+      "type": "string"
+    },
+    "blockers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "kind",
+          "statement"
+        ],
+        "properties": {
+          "kind": {
+            "enum": [
+              "missing-capability",
+              "licence",
+              "hardware",
+              "access",
+              "region",
+              "price",
+              "quality",
+              "reliability",
+              "integration",
+              "format",
+              "other"
+            ]
+          },
+          "statement": {
+            "type": "string"
+          },
+          "entities": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "type",
+                "id"
+              ],
+              "properties": {
+                "type": {
+                  "enum": [
+                    "package",
+                    "repository",
+                    "model",
+                    "dataset",
+                    "api",
+                    "endpoint",
+                    "service",
+                    "sku",
+                    "region",
+                    "mcp-server",
+                    "browser-feature",
+                    "standard",
+                    "paper",
+                    "engine",
+                    "plugin",
+                    "node",
+                    "file-format",
+                    "vendor",
+                    "product"
+                  ]
+                },
+                "id": {
+                  "type": "string",
+                  "description": "canonical id, e.g. pypi:requests, npm:react, gh:owner/repo, hf:org/model, mcp:io.github.x/y, api:stripe/v1/charges"
+                },
+                "ecosystem": {
+                  "type": "string"
+                },
+                "version": {
+                  "type": "string"
+                },
+                "version_range": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "revisit_when": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "condition"
+        ],
+        "properties": {
+          "condition": {
+            "type": "string",
+            "description": "e.g. 'a model exports editable vectors with commercial-use weights that fit 24 GB VRAM'"
+          },
+          "change_types": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "entities": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "type",
+                "id"
+              ],
+              "properties": {
+                "type": {
+                  "enum": [
+                    "package",
+                    "repository",
+                    "model",
+                    "dataset",
+                    "api",
+                    "endpoint",
+                    "service",
+                    "sku",
+                    "region",
+                    "mcp-server",
+                    "browser-feature",
+                    "standard",
+                    "paper",
+                    "engine",
+                    "plugin",
+                    "node",
+                    "file-format",
+                    "vendor",
+                    "product"
+                  ]
+                },
+                "id": {
+                  "type": "string",
+                  "description": "canonical id, e.g. pypi:requests, npm:react, gh:owner/repo, hf:org/model, mcp:io.github.x/y, api:stripe/v1/charges"
+                },
+                "ecosystem": {
+                  "type": "string"
+                },
+                "version": {
+                  "type": "string"
+                },
+                "version_range": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "decided_at": {
+      "type": "string"
+    },
+    "last_revisited_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

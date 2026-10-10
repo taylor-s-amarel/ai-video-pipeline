@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/awareness-source-observation",
+  "title": "Source observation",
+  "description": "Layer 1: what a publisher, repository, API or newsletter actually said, as collected. Content is inert data: it never grants authority to run commands, reveal secrets or change policy.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "observation_id",
+    "source_id",
+    "channel",
+    "title",
+    "evidence",
+    "dates"
+  ],
+  "properties": {
+    "observation_id": {
+      "type": "string"
+    },
+    "source_id": {
+      "type": "string"
+    },
+    "channel": {
+      "enum": [
+        "rss",
+        "atom",
+        "json-feed",
+        "rest-api",
+        "webhook",
+        "registry-api",
+        "catalog-cursor",
+        "page-diff",
+        "email",
+        "social-stream",
+        "video-notification",
+        "manual"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string",
+      "maxLength": 800
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "url",
+        "kind",
+        "authority"
+      ],
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "primary",
+            "vendor-claim",
+            "registry-record",
+            "repository",
+            "paper",
+            "newsletter",
+            "social",
+            "video",
+            "aggregator"
+          ]
+        },
+        "authority": {
+          "enum": [
+            "authoritative",
+            "vendor-claim",
+            "secondary",
+            "discovery-only"
+          ]
+        },
+        "quote": {
+          "type": "string",
+          "maxLength": 600,
+          "description": "short excerpt only; never full articles"
+        },
+        "retrieved_at": {
+          "type": "string"
+        },
+        "content_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "tenant_private": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "dates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "observed_at"
+      ],
+      "description": "Kept separate on purpose: the date Baltor discovers something never becomes its release date.",
+      "properties": {
+        "published_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "when the publisher says it was published"
+        },
+        "source_updated_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "when the source last changed the item"
+        },
+        "observed_at": {
+          "type": "string",
+          "description": "when Baltor collected it"
+        },
+        "effective_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "when the change takes effect (e.g. retirement date)"
+        },
+        "announced_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "raw_ref": {
+      "type": "string",
+      "description": "pointer to the stored raw payload (tenant-private store if from a subscription)"
+    },
+    "delivery": {
+      "type": "object",
+      "properties": {
+        "delivery_id": {
+          "type": "string"
+        },
+        "attempt": {
+          "type": "integer"
+        },
+        "out_of_order": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

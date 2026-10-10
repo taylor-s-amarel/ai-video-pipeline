@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/awareness-packet",
+  "title": "Agent awareness packet",
+  "description": "What an agent receives at task start/resume, provider choice or periodic review: compact, budgeted, with references it can expand on demand.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "packet_id",
+    "project_id",
+    "moment",
+    "cursor",
+    "token_budget",
+    "items",
+    "coverage"
+  ],
+  "properties": {
+    "packet_id": {
+      "type": "string"
+    },
+    "project_id": {
+      "type": "string"
+    },
+    "moment": {
+      "enum": [
+        "task-start",
+        "task-resume",
+        "provider-choice",
+        "periodic-review",
+        "on-demand"
+      ]
+    },
+    "cursor": {
+      "type": "string"
+    },
+    "next_cursor": {
+      "type": "string"
+    },
+    "token_budget": {
+      "type": "integer",
+      "minimum": 200
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "event_id",
+          "headline",
+          "kind",
+          "applicability",
+          "priority"
+        ],
+        "properties": {
+          "event_id": {
+            "type": "string"
+          },
+          "headline": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "kind": {
+            "type": "string"
+          },
+          "applicability": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "string"
+          },
+          "why": {
+            "type": "string",
+            "maxLength": 400
+          },
+          "next_step": {
+            "type": "string"
+          },
+          "evidence_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "unknowns": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "omitted": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "items left out to stay inside the budget"
+    },
+    "coverage": {
+      "type": "object",
+      "required": [
+        "sources_ok",
+        "sources_degraded"
+      ],
+      "properties": {
+        "sources_ok": {
+          "type": "integer"
+        },
+        "sources_degraded": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "source_id": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/awareness-feed-product",
+  "title": "Feed product",
+  "description": "A customer-facing feed organised around the agent's job, defined as a view over the shared evidence base.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "product_id",
+    "title",
+    "question",
+    "change_types",
+    "matching",
+    "delivery"
+  ],
+  "properties": {
+    "product_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]+$"
+    },
+    "title": {
+      "type": "string"
+    },
+    "group": {
+      "type": "string"
+    },
+    "question": {
+      "type": "string",
+      "description": "the question the agent should answer"
+    },
+    "change_types": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_families": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "matching": {
+      "type": "string",
+      "description": "how events are matched to the project profile"
+    },
+    "delivery": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "task-start",
+          "task-resume",
+          "provider-choice",
+          "periodic-review",
+          "on-demand"
+        ]
+      }
+    },
+    "next_steps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evaluation": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "proposed",
+        "prototype",
+        "qualified"
+      ]
+    }
+  }
+}

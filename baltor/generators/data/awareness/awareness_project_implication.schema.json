@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/awareness-project-implication",
+  "title": "Project implication",
+  "description": "Layer 3: why an event matters to one project. Applicability is 'unknown' until checked; never assume impact.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "implication_id",
+    "event_id",
+    "project_id",
+    "kind",
+    "applicability",
+    "reasons"
+  ],
+  "properties": {
+    "implication_id": {
+      "type": "string"
+    },
+    "event_id": {
+      "type": "string"
+    },
+    "project_id": {
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "risk",
+        "opportunity",
+        "unblock",
+        "cost",
+        "compatibility",
+        "coverage",
+        "fyi"
+      ]
+    },
+    "applicability": {
+      "enum": [
+        "applies",
+        "likely",
+        "unknown",
+        "not-applicable"
+      ]
+    },
+    "priority": {
+      "enum": [
+        "fyi",
+        "consider",
+        "act",
+        "urgent"
+      ]
+    },
+    "reasons": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "matched": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "profile_path": {
+            "type": "string"
+          },
+          "entity": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "id"
+            ],
+            "properties": {
+              "type": {
+                "enum": [
+                  "package",
+                  "repository",
+                  "model",
+                  "dataset",
+                  "api",
+                  "endpoint",
+                  "service",
+                  "sku",
+                  "region",
+                  "mcp-server",
+                  "browser-feature",
+                  "standard",
+                  "paper",
+                  "engine",
+                  "plugin",
+                  "node",
+                  "file-format",
+                  "vendor",
+                  "product"
+                ]
+              },
+              "id": {
+                "type": "string",
+                "description": "canonical id, e.g. pypi:requests, npm:react, gh:owner/repo, hf:org/model, mcp:io.github.x/y, api:stripe/v1/charges"
+              },
+              "ecosystem": {
+                "type": "string"
+              },
+              "version": {
+                "type": "string"
+              },
+              "version_range": {
+                "type": "string"
+              }
+            }
+          },
+          "decision_id": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "unknowns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/awareness-project-profile",
+  "title": "Project awareness profile",
+  "description": "Tenant-private description of what a project depends on, what it is blocked on and what it is trying to do. Never shared across tenants.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "project_id",
+    "dependencies",
+    "feed_products"
+  ],
+  "properties": {
+    "project_id": {
+      "type": "string"
+    },
+    "tenant": {
+      "type": "string"
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "id"
+        ],
+        "properties": {
+          "type": {
+            "enum": [
+              "package",
+              "repository",
+              "model",
+              "dataset",
+              "api",
+              "endpoint",
+              "service",
+              "sku",
+              "region",
+              "mcp-server",
+              "browser-feature",
+              "standard",
+              "paper",
+              "engine",
+              "plugin",
+              "node",
+              "file-format",
+              "vendor",
+              "product"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "canonical id, e.g. pypi:requests, npm:react, gh:owner/repo, hf:org/model, mcp:io.github.x/y, api:stripe/v1/charges"
+          },
+          "ecosystem": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "version_range": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "workflows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "stages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "uses": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "targets": {
+      "type": "object",
+      "description": "browsers, regions, hardware (GPU VRAM, CPU), budgets, licence requirements (e.g. commercial-use weights)"
+    },
+    "open_decisions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "description": "decision_id references"
+      }
+    },
+    "feed_products": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "interrupt_policy": {
+      "type": "object",
+      "properties": {
+        "moments": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "task-start",
+              "task-resume",
+              "provider-choice",
+              "periodic-review"
+            ]
+          }
+        },
+        "min_priority": {
+          "enum": [
+            "fyi",
+            "consider",
+            "act",
+            "urgent"
+          ]
+        },
+        "token_budget": {
+          "type": "integer",
+          "minimum": 200
+        }
+      }
+    },
+    "permissions": {
+      "type": "object",
+      "properties": {
+        "collect": {
+          "type": "boolean"
+        },
+        "analyse": {
+          "type": "boolean"
+        },
+        "run_tests": {
+          "type": "boolean"
+        },
+        "open_changes": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/awareness-next-step",
+  "title": "Permitted next step",
+  "description": "Layer 4: a bounded action the project's permissions allow. Reading automatically never implies changing production automatically.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "step_id",
+    "implication_id",
+    "action",
+    "permission_required"
+  ],
+  "properties": {
+    "step_id": {
+      "type": "string"
+    },
+    "implication_id": {
+      "type": "string"
+    },
+    "action": {
+      "enum": [
+        "no-action",
+        "not-relevant",
+        "already-handled",
+        "hold",
+        "investigate",
+        "compare",
+        "run-test",
+        "propose-change",
+        "open-issue",
+        "revisit-decision"
+      ]
+    },
+    "permission_required": {
+      "enum": [
+        "none",
+        "analyse",
+        "run_tests",
+        "open_changes"
+      ]
+    },
+    "instructions": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "proposed_test": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "assertions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "fixture": {
+          "type": "string"
+        }
+      }
+    },
+    "harness_files": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "description": "Baltor identities that help carry out the step"
+      }
+    },
+    "estimated_effort": {
+      "enum": [
+        "minutes",
+        "hours",
+        "days"
+      ]
+    },
+    "status": {
+      "enum": [
+        "proposed",
+        "accepted",
+        "dismissed",
+        "done"
+      ]
+    }
+  }
+}

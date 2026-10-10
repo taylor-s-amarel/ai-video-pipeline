@@ -1,0 +1,230 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/awareness-event",
+  "title": "Normalized event",
+  "description": "Layer 2: the specific change, identities, versions, dates and evidence. One event may be supported by many observations; a repost is not independent confirmation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "event_id",
+    "change_type",
+    "entities",
+    "dates",
+    "evidence",
+    "confidence",
+    "status"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string"
+    },
+    "change_type": {
+      "enum": [
+        "release",
+        "new-capability",
+        "availability",
+        "breaking-change",
+        "deprecation",
+        "retirement",
+        "security-advisory",
+        "known-exploited",
+        "pricing",
+        "quota",
+        "region",
+        "permission",
+        "incident",
+        "incident-resolved",
+        "model-weights-released",
+        "paper-gained-code",
+        "schema-change",
+        "unlisted",
+        "relisted",
+        "deleted",
+        "withdrawn",
+        "correction",
+        "docs-change",
+        "policy"
+      ]
+    },
+    "entities": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "id"
+        ],
+        "properties": {
+          "type": {
+            "enum": [
+              "package",
+              "repository",
+              "model",
+              "dataset",
+              "api",
+              "endpoint",
+              "service",
+              "sku",
+              "region",
+              "mcp-server",
+              "browser-feature",
+              "standard",
+              "paper",
+              "engine",
+              "plugin",
+              "node",
+              "file-format",
+              "vendor",
+              "product"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "canonical id, e.g. pypi:requests, npm:react, gh:owner/repo, hf:org/model, mcp:io.github.x/y, api:stripe/v1/charges"
+          },
+          "ecosystem": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "version_range": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "dates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "observed_at"
+      ],
+      "description": "Kept separate on purpose: the date Baltor discovers something never becomes its release date.",
+      "properties": {
+        "published_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "when the publisher says it was published"
+        },
+        "source_updated_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "when the source last changed the item"
+        },
+        "observed_at": {
+          "type": "string",
+          "description": "when Baltor collected it"
+        },
+        "effective_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "when the change takes effect (e.g. retirement date)"
+        },
+        "announced_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "url",
+          "kind",
+          "authority"
+        ],
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "primary",
+              "vendor-claim",
+              "registry-record",
+              "repository",
+              "paper",
+              "newsletter",
+              "social",
+              "video",
+              "aggregator"
+            ]
+          },
+          "authority": {
+            "enum": [
+              "authoritative",
+              "vendor-claim",
+              "secondary",
+              "discovery-only"
+            ]
+          },
+          "quote": {
+            "type": "string",
+            "maxLength": 600,
+            "description": "short excerpt only; never full articles"
+          },
+          "retrieved_at": {
+            "type": "string"
+          },
+          "content_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "tenant_private": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      }
+    },
+    "independent_sources": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "status": {
+      "enum": [
+        "claimed",
+        "confirmed-primary",
+        "corrected",
+        "retracted",
+        "superseded"
+      ]
+    },
+    "supersedes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "details": {
+      "type": "object",
+      "description": "change-specific fields, e.g. removed_headers, new_types, retirement replacement"
+    },
+    "unknowns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
