@@ -1,25 +1,29 @@
 """Shared helpers for Baltor showcase task packages (standard library only).
 
-Every showcase task package ships this file next to ``task.json``,
-``setup/make_fixtures.py`` and ``evaluate.py``. It implements the parts of the
-pre-registered protocol that must behave identically for every task:
+Every showcase task package ships this file next to ``task.json`` (the
+pre-registered spec in the ``showcase_task_spec`` contract format),
+``task_detail.json`` (requirements, parameters, metric scales, gates and the
+hypothesis), ``setup/make_fixtures.py`` and ``evaluate.py``. It implements the
+parts of the protocol that must behave the same way for every task:
 
-* the spec hash: SHA-256 of the canonical JSON of ``task.json`` with the keys
-  ``spec_hash`` and ``preregistration`` removed (keys sorted, no whitespace,
-  UTF-8). Every run record carries it.
-* integrity: the evaluator refuses to call a run valid when ``task.json`` or any
-  setup/evaluator file differs from what was pre-registered.
-* trial seeds and arm order, derived from the spec hash so nobody can pick
-  favourable fixtures after the fact.
+* ``spec_sha256``: SHA-256 of the canonical JSON of ``task.json`` without the
+  ``spec_sha256`` key (keys sorted, separators ``,`` and ``:``, UTF-8). Every
+  file in the package except ``task.json`` itself is listed with its SHA-256 in
+  ``task.json["files_sha256"]``, so the spec hash also covers ``task_detail.json``,
+  the setup scripts and the evaluator. Every run record repeats the spec hash.
+* integrity: a run is not valid when ``task.json`` or any listed file differs
+  from what was pre-registered.
+* per-trial fixture seeds and arm order derived from the spec hash, for runners
+  that vary fixtures across trials (both arms of one trial always share a seed).
 * metric normalisation, the weighted composite score and the pass rule.
-* the command-line contract shared by every setup script and evaluator.
+* the command line shared by every setup script and evaluator:
 
-Setup:    python3 setup/make_fixtures.py --workspace W --hidden H --seed N
-Evaluate: python3 evaluate.py --workspace W --hidden H [--out result.json]
+      python3 setup/make_fixtures.py --workspace W --private P --seed N
+      python3 evaluate.py --workspace W --private P [--out result.json]
 
-The workspace W is what the agent sees. The hidden directory H holds ground
-truth and must never be readable by the agent. Neither may sit inside the task
-package, and H may not sit inside W.
+  (``--hidden`` is accepted as a synonym of ``--private``.) W is what the agent
+  sees; P holds ground truth and must never be readable by the agent. Neither
+  may be inside the task package, and P may not be inside W.
 """
 
 from __future__ import annotations
@@ -40,7 +44,8 @@ from typing import Any, Callable
 
 RESULT_SPEC = "baltor.showcase-evaluation/v1"
 TASK_SPEC = "baltor.showcase-task/v1"
-HASH_EXCLUDED_KEYS = ("spec_hash", "preregistration")
+DETAIL_SPEC = "baltor.showcase-task-detail/v1"
+ARMS = ("baseline", "baltor")
 
 
 # --------------------------------------------------------------------------- hashing and seeds
@@ -50,57 +55,63 @@ def canonical_json(obj: Any) -> bytes:
 
 
 def compute_spec_hash(task: dict) -> str:
-    body = {k: v for k, v in task.items() if k not in HASH_EXCLUDED_KEYS}
-    return hashlib.sha256(canonical_json(body)).hexdigest()
+    """spec_sha256 as defined by the showcase_task_spec contract."""
+    return hashlib.sha256(canonical_json({k: v for k, v in task.items() if k != "spec_sha256"})).hexdigest()
+
+
+def sha256_bytes(data: bytes) -> str:
+    return hashlib.sha256(data).hexdigest()
 
 
 def sha256_file(path: str | Path) -> str:
-    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+    return sha256_bytes(Path(path).read_bytes())
 
 
-def derive_int(spec_hash: str, label: str, trial: int) -> int:
-    return int(hashlib.sha256(f"{spec_hash}:{label}:{trial}".encode()).hexdigest()[:8], 16)
+def derive_int(spec_sha256: str, label: str, trial: int) -> int:
+    return int(hashlib.sha256(f"{spec_sha256}:{label}:{trial}".encode()).hexdigest()[:8], 16)
 
 
-def fixture_seed(spec_hash: str, trial: int) -> int:
-    """Seed for trial ``trial`` (1-based). Both arms of a trial get the same seed."""
-    return derive_int(spec_hash, "fixture", trial)
+def fixture_seed(spec_sha256: str, trial: int) -> int:
+    """Seed for trial ``trial`` (1-based) when fixtures vary by trial. Both arms of a trial share it."""
+    return derive_int(spec_sha256, "fixture", trial)
 
 
-def arm_order(spec_hash: str, trial: int) -> list[str]:
-    """Which arm runs first in trial ``trial``: fixed by the spec hash, balanced in expectation."""
-    first = derive_int(spec_hash, "order", trial) % 2
-    return ["baseline", "treatment"] if first == 0 else ["treatment", "baseline"]
+def arm_order(spec_sha256: str, trial: int) -> list[str]:
+    """Which arm runs first in trial ``trial``; fixed by the spec hash, balanced in expectation."""
+    return list(ARMS) if derive_int(spec_sha256, "order", trial) % 2 == 0 else list(reversed(ARMS))
 
 
 def run_plan(task: dict) -> list[dict]:
-    """The full pre-registered run schedule for one task."""
-    h = task.get("spec_hash") or compute_spec_hash(task)
+    """The pre-registered run schedule for one task: trial, arm, fixture seed."""
+    h = task.get("spec_sha256") or compute_spec_hash(task)
     plan = []
-    for t in range(1, int(task["trials"]["per_arm"]) + 1):
+    for t in range(1, int(task["trials"]) + 1):
         for arm in arm_order(h, t):
-            plan.append({"trial": t, "arm": arm, "fixture_seed": fixture_seed(h, t), "spec_hash": h})
+            plan.append({"trial": t, "arm": arm, "fixture_seed": fixture_seed(h, t), "spec_sha256": h})
     return plan
 
 
-# --------------------------------------------------------------------------- task loading and integrity
+# --------------------------------------------------------------------------- loading and integrity
 
 def load_task(pkg_dir: str | Path) -> dict:
     return json.loads((Path(pkg_dir) / "task.json").read_text(encoding="utf-8"))
 
 
+def load_detail(pkg_dir: str | Path) -> dict:
+    return json.loads((Path(pkg_dir) / "task_detail.json").read_text(encoding="utf-8"))
+
+
 def integrity_problems(task: dict, pkg_dir: str | Path) -> list[str]:
     pkg = Path(pkg_dir)
     problems = []
-    if task.get("spec_hash") and compute_spec_hash(task) != task["spec_hash"]:
-        problems.append("task.json differs from the pre-registered spec (spec_hash mismatch)")
-    for group in ("setup", "evaluator"):
-        for f in task.get(group, {}).get("files", []):
-            p = pkg / f["path"]
-            if not p.exists():
-                problems.append(f"{group} file {f['path']} is missing")
-            elif sha256_file(p) != f["sha256"]:
-                problems.append(f"{group} file {f['path']} changed since pre-registration")
+    if compute_spec_hash(task) != task.get("spec_sha256"):
+        problems.append("task.json differs from the pre-registered spec (spec_sha256 mismatch)")
+    for rel, digest in sorted(task.get("files_sha256", {}).items()):
+        p = pkg / rel
+        if not p.exists():
+            problems.append(f"{rel} is missing")
+        elif sha256_file(p) != digest:
+            problems.append(f"{rel} changed since pre-registration")
     return problems
 
 
@@ -114,40 +125,40 @@ def _inside(child: Path, parent: Path) -> bool:
         return False
 
 
-def prepare_dirs(pkg_dir: Path, workspace: str | Path, hidden: str | Path) -> tuple[Path, Path]:
-    ws, hd = Path(workspace), Path(hidden)
-    if _inside(ws, pkg_dir) or _inside(hd, pkg_dir):
-        raise SystemExit("workspace and hidden directories must be outside the task package")
-    if _inside(hd, ws):
-        raise SystemExit("the hidden directory must not be inside the workspace")
+def prepare_dirs(pkg_dir: Path, workspace: str | Path, private: str | Path) -> tuple[Path, Path]:
+    ws, pv = Path(workspace), Path(private)
+    if _inside(ws, pkg_dir) or _inside(pv, pkg_dir):
+        raise SystemExit("workspace and private directories must be outside the task package")
+    if _inside(pv, ws):
+        raise SystemExit("the private directory must not be inside the workspace")
     if ws.exists() and any(ws.iterdir()):
         raise SystemExit(f"workspace {ws} is not empty; every run starts from a fresh workspace")
     ws.mkdir(parents=True, exist_ok=True)
-    hd.mkdir(parents=True, exist_ok=True)
-    return ws, hd
+    pv.mkdir(parents=True, exist_ok=True)
+    return ws, pv
 
 
-def task_markdown(task: dict) -> str:
-    out = [f"# {task['title']}", "", task["prompt"].strip(), "",
-           "## Requirements", "", "These are exactly the things the evaluator checks.", ""]
-    out += [f"- {r}" for r in task["requirements"]]
+def task_markdown(detail: dict) -> str:
+    """TASK.md: the task text both arms receive (it is also the body of task.json's prompt)."""
+    out = [f"# {detail['title']}", "", detail["prompt"].strip(), "",
+           "## Requirements", "", "These are exactly the things that will be checked.", ""]
+    out += [f"- {r}" for r in detail["requirements"]]
     out += ["", "## Deliverables", ""]
-    out += [f"- `{d['path']}`: {d['description']}" for d in task["deliverables"]]
-    if task.get("inputs", {}).get("workspace_files"):
+    out += [f"- `{d['path']}`: {d['description']}" for d in detail["deliverables"]]
+    if detail.get("workspace_files"):
         out += ["", "## Inputs in this workspace", ""]
-        out += [f"- `{f}`" for f in task["inputs"]["workspace_files"]]
-    b = task["budget"]
+        out += [f"- `{f}`" for f in detail["workspace_files"]]
+    b = detail["budget"]
     out += ["", "## Budget", "",
-            f"- wall time: {b['wall_time_s']} s",
+            f"- wall time: {b['wall_s']} s",
             f"- tool calls: {b['tool_calls']}",
             f"- tokens (input + output): {b['tokens']}",
             "", "## Ground rules", "",
-            "- Work only inside this workspace. Network access: "
-            + ("none." if task["inputs"].get("network", "none") == "none" else task["inputs"]["network"] + "."),
+            "- Work only inside this workspace. No network access.",
             "- Do not look for the evaluator, hidden labels or answer keys, and do not try to rebuild them.",
             "- Leave every deliverable at the path named above. Anything else in the workspace is ignored.",
             ]
-    out += [f"- {c}" for c in task.get("workspace_rules", [])]
+    out += [f"- {c}" for c in detail.get("workspace_rules", [])]
     return "\n".join(out) + "\n"
 
 
@@ -171,24 +182,29 @@ def read_csv(path: str | Path) -> list[dict]:
         return list(csv.DictReader(fh))
 
 
+def _add_dir_args(ap: argparse.ArgumentParser) -> None:
+    ap.add_argument("--workspace", required=True, help="the agent's workspace")
+    ap.add_argument("--private", "--hidden", dest="private", required=True,
+                    help="ground-truth directory; never readable by the agent")
+
+
 def setup_cli(pkg_file: str, make: Callable[..., None], argv: list[str] | None = None,
               extra: Callable[[argparse.ArgumentParser], None] | None = None) -> int:
-    """Command-line entry for ``setup/make_fixtures.py``. ``pkg_file`` is that script's ``__file__``."""
+    """Command-line entry for ``setup/make_fixtures.py``; ``pkg_file`` is that script's ``__file__``."""
     pkg = Path(pkg_file).resolve().parents[1]
-    ap = argparse.ArgumentParser(description="Create the agent workspace and the hidden ground truth for one trial.")
-    ap.add_argument("--workspace", required=True, help="fresh directory the agent will work in")
-    ap.add_argument("--hidden", required=True, help="directory for ground truth; never shown to the agent")
-    ap.add_argument("--seed", type=int, required=True, help="fixture seed for this trial (see showcase_eval.fixture_seed)")
+    ap = argparse.ArgumentParser(description="Create the agent workspace and the private ground truth for one run.")
+    _add_dir_args(ap)
+    ap.add_argument("--seed", type=int, required=True, help="fixture seed (both arms of a trial use the same one)")
     if extra:
         extra(ap)
     a = ap.parse_args(argv)
+    detail = load_detail(pkg)
+    ws, pv = prepare_dirs(pkg, a.workspace, a.private)
+    make(task=detail, workspace=ws, hidden=pv, seed=a.seed, args=a)
+    (ws / "TASK.md").write_text(task_markdown(detail), encoding="utf-8")
     task = load_task(pkg)
-    ws, hd = prepare_dirs(pkg, a.workspace, a.hidden)
-    make(task=task, workspace=ws, hidden=hd, seed=a.seed, args=a)
-    (ws / "TASK.md").write_text(task_markdown(task), encoding="utf-8")
-    write_json(hd / "fixture.json", {"task_id": task["task_id"], "spec_hash": task.get("spec_hash"),
-                                     "seed": a.seed})
-    print(f"workspace ready: {ws}\nhidden ground truth: {hd}")
+    write_json(pv / "fixture.json", {"task_id": task["id"], "spec_sha256": task.get("spec_sha256"), "seed": a.seed})
+    print(f"workspace ready: {ws}\nprivate ground truth: {pv}")
     return 0
 
 
@@ -198,42 +214,46 @@ def check(name: str, passed: bool, detail: Any = "") -> dict:
     return {"name": name, "passed": bool(passed), "detail": str(detail)[:500]}
 
 
+def _bad(v: Any) -> bool:
+    return v is None or (isinstance(v, float) and (math.isnan(v) or math.isinf(v)))
+
+
 def normalise(metric: dict, value: float | None) -> float:
-    if value is None or (isinstance(value, float) and (math.isnan(value) or math.isinf(value))):
+    if _bad(value):
         return 0.0
     worst, best = metric["scale"]
     if best == worst:
         return 1.0 if value == best else 0.0
-    return max(0.0, min(1.0, (value - worst) / (best - worst)))
+    return max(0.0, min(1.0, (float(value) - worst) / (best - worst)))
 
 
 def gate_passes(metric: dict, value: float | None) -> bool:
     if "threshold" not in metric:
         return True
-    if value is None or (isinstance(value, float) and math.isnan(value)):
+    if _bad(value):
         return False
     return value >= metric["threshold"] if metric["direction"] == "maximize" else value <= metric["threshold"]
 
 
 def _clean(v: Any) -> Any:
+    if isinstance(v, bool):
+        return v
     if isinstance(v, float):
-        if math.isnan(v) or math.isinf(v):
-            return None
-        return round(v, 6)
+        return None if (math.isnan(v) or math.isinf(v)) else round(v, 6)
     if isinstance(v, dict):
-        return {k: _clean(x) for k, x in v.items()}
+        return {str(k): _clean(x) for k, x in v.items()}
     if isinstance(v, (list, tuple)):
         return [_clean(x) for x in v]
     return v
 
 
-def summarise(task: dict, pkg_dir: Path, metrics: dict, checks: list[dict], flags: list[str],
+def summarise(detail: dict, task: dict, pkg_dir: Path, metrics: dict, checks: list[dict], flags: list[str],
               details: dict, errors: list[str]) -> dict:
-    metrics = dict(metrics)
-    if checks and "checks_pass_rate" not in metrics:
-        metrics["checks_pass_rate"] = sum(c["passed"] for c in checks) / len(checks)
+    metrics = {k: (float(v) if isinstance(v, (int, float)) and not isinstance(v, bool) else v) for k, v in metrics.items()}
+    if "checks_pass_rate" not in metrics:
+        metrics["checks_pass_rate"] = sum(c["passed"] for c in checks) / len(checks) if checks else 0.0
     normalised, gates, total_w, score = {}, [], 0.0, 0.0
-    for m in task["metrics"]:
+    for m in detail["metrics"]:
         v = metrics.get(m["name"])
         n = normalise(m, v)
         normalised[m["name"]] = n
@@ -244,17 +264,19 @@ def summarise(task: dict, pkg_dir: Path, metrics: dict, checks: list[dict], flag
                           "threshold": m["threshold"], "value": v, "passed": gate_passes(m, v)})
     score = score / total_w if total_w else 0.0
     by_name = {c["name"]: c for c in checks}
-    required = task["success"].get("required_checks", [])
-    req = [{"check": r, "passed": bool(by_name.get(r, {}).get("passed"))} for r in required]
+    req = [{"check": r, "passed": bool(by_name.get(r, {}).get("passed"))}
+           for r in detail["success"].get("required_checks", [])]
     problems = integrity_problems(task, pkg_dir)
     valid = not problems
     passed = (valid and not errors and all(g["passed"] for g in gates) and all(r["passed"] for r in req)
-              and score >= task["success"].get("min_score", 0.0))
+              and score >= detail["success"].get("min_score", 0.0))
+    metrics["task_pass"] = 1.0 if passed else 0.0
+    metrics["composite_score"] = score
     return _clean({
         "spec": RESULT_SPEC,
-        "task_id": task["task_id"],
-        "spec_hash": task.get("spec_hash") or compute_spec_hash(task),
-        "evaluator_sha256": sha256_file(pkg_dir / task["evaluator"]["entry"]),
+        "task_id": task["id"],
+        "spec_sha256": task.get("spec_sha256"),
+        "evaluator_sha256": sha256_file(pkg_dir / "evaluate.py"),
         "valid": valid,
         "integrity_problems": problems,
         "passed": passed,
@@ -273,26 +295,25 @@ def summarise(task: dict, pkg_dir: Path, metrics: dict, checks: list[dict], flag
 def evaluate_cli(pkg_file: str, evaluate: Callable[..., tuple], argv: list[str] | None = None) -> int:
     """Command-line entry for ``evaluate.py``.
 
-    ``evaluate(task, workspace, hidden)`` returns ``(metrics, checks, flags, details)``.
-    An exception inside it is reported as an evaluation error and the run fails;
-    the evaluator itself still exits 0 so the harness records the result.
+    ``evaluate(detail, workspace, private)`` returns ``(metrics, checks, flags, details)``.
+    An exception inside it is reported as an evaluation error and the run fails; the
+    evaluator still exits 0 so the harness records the result. Exit 2 only on bad usage.
     """
     pkg = Path(pkg_file).resolve().parent
     ap = argparse.ArgumentParser(description="Score one run of this showcase task. Prints JSON.")
-    ap.add_argument("--workspace", required=True)
-    ap.add_argument("--hidden", required=True)
+    _add_dir_args(ap)
     ap.add_argument("--out", help="also write the result JSON here")
     a = ap.parse_args(argv)
-    task = load_task(pkg)
-    ws, hd = Path(a.workspace), Path(a.hidden)
+    task, detail = load_task(pkg), load_detail(pkg)
+    ws, pv = Path(a.workspace), Path(a.private)
     metrics, checks, flags, details, errors = {}, [], [], {}, []
     t0 = time.monotonic()
     try:
-        metrics, checks, flags, details = evaluate(task, ws, hd)
+        metrics, checks, flags, details = evaluate(detail, ws, pv)
     except Exception as exc:  # noqa: BLE001 - every failure is reported, never hidden
         errors.append(f"{type(exc).__name__}: {exc}")
         details = {"traceback": traceback.format_exc()[-2000:]}
-    result = summarise(task, pkg, metrics, checks, flags, details, errors)
+    result = summarise(detail, task, pkg, metrics, checks, flags, details, errors)
     result["evaluation_seconds"] = round(time.monotonic() - t0, 3)
     text = json.dumps(result, indent=2, ensure_ascii=False)
     if a.out:
@@ -309,15 +330,16 @@ def run_script(args: list[str], cwd: str | Path, timeout: float = 120, env: dict
     full_env = dict(os.environ)
     full_env.update(env or {})
     full_env.setdefault("PYTHONHASHSEED", "0")
+    full_env["PYTHONDONTWRITEBYTECODE"] = "1"
     t0 = time.monotonic()
     try:
         proc = subprocess.run(args, cwd=str(cwd), capture_output=True, text=True, timeout=timeout,
                               env=full_env, input=stdin)
-        return {"returncode": proc.returncode, "stdout": proc.stdout[-20000:], "stderr": proc.stderr[-20000:],
+        return {"returncode": proc.returncode, "stdout": proc.stdout[-200000:], "stderr": proc.stderr[-20000:],
                 "timed_out": False, "seconds": round(time.monotonic() - t0, 3)}
-    except subprocess.TimeoutExpired as exc:
-        return {"returncode": None, "stdout": (exc.stdout or "")[-2000:] if isinstance(exc.stdout, str) else "",
-                "stderr": "timed out", "timed_out": True, "seconds": round(time.monotonic() - t0, 3)}
+    except subprocess.TimeoutExpired:
+        return {"returncode": None, "stdout": "", "stderr": "timed out", "timed_out": True,
+                "seconds": round(time.monotonic() - t0, 3)}
     except OSError as exc:
         return {"returncode": None, "stdout": "", "stderr": str(exc), "timed_out": False,
                 "seconds": round(time.monotonic() - t0, 3)}
@@ -327,16 +349,13 @@ CODE_SUFFIXES = (".py", ".ipynb", ".sh", ".sql", ".r", ".js", ".ts")
 
 
 def leakage_scan(workspace: str | Path, patterns: list[str], suffixes: tuple = CODE_SUFFIXES) -> list[str]:
-    """Return ``path: pattern`` for every agent-written file that matches a forbidden pattern."""
+    """``path: pattern`` for every agent-written code file that matches a forbidden pattern."""
     hits = []
     regs = [re.compile(p) for p in patterns]
     for p in sorted(Path(workspace).rglob("*")):
         if not p.is_file() or p.suffix.lower() not in suffixes or p.stat().st_size > 2_000_000:
             continue
-        try:
-            text = p.read_text(encoding="utf-8", errors="ignore")
-        except OSError:
-            continue
+        text = p.read_text(encoding="utf-8", errors="ignore")
         for r in regs:
             if r.search(text):
                 hits.append(f"{p.relative_to(workspace).as_posix()}: {r.pattern}")
@@ -347,8 +366,8 @@ def load_json_file(path: str | Path) -> Any:
     return json.loads(Path(path).read_text(encoding="utf-8"))
 
 
-def pairwise_prf(predicted: list[tuple], truth: list[tuple]) -> dict:
-    """Precision/recall/F1 for two sets of hashable items."""
+def prf(predicted, truth) -> dict:
+    """Precision, recall and F1 for two collections of hashable items."""
     p, t = set(predicted), set(truth)
     tp = len(p & t)
     precision = tp / len(p) if p else 0.0
@@ -357,6 +376,8 @@ def pairwise_prf(predicted: list[tuple], truth: list[tuple]) -> dict:
     return {"precision": precision, "recall": recall, "f1": f1, "tp": tp, "fp": len(p - t), "fn": len(t - p)}
 
 
-if __name__ == "__main__":  # pragma: no cover - helper for operators
-    task = load_task(Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).parent)
-    print(json.dumps({"spec_hash": compute_spec_hash(task), "plan": run_plan(task)}, indent=2))
+if __name__ == "__main__":  # pragma: no cover - operator helper: python3 showcase_eval.py [PACKAGE_DIR]
+    pkg = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parent
+    t = load_task(pkg)
+    print(json.dumps({"task_id": t["id"], "spec_sha256": compute_spec_hash(t),
+                      "integrity_problems": integrity_problems(t, pkg), "plan": run_plan(t)}, indent=2))

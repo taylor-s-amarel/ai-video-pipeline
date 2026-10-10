@@ -1,0 +1,74 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "video_re_round_trip_judge",
+  "title": "Video RE round-trip judge",
+  "kind": "subagent",
+  "subkind": "evaluator",
+  "version": "1.0.0",
+  "summary": "Subagent that re-measures a variant rendered from a format IR, scores IR fidelity per dimension with video_re_ir_diff_fidelity, gates originality, proposes JSON Patch fixes and decides when to stop iterating.",
+  "description": "Dimensions: timeline, cut rhythm, layers, typography, motion, audio and script pattern. Separates format deviations from content-driven differences, refuses to score a variant that reuses source frames, captions or audio, and stops when the gain over two rounds falls below a configurable minimum. Captures technique and structure only; never stores or reuses the source's footage, frames, music, voice or script text.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "verify",
+    "measure"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "shell",
+    "secrets": [],
+    "side_effects": [
+      "runs ffmpeg/ffprobe and the measurement bundle on the variant; writes round reports and proposed patches in its work directory"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "opencode",
+    "baltor-harness"
+  ],
+  "entry": "agent.md",
+  "tags": [
+    "video",
+    "reverse-engineering",
+    "video-re",
+    "swarm",
+    "round-trip",
+    "fidelity",
+    "evaluator",
+    "subagent"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "video_re_ir_diff_fidelity"
+    },
+    {
+      "identity": "video_re_evidence_bundle"
+    },
+    {
+      "identity": "video_re_ir_validate"
+    },
+    {
+      "identity": "video_re_format_ir"
+    },
+    {
+      "identity": "video_re_lifter"
+    },
+    {
+      "identity": "ffmpeg",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_re_swarm.py",
+    "data": "generators/data/video_re_swarm"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

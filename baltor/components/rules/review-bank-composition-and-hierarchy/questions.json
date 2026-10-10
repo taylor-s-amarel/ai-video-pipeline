@@ -1,0 +1,736 @@
+[
+  {
+    "id": "AVQ-002-001",
+    "domain_id": "D002",
+    "area": "composition and hierarchy",
+    "question": "Where does the eye land before any movement occurs?",
+    "failure_hypothesis": "Bright decoration steals the first fixation.",
+    "check_or_fix": "Blur the frame and inspect its dominant mass.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6170,
+    "passes": [
+      "default_32",
+      "visual_depth_contact",
+      "accessible_text"
+    ]
+  },
+  {
+    "id": "AVQ-002-002",
+    "domain_id": "D002",
+    "area": "composition and hierarchy",
+    "question": "Is the subject separated from the frame's visual center when needed?",
+    "failure_hypothesis": "Central symmetry suppresses directional tension.",
+    "check_or_fix": "Compare asymmetric staging for the active beat.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6172,
+    "passes": [
+      "visual_depth_contact",
+      "accessible_text"
+    ]
+  },
+  {
+    "id": "AVQ-002-003",
+    "domain_id": "D002",
+    "area": "composition and hierarchy",
+    "question": "Does the focal point stay clear in grayscale?",
+    "failure_hypothesis": "Color alone creates the hierarchy.",
+    "check_or_fix": "Inspect a grayscale frame at thumbnail size.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6174,
+    "passes": [
+      "visual_depth_contact",
+      "accessible_text"
+    ]
+  },
+  {
+    "id": "AVQ-002-004",
+    "domain_id": "D002",
+    "area": "composition and hierarchy",
+    "question": "Are empty areas supporting anticipation or merely unused?",
+    "failure_hypothesis": "Dead space weakens the action's scale.",
+    "check_or_fix": "Reframe while preserving necessary look and travel room.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6176,
+    "passes": [
+      "visual_depth_contact",
+      "accessible_text"
+    ]
+  },
+  {
+    "id": "AVQ-002-005",
+    "domain_id": "D002",
+    "area": "composition and hierarchy",
+    "question": "Does the composition reserve room for the next action?",
+    "failure_hypothesis": "Movement immediately crashes into the frame edge.",
+    "check_or_fix": "Storyboard the full action envelope before cropping.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6178,
+    "passes": [
+      "visual_depth_contact",
+      "accessible_text"
+    ]
+  },
+  {
+    "id": "AVQ-002-006",
+    "domain_id": "D002",
+    "area": "composition and hierarchy",
+    "question": "Do dominant diagonals point toward the intended event?",
+    "failure_hypothesis": "Environmental lines direct attention away from the payoff.",
+    "check_or_fix": "Trace major lines and adjust their endpoints.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6180,
+    "passes": [
+      "visual_depth_contact",
+      "accessible_text"
+    ]
+  },
+  {
+    "id": "AVQ-002-007",
+    "domain_id": "D002",
+    "area": "composition and hierarchy",
+    "question": "Is the hero smaller than a visually irrelevant prop?",
+    "failure_hypothesis": "Scale hierarchy accidentally promotes scenery.",
+    "check_or_fix": "Reduce the prop or increase hero screen occupancy.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6182,
+    "passes": [
+      "visual_depth_contact",
+      "accessible_text",
+      "longer_cardboard_32"
+    ]
+  },
+  {
+    "id": "AVQ-002-008",
+    "domain_id": "D002",
+    "area": "composition and hierarchy",
+    "question": "Does the frame contain two competing high-contrast centers?",
+    "failure_hypothesis": "Viewer attention splits during a single causal beat.",
+    "check_or_fix": "Subdue one center until its turn to matter.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6184,
+    "passes": [
+      "visual_depth_contact",
+      "accessible_text"
+    ]
+  },
+  {
+    "id": "AVQ-002-009",
+    "domain_id": "D002",
+    "area": "composition and hierarchy",
+    "question": "Can the critical gesture be seen without hunting?",
+    "failure_hypothesis": "The gesture occupies a low-salience corner.",
+    "check_or_fix": "Reposition or simplify neighboring shapes.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6186,
+    "passes": [
+      "accessible_text"
+    ]
+  },
+  {
+    "id": "AVQ-002-010",
+    "domain_id": "D002",
+    "area": "composition and hierarchy",
+    "question": "Does the horizon cut through a meaningful face or hand?",
+    "failure_hypothesis": "A strong line fragments the focal silhouette.",
+    "check_or_fix": "Shift camera height or background geometry.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6188,
+    "passes": [
+      "accessible_text"
+    ]
+  },
+  {
+    "id": "AVQ-002-011",
+    "domain_id": "D002",
+    "area": "composition and hierarchy",
+    "question": "Are masses balanced over time rather than only in stills?",
+    "failure_hypothesis": "Moving crowds overload one side of the frame.",
+    "check_or_fix": "Sample composition at action extrema.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6190,
+    "passes": []
+  },
+  {
+    "id": "AVQ-002-012",
+    "domain_id": "D002",
+    "area": "composition and hierarchy",
+    "question": "Does a close-up exclude context needed to interpret contact?",
+    "failure_hypothesis": "Tight framing makes the interaction ambiguous.",
+    "check_or_fix": "Include the receiving surface or establishing insert.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6192,
+    "passes": []
+  },
+  {
+    "id": "AVQ-002-013",
+    "domain_id": "D002",
+    "area": "composition and hierarchy",
+    "question": "Are graphic borders stealing more contrast than the action?",
+    "failure_hypothesis": "Frame decoration dominates the content.",
+    "check_or_fix": "Reduce border weight and compare attention.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6194,
+    "passes": []
+  },
+  {
+    "id": "AVQ-002-014",
+    "domain_id": "D002",
+    "area": "composition and hierarchy",
+    "question": "Is the negative space around the reveal preserved?",
+    "failure_hypothesis": "Surrounding detail swallows the new information.",
+    "check_or_fix": "Clear a quiet area before the reveal arrives.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6196,
+    "passes": []
+  },
+  {
+    "id": "AVQ-002-015",
+    "domain_id": "D002",
+    "area": "composition and hierarchy",
+    "question": "Do repeated elements form an unintended arrow or word?",
+    "failure_hypothesis": "Pattern alignment creates misleading visual cues.",
+    "check_or_fix": "Inspect repetitions at small size and oblique angles.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6198,
+    "passes": []
+  },
+  {
+    "id": "AVQ-002-016",
+    "domain_id": "D002",
+    "area": "composition and hierarchy",
+    "question": "Are important objects clipped by aesthetically convenient crops?",
+    "failure_hypothesis": "Composition removes evidence-bearing parts.",
+    "check_or_fix": "Check all essential object bounds against the frame.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6200,
+    "passes": []
+  },
+  {
+    "id": "AVQ-002-017",
+    "domain_id": "D002",
+    "area": "composition and hierarchy",
+    "question": "Is the composition understandable when paused mid-action?",
+    "failure_hypothesis": "Only carefully selected endpoints are readable.",
+    "check_or_fix": "Review random frames between key poses.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6202,
+    "passes": []
+  },
+  {
+    "id": "AVQ-002-018",
+    "domain_id": "D002",
+    "area": "composition and hierarchy",
+    "question": "Does the camera reveal enough of the destination?",
+    "failure_hypothesis": "Movement has no legible spatial goal.",
+    "check_or_fix": "Show or establish the target before arrival.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6204,
+    "passes": []
+  },
+  {
+    "id": "AVQ-002-019",
+    "domain_id": "D002",
+    "area": "composition and hierarchy",
+    "question": "Are paired comparisons granted equivalent visual emphasis?",
+    "failure_hypothesis": "One side appears important because of framing alone.",
+    "check_or_fix": "Match scale, contrast and dwell time across panels.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6206,
+    "passes": []
+  },
+  {
+    "id": "AVQ-002-020",
+    "domain_id": "D002",
+    "area": "composition and hierarchy",
+    "question": "Does perspective compression make separate objects look attached?",
+    "failure_hypothesis": "Projected tangencies imply nonexistent connections.",
+    "check_or_fix": "Adjust view or spacing to separate outlines.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6208,
+    "passes": []
+  },
+  {
+    "id": "AVQ-002-021",
+    "domain_id": "D002",
+    "area": "composition and hierarchy",
+    "question": "Is the foreground framing device obscuring useful information?",
+    "failure_hypothesis": "Cinematic framing hides the causal action.",
+    "check_or_fix": "Mask its overlap against required evidence regions.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6210,
+    "passes": []
+  },
+  {
+    "id": "AVQ-002-022",
+    "domain_id": "D002",
+    "area": "composition and hierarchy",
+    "question": "Does a large caption reverse the intended visual hierarchy?",
+    "failure_hypothesis": "The audience reads while the crucial event passes.",
+    "check_or_fix": "Separate reading and action beats where possible.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6212,
+    "passes": []
+  },
+  {
+    "id": "AVQ-002-023",
+    "domain_id": "D002",
+    "area": "composition and hierarchy",
+    "question": "Are small supporting characters legible as intentional participants?",
+    "failure_hypothesis": "Minor roles look like noise.",
+    "check_or_fix": "Group them into readable masses or give clear actions.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6214,
+    "passes": []
+  },
+  {
+    "id": "AVQ-002-024",
+    "domain_id": "D002",
+    "area": "composition and hierarchy",
+    "question": "Does a wide establishing shot remain useful after geography is known?",
+    "failure_hypothesis": "Repeated wide shots reduce emotional access.",
+    "check_or_fix": "Use a closer view for the next consequential beat.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6216,
+    "passes": []
+  },
+  {
+    "id": "AVQ-002-025",
+    "domain_id": "D002",
+    "area": "composition and hierarchy",
+    "question": "Can the final composition hold without accidental edge tension?",
+    "failure_hypothesis": "Ending feels cropped or unstable.",
+    "check_or_fix": "Inspect final hold with all overlays and margins.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6218,
+    "passes": []
+  },
+  {
+    "id": "AVQ-002-026",
+    "domain_id": "D002",
+    "area": "composition and hierarchy",
+    "question": "Are parallel lines almost touching and creating visual vibration?",
+    "failure_hypothesis": "Narrow gaps shimmer or appear fused.",
+    "check_or_fix": "Increase separation or commit to overlap.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6220,
+    "passes": []
+  },
+  {
+    "id": "AVQ-002-027",
+    "domain_id": "D002",
+    "area": "composition and hierarchy",
+    "question": "Does the layout create a natural reading order?",
+    "failure_hypothesis": "Viewer sees the answer before the setup.",
+    "check_or_fix": "Number or stage information in intended sequence.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6222,
+    "passes": []
+  },
+  {
+    "id": "AVQ-002-028",
+    "domain_id": "D002",
+    "area": "composition and hierarchy",
+    "question": "Are visual weights stable across differently colored costumes?",
+    "failure_hypothesis": "One costume dominates unrelated scenes.",
+    "check_or_fix": "Compare luminance and occupied area across characters.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6224,
+    "passes": []
+  },
+  {
+    "id": "AVQ-002-029",
+    "domain_id": "D002",
+    "area": "composition and hierarchy",
+    "question": "Does the composition survive the intended alternate crop?",
+    "failure_hypothesis": "Reformatting removes the cause or reaction.",
+    "check_or_fix": "Preview actual crop windows before delivery.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6226,
+    "passes": []
+  },
+  {
+    "id": "AVQ-002-030",
+    "domain_id": "D002",
+    "area": "composition and hierarchy",
+    "question": "Is the hero's gaze given enough look room?",
+    "failure_hypothesis": "Gaze terminates against the frame edge.",
+    "check_or_fix": "Adjust framing to reveal the attended space.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6228,
+    "passes": []
+  },
+  {
+    "id": "AVQ-002-031",
+    "domain_id": "D002",
+    "area": "composition and hierarchy",
+    "question": "Does the composition distinguish environment scale from character scale?",
+    "failure_hypothesis": "No stable reference makes distances ambiguous.",
+    "check_or_fix": "Include one consistent scale reference.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6230,
+    "passes": []
+  },
+  {
+    "id": "AVQ-002-032",
+    "domain_id": "D002",
+    "area": "composition and hierarchy",
+    "question": "Would removing one object immediately clarify the frame?",
+    "failure_hypothesis": "Clutter persists because every asset seems precious.",
+    "check_or_fix": "Perform a subtractive composition pass.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6232,
+    "passes": []
+  }
+]

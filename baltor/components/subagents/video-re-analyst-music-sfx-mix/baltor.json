@@ -1,0 +1,75 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "video_re_analyst_music_sfx_mix",
+  "title": "Video RE analyst: Music, sound effects and mix",
+  "kind": "subagent",
+  "subkind": "review-lens",
+  "version": "1.0.0",
+  "summary": "Read-only subagent that answers the music, sound effects and mix question bank for one video from evidence.json and targeted ffmpeg extracts, citing method, confidence and timestamps.",
+  "description": "Measures music presence, tempo, level under the voice, ducking, sound effects and loudness, and writes a mix recipe and a licence-safe music brief. Output: a JSON array conforming to the video_re_analyst_answer contract. Says 'not determinable' rather than guessing. Captures technique and structure only; never stores or reuses the source's footage, frames, music, voice or script text.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "research",
+    "measure",
+    "review"
+  ],
+  "effects": {
+    "filesystem": "read",
+    "network": "none",
+    "executes": "shell",
+    "secrets": [],
+    "side_effects": [
+      "runs ffmpeg/ffprobe to extract frames, crops and spectrograms into a scratch directory it deletes afterwards"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "opencode",
+    "baltor-harness"
+  ],
+  "entry": "agent.md",
+  "tags": [
+    "video",
+    "reverse-engineering",
+    "video-re",
+    "swarm",
+    "analyst",
+    "subagent",
+    "music-sfx-mix"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "video_re_questions_music_sfx_mix"
+    },
+    {
+      "identity": "video_re_evidence_bundle"
+    },
+    {
+      "identity": "video_re_analyst_answer"
+    },
+    {
+      "identity": "video_re_evidence"
+    },
+    {
+      "identity": "ffmpeg",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_re_swarm.py",
+    "data": "generators/data/video_re_swarm",
+    "parameters": {
+      "lens": "music_sfx_mix",
+      "questions": 30
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

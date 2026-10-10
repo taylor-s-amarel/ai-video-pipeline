@@ -1,0 +1,68 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "video_re_questions_pacing_cut_rhythm",
+  "title": "Video RE question bank: Pacing and cut rhythm",
+  "kind": "rules",
+  "subkind": "review-lens",
+  "version": "1.0.0",
+  "summary": "35 answerable questions for reverse-engineering a video's pacing and cut rhythm, each with evidence to cite, the format-IR pointer it fills and a challenge prompt.",
+  "description": "Measures shot lengths, cut rate, acceleration, holds and how cuts line up with speech and music, then states them as pacing rules. Every question says why it matters, how to answer it from evidence.json or targeted ffmpeg extracts, the evidence required, the JSON pointer it fills in the Video format IR, the answer type and how a sceptic would test the answer. Captures technique and structure only; never stores or reuses the source's footage, frames, music, voice or script text.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "research",
+    "measure",
+    "review"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "RULES.md",
+  "tags": [
+    "video",
+    "reverse-engineering",
+    "video-re",
+    "swarm",
+    "question-bank",
+    "pacing-cut-rhythm"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "video_re_format_ir"
+    },
+    {
+      "identity": "video_re_analyst_answer"
+    },
+    {
+      "identity": "video_re_evidence"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_re_swarm.py",
+    "data": "generators/data/video_re_swarm",
+    "parameters": {
+      "lens": "pacing_cut_rhythm",
+      "questions": 35
+    }
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Generator checks ids, fields, answer types, enum choices, IR pointers against the format IR schema, evidence field names, recipe codes and near-duplicate questions."
+  }
+}

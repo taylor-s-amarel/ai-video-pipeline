@@ -1,0 +1,5 @@
+{
+  "elements": [ { "bbox": [108, 1310, 864, 220], "radius_px": -3, "corners": { "tl": 36.0 }, "fit_rmse_px": 0.6, "shape": "squircle", "source": "static-mask" } ],
+  "method": "static-mask",
+  "frames_analysed": 60
+}

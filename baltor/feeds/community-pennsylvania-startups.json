@@ -1,0 +1,463 @@
+{
+  "spec": "baltor.feed-collection/v1",
+  "id": "community-pennsylvania-startups",
+  "title": "Pennsylvania and startup communities and programmes",
+  "description": "Pennsylvania communities and programmes relevant to the Ben Franklin Big Idea Contest and a PA showcase, plus founder communities. Most PA programme pages have no confirmed feed; they are listed as pages to check.",
+  "updated": "2026-10-10",
+  "tags": [
+    "community-sources",
+    "pennsylvania",
+    "startups",
+    "big-idea-contest"
+  ],
+  "items": [
+    {
+      "id": "r-pennsylvania",
+      "title": "r/Pennsylvania",
+      "url": "https://www.reddit.com/r/Pennsylvania/.rss",
+      "summary": "Statewide news and discussion for Pennsylvania.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "pennsylvania",
+        "startups"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile (synced June-July 2026) in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-pittsburgh",
+      "title": "r/pittsburgh",
+      "url": "https://www.reddit.com/r/pittsburgh/.rss",
+      "summary": "Pittsburgh news, events and recommendations.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "pennsylvania",
+        "startups"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-philadelphia",
+      "title": "r/philadelphia",
+      "url": "https://www.reddit.com/r/philadelphia/.rss",
+      "summary": "Philadelphia news and discussion.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "pennsylvania",
+        "startups"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-philly",
+      "title": "r/philly",
+      "url": "https://www.reddit.com/r/philly/.rss",
+      "summary": "Philadelphia community (separate from r/philadelphia).",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "pennsylvania",
+        "startups"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-harrisburg",
+      "title": "r/Harrisburg",
+      "url": "https://www.reddit.com/r/Harrisburg/.rss",
+      "summary": "Harrisburg area; weekly Monday thread for events and recommendations.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "pennsylvania",
+        "startups"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile and recent posts on a Reddit mirror in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-scranton",
+      "title": "r/Scranton",
+      "url": "https://www.reddit.com/r/Scranton/.rss",
+      "summary": "Scranton area community.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "pennsylvania",
+        "startups"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile page in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-pennstateuniversity",
+      "title": "r/PennStateUniversity",
+      "url": "https://www.reddit.com/r/PennStateUniversity/.rss",
+      "summary": "Penn State student and alumni community (began as r/PSU).",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "pennsylvania",
+        "startups"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: Daily Collegian article and GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-startups",
+      "title": "r/startups",
+      "url": "https://www.reddit.com/r/startups/.rss",
+      "summary": "Startup founders' questions and lessons.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "pennsylvania",
+        "startups"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch 'startup founders' category in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-entrepreneur",
+      "title": "r/Entrepreneur",
+      "url": "https://www.reddit.com/r/Entrepreneur/.rss",
+      "summary": "Very large entrepreneurship community.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "pennsylvania",
+        "startups"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-smallbusiness",
+      "title": "r/smallbusiness",
+      "url": "https://www.reddit.com/r/smallbusiness/.rss",
+      "summary": "Small business owners' operations questions; good for PA small-business use cases.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "pennsylvania",
+        "startups"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch founders ranking in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-sideproject",
+      "title": "r/SideProject",
+      "url": "https://www.reddit.com/r/SideProject/.rss",
+      "summary": "Side projects and launches.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "pennsylvania",
+        "startups"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Mostly launches and self-promotion.",
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-saas",
+      "title": "r/SaaS",
+      "url": "https://www.reddit.com/r/SaaS/.rss",
+      "summary": "SaaS founders: pricing, growth and churn.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "pennsylvania",
+        "startups"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-indiehackers",
+      "title": "r/indiehackers",
+      "url": "https://www.reddit.com/r/indiehackers/.rss",
+      "summary": "Bootstrapped founders sharing revenue and lessons.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "pennsylvania",
+        "startups"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch founders ranking in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-buildinpublic",
+      "title": "r/buildinpublic",
+      "url": "https://www.reddit.com/r/buildinpublic/.rss",
+      "summary": "Founders building in public.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "pennsylvania",
+        "startups"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile page in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Mostly self-promotion.",
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "ben-franklin-big-idea-2026",
+      "title": "Ben Franklin TP of Central and Northern PA: $50,000 Big Idea Contest call",
+      "url": "https://cnp.benfranklin.org/if-big-ideas-grow-in-wild-places-you-could-win-up-to-50000/",
+      "kind": "guidance",
+      "summary": "2026 call for the Big Idea Contest: entrepreneurs and early-stage companies in the 32-county footprint apply by Friday 16 October 2026; links to the eligible-county list.",
+      "verification": "search-result",
+      "licence": "Publisher terms",
+      "notes": "Announcement returned in search results. The rules page named in this project's context (benfranklin.psu.edu/bf/BigIdea/Select/syllabus?sessionname=2026+32-County) was not re-checked today.",
+      "cautions": [
+        "An earlier cycle's rules (Penn State article) capped sales revenue at $500,000 and excluded prior Ben Franklin funding or contest wins; confirm the 2026 thresholds on the official page before applying."
+      ],
+      "tags": [
+        "pennsylvania",
+        "contest",
+        "deadline"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "psu-news-big-idea",
+      "title": "Penn State News: win $50,000 in the Ben Franklin Big Idea Contest",
+      "url": "https://www.psu.edu/news/impact/story/win-50000-ben-franklin-big-idea-contest",
+      "kind": "article",
+      "summary": "Penn State coverage of an earlier Big Idea cycle, with eligibility rules at that time.",
+      "verification": "search-result",
+      "licence": "Publisher terms",
+      "notes": "Earlier-cycle article (deadline then was in August); use for background only.",
+      "tags": [
+        "pennsylvania",
+        "contest"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "cpbj-big-idea-finalists",
+      "title": "Central Penn Business Journal: 11 finalists compete in Big Idea business contest",
+      "url": "https://www.cpbj.com/11-finalists-compete-in-big-idea-business-contest",
+      "kind": "article",
+      "summary": "Past-cycle finalist coverage; shows the kinds of ventures that reached the finale.",
+      "verification": "search-result",
+      "licence": "Publisher terms (may be paywalled)",
+      "tags": [
+        "pennsylvania",
+        "contest"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "invent-penn-state-newsletter",
+      "title": "Invent Penn State: entrepreneurship newsletter",
+      "url": "https://invent.psu.edu/newsletter-sign-up/",
+      "kind": "service",
+      "summary": "Monthly e-letter with Penn State startup news and pitch-competition results; Invent Penn State runs LaunchBox sites across the state.",
+      "verification": "search-result",
+      "licence": "Publisher terms",
+      "notes": "Sign-up page confirmed in search results; no feed URL confirmed (LaunchBox sites mirror Penn State news at /rss_news/ pages).",
+      "tags": [
+        "pennsylvania",
+        "startups",
+        "penn-state"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "technically-pittsburgh-newsletter",
+      "title": "Technical.ly Pittsburgh newsletter",
+      "url": "https://technical.ly/newsletters/pittsburgh/",
+      "kind": "service",
+      "summary": "Weekly Pittsburgh tech and startup newsletter (Thursdays); Technical.ly also covers Philadelphia.",
+      "verification": "search-result",
+      "licence": "Publisher terms",
+      "notes": "No current RSS URL confirmed; the newsletter is the documented route.",
+      "tags": [
+        "pennsylvania",
+        "pittsburgh",
+        "tech-news"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "dced-small-business-week",
+      "title": "PA DCED: Pennsylvania Small Business Week posts",
+      "url": "https://dced.pa.gov/tag/pennsylvania-small-business-week/",
+      "kind": "guidance",
+      "summary": "Pennsylvania Department of Community and Economic Development posts tagged Small Business Week (including the May 2026 proclamation); a starting point for state programmes.",
+      "verification": "search-result",
+      "licence": "Pennsylvania government website terms",
+      "notes": "No DCED press-release feed was confirmed.",
+      "tags": [
+        "pennsylvania",
+        "government",
+        "small-business"
+      ],
+      "verified_on": "2026-10-10"
+    }
+  ]
+}

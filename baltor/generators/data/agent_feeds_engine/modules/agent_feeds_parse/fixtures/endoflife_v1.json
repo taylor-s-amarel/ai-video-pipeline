@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.2.0",
+  "generated_at": "2026-10-10T00:00:00+00:00",
+  "result": {
+    "name": "examplelang", "label": "ExampleLang", "aliases": [], "category": "lang", "tags": ["lang"], "identifiers": [], "labels": {}, "links": {},
+    "releases": [
+      {"name": "3.14", "codename": null, "label": "3.14", "releaseDate": "2025-10-07", "isLts": false, "ltsFrom": null, "isEol": false, "eolFrom": "2030-10-31", "isMaintained": true, "latest": {"name": "3.14.3", "date": "2026-10-01", "link": "https://example.org/downloads/release/3.14.3/"}},
+      {"name": "3.10", "codename": null, "label": "3.10", "releaseDate": "2021-10-04", "isLts": false, "ltsFrom": null, "isEol": false, "eolFrom": "2026-10-31", "isMaintained": true, "latest": {"name": "3.10.19", "date": "2026-06-03", "link": "https://example.org/downloads/release/3.10.19/"}},
+      {"name": "3.9", "codename": null, "label": "3.9", "releaseDate": "2020-10-05", "isLts": false, "ltsFrom": null, "isEol": true, "eolFrom": "2025-10-31", "isMaintained": false, "latest": {"name": "3.9.25", "date": "2025-10-31", "link": "https://example.org/downloads/release/3.9.25/"}}
+    ]
+  }
+}

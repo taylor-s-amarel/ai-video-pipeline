@@ -1,0 +1,657 @@
+{
+  "spec": "baltor.feed-collection/v1",
+  "id": "community-releases-game-3d-2d",
+  "title": "Release feeds: Godot, Blender, 3D assets, 2D and animation tools",
+  "description": "Official GitHub release, tag and commit Atom feeds for Godot and popular Godot add-ons, Blender and asset-pipeline tools, 2D/pixel/animation editors and physics engines. Each feed was fetched on 2026-10-10.",
+  "updated": "2026-10-10",
+  "tags": [
+    "community-sources",
+    "godot",
+    "blender",
+    "3d",
+    "2d",
+    "animation"
+  ],
+  "items": [
+    {
+      "id": "gh-godotengine-godot",
+      "title": "Godot Engine releases",
+      "url": "https://github.com/godotengine/godot/releases.atom",
+      "summary": "Stable and maintenance releases of Godot (3.x and 4.x branches share the feed).",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "godot",
+        "engine"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: 3.6.3-stable and 4.7.2-stable at the top on 2026-10-10.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/godotengine/godot/HEAD/LICENSE.txt"
+    },
+    {
+      "id": "gh-godotengine-godot-website",
+      "title": "Godot website commits",
+      "url": "https://github.com/godotengine/godot-website/commits/master.atom",
+      "summary": "Commit feed of the godotengine.org website source; dev snapshots and blog posts appear here before or as they publish.",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "godot",
+        "blog"
+      ],
+      "notes": "Atom commit feed fetched 2026-10-10; newest entry: '4.8-dev7: Add missing controls metadata' on 2026-09-29.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/godotengine/godot-website/HEAD/LICENSE.txt"
+    },
+    {
+      "id": "gh-godotengine-godot-demo-projects",
+      "title": "Godot demo projects commits",
+      "url": "https://github.com/godotengine/godot-demo-projects/commits/master.atom",
+      "summary": "Commit feed for the official Godot demo projects; useful reference implementations for kits.",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "godot",
+        "demos"
+      ],
+      "notes": "Atom commit feed fetched 2026-10-10; newest entry: 3D Platformer ReflectionProbe fix on 2026-10-08.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/godotengine/godot-demo-projects/HEAD/LICENSE.md"
+    },
+    {
+      "id": "gh-ramokz-phantom-camera",
+      "title": "Phantom Camera releases",
+      "url": "https://github.com/ramokz/phantom-camera/releases.atom",
+      "summary": "Release notes for the Phantom Camera add-on (Cinemachine-style cameras for Godot).",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "godot",
+        "addon",
+        "camera"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v0.11.0.3 on 2026-07-19.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/ramokz/phantom-camera/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-dialogic-godot-dialogic",
+      "title": "Dialogic releases",
+      "url": "https://github.com/dialogic-godot/dialogic/releases.atom",
+      "summary": "Release notes for Dialogic, a dialogue and visual-novel system for Godot.",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "godot",
+        "addon",
+        "dialogue"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: Dialogic 2.0 Alpha 20 on 2026-07-21.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/dialogic-godot/dialogic/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-nathanhoad-godot-dialogue-manager",
+      "title": "Dialogue Manager releases",
+      "url": "https://github.com/nathanhoad/godot_dialogue_manager/releases.atom",
+      "summary": "Release notes for Nathan Hoad's Dialogue Manager for Godot.",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "godot",
+        "addon",
+        "dialogue"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v4.1.0 for Godot 4.7 on 2026-09-04.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/nathanhoad/godot_dialogue_manager/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-bitbrain-beehave",
+      "title": "Beehave releases",
+      "url": "https://github.com/bitbrain/beehave/releases.atom",
+      "summary": "Release notes for Beehave behaviour trees for Godot.",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "godot",
+        "addon",
+        "ai"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v2.9.3 on 2026-08-18.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/bitbrain/beehave/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-zylann-godot-voxel",
+      "title": "Godot Voxel releases",
+      "url": "https://github.com/Zylann/godot_voxel/releases.atom",
+      "summary": "Release notes for Zylann's voxel module (custom engine builds plus Voxel Tools).",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "godot",
+        "voxel"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: Godot 4.7.2 custom build + Voxel Tools 1.7 on 2026-08-20.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/Zylann/godot_voxel/HEAD/LICENSE.md"
+    },
+    {
+      "id": "gh-maaack-godot-game-template",
+      "title": "Godot Game Template releases",
+      "url": "https://github.com/Maaack/Godot-Game-Template/releases.atom",
+      "summary": "Release notes for a widely used Godot starter template (menus, options, scene loading).",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "godot",
+        "template"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v1.7.0-plugin on 2026-09-09.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/Maaack/Godot-Game-Template/HEAD/LICENSE.txt"
+    },
+    {
+      "id": "gh-coding-solo-godot-mcp",
+      "title": "Godot MCP server commits",
+      "url": "https://github.com/Coding-Solo/godot-mcp/commits/main.atom",
+      "summary": "Commit feed for a community MCP server that lets agents run and inspect Godot projects (the repository publishes no releases).",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "godot",
+        "mcp"
+      ],
+      "notes": "Atom commit feed fetched 2026-10-10; newest entry: merge of PR #99 'fix/rce-arbitrary-script-inst...' on 2026-04-16.",
+      "cautions": [
+        "The latest commit merged a remote-code-execution fix; pin a reviewed commit and run it only against trusted projects.",
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/Coding-Solo/godot-mcp/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-blender-blender",
+      "title": "Blender tags (GitHub mirror)",
+      "url": "https://github.com/blender/blender/tags.atom",
+      "summary": "Tag feed of the read-only Blender mirror on GitHub; each release version appears as a tag.",
+      "kind": "repository",
+      "licence": "GPL-3.0-or-later",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "godot",
+        "blender"
+      ],
+      "notes": "Atom tags feed fetched 2026-10-10; newest entry: v5.2.2 on 2026-09-14. Development happens on projects.blender.org; the GitHub repository is a mirror.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/blender/blender/HEAD/COPYING"
+    },
+    {
+      "id": "gh-ahujasid-blender-mcp",
+      "title": "Blender MCP commits",
+      "url": "https://github.com/ahujasid/blender-mcp/commits/main.atom",
+      "summary": "Commit feed for the community Blender MCP server; the feed title shows the repository now names itself 'mcp-for-blender'.",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "godot",
+        "blender",
+        "mcp"
+      ],
+      "notes": "Atom commit feed fetched 2026-10-10; newest entry: 'fix: resume generations after client timeouts' on 2026-10-06.",
+      "cautions": [
+        "Lets an agent execute Python inside Blender; review before enabling.",
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/ahujasid/blender-mcp/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-blenderkit-blenderkit",
+      "title": "BlenderKit add-on releases",
+      "url": "https://github.com/BlenderKit/blenderkit/releases.atom",
+      "summary": "Release notes for the BlenderKit asset add-on.",
+      "kind": "repository",
+      "licence": "GPL-2.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "godot",
+        "blender",
+        "assets"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: Blendkit v3.21.4 alpha on 2026-10-07.",
+      "cautions": [
+        "The add-on is GPL; assets downloaded through it carry their own licences (check each asset).",
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/BlenderKit/blenderkit/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-khronosgroup-gltf-blender-io",
+      "title": "glTF Blender I/O releases",
+      "url": "https://github.com/KhronosGroup/glTF-Blender-IO/releases.atom",
+      "summary": "Release notes for the Khronos glTF importer/exporter for Blender.",
+      "kind": "repository",
+      "licence": "Apache-2.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "godot",
+        "blender",
+        "gltf"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v4.2.3 on 2024-11-14. Release cadence slowed; check Blender's own release notes for bundled exporter changes.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Blender-IO/HEAD/LICENSE.txt"
+    },
+    {
+      "id": "gh-khronosgroup-gltf-sample-assets",
+      "title": "glTF Sample Assets commits",
+      "url": "https://github.com/KhronosGroup/glTF-Sample-Assets/commits/main.atom",
+      "summary": "Commit feed for Khronos's glTF sample models used to test asset pipelines.",
+      "kind": "repository",
+      "licence": "Per-asset (no top-level LICENSE file found)",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "godot",
+        "gltf",
+        "test-assets"
+      ],
+      "notes": "Atom commit feed fetched 2026-10-10; newest entry: merge of PR #296 on 2026-10-02.",
+      "cautions": [
+        "Each sample model has its own licence and credit; read the model's metadata before use.",
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ]
+    },
+    {
+      "id": "gh-assimp-assimp",
+      "title": "Assimp releases",
+      "url": "https://github.com/assimp/assimp/releases.atom",
+      "summary": "Release notes for the Open Asset Import Library (3D format conversion).",
+      "kind": "repository",
+      "licence": "BSD-3-Clause",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "godot",
+        "3d",
+        "formats"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: 6.0.5 bugfix release on 2026-04-30.",
+      "cautions": [
+        "Very large feed (about 2.2 MB).",
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/assimp/assimp/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-cnr-isti-vclab-meshlab",
+      "title": "MeshLab releases",
+      "url": "https://github.com/cnr-isti-vclab/meshlab/releases.atom",
+      "summary": "Release notes for MeshLab mesh processing.",
+      "kind": "repository",
+      "licence": "GPL-3.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "godot",
+        "3d",
+        "mesh"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: MeshLab-2025.07 on 2025-09-26.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/cnr-isti-vclab/meshlab/HEAD/LICENSE.txt"
+    },
+    {
+      "id": "gh-mrdoob-three-js",
+      "title": "three.js releases",
+      "url": "https://github.com/mrdoob/three.js/releases.atom",
+      "summary": "Monthly-ish releases of three.js (r-numbered).",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "godot",
+        "3d",
+        "web"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: r186 on 2026-09-24.",
+      "cautions": [
+        "Very large feed (about 1.8 MB).",
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/mrdoob/three.js/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-jannisx11-blockbench",
+      "title": "Blockbench releases",
+      "url": "https://github.com/JannisX11/blockbench/releases.atom",
+      "summary": "Release notes for Blockbench low-poly modelling and animation.",
+      "kind": "repository",
+      "licence": "No top-level LICENSE file found at HEAD",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "godot",
+        "3d",
+        "low-poly"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: 5.2.2 'Screen-Space Update' patch 2 on 2026-10-08.",
+      "cautions": [
+        "Licence file not found at the default branch root; check the repository before redistribution.",
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ]
+    },
+    {
+      "id": "gh-orama-interactive-pixelorama",
+      "title": "Pixelorama releases",
+      "url": "https://github.com/Orama-Interactive/Pixelorama/releases.atom",
+      "summary": "Release notes for Pixelorama, an open pixel-art editor built with Godot.",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "godot",
+        "2d",
+        "pixel-art"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v1.2.3 on 2026-09-15.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/Orama-Interactive/Pixelorama/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-libresprite-libresprite",
+      "title": "LibreSprite releases",
+      "url": "https://github.com/LibreSprite/LibreSprite/releases.atom",
+      "summary": "Release notes for LibreSprite sprite editor.",
+      "kind": "repository",
+      "licence": "GPL-2.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "godot",
+        "2d",
+        "pixel-art"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v1.3 on 2026-10-02.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/LibreSprite/LibreSprite/HEAD/LICENSE.txt"
+    },
+    {
+      "id": "gh-kde-krita",
+      "title": "Krita tags (GitHub mirror)",
+      "url": "https://github.com/KDE/krita/tags.atom",
+      "summary": "Tag feed of the Krita mirror; versions appear as tags.",
+      "kind": "repository",
+      "licence": "GPL-3.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "godot",
+        "2d",
+        "painting",
+        "animation"
+      ],
+      "notes": "Atom tags feed fetched 2026-10-10; newest entry: v6.0.4.1 on 2026-10-01. Development happens on KDE's GitLab; this is a mirror.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/KDE/krita/HEAD/COPYING"
+    },
+    {
+      "id": "gh-opentoonz-opentoonz",
+      "title": "OpenToonz releases",
+      "url": "https://github.com/opentoonz/opentoonz/releases.atom",
+      "summary": "OpenToonz 2D animation releases, including nightly builds.",
+      "kind": "repository",
+      "licence": "BSD-3-Clause (third-party parts under their own licences)",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "godot",
+        "2d",
+        "animation"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: nightly build 2026-10-10.",
+      "cautions": [
+        "Nightly builds dominate; filter 'nightly'.",
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/opentoonz/opentoonz/HEAD/LICENSE.txt"
+    },
+    {
+      "id": "gh-friction2d-friction",
+      "title": "Friction releases",
+      "url": "https://github.com/friction2d/friction/releases.atom",
+      "summary": "Release notes for Friction, an open motion-graphics editor.",
+      "kind": "repository",
+      "licence": "GPL-3.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "godot",
+        "motion-graphics"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: Friction 1.0.0-rc.3 on 2025-12-31.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/friction2d/friction/HEAD/LICENSE.md"
+    },
+    {
+      "id": "gh-pencil2d-pencil",
+      "title": "Pencil2D releases",
+      "url": "https://github.com/pencil2d/pencil/releases.atom",
+      "summary": "Release notes for Pencil2D hand-drawn animation.",
+      "kind": "repository",
+      "licence": "No top-level LICENSE file found at HEAD",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "godot",
+        "2d",
+        "animation"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v0.7.2 on 2026-04-15.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ]
+    },
+    {
+      "id": "gh-danielswolf-rhubarb-lip-sync",
+      "title": "Rhubarb Lip Sync releases",
+      "url": "https://github.com/DanielSWolf/rhubarb-lip-sync/releases.atom",
+      "summary": "Release notes for Rhubarb Lip Sync (mouth shapes from audio).",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "godot",
+        "animation",
+        "lip-sync"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: 'modules' on 2026-06-16.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/DanielSWolf/rhubarb-lip-sync/HEAD/LICENSE.md"
+    },
+    {
+      "id": "gh-viblo-pymunk",
+      "title": "Pymunk releases",
+      "url": "https://github.com/viblo/pymunk/releases.atom",
+      "summary": "Release notes for Pymunk 2D physics for Python.",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "godot",
+        "physics"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: 7.3.0 on 2026-06-17.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/viblo/pymunk/HEAD/LICENSE.txt"
+    },
+    {
+      "id": "gh-dimforge-rapier",
+      "title": "Rapier releases",
+      "url": "https://github.com/dimforge/rapier/releases.atom",
+      "summary": "Release notes for the Rapier 2D/3D physics engine.",
+      "kind": "repository",
+      "licence": "Apache-2.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "godot",
+        "physics"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v0.36.1 on 2026-10-06.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/dimforge/rapier/HEAD/LICENSE"
+    }
+  ]
+}

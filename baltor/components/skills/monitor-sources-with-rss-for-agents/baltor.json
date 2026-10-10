@@ -1,0 +1,93 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "monitor_sources_with_rss_for_agents",
+  "title": "Monitor sources with RSS for agents",
+  "kind": "skill",
+  "subkind": "workflow",
+  "version": "1.0.0",
+  "summary": "Poll community and expert feeds politely, dedupe and filter by date, then write a digest in which every line cites its source; covers rate limits, Reddit/API terms and untrusted content.",
+  "description": "The how-to for watching sources: resolve a watchlist against the community-* feed collections, poll with conditional requests and per-host spacing, normalise RSS/Atom/JSON Feed, rank, and summarise with citations. Ships platform URL patterns and cautions checked on 2026-10-10 and a table of the collections.",
+  "domain": "source-monitoring",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "research",
+    "learn",
+    "operate"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "declared",
+    "executes": "python",
+    "secrets": [],
+    "hosts": [
+      "*"
+    ],
+    "side_effects": [
+      "polls the feed URLs named in the watchlist (Reddit, GitHub, arXiv, YouTube, forums, blogs)",
+      "writes .feed-cache.json and digests/"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "rss",
+    "atom",
+    "feeds",
+    "monitoring",
+    "digest",
+    "citations",
+    "reddit",
+    "github-releases"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "rss_atom_jsonfeed_reader"
+    },
+    {
+      "identity": "feed_url_patterns"
+    },
+    {
+      "identity": "source_digest_builder"
+    },
+    {
+      "identity": "feed_collection_opml"
+    },
+    {
+      "identity": "page_change_watcher"
+    },
+    {
+      "identity": "source_watchlist"
+    },
+    {
+      "identity": "normalized_feed_item"
+    },
+    {
+      "identity": "source_digest_report"
+    },
+    {
+      "identity": "source_monitoring_etiquette"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/community_sources.py",
+    "data": "generators/data/community_sources"
+  },
+  "examples": [
+    "Give me this week's digest of Claude Code, Codex and MCP changes",
+    "Watch Godot and Blender releases and tell me what broke"
+  ],
+  "review": {
+    "status": "unreviewed"
+  }
+}

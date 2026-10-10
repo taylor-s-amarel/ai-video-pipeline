@@ -1,0 +1,37 @@
+{
+  "guide": {
+    "file": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "sha256": "d5e454b50f6abccd69c44237038e00e78dd337491f8325447a2bc9d13d15ace9",
+    "bytes": 932421,
+    "lines": 8300
+  },
+  "section": "Appendix E / D003 foreground background separation",
+  "heading_line": 6234,
+  "question_lines": [
+    6236,
+    6298
+  ],
+  "anchor": "d003-foreground-background-separation",
+  "library_records": [
+    {
+      "artifact": "Adversarial Video Review Bank",
+      "library_identity": "libfile_40e3c6edac1c8191b3fe1ffed949ef9b",
+      "version": 0,
+      "bytes": 980912,
+      "sha256": "26efac36207d7969c53cf0fba2aca574b94ec368f273c93f40fcb65eb3548051",
+      "guide_line": 8276,
+      "guide_section": "Appendix G Source inventory and refresh conditions"
+    },
+    {
+      "artifact": "Adversarial Video Review Complete Bundle",
+      "library_identity": "libfile_ed6fddde16b4819186f88c9bf83bd532",
+      "version": 0,
+      "bytes": 3575144,
+      "sha256": "4eee2da7df526737cc3e24916cfd53bf0032da0b8e64f0775cc1808e4af2e597",
+      "guide_line": 8278,
+      "guide_section": "Appendix G Source inventory and refresh conditions"
+    }
+  ],
+  "library_note": "Library identities are retrieval references, not public sharing links (Appendix G).",
+  "extracted": "2026-10-10"
+}

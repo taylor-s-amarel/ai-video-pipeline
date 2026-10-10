@@ -17,13 +17,12 @@
   challenge: "Reject any answer that asserts infringement; it may only flag cues for a human."
 
 - id: rights_originality_boundary-003
-  question: "What is the music's reuse status for this pipeline?"
-  choices: [never-reuse-source-music]
+  question: "What must the music slot require in any variant (new original or licensed music, licence field, attribution when the licence needs it, never the source track)?"
   why: "Locks the music slot to new licensed or original music regardless of the source."
-  how: "Always 'never-reuse-source-music'; add in the note whether the music shows lyrics or other cues of a commercial track (see music_sfx_mix-030), without naming it."
+  how: "Write {source_music_reusable: false, licence_required: true, attribution_when_cc_by: true, cues: [...]} where cues lists observations from music_sfx_mix-030 (lyrics, production cues) without naming any track."
   evidence: ["music lens answers"]
-  ir_path: "/audio/music/licence_status"
-  type: enum
+  ir_path: "/audio/music/slot_requirements"
+  type: object
   challenge: "Any suggestion to reuse, sample or remix the source music is rejected."
 
 - id: rights_originality_boundary-004
@@ -148,7 +147,7 @@
   why: "Self-check that the IR stays free of source script text."
   how: "Scan all answer values and notes for quoted strings; count words; report offending answer ids."
   evidence: ["all answers"]
-  ir_path: "/source/rights_note"
+  ir_path: "/open_questions/-"
   type: list
   challenge: "Run the scan again on the merged IR; any hit blocks the lift."
 
@@ -157,7 +156,7 @@
   why: "Ensures keyframes stay analysis-only."
   how: "Scan for file paths or URLs pointing at extracted frames or source media in parameter defaults and source_slot fields."
   evidence: ["all answers"]
-  ir_path: "/source/rights_note"
+  ir_path: "/open_questions/-"
   type: list
   challenge: "Any hit blocks the lift until replaced with an empty asset slot."
 

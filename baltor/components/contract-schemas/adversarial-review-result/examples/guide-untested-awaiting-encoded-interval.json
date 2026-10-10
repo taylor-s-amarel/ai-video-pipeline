@@ -1,0 +1,20 @@
+{
+  "question_id": "AVQ-006-002",
+  "target_artifact": "final.mp4",
+  "target_sha256": "COMPUTED_FINAL_HASH",
+  "status": "untested",
+  "finding_type": "none",
+  "review_mode": "visual",
+  "scope": {
+    "start_frame": null,
+    "end_frame": null,
+    "coverage": "not_observed"
+  },
+  "evidence": [],
+  "rationale": "Awaiting matching encoded interval",
+  "required_recheck_after": [
+    "rig_change",
+    "prop_attachment_change",
+    "camera_change"
+  ]
+}

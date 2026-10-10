@@ -1,0 +1,51 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "amplitude_lip_sync",
+  "title": "Amplitude-driven lip sync",
+  "kind": "code-module",
+  "subkind": "character-rig",
+  "version": "1.0.0",
+  "summary": "Per-frame mouth openness from narration loudness (gated, normalised, attack/release smoothed) quantised to Rhubarb-style mouth letters with a minimum hold.",
+  "domain": "audio",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "amplitude_lip_sync.py",
+  "tags": [
+    "audio",
+    "lip-sync",
+    "animation",
+    "character",
+    "narration",
+    "numpy"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

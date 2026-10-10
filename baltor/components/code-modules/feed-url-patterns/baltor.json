@@ -1,0 +1,51 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "feed_url_patterns",
+  "title": "Feed URL patterns for common platforms",
+  "kind": "code-module",
+  "subkind": "api-client",
+  "version": "1.0.0",
+  "summary": "Builds and validates feed URLs for Reddit, GitHub releases/tags/commits, YouTube channels, arXiv, Discourse, Mastodon, Bluesky, hnrss, Substack, itch.io and Wikipedia, and identifies a URL's platform.",
+  "description": "Standard library only, no network. Builders reject malformed input (bad subreddit names, @handles instead of YouTube channel ids, path tricks in branch names) so an agent cannot silently produce a guessed URL. Patterns checked 2026-10-10. 18 tests.",
+  "domain": "source-monitoring",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "research",
+    "build"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "feed_url_patterns.py",
+  "tags": [
+    "rss",
+    "url",
+    "reddit",
+    "github",
+    "youtube",
+    "arxiv",
+    "python"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/community_sources.py",
+    "data": "generators/data/community_sources"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

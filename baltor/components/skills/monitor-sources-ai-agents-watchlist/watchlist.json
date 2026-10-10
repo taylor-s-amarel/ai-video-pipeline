@@ -1,0 +1,187 @@
+{
+  "id": "ai-agents-weekly",
+  "title": "AI coding agents and MCP: weekly",
+  "cadence": "weekly",
+  "window": "7d",
+  "sources": [
+    {
+      "collection": "community-releases-agents-ai",
+      "weight": 2.0
+    },
+    {
+      "collection": "community-ai-oss-voices",
+      "weight": 1.5
+    },
+    {
+      "collection": "community-reddit-ai-agents",
+      "weight": 1.0
+    },
+    {
+      "collection": "community-aggregators-forums",
+      "item_ids": [
+        "arxiv-cs-se",
+        "arxiv-cs-ma",
+        "hacker-news-front-page",
+        "hnrss-show"
+      ],
+      "weight": 1.0
+    },
+    {
+      "collection": "community-creator-marketing-security-voices",
+      "item_ids": [
+        "schneier"
+      ],
+      "weight": 0.5
+    }
+  ],
+  "keywords": [
+    {
+      "term": "claude code",
+      "weight": 3
+    },
+    {
+      "term": "codex",
+      "weight": 2.5
+    },
+    {
+      "term": "opencode",
+      "weight": 2.5
+    },
+    {
+      "term": "gemini cli",
+      "weight": 2
+    },
+    {
+      "term": "mcp",
+      "weight": 2
+    },
+    {
+      "term": "model context protocol",
+      "weight": 2
+    },
+    {
+      "term": "agent skills",
+      "weight": 2
+    },
+    {
+      "term": "skills",
+      "weight": 1
+    },
+    {
+      "term": "subagent",
+      "weight": 1.5
+    },
+    {
+      "term": "hooks",
+      "weight": 1.5
+    },
+    {
+      "term": "agents.md",
+      "weight": 2
+    },
+    {
+      "term": "claude.md",
+      "weight": 2
+    },
+    {
+      "term": "plugin",
+      "weight": 1
+    },
+    {
+      "term": "prompt injection",
+      "weight": 2.5
+    },
+    {
+      "term": "context engineering",
+      "weight": 1.5
+    },
+    {
+      "term": "evals",
+      "weight": 1
+    },
+    {
+      "term": "coding agent",
+      "weight": 2
+    },
+    {
+      "term": "local model",
+      "weight": 1
+    },
+    {
+      "term": "breaking change",
+      "weight": 2
+    },
+    {
+      "term": "security",
+      "weight": 1.5
+    }
+  ],
+  "exclude_terms": [
+    "giveaway",
+    "promo code",
+    "referral link"
+  ],
+  "groups": [
+    {
+      "title": "Releases and changelogs",
+      "match": {
+        "feed_url_contains": [
+          "github.com",
+          "openai.com/news",
+          "github.blog"
+        ]
+      }
+    },
+    {
+      "title": "Security",
+      "match": {
+        "terms_any": [
+          "prompt injection",
+          "vulnerability",
+          "rce",
+          "exfiltration",
+          "cve"
+        ]
+      }
+    },
+    {
+      "title": "Research",
+      "match": {
+        "feed_url_contains": [
+          "rss.arxiv.org"
+        ]
+      }
+    },
+    {
+      "title": "Community reports",
+      "match": {
+        "feed_url_contains": [
+          "reddit.com",
+          "hnrss.org",
+          "ycombinator.com"
+        ]
+      }
+    }
+  ],
+  "max_items_per_source": 4,
+  "max_items": 40,
+  "recency_half_life_days": 3,
+  "trend_min_sources": 2,
+  "cautions": [
+    "Release feeds for llama.cpp and Gemini CLI publish several builds a day; the per-source cap keeps them from drowning the digest."
+  ],
+  "polite": {
+    "user_agent": "baltor-feed-reader/1.0 (+https://github.com/taylor-s-amarel/ai-video-pipeline)",
+    "min_interval_s": 5,
+    "max_polls_per_day": 24,
+    "respect_retry_after": true,
+    "conditional_get": true,
+    "host_overrides": {
+      "www.reddit.com": 60
+    }
+  },
+  "outputs": {
+    "markdown": "digests/ai-agents-weekly/{date}.md",
+    "json": "digests/ai-agents-weekly/{date}.json"
+  }
+}

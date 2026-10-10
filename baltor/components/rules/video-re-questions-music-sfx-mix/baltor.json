@@ -1,0 +1,68 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "video_re_questions_music_sfx_mix",
+  "title": "Video RE question bank: Music, sound effects and mix",
+  "kind": "rules",
+  "subkind": "review-lens",
+  "version": "1.0.0",
+  "summary": "30 answerable questions for reverse-engineering a video's music, sound effects and mix, each with evidence to cite, the format-IR pointer it fills and a challenge prompt.",
+  "description": "Measures music presence, tempo, level under the voice, ducking, sound effects and loudness, and writes a mix recipe and a licence-safe music brief. Every question says why it matters, how to answer it from evidence.json or targeted ffmpeg extracts, the evidence required, the JSON pointer it fills in the Video format IR, the answer type and how a sceptic would test the answer. Captures technique and structure only; never stores or reuses the source's footage, frames, music, voice or script text.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "research",
+    "measure",
+    "review"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "RULES.md",
+  "tags": [
+    "video",
+    "reverse-engineering",
+    "video-re",
+    "swarm",
+    "question-bank",
+    "music-sfx-mix"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "video_re_format_ir"
+    },
+    {
+      "identity": "video_re_analyst_answer"
+    },
+    {
+      "identity": "video_re_evidence"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_re_swarm.py",
+    "data": "generators/data/video_re_swarm",
+    "parameters": {
+      "lens": "music_sfx_mix",
+      "questions": 30
+    }
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Generator checks ids, fields, answer types, enum choices, IR pointers against the format IR schema, evidence field names, recipe codes and near-duplicate questions."
+  }
+}

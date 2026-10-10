@@ -1,0 +1,221 @@
+{
+  "id": "faceless-creator-weekly",
+  "title": "Faceless creator policy and topics: weekly",
+  "cadence": "weekly",
+  "window": "7d",
+  "sources": [
+    {
+      "collection": "community-creator-marketing-security-voices",
+      "weight": 2.5,
+      "item_ids": [
+        "youtube-monetization-policies",
+        "youtube-altered-synthetic-disclosure",
+        "meta-unoriginal-content",
+        "tubefilter-creator-economy",
+        "publish-press",
+        "creator-science",
+        "colin-samir-new-rules-youtube"
+      ]
+    },
+    {
+      "collection": "community-reddit-video-audio-creators",
+      "weight": 1.0,
+      "item_ids": [
+        "r-newtubers",
+        "r-partneredyoutube",
+        "r-smallyoutubers",
+        "r-youtubers",
+        "r-yt-faceless",
+        "r-facelessvideos",
+        "r-aitubers",
+        "r-tiktok",
+        "r-socialmedia",
+        "r-creators",
+        "r-aivideo"
+      ]
+    },
+    {
+      "collection": "community-topic-mining-feeds",
+      "weight": 1.5,
+      "item_ids": [
+        "google-trends-us",
+        "wikipedia-on-this-day-feed",
+        "smithsonian-smart-news",
+        "sciencedaily-all",
+        "nasa-image-of-the-day"
+      ]
+    },
+    {
+      "collection": "community-reddit-story-topic-mining",
+      "weight": 0.8,
+      "item_ids": [
+        "r-todayilearned",
+        "r-askhistorians",
+        "r-dataisbeautiful",
+        "r-whowouldwin"
+      ]
+    }
+  ],
+  "keywords": [
+    {
+      "term": "inauthentic content",
+      "weight": 3
+    },
+    {
+      "term": "reused content",
+      "weight": 2.5
+    },
+    {
+      "term": "unoriginal",
+      "weight": 2.5
+    },
+    {
+      "term": "monetization",
+      "weight": 2
+    },
+    {
+      "term": "monetisation",
+      "weight": 2
+    },
+    {
+      "term": "demonetized",
+      "weight": 2
+    },
+    {
+      "term": "ypp",
+      "weight": 2
+    },
+    {
+      "term": "ai disclosure",
+      "weight": 2.5
+    },
+    {
+      "term": "altered or synthetic",
+      "weight": 2.5
+    },
+    {
+      "term": "faceless",
+      "weight": 2
+    },
+    {
+      "term": "shorts",
+      "weight": 1.5
+    },
+    {
+      "term": "reels",
+      "weight": 1
+    },
+    {
+      "term": "tiktok",
+      "weight": 1
+    },
+    {
+      "term": "retention",
+      "weight": 1.5
+    },
+    {
+      "term": "thumbnail",
+      "weight": 1
+    },
+    {
+      "term": "hook",
+      "weight": 1
+    },
+    {
+      "term": "rpm",
+      "weight": 1
+    },
+    {
+      "term": "copyright",
+      "weight": 1.5
+    },
+    {
+      "term": "on this day",
+      "weight": 1
+    },
+    {
+      "term": "history",
+      "weight": 0.5
+    },
+    {
+      "term": "science",
+      "weight": 0.5
+    }
+  ],
+  "exclude_terms": [
+    "sub4sub",
+    "giveaway",
+    "make money fast"
+  ],
+  "groups": [
+    {
+      "title": "Platform policy news",
+      "match": {
+        "terms_any": [
+          "inauthentic content",
+          "reused content",
+          "unoriginal",
+          "altered or synthetic",
+          "ai disclosure"
+        ]
+      }
+    },
+    {
+      "title": "Creator economy",
+      "match": {
+        "feed_url_contains": [
+          "tubefilter.com",
+          "thepublishpress.com",
+          "creatorscience.com",
+          "colinandsamir.com"
+        ]
+      }
+    },
+    {
+      "title": "Topic leads",
+      "match": {
+        "feed_url_contains": [
+          "trends.google.com",
+          "wikipedia.org",
+          "smithsonianmag.com",
+          "sciencedaily.com",
+          "nasa.gov",
+          "todayilearned",
+          "askhistorians",
+          "dataisbeautiful",
+          "whowouldwin"
+        ]
+      }
+    },
+    {
+      "title": "Creator communities",
+      "match": {
+        "feed_url_contains": [
+          "reddit.com"
+        ]
+      }
+    }
+  ],
+  "max_items_per_source": 4,
+  "max_items": 40,
+  "recency_half_life_days": 3,
+  "trend_min_sources": 2,
+  "cautions": [
+    "Policy pages are web pages, not feeds: check them daily with page_change_watcher and re-read them after any change.",
+    "Topic leads are leads: script from primary sources, never from a post's text; never narrate Reddit stories without the author's permission."
+  ],
+  "polite": {
+    "user_agent": "baltor-feed-reader/1.0 (+https://github.com/taylor-s-amarel/ai-video-pipeline)",
+    "min_interval_s": 5,
+    "max_polls_per_day": 24,
+    "respect_retry_after": true,
+    "conditional_get": true,
+    "host_overrides": {
+      "www.reddit.com": 60
+    }
+  },
+  "outputs": {
+    "markdown": "digests/faceless-creator-weekly/{date}.md",
+    "json": "digests/faceless-creator-weekly/{date}.json"
+  }
+}

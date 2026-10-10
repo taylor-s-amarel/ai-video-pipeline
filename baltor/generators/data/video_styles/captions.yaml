@@ -28,7 +28,7 @@ outline_bold_center:
   fill_role: text
   stroke: {role: stroke, width_px: 7}
   backing: {type: none}
-  layout: {max_width_fraction: 0.86, max_lines: 2, max_words: 4, align: center}
+  layout: {center_y_fraction: 0.62, max_width_fraction: 0.86, max_lines: 2, max_words: 4, align: center}
   emphasis: {mode: color, color_role: keyword, scale_peak: 1.0, duration_ms: 0, easing: linear}
   timing: {sync_tolerance_ms: 120, min_on_screen_ms: 500, max_on_screen_ms: 2000}
   animation_in: text_anim_springy_pop_overshoot
@@ -223,7 +223,7 @@ word_by_word_pop:
   fill_role: text
   stroke: {role: stroke, width_px: 10}
   backing: {type: none}
-  layout: {max_width_fraction: 0.86, max_lines: 1, max_words: 1, align: center}
+  layout: {center_y_fraction: 0.55, max_width_fraction: 0.86, max_lines: 1, max_words: 1, align: center}
   emphasis: {mode: color, color_role: keyword, scale_peak: 1.0, duration_ms: 0, easing: linear}
   timing: {sync_tolerance_ms: 80, min_on_screen_ms: 180, max_on_screen_ms: 900}
   animation_in: text_anim_springy_pop_overshoot

@@ -1,0 +1,768 @@
+[
+  {
+    "id": "AVQ-021-001",
+    "domain_id": "D021",
+    "area": "captions and accessibility",
+    "question": "Do captions preserve every meaning-changing negation, name, and number in the actual spoken track?",
+    "failure_hypothesis": "Automated transcription drops small words that reverse meaning.",
+    "check_or_fix": "Listen to the final track against captions and correct consequential mismatches.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7424,
+    "passes": [
+      "default_32",
+      "accessible_text",
+      "final_delivery",
+      "longer_cardboard_32"
+    ]
+  },
+  {
+    "id": "AVQ-021-002",
+    "domain_id": "D021",
+    "area": "captions and accessibility",
+    "question": "Are caption boundaries aligned to complete thought groups rather than arbitrary word counts?",
+    "failure_hypothesis": "Fragmented captions force viewers to reconstruct syntax under time pressure.",
+    "check_or_fix": "Re-segment by spoken phrasing and test an uninterrupted read-through.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7426,
+    "passes": [
+      "accessible_text",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-021-003",
+    "domain_id": "D021",
+    "area": "captions and accessibility",
+    "question": "Can viewers identify an off-screen speaker when the voice alone is not available?",
+    "failure_hypothesis": "Untagged dialogue becomes unattributable with sound off.",
+    "check_or_fix": "Add concise speaker identifiers at ambiguous entrances.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "live-action",
+      "fiction"
+    ],
+    "source_line": 7428,
+    "passes": [
+      "accessible_text",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-021-004",
+    "domain_id": "D021",
+    "area": "captions and accessibility",
+    "question": "Are story-relevant sounds described when no visible action conveys them?",
+    "failure_hypothesis": "A silent viewer misses an unseen alarm, knock, or approach.",
+    "check_or_fix": "Listen for consequential sounds and add concise non-speech captions.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7430,
+    "passes": [
+      "accessible_text",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-021-005",
+    "domain_id": "D021",
+    "area": "captions and accessibility",
+    "question": "Do captions reveal the answer or punchline before the corresponding performance delivers it?",
+    "failure_hypothesis": "Early cue display spoils suspense or puzzle fairness.",
+    "check_or_fix": "Shift cue boundaries so essential reveal words arrive at their intended moment.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "puzzle",
+      "fiction"
+    ],
+    "source_line": 7432,
+    "passes": [
+      "accessible_text",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-021-006",
+    "domain_id": "D021",
+    "area": "captions and accessibility",
+    "question": "Do captions cover faces, hands, demonstrations, or puzzle targets at any moment?",
+    "failure_hypothesis": "A fixed caption region obstructs essential visual evidence.",
+    "check_or_fix": "Review full-length overlay playback and relocate captions at conflicts.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7434,
+    "passes": [
+      "accessible_text",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-021-007",
+    "domain_id": "D021",
+    "area": "captions and accessibility",
+    "question": "Are captions still present and correctly timed after the final trim, speed change, or inserted slate?",
+    "failure_hypothesis": "Subtitle timestamps belong to an earlier edit.",
+    "check_or_fix": "Validate the caption track against the exact delivered file.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "auditory"
+    ],
+    "stages": [
+      "final-encode",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7436,
+    "passes": [
+      "accessible_text",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-021-008",
+    "domain_id": "D021",
+    "area": "captions and accessibility",
+    "question": "Does the caption display duration allow the intended audience to read the longest cue comfortably?",
+    "failure_hypothesis": "Nominal caption presence conceals unreadably fast exposure.",
+    "check_or_fix": "Test long cues with target readers and split or extend them.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7438,
+    "passes": [
+      "accessible_text",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-021-009",
+    "domain_id": "D021",
+    "area": "captions and accessibility",
+    "question": "Are overlapping voices represented without implying an order that was not spoken?",
+    "failure_hypothesis": "Captions serialize simultaneous speech into a false exchange.",
+    "check_or_fix": "Listen to overlap passages and use clear multi-speaker formatting.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "live-action",
+      "fiction"
+    ],
+    "source_line": 7440,
+    "passes": [
+      "accessible_text"
+    ]
+  },
+  {
+    "id": "AVQ-021-010",
+    "domain_id": "D021",
+    "area": "captions and accessibility",
+    "question": "Do automatic captions invent speech during silence, music, or unintelligible audio?",
+    "failure_hypothesis": "Recognition output hallucinates dialogue where none is recoverable.",
+    "check_or_fix": "Listen to low-confidence sections and remove unsupported text.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "auditory"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7442,
+    "passes": [
+      "accessible_text"
+    ]
+  },
+  {
+    "id": "AVQ-021-011",
+    "domain_id": "D021",
+    "area": "captions and accessibility",
+    "question": "Can a viewer understand the essential argument with sound muted, including any instruction delivered only by voice?",
+    "failure_hypothesis": "Captions omit or summarize away necessary spoken reasoning.",
+    "check_or_fix": "Watch the actual muted delivery and attempt the stated viewer task.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "edit",
+      "final-encode",
+      "delivery"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7444,
+    "passes": []
+  },
+  {
+    "id": "AVQ-021-012",
+    "domain_id": "D021",
+    "area": "captions and accessibility",
+    "question": "Is the audio description conveying crucial visual changes during gaps without competing with dialogue?",
+    "failure_hypothesis": "Description either omits essential action or masks existing speech.",
+    "check_or_fix": "Listen to a description mix with blind or low-vision reviewers when available.",
+    "severity": "high",
+    "modes": [
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "edit",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7446,
+    "passes": []
+  },
+  {
+    "id": "AVQ-021-013",
+    "domain_id": "D021",
+    "area": "captions and accessibility",
+    "question": "Do instructions rely on color alone, such as 'follow the red line,' without a second identifier?",
+    "failure_hypothesis": "Viewers cannot identify the referent without the intended color distinction.",
+    "check_or_fix": "Add position, pattern, or explicit labels to color-based references.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "edit"
+    ],
+    "style_filters": [
+      "educational",
+      "puzzle"
+    ],
+    "source_line": 7448,
+    "passes": []
+  },
+  {
+    "id": "AVQ-021-014",
+    "domain_id": "D021",
+    "area": "captions and accessibility",
+    "question": "Does rapid flashing or a strong alternating pattern require a qualified photosensitivity review before release?",
+    "failure_hypothesis": "Visually intense effects may pose a hazard missed by aesthetic review.",
+    "check_or_fix": "Run an appropriate flash analysis and review flagged intervals before approval.",
+    "severity": "critical",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "edit",
+      "final-encode",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7450,
+    "passes": []
+  },
+  {
+    "id": "AVQ-021-015",
+    "domain_id": "D021",
+    "area": "captions and accessibility",
+    "question": "Can prolonged camera sway, rapid zooms, or full-field rotation be reduced without losing the explanation?",
+    "failure_hypothesis": "Unnecessary global motion creates avoidable discomfort.",
+    "check_or_fix": "Review motion-heavy intervals with sensitive viewers and test a calmer version.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7452,
+    "passes": []
+  },
+  {
+    "id": "AVQ-021-016",
+    "domain_id": "D021",
+    "area": "captions and accessibility",
+    "question": "Are essential captions supplied as usable text tracks when the delivery context needs viewer control or search?",
+    "failure_hypothesis": "Burned-in text alone blocks selectable language or caption preferences.",
+    "check_or_fix": "Deliver verified sidecar or embedded tracks supported by the destination.",
+    "severity": "medium",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "final-encode",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7454,
+    "passes": []
+  },
+  {
+    "id": "AVQ-021-017",
+    "domain_id": "D021",
+    "area": "captions and accessibility",
+    "question": "Do translated captions preserve technical meaning rather than mirror source-language word order?",
+    "failure_hypothesis": "Literal translation distorts a key relation or instruction.",
+    "check_or_fix": "Have a fluent domain-capable reader review the actual rendered translation.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7456,
+    "passes": []
+  },
+  {
+    "id": "AVQ-021-018",
+    "domain_id": "D021",
+    "area": "captions and accessibility",
+    "question": "Is the caption track labeled with the correct language and accessibility purpose?",
+    "failure_hypothesis": "Incorrect metadata makes viewers choose an unsuitable track.",
+    "check_or_fix": "Inspect track labels in the actual delivery player.",
+    "severity": "medium",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "final-encode",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7458,
+    "passes": []
+  },
+  {
+    "id": "AVQ-021-019",
+    "domain_id": "D021",
+    "area": "captions and accessibility",
+    "question": "Are meaningful changes in tone, such as sarcasm or whispering, recoverable when they affect the story?",
+    "failure_hypothesis": "Literal words conceal the intended social meaning.",
+    "check_or_fix": "Add restrained delivery cues only where the plot depends on them.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7460,
+    "passes": []
+  },
+  {
+    "id": "AVQ-021-020",
+    "domain_id": "D021",
+    "area": "captions and accessibility",
+    "question": "Can viewers pause on a dense diagram without its labels or controls disappearing?",
+    "failure_hypothesis": "Essential information depends on transient UI or animated states.",
+    "check_or_fix": "Test pause and seek behavior at the densest explanatory frame.",
+    "severity": "medium",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "final-encode",
+      "delivery"
+    ],
+    "style_filters": [
+      "educational",
+      "screen-recording"
+    ],
+    "source_line": 7462,
+    "passes": []
+  },
+  {
+    "id": "AVQ-021-021",
+    "domain_id": "D021",
+    "area": "captions and accessibility",
+    "question": "Are visual indications of success and failure distinguishable without an audio cue?",
+    "failure_hypothesis": "Feedback meaning is available only through a chime or buzzer.",
+    "check_or_fix": "Add clearly different visual outcomes and test muted playback.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "educational",
+      "screen-recording",
+      "puzzle"
+    ],
+    "source_line": 7464,
+    "passes": []
+  },
+  {
+    "id": "AVQ-021-022",
+    "domain_id": "D021",
+    "area": "captions and accessibility",
+    "question": "Does narration describe a spatial relation precisely enough for a listener who cannot inspect the diagram?",
+    "failure_hypothesis": "Phrases such as 'over here' have no nonvisual referent.",
+    "check_or_fix": "Replace deictic wording with meaningful spatial or structural descriptions.",
+    "severity": "high",
+    "modes": [
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "edit"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7466,
+    "passes": []
+  },
+  {
+    "id": "AVQ-021-023",
+    "domain_id": "D021",
+    "area": "captions and accessibility",
+    "question": "Can viewers with less topic vocabulary follow the caption terminology without pausing for definitions?",
+    "failure_hypothesis": "Unexplained jargon creates an access barrier unrelated to the lesson.",
+    "check_or_fix": "Define necessary terms at first use and test with intended novices.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "edit"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7468,
+    "passes": []
+  },
+  {
+    "id": "AVQ-021-024",
+    "domain_id": "D021",
+    "area": "captions and accessibility",
+    "question": "Do caption italics, positioning, or color conventions remain understandable when the player ignores their styling?",
+    "failure_hypothesis": "Semantic distinctions depend on formatting the player may discard.",
+    "check_or_fix": "Test a plain-text fallback and add textual identifiers where necessary.",
+    "severity": "medium",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "final-encode",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7470,
+    "passes": []
+  },
+  {
+    "id": "AVQ-021-025",
+    "domain_id": "D021",
+    "area": "captions and accessibility",
+    "question": "Is a visible countdown accessible to someone relying on audio or captions without overwhelming the task?",
+    "failure_hypothesis": "Remaining response time is communicated in only one sensory channel.",
+    "check_or_fix": "Provide a restrained redundant time cue and test task completion.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 7472,
+    "passes": []
+  },
+  {
+    "id": "AVQ-021-026",
+    "domain_id": "D021",
+    "area": "captions and accessibility",
+    "question": "Are instructions given before an irreversible visual event rather than only while it is happening?",
+    "failure_hypothesis": "Slower readers receive the rule after the opportunity to use it.",
+    "check_or_fix": "Move the instruction earlier and separate it from execution.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "educational",
+      "puzzle"
+    ],
+    "source_line": 7474,
+    "passes": []
+  },
+  {
+    "id": "AVQ-021-027",
+    "domain_id": "D021",
+    "area": "captions and accessibility",
+    "question": "Does a picture-in-picture sign-language window remain large enough and unobstructed for its intended viewers?",
+    "failure_hypothesis": "The access layer is reduced or cropped until signing details are unreadable.",
+    "check_or_fix": "Review final-size playback with a qualified signer.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "edit",
+      "final-encode",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7476,
+    "passes": []
+  },
+  {
+    "id": "AVQ-021-028",
+    "domain_id": "D021",
+    "area": "captions and accessibility",
+    "question": "Are lyrics that carry narrative information captioned distinctly from spoken dialogue?",
+    "failure_hypothesis": "Sung words disappear from access tracks or are mistaken for speech.",
+    "check_or_fix": "Listen to relevant lyrics and include accurate, clearly identified cues.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7478,
+    "passes": []
+  },
+  {
+    "id": "AVQ-021-029",
+    "domain_id": "D021",
+    "area": "captions and accessibility",
+    "question": "Does dense simultaneous motion, captioning, and sound make the central task harder for sensory-sensitive viewers?",
+    "failure_hypothesis": "Multiple salience peaks compete without a clear priority.",
+    "check_or_fix": "Remove nonessential stimulation and compare task performance.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7480,
+    "passes": []
+  },
+  {
+    "id": "AVQ-021-030",
+    "domain_id": "D021",
+    "area": "captions and accessibility",
+    "question": "Are accessibility claims limited to checks actually performed on the delivered version?",
+    "failure_hypothesis": "A caption file is treated as proof of comprehensive accessibility.",
+    "check_or_fix": "List completed checks, reviewer scope, and untested needs explicitly.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "final-encode",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7482,
+    "passes": []
+  },
+  {
+    "id": "AVQ-021-031",
+    "domain_id": "D021",
+    "area": "captions and accessibility",
+    "question": "Does an emergency or safety instruction retain its full meaning across captions, narration, and visual symbols?",
+    "failure_hypothesis": "One access channel drops a condition that makes the advice safe.",
+    "check_or_fix": "Reconcile all channels against the verified instruction before release.",
+    "severity": "critical",
+    "modes": [
+      "machine",
+      "visual",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7484,
+    "passes": []
+  },
+  {
+    "id": "AVQ-021-032",
+    "domain_id": "D021",
+    "area": "captions and accessibility",
+    "question": "Can a transcript substitute preserve references to important figures, sounds, and actions rather than just dialogue?",
+    "failure_hypothesis": "A dialogue-only transcript loses the evidence used by the film.",
+    "check_or_fix": "Include concise descriptions at the relevant points and test independent reading.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "edit",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7486,
+    "passes": []
+  }
+]

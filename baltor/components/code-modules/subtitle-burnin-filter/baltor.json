@@ -1,0 +1,57 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "subtitle_burnin_filter",
+  "title": "Subtitle burn-in filter builder",
+  "kind": "code-module",
+  "subkind": "ffmpeg-filter",
+  "version": "1.0.0",
+  "summary": "Builds ffmpeg ass/subtitles burn-in filters with force_style overrides and two-level escaping that is safe against filter injection through file names or style values.",
+  "domain": "captions",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "render",
+    "secure"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "subtitle_burnin_filter.py",
+  "tags": [
+    "captions",
+    "ffmpeg",
+    "burn-in",
+    "subtitles",
+    "libass",
+    "security"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "ffmpeg",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "caption_disfluency_filter",
+  "title": "Caption disfluency filter",
+  "kind": "code-module",
+  "version": "1.0.0",
+  "summary": "Removes filler words, immediate repeats and stutter fragments from transcripts (optionally discourse markers), normalises punctuation and keeps word timings for captions.",
+  "domain": "captions",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "write",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "caption_disfluency_filter.py",
+  "tags": [
+    "captions",
+    "transcript",
+    "cleanup",
+    "fillers",
+    "asr"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

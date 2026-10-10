@@ -1,0 +1,228 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/agent-feed-watchlist",
+  "title": "Agent feed watchlist",
+  "description": "What one project cares about: packages with versions, container images, runtimes, vendors, products, MCP servers, harnesses and topics. Built by agent_feeds_watchlist_from_repo and edited by hand.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "spec",
+    "project",
+    "packages"
+  ],
+  "properties": {
+    "spec": {
+      "const": "baltor.agent-feed-watchlist/v1"
+    },
+    "project": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120
+    },
+    "generated": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+    },
+    "root": {
+      "type": "string"
+    },
+    "ecosystems": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "packages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "ecosystem",
+          "name"
+        ],
+        "properties": {
+          "ecosystem": {
+            "type": "string",
+            "description": "Known values: PyPI, npm, crates.io, Go, Maven, NuGet, RubyGems, Packagist, Hex, Pub, Docker, GitHub Actions, cpe (NVD vendor:product), mcp"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "version": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Specifier as written: '==2.30.0', '^4.17.0', '>=1.2,<2', 'v1.10.2', '3.12-slim'"
+          },
+          "pinned": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Exact version when the specifier pins one"
+          },
+          "dev": {
+            "type": "boolean"
+          },
+          "source_file": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "runtimes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "version": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "source_file": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "vendors": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "products": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "mcp_servers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "package": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ecosystem": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "url": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "harness": {
+            "type": "string"
+          },
+          "source_file": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "harnesses": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "claude-code",
+          "codex",
+          "opencode",
+          "pi",
+          "gemini-cli",
+          "cursor",
+          "baltor-harness",
+          "other"
+        ]
+      }
+    },
+    "topics": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "excluded_topics": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "min_severity": {
+      "enum": [
+        "none",
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ],
+      "default": "low"
+    },
+    "change_types": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "release",
+          "breaking-change",
+          "deprecation",
+          "security",
+          "incident",
+          "pricing",
+          "model-release",
+          "docs",
+          "research",
+          "community",
+          "policy",
+          "event",
+          "tutorial",
+          "dataset"
+        ]
+      },
+      "description": "When set, only these change types are reported"
+    },
+    "include_prereleases": {
+      "type": "boolean",
+      "default": false
+    },
+    "min_score": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100,
+      "default": 30
+    }
+  }
+}

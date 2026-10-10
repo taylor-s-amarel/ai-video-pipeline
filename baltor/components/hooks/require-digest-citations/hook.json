@@ -1,0 +1,12 @@
+{
+  "events": [
+    "Stop"
+  ],
+  "matcher": "",
+  "command": "python3 .baltor/hooks/require-digest-citations/hook.py",
+  "timeout": 20,
+  "env": {
+    "BALTOR_DIGEST_DIR": "digests",
+    "BALTOR_DIGEST_MAX_AGE_MIN": "120"
+  }
+}

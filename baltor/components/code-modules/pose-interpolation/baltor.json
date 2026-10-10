@@ -1,0 +1,51 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "pose_interpolation",
+  "title": "Pose interpolation and walk cycles",
+  "kind": "code-module",
+  "subkind": "character-rig",
+  "version": "1.0.0",
+  "summary": "Shortest-arc joint-angle pose blending with easing, looping pose cycles, a procedural walk cycle and pelvis bob, using stick_figure_rig joint names.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "pose_interpolation.py",
+  "tags": [
+    "video",
+    "animation",
+    "pose",
+    "walk-cycle",
+    "stick-figure",
+    "interpolation"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

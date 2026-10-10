@@ -1,0 +1,69 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "source_watch_plugin",
+  "title": "Source Watch plugin",
+  "kind": "plugin-manifest",
+  "subkind": "plugin-bundle",
+  "version": "1.0.0",
+  "summary": "Claude Code plugin manifest bundling the source-monitoring skill, the digest, trend and topic subagents and their slash commands.",
+  "domain": "source-monitoring",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "research"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code"
+  ],
+  "entry": "plugin.json",
+  "tags": [
+    "plugin",
+    "claude-code",
+    "monitoring",
+    "rss"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "monitor_sources_with_rss_for_agents"
+    },
+    {
+      "identity": "weekly_source_digest_writer"
+    },
+    {
+      "identity": "trend_scan_analyst"
+    },
+    {
+      "identity": "faceless_topic_scout"
+    },
+    {
+      "identity": "weekly_source_digest"
+    },
+    {
+      "identity": "trend_scan"
+    },
+    {
+      "identity": "topic_scout"
+    },
+    {
+      "identity": "require_digest_citations"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/community_sources.py",
+    "data": "generators/data/community_sources"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

@@ -1,0 +1,20 @@
+title: Terraform/OpenTofu plan risk report
+summary: Reads `terraform show -json` / `tofu show -json` output and flags destroys, replacements of stateful resources, IAM wildcards, open ingress, public S3, missing tags and drift; Markdown for PR comments.
+subkind: iac-module
+tags: [terraform, opentofu, iac, plan-review, drift, tagging, finops]
+step_kinds: [review, verify, secure]
+effects: {filesystem: read, executes: python}
+description: >-
+  Standard-library plan analyser for pull-request review and pre-apply gates. Counts creates, updates,
+  deletes, replaces (with create-before-destroy vs destroy-before-create order and the attribute that forced
+  replacement), forgets and drift; flags deletes/replaces of stateful types (databases, buckets, disks, KMS keys,
+  DNS zones), IAM policies with '*' actions, ingress open to 0.0.0.0/0 or ::/0 (AWS SG, SG rules, GCP firewall,
+  Azure NSG), disabled S3 public access blocks, deletion_protection being switched off, publicly_accessible
+  databases and missing required tags (honouring AWS tags_all and values known only after apply). Exit 1 when a
+  finding reaches --fail-on. Heuristics only; pair it with policy-as-code (Conftest/OPA) for enforcement.
+examples:
+  - "python terraform_plan_risk_report.py plan.json --require-tags owner,environment --format md >> $GITHUB_STEP_SUMMARY"
+  - "Gate an apply job: fail when any high finding exists"
+evidence_notes: >-
+  pytest suite (synthetic plans plus a real OpenTofu plan JSON produced in the sandbox with terraform_data resources)
+  passes. Not yet run against large production plans or every provider's attribute names.

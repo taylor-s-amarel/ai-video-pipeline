@@ -1,0 +1,66 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "adversarial_review_kit",
+  "title": "Adversarial review kit",
+  "kind": "code-module",
+  "subkind": "evaluator",
+  "version": "1.0.0",
+  "summary": "Selects a named pass or filtered questions from the owner's bank, plans honest starting records, and fails stale hashes, absent intervals, unsupported coverage and waveform-passed listening questions.",
+  "description": "This is the owner's authoritative adversarial review bank: the 1,024 questions of Appendix E of the Animation and Video Production Master Guide (10 Oct 2026), transcribed with the owner's exact text, ids, filters and pass membership. Another builder in this catalogue (harness_kit) independently wrote a different 1,024-question bank; it is not this set and does not override it. Standard library only. Reads the review_bank_<area> questions.json files and the nine named passes (passes.json, shipped here).",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#adversarial-review-without-checklist-theater"
+  },
+  "step_kinds": [
+    "review",
+    "verify",
+    "test"
+  ],
+  "effects": {
+    "filesystem": "read",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "reads question banks and result files; hashes the target file"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "adversarial_review_kit.py",
+  "tags": [
+    "video",
+    "animation",
+    "adversarial-review",
+    "review-questions",
+    "validator",
+    "python",
+    "evidence"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "adversarial_review_result"
+    },
+    {
+      "identity": "adversarial_question"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/ref_review_templates.py",
+    "data": "generators/data/ref_review_templates"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "headless-tested",
+  "evidence_notes": "Focused tested in the guide's sense: the shipped pytest suite (positive, boundary and negative cases, including the guide's own record) passes with Python 3 in this repository. It is a new implementation of the guide's stated rules, not the source bank's 39-test validator suite, and has not been used on a real film review."
+}

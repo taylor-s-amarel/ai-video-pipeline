@@ -1,0 +1,6 @@
+title: Text area budget
+summary: Audits a render spec's timed text boxes for the share of the frame covered (union area, no double counting) and the number of simultaneous text elements, flagging busy moments.
+subkind: qa-check
+domain: video
+tags: [video, qa, text, layout, readability, house-rules]
+step_kinds: [plan, verify]

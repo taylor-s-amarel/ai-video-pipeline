@@ -1,0 +1,759 @@
+[
+  {
+    "id": "AVQ-001-001",
+    "domain_id": "D001",
+    "area": "concept and design",
+    "question": "Can the first image communicate the film's central promise?",
+    "failure_hypothesis": "Opening conceals the viewing purpose.",
+    "check_or_fix": "Show opening without its title to a fresh viewer.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6104,
+    "passes": [
+      "default_32",
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-001-002",
+    "domain_id": "D001",
+    "area": "concept and design",
+    "question": "Does the chosen visual style make the subject easier to understand?",
+    "failure_hypothesis": "Style adds decoration without explanatory value.",
+    "check_or_fix": "Compare one beat in the proposed and simpler styles.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6106,
+    "passes": [
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-001-003",
+    "domain_id": "D001",
+    "area": "concept and design",
+    "question": "Is the visual metaphor consistent with the actual mechanism?",
+    "failure_hypothesis": "Metaphor teaches a false relationship.",
+    "check_or_fix": "Map each metaphor element to its intended meaning.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6108,
+    "passes": [
+      "story_edit",
+      "longer_cardboard_32"
+    ]
+  },
+  {
+    "id": "AVQ-001-004",
+    "domain_id": "D001",
+    "area": "concept and design",
+    "question": "Would removing the hero character improve the explanation?",
+    "failure_hypothesis": "Host competes with the information.",
+    "check_or_fix": "Test a host-free version of one dense beat.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6110,
+    "passes": [
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-001-005",
+    "domain_id": "D001",
+    "area": "concept and design",
+    "question": "Does every recurring graphic have a stable meaning?",
+    "failure_hypothesis": "Decorative reuse changes semantic meaning.",
+    "check_or_fix": "Audit recurring symbols against a single legend.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6112,
+    "passes": [
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-001-006",
+    "domain_id": "D001",
+    "area": "concept and design",
+    "question": "Is the design distinctive without depending on a borrowed character?",
+    "failure_hypothesis": "Identity relies on recognizable protected features.",
+    "check_or_fix": "Replace signature borrowed features with original design logic.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6114,
+    "passes": [
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-001-007",
+    "domain_id": "D001",
+    "area": "concept and design",
+    "question": "Does the visual grammar permit the required emotional range?",
+    "failure_hypothesis": "Chosen abstraction cannot express the turning point.",
+    "check_or_fix": "Thumbnail both the quietest and strongest reaction.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6116,
+    "passes": [
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-001-008",
+    "domain_id": "D001",
+    "area": "concept and design",
+    "question": "Is complexity concentrated where the viewer needs information?",
+    "failure_hypothesis": "Detail budget is spent on irrelevant scenery.",
+    "check_or_fix": "Rank scene elements by narrative necessity.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6118,
+    "passes": [
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-001-009",
+    "domain_id": "D001",
+    "area": "concept and design",
+    "question": "Can the premise survive without explanatory labels everywhere?",
+    "failure_hypothesis": "Labels compensate for unreadable action.",
+    "check_or_fix": "Review a label-free storyboard before refining captions.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6120,
+    "passes": []
+  },
+  {
+    "id": "AVQ-001-010",
+    "domain_id": "D001",
+    "area": "concept and design",
+    "question": "Does the world establish which impossible actions are allowed?",
+    "failure_hypothesis": "Fictional rules change only to resolve the plot.",
+    "check_or_fix": "List impossible events and seed their rules early.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6122,
+    "passes": []
+  },
+  {
+    "id": "AVQ-001-011",
+    "domain_id": "D001",
+    "area": "concept and design",
+    "question": "Are style shifts motivated by story or information changes?",
+    "failure_hypothesis": "Unmotivated shifts break the film's identity.",
+    "check_or_fix": "Attach a purpose to each style boundary.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6124,
+    "passes": []
+  },
+  {
+    "id": "AVQ-001-012",
+    "domain_id": "D001",
+    "area": "concept and design",
+    "question": "Does the palette distinguish functions before decorating them?",
+    "failure_hypothesis": "Aesthetic palette erases important categories.",
+    "check_or_fix": "Assign functional roles before choosing accent colors.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6126,
+    "passes": []
+  },
+  {
+    "id": "AVQ-001-013",
+    "domain_id": "D001",
+    "area": "concept and design",
+    "question": "Can the design scale to the most crowded required scene?",
+    "failure_hypothesis": "Hero design collapses when multiplied.",
+    "check_or_fix": "Test the largest crowd at delivery resolution.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6128,
+    "passes": []
+  },
+  {
+    "id": "AVQ-001-014",
+    "domain_id": "D001",
+    "area": "concept and design",
+    "question": "Is the hero recognizable through its most extreme pose?",
+    "failure_hypothesis": "Design identity depends on one front-facing portrait.",
+    "check_or_fix": "Compare key poses as small unlabeled thumbnails.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6130,
+    "passes": []
+  },
+  {
+    "id": "AVQ-001-015",
+    "domain_id": "D001",
+    "area": "concept and design",
+    "question": "Does the setting provide useful action opportunities?",
+    "failure_hypothesis": "Scenery cannot support the scripted interactions.",
+    "check_or_fix": "Mark every prop and surface the action uses.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6132,
+    "passes": []
+  },
+  {
+    "id": "AVQ-001-016",
+    "domain_id": "D001",
+    "area": "concept and design",
+    "question": "Are ornamental motifs misleading viewers about causal importance?",
+    "failure_hypothesis": "Decorations resemble clues or controls.",
+    "check_or_fix": "Remove ornaments near the causal focus and compare.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6134,
+    "passes": []
+  },
+  {
+    "id": "AVQ-001-017",
+    "domain_id": "D001",
+    "area": "concept and design",
+    "question": "Is the intended genre legible before the first reversal?",
+    "failure_hypothesis": "Comic styling makes serious claims seem unserious.",
+    "check_or_fix": "Check opening tone against the story's consequence.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6136,
+    "passes": []
+  },
+  {
+    "id": "AVQ-001-018",
+    "domain_id": "D001",
+    "area": "concept and design",
+    "question": "Does the visual system accommodate uncertainty honestly?",
+    "failure_hypothesis": "Polished certainty masks incomplete evidence.",
+    "check_or_fix": "Design a clear visual treatment for qualified claims.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6138,
+    "passes": []
+  },
+  {
+    "id": "AVQ-001-019",
+    "domain_id": "D001",
+    "area": "concept and design",
+    "question": "Are scale exaggerations explicitly separated from measurements?",
+    "failure_hypothesis": "Expressive proportions are read as quantitative truth.",
+    "check_or_fix": "Label illustrative scale where comparisons depend on size.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6140,
+    "passes": []
+  },
+  {
+    "id": "AVQ-001-020",
+    "domain_id": "D001",
+    "area": "concept and design",
+    "question": "Does the design avoid stereotypes as character shorthand?",
+    "failure_hypothesis": "Identity traits replace individual characterization.",
+    "check_or_fix": "Give roles distinctive goals and behavior instead.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6142,
+    "passes": []
+  },
+  {
+    "id": "AVQ-001-021",
+    "domain_id": "D001",
+    "area": "concept and design",
+    "question": "Would an unfamiliar viewer understand the icon vocabulary?",
+    "failure_hypothesis": "Icons require unstated cultural knowledge.",
+    "check_or_fix": "Ask viewers to name icons without a legend.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6144,
+    "passes": []
+  },
+  {
+    "id": "AVQ-001-022",
+    "domain_id": "D001",
+    "area": "concept and design",
+    "question": "Is visual richness earned by meaningful variation?",
+    "failure_hypothesis": "Many objects repeat the same information.",
+    "check_or_fix": "Remove repeated detail that adds neither rhythm nor meaning.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6146,
+    "passes": []
+  },
+  {
+    "id": "AVQ-001-023",
+    "domain_id": "D001",
+    "area": "concept and design",
+    "question": "Does the film's aesthetic match its delivery context?",
+    "failure_hypothesis": "Subtle design disappears in expected viewing conditions.",
+    "check_or_fix": "Preview under likely screen size and ambient light.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6148,
+    "passes": []
+  },
+  {
+    "id": "AVQ-001-024",
+    "domain_id": "D001",
+    "area": "concept and design",
+    "question": "Can the design support a clear ending state?",
+    "failure_hypothesis": "Ending looks indistinguishable from the starting state.",
+    "check_or_fix": "Compare first and last meaningful frames side by side.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6150,
+    "passes": []
+  },
+  {
+    "id": "AVQ-001-025",
+    "domain_id": "D001",
+    "area": "concept and design",
+    "question": "Is the central contrast visible without narration?",
+    "failure_hypothesis": "Key comparison exists only in spoken explanation.",
+    "check_or_fix": "Make the contrasted states visually distinguishable.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6152,
+    "passes": []
+  },
+  {
+    "id": "AVQ-001-026",
+    "domain_id": "D001",
+    "area": "concept and design",
+    "question": "Does the mood board contain conflicting material rules?",
+    "failure_hypothesis": "Mixed references produce an incoherent world.",
+    "check_or_fix": "Choose explicit rules for edges, light and texture.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6154,
+    "passes": [
+      "longer_cardboard_32"
+    ]
+  },
+  {
+    "id": "AVQ-001-027",
+    "domain_id": "D001",
+    "area": "concept and design",
+    "question": "Are designed imperfections intentional and repeatable?",
+    "failure_hypothesis": "Random defects are mistaken for handmade style.",
+    "check_or_fix": "Define which imperfections belong and remove others.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6156,
+    "passes": []
+  },
+  {
+    "id": "AVQ-001-028",
+    "domain_id": "D001",
+    "area": "concept and design",
+    "question": "Does abstraction remove the detail needed to judge success?",
+    "failure_hypothesis": "Simplification hides the actual result.",
+    "check_or_fix": "Restore the smallest evidence-bearing feature.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6158,
+    "passes": []
+  },
+  {
+    "id": "AVQ-001-029",
+    "domain_id": "D001",
+    "area": "concept and design",
+    "question": "Can the design accommodate captions without shrinking the action?",
+    "failure_hypothesis": "Accessibility was excluded from the layout concept.",
+    "check_or_fix": "Reserve readable caption space in initial thumbnails.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6160,
+    "passes": []
+  },
+  {
+    "id": "AVQ-001-030",
+    "domain_id": "D001",
+    "area": "concept and design",
+    "question": "Does the film need all its branded framing?",
+    "failure_hypothesis": "Persistent branding consumes attention and action area.",
+    "check_or_fix": "Compare a restrained framing treatment at phone size.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6162,
+    "passes": []
+  },
+  {
+    "id": "AVQ-001-031",
+    "domain_id": "D001",
+    "area": "concept and design",
+    "question": "Is there a coherent hierarchy between world and interface graphics?",
+    "failure_hypothesis": "Labels and physical objects appear equally tangible.",
+    "check_or_fix": "Give annotations a consistent separate graphic grammar.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6164,
+    "passes": []
+  },
+  {
+    "id": "AVQ-001-032",
+    "domain_id": "D001",
+    "area": "concept and design",
+    "question": "What single design change would most strengthen the viewing promise?",
+    "failure_hypothesis": "Many small polish changes avoid the main weakness.",
+    "check_or_fix": "Choose one premise-level improvement before surface polish.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6166,
+    "passes": []
+  }
+]

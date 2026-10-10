@@ -6,8 +6,8 @@
   "subkind": "evaluator",
   "version": "1.0.0",
   "summary": "Negative control. Answer ten seeded integer word problems exactly.",
-  "description": "Pre-registered 2026-10-10, spec hash cfd17698c33e4f2098c66a9ae701397ee0683dba93d3d7708e3542f43b2ecd99. 5 paired trials per arm. A capable model solves this without outside help, and no catalogue component targets it. Any treatment advantage beyond noise points to a placebo or prompt effect; extra treatment-arm tokens or tool calls measure the overhead of searching when nothing useful exists.",
-  "domain": "negative-control",
+  "description": "Pre-registered 2026-10-10 (revision 1), spec_sha256 70c09804612decf416b3d9da1ae336516d56931726b759413a411f4c7cf78638. 5 paired trials per arm. A capable model solves this without outside help, and no catalogue component targets it. Any treatment advantage beyond noise points to a placebo or prompt effect; extra treatment-arm tokens or tool calls measure the overhead of searching when nothing useful exists.",
+  "domain": "other",
   "licence": "MIT",
   "source": {
     "type": "original",
@@ -24,7 +24,7 @@
     "executes": "python",
     "secrets": [],
     "side_effects": [
-      "setup writes a fresh workspace and a hidden ground-truth directory"
+      "setup writes a fresh workspace and a private ground-truth directory"
     ]
   },
   "harnesses": [
@@ -40,8 +40,9 @@
     "showcase-task",
     "preregistered",
     "evaluator",
-    "negative-control",
+    "other",
     "control-reasoning",
+    "negative-control",
     "placebo"
   ],
   "collection": "public-good",
@@ -50,17 +51,17 @@
     "data": "generators/data/showcase_tasks",
     "parameters": {
       "family": "controls",
-      "spec_hash": "cfd17698c33e4f2098c66a9ae701397ee0683dba93d3d7708e3542f43b2ecd99",
+      "spec_sha256": "70c09804612decf416b3d9da1ae336516d56931726b759413a411f4c7cf78638",
       "source": "negative_controls.yaml"
     }
   },
   "examples": [
-    "Set up trial 1 of showcase_task_control_arithmetic_word_problems and score the agent's workspace",
+    "Set up a trial of showcase_task_control_arithmetic_word_problems and score the agent's workspace",
     "Print the run plan for this task: python3 showcase_eval.py ."
   ],
   "review": {
     "status": "automated-passed",
     "checked": "2026-10-10",
-    "notes": "Evaluator self-test proves a known-good output passes and a known-bad output fails."
+    "notes": "The evaluator self-test proves a known-good output passes and a known-bad output fails."
   }
 }

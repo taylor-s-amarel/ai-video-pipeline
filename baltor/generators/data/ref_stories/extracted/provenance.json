@@ -1,0 +1,51 @@
+{
+ "boxed_in_row": {
+  "text": "| BOXED IN | 108 seconds, portrait 720×1280, 24 fps, 2,592 frames | Technically delivered cardboard cutaway, score and Bella narration, first final-film Pymunk adoption for three props; **story quality rejected by Taylor** | MP4 `libfile_4453aed6dfbc8191914eded938ece6df` v0; source `libfile_b9bf57dd34888191ac51eebf12858e79` v1; QA `libfile_6e463736ec608191addc25359be6bd07` v1 |",
+  "guide_line": 1202,
+  "guide_section": "Completed films and what they demonstrate",
+  "library_identities": [
+   [
+    "MP4",
+    "libfile_4453aed6dfbc8191914eded938ece6df",
+    "v0"
+   ],
+   [
+    "source",
+    "libfile_b9bf57dd34888191ac51eebf12858e79",
+    "v1"
+   ],
+   [
+    "QA",
+    "libfile_6e463736ec608191addc25359be6bd07",
+    "v1"
+   ]
+  ]
+ },
+ "boxed_in_receipt": {
+  "text": "The *BOXED IN* MP4 is 11,650,302 bytes, SHA-256 `1ed9c7ac83b183a8daccefe56c0d7930f50b5d11399c6c6dc9ba62888e359e4c`. Its source ZIP is 46,672,978 bytes, SHA-256 `590ea120504a6476434f6dfc660f612b8e7b4317477ec5a6dfb2dd4353952aed`. The final receipt records exact remote byte matches, full AV decode, archive integrity, 130 source files checked and 14 raw frames reproduced exactly. Final audio measured −18.35 LUFS and −1.46 dBTP with no clipped samples; AAC has 512 padding samples. Its bounded 32-question review recorded 24 scoped passes, five blocked checks and three not applicable. None of these observations overrides the story rejection or establishes independent listening.",
+  "guide_line": 1204,
+  "guide_section": "Completed films and what they demonstrate",
+  "sha256": [
+   "1ed9c7ac83b183a8daccefe56c0d7930f50b5d11399c6c6dc9ba62888e359e4c",
+   "590ea120504a6476434f6dfc660f612b8e7b4317477ec5a6dfb2dd4353952aed"
+  ]
+ },
+ "technical_handoff": {
+  "artifact": "Creative Production Factory and Harness Technical Handoff",
+  "library_identity": "libfile_c1f85d232d6c8191bacb55c0c6401a2e",
+  "version_read": "3",
+  "bytes": "274,402",
+  "sha256": "7b0bbae4011e6c7495ba1744797027c7dd4d9c62407b703a2141c193a12c8187",
+  "guide_line": 8272,
+  "guide_section": "Appendix G Source inventory and refresh conditions"
+ },
+ "creative_catalogue_bundle": {
+  "artifact": "Creative Catalogue JSON Bundle 2026-10-10",
+  "library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+  "version_read": "0",
+  "bytes": "245,788",
+  "sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e",
+  "guide_line": 8274,
+  "guide_section": "Appendix G Source inventory and refresh conditions"
+ }
+}

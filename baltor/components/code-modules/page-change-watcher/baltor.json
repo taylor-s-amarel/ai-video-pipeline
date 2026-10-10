@@ -1,0 +1,59 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "page_change_watcher",
+  "title": "Page change watcher for sources without feeds",
+  "kind": "code-module",
+  "subkind": "api-client",
+  "version": "1.0.0",
+  "summary": "Checks pages that publish no feed (platform policy pages, programme pages) for meaningful text changes and returns the sentences added and removed, with conditional requests and stored state.",
+  "description": "Standard library only. extract_text drops scripts, navigation, headers and footers; fingerprint ignores whitespace and number-only lines (dates, counters); diff_summary lists changed sentences. check() takes an injectable fetcher so tests run offline. Intended for daily checks of policy pages such as YouTube's monetisation policies. 5 tests.",
+  "domain": "source-monitoring",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "research",
+    "operate"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "declared",
+    "executes": "python",
+    "secrets": [],
+    "hosts": [
+      "*"
+    ],
+    "side_effects": [
+      "CLI only: fetches the page URLs given as arguments",
+      "CLI only: writes the --state JSON file"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "page_change_watcher.py",
+  "tags": [
+    "web-pages",
+    "change-detection",
+    "policy",
+    "monitoring",
+    "python"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/community_sources.py",
+    "data": "generators/data/community_sources"
+  },
+  "examples": [
+    "python3 page_change_watcher.py https://support.google.com/youtube/answer/1311392 --state pages.json"
+  ],
+  "review": {
+    "status": "unreviewed"
+  }
+}

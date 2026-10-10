@@ -1,18 +1,13 @@
 {
   "spec": "baltor.showcase-ledger/v1",
-  "hash_method": "sha256 of the canonical JSON of task.json without the keys spec_hash and preregistration (keys sorted, separators ',' ':', UTF-8, ensure_ascii false); see showcase_eval.compute_spec_hash",
+  "hash_method": "spec_sha256 = sha256 of the canonical JSON of task.json without the key spec_sha256 (keys sorted, separators ',' ':', UTF-8, ensure_ascii false); task.json lists every other package file in files_sha256",
+  "content_method": "content_sha256 = sha256 of the canonical JSON of task.json without spec_sha256, version, preregistered_on and the SKILL.md entry of files_sha256; used only to detect whether a spec changed",
   "tasks": {
     "showcase_task_control_arithmetic_word_problems": [
       {
         "revision": 1,
-        "spec_hash": "5be419c0abc288b3cb5c16bf768c501aeec365f37d3aac837c1f38dd87180e83",
-        "preregistered": "2026-10-10",
-        "status": "superseded",
-        "superseded_on": "2026-10-10"
-      },
-      {
-        "revision": 2,
-        "spec_hash": "cfd17698c33e4f2098c66a9ae701397ee0683dba93d3d7708e3542f43b2ecd99",
+        "content_sha256": "03119812d0b0e646c9a8063f79563504feb58023701fe62f83c731094e00596a",
+        "spec_sha256": "70c09804612decf416b3d9da1ae336516d56931726b759413a411f4c7cf78638",
         "preregistered": "2026-10-10",
         "status": "registered"
       }
@@ -20,14 +15,8 @@
     "showcase_task_control_csv_two_key_sort": [
       {
         "revision": 1,
-        "spec_hash": "023b228e2e09344c2f58ec63228bf83803cacd1a45c97d86eac6251514a752f9",
-        "preregistered": "2026-10-10",
-        "status": "superseded",
-        "superseded_on": "2026-10-10"
-      },
-      {
-        "revision": 2,
-        "spec_hash": "a75a936b115c54769d181dabc452d668d9863b6fab65fd7f27f7f4ee908af1b6",
+        "content_sha256": "478474a546174ac57bc4ac4153b0a5487b37c5a5982888f31ee6fc9564668fa5",
+        "spec_sha256": "137c3c0c6bc3d1c5ae782af27a219289102ed24918d6ebc851fd4658cb159f2c",
         "preregistered": "2026-10-10",
         "status": "registered"
       }
@@ -35,14 +24,8 @@
     "showcase_task_control_fizzbuzz_variant": [
       {
         "revision": 1,
-        "spec_hash": "09b0e413edf8e6e411df1c14144624671bfad6ee30963913c3fb465c06d04003",
-        "preregistered": "2026-10-10",
-        "status": "superseded",
-        "superseded_on": "2026-10-10"
-      },
-      {
-        "revision": 2,
-        "spec_hash": "5ca77da9f6d09146c7a0f88c8783e143ca403d3dd3372cb73dcbd82203847eef",
+        "content_sha256": "1b88d8d873da0b0511942f139d73dc1f8445bfee84e00a80d80781402f30e87e",
+        "spec_sha256": "2b8b88bf5ddc669ad51c0436d8932a035356ac53d8ee20bea3c7f89229f59172",
         "preregistered": "2026-10-10",
         "status": "registered"
       }
@@ -50,14 +33,8 @@
     "showcase_task_control_leap_year_function": [
       {
         "revision": 1,
-        "spec_hash": "9be14db91a038ceb01379427925076fd228f27aab803c88b5d2eabf04980547d",
-        "preregistered": "2026-10-10",
-        "status": "superseded",
-        "superseded_on": "2026-10-10"
-      },
-      {
-        "revision": 2,
-        "spec_hash": "8380a8a928dba0fbd9f5ce0a71e14bc756c2601d3310676a1c8e034b39630d64",
+        "content_sha256": "4ab40bd58d38b202ef750ffc44af01855fd01e6fa7eee5c9835bb6d830b4c66d",
+        "spec_sha256": "8cfe5b3e2b23265f2f9fa1568834f0bac6fd3433b960195b31bfd05df68d9239",
         "preregistered": "2026-10-10",
         "status": "registered"
       }
@@ -65,14 +42,8 @@
     "showcase_task_control_readme_typo_fix": [
       {
         "revision": 1,
-        "spec_hash": "5d1ff91e902b6970a123c456d1b326a09b8ccb9a08494da2920046f64b7066c4",
-        "preregistered": "2026-10-10",
-        "status": "superseded",
-        "superseded_on": "2026-10-10"
-      },
-      {
-        "revision": 2,
-        "spec_hash": "b5fb0e340b84d677a6312bead6e2dfc0b70fed7cd842a63576137b277f2a0cd6",
+        "content_sha256": "19dfcf0586f601ff8ab5655cc353ad298bf210b05ce58aa5ec598a834be93495",
+        "spec_sha256": "32c4cfd757ba394b37952f843f68c948500505891b8b52f63f5a0d4dddb9213e",
         "preregistered": "2026-10-10",
         "status": "registered"
       }
@@ -80,14 +51,8 @@
     "showcase_task_control_rename_function_refactor": [
       {
         "revision": 1,
-        "spec_hash": "951d9eeb0478d329ab12a55819b0d561446bbc20a97534039bf63220973d1e37",
-        "preregistered": "2026-10-10",
-        "status": "superseded",
-        "superseded_on": "2026-10-10"
-      },
-      {
-        "revision": 2,
-        "spec_hash": "26384af9ebfc49578482c748e295a8014bb71157978b855fe28563efec0c6248",
+        "content_sha256": "7b14d13c81509af994194a5de25206e9d191ed1555c3344031596ee8b200c842",
+        "spec_sha256": "32e13f0a2e1fae91d76bb7435911da049c307bdb6a2d75242c9f143b373b835a",
         "preregistered": "2026-10-10",
         "status": "registered"
       }
@@ -95,14 +60,8 @@
     "showcase_task_control_unit_conversion_table": [
       {
         "revision": 1,
-        "spec_hash": "937c5a38269ee3bad678ab04da36038f868164160482848d83e33192056c9a0a",
-        "preregistered": "2026-10-10",
-        "status": "superseded",
-        "superseded_on": "2026-10-10"
-      },
-      {
-        "revision": 2,
-        "spec_hash": "c8de5b5f2a8846a994826f627bba09c296bc3f81a1c1f84114aea5929a3f0b5f",
+        "content_sha256": "71238ad847ee0173b3b2e7fcd695708db7dbe999723c83ba610b48a96293427b",
+        "spec_sha256": "541e4f2eb14651fada71efe95ea7eafd946444e417daa956364e6d95afe6360d",
         "preregistered": "2026-10-10",
         "status": "registered"
       }
@@ -110,14 +69,8 @@
     "showcase_task_control_word_frequency_count": [
       {
         "revision": 1,
-        "spec_hash": "e6dc9641d48922bcb7df227086179a54ba86c1fb7ba813d9d9d42058431d41e3",
-        "preregistered": "2026-10-10",
-        "status": "superseded",
-        "superseded_on": "2026-10-10"
-      },
-      {
-        "revision": 2,
-        "spec_hash": "2831859025b90b1b4b798e0e507288ba40143450b4b7e72484039bb7faa32a22",
+        "content_sha256": "a9b6885042c333d642815d48cb4f2bb3e2888fc44e6389e92aa5873d56f76f8b",
+        "spec_sha256": "d108b27a5a4609962ed10d9d37164e8bda35cb5ebc0b1c424b2083ef3930c79f",
         "preregistered": "2026-10-10",
         "status": "registered"
       }
@@ -125,14 +78,8 @@
     "showcase_task_control_yaml_to_json": [
       {
         "revision": 1,
-        "spec_hash": "4080137d33830b5019001c98007f9bcc5caf1a0523e00871320629e0363bf10a",
-        "preregistered": "2026-10-10",
-        "status": "superseded",
-        "superseded_on": "2026-10-10"
-      },
-      {
-        "revision": 2,
-        "spec_hash": "baa62ce6003d6cb72ee3df2f24ffb0405f2b68b0de579bccfd530647be9bcada",
+        "content_sha256": "9ee7e2b13dfcf108ab4495eebef3eaf61f880925722bec06971908d287d8eb00",
+        "spec_sha256": "d30a247f1c9710a5ec23ef79f5223faeec362070a6ed5e9904274c8ab0c32194",
         "preregistered": "2026-10-10",
         "status": "registered"
       }

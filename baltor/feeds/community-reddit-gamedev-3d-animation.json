@@ -1,0 +1,944 @@
+{
+  "spec": "baltor.feed-collection/v1",
+  "id": "community-reddit-gamedev-3d-animation",
+  "title": "Subreddits: Godot, indie game dev, 3D, low-poly, pixel art and animation",
+  "description": "Communities for the Godot, Blender and 2D/3D/animation side of the factory: engine news, asset and kit releases, workflow questions and critique. Useful for spotting new kits, common failure modes and what audiences respond to.",
+  "updated": "2026-10-10",
+  "tags": [
+    "community-sources",
+    "gamedev",
+    "godot",
+    "blender",
+    "3d",
+    "2d",
+    "animation"
+  ],
+  "items": [
+    {
+      "id": "r-godot",
+      "title": "r/godot",
+      "url": "https://www.reddit.com/r/godot/.rss",
+      "summary": "Official Godot Engine subreddit maintained by the Godot Foundation: engine news, contributor posts and project sharing.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile: the official subreddit, maintained by the Godot Foundation. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-madewithgodot",
+      "title": "r/madeWithGodot",
+      "url": "https://www.reddit.com/r/madeWithGodot/.rss",
+      "summary": "Showcase of games and apps made with Godot; engine news discussion is redirected to r/godot.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile: links to things made with Godot. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-godotdev",
+      "title": "r/godotdev",
+      "url": "https://www.reddit.com/r/godotdev/.rss",
+      "summary": "Godot development and engine internals discussion.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: Listed in a 2026 roundup of Godot subreddits in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-gamedev",
+      "title": "r/gamedev",
+      "url": "https://www.reddit.com/r/gamedev/.rss",
+      "summary": "The largest general game development community: postmortems, marketing, tools and career discussion.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-indiedev",
+      "title": "r/IndieDev",
+      "url": "https://www.reddit.com/r/IndieDev/.rss",
+      "summary": "Indie developers sharing progress, launches and marketing lessons.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Mostly self-promotion; useful for trend-spotting, weak as evidence.",
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-indiegaming",
+      "title": "r/IndieGaming",
+      "url": "https://www.reddit.com/r/IndieGaming/.rss",
+      "summary": "Indie games news and player reactions to indie releases.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-indiegamedev",
+      "title": "r/indiegamedev",
+      "url": "https://www.reddit.com/r/indiegamedev/.rss",
+      "summary": "Indie game development discussion.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile page in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-gamedevelopment",
+      "title": "r/GameDevelopment",
+      "url": "https://www.reddit.com/r/GameDevelopment/.rss",
+      "summary": "General game development questions.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile page in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-gamedesign",
+      "title": "r/gamedesign",
+      "url": "https://www.reddit.com/r/gamedesign/.rss",
+      "summary": "Game design theory and critique.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile page in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-proceduralgeneration",
+      "title": "r/proceduralgeneration",
+      "url": "https://www.reddit.com/r/proceduralgeneration/.rss",
+      "summary": "Procedural generation of media and levels: techniques and showcases.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile (last updated 2026-06-08 per search result). reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-gamejams",
+      "title": "r/gamejams",
+      "url": "https://www.reddit.com/r/gamejams/.rss",
+      "summary": "Game jam announcements and participants.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile (last updated 2026-06-14 per search result). reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-unity3d",
+      "title": "r/Unity3D",
+      "url": "https://www.reddit.com/r/Unity3D/.rss",
+      "summary": "Unity developers; useful for cross-engine technique and asset-store news.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-blender",
+      "title": "r/blender",
+      "url": "https://www.reddit.com/r/blender/.rss",
+      "summary": "Main Blender community: renders, add-ons, release reactions and tutorials.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile: home for the Blender community on Reddit. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-blenderhelp",
+      "title": "r/blenderhelp",
+      "url": "https://www.reddit.com/r/blenderhelp/.rss",
+      "summary": "Help and troubleshooting for Blender.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile: help and advice about using Blender. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-low-poly",
+      "title": "r/low_poly",
+      "url": "https://www.reddit.com/r/low_poly/.rss",
+      "summary": "Stylised low-poly art, landscapes, environments and characters.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile: dedicated to stylized low-poly art. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-3dmodeling",
+      "title": "r/3Dmodeling",
+      "url": "https://www.reddit.com/r/3Dmodeling/.rss",
+      "summary": "General 3D modelling showcase and critique across tools.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch and Hive Index profiles in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-cgi",
+      "title": "r/cgi",
+      "url": "https://www.reddit.com/r/cgi/.rss",
+      "summary": "Computer-generated imagery discussion and showcases.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile page in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-vfx",
+      "title": "r/vfx",
+      "url": "https://www.reddit.com/r/vfx/.rss",
+      "summary": "VFX industry professionals, students and hobbyists.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile: community of VFX professionals, students and hobbyists. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-photogrammetry",
+      "title": "r/photogrammetry",
+      "url": "https://www.reddit.com/r/photogrammetry/.rss",
+      "summary": "3D photogrammetry capture and modelling.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-gaussiansplatting",
+      "title": "r/GaussianSplatting",
+      "url": "https://www.reddit.com/r/GaussianSplatting/.rss",
+      "summary": "Gaussian splatting capture, tools and viewers.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile and a Reddit mirror in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-threejs",
+      "title": "r/threejs",
+      "url": "https://www.reddit.com/r/threejs/.rss",
+      "summary": "three.js web 3D: shaders, scenes and projects.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-creativecoding",
+      "title": "r/creativecoding",
+      "url": "https://www.reddit.com/r/creativecoding/.rss",
+      "summary": "Creative coding: particles, flow fields and generative visuals.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-pixelart",
+      "title": "r/PixelArt",
+      "url": "https://www.reddit.com/r/PixelArt/.rss",
+      "summary": "Large pixel-art community; 'Hand Pixelled' flair; Aseprite is the most discussed tool.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-aseprite",
+      "title": "r/aseprite",
+      "url": "https://www.reddit.com/r/aseprite/.rss",
+      "summary": "Aseprite users: pixel art, sprite animation and characters.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile (last updated 2026-07-24 per search result). reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-pixelarttutorials",
+      "title": "r/PixelArtTutorials",
+      "url": "https://www.reddit.com/r/PixelArtTutorials/.rss",
+      "summary": "Pixel art tutorials, feedback requests and sharing.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-animatedpixelart",
+      "title": "r/AnimatedPixelArt",
+      "url": "https://www.reddit.com/r/AnimatedPixelArt/.rss",
+      "summary": "Animated pixel art and sprite loops.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile page in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-gameart",
+      "title": "r/GameArt",
+      "url": "https://www.reddit.com/r/GameArt/.rss",
+      "summary": "Art made for game development.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile: all things related to art made for game development. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-krita",
+      "title": "r/krita",
+      "url": "https://www.reddit.com/r/krita/.rss",
+      "summary": "Krita artwork, painting and 2D animation help.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-animation",
+      "title": "r/animation",
+      "url": "https://www.reddit.com/r/animation/.rss",
+      "summary": "Large general animation community.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch listings in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-2danimation",
+      "title": "r/2DAnimation",
+      "url": "https://www.reddit.com/r/2DAnimation/.rss",
+      "summary": "Traditional and digital 2D animation, character design and storyboarding.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-animators",
+      "title": "r/Animators",
+      "url": "https://www.reddit.com/r/Animators/.rss",
+      "summary": "2D, 3D and stop-motion animators sharing work and techniques.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch and Hive Index profiles in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-learnanimation",
+      "title": "r/learnanimation",
+      "url": "https://www.reddit.com/r/learnanimation/.rss",
+      "summary": "Learning animation: fundamentals and critique.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile page in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-motiondesign",
+      "title": "r/MotionDesign",
+      "url": "https://www.reddit.com/r/MotionDesign/.rss",
+      "summary": "Motion design showcases, reels and software questions.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile and recent posts on a Reddit mirror in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-motiongraphics",
+      "title": "r/motiongraphics",
+      "url": "https://www.reddit.com/r/motiongraphics/.rss",
+      "summary": "Motion graphics techniques and showcases.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile page in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-aftereffects",
+      "title": "r/AfterEffects",
+      "url": "https://www.reddit.com/r/AfterEffects/.rss",
+      "summary": "After Effects users; good for motion-design technique that can be ported to open tools.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-stopmotion",
+      "title": "r/stopmotion",
+      "url": "https://www.reddit.com/r/stopmotion/.rss",
+      "summary": "Stop motion, claymation and LEGO animation.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-manim",
+      "title": "r/manim",
+      "url": "https://www.reddit.com/r/manim/.rss",
+      "summary": "Manim (Python math-animation engine) users; most common flair is 'made with manim'.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "gamedev",
+        "godot"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile: Manim is an animation engine for explanatory math videos. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    }
+  ]
+}

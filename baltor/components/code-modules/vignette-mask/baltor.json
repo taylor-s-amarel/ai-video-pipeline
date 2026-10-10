@@ -1,0 +1,57 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "vignette_mask",
+  "title": "Vignette masks and filter",
+  "kind": "code-module",
+  "subkind": "overlay",
+  "version": "1.0.0",
+  "summary": "Aspect-aware smooth vignette multiplier masks in numpy with an apply helper, plus a validated ffmpeg vignette filter builder (lens angle, centre, per-frame evaluation).",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "vignette_mask.py",
+  "tags": [
+    "video",
+    "vignette",
+    "mask",
+    "grading",
+    "ffmpeg",
+    "numpy"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "ffmpeg",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

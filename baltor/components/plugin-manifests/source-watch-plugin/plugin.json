@@ -1,0 +1,30 @@
+{
+  "name": "source-watch",
+  "version": "1.0.0",
+  "description": "Watch community and expert feeds politely and write cited digests, trend scans and sourced topic ideas.",
+  "author": {
+    "name": "Baltor"
+  },
+  "license": "MIT",
+  "keywords": [
+    "rss",
+    "feeds",
+    "digest",
+    "trends",
+    "monitoring"
+  ],
+  "commands": [
+    "./commands/weekly-source-digest.md",
+    "./commands/trend-scan.md",
+    "./commands/topic-scout.md"
+  ],
+  "agents": [
+    "./agents/weekly-source-digest-writer.md",
+    "./agents/trend-scan-analyst.md",
+    "./agents/faceless-topic-scout.md"
+  ],
+  "skills": [
+    "./skills/monitor-sources-with-rss-for-agents"
+  ],
+  "hooks": "./hooks/hooks.json"
+}

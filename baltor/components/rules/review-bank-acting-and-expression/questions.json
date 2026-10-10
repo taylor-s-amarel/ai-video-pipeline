@@ -1,0 +1,733 @@
+[
+  {
+    "id": "AVQ-008-001",
+    "domain_id": "D008",
+    "area": "acting and expression",
+    "question": "Does the character visibly think before changing strategy?",
+    "failure_hypothesis": "Decision appears as arbitrary motion.",
+    "check_or_fix": "Add a readable attention or realization beat.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6566,
+    "passes": [
+      "default_32",
+      "performance_motion",
+      "story_edit",
+      "longer_cardboard_32"
+    ]
+  },
+  {
+    "id": "AVQ-008-002",
+    "domain_id": "D008",
+    "area": "acting and expression",
+    "question": "Is the reaction proportionate to the event's importance?",
+    "failure_hypothesis": "Overacting flattens the emotional hierarchy.",
+    "check_or_fix": "Reserve the strongest pose for the strongest change.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6568,
+    "passes": [
+      "performance_motion",
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-008-003",
+    "domain_id": "D008",
+    "area": "acting and expression",
+    "question": "Do the eyes lead the body toward a new target?",
+    "failure_hypothesis": "Movement starts without apparent intention.",
+    "check_or_fix": "Stage gaze before the directional turn.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6570,
+    "passes": [
+      "performance_motion",
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-008-004",
+    "domain_id": "D008",
+    "area": "acting and expression",
+    "question": "Does anticipation reveal the action without spoiling the joke?",
+    "failure_hypothesis": "Preparation gives away the entire payoff.",
+    "check_or_fix": "Tune anticipation to the required surprise.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6572,
+    "passes": [
+      "performance_motion",
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-008-005",
+    "domain_id": "D008",
+    "area": "acting and expression",
+    "question": "Are facial expression and body posture telling the same emotion?",
+    "failure_hypothesis": "Face and body send conflicting signals unintentionally.",
+    "check_or_fix": "Compare expression with the full-body pose.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6574,
+    "passes": [
+      "performance_motion",
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-008-006",
+    "domain_id": "D008",
+    "area": "acting and expression",
+    "question": "Does the actor acknowledge a failed attempt before trying again?",
+    "failure_hypothesis": "Escalation lacks a meaningful consequence.",
+    "check_or_fix": "Insert a concise reassessment gesture.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6576,
+    "passes": [
+      "performance_motion",
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-008-007",
+    "domain_id": "D008",
+    "area": "acting and expression",
+    "question": "Are repeated reactions varied for changing stakes?",
+    "failure_hypothesis": "Identical expression cycles feel mechanical.",
+    "check_or_fix": "Change timing and pose to reflect each outcome.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6578,
+    "passes": [
+      "performance_motion",
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-008-008",
+    "domain_id": "D008",
+    "area": "acting and expression",
+    "question": "Can the audience read the emotional change without dialogue?",
+    "failure_hypothesis": "Narration carries acting the image fails to show.",
+    "check_or_fix": "Watch the beat muted with captions hidden.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6580,
+    "passes": [
+      "performance_motion",
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-008-009",
+    "domain_id": "D008",
+    "area": "acting and expression",
+    "question": "Does the character look at the actual object being addressed?",
+    "failure_hypothesis": "Eyeline misses the interaction target.",
+    "check_or_fix": "Check gaze vectors against target position.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6582,
+    "passes": []
+  },
+  {
+    "id": "AVQ-008-010",
+    "domain_id": "D008",
+    "area": "acting and expression",
+    "question": "Is the held expression alive without constant distracting motion?",
+    "failure_hypothesis": "Idle animation replaces believable stillness.",
+    "check_or_fix": "Use restrained breathing or eye activity only when useful.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6584,
+    "passes": []
+  },
+  {
+    "id": "AVQ-008-011",
+    "domain_id": "D008",
+    "area": "acting and expression",
+    "question": "Does the mouth shape match the intended nonverbal emotion?",
+    "failure_hypothesis": "Smile or frown contradicts the scene.",
+    "check_or_fix": "Inspect facial pose at the reaction peak.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6586,
+    "passes": []
+  },
+  {
+    "id": "AVQ-008-012",
+    "domain_id": "D008",
+    "area": "acting and expression",
+    "question": "Are blinks placed where they support thought and rhythm?",
+    "failure_hypothesis": "Random blinks interrupt key eye contact.",
+    "check_or_fix": "Retarget blinks around attention shifts.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6588,
+    "passes": []
+  },
+  {
+    "id": "AVQ-008-013",
+    "domain_id": "D008",
+    "area": "acting and expression",
+    "question": "Does a smile arrive after the character understands the outcome?",
+    "failure_hypothesis": "Emotion precedes its cause.",
+    "check_or_fix": "Align reaction onset with available information.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6590,
+    "passes": []
+  },
+  {
+    "id": "AVQ-008-014",
+    "domain_id": "D008",
+    "area": "acting and expression",
+    "question": "Can viewers distinguish confidence from confusion?",
+    "failure_hypothesis": "Pose vocabulary is ambiguous.",
+    "check_or_fix": "Compare brows, gaze, torso and timing together.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6592,
+    "passes": []
+  },
+  {
+    "id": "AVQ-008-015",
+    "domain_id": "D008",
+    "area": "acting and expression",
+    "question": "Does the actor recover physically after a strong action?",
+    "failure_hypothesis": "Performance snaps straight back to neutral.",
+    "check_or_fix": "Add motivated settle and recovery.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6594,
+    "passes": []
+  },
+  {
+    "id": "AVQ-008-016",
+    "domain_id": "D008",
+    "area": "acting and expression",
+    "question": "Is embarrassment shown without merely shrinking the character?",
+    "failure_hypothesis": "Scale change substitutes for acting.",
+    "check_or_fix": "Use gaze avoidance, posture and timing.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6596,
+    "passes": []
+  },
+  {
+    "id": "AVQ-008-017",
+    "domain_id": "D008",
+    "area": "acting and expression",
+    "question": "Do supporting characters have independent reactions?",
+    "failure_hypothesis": "Synchronized identical acting looks copied.",
+    "check_or_fix": "Vary reactions around a shared causal event.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6598,
+    "passes": []
+  },
+  {
+    "id": "AVQ-008-018",
+    "domain_id": "D008",
+    "area": "acting and expression",
+    "question": "Does the hero's personality shape how the task is attempted?",
+    "failure_hypothesis": "Actions could belong to any generic character.",
+    "check_or_fix": "Choose a characteristic approach or hesitation.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6600,
+    "passes": []
+  },
+  {
+    "id": "AVQ-008-019",
+    "domain_id": "D008",
+    "area": "acting and expression",
+    "question": "Is a silent pause visibly motivated by thought?",
+    "failure_hypothesis": "Stillness reads as a frozen render.",
+    "check_or_fix": "Maintain a clear attention target and poised body.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6602,
+    "passes": []
+  },
+  {
+    "id": "AVQ-008-020",
+    "domain_id": "D008",
+    "area": "acting and expression",
+    "question": "Does the performance distinguish effort from speed?",
+    "failure_hypothesis": "Fast motion alone is used to signal struggle.",
+    "check_or_fix": "Add resistance, bracing and recovery cues.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6604,
+    "passes": []
+  },
+  {
+    "id": "AVQ-008-021",
+    "domain_id": "D008",
+    "area": "acting and expression",
+    "question": "Are emotional transitions given enough intermediate poses?",
+    "failure_hypothesis": "Expression pops between incompatible states.",
+    "check_or_fix": "Add the smallest meaningful transition.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6606,
+    "passes": []
+  },
+  {
+    "id": "AVQ-008-022",
+    "domain_id": "D008",
+    "area": "acting and expression",
+    "question": "Does the final reaction acknowledge the changed situation?",
+    "failure_hypothesis": "Ending pose repeats the opening emotion.",
+    "check_or_fix": "Show the character's new understanding.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6608,
+    "passes": []
+  },
+  {
+    "id": "AVQ-008-023",
+    "domain_id": "D008",
+    "area": "acting and expression",
+    "question": "Are gestures directed toward a specific listener or object?",
+    "failure_hypothesis": "Arms wave without communicative purpose.",
+    "check_or_fix": "Assign each gesture a target and intent.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6610,
+    "passes": []
+  },
+  {
+    "id": "AVQ-008-024",
+    "domain_id": "D008",
+    "area": "acting and expression",
+    "question": "Does the character notice an approaching threat at a plausible time?",
+    "failure_hypothesis": "Reaction uses information outside their viewpoint.",
+    "check_or_fix": "Check sightlines and available cues.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6612,
+    "passes": []
+  },
+  {
+    "id": "AVQ-008-025",
+    "domain_id": "D008",
+    "area": "acting and expression",
+    "question": "Is comic resignation distinct from visual lifelessness?",
+    "failure_hypothesis": "Underacting removes the joke's emotional payoff.",
+    "check_or_fix": "Preserve one clear expressive cue.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6614,
+    "passes": []
+  },
+  {
+    "id": "AVQ-008-026",
+    "domain_id": "D008",
+    "area": "acting and expression",
+    "question": "Do eyes remain readable while the head turns?",
+    "failure_hypothesis": "Expression disappears during the critical transition.",
+    "check_or_fix": "Adjust turn timing or use a readable angle.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6616,
+    "passes": []
+  },
+  {
+    "id": "AVQ-008-027",
+    "domain_id": "D008",
+    "area": "acting and expression",
+    "question": "Does surprise propagate through the body rather than only the face?",
+    "failure_hypothesis": "Head-only reaction feels disconnected.",
+    "check_or_fix": "Coordinate shoulders, torso and stance.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6618,
+    "passes": []
+  },
+  {
+    "id": "AVQ-008-028",
+    "domain_id": "D008",
+    "area": "acting and expression",
+    "question": "Are microgestures visible enough to justify their screen time?",
+    "failure_hypothesis": "Subtle acting is below delivery-size perception.",
+    "check_or_fix": "Enlarge the gesture or shorten its dedicated beat.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6620,
+    "passes": []
+  },
+  {
+    "id": "AVQ-008-029",
+    "domain_id": "D008",
+    "area": "acting and expression",
+    "question": "Does the actor's attention remain consistent during prop handling?",
+    "failure_hypothesis": "Character gazes elsewhere during a delicate action.",
+    "check_or_fix": "Align attention with the task's difficulty.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6622,
+    "passes": []
+  },
+  {
+    "id": "AVQ-008-030",
+    "domain_id": "D008",
+    "area": "acting and expression",
+    "question": "Can two characters' relationship be inferred from their responses?",
+    "failure_hypothesis": "Interaction lacks reciprocity.",
+    "check_or_fix": "Stage an offer, acknowledgment and changed behavior.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6624,
+    "passes": []
+  },
+  {
+    "id": "AVQ-008-031",
+    "domain_id": "D008",
+    "area": "acting and expression",
+    "question": "Does the performance leave room for the viewer's own inference?",
+    "failure_hypothesis": "Every feeling is redundantly spelled out.",
+    "check_or_fix": "Remove one redundant gesture or line and compare.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6626,
+    "passes": []
+  },
+  {
+    "id": "AVQ-008-032",
+    "domain_id": "D008",
+    "area": "acting and expression",
+    "question": "Would a stronger contrasting pose improve the turning point?",
+    "failure_hypothesis": "Emotional change is too visually incremental.",
+    "check_or_fix": "Create a clear before-and-after pose contrast.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6628,
+    "passes": []
+  }
+]

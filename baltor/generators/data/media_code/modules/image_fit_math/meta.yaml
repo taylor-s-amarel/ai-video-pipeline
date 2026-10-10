@@ -1,0 +1,6 @@
+title: Image fit geometry
+summary: Pure geometry for cover, contain, width and fill fits, the source crop a cover fit shows, even yuv420p-safe sizes and an upscale factor that warns before photos go soft.
+subkind: aspect-format
+domain: video
+tags: [video, layout, geometry, cover, contain, photo]
+step_kinds: [build, render]

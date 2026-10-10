@@ -1,0 +1,744 @@
+[
+  {
+    "id": "AVQ-026-001",
+    "domain_id": "D026",
+    "area": "rights and asset provenance",
+    "question": "Can every imported asset be traced to the exact source file and license that applied when it was obtained?",
+    "failure_hypothesis": "A generic website reference is substituted for asset-specific permission.",
+    "check_or_fix": "Build a file-hash ledger linked to retained license evidence.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "concept",
+      "production",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7754,
+    "passes": [
+      "default_32",
+      "factual_puzzle",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-026-002",
+    "domain_id": "D026",
+    "area": "rights and asset provenance",
+    "question": "Does the license permit the intended rendered use, including commercial or promotional distribution if planned?",
+    "failure_hypothesis": "A broadly labeled free asset has narrower use restrictions.",
+    "check_or_fix": "Review the exact license against the declared distribution purpose.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "production",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7756,
+    "passes": [
+      "factual_puzzle",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-026-003",
+    "domain_id": "D026",
+    "area": "rights and asset provenance",
+    "question": "May the original asset be included in editable project delivery, rather than only in a finished render?",
+    "failure_hypothesis": "Native-source packaging redistributes material beyond render-only permission.",
+    "check_or_fix": "Separate source-redistribution rights from rendered-output rights.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "production",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7758,
+    "passes": [
+      "factual_puzzle",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-026-004",
+    "domain_id": "D026",
+    "area": "rights and asset provenance",
+    "question": "Are music composition rights and sound-recording rights both resolved for the exact cue?",
+    "failure_hypothesis": "Permission for one rights layer is mistaken for permission for both.",
+    "check_or_fix": "Identify the composition and recording owners and retain applicable grants.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "production",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7760,
+    "passes": [
+      "factual_puzzle",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-026-005",
+    "domain_id": "D026",
+    "area": "rights and asset provenance",
+    "question": "Do sampled sounds within a music track have provenance independent of the finished track's author claim?",
+    "failure_hypothesis": "A composer supplies music containing uncleared third-party samples.",
+    "check_or_fix": "Request the sample inventory and evidence covering the intended use.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "production",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7762,
+    "passes": [
+      "factual_puzzle",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-026-006",
+    "domain_id": "D026",
+    "area": "rights and asset provenance",
+    "question": "Does a voice performance have permission for this use, including synthetic replication if that occurred?",
+    "failure_hypothesis": "Recording permission is stretched into unauthorized voice cloning or reuse.",
+    "check_or_fix": "Check the performer grant against the actual generation and distribution method.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "production",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7764,
+    "passes": [
+      "factual_puzzle",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-026-007",
+    "domain_id": "D026",
+    "area": "rights and asset provenance",
+    "question": "Are recognizable people's likenesses used within the scope they authorized?",
+    "failure_hypothesis": "Footage or images are repurposed beyond the original consent.",
+    "check_or_fix": "Match the planned context and audience to the relevant release.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "production",
+      "delivery"
+    ],
+    "style_filters": [
+      "live-action",
+      "3d"
+    ],
+    "source_line": 7766,
+    "passes": [
+      "factual_puzzle",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-026-008",
+    "domain_id": "D026",
+    "area": "rights and asset provenance",
+    "question": "If a minor appears, is the permission record appropriate to that person's age and planned distribution?",
+    "failure_hypothesis": "Ordinary asset handling overlooks heightened consent requirements.",
+    "check_or_fix": "Hold uncertain use for qualified review and verify the relevant authorization.",
+    "severity": "critical",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "production",
+      "delivery"
+    ],
+    "style_filters": [
+      "live-action"
+    ],
+    "source_line": 7768,
+    "passes": [
+      "factual_puzzle",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-026-009",
+    "domain_id": "D026",
+    "area": "rights and asset provenance",
+    "question": "Do visible trademarks or branded interfaces falsely suggest sponsorship, affiliation, or endorsement?",
+    "failure_hypothesis": "Context converts incidental branding into an implied commercial relationship.",
+    "check_or_fix": "Review framing and wording and remove unsupported endorsement cues.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "edit",
+      "delivery"
+    ],
+    "style_filters": [
+      "live-action",
+      "screen-recording"
+    ],
+    "source_line": 7770,
+    "passes": [
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-026-010",
+    "domain_id": "D026",
+    "area": "rights and asset provenance",
+    "question": "Is a stock asset restricted to editorial use while the film serves a promotional purpose?",
+    "failure_hypothesis": "A convenient stock download is used in an incompatible context.",
+    "check_or_fix": "Check the exact asset's license designation and replace if necessary.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "concept",
+      "production",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7772,
+    "passes": [
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-026-011",
+    "domain_id": "D026",
+    "area": "rights and asset provenance",
+    "question": "Are required credits present, accurate, and readable in the actual delivered package?",
+    "failure_hypothesis": "Attribution obligations are lost between working notes and export.",
+    "check_or_fix": "Compare each required credit with the final video and accompanying files.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "final-encode",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7774,
+    "passes": []
+  },
+  {
+    "id": "AVQ-026-012",
+    "domain_id": "D026",
+    "area": "rights and asset provenance",
+    "question": "Does cropping or editing an asset remove a notice or violate a restriction on modification?",
+    "failure_hypothesis": "Production changes strip required attribution or exceed permitted alterations.",
+    "check_or_fix": "Compare the modified asset to its retained terms.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7776,
+    "passes": []
+  },
+  {
+    "id": "AVQ-026-013",
+    "domain_id": "D026",
+    "area": "rights and asset provenance",
+    "question": "Are font licenses sufficient for the render, embedded file, and editable source being delivered?",
+    "failure_hypothesis": "Desktop font use is mistaken for unrestricted font redistribution.",
+    "check_or_fix": "Check each font's permitted output and embedding modes separately.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "production",
+      "delivery"
+    ],
+    "style_filters": [
+      "typographic"
+    ],
+    "source_line": 7778,
+    "passes": []
+  },
+  {
+    "id": "AVQ-026-014",
+    "domain_id": "D026",
+    "area": "rights and asset provenance",
+    "question": "Can a generated asset's model and service terms support the specific output use being claimed?",
+    "failure_hypothesis": "'AI-generated' is treated as automatic unrestricted ownership.",
+    "check_or_fix": "Record the actual model/service version and applicable output terms.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "concept",
+      "production",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7780,
+    "passes": []
+  },
+  {
+    "id": "AVQ-026-015",
+    "domain_id": "D026",
+    "area": "rights and asset provenance",
+    "question": "Is any claim that training data or model outputs are fully rights-cleared supported by evidence?",
+    "failure_hypothesis": "An unsupported assurance is repeated as a legal guarantee.",
+    "check_or_fix": "Limit claims to documented rights and disclose unresolved provenance.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7782,
+    "passes": []
+  },
+  {
+    "id": "AVQ-026-016",
+    "domain_id": "D026",
+    "area": "rights and asset provenance",
+    "question": "Does a model or tool require a particular paid tier or organizational license for this use?",
+    "failure_hypothesis": "A technically available route exceeds the license actually held.",
+    "check_or_fix": "Verify the installed tool's entitlement against the planned production.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "concept",
+      "production"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7784,
+    "passes": []
+  },
+  {
+    "id": "AVQ-026-017",
+    "domain_id": "D026",
+    "area": "rights and asset provenance",
+    "question": "Are third-party plugins, scripts, or model weights being bundled only where redistribution is permitted?",
+    "failure_hypothesis": "A reproducibility package inadvertently redistributes restricted dependencies.",
+    "check_or_fix": "Audit package contents and replace restricted binaries with acquisition instructions.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "production",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7786,
+    "passes": []
+  },
+  {
+    "id": "AVQ-026-018",
+    "domain_id": "D026",
+    "area": "rights and asset provenance",
+    "question": "Have license expiration, project limits, or download-credit conditions been checked for this particular deliverable?",
+    "failure_hypothesis": "Permission assumed from an old subscription does not cover the present use.",
+    "check_or_fix": "Retain the applicable grant and verify its project and time scope.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "concept",
+      "production",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7788,
+    "passes": []
+  },
+  {
+    "id": "AVQ-026-019",
+    "domain_id": "D026",
+    "area": "rights and asset provenance",
+    "question": "Are territory, platform, or audience restrictions compatible with every planned destination?",
+    "failure_hypothesis": "A cleared local use is silently expanded into a broader release.",
+    "check_or_fix": "Compare each destination against the recorded permission scope.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "concept",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7790,
+    "passes": []
+  },
+  {
+    "id": "AVQ-026-020",
+    "domain_id": "D026",
+    "area": "rights and asset provenance",
+    "question": "Does a derivative or adapted asset carry conditions that must survive into the combined work?",
+    "failure_hypothesis": "Adaptation obligations are lost during compositing or conversion.",
+    "check_or_fix": "Identify derivative-use conditions and review the assembled delivery.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "production",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7792,
+    "passes": []
+  },
+  {
+    "id": "AVQ-026-021",
+    "domain_id": "D026",
+    "area": "rights and asset provenance",
+    "question": "Are the licenses of combined reusable assets compatible with how the project will be shared?",
+    "failure_hypothesis": "Separate permissive-looking grants impose conflicting redistribution conditions.",
+    "check_or_fix": "Review the intended combined package before committing to its license.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7794,
+    "passes": []
+  },
+  {
+    "id": "AVQ-026-022",
+    "domain_id": "D026",
+    "area": "rights and asset provenance",
+    "question": "Can a reference-inspired design be distinguished from copying protected character, shot, or sequence expression?",
+    "failure_hypothesis": "Surface changes disguise close reproduction of a specific work.",
+    "check_or_fix": "Compare expressive choices and redesign similarities that lack a cleared basis.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "production"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7796,
+    "passes": []
+  },
+  {
+    "id": "AVQ-026-023",
+    "domain_id": "D026",
+    "area": "rights and asset provenance",
+    "question": "Does a photographed location contain artwork or other protected material that needs separate consideration?",
+    "failure_hypothesis": "Location permission is mistaken for rights to every depicted work.",
+    "check_or_fix": "Inventory prominent embedded works and resolve uncertain uses.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "production",
+      "delivery"
+    ],
+    "style_filters": [
+      "live-action"
+    ],
+    "source_line": 7798,
+    "passes": []
+  },
+  {
+    "id": "AVQ-026-024",
+    "domain_id": "D026",
+    "area": "rights and asset provenance",
+    "question": "Is permission to film on a property being confused with permission to promote or commercially associate with it?",
+    "failure_hypothesis": "A location release has a narrower purpose than the final presentation.",
+    "check_or_fix": "Compare the final context with the actual property agreement.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "production",
+      "delivery"
+    ],
+    "style_filters": [
+      "live-action"
+    ],
+    "source_line": 7800,
+    "passes": []
+  },
+  {
+    "id": "AVQ-026-025",
+    "domain_id": "D026",
+    "area": "rights and asset provenance",
+    "question": "Have preview assets, watermarked downloads, and evaluation-only files been excluded from the final package?",
+    "failure_hypothesis": "Temporary production material is mistaken for licensed final content.",
+    "check_or_fix": "Audit every final asset hash against the cleared inventory.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "final-encode",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7802,
+    "passes": []
+  },
+  {
+    "id": "AVQ-026-026",
+    "domain_id": "D026",
+    "area": "rights and asset provenance",
+    "question": "Are original creators and collaborators credited according to the actual agreement rather than inferred from filenames?",
+    "failure_hypothesis": "Informal naming obscures authorship or contractual credit.",
+    "check_or_fix": "Confirm contribution records and agreed credit wording.",
+    "severity": "medium",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "production",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7804,
+    "passes": []
+  },
+  {
+    "id": "AVQ-026-027",
+    "domain_id": "D026",
+    "area": "rights and asset provenance",
+    "question": "Does an asset's claimed public-domain status apply in the relevant jurisdiction and to this exact version?",
+    "failure_hypothesis": "A modern restoration, translation, or recording is conflated with an older work.",
+    "check_or_fix": "Verify the specific version and obtain qualified review where uncertain.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "production",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7806,
+    "passes": []
+  },
+  {
+    "id": "AVQ-026-028",
+    "domain_id": "D026",
+    "area": "rights and asset provenance",
+    "question": "Are screenshots of private systems free of information the user did not authorize sharing?",
+    "failure_hypothesis": "Demonstration footage exposes personal or confidential content incidentally.",
+    "check_or_fix": "Inspect full-resolution frames and mask or replace unauthorized information.",
+    "severity": "critical",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "production",
+      "final-encode",
+      "delivery"
+    ],
+    "style_filters": [
+      "screen-recording"
+    ],
+    "source_line": 7808,
+    "passes": []
+  },
+  {
+    "id": "AVQ-026-029",
+    "domain_id": "D026",
+    "area": "rights and asset provenance",
+    "question": "Is a synthetic or staged performance labeled honestly where its origin affects the viewer's interpretation?",
+    "failure_hypothesis": "Generated footage is presented as authentic capture or testimony.",
+    "check_or_fix": "Document production origin and add an appropriate clear disclosure.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "delivery"
+    ],
+    "style_filters": [
+      "3d",
+      "stop-motion",
+      "live-action"
+    ],
+    "source_line": 7810,
+    "passes": []
+  },
+  {
+    "id": "AVQ-026-030",
+    "domain_id": "D026",
+    "area": "rights and asset provenance",
+    "question": "If the same cleared asset is reused in another episode, does the permission cover that additional project?",
+    "failure_hypothesis": "Single-project rights are silently treated as a reusable-library license.",
+    "check_or_fix": "Check project-count and reuse terms before reuse.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "concept",
+      "production"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7812,
+    "passes": []
+  },
+  {
+    "id": "AVQ-026-031",
+    "domain_id": "D026",
+    "area": "rights and asset provenance",
+    "question": "Can reviewers distinguish creator-owned material from licensed material and unresolved material in the handoff?",
+    "failure_hypothesis": "Mixed provenance is flattened into a blanket ownership statement.",
+    "check_or_fix": "Assign explicit provenance status to every deliverable component.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "production",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7814,
+    "passes": []
+  },
+  {
+    "id": "AVQ-026-032",
+    "domain_id": "D026",
+    "area": "rights and asset provenance",
+    "question": "Is the final rights signoff tied to the delivered asset versions rather than earlier approved substitutes?",
+    "failure_hypothesis": "Late asset swaps bypass the rights review.",
+    "check_or_fix": "Reconcile final hashes and changes against the approved rights ledger.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "final-encode",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7816,
+    "passes": []
+  }
+]

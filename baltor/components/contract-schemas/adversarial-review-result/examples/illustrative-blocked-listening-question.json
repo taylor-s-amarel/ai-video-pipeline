@@ -1,0 +1,20 @@
+{
+  "question_id": "AVQ-022-001",
+  "target_artifact": "illustrative-final.mp4",
+  "target_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+  "status": "blocked",
+  "finding_type": "none",
+  "review_mode": "auditory",
+  "scope": {
+    "start_frame": null,
+    "end_frame": null,
+    "coverage": "not_observed"
+  },
+  "evidence": [],
+  "rationale": "Illustrative: listening question; no listener or audio access in this pass. Loudness statistics were measured separately and do not answer it.",
+  "required_recheck_after": [
+    "music_change",
+    "narration_change",
+    "mix_change"
+  ]
+}

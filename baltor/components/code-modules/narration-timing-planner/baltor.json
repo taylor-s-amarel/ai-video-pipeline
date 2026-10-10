@@ -1,0 +1,51 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "narration_timing_planner",
+  "title": "Narration timing planner",
+  "kind": "code-module",
+  "subkind": "voice-preset",
+  "version": "1.0.0",
+  "summary": "Estimates narration length from words per minute and sentence pauses, solves the rate for a target length and tells you how many words to add or cut to land 60-90 s.",
+  "domain": "audio",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "plan",
+    "write"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "narration_timing_planner.py",
+  "tags": [
+    "audio",
+    "narration",
+    "wpm",
+    "planning",
+    "timing",
+    "script"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

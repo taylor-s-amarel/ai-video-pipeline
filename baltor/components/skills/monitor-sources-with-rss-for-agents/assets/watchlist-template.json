@@ -1,0 +1,44 @@
+{
+  "id": "my-watchlist",
+  "title": "Example watchlist",
+  "cadence": "weekly",
+  "window": "7d",
+  "sources": [
+    {
+      "collection": "community-releases-agents-ai",
+      "weight": 2.0
+    },
+    {
+      "url": "https://hnrss.org/newest?q=godot+OR+blender",
+      "weight": 1.0
+    }
+  ],
+  "keywords": [
+    {
+      "term": "claude code",
+      "weight": 3
+    },
+    "godot"
+  ],
+  "exclude_terms": [
+    "giveaway"
+  ],
+  "max_items_per_source": 4,
+  "max_items": 40,
+  "recency_half_life_days": 3,
+  "trend_min_sources": 2,
+  "polite": {
+    "user_agent": "baltor-feed-reader/1.0 (+https://github.com/taylor-s-amarel/ai-video-pipeline)",
+    "min_interval_s": 5,
+    "max_polls_per_day": 24,
+    "respect_retry_after": true,
+    "conditional_get": true,
+    "host_overrides": {
+      "www.reddit.com": 60
+    }
+  },
+  "outputs": {
+    "markdown": "digests/my-watchlist/{date}.md",
+    "json": "digests/my-watchlist/{date}.json"
+  }
+}

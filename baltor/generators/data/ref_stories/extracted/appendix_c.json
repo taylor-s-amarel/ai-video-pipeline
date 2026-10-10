@@ -1,0 +1,2773 @@
+{
+ "heading": "Appendix C Creative banks and exact treatment addressing",
+ "anchor": "appendix-c-creative-banks-and-exact-treatment-addressing",
+ "line": 2245,
+ "intro": [
+  "The following banks were materialized from the 10 October 2026 catalogue and are preserved here as usable text. They remain proposals. The catalogue's earlier statement that a second film was in progress and that zero twelve-style slots were qualified is a historical assembly snapshot; it is not today's completed-film ledger. This guide does not retroactively mark individual catalogue recipes rendered because a similarly named film exists."
+ ],
+ "count_contract": {
+  "line": 2249,
+  "anchor": "count-and-assembly-contract",
+  "paragraphs": [
+   "There are 240 underlying premises, 120 learning and 120 fiction, and 2,400 addressable candidate treatments. There were zero independently written complete treatment scripts, zero catalogue recipe renders and zero audience studies in that catalogue. Factual checkability is not factual verification. Lexically distinct ideas are not proven novel against all historical work. Select one premise for a concrete viewer task, resolve its facts and rights, write an actual storyboard and test its risky action.",
+   "The four representation approaches are below. Their original pipeline wording is a historical candidate status. Current installed/used evidence is in the main architecture and tool sections."
+  ],
+  "approaches": {
+   "heading": "Count and assembly contract",
+   "anchor": "count-and-assembly-contract",
+   "line": 2249,
+   "columns": [
+    "ID",
+    "Approach",
+    "Construction",
+    "Communicative difference",
+    "Gate"
+   ],
+   "keys": [
+    "id",
+    "approach",
+    "construction",
+    "communicative_difference",
+    "gate"
+   ],
+   "intro": [
+    "There are 240 underlying premises, 120 learning and 120 fiction, and 2,400 addressable candidate treatments. There were zero independently written complete treatment scripts, zero catalogue recipe renders and zero audience studies in that catalogue. Factual checkability is not factual verification. Lexically distinct ideas are not proven novel against all historical work. Select one premise for a concrete viewer task, resolve its facts and rights, write an actual storyboard and test its risky action.",
+    "The four representation approaches are below. Their original pipeline wording is a historical candidate status. Current installed/used evidence is in the main architecture and tool sections."
+   ],
+   "after": [],
+   "records": [
+    {
+     "id": "A01",
+     "approach": "Articulated vector evidence",
+     "construction": "Use original articulated line characters, crisp props and explicit highlights. Keep one causal relationship legible at a time.",
+     "communicative_difference": "Emphasizes symbolic relationships, exact matching and readable cause/effect without depth distractions.",
+     "gate": "Rig contacts, text layout and every diagram relationship must be checked; this is 2D animation."
+    },
+    {
+     "id": "A02",
+     "approach": "Sketch and cutaway explanation",
+     "construction": "Stage the same action as a drawn field-note sequence. Add traces, section views and short observations in the order they are needed.",
+     "communicative_difference": "Makes reasoning and uncertainty visible through progressive construction, rather than presenting only the final state.",
+     "gate": "Verify stroke order, annotation tracking and model limits. Rough strokes must never change factual geometry."
+    },
+    {
+     "id": "A03",
+     "approach": "Tactile miniature staging",
+     "construction": "Build the scene with original volumetric props and grounded characters, then use lighting, contact and a restrained camera to show the same conflict.",
+     "communicative_difference": "Emphasizes embodied effort, occlusion and spatial consequences that the diagrammatic view abstracts.",
+     "gate": "Requires a real 3D scene, alternate-angle check, contact/shadow review and source reopening. Blockbench is a research-only asset option."
+    },
+    {
+     "id": "A04",
+     "approach": "Layered 2.5D illustrated stage",
+     "construction": "Create original foreground, character, prop and background planes with meaningful depth order. Use gentle parallax, grounded articulation and explicit masks to stage the existing story.",
+     "communicative_difference": "Emphasizes layered attention, a rich setting and a gradual foreground/background discovery while retaining the readability of illustration.",
+     "gate": "This is 2.5D, not true volumetric 3D. Check masks, disocclusion gaps, foot anchors, occlusion order, scene-space transforms and every texture license."
+    }
+   ]
+  }
+ },
+ "treatment_map": {
+  "line": 2263,
+  "anchor": "exact-2400-treatment-address-map",
+  "intro": [
+   "The stable ID is `R-{story_id}-{format_id}-{approach_id}`. Each story receives exactly ten rows. The four groups below preserve every actual format/approach/intro/motion assignment without copying hundreds of thousands of words of repeated template prose. Join the story record with its format, approach, intro and motion records in this same file. A compatible combination is still not a screenplay."
+  ],
+  "groups": [
+   {
+    "group": 1,
+    "line": 2267,
+    "stories": [
+     "EDU001",
+     "EDU002",
+     "EDU003",
+     "EDU004",
+     "EDU005",
+     "EDU006",
+     "EDU007",
+     "EDU008",
+     "EDU009",
+     "EDU010",
+     "EDU011",
+     "EDU012",
+     "EDU013",
+     "EDU014",
+     "EDU015",
+     "EDU016",
+     "EDU017",
+     "EDU018",
+     "EDU019",
+     "EDU020",
+     "EDU021",
+     "EDU022",
+     "EDU023",
+     "EDU024",
+     "EDU025",
+     "EDU026",
+     "EDU027",
+     "EDU028",
+     "EDU029",
+     "EDU030",
+     "EDU031",
+     "EDU032",
+     "EDU033",
+     "EDU034",
+     "EDU035",
+     "EDU036",
+     "EDU037",
+     "EDU038",
+     "EDU039",
+     "EDU040",
+     "EDU041",
+     "EDU042",
+     "EDU043",
+     "EDU044",
+     "EDU045",
+     "EDU046",
+     "EDU047",
+     "EDU048",
+     "EDU049",
+     "EDU050",
+     "EDU051",
+     "EDU052",
+     "EDU053",
+     "EDU054",
+     "EDU055",
+     "EDU056",
+     "EDU057",
+     "EDU058",
+     "EDU059",
+     "EDU060",
+     "EDU061",
+     "EDU062",
+     "EDU063",
+     "EDU064",
+     "EDU065",
+     "EDU066",
+     "EDU067",
+     "EDU068",
+     "EDU069",
+     "EDU070",
+     "EDU071",
+     "EDU072",
+     "EDU073",
+     "EDU074",
+     "EDU075",
+     "EDU076",
+     "EDU077",
+     "EDU078",
+     "EDU079",
+     "EDU080",
+     "EDU081",
+     "EDU082",
+     "EDU083",
+     "EDU084",
+     "EDU085",
+     "EDU086",
+     "EDU087",
+     "EDU088",
+     "EDU089",
+     "EDU090",
+     "EDU091",
+     "EDU092",
+     "EDU093",
+     "EDU094",
+     "EDU095",
+     "EDU096",
+     "EDU097",
+     "EDU098",
+     "EDU099",
+     "EDU100",
+     "EDU111",
+     "EDU112",
+     "EDU113",
+     "EDU114",
+     "EDU115",
+     "EDU116",
+     "EDU117",
+     "EDU118",
+     "EDU119",
+     "EDU120"
+    ],
+    "rows": [
+     {
+      "format": "F01",
+      "approach": "A01",
+      "intro": "I26",
+      "motion": "M13"
+     },
+     {
+      "format": "F01",
+      "approach": "A02",
+      "intro": "I26",
+      "motion": "M13"
+     },
+     {
+      "format": "F02",
+      "approach": "A01",
+      "intro": "I26",
+      "motion": "M16"
+     },
+     {
+      "format": "F02",
+      "approach": "A02",
+      "intro": "I26",
+      "motion": "M16"
+     },
+     {
+      "format": "F03",
+      "approach": "A01",
+      "intro": "I08",
+      "motion": "M05"
+     },
+     {
+      "format": "F03",
+      "approach": "A02",
+      "intro": "I08",
+      "motion": "M05"
+     },
+     {
+      "format": "F04",
+      "approach": "A01",
+      "intro": "I02",
+      "motion": "M09"
+     },
+     {
+      "format": "F04",
+      "approach": "A02",
+      "intro": "I02",
+      "motion": "M09"
+     },
+     {
+      "format": "F05",
+      "approach": "A01",
+      "intro": "I18",
+      "motion": "M21"
+     },
+     {
+      "format": "F05",
+      "approach": "A02",
+      "intro": "I18",
+      "motion": "M21"
+     }
+    ]
+   },
+   {
+    "group": 2,
+    "line": 2284,
+    "stories": [
+     "EDU101",
+     "EDU102",
+     "EDU103",
+     "EDU104",
+     "EDU105",
+     "EDU106",
+     "EDU107",
+     "EDU108",
+     "EDU109",
+     "EDU110"
+    ],
+    "rows": [
+     {
+      "format": "F01",
+      "approach": "A01",
+      "intro": "I26",
+      "motion": "M13"
+     },
+     {
+      "format": "F01",
+      "approach": "A02",
+      "intro": "I26",
+      "motion": "M13"
+     },
+     {
+      "format": "F20",
+      "approach": "A01",
+      "intro": "I06",
+      "motion": "M13"
+     },
+     {
+      "format": "F20",
+      "approach": "A02",
+      "intro": "I06",
+      "motion": "M13"
+     },
+     {
+      "format": "F03",
+      "approach": "A01",
+      "intro": "I08",
+      "motion": "M05"
+     },
+     {
+      "format": "F03",
+      "approach": "A02",
+      "intro": "I08",
+      "motion": "M05"
+     },
+     {
+      "format": "F04",
+      "approach": "A01",
+      "intro": "I02",
+      "motion": "M09"
+     },
+     {
+      "format": "F04",
+      "approach": "A02",
+      "intro": "I02",
+      "motion": "M09"
+     },
+     {
+      "format": "F05",
+      "approach": "A01",
+      "intro": "I18",
+      "motion": "M21"
+     },
+     {
+      "format": "F05",
+      "approach": "A02",
+      "intro": "I18",
+      "motion": "M21"
+     }
+    ]
+   },
+   {
+    "group": 3,
+    "line": 2301,
+    "stories": [
+     "ENT001",
+     "ENT002",
+     "ENT003",
+     "ENT004",
+     "ENT005",
+     "ENT006",
+     "ENT007",
+     "ENT008",
+     "ENT009",
+     "ENT010",
+     "ENT011",
+     "ENT012",
+     "ENT013",
+     "ENT014",
+     "ENT015",
+     "ENT016",
+     "ENT017",
+     "ENT018",
+     "ENT019",
+     "ENT020",
+     "ENT021",
+     "ENT022",
+     "ENT023",
+     "ENT024",
+     "ENT025",
+     "ENT026",
+     "ENT027",
+     "ENT028",
+     "ENT029",
+     "ENT030",
+     "ENT031",
+     "ENT032",
+     "ENT033",
+     "ENT034",
+     "ENT035",
+     "ENT036",
+     "ENT037",
+     "ENT038",
+     "ENT039",
+     "ENT040",
+     "ENT041",
+     "ENT042",
+     "ENT043",
+     "ENT044",
+     "ENT045",
+     "ENT046",
+     "ENT047",
+     "ENT048",
+     "ENT049",
+     "ENT050",
+     "ENT051",
+     "ENT052",
+     "ENT053",
+     "ENT054",
+     "ENT055",
+     "ENT056",
+     "ENT057",
+     "ENT058",
+     "ENT059",
+     "ENT060",
+     "ENT061",
+     "ENT062",
+     "ENT063",
+     "ENT064",
+     "ENT065",
+     "ENT066",
+     "ENT067",
+     "ENT068",
+     "ENT069",
+     "ENT070",
+     "ENT101",
+     "ENT102",
+     "ENT103",
+     "ENT104",
+     "ENT105",
+     "ENT106",
+     "ENT107",
+     "ENT108",
+     "ENT109",
+     "ENT110",
+     "ENT111",
+     "ENT112",
+     "ENT113",
+     "ENT114",
+     "ENT115",
+     "ENT116",
+     "ENT117",
+     "ENT118",
+     "ENT119",
+     "ENT120"
+    ],
+    "rows": [
+     {
+      "format": "F06",
+      "approach": "A01",
+      "intro": "I03",
+      "motion": "M14"
+     },
+     {
+      "format": "F06",
+      "approach": "A03",
+      "intro": "I03",
+      "motion": "M14"
+     },
+     {
+      "format": "F07",
+      "approach": "A01",
+      "intro": "I19",
+      "motion": "M16"
+     },
+     {
+      "format": "F07",
+      "approach": "A03",
+      "intro": "I19",
+      "motion": "M16"
+     },
+     {
+      "format": "F08",
+      "approach": "A01",
+      "intro": "I30",
+      "motion": "M03"
+     },
+     {
+      "format": "F08",
+      "approach": "A03",
+      "intro": "I30",
+      "motion": "M03"
+     },
+     {
+      "format": "F09",
+      "approach": "A01",
+      "intro": "I14",
+      "motion": "M29"
+     },
+     {
+      "format": "F09",
+      "approach": "A03",
+      "intro": "I14",
+      "motion": "M29"
+     },
+     {
+      "format": "F10",
+      "approach": "A01",
+      "intro": "I04",
+      "motion": "M04"
+     },
+     {
+      "format": "F10",
+      "approach": "A03",
+      "intro": "I04",
+      "motion": "M04"
+     }
+    ]
+   },
+   {
+    "group": 4,
+    "line": 2318,
+    "stories": [
+     "ENT071",
+     "ENT072",
+     "ENT073",
+     "ENT074",
+     "ENT075",
+     "ENT076",
+     "ENT077",
+     "ENT078",
+     "ENT079",
+     "ENT080",
+     "ENT081",
+     "ENT082",
+     "ENT083",
+     "ENT084",
+     "ENT085",
+     "ENT086",
+     "ENT087",
+     "ENT088",
+     "ENT089",
+     "ENT090",
+     "ENT091",
+     "ENT092",
+     "ENT093",
+     "ENT094",
+     "ENT095",
+     "ENT096",
+     "ENT097",
+     "ENT098",
+     "ENT099",
+     "ENT100"
+    ],
+    "rows": [
+     {
+      "format": "F06",
+      "approach": "A01",
+      "intro": "I03",
+      "motion": "M14"
+     },
+     {
+      "format": "F06",
+      "approach": "A04",
+      "intro": "I03",
+      "motion": "M14"
+     },
+     {
+      "format": "F07",
+      "approach": "A01",
+      "intro": "I19",
+      "motion": "M16"
+     },
+     {
+      "format": "F07",
+      "approach": "A04",
+      "intro": "I19",
+      "motion": "M16"
+     },
+     {
+      "format": "F08",
+      "approach": "A01",
+      "intro": "I30",
+      "motion": "M03"
+     },
+     {
+      "format": "F08",
+      "approach": "A04",
+      "intro": "I30",
+      "motion": "M03"
+     },
+     {
+      "format": "F09",
+      "approach": "A01",
+      "intro": "I14",
+      "motion": "M29"
+     },
+     {
+      "format": "F09",
+      "approach": "A04",
+      "intro": "I14",
+      "motion": "M29"
+     },
+     {
+      "format": "F10",
+      "approach": "A01",
+      "intro": "I04",
+      "motion": "M04"
+     },
+     {
+      "format": "F10",
+      "approach": "A04",
+      "intro": "I04",
+      "motion": "M04"
+     }
+    ]
+   }
+  ],
+  "editorial_rules": [
+   "F01 explains the relationship through the story's visible action and bounded takeaway.",
+   "F02 asks the story question before a fair thinking hold, then resolves it from visible evidence. It is excluded from the public-safety group.",
+   "F03 separates one worked case into setup, action and a checked checkpoint.",
+   "F04 compares initial and changed conditions while isolating one justified variable; no invented counterfactual result.",
+   "F05 starts at the outcome, inspects clues, then replays the supported chain forward without overstating causality.",
+   "F06 stages a want, obstacle, committed choice, consequence and the authored ending.",
+   "F07 makes the costs of two plausible choices visible; an unexecuted alternate branch stays labeled proposed.",
+   "F08 gives the viewer a fair advance clue before the protagonist notices it; no last-second coincidence.",
+   "F09 lets readable actions and reactions carry the story with sparse captions and purposeful sound.",
+   "F10 retells the same conflict from an existing prop/helper viewpoint without inventing a new solution.",
+   "F20 alternates schematic and tangible representations of one relationship. Practical guidance needs an approved factual script first."
+  ],
+  "editorial_rules_after": [
+   "Learning combinations fail if their comparison has no controlled basis, their backward trace overstates causality, or factual verification removes the premise. Fiction combinations fail if their alternative choice, advance clue or object viewpoint requires a contrived new premise rather than illuminating the existing one. Every combination inherits the story risks, format gate, approach gate, rights review, caption readability, motion comfort, audio mix and exact-byte checks."
+  ]
+ },
+ "banks": {
+  "hooks": {
+   "heading": "Sixty hook patterns",
+   "anchor": "sixty-hook-patterns",
+   "line": 2351,
+   "columns": [
+    "ID",
+    "Pattern",
+    "Copy seed",
+    "Use",
+    "Guard"
+   ],
+   "keys": [
+    "id",
+    "pattern",
+    "copy_seed",
+    "use",
+    "guard"
+   ],
+   "intro": [],
+   "after": [],
+   "records": [
+    {
+     "id": "H01",
+     "pattern": "Visible contradiction",
+     "copy_seed": "These two objects look the same. Watch where they behave differently.",
+     "use": "Comparison",
+     "guard": "Use a real controlled difference; avoid unsupported universal claims."
+    },
+    {
+     "id": "H02",
+     "pattern": "Prediction pause",
+     "copy_seed": "Before this moves, where do you think it will stop?",
+     "use": "Prediction",
+     "guard": "Show all information needed for a fair prediction."
+    },
+    {
+     "id": "H03",
+     "pattern": "Hidden cause",
+     "copy_seed": "The clue is in the part that barely moves.",
+     "use": "Mechanism",
+     "guard": "The identified detail must actually explain the result."
+    },
+    {
+     "id": "H04",
+     "pattern": "Single change",
+     "copy_seed": "I changed one thing. Follow what happens next.",
+     "use": "Controlled test",
+     "guard": "Hold other relevant variables fixed or disclose them."
+    },
+    {
+     "id": "H05",
+     "pattern": "Result first",
+     "copy_seed": "Here is the finished result. Let us rewind one decision.",
+     "use": "Reconstruction",
+     "guard": "Do not conceal an essential step to create artificial mystery."
+    },
+    {
+     "id": "H06",
+     "pattern": "Scale surprise",
+     "copy_seed": "Zoom out once, and this problem changes.",
+     "use": "Scale",
+     "guard": "Label scale and preserve proportions."
+    },
+    {
+     "id": "H07",
+     "pattern": "Wrong turn",
+     "copy_seed": "This looks like the obvious move. What does it miss?",
+     "use": "Troubleshooting",
+     "guard": "Avoid demonstrating hazardous conduct as a usable shortcut."
+    },
+    {
+     "id": "H08",
+     "pattern": "Object viewpoint",
+     "copy_seed": "If this little hinge could tell the story, it would start here.",
+     "use": "Personification",
+     "guard": "Clearly separate narrative voice from factual explanation."
+    },
+    {
+     "id": "H09",
+     "pattern": "Missing piece",
+     "copy_seed": "One piece is absent. Can you tell what it was doing?",
+     "use": "Anatomy",
+     "guard": "The missing piece must be identifiable from visible evidence."
+    },
+    {
+     "id": "H10",
+     "pattern": "Count constraint",
+     "copy_seed": "You get three moves. Which one would you spend first?",
+     "use": "Puzzle",
+     "guard": "State legal moves and verify at least one valid solution."
+    },
+    {
+     "id": "H11",
+     "pattern": "Time reversal",
+     "copy_seed": "The mess is already here. Which moment caused it?",
+     "use": "Causality",
+     "guard": "Reverse presentation must not imply reversible real physics."
+    },
+    {
+     "id": "H12",
+     "pattern": "Small stakes story",
+     "copy_seed": "All this character wants is a quiet cup of tea.",
+     "use": "Fiction",
+     "guard": "Deliver a concrete conflict and payoff."
+    },
+    {
+     "id": "H13",
+     "pattern": "Alternative viewpoint",
+     "copy_seed": "We have seen the traveler. Now watch the route.",
+     "use": "Perspective",
+     "guard": "Keep identity and continuity clear."
+    },
+    {
+     "id": "H14",
+     "pattern": "Tradeoff",
+     "copy_seed": "Make this faster, and watch what else changes.",
+     "use": "Tradeoff",
+     "guard": "Name the conditions; do not invent numerical benefits."
+    },
+    {
+     "id": "H15",
+     "pattern": "Spatial question",
+     "copy_seed": "Which side of this wall is actually doing the work?",
+     "use": "Spatial mechanism",
+     "guard": "Use cutaways or labels so the answer can be checked."
+    },
+    {
+     "id": "H16",
+     "pattern": "Interrupted routine",
+     "copy_seed": "Everything follows the pattern until this one arrives.",
+     "use": "Pattern",
+     "guard": "The interruption must be visible and meaningful."
+    },
+    {
+     "id": "H17",
+     "pattern": "Quiet threat",
+     "copy_seed": "Nothing has broken yet. Find the warning sign.",
+     "use": "Safety observation",
+     "guard": "Use verified warning signs; no diagnostic certainty from a cartoon."
+    },
+    {
+     "id": "H18",
+     "pattern": "Limited resource",
+     "copy_seed": "There is enough for one attempt. What should they try?",
+     "use": "Dilemma",
+     "guard": "For real safety situations, replace guessing with approved guidance."
+    },
+    {
+     "id": "H19",
+     "pattern": "Delayed identity",
+     "copy_seed": "You have seen its shadow. Now meet the object.",
+     "use": "Reveal",
+     "guard": "Do not falsify a real object's silhouette."
+    },
+    {
+     "id": "H20",
+     "pattern": "Expectation swap",
+     "copy_seed": "They brought a ladder. The problem needed a bridge.",
+     "use": "Comic reversal",
+     "guard": "Keep the fictional solution coherent with the world."
+    },
+    {
+     "id": "H21",
+     "pattern": "One rule world",
+     "copy_seed": "In this town, every door opens somewhere slightly wrong.",
+     "use": "Worldbuilding",
+     "guard": "Establish the rule before exploiting an exception."
+    },
+    {
+     "id": "H22",
+     "pattern": "Tiny consequence",
+     "copy_seed": "One dropped button starts a very long journey.",
+     "use": "Chain reaction",
+     "guard": "Keep the chain causally legible."
+    },
+    {
+     "id": "H23",
+     "pattern": "Two clocks",
+     "copy_seed": "These two timers disagree. Both are measuring something real.",
+     "use": "Measurement",
+     "guard": "Define each quantity and unit."
+    },
+    {
+     "id": "H24",
+     "pattern": "Boundary case",
+     "copy_seed": "This works until we reach the edge.",
+     "use": "Limits",
+     "guard": "State the valid range and the boundary condition."
+    },
+    {
+     "id": "H25",
+     "pattern": "Constraint reveal",
+     "copy_seed": "The difficult part is that this corner cannot move.",
+     "use": "Engineering",
+     "guard": "Show the constraint explicitly and use a validated model."
+    },
+    {
+     "id": "H26",
+     "pattern": "Useful failure",
+     "copy_seed": "Watch the attempt that tells us what to change.",
+     "use": "Iteration",
+     "guard": "Show the observed failure without claiming unrun tests."
+    },
+    {
+     "id": "H27",
+     "pattern": "Common word clarified",
+     "copy_seed": "We call both of these strong. They resist different things.",
+     "use": "Vocabulary",
+     "guard": "Use sourced definitions rather than semantic tricks."
+    },
+    {
+     "id": "H28",
+     "pattern": "Invisible made visible",
+     "copy_seed": "The motion is easy to see. Here is the force we are representing.",
+     "use": "Model",
+     "guard": "Label arrows as representations, not direct measurements."
+    },
+    {
+     "id": "H29",
+     "pattern": "Comedic permission",
+     "copy_seed": "The machine asked for one simple thing. The character overdelivered.",
+     "use": "Fiction",
+     "guard": "The payoff should grow from the setup, not random spectacle."
+    },
+    {
+     "id": "H30",
+     "pattern": "Audience role",
+     "copy_seed": "You are the lookout. What changes first?",
+     "use": "Observation",
+     "guard": "Give enough stable viewing time and accessible cues."
+    },
+    {
+     "id": "H31",
+     "pattern": "Checkpoint question",
+     "copy_seed": "At this point, what would tell us it is working?",
+     "use": "How-to",
+     "guard": "The checkpoint needs a real observable criterion."
+    },
+    {
+     "id": "H32",
+     "pattern": "Order matters",
+     "copy_seed": "These are the same steps in a different order.",
+     "use": "Sequence",
+     "guard": "Verify that the claimed order effect holds."
+    },
+    {
+     "id": "H33",
+     "pattern": "Unexpected helper",
+     "copy_seed": "The smallest character has the only useful tool.",
+     "use": "Character story",
+     "guard": "Avoid a solution that appears without setup."
+    },
+    {
+     "id": "H34",
+     "pattern": "Trade places",
+     "copy_seed": "What if the helper and the obstacle exchanged jobs?",
+     "use": "Fiction counterfactual",
+     "guard": "Label imaginary rules; do not recast them as facts."
+    },
+    {
+     "id": "H35",
+     "pattern": "Map mismatch",
+     "copy_seed": "The line looks shortest. The journey says otherwise.",
+     "use": "Routes",
+     "guard": "Distinguish a fictional network from live travel information."
+    },
+    {
+     "id": "H36",
+     "pattern": "Layer peel",
+     "copy_seed": "The finished image hides five separate decisions.",
+     "use": "Production",
+     "guard": "Show actual source layers if claiming a real breakdown."
+    },
+    {
+     "id": "H37",
+     "pattern": "Sound clue",
+     "copy_seed": "Listen once, then watch the movement that made it.",
+     "use": "Audio mechanism",
+     "guard": "Use original or cleared audio and caption its key information."
+    },
+    {
+     "id": "H38",
+     "pattern": "Near miss",
+     "copy_seed": "They almost succeed. Look at the final contact point.",
+     "use": "Motion",
+     "guard": "Ensure failure is physically or narratively justified."
+    },
+    {
+     "id": "H39",
+     "pattern": "Empty space",
+     "copy_seed": "The most important part of this design is the gap.",
+     "use": "Design",
+     "guard": "Show the gap's purpose with a concrete comparison."
+    },
+    {
+     "id": "H40",
+     "pattern": "Wrong label",
+     "copy_seed": "The label says finished. The motion tells another story.",
+     "use": "Quality review",
+     "guard": "Use a fictional prop or verified defect; avoid deceptive claims."
+    },
+    {
+     "id": "H41",
+     "pattern": "Repetition with change",
+     "copy_seed": "The first two attempts teach you the rhythm. The third changes it.",
+     "use": "Comedy timing",
+     "guard": "The third beat must alter an expectation, not repeat a color change."
+    },
+    {
+     "id": "H42",
+     "pattern": "Perspective trap",
+     "copy_seed": "From here it fits. Let us look from the side.",
+     "use": "Geometry",
+     "guard": "Use consistent geometry across views."
+    },
+    {
+     "id": "H43",
+     "pattern": "Slow reveal",
+     "copy_seed": "We will uncover one layer at a time. Keep your first guess.",
+     "use": "Guessing",
+     "guard": "Avoid answer leaks in captions, thumbnails or audio."
+    },
+    {
+     "id": "H44",
+     "pattern": "Careful distinction",
+     "copy_seed": "This picture shows a possibility, not a measurement.",
+     "use": "Scientific model",
+     "guard": "Maintain that distinction throughout the episode."
+    },
+    {
+     "id": "H45",
+     "pattern": "Choice cost",
+     "copy_seed": "They can save the object or keep their promise. Which matters now?",
+     "use": "Moral fable",
+     "guard": "Show both costs without prescribing a universal moral."
+    },
+    {
+     "id": "H46",
+     "pattern": "Unknown setting",
+     "copy_seed": "The character knows the rule. You do not, yet.",
+     "use": "Mystery",
+     "guard": "Reveal enough evidence for a satisfying retrospective explanation."
+    },
+    {
+     "id": "H47",
+     "pattern": "Follow the token",
+     "copy_seed": "Keep your eye on the marked piece.",
+     "use": "Trace",
+     "guard": "Preserve object identity through occlusion and cuts."
+    },
+    {
+     "id": "H48",
+     "pattern": "Scale of effort",
+     "copy_seed": "A tiny movement here produces a larger movement there.",
+     "use": "Mechanism",
+     "guard": "Check geometry, leverage and any numerical claim."
+    },
+    {
+     "id": "H49",
+     "pattern": "Stop frame question",
+     "copy_seed": "Freeze this moment. What is touching what?",
+     "use": "Contact",
+     "guard": "Ensure visible contact agrees with the scene state."
+    },
+    {
+     "id": "H50",
+     "pattern": "Conflicting goals",
+     "copy_seed": "One character wants silence. The other runs a bell shop.",
+     "use": "Comedy",
+     "guard": "Give both characters understandable motives."
+    },
+    {
+     "id": "H51",
+     "pattern": "Model versus world",
+     "copy_seed": "Our model leaves something out. Here is where it matters.",
+     "use": "Scientific literacy",
+     "guard": "Specify the omitted effect and its consequences."
+    },
+    {
+     "id": "H52",
+     "pattern": "One object challenge",
+     "copy_seed": "Tell a whole story with this umbrella.",
+     "use": "Creative constraint",
+     "guard": "Use an original object design and genuinely changing action."
+    },
+    {
+     "id": "H53",
+     "pattern": "Repair evidence",
+     "copy_seed": "Here is the symptom. Here is the check that narrows it down.",
+     "use": "Troubleshooting",
+     "guard": "Do not leap from one symptom to a certain cause."
+    },
+    {
+     "id": "H54",
+     "pattern": "Hidden cooperation",
+     "copy_seed": "It looks like a race until you see what they are carrying.",
+     "use": "Story reveal",
+     "guard": "Plant evidence of cooperation before the reveal."
+    },
+    {
+     "id": "H55",
+     "pattern": "Two endings",
+     "copy_seed": "The same setup can end in two different ways.",
+     "use": "Branching",
+     "guard": "Label counterfactual branches and keep starting conditions consistent."
+    },
+    {
+     "id": "H56",
+     "pattern": "Rule inversion",
+     "copy_seed": "For one scene, gravity has a different job.",
+     "use": "Surreal animation",
+     "guard": "Make clear that this is a fictional physical rule."
+    },
+    {
+     "id": "H57",
+     "pattern": "Payoff promise",
+     "copy_seed": "By the final frame, this shape will explain the whole scene.",
+     "use": "Visual metaphor",
+     "guard": "Ensure the payoff actually resolves the opening promise."
+    },
+    {
+     "id": "H58",
+     "pattern": "Process clue",
+     "copy_seed": "Do not watch the tool. Watch the mark it leaves.",
+     "use": "Craft",
+     "guard": "Use genuine marks or clearly labeled illustrative animation."
+    },
+    {
+     "id": "H59",
+     "pattern": "Gentle reveal",
+     "copy_seed": "The character thinks they are alone. Look at the background.",
+     "use": "Warm fiction",
+     "guard": "Keep background evidence visible and avoid emotional manipulation."
+    },
+    {
+     "id": "H60",
+     "pattern": "Next useful question",
+     "copy_seed": "We know what changed. Now what would we check next?",
+     "use": "Learning",
+     "guard": "End with a bounded question rather than unsupported advice."
+    }
+   ]
+  },
+  "intros": {
+   "heading": "Thirty visual intros",
+   "anchor": "thirty-visual-intros",
+   "line": 2416,
+   "columns": [
+    "ID",
+    "Intro",
+    "First frame",
+    "Action",
+    "Text seed",
+    "Sound",
+    "Fit"
+   ],
+   "keys": [
+    "id",
+    "intro",
+    "first_frame",
+    "action",
+    "text_seed",
+    "sound",
+    "fit"
+   ],
+   "intro": [],
+   "after": [],
+   "records": [
+    {
+     "id": "I01",
+     "intro": "Frozen consequence",
+     "first_frame": "A toppled original prop fills the frame.",
+     "action": "Hold briefly, trace back to the initiating contact.",
+     "text_seed": "What moved first?",
+     "sound": "One soft impact, then quiet.",
+     "fit": "Causality; fiction; troubleshooting"
+    },
+    {
+     "id": "I02",
+     "intro": "Two synchronized worlds",
+     "first_frame": "The same simple setup appears left and right.",
+     "action": "Both begin together; a single changed parameter is highlighted.",
+     "text_seed": "One change. Two outcomes.",
+     "sound": "Shared pulse with separate result accents.",
+     "fit": "Comparison"
+    },
+    {
+     "id": "I03",
+     "intro": "Traveling question",
+     "first_frame": "A small character crosses a richly rendered scene toward an obstacle.",
+     "action": "Camera tracks at walking speed and settles before the decision.",
+     "text_seed": "How will they get across?",
+     "sound": "Footsteps and low music bed.",
+     "fit": "Fiction; spatial explanation"
+    },
+    {
+     "id": "I04",
+     "intro": "Object silhouette",
+     "first_frame": "An honest silhouette appears on a textured stage.",
+     "action": "Light rotates slowly while the camera stays fixed.",
+     "text_seed": "What could this be?",
+     "sound": "Subtle light-switch sound.",
+     "fit": "Guessing"
+    },
+    {
+     "id": "I05",
+     "intro": "Peel to evidence",
+     "first_frame": "A complete scene is visible immediately.",
+     "action": "Two meaningful layers peel apart without hiding the subject.",
+     "text_seed": "What is this made of?",
+     "sound": "Two restrained paper sounds.",
+     "fit": "Anatomy; production"
+    },
+    {
+     "id": "I06",
+     "intro": "Marked token",
+     "first_frame": "A distinctive token begins at the first node of a network.",
+     "action": "Track it through one junction, then pause before the next.",
+     "text_seed": "Follow this piece.",
+     "sound": "Single pluck at each verified handoff.",
+     "fit": "Routes; processes"
+    },
+    {
+     "id": "I07",
+     "intro": "Wrong-sized tool",
+     "first_frame": "A character enters carrying an absurdly oversized tool.",
+     "action": "Their confident step stops at the tiny problem.",
+     "text_seed": "There may be an easier way.",
+     "sound": "Small comic stop and room tone.",
+     "fit": "Fiction"
+    },
+    {
+     "id": "I08",
+     "intro": "Checkpoint close-up",
+     "first_frame": "A physical indicator or step result is framed clearly.",
+     "action": "Pull back to show the action it checks.",
+     "text_seed": "How would you know it worked?",
+     "sound": "Neutral click matched to the indicator.",
+     "fit": "How-to; QA"
+    },
+    {
+     "id": "I09",
+     "intro": "Quiet warning",
+     "first_frame": "A sourced warning cue is visible in an otherwise calm scene.",
+     "action": "A bounded highlight draws attention, then stops.",
+     "text_seed": "Notice this before continuing.",
+     "sound": "Calm narration, no alarm sting.",
+     "fit": "Safety education"
+    },
+    {
+     "id": "I10",
+     "intro": "Map then ground",
+     "first_frame": "A fictional route is shown as a clean map.",
+     "action": "Dissolve to the same route in an original miniature scene.",
+     "text_seed": "The map leaves out one thing.",
+     "sound": "Ambient travel sound.",
+     "fit": "Spatial story"
+    },
+    {
+     "id": "I11",
+     "intro": "Countdown to choice",
+     "first_frame": "The scene and two options are already legible.",
+     "action": "A gentle progress bar begins after the rule appears.",
+     "text_seed": "Choose before the reveal.",
+     "sound": "Soft regular ticks, optional silent mode.",
+     "fit": "Low-risk puzzle"
+    },
+    {
+     "id": "I12",
+     "intro": "One missing part",
+     "first_frame": "An object sits with one clearly empty socket.",
+     "action": "A slow turn reveals the gap from a second view.",
+     "text_seed": "What belongs here?",
+     "sound": "Light mechanical room tone.",
+     "fit": "Anatomy; guessing"
+    },
+    {
+     "id": "I13",
+     "intro": "Sound makes shape",
+     "first_frame": "An original tap is paired with a visible waveform.",
+     "action": "The waveform settles into the moving object that made the sound.",
+     "text_seed": "What did you hear?",
+     "sound": "Original source sound with caption.",
+     "fit": "Audio learning"
+    },
+    {
+     "id": "I14",
+     "intro": "Stage entrance",
+     "first_frame": "A character steps out from behind an actual scene edge.",
+     "action": "Camera holds while they discover the central prop.",
+     "text_seed": "A simple job, surely.",
+     "sound": "Footstep, breath and small music motif.",
+     "fit": "Comedy"
+    },
+    {
+     "id": "I15",
+     "intro": "Match-cut scale",
+     "first_frame": "A circular everyday object fills the screen.",
+     "action": "Match cut to a different-scale system with the same silhouette.",
+     "text_seed": "Similar shape. Different scale.",
+     "sound": "Short transition note.",
+     "fit": "Analogy with scale labels"
+    },
+    {
+     "id": "I16",
+     "intro": "Transparent mechanism",
+     "first_frame": "The external object is visible against a calm background.",
+     "action": "A cutaway plane opens to show the interacting parts.",
+     "text_seed": "Inside the motion.",
+     "sound": "Gentle mechanical loop.",
+     "fit": "Mechanism"
+    },
+    {
+     "id": "I17",
+     "intro": "Pattern interruption",
+     "first_frame": "Three repeated actions establish a visual rhythm.",
+     "action": "A fourth object breaks one stated rule.",
+     "text_seed": "Find the break.",
+     "sound": "Three even taps and a held rest.",
+     "fit": "Pattern puzzle"
+    },
+    {
+     "id": "I18",
+     "intro": "Reverse breadcrumb",
+     "first_frame": "A final object rests beside three traces of its journey.",
+     "action": "The camera follows the traces backward without reversing physics.",
+     "text_seed": "How did it get here?",
+     "sound": "Music starts on the resolved chord then thins.",
+     "fit": "Mystery; reconstruction"
+    },
+    {
+     "id": "I19",
+     "intro": "Shared frame disagreement",
+     "first_frame": "Two characters look at the same object from different sides.",
+     "action": "A small orbit reveals why each saw something different.",
+     "text_seed": "They both saw part of it.",
+     "sound": "Two short vocal reactions, optional captions.",
+     "fit": "Perspective; fable"
+    },
+    {
+     "id": "I20",
+     "intro": "Hands before title",
+     "first_frame": "A tool begins one approved, safe action.",
+     "action": "The title arrives in empty space after the action is recognizable.",
+     "text_seed": "Watch the contact point.",
+     "sound": "Real or original matched tool sound.",
+     "fit": "Craft; how-to"
+    },
+    {
+     "id": "I21",
+     "intro": "Obstacle in foreground",
+     "first_frame": "An obstruction dominates near frame while the goal remains visible.",
+     "action": "Slow lateral move reveals a plausible path.",
+     "text_seed": "There is another route.",
+     "sound": "Ambient sound with one discovery accent.",
+     "fit": "Spatial fiction"
+    },
+    {
+     "id": "I22",
+     "intro": "Shape promise",
+     "first_frame": "A simple shape is drawn around the key object.",
+     "action": "The outline becomes a guide for the later explanation.",
+     "text_seed": "This outline matters.",
+     "sound": "One original draw-on sound.",
+     "fit": "Visual explanation"
+    },
+    {
+     "id": "I23",
+     "intro": "Small versus large",
+     "first_frame": "A tiny character stands beside a large, grounded object.",
+     "action": "Wide shot holds before a closer insert of their tool.",
+     "text_seed": "Small helper. Specific plan.",
+     "sound": "Subtle scale-aware footsteps.",
+     "fit": "Fiction; leverage model"
+    },
+    {
+     "id": "I24",
+     "intro": "Interface truth card",
+     "first_frame": "An authentic capture or labeled mockup opens at a known state.",
+     "action": "One highlight indicates the next action, not a fake cursor success.",
+     "text_seed": "Start from this state.",
+     "sound": "Clear spoken step and quiet click.",
+     "fit": "Software tutorial"
+    },
+    {
+     "id": "I25",
+     "intro": "Time strip",
+     "first_frame": "Three dated or explicitly fictional time panels sit together.",
+     "action": "The middle panel expands into the main scene.",
+     "text_seed": "What changed between these moments?",
+     "sound": "Three sparse notes.",
+     "fit": "Timeline"
+    },
+    {
+     "id": "I26",
+     "intro": "Question in negative space",
+     "first_frame": "The central action sits low in a spacious scene.",
+     "action": "A short question appears above without covering evidence.",
+     "text_seed": "What would you check first?",
+     "sound": "Narration with a brief pause.",
+     "fit": "Learning; observation"
+    },
+    {
+     "id": "I27",
+     "intro": "Contact-first comedy",
+     "first_frame": "Two objects are just about to touch.",
+     "action": "A character interrupts at the last moment and creates a new problem.",
+     "text_seed": "An excellent save. Almost.",
+     "sound": "Held note and soft comic release.",
+     "fit": "Fiction"
+    },
+    {
+     "id": "I28",
+     "intro": "World-rule demonstration",
+     "first_frame": "A character demonstrates the fictional rule once in plain view.",
+     "action": "A second attempt introduces the conflict.",
+     "text_seed": "Here, shadows arrive early.",
+     "sound": "One recurring world-rule sound motif.",
+     "fit": "Surreal worldbuilding"
+    },
+    {
+     "id": "I29",
+     "intro": "Honest result comparison",
+     "first_frame": "A real or clearly simulated failed result sits beside a corrected proposal.",
+     "action": "Camera moves to the single changed region.",
+     "text_seed": "What changed between these?",
+     "sound": "Neutral comparison narration.",
+     "fit": "Repair; model review"
+    },
+    {
+     "id": "I30",
+     "intro": "Warm background discovery",
+     "first_frame": "A foreground character starts a solitary task.",
+     "action": "Slow push keeps a helpful background action visible.",
+     "text_seed": "Someone has already started helping.",
+     "sound": "Gentle ambient music, no forced crescendo.",
+     "fit": "Warm fiction"
+    }
+   ]
+  },
+  "styles": {
+   "heading": "Forty visual styles",
+   "anchor": "forty-visual-styles",
+   "line": 2451,
+   "columns": [
+    "ID",
+    "Style",
+    "Visual language",
+    "Value",
+    "Check",
+    "Approaches"
+   ],
+   "keys": [
+    "id",
+    "style",
+    "visual_language",
+    "value",
+    "check",
+    "approaches"
+   ],
+   "intro": [],
+   "after": [],
+   "records": [
+    {
+     "id": "S01",
+     "style": "Articulated ink characters",
+     "visual_language": "Expressive line characters on a rich original setting.",
+     "value": "Strong silhouette and readable intent.",
+     "check": "Keep joints coherent and feet grounded.",
+     "approaches": "vector"
+    },
+    {
+     "id": "S02",
+     "style": "Editorial cut-paper",
+     "visual_language": "Layered paper forms, visible fibers and restrained shadows.",
+     "value": "Makes grouping and cause easy to separate.",
+     "check": "Avoid false depth claims; inspect cutout edges.",
+     "approaches": "cutout"
+    },
+    {
+     "id": "S03",
+     "style": "Chalk mechanism",
+     "visual_language": "Dark textured board with precise staged strokes.",
+     "value": "Reveals reasoning in the order it is explained.",
+     "check": "Texture must not reduce label contrast.",
+     "approaches": "sketch"
+    },
+    {
+     "id": "S04",
+     "style": "Technical exploded view",
+     "visual_language": "Neutral materials, numbered parts and consistent perspective.",
+     "value": "Clarifies assembly and relationships.",
+     "check": "Verify labels, scale and separation directions.",
+     "approaches": "vector; block3d"
+    },
+    {
+     "id": "S05",
+     "style": "Miniature wooden world",
+     "visual_language": "Original wood-grain objects and toy-scale scenery.",
+     "value": "Turns abstract systems into tangible spatial relationships.",
+     "check": "Keep texture, scale and contact shadows consistent.",
+     "approaches": "block3d"
+    },
+    {
+     "id": "S06",
+     "style": "Clay performance",
+     "visual_language": "Soft sculpted forms with intentional hand-made variation.",
+     "value": "Makes effort and personality readable through deformation.",
+     "check": "Do not imply physical stop-motion capture.",
+     "approaches": "block3d"
+    },
+    {
+     "id": "S07",
+     "style": "Felt and thread",
+     "visual_language": "Plush surfaces with stitched boundaries and soft lighting.",
+     "value": "Friendly tactile characters for warm stories.",
+     "check": "Avoid excessive fibers that obscure eyes and joints.",
+     "approaches": "block3d"
+    },
+    {
+     "id": "S08",
+     "style": "Ceramic fable",
+     "visual_language": "Glazed figures on a restrained physical stage.",
+     "value": "Highlights fragility, care and deliberate movement.",
+     "check": "Control specular highlights and avoid unreadable white-on-white.",
+     "approaches": "block3d"
+    },
+    {
+     "id": "S09",
+     "style": "Architectural section",
+     "visual_language": "Cutaway walls and measured spaces.",
+     "value": "Explains hidden interior relationships.",
+     "check": "Keep the cutaway plane honest and distinct from a real inspection.",
+     "approaches": "block3d; vector"
+    },
+    {
+     "id": "S10",
+     "style": "Field notebook",
+     "visual_language": "Sketches, short annotations and observed-detail inserts.",
+     "value": "Shows curiosity and provisional learning.",
+     "check": "Label illustrations and unresolved facts explicitly.",
+     "approaches": "sketch"
+    },
+    {
+     "id": "S11",
+     "style": "Scientific diagram",
+     "visual_language": "Clear geometry and sparse units on a quiet field.",
+     "value": "Supports precise mechanisms without visual clutter.",
+     "check": "Mark idealizations and do not fake measurement precision.",
+     "approaches": "vector"
+    },
+    {
+     "id": "S12",
+     "style": "Blueprint to object",
+     "visual_language": "A measured drawing becomes a matching modeled object.",
+     "value": "Connects intent, geometry and result.",
+     "check": "Only claim exact correspondence after verification.",
+     "approaches": "vector; block3d"
+    },
+    {
+     "id": "S13",
+     "style": "Luminous wire sculpture",
+     "visual_language": "Thin lit edges describe original spatial forms.",
+     "value": "Reveals connectivity and motion paths.",
+     "check": "Do not let bloom hide intersections.",
+     "approaches": "block3d"
+    },
+    {
+     "id": "S14",
+     "style": "Botanical linework",
+     "visual_language": "Original stems, leaves and clean anatomical labels.",
+     "value": "Makes growth and structure readable.",
+     "check": "Species-specific claims require sourced references.",
+     "approaches": "sketch; vector"
+    },
+    {
+     "id": "S15",
+     "style": "Topographic paper",
+     "visual_language": "Stacked contour layers and a simple route marker.",
+     "value": "Communicates slope and elevation through layers.",
+     "check": "Label fictional terrain or verify elevation data.",
+     "approaches": "cutout; block3d"
+    },
+    {
+     "id": "S16",
+     "style": "Museum tabletop",
+     "visual_language": "Original artifacts staged with careful light and a quiet camera.",
+     "value": "Invites close observation and object storytelling.",
+     "check": "Avoid implying fabricated props are authentic artifacts.",
+     "approaches": "block3d"
+    },
+    {
+     "id": "S17",
+     "style": "Retro instruction sheet",
+     "visual_language": "Simple arrows, panels and warm print-like texture.",
+     "value": "Turns a procedure into distinct, memorable checkpoints.",
+     "check": "Use current verified steps; nostalgia is only surface treatment.",
+     "approaches": "vector"
+    },
+    {
+     "id": "S18",
+     "style": "Motion comic",
+     "visual_language": "Original illustrated panels with restrained parallax and acting.",
+     "value": "Supports dialogue and clear scene transitions.",
+     "check": "Keep reading order and character identity consistent.",
+     "approaches": "cutout; vector"
+    },
+    {
+     "id": "S19",
+     "style": "Silhouette theater",
+     "visual_language": "Strong foreground silhouettes with luminous depth.",
+     "value": "Makes action understandable with minimal detail.",
+     "check": "Do not hide essential physical evidence in shadow.",
+     "approaches": "cutout; vector"
+    },
+    {
+     "id": "S20",
+     "style": "Shadow-box diorama",
+     "visual_language": "Layered scenery inside a visible miniature stage.",
+     "value": "Makes framing and occlusion part of the story.",
+     "check": "Depth is approximate unless built as true 3D.",
+     "approaches": "cutout; block3d"
+    },
+    {
+     "id": "S21",
+     "style": "Graphic-novel mechanism",
+     "visual_language": "Bold shapes, limited hatching and evidence inserts.",
+     "value": "Combines dramatic stakes with readable explanation.",
+     "check": "Preserve factual distinctions despite dramatic styling.",
+     "approaches": "vector; sketch"
+    },
+    {
+     "id": "S22",
+     "style": "Ink-wash landscape",
+     "visual_language": "Soft original washes behind crisp foreground action.",
+     "value": "Creates atmosphere while the mechanism remains sharp.",
+     "check": "Do not wash out important text or targets.",
+     "approaches": "cutout; sketch"
+    },
+    {
+     "id": "S23",
+     "style": "Isometric workshop",
+     "visual_language": "Orthographic benches, objects and workers.",
+     "value": "Shows parallel operations in one readable space.",
+     "check": "Check occlusion and avoid claiming true scale from decorative isometry.",
+     "approaches": "block3d"
+    },
+    {
+     "id": "S24",
+     "style": "Low-poly expedition",
+     "visual_language": "Faceted original terrain and restrained material palette.",
+     "value": "Supports routes and spatial decisions efficiently.",
+     "check": "Use honest stylization rather than simulated documentary claims.",
+     "approaches": "block3d"
+    },
+    {
+     "id": "S25",
+     "style": "Stop-motion-inspired blocks",
+     "visual_language": "Discrete designed poses with smooth camera motion.",
+     "value": "Highlights tactile decisions and comedic timing.",
+     "check": "Do not claim real frame-by-frame photography.",
+     "approaches": "block3d"
+    },
+    {
+     "id": "S26",
+     "style": "Vector stage musical",
+     "visual_language": "Articulated geometric actors with coordinated movement.",
+     "value": "Makes rhythm and interaction the narrative.",
+     "check": "Use original or cleared music; vary choreography materially.",
+     "approaches": "vector"
+    },
+    {
+     "id": "S27",
+     "style": "Transparent acrylic",
+     "visual_language": "Clear shells, tinted interior parts and controlled refraction.",
+     "value": "Exposes nested mechanisms while preserving the object silhouette.",
+     "check": "Transparency can hide contacts; add readable edge cues.",
+     "approaches": "block3d"
+    },
+    {
+     "id": "S28",
+     "style": "Monochrome materials",
+     "visual_language": "One hue family with distinct roughness and lighting.",
+     "value": "Directs attention to form and surface behavior.",
+     "check": "A palette change alone is not a new story or capability.",
+     "approaches": "block3d"
+    },
+    {
+     "id": "S29",
+     "style": "Documentary illustration",
+     "visual_language": "Original diagrams over cleared real-world imagery.",
+     "value": "Connects explanation to a concrete setting.",
+     "check": "Keep image rights and source dates; illustration is not event footage.",
+     "approaches": "mixed"
+    },
+    {
+     "id": "S30",
+     "style": "Data sculpture",
+     "visual_language": "Quantities represented by measured original 3D elements.",
+     "value": "Makes size comparisons physically legible.",
+     "check": "Use proportional encodings and visible units.",
+     "approaches": "block3d"
+    },
+    {
+     "id": "S31",
+     "style": "Pixel stage",
+     "visual_language": "Original pixel characters and deliberate tiled scenery.",
+     "value": "Creates readable game-like rules and compact action.",
+     "check": "Avoid copying recognizable commercial sprites or interfaces.",
+     "approaches": "raster"
+    },
+    {
+     "id": "S32",
+     "style": "Mechanical brass theater",
+     "visual_language": "Original gears, polished fittings and warm practical lights.",
+     "value": "Gives linked movement a crafted, inspectable feel.",
+     "check": "Decorative gears must not pretend to explain real mechanics.",
+     "approaches": "block3d"
+    },
+    {
+     "id": "S33",
+     "style": "Underwater paper world",
+     "visual_language": "Layered aquatic shapes and slow particulate depth.",
+     "value": "Supports calm observation and environmental storytelling.",
+     "check": "Label fantasy biology and keep targets distinct from particles.",
+     "approaches": "cutout"
+    },
+    {
+     "id": "S34",
+     "style": "Night lantern garden",
+     "visual_language": "Rich original scene, grounded characters and localized lantern light.",
+     "value": "Creates warmth through depth, contact and shared action.",
+     "check": "Keep dark details readable and avoid flashing highlights.",
+     "approaches": "block3d; cutout"
+    },
+    {
+     "id": "S35",
+     "style": "Riso-inspired print",
+     "visual_language": "Offset texture and bold printed shapes.",
+     "value": "Gives simple comparisons an authored graphic identity.",
+     "check": "Misregistration must not distort evidence or tiny text.",
+     "approaches": "vector"
+    },
+    {
+     "id": "S36",
+     "style": "Schematic to tactile",
+     "visual_language": "A clean diagram alternates with a tangible original prop.",
+     "value": "Links symbolic understanding to spatial intuition.",
+     "check": "Keep identity and geometry matched across representations.",
+     "approaches": "mixed"
+    },
+    {
+     "id": "S37",
+     "style": "Macro object drama",
+     "visual_language": "Very close views of original everyday-scale surfaces.",
+     "value": "Turns small choices into legible visual stakes.",
+     "check": "Establish scale and preserve consistent material behavior.",
+     "approaches": "block3d"
+    },
+    {
+     "id": "S38",
+     "style": "Photographic cutout stage",
+     "visual_language": "Cleared background imagery with original animated performers.",
+     "value": "Combines rich setting with explicit character animation.",
+     "check": "Inspect masks, contact shadows and disocclusion; label compositing.",
+     "approaches": "cutout"
+    },
+    {
+     "id": "S39",
+     "style": "Gallery comparison",
+     "visual_language": "Matched objects under controlled camera and lighting.",
+     "value": "Makes a single design difference easy to judge.",
+     "check": "Record the variable that changed and what stayed fixed.",
+     "approaches": "block3d; vector"
+    },
+    {
+     "id": "S40",
+     "style": "Drawn-on evidence",
+     "visual_language": "A real or original scene with selectively animated annotations.",
+     "value": "Focuses attention without replacing the scene.",
+     "check": "Annotations must track the same object across motion.",
+     "approaches": "mixed; sketch"
+    }
+   ]
+  },
+  "motions": {
+   "heading": "Thirty motion patterns",
+   "anchor": "thirty-motion-patterns",
+   "line": 2496,
+   "columns": [
+    "ID",
+    "Motion",
+    "Mechanism",
+    "Fit",
+    "Check"
+   ],
+   "keys": [
+    "id",
+    "motion",
+    "mechanism",
+    "fit",
+    "check"
+   ],
+   "intro": [],
+   "after": [],
+   "records": [
+    {
+     "id": "M01",
+     "motion": "Gentle push",
+     "mechanism": "A slow, continuous move toward the causal detail.",
+     "fit": "Explanation; mystery",
+     "check": "Keep essential evidence and text in safe areas."
+    },
+    {
+     "id": "M02",
+     "motion": "Lateral reveal",
+     "mechanism": "Move sideways to uncover an occluded relationship.",
+     "fit": "Perspective; spatial story",
+     "check": "Use consistent geometry or disclose a 2.5D approximation."
+    },
+    {
+     "id": "M03",
+     "motion": "Locked evidence shot",
+     "mechanism": "Hold the camera while meaningful objects move.",
+     "fit": "Mechanism; prediction",
+     "check": "The frame may be calm; the action must remain legible."
+    },
+    {
+     "id": "M04",
+     "motion": "Follow the token",
+     "mechanism": "Track one identified object through a system.",
+     "fit": "Route; process",
+     "check": "Maintain identity through every cut and occlusion."
+    },
+    {
+     "id": "M05",
+     "motion": "Overhead workflow",
+     "mechanism": "Look down at a sequence of workstations or steps.",
+     "fit": "How-to; process",
+     "check": "Do not obscure contact points with labels."
+    },
+    {
+     "id": "M06",
+     "motion": "Quarter orbit",
+     "mechanism": "Rotate around an object far enough to reveal a hidden side.",
+     "fit": "Geometry; anatomy",
+     "check": "Requires true 3D or genuine alternate views."
+    },
+    {
+     "id": "M07",
+     "motion": "Cutaway slide",
+     "mechanism": "Move a section plane while the object stays fixed.",
+     "fit": "Mechanism; architecture",
+     "check": "Plane position must agree with visible parts."
+    },
+    {
+     "id": "M08",
+     "motion": "Exploded assembly",
+     "mechanism": "Separate related parts along meaningful axes.",
+     "fit": "Anatomy; product",
+     "check": "Keep connectors and parent-child relationships clear."
+    },
+    {
+     "id": "M09",
+     "motion": "Matched split-screen",
+     "mechanism": "Synchronize two views to a shared time authority.",
+     "fit": "Comparison",
+     "check": "Check identical starting state and duration."
+    },
+    {
+     "id": "M10",
+     "motion": "Scale ladder",
+     "mechanism": "Step through explicit scales with reference objects.",
+     "fit": "Science; design",
+     "check": "Show units and avoid arbitrary size jumps."
+    },
+    {
+     "id": "M11",
+     "motion": "Scene-space drift",
+     "mechanism": "Move background, characters, shadows and targets together.",
+     "fit": "Compositing",
+     "check": "Apply one shared transform and its inverse."
+    },
+    {
+     "id": "M12",
+     "motion": "Parallax planes",
+     "mechanism": "Move declared foreground and background planes differently.",
+     "fit": "2.5D story",
+     "check": "Inspect disocclusion gaps and do not call it metric 3D."
+    },
+    {
+     "id": "M13",
+     "motion": "Focus handoff",
+     "mechanism": "Shift emphasis from cause to effect through motion and light.",
+     "fit": "Explanation",
+     "check": "Keep both visible long enough to establish their relationship."
+    },
+    {
+     "id": "M14",
+     "motion": "Pose anticipation",
+     "mechanism": "A character shifts weight before the main action.",
+     "fit": "Performance",
+     "check": "Anchor the planted foot and use coherent mass transfer."
+    },
+    {
+     "id": "M15",
+     "motion": "Overshoot settle",
+     "mechanism": "A moving prop passes its target slightly and settles.",
+     "fit": "Comedy; interface illustration",
+     "check": "Use controlled easing; avoid implying real damping data."
+    },
+    {
+     "id": "M16",
+     "motion": "Pause at decision",
+     "mechanism": "Slow or hold immediately before the meaningful choice.",
+     "fit": "Puzzle; story",
+     "check": "Hold after the viewer has all necessary information."
+    },
+    {
+     "id": "M17",
+     "motion": "Trail history",
+     "mechanism": "Leave a fading trace of an object's path.",
+     "fit": "Trajectory; process",
+     "check": "Separate history from simultaneous object copies."
+    },
+    {
+     "id": "M18",
+     "motion": "Constraint demonstration",
+     "mechanism": "Move the free degrees of freedom while anchors stay fixed.",
+     "fit": "Engineering",
+     "check": "Check constraints numerically before claiming fidelity."
+    },
+    {
+     "id": "M19",
+     "motion": "Counter-motion",
+     "mechanism": "A secondary part moves against the primary mass.",
+     "fit": "Character; mechanics",
+     "check": "Keep joints and inertia narratively or physically coherent."
+    },
+    {
+     "id": "M20",
+     "motion": "Time panels",
+     "mechanism": "Show multiple labeled moments in a consistent composition.",
+     "fit": "Timeline; before-after",
+     "check": "Label time and avoid implying all states coexist."
+    },
+    {
+     "id": "M21",
+     "motion": "Reverse investigation",
+     "mechanism": "Visit earlier states in order with explicit time labels.",
+     "fit": "Mystery; causality",
+     "check": "Do not reverse the direction of a real process without a label."
+    },
+    {
+     "id": "M22",
+     "motion": "Ground-level tracking",
+     "mechanism": "Move at the character's height along their route.",
+     "fit": "Adventure",
+     "check": "Establish environment and avoid disorienting fast pans."
+    },
+    {
+     "id": "M23",
+     "motion": "Top-down to eye-level",
+     "mechanism": "Transition between plan view and embodied perspective.",
+     "fit": "Spatial learning",
+     "check": "Keep landmarks matched and use a true scene when claiming 3D."
+    },
+    {
+     "id": "M24",
+     "motion": "Slow reveal mask",
+     "mechanism": "Expose an object through a controlled, fair mask.",
+     "fit": "Guessing",
+     "check": "Check no unintended answer leaks or impossible ambiguity."
+    },
+    {
+     "id": "M25",
+     "motion": "Path drawing",
+     "mechanism": "Trace the actual contour or route in ordered segments.",
+     "fit": "Map; diagram",
+     "check": "Stroke order must match the explanation."
+    },
+    {
+     "id": "M26",
+     "motion": "Cause pulse",
+     "mechanism": "One restrained pulse marks the input before motion propagates.",
+     "fit": "Causality",
+     "check": "Never substitute flashing for a meaningful relationship."
+    },
+    {
+     "id": "M27",
+     "motion": "Camera stays character exits",
+     "mechanism": "Let a character leave while the consequence stays visible.",
+     "fit": "Comedy; fable",
+     "check": "The final frame must complete the narrative promise."
+    },
+    {
+     "id": "M28",
+     "motion": "Foreground crossing",
+     "mechanism": "A grounded object passes briefly in front of the subject.",
+     "fit": "Cinematic depth",
+     "check": "Do not hide essential puzzle evidence or a discontinuity."
+    },
+    {
+     "id": "M29",
+     "motion": "Repeated action escalation",
+     "mechanism": "Repeat an action with a new obstacle each time.",
+     "fit": "Comedy; learning",
+     "check": "Each repeat changes a causal or narrative condition."
+    },
+    {
+     "id": "M30",
+     "motion": "Closing tableau",
+     "mechanism": "Settle into a readable final arrangement and hold.",
+     "fit": "Any resolved story",
+     "check": "Keep the answer visible long enough and avoid abrupt cutoff."
+    }
+   ]
+  },
+  "formats": {
+   "heading": "Twenty editorial formats",
+   "anchor": "twenty-editorial-formats",
+   "line": 2531,
+   "columns": [
+    "ID",
+    "Format",
+    "Structure",
+    "Fit",
+    "Gate",
+    "Original proposed duration"
+   ],
+   "keys": [
+    "id",
+    "format",
+    "structure",
+    "fit",
+    "gate",
+    "original_proposed_duration"
+   ],
+   "intro": [],
+   "after": [],
+   "records": [
+    {
+     "id": "F01",
+     "format": "One mechanism explained",
+     "structure": "A question, visible cause, resulting change, bounded takeaway.",
+     "fit": "Learning",
+     "gate": "Show a single causal chain and state model limits.",
+     "original_proposed_duration": "45–75 seconds"
+    },
+    {
+     "id": "F02",
+     "format": "Pause and predict",
+     "structure": "Setup, fair question, quiet thinking beat, result, explanation.",
+     "fit": "Learning",
+     "gate": "Do not use guessing to teach emergency response.",
+     "original_proposed_duration": "40–70 seconds"
+    },
+    {
+     "id": "F03",
+     "format": "Worked scenario",
+     "structure": "A concrete starting state, two or three decisions, checked outcome.",
+     "fit": "Learning",
+     "gate": "Verify every instructional step against the chosen source.",
+     "original_proposed_duration": "60–90 seconds"
+    },
+    {
+     "id": "F04",
+     "format": "Controlled contrast",
+     "structure": "Matched conditions, one stated difference, observed consequence.",
+     "fit": "Learning",
+     "gate": "Counterfactual outcomes remain hypotheses until validated.",
+     "original_proposed_duration": "45–75 seconds"
+    },
+    {
+     "id": "F05",
+     "format": "Trace the cause",
+     "structure": "Show an outcome, inspect clues backward, replay the verified chain.",
+     "fit": "Learning",
+     "gate": "Sequence must support causality rather than merely correlation.",
+     "original_proposed_duration": "50–80 seconds"
+    },
+    {
+     "id": "F06",
+     "format": "Character fable",
+     "structure": "A want, obstacle, choice, consequence and closing image.",
+     "fit": "Fiction",
+     "gate": "A lesson is a theme, not evidence for a general factual claim.",
+     "original_proposed_duration": "45–90 seconds"
+    },
+    {
+     "id": "F07",
+     "format": "Two-choice dilemma",
+     "structure": "The protagonist faces two costs and commits to one path.",
+     "fit": "Fiction",
+     "gate": "Both branches must be plausible within the established world.",
+     "original_proposed_duration": "45–75 seconds"
+    },
+    {
+     "id": "F08",
+     "format": "Dramatic irony",
+     "structure": "The viewer sees a clue the character misses until the payoff.",
+     "fit": "Fiction",
+     "gate": "Stage clues fairly and avoid a hidden last-second solution.",
+     "original_proposed_duration": "40–75 seconds"
+    },
+    {
+     "id": "F09",
+     "format": "Visual comedy chain",
+     "structure": "A simple task escalates through linked attempts and resolves.",
+     "fit": "Fiction",
+     "gate": "Every gag should follow from the previous action.",
+     "original_proposed_duration": "30–65 seconds"
+    },
+    {
+     "id": "F10",
+     "format": "Object's-eye retelling",
+     "structure": "Retell a causal scene from a prop or helper's perspective.",
+     "fit": "Fiction",
+     "gate": "Change information and emphasis, not merely narration wording.",
+     "original_proposed_duration": "45–75 seconds"
+    },
+    {
+     "id": "F11",
+     "format": "Layer breakdown",
+     "structure": "A finished original composition separates into actual useful layers.",
+     "fit": "Production",
+     "gate": "Only use source layers that really exist.",
+     "original_proposed_duration": "40–75 seconds"
+    },
+    {
+     "id": "F12",
+     "format": "Tiny world journey",
+     "structure": "A traveler crosses a coherent miniature environment.",
+     "fit": "Spatial story",
+     "gate": "Preserve scale, route continuity and contact.",
+     "original_proposed_duration": "45–90 seconds"
+    },
+    {
+     "id": "F13",
+     "format": "Guess the place",
+     "structure": "Progressive sourced visual clues lead to one defensible answer.",
+     "fit": "Geography",
+     "gate": "Use verified place identity and rights-cleared imagery.",
+     "original_proposed_duration": "45–75 seconds"
+    },
+    {
+     "id": "F14",
+     "format": "Repair clinic",
+     "structure": "A symptom, diagnostic check, change and rechecked result.",
+     "fit": "Troubleshooting",
+     "gate": "Distinguish observed repair from proposed fix.",
+     "original_proposed_duration": "60–90 seconds"
+    },
+    {
+     "id": "F15",
+     "format": "Myth and boundary",
+     "structure": "A bounded claim is tested and its exceptions are explained.",
+     "fit": "Fact review",
+     "gate": "Requires primary evidence; do not invent a popular myth.",
+     "original_proposed_duration": "60–90 seconds"
+    },
+    {
+     "id": "F16",
+     "format": "Sound-first story",
+     "structure": "Original audio establishes a pattern that visual action transforms.",
+     "fit": "Audio fiction",
+     "gate": "Rights, accessibility and mix are separate checks.",
+     "original_proposed_duration": "30–70 seconds"
+    },
+    {
+     "id": "F17",
+     "format": "One object anthology",
+     "structure": "A recurring prop appears in genuinely different original conflicts.",
+     "fit": "Fiction series",
+     "gate": "Each episode needs its own premise and resolution.",
+     "original_proposed_duration": "45–75 seconds"
+    },
+    {
+     "id": "F18",
+     "format": "Build and inspect",
+     "structure": "A modeled object is assembled, rotated and checked.",
+     "fit": "Making",
+     "gate": "Distinguish illustrative assembly from safe build instructions.",
+     "original_proposed_duration": "60–90 seconds"
+    },
+    {
+     "id": "F19",
+     "format": "Data question",
+     "structure": "A sourced dataset answers a bounded question with visible units.",
+     "fit": "Data learning",
+     "gate": "Check denominator, scope, date and interpolation.",
+     "original_proposed_duration": "45–90 seconds"
+    },
+    {
+     "id": "F20",
+     "format": "Two representations",
+     "structure": "The same mechanism alternates between schematic and tangible views.",
+     "fit": "Learning",
+     "gate": "Keep correspondences exact and disclose simplifications.",
+     "original_proposed_duration": "50–80 seconds"
+    }
+   ]
+  },
+  "axes": {
+   "heading": "Twenty five independent visual axes",
+   "anchor": "twenty-five-independent-visual-axes",
+   "line": 2556,
+   "columns": [
+    "ID",
+    "Axis",
+    "Choice",
+    "Definition",
+    "Use",
+    "Check"
+   ],
+   "keys": [
+    "id",
+    "axis",
+    "choice",
+    "definition",
+    "use",
+    "check"
+   ],
+   "intro": [],
+   "after": [],
+   "records": [
+    {
+     "id": "AX01",
+     "axis": "Camera / projection",
+     "choice": "Top-down orthographic",
+     "definition": "Looks straight down without perspective convergence.",
+     "use": "Routes, layouts, traffic toys, mazes and procedural systems.",
+     "check": "Do not infer object height from a top view; label scale if meaningful."
+    },
+    {
+     "id": "AX02",
+     "axis": "Camera / projection",
+     "choice": "Side-view 2D",
+     "definition": "Action is staged along a clear horizontal or vertical plane.",
+     "use": "Character movement, levers, elevators and sequence lessons.",
+     "check": "Keep contacts visible and avoid accidental depth cues."
+    },
+    {
+     "id": "AX03",
+     "axis": "Camera / projection",
+     "choice": "Isometric or axonometric",
+     "definition": "A parallel-projection view exposes several axes at once.",
+     "use": "Workshops, city systems and compact multi-station stories.",
+     "check": "Use consistent projection and disclose decorative scale choices."
+    },
+    {
+     "id": "AX04",
+     "axis": "Camera / projection",
+     "choice": "Perspective eye-level",
+     "definition": "A camera sees the scene from a character-like vantage point.",
+     "use": "Embodied travel, obstacles, effort and cinematic story scenes.",
+     "check": "Maintain lens, horizon and spatial continuity."
+    },
+    {
+     "id": "AX05",
+     "axis": "Camera / projection",
+     "choice": "Multiple matched viewpoints",
+     "definition": "Two or more cameras show the same state and moment.",
+     "use": "Geometry checks, assembly, ambiguous silhouettes and mechanism teaching.",
+     "check": "Synchronize time, object identity and scale references."
+    },
+    {
+     "id": "AX06",
+     "axis": "Geometry",
+     "choice": "Flat vector 2D",
+     "definition": "Paths, shapes and articulated planar characters.",
+     "use": "Crisp causal diagrams and expressive economical stories.",
+     "check": "A pan or shadow does not turn it into volumetric 3D."
+    },
+    {
+     "id": "AX07",
+     "axis": "Geometry",
+     "choice": "Layered 2.5D planes",
+     "definition": "Cutouts occupy declared depth planes and move with parallax.",
+     "use": "Rich illustrated worlds, motion comics and quiet emotional scenes.",
+     "check": "Inspect masks and disoccluded gaps; depth is approximate."
+    },
+    {
+     "id": "AX08",
+     "axis": "Geometry",
+     "choice": "Faceted low-poly 3D",
+     "definition": "True volumes use deliberately visible polygonal faces.",
+     "use": "Toy terrain, expeditions and readable block-world action.",
+     "check": "Check real geometry and alternate angles; faceting is not a color filter."
+    },
+    {
+     "id": "AX09",
+     "axis": "Geometry",
+     "choice": "Smooth volumetric 3D",
+     "definition": "Modeled surfaces, real cameras, lights and object depth.",
+     "use": "Tactile characters, turntables and spatial mechanism stories.",
+     "check": "Check normals, contact, silhouette and native reopening."
+    },
+    {
+     "id": "AX10",
+     "axis": "Geometry",
+     "choice": "Sectioned or exploded volume",
+     "definition": "A true volume is cut or separated to expose its relationships.",
+     "use": "Product anatomy, architecture and machinery explanations.",
+     "check": "The section plane and part relationships must be geometrically valid."
+    },
+    {
+     "id": "AX11",
+     "axis": "Material / surface",
+     "choice": "Paper and card",
+     "definition": "Fibers, layered edges and soft cut-paper shadows.",
+     "use": "Editorial stories, maps and tactile explanation.",
+     "check": "Use original/procedural or individually cleared textures."
+    },
+    {
+     "id": "AX12",
+     "axis": "Material / surface",
+     "choice": "Cloth or felt",
+     "definition": "Soft fibers, stitched seams and diffuse light.",
+     "use": "Warm characters, care stories and miniature objects.",
+     "check": "Texture alone is not cloth simulation; verify deformations if claimed."
+    },
+    {
+     "id": "AX13",
+     "axis": "Material / surface",
+     "choice": "Clay",
+     "definition": "Soft sculpted forms, roughness and designed deformation.",
+     "use": "Character comedy, fables and tactile transformation.",
+     "check": "Label rendered clay-style work accurately; inspect volume preservation."
+    },
+    {
+     "id": "AX14",
+     "axis": "Material / surface",
+     "choice": "Chalk or graphite",
+     "definition": "Grainy strokes and drawn construction marks.",
+     "use": "Stepwise reasoning and field-note explanations.",
+     "check": "Keep geometry, text and contrast legible despite texture."
+    },
+    {
+     "id": "AX15",
+     "axis": "Material / surface",
+     "choice": "Wood / ceramic / metal",
+     "definition": "Distinct grain, glaze or specular response.",
+     "use": "Object fables and crafted mechanisms.",
+     "check": "Match lighting to material; do not claim physical authenticity."
+    },
+    {
+     "id": "AX16",
+     "axis": "Material / surface",
+     "choice": "Photographic texture",
+     "definition": "An individually cleared image contributes surface or setting detail.",
+     "use": "Rich environments and documentary illustration.",
+     "check": "Review each source's rights, provenance and spatial limits."
+    },
+    {
+     "id": "AX17",
+     "axis": "Aesthetic",
+     "choice": "Technical clarity",
+     "definition": "Restrained detail, explicit labels and clear relationships.",
+     "use": "Math, computing, mechanisms and demonstrations.",
+     "check": "A technical look does not establish factual accuracy."
+    },
+    {
+     "id": "AX18",
+     "axis": "Aesthetic",
+     "choice": "Warm miniature fiction",
+     "definition": "Small original worlds, grounded characters and intentional light.",
+     "use": "Cooperation, everyday microdrama and gentle adventure.",
+     "check": "Preserve a complete story rather than only attractive scenery."
+    },
+    {
+     "id": "AX19",
+     "axis": "Aesthetic",
+     "choice": "Graphic / print-inspired",
+     "definition": "Bold shapes, hatching, print texture and deliberate framing.",
+     "use": "Editorial learning and compact visual storytelling.",
+     "check": "Do not use texture or busy outlines to hide weak action."
+    },
+    {
+     "id": "AX20",
+     "axis": "Aesthetic",
+     "choice": "Cinematic / atmospheric",
+     "definition": "Lighting, depth and camera timing support mood.",
+     "use": "Character scenes and journeys.",
+     "check": "Readable action and honest source evidence remain required."
+    },
+    {
+     "id": "AX21",
+     "axis": "Composition",
+     "choice": "Single hero plus evidence",
+     "definition": "One main action with a small supporting diagram or label.",
+     "use": "Focused explanation and character-led teaching.",
+     "check": "Keep the evidence readable and do not let the host cover it."
+    },
+    {
+     "id": "AX22",
+     "axis": "Composition",
+     "choice": "Synchronized split-screen",
+     "definition": "Two states or views share one timeline.",
+     "use": "Controlled contrasts and multiple interpretations.",
+     "check": "State what changes and what is held fixed."
+    },
+    {
+     "id": "AX23",
+     "axis": "Composition",
+     "choice": "Multi-panel / multi-angle",
+     "definition": "A grid displays distinct views or moments.",
+     "use": "Character sheets, object inspection and perspective puzzles.",
+     "check": "Limit panels to phone-readable content; label moments versus viewpoints."
+    },
+    {
+     "id": "AX24",
+     "axis": "Composition",
+     "choice": "Cutaway / inset",
+     "definition": "The main object remains visible beside an internal view.",
+     "use": "Mechanisms and hidden relationships.",
+     "check": "Keep the inset tied to the same exact object and state."
+    },
+    {
+     "id": "AX25",
+     "axis": "Composition",
+     "choice": "Layer breakdown",
+     "definition": "Actual source contributions separate into inspectable passes.",
+     "use": "Production teaching and reusable component review.",
+     "check": "Count only active meaningful contributions; do not double-count nested groups."
+    }
+   ]
+  },
+  "style_applications": {
+   "heading": "Eighteen concrete style applications",
+   "anchor": "eighteen-concrete-style-applications",
+   "line": 2586,
+   "columns": [
+    "ID",
+    "Story",
+    "Treatment",
+    "View",
+    "Geometry",
+    "Material",
+    "Aesthetic",
+    "Layout",
+    "Why",
+    "Check"
+   ],
+   "keys": [
+    "id",
+    "story",
+    "treatment",
+    "view",
+    "geometry",
+    "material",
+    "aesthetic",
+    "layout",
+    "why",
+    "check"
+   ],
+   "intro": [],
+   "after": [],
+   "records": [
+    {
+     "id": "SU01",
+     "story": "EDU021",
+     "treatment": "Top-down maze search",
+     "view": "Top-down orthographic",
+     "geometry": "Flat vector 2D",
+     "material": "Clean paths with optional original paper texture",
+     "aesthetic": "Technical clarity",
+     "layout": "Single map plus queue inset",
+     "why": "The frontier and waiting queue stay visible together, so search order can be checked.",
+     "check": "Verify every visited node, legal edge and queue operation."
+    },
+    {
+     "id": "SU02",
+     "story": "EDU063",
+     "treatment": "Top-down drawer planning",
+     "view": "Top-down orthographic",
+     "geometry": "Flat vector 2D",
+     "material": "Paper silhouettes or original textured objects",
+     "aesthetic": "Editorial",
+     "layout": "Before/after split-screen",
+     "why": "Footprints and retrieval paths are legible without perspective distortion.",
+     "check": "Verify dimensions, occupied area and the specific retrieval rule."
+    },
+    {
+     "id": "SU03",
+     "story": "EDU002",
+     "treatment": "Side-view elevator lesson",
+     "view": "Side-view 2D",
+     "geometry": "Flat vector 2D",
+     "material": "Crisp lines and restrained chalk labels",
+     "aesthetic": "Technical clarity",
+     "layout": "Single hero number line",
+     "why": "Intervals can be counted without visual depth confusing the starting point.",
+     "check": "Check signed arithmetic and keep the same unit spacing."
+    },
+    {
+     "id": "SU04",
+     "story": "ENT001",
+     "treatment": "Side-view running comedy",
+     "view": "Side-view 2D",
+     "geometry": "Articulated planar characters",
+     "material": "Ink on an original textured stage",
+     "aesthetic": "Graphic comedy",
+     "layout": "Single hero",
+     "why": "The changing distance to the ribbon and the character’s strategy stay readable.",
+     "check": "Check foot contact, ribbon continuity and the earned resolution."
+    },
+    {
+     "id": "SU05",
+     "story": "ENT072",
+     "treatment": "Layered umbrella story",
+     "view": "Perspective-inspired shallow camera",
+     "geometry": "Layered 2.5D planes",
+     "material": "Original cut-paper raincoat and background textures",
+     "aesthetic": "Warm miniature fiction",
+     "layout": "Foreground action with background clue",
+     "why": "Gentle parallax and a visible background gesture support the emotional reveal.",
+     "check": "Inspect cutout halos, disocclusion gaps, grounding and clue visibility."
+    },
+    {
+     "id": "SU06",
+     "story": "ENT079",
+     "treatment": "Shadow-box pocket home",
+     "view": "Fixed or gentle lateral camera",
+     "geometry": "Layered 2.5D planes",
+     "material": "Paper, cloth and original illustration",
+     "aesthetic": "Warm miniature fiction",
+     "layout": "Visible stage cavity",
+     "why": "The nested planes make shelter and belonging tangible without requiring a full 3D model.",
+     "check": "Do not call it true 3D; inspect camera limits and texture rights."
+    },
+    {
+     "id": "SU07",
+     "story": "EDU052",
+     "treatment": "Isometric bottleneck workshop",
+     "view": "Isometric or axonometric",
+     "geometry": "True 3D or explicitly labeled 2D isometric drawing",
+     "material": "Original wooden stations",
+     "aesthetic": "Technical miniature",
+     "layout": "Multi-station wide view",
+     "why": "Parallel stations and the narrow gate can be inspected at the same time.",
+     "check": "Distinguish projection from geometry and verify rates and queue counts."
+    },
+    {
+     "id": "SU08",
+     "story": "ENT045",
+     "treatment": "Faceted night-wave city",
+     "view": "Isometric or perspective",
+     "geometry": "Faceted low-poly 3D",
+     "material": "Original block materials with soft practical light",
+     "aesthetic": "Cinematic miniature",
+     "layout": "Wide city to local inset",
+     "why": "Visible polygon facets and a coordinated wave make scale and sequence readable.",
+     "check": "Check geometry, consistent lights, nonflashing timing and the propagation rule."
+    },
+    {
+     "id": "SU09",
+     "story": "ENT031",
+     "treatment": "Low-poly breakfast expedition",
+     "view": "Ground-level perspective",
+     "geometry": "Faceted low-poly 3D",
+     "material": "Original food-like procedural surfaces",
+     "aesthetic": "Miniature adventure",
+     "layout": "Traveler plus distant goal",
+     "why": "The character’s size, occlusion and route create embodied spatial stakes.",
+     "check": "Establish scale, inspect contacts and keep the fictional crossing coherent."
+    },
+    {
+     "id": "SU10",
+     "story": "ENT025",
+     "treatment": "Textured paper lantern relay",
+     "view": "Side-view or shallow camera",
+     "geometry": "Flat 2D or layered 2.5D",
+     "material": "Original paper fibers and restrained glow",
+     "aesthetic": "Warm editorial",
+     "layout": "One shared lantern through several hands",
+     "why": "Material and handoff staging emphasize cooperation while keeping the token identifiable.",
+     "check": "Review every texture, hand contact, glow boundary and light-sensitive cue."
+    },
+    {
+     "id": "SU11",
+     "story": "ENT076",
+     "treatment": "Felt raincoat patch",
+     "view": "Eye-level perspective",
+     "geometry": "Smooth volumetric 3D or labeled cutout",
+     "material": "Original felt/cloth material",
+     "aesthetic": "Warm miniature fiction",
+     "layout": "Close action then resolved wide frame",
+     "why": "Stitches and soft material make the act of care tangible.",
+     "check": "Texture is not cloth simulation. Check seams, deformation and asset rights."
+    },
+    {
+     "id": "SU12",
+     "story": "ENT008",
+     "treatment": "Clay polite bowling ball",
+     "view": "Low eye-level perspective",
+     "geometry": "Smooth volumetric 3D",
+     "material": "Procedural clay-like surface",
+     "aesthetic": "Physical comedy",
+     "layout": "Single character path",
+     "why": "Weight, hesitation and small deformations communicate intention.",
+     "check": "Preserve volume, contact and intentional timing."
+    },
+    {
+     "id": "SU13",
+     "story": "EDU013",
+     "treatment": "Chalk traveling pulse",
+     "view": "Side-view 2D",
+     "geometry": "Flat vector 2D",
+     "material": "Original chalk-like stroke treatment",
+     "aesthetic": "Field-note science",
+     "layout": "Marked elements plus a trace",
+     "why": "Progressive drawing separates the disturbance from the motion of individual elements.",
+     "check": "Check the actual model and ensure texture does not change element positions."
+    },
+    {
+     "id": "SU14",
+     "story": "EDU111",
+     "treatment": "Multi-angle gear check",
+     "view": "Matched front and quarter views",
+     "geometry": "True 3D volume",
+     "material": "Neutral matte mechanism material",
+     "aesthetic": "Technical clarity",
+     "layout": "Synchronized split-screen",
+     "why": "Multiple angles expose a mesh that a single flattering view could hide.",
+     "check": "Check tooth engagement, ratios, shared time and native/source reopening."
+    },
+    {
+     "id": "SU15",
+     "story": "ENT066",
+     "treatment": "Four-view portrait puzzle",
+     "view": "Four matched viewpoints",
+     "geometry": "True 3D or four independently authored consistent 2D views",
+     "material": "Original graphic materials",
+     "aesthetic": "Perception puzzle",
+     "layout": "Multi-panel grid",
+     "why": "This is multi-faceted as multiple perspectives, distinct from polygonal faceting.",
+     "check": "Verify the puzzle answer and phone-size visibility in every panel."
+    },
+    {
+     "id": "SU16",
+     "story": "EDU118",
+     "treatment": "Zipper cutaway",
+     "view": "Matched external and section view",
+     "geometry": "Sectioned true 3D or explicit 2D diagram",
+     "material": "Neutral original material",
+     "aesthetic": "Technical clarity",
+     "layout": "Hero plus cutaway inset",
+     "why": "The viewer can connect the outside motion to the hidden joining mechanism.",
+     "check": "Match the inset to the same state and verify mechanism claims."
+    },
+    {
+     "id": "SU17",
+     "story": "EDU004",
+     "treatment": "Two garden representations",
+     "view": "Top-down plus oblique view",
+     "geometry": "Exact vector plan and matching 3D blocks",
+     "material": "Original soil/paper surface treatment",
+     "aesthetic": "Technical miniature",
+     "layout": "Synchronized two-representation comparison",
+     "why": "The plan supports counting while the spatial view supports intuition.",
+     "check": "Verify identical perimeters, areas, units and source geometry."
+    },
+    {
+     "id": "SU18",
+     "story": "ENT027",
+     "treatment": "Multi-view shared painting",
+     "view": "Two matched character views and a final wide view",
+     "geometry": "2D panels or true 3D staging",
+     "material": "Original painted texture",
+     "aesthetic": "Cooperation fable",
+     "layout": "Split-screen becoming one frame",
+     "why": "Different viewpoints withhold different information until the whole is visible.",
+     "check": "Keep artwork original, identities consistent and the final reveal earned."
+    }
+   ]
+  },
+  "top_picks": {
+   "heading": "Original top twenty editorial picks",
+   "anchor": "original-top-twenty-editorial-picks",
+   "line": 2609,
+   "columns": [
+    "Rank",
+    "Story",
+    "Title",
+    "Original reason",
+    "Proposed first version",
+    "Gate"
+   ],
+   "keys": [
+    "rank",
+    "story",
+    "title",
+    "original_reason",
+    "proposed_first_version",
+    "gate"
+   ],
+   "intro": [
+    "These are the catalogue's historical editorial recommendations, not current owner-approved selections or guaranteed watchable stories. Reapply the latest comedy/suspense gate."
+   ],
+   "after": [],
+   "records": [
+    {
+     "rank": "1",
+     "story": "EDU001",
+     "title": "The Half-Platform Problem",
+     "original_reason": "Equivalent fractions can be seen directly. A fixed reference rail makes the central comparison easy to inspect.",
+     "proposed_first_version": "Two original platform tiles slide onto one shared unit rail. Use a brief prediction, the reveal and a clear final hold.",
+     "gate": "Check all lengths and subdivisions mathematically. Keep one reference whole throughout."
+    },
+    {
+     "rank": "2",
+     "story": "ENT001",
+     "title": "The Runaway Finish Line",
+     "original_reason": "A moving finish line is immediately understandable and gives the character a clear change of strategy.",
+     "proposed_first_version": "Articulated line runner, readable ribbon motion and three restrained camera setups. Finish on the quiet step through the anchored ribbon.",
+     "gate": "Check ribbon continuity, original character design and a safe cartoon tone."
+    },
+    {
+     "rank": "3",
+     "story": "EDU111",
+     "title": "The Gear Neighbors Turn Apart",
+     "original_reason": "Meshing neighbors supply a compact visible mechanism that is also useful for testing synchronized rotation.",
+     "proposed_first_version": "Two large labeled gears first, then one additional gear. Use a clean diagram before considering a tactile 3D version.",
+     "gate": "Check tooth engagement, rotation direction and gear-ratio claims. A decorative mesh is insufficient."
+    },
+    {
+     "rank": "4",
+     "story": "ENT025",
+     "title": "The Lantern Relay",
+     "original_reason": "The lantern gives a natural visual focus, a warm ending and a reusable handoff animation.",
+     "proposed_first_version": "A short chain of characters passes one original lantern through a richly staged scene. Keep the handoff visible.",
+     "gate": "Preserve object identity, contacts and lighting. Use fictional safe props rather than fire-handling instruction."
+    },
+    {
+     "rank": "5",
+     "story": "EDU002",
+     "title": "The Basement Delivery",
+     "original_reason": "The mistaken count is small, concrete and can be demonstrated without a complex asset set.",
+     "proposed_first_version": "An elevator travels on a clearly mathematical number line while a second counter exposes the off-by-one error.",
+     "gate": "Verify the signed arithmetic. Explain that floor labels are a model rather than a real building standard."
+    },
+    {
+     "rank": "6",
+     "story": "ENT008",
+     "title": "The Polite Bowling Ball",
+     "original_reason": "A polite bowling ball can show intention through timing and trajectory without elaborate dialogue.",
+     "proposed_first_version": "Use one ball, a few original characters and a simple stage. Let hesitation and courteous detours carry the comedy.",
+     "gate": "Keep the physics visibly fictional where necessary and make the final objective readable."
+    },
+    {
+     "rank": "7",
+     "story": "EDU021",
+     "title": "The Maze With a Waiting Line",
+     "original_reason": "A queue-based search can become a real visual trace rather than a vague coding analogy.",
+     "proposed_first_version": "Use one fixed maze, a visible waiting queue and an identified search token. Reveal the visited frontier in order.",
+     "gate": "Check the algorithm trace, legal connections and stopping rule against a deterministic reference."
+    },
+    {
+     "rank": "8",
+     "story": "ENT031",
+     "title": "Across the Breakfast Canyon",
+     "original_reason": "An everyday tabletop seen at miniature scale gives rich spatial stakes with a small reusable prop set.",
+     "proposed_first_version": "Build an original breakfast landscape. Establish scale, track the traveler and resolve the crossing with an earned choice.",
+     "gate": "Label the scene as fiction, check route continuity and avoid risky real-world imitation cues."
+    },
+    {
+     "rank": "9",
+     "story": "EDU027",
+     "title": "The Stripe Compressor Meets Confetti",
+     "original_reason": "Compressible stripes and noisy confetti make the difference in repeated structure visible.",
+     "proposed_first_version": "Show the same encoding rule applied to two small patterns. Keep a compact symbol count beside the action.",
+     "gate": "State the exact simplified encoding. Verify counts and avoid claiming all real compressors behave identically."
+    },
+    {
+     "rank": "10",
+     "story": "ENT021",
+     "title": "Two Ends of the Map",
+     "original_reason": "Split map knowledge supports a clear cooperation story and a useful matched-view composition.",
+     "proposed_first_version": "Start with each character holding one map portion. Reveal the combined route through shared action.",
+     "gate": "Keep the map geometry consistent and ensure cooperation, rather than a lucky coincidence, resolves the obstacle."
+    },
+    {
+     "rank": "11",
+     "story": "EDU052",
+     "title": "The Narrowest Gate",
+     "original_reason": "A narrow gate is a tangible way to introduce a bottleneck and show why local speed is not enough.",
+     "proposed_first_version": "Animate tokens through three stations, change only the intended capacity, and show the resulting queue.",
+     "gate": "Define the toy process, rates and measurement interval. Do not generalize its result to every workplace."
+    },
+    {
+     "rank": "12",
+     "story": "EDU081",
+     "title": "The Caption That Lost the Speaker",
+     "original_reason": "Speaker attribution in captions creates a practical accessibility lesson that can be shown directly.",
+     "proposed_first_version": "Use two original voices or labeled characters. Compare ambiguous captions with a clearly attributed version.",
+     "gate": "Verify caption conventions and readable timing. Do not rely on color alone for speaker identity."
+    },
+    {
+     "rank": "13",
+     "story": "ENT045",
+     "title": "The Block City Night Wave",
+     "original_reason": "A city-wide night wave offers a satisfying visual payoff and reusable timing controls.",
+     "proposed_first_version": "A miniature block city passes one intentional evening signal from place to place. Let the camera reveal the larger pattern slowly.",
+     "gate": "Check the actual causal or fictional rule and avoid flashing lights or excessive brightness changes."
+    },
+    {
+     "rank": "14",
+     "story": "EDU004",
+     "title": "Same Fence, Different Garden",
+     "original_reason": "Equal fence length and different garden area create an inspectable geometric contrast.",
+     "proposed_first_version": "Rearrange the same boundary pieces into two original plots, then tile their interiors using a shared unit.",
+     "gate": "Verify perimeter and area independently. Keep units and any grid scale explicit."
+    },
+    {
+     "rank": "15",
+     "story": "ENT051",
+     "title": "The Three-Lamp Switch Dance",
+     "original_reason": "A finite lamp puzzle supports a real answer-checking fixture as well as an episode.",
+     "proposed_first_version": "Show the legal switch action, allow a fair prediction, then reveal the verified sequence in a calm repeat.",
+     "gate": "Exhaustively verify reachable states and the claimed solution. Avoid misleading electrical-wiring realism."
+    },
+    {
+     "rank": "16",
+     "story": "EDU063",
+     "title": "The Drawer That Counts Footprints",
+     "original_reason": "A drawer layout turns vague tidiness into a visible fit and access problem.",
+     "proposed_first_version": "Use accurately sized original silhouettes on an overhead tray. Show why a visually compact layout may obstruct retrieval.",
+     "gate": "Check dimensions and the chosen access rule. Present one example, not a universal organizing prescription."
+    },
+    {
+     "rank": "17",
+     "story": "ENT060",
+     "title": "The Finite Spring Finale",
+     "original_reason": "A finite spring mechanism creates a built-in ending and a useful limit to the action.",
+     "proposed_first_version": "Show the stored-motion setup, a short sequence of consequences and the calm state after the energy is spent.",
+     "gate": "Keep it a fictional prop. If making real mechanics claims, validate the energy accounting and safe boundaries."
+    },
+    {
+     "rank": "18",
+     "story": "EDU008",
+     "title": "The Giant Three-Point Jump",
+     "original_reason": "A truncated chart can produce a strong before/after reveal without a large scene.",
+     "proposed_first_version": "Show the exact same three data points with two clearly labeled axis ranges, then inspect the apparent difference.",
+     "gate": "Use explicitly illustrative data, preserve the values and label axes. Do not manufacture an empirical claim."
+    },
+    {
+     "rank": "19",
+     "story": "EDU013",
+     "title": "The Traveling Pulse",
+     "original_reason": "A traveling pulse can separate movement of a disturbance from movement of the material.",
+     "proposed_first_version": "Use marked elements in a visible row. Track a few elements while the pulse travels through the group.",
+     "gate": "Check the model and boundary conditions. Do not generalize one wave type to all waves."
+    },
+    {
+     "rank": "20",
+     "story": "EDU108",
+     "title": "The Flood Shortcut Stays Off the Map",
+     "original_reason": "A calm preparedness episode fits the survival/learning direction and avoids turning danger into a guessing game.",
+     "proposed_first_version": "After source approval, use a clearly labeled map illustration to explain why the proposed flood shortcut is removed.",
+     "gate": "Hold production until current authoritative flood-safety guidance is checked for the intended region. Do not stage a traversable flood-depth challenge."
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,50 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "storyboard_grid_exporter",
+  "title": "Storyboard grid exporter",
+  "kind": "code-module",
+  "subkind": "qa-check",
+  "version": "1.0.0",
+  "summary": "Builds storyboard/contact sheets with Pillow (frames in a grid with timestamp and note captions, optional title) plus timestamp pickers and the ffmpeg frame-extract command.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "plan",
+    "review"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "storyboard_grid_exporter.py",
+  "tags": [
+    "video",
+    "storyboard",
+    "contact-sheet",
+    "review",
+    "pillow"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

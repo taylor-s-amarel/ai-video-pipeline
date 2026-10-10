@@ -1,0 +1,782 @@
+[
+  {
+    "id": "AVQ-025-001",
+    "domain_id": "D025",
+    "area": "audio visual timing",
+    "question": "Do visible lip closures coincide with the corresponding consonants in the delivered dialogue?",
+    "failure_hypothesis": "Mouth animation uses a nearby but perceptually wrong phoneme timing.",
+    "check_or_fix": "Listen with picture and inspect exposed consonants frame by frame.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "auditory"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "live-action",
+      "fiction",
+      "3d",
+      "cutout"
+    ],
+    "source_line": 7688,
+    "passes": [
+      "default_32",
+      "sound"
+    ]
+  },
+  {
+    "id": "AVQ-025-002",
+    "domain_id": "D025",
+    "area": "audio visual timing",
+    "question": "Does a footstep sound land on weight-bearing contact rather than on the foot's lowest airborne position?",
+    "failure_hypothesis": "Naive motion markers misidentify the actual contact event.",
+    "check_or_fix": "Listen with the walk and align cues to verified contact frames.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "auditory"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "3d",
+      "cutout",
+      "stop-motion",
+      "fiction",
+      "live-action"
+    ],
+    "source_line": 7690,
+    "passes": [
+      "sound",
+      "longer_cardboard_32"
+    ]
+  },
+  {
+    "id": "AVQ-025-003",
+    "domain_id": "D025",
+    "area": "audio visual timing",
+    "question": "Are musical accents aligned to the perceptually important phase of a gesture rather than merely its keyframe timestamp?",
+    "failure_hypothesis": "Technical alignment misses the gesture's experienced peak.",
+    "check_or_fix": "Listen at normal speed and compare anticipation, peak, and settle placements.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7692,
+    "passes": [
+      "sound"
+    ]
+  },
+  {
+    "id": "AVQ-025-004",
+    "domain_id": "D025",
+    "area": "audio visual timing",
+    "question": "Does synchronization drift progressively from the beginning to the end of the video?",
+    "failure_hypothesis": "Audio and picture were interpreted under different clock or rate assumptions.",
+    "check_or_fix": "Compare early and late landmarks and listen through the delivered file.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "auditory"
+    ],
+    "stages": [
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7694,
+    "passes": [
+      "sound"
+    ]
+  },
+  {
+    "id": "AVQ-025-005",
+    "domain_id": "D025",
+    "area": "audio visual timing",
+    "question": "Is a constant global audio offset shifting every sound ahead of or behind the picture?",
+    "failure_hypothesis": "Container or timeline offset moves the entire soundtrack.",
+    "check_or_fix": "Measure several independent landmarks and verify the correction by listening.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "auditory"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7696,
+    "passes": [
+      "sound"
+    ]
+  },
+  {
+    "id": "AVQ-025-006",
+    "domain_id": "D025",
+    "area": "audio visual timing",
+    "question": "When narration says 'this part,' is the intended object already visible and still highlighted?",
+    "failure_hypothesis": "Spoken reference and visual focus occupy different intervals.",
+    "check_or_fix": "Listen with picture and align each deictic phrase to its referent.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7698,
+    "passes": [
+      "sound"
+    ]
+  },
+  {
+    "id": "AVQ-025-007",
+    "domain_id": "D025",
+    "area": "audio visual timing",
+    "question": "Does a spoken explanation introduce a diagram feature before the feature changes beyond recognition?",
+    "failure_hypothesis": "The image advances while the voice still describes its prior state.",
+    "check_or_fix": "Listen with the animation and hold the referenced state through the phrase.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7700,
+    "passes": [
+      "sound"
+    ]
+  },
+  {
+    "id": "AVQ-025-008",
+    "domain_id": "D025",
+    "area": "audio visual timing",
+    "question": "Are deliberate anticipatory sounds clearly nonliteral rather than suggesting an impact before contact?",
+    "failure_hypothesis": "An editorial whoosh is mistaken for a physically early collision.",
+    "check_or_fix": "Listen with picture and distinguish anticipation from the contact cue.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7702,
+    "passes": [
+      "sound"
+    ]
+  },
+  {
+    "id": "AVQ-025-009",
+    "domain_id": "D025",
+    "area": "audio visual timing",
+    "question": "Does an echo or repeated effect make one visible event seem like two separate actions?",
+    "failure_hypothesis": "Audible repetitions imply extra events absent from the picture.",
+    "check_or_fix": "Listen without prior context and simplify ambiguous repeats.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7704,
+    "passes": [
+      "sound"
+    ]
+  },
+  {
+    "id": "AVQ-025-010",
+    "domain_id": "D025",
+    "area": "audio visual timing",
+    "question": "Does the audiovisual loop return to the same phase in both music and movement?",
+    "failure_hypothesis": "Unequal loop lengths cause a new phase mismatch on each repeat.",
+    "check_or_fix": "Play multiple loops and compare shared start landmarks.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "auditory"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7706,
+    "passes": [
+      "sound"
+    ]
+  },
+  {
+    "id": "AVQ-025-011",
+    "domain_id": "D025",
+    "area": "audio visual timing",
+    "question": "Does speed-ramping footage preserve the intended relationship between source motion and sound duration?",
+    "failure_hypothesis": "Picture retiming leaves effects or dialogue at incompatible speeds.",
+    "check_or_fix": "Listen across ramps and retime or replace sound intentionally.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "auditory"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7708,
+    "passes": [
+      "sound"
+    ]
+  },
+  {
+    "id": "AVQ-025-012",
+    "domain_id": "D025",
+    "area": "audio visual timing",
+    "question": "Are sharp audio transients still aligned after video frame-rate conversion quantizes the event time?",
+    "failure_hypothesis": "Conforming rounds visual events but leaves sample-accurate audio unchanged.",
+    "check_or_fix": "Inspect converted landmarks and listen to the final cadence.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "auditory"
+    ],
+    "stages": [
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7710,
+    "passes": [
+      "sound"
+    ]
+  },
+  {
+    "id": "AVQ-025-013",
+    "domain_id": "D025",
+    "area": "audio visual timing",
+    "question": "Does encoder priming or inserted silence delay the first audible event relative to the first visual action?",
+    "failure_hypothesis": "Codec padding alters the beginning of the delivered clip.",
+    "check_or_fix": "Decode and listen from the start in target players.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "auditory"
+    ],
+    "stages": [
+      "final-encode",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7712,
+    "passes": [
+      "sound"
+    ]
+  },
+  {
+    "id": "AVQ-025-014",
+    "domain_id": "D025",
+    "area": "audio visual timing",
+    "question": "Is the last spoken word or sound decay audible before the encoded picture ends?",
+    "failure_hypothesis": "Mismatched stream durations truncate the soundtrack's conclusion.",
+    "check_or_fix": "Listen through the actual endpoint and inspect both stream durations.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "auditory"
+    ],
+    "stages": [
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7714,
+    "passes": [
+      "sound"
+    ]
+  },
+  {
+    "id": "AVQ-025-015",
+    "domain_id": "D025",
+    "area": "audio visual timing",
+    "question": "Do separately rendered scene segments share one timeline rather than restarting local audio phase at each join?",
+    "failure_hypothesis": "Segment assembly resets a continuous cue or ambience cycle.",
+    "check_or_fix": "Listen across all joins and compare segment offsets to the master timeline.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "auditory"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7716,
+    "passes": [
+      "sound"
+    ]
+  },
+  {
+    "id": "AVQ-025-016",
+    "domain_id": "D025",
+    "area": "audio visual timing",
+    "question": "Does apparent source motion across the screen agree with audible spatial movement?",
+    "failure_hypothesis": "Pan automation follows the wrong trajectory or direction.",
+    "check_or_fix": "Listen with headphones and picture, then align spatial cues to the intended path.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7718,
+    "passes": [
+      "sound"
+    ]
+  },
+  {
+    "id": "AVQ-025-017",
+    "domain_id": "D025",
+    "area": "audio visual timing",
+    "question": "Is any intended sound-travel delay plausible and distinguishable from accidental desynchronization?",
+    "failure_hypothesis": "Delayed sound appears broken because distance or scale is not established.",
+    "check_or_fix": "Listen with the shot and verify the delay rationale and visual distance cue.",
+    "severity": "medium",
+    "modes": [
+      "machine",
+      "visual",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "educational",
+      "live-action",
+      "3d"
+    ],
+    "source_line": 7720,
+    "passes": []
+  },
+  {
+    "id": "AVQ-025-018",
+    "domain_id": "D025",
+    "area": "audio visual timing",
+    "question": "Does a countdown's audible pulse indicate the same remaining time as its visible numerals?",
+    "failure_hypothesis": "Timer graphics and audio clicks are driven by separate clocks.",
+    "check_or_fix": "Listen while stepping through numeral changes and reconcile the time authority.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "auditory"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 7722,
+    "passes": []
+  },
+  {
+    "id": "AVQ-025-019",
+    "domain_id": "D025",
+    "area": "audio visual timing",
+    "question": "Are sound cues for simultaneous comparison panels using the same event definition on both sides?",
+    "failure_hypothesis": "One panel sounds at anticipation while the other sounds at completion.",
+    "check_or_fix": "Listen to isolated panels and normalize the cue criterion.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "auditory"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7724,
+    "passes": []
+  },
+  {
+    "id": "AVQ-025-020",
+    "domain_id": "D025",
+    "area": "audio visual timing",
+    "question": "Does an audio-reactive graphic actually derive from the delivered audio rather than a different draft?",
+    "failure_hypothesis": "A plausible waveform or meter displays unrelated signal data.",
+    "check_or_fix": "Compare audio features to graphic timing and listen at mismatched peaks.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "auditory"
+    ],
+    "stages": [
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "screen-recording",
+      "educational",
+      "typographic"
+    ],
+    "source_line": 7726,
+    "passes": []
+  },
+  {
+    "id": "AVQ-025-021",
+    "domain_id": "D025",
+    "area": "audio visual timing",
+    "question": "Does automatic beat detection identify the pulse listeners actually hear in this cue?",
+    "failure_hypothesis": "An estimator locks onto subdivisions or half-time accents.",
+    "check_or_fix": "Listen and tap the pulse, then compare it with detected beats.",
+    "severity": "medium",
+    "modes": [
+      "machine",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7728,
+    "passes": []
+  },
+  {
+    "id": "AVQ-025-022",
+    "domain_id": "D025",
+    "area": "audio visual timing",
+    "question": "Are repeated visual accents distributed musically when the beat period is not an integer number of video frames?",
+    "failure_hypothesis": "Naive rounding accumulates jitter or duplicates accent frames.",
+    "check_or_fix": "Inspect frame scheduling and listen to the long repeated sequence.",
+    "severity": "medium",
+    "modes": [
+      "machine",
+      "visual",
+      "auditory"
+    ],
+    "stages": [
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "vector",
+      "typographic"
+    ],
+    "source_line": 7730,
+    "passes": []
+  },
+  {
+    "id": "AVQ-025-023",
+    "domain_id": "D025",
+    "area": "audio visual timing",
+    "question": "Does a frozen image accompanied by continuing action sounds imply an event the viewer can no longer verify?",
+    "failure_hypothesis": "Audio continuation creates false off-screen progress during a freeze.",
+    "check_or_fix": "Listen with picture and either justify the off-screen action or change the cue.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7732,
+    "passes": []
+  },
+  {
+    "id": "AVQ-025-024",
+    "domain_id": "D025",
+    "area": "audio visual timing",
+    "question": "Does reversing a shot leave sound envelopes that suggest forward action or an impossible sequence?",
+    "failure_hypothesis": "Reversed visuals retain incompatible attack and decay cues.",
+    "check_or_fix": "Listen to the reversed sequence and redesign sound for the intended event.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7734,
+    "passes": []
+  },
+  {
+    "id": "AVQ-025-025",
+    "domain_id": "D025",
+    "area": "audio visual timing",
+    "question": "Are emotional vocal pauses coordinated with visible reactions instead of overwritten by unrelated movement?",
+    "failure_hypothesis": "The body advances while the voice is still processing the moment.",
+    "check_or_fix": "Listen with performance and retime reaction beats around the spoken thought.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7736,
+    "passes": []
+  },
+  {
+    "id": "AVQ-025-026",
+    "domain_id": "D025",
+    "area": "audio visual timing",
+    "question": "Does a visual beat tied to spoken wording still work in a translated or alternate-voice version?",
+    "failure_hypothesis": "Different phrase lengths break an alignment inherited from the original.",
+    "check_or_fix": "Listen to every language version with its actual picture timing.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "edit",
+      "final-encode",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7738,
+    "passes": []
+  },
+  {
+    "id": "AVQ-025-027",
+    "domain_id": "D025",
+    "area": "audio visual timing",
+    "question": "Is the audio track paired with the exact picture revision it was mixed against?",
+    "failure_hypothesis": "A correctly timed soundtrack is attached to a different cut.",
+    "check_or_fix": "Verify version hashes and listen at each changed edit boundary.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "auditory"
+    ],
+    "stages": [
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7740,
+    "passes": []
+  },
+  {
+    "id": "AVQ-025-028",
+    "domain_id": "D025",
+    "area": "audio visual timing",
+    "question": "Does seeking or resuming playback introduce an audiovisual offset that continuous playback does not reveal?",
+    "failure_hypothesis": "Player buffering or timestamps cause transient desynchronization after navigation.",
+    "check_or_fix": "Test real seek/resume behavior and listen at recognizable sync events.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "auditory"
+    ],
+    "stages": [
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7742,
+    "passes": []
+  },
+  {
+    "id": "AVQ-025-029",
+    "domain_id": "D025",
+    "area": "audio visual timing",
+    "question": "Are scene ambience changes synchronized with the intended acoustic boundary rather than arbitrary cut points?",
+    "failure_hypothesis": "Sound changes rooms before the character crosses the doorway.",
+    "check_or_fix": "Listen with spatial action and place the acoustic transition at the justified moment.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "edit"
+    ],
+    "style_filters": [
+      "live-action",
+      "fiction",
+      "3d"
+    ],
+    "source_line": 7744,
+    "passes": []
+  },
+  {
+    "id": "AVQ-025-030",
+    "domain_id": "D025",
+    "area": "audio visual timing",
+    "question": "Does a note or effect trigger twice when a visual event sits on a segment or loop boundary?",
+    "failure_hypothesis": "Inclusive boundary logic schedules the same event in both adjacent blocks.",
+    "check_or_fix": "Audit event IDs and listen across the affected boundary.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "auditory"
+    ],
+    "stages": [
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7746,
+    "passes": []
+  },
+  {
+    "id": "AVQ-025-031",
+    "domain_id": "D025",
+    "area": "audio visual timing",
+    "question": "Can the apparent synchronization be verified on the actual destination rather than inferred from an editor preview?",
+    "failure_hypothesis": "Preview playback compensation hides delivery-specific timing problems.",
+    "check_or_fix": "Listen and watch the uploaded or delivered rendition on its real player.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "auditory"
+    ],
+    "stages": [
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7748,
+    "passes": []
+  },
+  {
+    "id": "AVQ-025-032",
+    "domain_id": "D025",
+    "area": "audio visual timing",
+    "question": "If a cue is deliberately off-beat, does that mismatch read as expressive timing rather than an error?",
+    "failure_hypothesis": "Intentional displacement is too weakly motivated to be perceived as design.",
+    "check_or_fix": "Listen with unbriefed viewers and compare an aligned version.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7750,
+    "passes": []
+  }
+]

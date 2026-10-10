@@ -1,0 +1,6 @@
+title: Image sequence tools
+summary: Groups frame files into printf-style sequences, finds missing frames from crashed renders, and builds ffmpeg -framerate/-start_number input arguments that refuse gapped sequences.
+subkind: render-recipe
+domain: video
+tags: [video, frames, image-sequence, ffmpeg, render]
+step_kinds: [render, verify]

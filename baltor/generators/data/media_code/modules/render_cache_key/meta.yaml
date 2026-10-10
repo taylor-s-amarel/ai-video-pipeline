@@ -1,0 +1,9 @@
+title: Render cache keys
+summary: SHA-256 keys for render steps from parameters, input file digests and upstream keys, plus a freshness record so unchanged intermediate clips are reused and edited outputs are rebuilt.
+subkind: workflow
+domain: video
+tags: [video, cache, reproducibility, render, sha256, pipeline]
+step_kinds: [build, render]
+effects:
+  filesystem: write
+  side_effects: ["Plan writes small JSON stamp files under its cache root"]

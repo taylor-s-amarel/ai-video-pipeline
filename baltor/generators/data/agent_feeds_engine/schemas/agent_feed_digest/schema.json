@@ -1,0 +1,759 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/agent-feed-digest",
+  "title": "Agent feed digest",
+  "description": "What changed since a cursor for one project, grouped by the action needed (breaking, deprecation, security, new capability, FYI), newest first inside each group, each entry with reasons and a suggested action.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "spec",
+    "project",
+    "generated",
+    "since_cursor",
+    "next_cursor",
+    "counts",
+    "groups"
+  ],
+  "properties": {
+    "spec": {
+      "const": "baltor.agent-feed-digest/v1"
+    },
+    "project": {
+      "type": "string"
+    },
+    "generated": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+    },
+    "since_cursor": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "next_cursor": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "watchlist": {
+      "type": "string",
+      "description": "Path or sha256 of the watchlist used"
+    },
+    "min_score": {
+      "type": "integer"
+    },
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "breaking",
+        "deprecation",
+        "security",
+        "new_capability",
+        "fyi",
+        "total",
+        "considered"
+      ],
+      "properties": {
+        "breaking": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "deprecation": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "security": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "new_capability": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "fyi": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "total": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "considered": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "groups": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "breaking",
+        "deprecation",
+        "security",
+        "new_capability",
+        "fyi"
+      ],
+      "properties": {
+        "breaking": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "item_id",
+              "title",
+              "url",
+              "group",
+              "score",
+              "reasons",
+              "suggested_action"
+            ],
+            "properties": {
+              "item_id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "group": {
+                "enum": [
+                  "breaking",
+                  "deprecation",
+                  "security",
+                  "new_capability",
+                  "fyi"
+                ]
+              },
+              "published": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+              },
+              "source_id": {
+                "type": "string"
+              },
+              "vendor": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "products": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "versions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "change_types": {
+                "type": "array",
+                "items": {
+                  "enum": [
+                    "release",
+                    "breaking-change",
+                    "deprecation",
+                    "security",
+                    "incident",
+                    "pricing",
+                    "model-release",
+                    "docs",
+                    "research",
+                    "community",
+                    "policy",
+                    "event",
+                    "tutorial",
+                    "dataset"
+                  ]
+                }
+              },
+              "severity": {
+                "enum": [
+                  "none",
+                  "low",
+                  "medium",
+                  "high",
+                  "critical",
+                  "unknown",
+                  null
+                ]
+              },
+              "cve_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "score": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "reasons": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "affected": {
+                "enum": [
+                  "yes",
+                  "maybe",
+                  "no",
+                  "unknown"
+                ]
+              },
+              "suggested_action": {
+                "type": "string",
+                "maxLength": 400
+              },
+              "also_reported_by": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "deprecation": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "item_id",
+              "title",
+              "url",
+              "group",
+              "score",
+              "reasons",
+              "suggested_action"
+            ],
+            "properties": {
+              "item_id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "group": {
+                "enum": [
+                  "breaking",
+                  "deprecation",
+                  "security",
+                  "new_capability",
+                  "fyi"
+                ]
+              },
+              "published": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+              },
+              "source_id": {
+                "type": "string"
+              },
+              "vendor": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "products": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "versions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "change_types": {
+                "type": "array",
+                "items": {
+                  "enum": [
+                    "release",
+                    "breaking-change",
+                    "deprecation",
+                    "security",
+                    "incident",
+                    "pricing",
+                    "model-release",
+                    "docs",
+                    "research",
+                    "community",
+                    "policy",
+                    "event",
+                    "tutorial",
+                    "dataset"
+                  ]
+                }
+              },
+              "severity": {
+                "enum": [
+                  "none",
+                  "low",
+                  "medium",
+                  "high",
+                  "critical",
+                  "unknown",
+                  null
+                ]
+              },
+              "cve_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "score": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "reasons": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "affected": {
+                "enum": [
+                  "yes",
+                  "maybe",
+                  "no",
+                  "unknown"
+                ]
+              },
+              "suggested_action": {
+                "type": "string",
+                "maxLength": 400
+              },
+              "also_reported_by": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "security": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "item_id",
+              "title",
+              "url",
+              "group",
+              "score",
+              "reasons",
+              "suggested_action"
+            ],
+            "properties": {
+              "item_id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "group": {
+                "enum": [
+                  "breaking",
+                  "deprecation",
+                  "security",
+                  "new_capability",
+                  "fyi"
+                ]
+              },
+              "published": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+              },
+              "source_id": {
+                "type": "string"
+              },
+              "vendor": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "products": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "versions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "change_types": {
+                "type": "array",
+                "items": {
+                  "enum": [
+                    "release",
+                    "breaking-change",
+                    "deprecation",
+                    "security",
+                    "incident",
+                    "pricing",
+                    "model-release",
+                    "docs",
+                    "research",
+                    "community",
+                    "policy",
+                    "event",
+                    "tutorial",
+                    "dataset"
+                  ]
+                }
+              },
+              "severity": {
+                "enum": [
+                  "none",
+                  "low",
+                  "medium",
+                  "high",
+                  "critical",
+                  "unknown",
+                  null
+                ]
+              },
+              "cve_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "score": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "reasons": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "affected": {
+                "enum": [
+                  "yes",
+                  "maybe",
+                  "no",
+                  "unknown"
+                ]
+              },
+              "suggested_action": {
+                "type": "string",
+                "maxLength": 400
+              },
+              "also_reported_by": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "new_capability": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "item_id",
+              "title",
+              "url",
+              "group",
+              "score",
+              "reasons",
+              "suggested_action"
+            ],
+            "properties": {
+              "item_id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "group": {
+                "enum": [
+                  "breaking",
+                  "deprecation",
+                  "security",
+                  "new_capability",
+                  "fyi"
+                ]
+              },
+              "published": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+              },
+              "source_id": {
+                "type": "string"
+              },
+              "vendor": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "products": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "versions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "change_types": {
+                "type": "array",
+                "items": {
+                  "enum": [
+                    "release",
+                    "breaking-change",
+                    "deprecation",
+                    "security",
+                    "incident",
+                    "pricing",
+                    "model-release",
+                    "docs",
+                    "research",
+                    "community",
+                    "policy",
+                    "event",
+                    "tutorial",
+                    "dataset"
+                  ]
+                }
+              },
+              "severity": {
+                "enum": [
+                  "none",
+                  "low",
+                  "medium",
+                  "high",
+                  "critical",
+                  "unknown",
+                  null
+                ]
+              },
+              "cve_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "score": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "reasons": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "affected": {
+                "enum": [
+                  "yes",
+                  "maybe",
+                  "no",
+                  "unknown"
+                ]
+              },
+              "suggested_action": {
+                "type": "string",
+                "maxLength": 400
+              },
+              "also_reported_by": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "fyi": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "item_id",
+              "title",
+              "url",
+              "group",
+              "score",
+              "reasons",
+              "suggested_action"
+            ],
+            "properties": {
+              "item_id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "group": {
+                "enum": [
+                  "breaking",
+                  "deprecation",
+                  "security",
+                  "new_capability",
+                  "fyi"
+                ]
+              },
+              "published": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+              },
+              "source_id": {
+                "type": "string"
+              },
+              "vendor": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "products": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "versions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "change_types": {
+                "type": "array",
+                "items": {
+                  "enum": [
+                    "release",
+                    "breaking-change",
+                    "deprecation",
+                    "security",
+                    "incident",
+                    "pricing",
+                    "model-release",
+                    "docs",
+                    "research",
+                    "community",
+                    "policy",
+                    "event",
+                    "tutorial",
+                    "dataset"
+                  ]
+                }
+              },
+              "severity": {
+                "enum": [
+                  "none",
+                  "low",
+                  "medium",
+                  "high",
+                  "critical",
+                  "unknown",
+                  null
+                ]
+              },
+              "cve_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "score": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "reasons": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "affected": {
+                "enum": [
+                  "yes",
+                  "maybe",
+                  "no",
+                  "unknown"
+                ]
+              },
+              "suggested_action": {
+                "type": "string",
+                "maxLength": 400
+              },
+              "also_reported_by": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

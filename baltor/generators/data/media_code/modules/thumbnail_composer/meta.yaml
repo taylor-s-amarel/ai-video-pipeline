@@ -1,0 +1,6 @@
+title: Thumbnail composer
+summary: Composes video thumbnails with Pillow (cover-cropped photo, gradient scrim, largest-fitting stroked title) and reports the title's WCAG contrast against the pixels behind it.
+subkind: thumbnail-style
+domain: video
+tags: [video, thumbnail, pillow, title, contrast, publishing]
+step_kinds: [design, publish]

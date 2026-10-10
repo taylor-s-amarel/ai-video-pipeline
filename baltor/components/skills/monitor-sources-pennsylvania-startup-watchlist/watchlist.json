@@ -1,0 +1,152 @@
+{
+  "id": "pennsylvania-startup-weekly",
+  "title": "Pennsylvania startup programmes: weekly",
+  "cadence": "weekly",
+  "window": "7d",
+  "sources": [
+    {
+      "collection": "community-pennsylvania-startups",
+      "weight": 1.0
+    },
+    {
+      "collection": "community-pennsylvania-startups",
+      "item_ids": [
+        "ben-franklin-big-idea-2026"
+      ],
+      "weight": 3.0,
+      "note": "Check daily until the application deadline (16 October 2026 per the announcement)."
+    }
+  ],
+  "keywords": [
+    {
+      "term": "pennsylvania",
+      "weight": 2
+    },
+    {
+      "term": "pittsburgh",
+      "weight": 1.5
+    },
+    {
+      "term": "philadelphia",
+      "weight": 1.5
+    },
+    {
+      "term": "state college",
+      "weight": 2
+    },
+    {
+      "term": "ben franklin",
+      "weight": 3
+    },
+    {
+      "term": "big idea",
+      "weight": 3
+    },
+    {
+      "term": "techcelerator",
+      "weight": 3
+    },
+    {
+      "term": "small business",
+      "weight": 1.5
+    },
+    {
+      "term": "grant",
+      "weight": 1.5
+    },
+    {
+      "term": "pitch",
+      "weight": 1.5
+    },
+    {
+      "term": "startup",
+      "weight": 1
+    },
+    {
+      "term": "penn state",
+      "weight": 1.5
+    },
+    {
+      "term": "launchbox",
+      "weight": 2
+    },
+    {
+      "term": "dced",
+      "weight": 2
+    },
+    {
+      "term": "rural",
+      "weight": 1
+    },
+    {
+      "term": "farm",
+      "weight": 1
+    },
+    {
+      "term": "manufacturer",
+      "weight": 1
+    }
+  ],
+  "exclude_terms": [
+    "for sale",
+    "rent"
+  ],
+  "groups": [
+    {
+      "title": "Programmes and deadlines",
+      "match": {
+        "terms_any": [
+          "ben franklin",
+          "big idea",
+          "techcelerator",
+          "grant",
+          "launchbox",
+          "dced"
+        ]
+      }
+    },
+    {
+      "title": "Pennsylvania communities",
+      "match": {
+        "feed_url_contains": [
+          "r/Pennsylvania",
+          "r/pittsburgh",
+          "r/philadelphia",
+          "r/philly",
+          "r/Harrisburg",
+          "r/Scranton",
+          "r/PennStateUniversity"
+        ]
+      }
+    },
+    {
+      "title": "Founder communities",
+      "match": {
+        "feed_url_contains": [
+          "reddit.com"
+        ]
+      }
+    }
+  ],
+  "max_items_per_source": 3,
+  "max_items": 30,
+  "recency_half_life_days": 5,
+  "trend_min_sources": 2,
+  "cautions": [
+    "Programme pages have no confirmed feeds: check them directly. Confirm eligibility thresholds on the official contest page; an earlier cycle capped sales at $500,000."
+  ],
+  "polite": {
+    "user_agent": "baltor-feed-reader/1.0 (+https://github.com/taylor-s-amarel/ai-video-pipeline)",
+    "min_interval_s": 5,
+    "max_polls_per_day": 24,
+    "respect_retry_after": true,
+    "conditional_get": true,
+    "host_overrides": {
+      "www.reddit.com": 60
+    }
+  },
+  "outputs": {
+    "markdown": "digests/pennsylvania-startup-weekly/{date}.md",
+    "json": "digests/pennsylvania-startup-weekly/{date}.json"
+  }
+}

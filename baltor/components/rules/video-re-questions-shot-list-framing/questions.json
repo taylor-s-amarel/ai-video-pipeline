@@ -1,0 +1,546 @@
+{
+  "spec": "baltor.video-re-questions/v1",
+  "lens": "shot_list_framing",
+  "title": "Shot list and framing",
+  "purpose": "Describes what kinds of shots and visual assets appear, how large the subject is, where negative space is left for text, and what an author must supply per item.",
+  "boundary": "The swarm lifts technique and structure only. Never store, transcribe or reuse the source's footage, frames, music, voice or script text. Keyframes and spectrograms are temporary analysis files in a scratch directory and are never copied into the format IR or a variant. On-screen text may be quoted only as a locating note in evidence.note, at most 6 words, and narration is never quoted. Patterns replace content words with slots, e.g. 'FACT {n}' or '{number} {unit} {noun}'. Analysing a public video for technique is fine; republishing its content is not.",
+  "answer_contract": "video_re_analyst_answer",
+  "ir_contract": "video_re_format_ir",
+  "ir_focus": [
+    "/visual/subject_framing",
+    "/visual/layers",
+    "/visual/style_family",
+    "/timeline/beats",
+    "/parameters"
+  ],
+  "evidence": [
+    "shots[].keyframe (video_re_keyframes_contact_sheet)",
+    "shots[].palette",
+    "text_regions[]"
+  ],
+  "inspect": "One F1 frame per shot (or the keyframe), F3 crops to judge sharpness, F10 to find reused images.",
+  "pitfalls": [
+    "Labelling shot scale on a still graphic with no subject",
+    "Assuming a source is stock footage from look alone",
+    "Missing reused images because they are zoomed differently"
+  ],
+  "parameter_hints": [
+    "assets_per_item (integer)",
+    "hero_asset_aspect (enum)",
+    "min_asset_px (integer)",
+    "shot_scale_sequence (list)"
+  ],
+  "optional_detectors": [
+    "video_re_classify_shot_scale",
+    "video_re_classify_flat_vs_photographic",
+    "video_re_classify_face_presence",
+    "video_re_classify_map_chart_graphics",
+    "video_re_detect_foreground_subject_mask",
+    "video_re_detect_aspect_reframe",
+    "video_re_detect_picture_in_picture",
+    "video_re_detect_split_screen_layout",
+    "video_re_detect_true_resolution",
+    "video_re_detect_rounded_corners",
+    "video_re_similarity_perceptual_hash"
+  ],
+  "methods": {
+    "measured": "A measurement tool produced the value (an evidence.json field or an ffmpeg/ffprobe filter output). Name the tool and the field.",
+    "observed": "You looked at extracted frames, crops, scopes, spectrograms or waveforms and saw it. Give the timestamps you looked at.",
+    "inferred": "Reasoned from measured or observed facts, e.g. 'synthetic voice' from flat pitch on a spectrogram. State the reasoning in the note.",
+    "assumed": "No direct evidence; a default or convention. Use only for gaps the format needs filled, and keep confidence at 0.3 or lower."
+  },
+  "pointer_conventions": [
+    "ir_path is a JSON Pointer (RFC 6901) into the Video format IR (contract schema video_re_format_ir).",
+    "A final '/-' means 'append this answer to the array' (the RFC 6901 end-of-array token), e.g. /motion/transitions/- or /generation_rules/-.",
+    "A '*' segment means 'each array element the answer is about'; the answer must say which elements (for example beats with role 'item'). The lifter resolves '*' to concrete indexes.",
+    "Paths under free-form objects (typography.title, typography.captions, typography.labels, audio.narration, audio.music, render_binding.mapping) use the snake_case key named in the question."
+  ],
+  "answer_types": {
+    "number": "{\"value\": n, \"unit\": \"...\"} optionally with \"min\" and \"max\"; becomes an IR observed_number",
+    "integer": "{\"value\": n}",
+    "ratio": "{\"value\": r} with 0 <= r <= 1",
+    "distribution": "{\"median\": m, \"p10\": a, \"p90\": b, \"n\": count, \"unit\": \"...\"}",
+    "boolean": "true or false",
+    "enum": "exactly one of the question's choices (a string)",
+    "list": "array of short strings (technique names or kinds)",
+    "timestamps": "array of seconds from the start of the source",
+    "rule": "one procedural generation rule string, at most 400 characters, written in terms of parameters",
+    "object": "a JSON object with the keys the question's how_to_answer names"
+  },
+  "recipes": {
+    "F1": "Single frame: ffmpeg -v error -ss T -i \"$SRC\" -frames:v 1 -q:v 2 \"$WORK/f_T.jpg\"",
+    "F2": "Burst sheet, 10 frames over 1 s: ffmpeg -v error -ss T -t 1 -i \"$SRC\" -vf \"fps=10,scale=270:-2,tile=5x2\" -frames:v 1 \"$WORK/burst_T.jpg\"",
+    "F3": "Full-resolution crop (add ,scale=iw*2:-1:flags=lanczos to enlarge): ffmpeg -v error -ss T -i \"$SRC\" -frames:v 1 -vf \"crop=W:H:X:Y\" \"$WORK/crop_T.png\"",
+    "F4": "Whole-video contact sheet, 1 frame per second: ffmpeg -v error -i \"$SRC\" -vf \"fps=1,scale=180:-2,tile=8x8\" -frames:v 1 \"$WORK/sheet.jpg\" (or use the keyframes and contact sheet from video_re_keyframes_contact_sheet)",
+    "F9": "Average colour of a region: ffmpeg -v error -ss T -i \"$SRC\" -frames:v 1 -vf \"crop=W:H:X:Y,scale=1:1:flags=area,format=rgb24\" -f rawvideo - | od -An -tu1",
+    "F10": "Similarity of two frames (SSIM, 1.0 = identical): ffmpeg -i a.jpg -i b.jpg -lavfi \"[0:v]scale=320:-2[a];[1:v]scale=320:-2[b];[a][b]ssim\" -f null - 2>&1 | grep -o \"All:[0-9.]*\""
+  },
+  "questions": [
+    {
+      "id": "shot_list_framing-001",
+      "question": "What is the distribution of shot types (extreme close-up, close-up, medium, wide, insert/detail, screen capture, graphic-only card)?",
+      "why_it_matters": "Fills subject_framing and the shot mix the renderer plans.",
+      "how_to_answer": "Classify each shot keyframe (evidence.shots[].keyframe or F4 sheet) into one type; report counts and shares.",
+      "evidence_required": [
+        "evidence.shots[].keyframe",
+        "frames: F4"
+      ],
+      "ir_path": "/visual/subject_framing",
+      "answer_type": "object",
+      "challenge": "Re-classify 6 random shots blind; disagreements over one step of scale are tolerable, two steps are not."
+    },
+    {
+      "id": "shot_list_framing-002",
+      "question": "How large is the main subject as a fraction of frame height, median across shots?",
+      "why_it_matters": "Sets subject scale for asset placement.",
+      "how_to_answer": "On 8 sampled keyframes measure the subject's bounding box height in pixels / source.height.",
+      "evidence_required": [
+        "evidence.shots[].keyframe",
+        "evidence.source.height"
+      ],
+      "ir_path": "/visual/subject_framing",
+      "answer_type": "ratio",
+      "challenge": "Shots without a clear subject must be excluded and counted in the note."
+    },
+    {
+      "id": "shot_list_framing-003",
+      "question": "Is the subject placed centrally, on a rule-of-thirds line, or offset toward one side?",
+      "why_it_matters": "Becomes the subject placement rule.",
+      "how_to_answer": "Measure the subject centre x/width ratio on sampled keyframes.",
+      "evidence_required": [
+        "evidence.shots[].keyframe"
+      ],
+      "ir_path": "/visual/subject_framing",
+      "answer_type": "enum",
+      "choices": [
+        "centre",
+        "thirds",
+        "offset-left",
+        "offset-right",
+        "varies"
+      ],
+      "challenge": "Report the measured x ratios; 'centre' needs most within 0.42-0.58."
+    },
+    {
+      "id": "shot_list_framing-004",
+      "question": "How much headroom is left above faces or main subjects (gap above as a fraction of frame height)?",
+      "why_it_matters": "Reveals where space is left for titles in vertical framing.",
+      "how_to_answer": "On keyframes with a face or subject, measure top of subject to top of frame / height.",
+      "evidence_required": [
+        "evidence.shots[].keyframe"
+      ],
+      "ir_path": "/visual/subject_framing",
+      "answer_type": "distribution",
+      "challenge": "Check whether headroom is consistently occupied by the title; if so, say so."
+    },
+    {
+      "id": "shot_list_framing-005",
+      "question": "Are source images and clips shown full-bleed, inset with margins, letterboxed, or on a blurred fill?",
+      "why_it_matters": "Decides how assets of the wrong aspect are placed.",
+      "how_to_answer": "Inspect F1 frames per shot type; look for bars, margins or a blurred copy around the media.",
+      "evidence_required": [
+        "frames: F1 samples"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "enum",
+      "choices": [
+        "full-bleed",
+        "inset-margins",
+        "letterboxed",
+        "blurred-fill",
+        "mixed"
+      ],
+      "challenge": "A blurred fill can look like a background video; check whether it mirrors the foreground."
+    },
+    {
+      "id": "shot_list_framing-006",
+      "question": "What fraction of the frame width does the main photo or clip occupy?",
+      "why_it_matters": "Fills frame_coverage of the main visual layer (a common house constraint is at least 80%).",
+      "how_to_answer": "Measure the main media's left and right edges on F1 frames in 5 shots; width / source.width.",
+      "evidence_required": [
+        "frames: F1 in 5 shots",
+        "evidence.source.width"
+      ],
+      "ir_path": "/visual/layers/*/frame_coverage",
+      "answer_type": "ratio",
+      "challenge": "Feathered edges make the boundary soft; measure where opacity visibly reaches half."
+    },
+    {
+      "id": "shot_list_framing-007",
+      "question": "What kinds of visual material appear (filmed footage, photographs, screen recordings, illustrations, 3D renders, generated images, charts, maps)?",
+      "why_it_matters": "Fills style_family and the asset types an author must source.",
+      "how_to_answer": "Classify each keyframe; list kinds with counts.",
+      "evidence_required": [
+        "evidence.shots[].keyframe"
+      ],
+      "ir_path": "/visual/style_family",
+      "answer_type": "list",
+      "challenge": "Label 'generated images' only with a visible cue and mark it inferred; never as fact from style alone."
+    },
+    {
+      "id": "shot_list_framing-008",
+      "question": "How many distinct visual assets are used per item beat (median)?",
+      "why_it_matters": "Sets assets_per_item for the content slot.",
+      "how_to_answer": "Within each item, group shots whose keyframes have SSIM above 0.7 (F10) as one asset; count groups.",
+      "evidence_required": [
+        "evidence.shots[].keyframe",
+        "frames: F10",
+        "item beat boundaries"
+      ],
+      "ir_path": "/timeline/beats/*/content_slot",
+      "answer_type": "integer",
+      "challenge": "A zoomed crop of the same photo is one asset; check grouping by eye on one item."
+    },
+    {
+      "id": "shot_list_framing-009",
+      "question": "Is there an on-camera presenter or talking head, and what share of runtime is it on screen?",
+      "why_it_matters": "Decides whether the format needs a presenter slot or a character layer.",
+      "how_to_answer": "Mark shots showing a person speaking to camera (mouth movement on F2 bursts aligned with speech); sum their durations / duration.",
+      "evidence_required": [
+        "evidence.shots[]",
+        "frames: F2 bursts",
+        "evidence.audio.speech_segments"
+      ],
+      "ir_path": "/visual/layers/-",
+      "answer_type": "ratio",
+      "challenge": "Do not identify the person; answers containing identity are rejected."
+    },
+    {
+      "id": "shot_list_framing-010",
+      "question": "Does shot scale alternate between consecutive shots (wide then close, close then wide)?",
+      "why_it_matters": "Becomes a scale alternation rule.",
+      "how_to_answer": "Using the shot types from 001, count consecutive pairs that change scale by at least one step.",
+      "evidence_required": [
+        "shot type sequence"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "ratio",
+      "challenge": "Graphic cards have no scale; exclude them from pairs."
+    },
+    {
+      "id": "shot_list_framing-011",
+      "question": "What share of factual claims are illustrated by a dedicated visual (B-roll that shows the thing being said)?",
+      "why_it_matters": "Sets how literally visuals follow the script.",
+      "how_to_answer": "For 10 sampled caption cards, check whether the concurrent frame (F1) depicts the claim's subject.",
+      "evidence_required": [
+        "evidence.captions[] (analysis only)",
+        "frames: F1 at sampled captions"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "ratio",
+      "challenge": "This is a judgement; method must be observed with the sample listed."
+    },
+    {
+      "id": "shot_list_framing-012",
+      "question": "Where does the framing leave negative space for text (top band, bottom band, side, none)?",
+      "why_it_matters": "Couples framing with typography placement.",
+      "how_to_answer": "Overlay evidence.text_regions[] bboxes on sampled frames mentally or with drawbox; check if text sits on low-detail areas.",
+      "evidence_required": [
+        "evidence.text_regions[]",
+        "frames: F1 samples"
+      ],
+      "ir_path": "/visual/subject_framing",
+      "answer_type": "enum",
+      "choices": [
+        "top",
+        "bottom",
+        "top-and-bottom",
+        "side",
+        "none"
+      ],
+      "challenge": "If text sits over the subject (a deliberate style), the answer is 'none'."
+    },
+    {
+      "id": "shot_list_framing-013",
+      "question": "Does the subject's gaze or direction of movement point toward the text or away from it?",
+      "why_it_matters": "A layout rule for composing subject and text.",
+      "how_to_answer": "On keyframes with faces or moving subjects, compare gaze or motion direction with the text position.",
+      "evidence_required": [
+        "evidence.shots[].keyframe",
+        "evidence.text_regions[]"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "enum",
+      "choices": [
+        "toward-text",
+        "away-from-text",
+        "neutral",
+        "mixed"
+      ],
+      "challenge": "Fewer than 4 qualifying shots means not determinable."
+    },
+    {
+      "id": "shot_list_framing-014",
+      "question": "How many images or clips are reused in more than one beat?",
+      "why_it_matters": "Tells the generator whether reuse is allowed (asset budget).",
+      "how_to_answer": "Pairwise F10 SSIM between keyframes from different beats; count pairs above 0.8 that are the same asset.",
+      "evidence_required": [
+        "evidence.shots[].keyframe",
+        "frames: F10"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "integer",
+      "challenge": "Template backgrounds produce high SSIM; compare the foreground region only (F3 crop) for flagged pairs."
+    },
+    {
+      "id": "shot_list_framing-015",
+      "question": "Do backgrounds behind subjects look optically or synthetically blurred (shallow depth of field)?",
+      "why_it_matters": "Adds a depth cue to the layer recipe.",
+      "how_to_answer": "F3 crops at subject edges: optical blur grows gradually with depth; synthetic blur shows a hard cut-out halo.",
+      "evidence_required": [
+        "frames: F3 edge crops"
+      ],
+      "ir_path": "/visual/subject_framing",
+      "answer_type": "enum",
+      "choices": [
+        "shallow-optical",
+        "synthetic-blur",
+        "deep-focus",
+        "mixed"
+      ],
+      "challenge": "Compression smearing is not blur; compare with a sharp region in the same frame."
+    },
+    {
+      "id": "shot_list_framing-016",
+      "question": "Are horizontal sources fitted into the vertical frame by recropping, by blurred fill bars, or by stacking?",
+      "why_it_matters": "Defines the aspect adapter step in the render plan.",
+      "how_to_answer": "Find shots where content aspect differs from the frame (F1); classify the method.",
+      "evidence_required": [
+        "frames: F1 samples"
+      ],
+      "ir_path": "/visual/layers/-",
+      "answer_type": "enum",
+      "choices": [
+        "recrop",
+        "blurred-fill",
+        "stacked",
+        "not-applicable"
+      ],
+      "challenge": "Native vertical footage gives not-applicable; do not infer from one shot."
+    },
+    {
+      "id": "shot_list_framing-017",
+      "question": "How many diagrams, charts or maps appear, and are they built in-video (animated) or static images?",
+      "why_it_matters": "Adds chart or map layer kinds and their build method.",
+      "how_to_answer": "Mark keyframes with diagrams; inspect F2 bursts to see whether elements animate on.",
+      "evidence_required": [
+        "evidence.shots[].keyframe",
+        "frames: F2 at diagram shots"
+      ],
+      "ir_path": "/visual/layers/-",
+      "answer_type": "object",
+      "challenge": "A photo of a chart is not an animated chart; check for element-level motion."
+    },
+    {
+      "id": "shot_list_framing-018",
+      "question": "What camera angle dominates (eye level, high angle, low angle, top-down, mixed)?",
+      "why_it_matters": "Becomes an angle preference for asset selection or 3D rendering.",
+      "how_to_answer": "Classify sampled keyframes by apparent camera angle.",
+      "evidence_required": [
+        "evidence.shots[].keyframe"
+      ],
+      "ir_path": "/visual/subject_framing",
+      "answer_type": "enum",
+      "choices": [
+        "eye-level",
+        "high",
+        "low",
+        "top-down",
+        "mixed"
+      ],
+      "challenge": "Graphics and flat illustrations have no angle; exclude them."
+    },
+    {
+      "id": "shot_list_framing-019",
+      "question": "Does each item open with a wide or establishing shot before closer shots?",
+      "why_it_matters": "Becomes an item shot-order rule.",
+      "how_to_answer": "Compare the scale of the first shot of each item with its later shots.",
+      "evidence_required": [
+        "shot type sequence",
+        "item beat boundaries"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "boolean",
+      "challenge": "Require at least two thirds of items to follow it."
+    },
+    {
+      "id": "shot_list_framing-020",
+      "question": "Are close-ups or tight crops used at the moments key numbers are revealed?",
+      "why_it_matters": "Becomes a 'tighten on reveal' rule.",
+      "how_to_answer": "At each key-number appearance (text_regions in the label or number area), compare shot scale with the item median.",
+      "evidence_required": [
+        "evidence.text_regions[]",
+        "shot types"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "boolean",
+      "challenge": "If numbers appear on graphic cards, the question does not apply; answer not determinable."
+    },
+    {
+      "id": "shot_list_framing-021",
+      "question": "Do inset media have borders, rounded corners, drop shadows or device frames?",
+      "why_it_matters": "Adds border or frame layers to the stack.",
+      "how_to_answer": "F3 crops at inset corners; measure corner radius and border width in px.",
+      "evidence_required": [
+        "frames: F3 corner crops"
+      ],
+      "ir_path": "/visual/layers/-",
+      "answer_type": "object",
+      "challenge": "Report px measurements; 'rounded' without a radius is incomplete."
+    },
+    {
+      "id": "shot_list_framing-022",
+      "question": "How often are picture-in-picture or split-screen layouts used (share of runtime)?",
+      "why_it_matters": "Decides whether the compiler needs a multi-panel layout.",
+      "how_to_answer": "Sum durations of shots with two or more media panels (F1); divide by duration.",
+      "evidence_required": [
+        "evidence.shots[]",
+        "frames: F1"
+      ],
+      "ir_path": "/visual/layers/-",
+      "answer_type": "ratio",
+      "challenge": "Decorative background grids are not picture-in-picture."
+    },
+    {
+      "id": "shot_list_framing-023",
+      "question": "What minimum pixel width must a source asset have to fill the main visual slot without visible upscaling?",
+      "why_it_matters": "Sets min_asset_px for asset sourcing.",
+      "how_to_answer": "Main visual width in px (006) times the maximum zoom factor seen (camera lens answers or first/last frame comparison).",
+      "evidence_required": [
+        "main visual width",
+        "camera zoom"
+      ],
+      "ir_path": "/parameters/-",
+      "answer_type": "integer",
+      "challenge": "Check one zoomed shot on an F3 crop for softness that shows the source was already upscaled."
+    },
+    {
+      "id": "shot_list_framing-024",
+      "question": "What shot slots does one item need (for example hero image, detail crop, context wide, number card)?",
+      "why_it_matters": "Defines the per-item shot list template.",
+      "how_to_answer": "From items, list the recurring shot roles in order; keep roles present in at least two thirds of items.",
+      "evidence_required": [
+        "shot types per item"
+      ],
+      "ir_path": "/timeline/beats/*/content_slot",
+      "answer_type": "list",
+      "challenge": "Test the list on one item not used to build it."
+    },
+    {
+      "id": "shot_list_framing-025",
+      "question": "How consistent is subject scale across items (standard deviation of subject height ratio)?",
+      "why_it_matters": "Tells the generator whether to normalise subject size.",
+      "how_to_answer": "Using 002 measurements grouped by item, report the stdev of per-item medians.",
+      "evidence_required": [
+        "subject size measurements"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "number",
+      "challenge": "Report the number of items measured."
+    },
+    {
+      "id": "shot_list_framing-026",
+      "question": "What share of shots contain people (any visible person)?",
+      "why_it_matters": "Shapes asset sourcing and rights needs (model releases).",
+      "how_to_answer": "Count keyframes with a visible person; divide by shot count.",
+      "evidence_required": [
+        "evidence.shots[].keyframe"
+      ],
+      "ir_path": "/visual/subject_framing",
+      "answer_type": "ratio",
+      "challenge": "Do not describe or identify people; count only."
+    },
+    {
+      "id": "shot_list_framing-027",
+      "question": "Are any shots tilted (dutch angle) or rotated in the frame?",
+      "why_it_matters": "Adds rotation as a framing device.",
+      "how_to_answer": "Inspect keyframes for non-level horizons or rotated insets; measure the angle on F3 crops.",
+      "evidence_required": [
+        "frames: F3"
+      ],
+      "ir_path": "/visual/subject_framing",
+      "answer_type": "object",
+      "challenge": "Rotation from a camera move belongs to the camera lens; check whether the angle changes over the shot."
+    },
+    {
+      "id": "shot_list_framing-028",
+      "question": "Are shot changes matched on shape, colour or position (match cuts)?",
+      "why_it_matters": "Adds match cuts to the editing toolbox.",
+      "how_to_answer": "For each cut, compare the subject position and dominant colour of adjacent frames (F1 before/after, F9 colours); list matches.",
+      "evidence_required": [
+        "frames: F1 around cuts",
+        "F9"
+      ],
+      "ir_path": "/motion/transitions/-",
+      "answer_type": "timestamps",
+      "challenge": "Coincidental similarity is common in template videos; require deliberate alignment of the main subject."
+    },
+    {
+      "id": "shot_list_framing-029",
+      "question": "Is the main subject ever cropped by the frame edge, and is that systematic (tight crops) or accidental?",
+      "why_it_matters": "Becomes a crop policy.",
+      "how_to_answer": "Count keyframes where the subject touches or exceeds a frame edge.",
+      "evidence_required": [
+        "evidence.shots[].keyframe"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "enum",
+      "choices": [
+        "never",
+        "systematic-tight",
+        "occasional-accidental"
+      ],
+      "challenge": "Report the count and total shots inspected."
+    },
+    {
+      "id": "shot_list_framing-030",
+      "question": "What share of shots are pure graphics (no photographic or filmed content)?",
+      "why_it_matters": "Sets the mix between sourced media and generated graphics.",
+      "how_to_answer": "Count graphic-only keyframes / total.",
+      "evidence_required": [
+        "evidence.shots[].keyframe"
+      ],
+      "ir_path": "/visual/style_family",
+      "answer_type": "ratio",
+      "challenge": "A photo with heavy overlays is not a pure graphic."
+    },
+    {
+      "id": "shot_list_framing-031",
+      "question": "Which visual asset parameters must the author supply per item, with type and aspect (for example hero_image: asset, 9:16 or wider, at least 1600 px)?",
+      "why_it_matters": "Feeds the parameteriser with asset slots.",
+      "how_to_answer": "Combine 008, 023 and 024 into typed asset parameters.",
+      "evidence_required": [
+        "shot list answers"
+      ],
+      "ir_path": "/parameters/-",
+      "answer_type": "list",
+      "challenge": "Every asset parameter needs a min size and aspect backed by a measurement."
+    },
+    {
+      "id": "shot_list_framing-032",
+      "question": "What rule picks the hero visual for an item (shows the subject named in the label, shows the key number's object, shows a person reacting)?",
+      "why_it_matters": "Gives the asset search step a selection rule.",
+      "how_to_answer": "For each item, compare the hero shot content with the item's label or key number (F1 plus F3 label crop).",
+      "evidence_required": [
+        "frames: F1 item heroes",
+        "frames: F3 labels"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "rule",
+      "challenge": "Check the rule against every item; exceptions must be listed."
+    },
+    {
+      "id": "shot_list_framing-033",
+      "question": "Is the frame divided by a consistent layout grid (fixed margins or columns that media and text align to)?",
+      "why_it_matters": "Adds a layout grid to the render binding.",
+      "how_to_answer": "Measure left and right edges of media and text across 6 frames; report repeated x positions within 1% of width.",
+      "evidence_required": [
+        "frames: F1 samples",
+        "evidence.text_regions[]"
+      ],
+      "ir_path": "/render_binding/mapping/layout_grid",
+      "answer_type": "object",
+      "challenge": "Centred elements always share an axis; require a shared edge, not just centring."
+    }
+  ]
+}

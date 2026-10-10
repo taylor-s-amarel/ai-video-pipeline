@@ -1,0 +1,311 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/adversarial-review-result/schema.json",
+  "title": "Adversarial review result record",
+  "description": "One question applied to one exact target, following the evidence contract of the Master Guide's 'Adversarial review without checklist theater' section. untested is the default; observed-pass/observed-fail need exact evidence for this target; blocked and not-applicable need a stated reason; demonstrated_defect only with an observed failure. Cross-record rules the schema cannot express (stale target hashes, retargeted evidence, unsupported coverage, nonfinite numbers, listening questions passed on waveform statistics) are enforced by the adversarial_review_kit code module.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "question_id",
+    "target_artifact",
+    "target_sha256",
+    "status",
+    "finding_type",
+    "review_mode",
+    "scope",
+    "evidence",
+    "rationale",
+    "required_recheck_after"
+  ],
+  "properties": {
+    "question_id": {
+      "type": "string",
+      "pattern": "^AVQ-\\d{3}-\\d{3}$"
+    },
+    "target_artifact": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The exact artifact reviewed: brief, storyboard, source state or final encode"
+    },
+    "target_sha256": {
+      "type": "string",
+      "minLength": 1,
+      "description": "SHA-256 of the exact target bytes. A placeholder such as COMPUTED_FINAL_HASH is allowed only while the record is not observed."
+    },
+    "status": {
+      "enum": [
+        "untested",
+        "observed-pass",
+        "observed-fail",
+        "blocked",
+        "not-applicable"
+      ]
+    },
+    "finding_type": {
+      "enum": [
+        "none",
+        "demonstrated_defect",
+        "potential_improvement"
+      ],
+      "description": "demonstrated_defect only with observed-fail; potential_improvement is a design hypothesis that still needs comparison"
+    },
+    "review_mode": {
+      "enum": [
+        "visual",
+        "auditory",
+        "machine",
+        "human-audience"
+      ]
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start_frame",
+        "end_frame",
+        "coverage"
+      ],
+      "properties": {
+        "start_frame": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "end_frame": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "coverage": {
+          "enum": [
+            "not_observed",
+            "sampled",
+            "interval",
+            "full"
+          ]
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidence"
+      }
+    },
+    "rationale": {
+      "type": "string"
+    },
+    "required_recheck_after": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9_]+$"
+      },
+      "description": "Changes that invalidate this record, e.g. rig_change, camera_change"
+    },
+    "reviewer": {
+      "type": "string",
+      "description": "Who observed: a named person, or an agent identity"
+    },
+    "reviewed_at": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}"
+    }
+  },
+  "$defs": {
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidence_sha256",
+        "target_sha256",
+        "method",
+        "locator",
+        "coverage",
+        "limitations"
+      ],
+      "properties": {
+        "evidence_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$",
+          "description": "Hash of the evidence itself (contact sheet, frame, log, notes)"
+        },
+        "target_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$",
+          "description": "Hash of the movie the evidence was extracted from"
+        },
+        "method": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Extraction or observation method"
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Frames, timestamps or file path"
+        },
+        "coverage": {
+          "enum": [
+            "not_observed",
+            "sampled",
+            "interval",
+            "full"
+          ]
+        },
+        "limitations": {
+          "type": "string",
+          "minLength": 1
+        },
+        "observation": {
+          "enum": [
+            "frame-inspection",
+            "contact-sheet",
+            "decoded-stream",
+            "metadata-probe",
+            "measurement",
+            "waveform-statistic",
+            "listening",
+            "audience-feedback",
+            "owner-feedback",
+            "source-inspection",
+            "other"
+          ],
+          "description": "Kind of observation; a listening-only question passes only on listening, audience or owner feedback"
+        },
+        "path": {
+          "type": "string"
+        },
+        "measurements": {
+          "type": "object",
+          "additionalProperties": {
+            "type": [
+              "number",
+              "string",
+              "boolean",
+              "null"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "required": [
+          "finding_type"
+        ],
+        "properties": {
+          "finding_type": {
+            "const": "demonstrated_defect"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "status": {
+            "const": "observed-fail"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "status"
+        ],
+        "properties": {
+          "status": {
+            "enum": [
+              "observed-pass",
+              "observed-fail"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "target_sha256": {
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "evidence": {
+            "minItems": 1
+          },
+          "scope": {
+            "properties": {
+              "coverage": {
+                "not": {
+                  "const": "not_observed"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "status"
+        ],
+        "properties": {
+          "status": {
+            "enum": [
+              "blocked",
+              "not-applicable"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "rationale": {
+            "pattern": "\\S"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "scope"
+        ],
+        "properties": {
+          "scope": {
+            "required": [
+              "coverage"
+            ],
+            "properties": {
+              "coverage": {
+                "enum": [
+                  "interval",
+                  "full"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "scope": {
+            "properties": {
+              "start_frame": {
+                "type": "integer"
+              },
+              "end_frame": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

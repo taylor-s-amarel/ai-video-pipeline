@@ -1,0 +1,669 @@
+{
+  "spec": "baltor.feed-collection/v1",
+  "id": "community-gamedev-3d-educators",
+  "title": "Game dev, Godot, Blender, graphics and animation educators and news",
+  "description": "Official engine news, game-industry news and educators' channels and blogs for Godot, Blender, graphics, pixel art and animation. YouTube items use the channel Atom feed with a channel ID confirmed in search results.",
+  "updated": "2026-10-10",
+  "tags": [
+    "community-sources",
+    "gamedev",
+    "godot",
+    "blender",
+    "graphics",
+    "animation",
+    "education"
+  ],
+  "items": [
+    {
+      "id": "godot-blog",
+      "title": "Godot Engine blog RSS",
+      "url": "https://godotengine.org/rss.xml",
+      "kind": "service",
+      "summary": "Official Godot news: releases, dev snapshots, foundation news and showcase posts. The site also publishes /rss.json and /atom.xml.",
+      "verification": "search-result",
+      "licence": "Godot website content: see godotengine.org; engine is MIT",
+      "notes": "The permalinks /rss.xml, /rss.json and /atom.xml are defined in the godotengine/godot-website source (pages/ directory, fetched 2026-10-10); a Godot forum answer also points to /rss.xml. godotengine.org itself could not be fetched.",
+      "tags": [
+        "godot",
+        "official"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "blender-news",
+      "title": "Blender.org news feed",
+      "url": "https://www.blender.org/feed/",
+      "kind": "service",
+      "summary": "Official Blender news: releases, Blender Studio and foundation updates.",
+      "verification": "unverified",
+      "licence": "Blender Foundation site terms",
+      "notes": "The only evidence found is a 2014 Blender web-team mailing-list reply naming blender.org/feed; the current path was not confirmed. Verify with autodiscovery on blender.org before polling. For releases, the Blender tags feed in community-releases-game-3d-2d was fetched.",
+      "tags": [
+        "blender",
+        "official"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "game-developer",
+      "title": "Game Developer (formerly Gamasutra) RSS",
+      "url": "https://www.gamedeveloper.com/rss.xml",
+      "kind": "service",
+      "summary": "Game industry news and in-depth analysis; founded in 1997 as Gamasutra.",
+      "verification": "search-result",
+      "licence": "Publisher terms",
+      "notes": "Listed in FeedSpot's game development feeds directory in search results.",
+      "tags": [
+        "industry",
+        "news"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "gamefromscratch",
+      "title": "GameFromScratch",
+      "url": "https://gamefromscratch.com/feed",
+      "kind": "article",
+      "summary": "Indie game-development news: engines, art tools and free asset releases; a quick way to hear about new Godot and Blender tools.",
+      "verification": "search-result",
+      "licence": "Publisher terms",
+      "notes": "Listed in FeedSpot's game development feeds directory in search results.",
+      "tags": [
+        "news",
+        "engines",
+        "tools"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "yt-gdquest",
+      "title": "GDQuest (YouTube channel feed)",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCxboW7x0jZqFdvMdCFKTMsQ",
+      "kind": "service",
+      "summary": "Godot tutorials and courses from GDQuest; uploads are irregular.",
+      "verification": "search-result",
+      "licence": "Standard YouTube licence unless a video states otherwise",
+      "notes": "Channel ID confirmed by links from the Godot forum and the Godot Japanese documentation in search results.",
+      "cautions": [
+        "YouTube channel feeds have had intermittent 404s since December 2025 (third-party report); fall back to the channel page."
+      ],
+      "tags": [
+        "godot",
+        "youtube",
+        "tutorials"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "yt-brackeys",
+      "title": "Brackeys (YouTube channel feed)",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCYbK_tjZ2OrIZFBvU6CCMiA",
+      "kind": "service",
+      "summary": "Game development tutorials; the channel's newer videos cover Godot.",
+      "verification": "search-result",
+      "licence": "Standard YouTube licence unless a video states otherwise",
+      "notes": "Channel ID confirmed by a channel-stats page and a podcast page linking the channel in search results.",
+      "cautions": [
+        "YouTube channel feeds have had intermittent 404s since December 2025 (third-party report)."
+      ],
+      "tags": [
+        "godot",
+        "youtube",
+        "tutorials"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "yt-sebastian-lague",
+      "title": "Sebastian Lague (YouTube channel feed)",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCmtyQOKKmrMVaKuRXz02jbQ",
+      "kind": "service",
+      "summary": "'Coding Adventures' videos on procedural generation, simulation and graphics.",
+      "verification": "search-result",
+      "licence": "Standard YouTube licence unless a video states otherwise",
+      "notes": "Channel ID confirmed by a single itch.io page linking the channel in search results.",
+      "cautions": [
+        "YouTube channel feeds have had intermittent 404s since December 2025 (third-party report)."
+      ],
+      "tags": [
+        "procedural",
+        "youtube"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "yt-blender",
+      "title": "Blender (official YouTube channel feed)",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCSMOQeBJ2RAnuFungnQOxLg",
+      "kind": "service",
+      "summary": "Blender's official channel: release overviews, Blender Studio films and conference talks.",
+      "verification": "search-result",
+      "licence": "Per video; many Blender Studio works are CC-BY, check each video",
+      "notes": "Channel ID confirmed by a channel-stats page describing it as Blender's official channel.",
+      "cautions": [
+        "YouTube channel feeds have had intermittent 404s since December 2025 (third-party report)."
+      ],
+      "tags": [
+        "blender",
+        "youtube",
+        "official"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "yt-blender-guru",
+      "title": "Blender Guru (YouTube channel feed)",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCOKHwx1VCdgnxwbjyb9Iu1g",
+      "kind": "service",
+      "summary": "Andrew Price's Blender tutorials, including the long-running donut series.",
+      "verification": "search-result",
+      "licence": "Standard YouTube licence unless a video states otherwise",
+      "notes": "Channel ID confirmed via channel mirror pages in search results.",
+      "cautions": [
+        "YouTube channel feeds have had intermittent 404s since December 2025 (third-party report)."
+      ],
+      "tags": [
+        "blender",
+        "youtube",
+        "tutorials"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "yt-3blue1brown",
+      "title": "3Blue1Brown (YouTube channel feed)",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCYO_jab_esuFRV4b17AJtAw",
+      "kind": "service",
+      "summary": "Grant Sanderson's math explainers; the visual reference for Manim-style explainer shorts.",
+      "verification": "search-result",
+      "licence": "Standard YouTube licence unless a video states otherwise",
+      "notes": "Channel ID confirmed by Numberphile and FindAChannel pages in search results.",
+      "cautions": [
+        "Use as style reference only; never reuse footage."
+      ],
+      "tags": [
+        "math",
+        "explainers",
+        "manim",
+        "youtube"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "catlike-coding-godot",
+      "title": "Catlike Coding: Godot tutorials",
+      "url": "https://catlikecoding.com/godot/feed.atom",
+      "summary": "In-depth Godot tutorial series from Catlike Coding.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "godot",
+        "tutorials"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "red-blob-games",
+      "title": "Red Blob Games",
+      "url": "https://www.redblobgames.com/blog/posts.xml",
+      "summary": "Interactive explanations of game algorithms: grids, pathfinding, map generation.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "algorithms",
+        "procedural"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "aras-p",
+      "title": "Aras Pranckevicius",
+      "url": "https://aras-p.info/atom.xml",
+      "summary": "Graphics and performance writing, including work on Blender.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "graphics",
+        "blender"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "deepnight",
+      "title": "Deepnight",
+      "url": "https://deepnight.net/feed/",
+      "summary": "Indie game developer's posts on game feel, tools and design.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "game-design"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "daniel-ilett",
+      "title": "Daniel Ilett",
+      "url": "https://danielilett.com/feed.xml",
+      "summary": "Shader and visual-effects tutorials for game engines.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "shaders",
+        "vfx"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "slynyrd",
+      "title": "Slynyrd: pixel art tutorials",
+      "url": "https://www.slynyrd.com/blog?format=rss",
+      "summary": "Pixel art tutorials and palettes.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "pixel-art",
+        "tutorials"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "the-orange-duck",
+      "title": "The Orange Duck (Daniel Holden)",
+      "url": "https://theorangeduck.com/feeds/pages",
+      "summary": "Character animation and motion-matching research and code.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "animation",
+        "research"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "stuff-with-stuff",
+      "title": "journal.stuffwithstuff.com (Robert Nystrom)",
+      "url": "https://journal.stuffwithstuff.com/atom.xml",
+      "summary": "Programming-language and game-programming essays by the author of Game Programming Patterns.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "game-programming"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "bartosz-ciechanowski",
+      "title": "Bartosz Ciechanowski",
+      "url": "https://ciechanow.ski/atom.xml",
+      "summary": "Interactive visual explainers of mechanical and physical systems; a reference for explainer-video visuals.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "explainers",
+        "interactive"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "acko-net",
+      "title": "Acko.net (Steven Wittens)",
+      "url": "https://acko.net/atom.xml",
+      "summary": "Graphics, math visualisation and GPU programming.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "graphics",
+        "math"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "josh-comeau",
+      "title": "Josh W. Comeau",
+      "url": "https://www.joshwcomeau.com/rss.xml",
+      "summary": "Interactive tutorials on CSS, animation and web motion.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "animation",
+        "web"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "lexaloffle-bbs",
+      "title": "Lexaloffle BBS (PICO-8)",
+      "url": "https://www.lexaloffle.com/bbs/feed.php",
+      "summary": "Forum feed of the PICO-8 fantasy console community: small games, carts and techniques.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "pico-8",
+        "retro"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "jendrik-illner",
+      "title": "Jendrik Illner: Graphics Programming weekly",
+      "url": "https://www.jendrikillner.com/index.xml",
+      "summary": "Weekly curated links on graphics programming.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "graphics",
+        "digest"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "fabien-sanglard",
+      "title": "Fabien Sanglard",
+      "url": "https://fabiensanglard.net/rss.xml",
+      "summary": "Deep dives into game engines and hardware history.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "game-engines",
+        "history"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "zeux",
+      "title": "zeux.io (Arseny Kapoulkine)",
+      "url": "https://zeux.io/feed/",
+      "summary": "Mesh optimisation and GPU performance; author of meshoptimizer.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "mesh",
+        "graphics"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "matt-keeter",
+      "title": "Matt Keeter",
+      "url": "https://www.mattkeeter.com/atom.xml",
+      "summary": "Implicit-surface CAD, rendering and tools.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "cad",
+        "graphics"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "tom-looman",
+      "title": "Tom Looman",
+      "url": "https://tomlooman.com/feed.xml",
+      "summary": "Unreal Engine C++ and game-programming tutorials.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "unreal",
+        "tutorials"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "lisyarus",
+      "title": "lisyarus blog",
+      "url": "https://lisyarus.github.io/blog/feed.xml",
+      "summary": "Graphics and game-development devlogs and explanations.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "graphics",
+        "devlog"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "interplay-of-light",
+      "title": "Interplay of Light",
+      "url": "https://interplayoflight.wordpress.com/feed/",
+      "summary": "Real-time rendering techniques.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "rendering"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "garry-newman",
+      "title": "Garry Newman",
+      "url": "https://garry.net/posts/rss",
+      "summary": "Posts from the creator of Garry's Mod on game development.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "game-development"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "ask-a-game-dev",
+      "title": "Ask a Game Dev",
+      "url": "https://askagamedev.tumblr.com/rss",
+      "summary": "Q&A about how the game industry and game development work.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "industry"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "blendo-games",
+      "title": "Blendo Games news",
+      "url": "https://blendogames.com/news/index.xml",
+      "summary": "News from a one-person indie studio.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "indie"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "cyriak-animation",
+      "title": "Cyriak: animation",
+      "url": "http://cyriak.co.uk/animation/feed/",
+      "summary": "Surreal animation work by an independent animator.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "animation"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    }
+  ]
+}

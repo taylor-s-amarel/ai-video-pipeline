@@ -1,0 +1,16 @@
+title: Dockerfile hardening lint
+summary: Standard-library Dockerfile linter for root containers, unpinned or :latest bases, curl|sh, ADD from URLs, secrets in ENV/ARG, apt hygiene, cache-busting COPY order and shell-form entrypoints.
+subkind: container
+tags: [docker, dockerfile, container, hardening, lint, supply-chain]
+step_kinds: [review, build, secure]
+effects: {filesystem: read, executes: python}
+description: >-
+  Parses Dockerfiles (continuations, heredocs, escape directive, multi-stage aliases) and reports rules DF001-DF016
+  with line numbers: unpinned/latest base (DF001), tag without digest (DF002), final stage running as root (DF003),
+  ADD from URL or for plain files (DF004), remote script piped to a shell (DF005), apt-get hygiene (DF006),
+  secrets in ENV/ARG/RUN (DF007), dependency install after `COPY . .` (DF008), missing HEALTHCHECK (DF009, info),
+  sudo (DF010), pip/npm cache and npm ci (DF011), EXPOSE 22 (DF012), chmod 777 (DF013), single-stage SDK runtime
+  (DF014), relative WORKDIR (DF015) and shell-form CMD/ENTRYPOINT (DF016). Use alongside hadolint or Trivy config scans.
+examples:
+  - "python dockerfile_hardening_lint.py Dockerfile --fail-on medium"
+evidence_notes: pytest suite passes on synthetic Dockerfiles; not benchmarked against hadolint's rule set.

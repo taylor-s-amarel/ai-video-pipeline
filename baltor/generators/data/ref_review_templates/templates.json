@@ -1,0 +1,228 @@
+{
+  "source": {
+    "file": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "sha256": "d5e454b50f6abccd69c44237038e00e78dd337491f8325447a2bc9d13d15ace9",
+    "bytes": 932421,
+    "lines": 8300,
+    "range": [
+      1389,
+      1548
+    ]
+  },
+  "usage": [
+    "These prompts are instructions for bounded work, not magic guarantees. Fill their inputs with actual project data. If an input is missing, mark it unresolved rather than inventing a source, license, test result, or customer preference. Each prompt should result in a concrete artifact or decision that can be reviewed.",
+    "Keep the prompt, actual inputs, output, model/tool version when known, and human correction. Do not infer that a successful output can be reproduced from the prompt alone. Preserve generated assets and exact source bytes. Use the prompts selectively; running all of them for every minor revision would waste effort."
+  ],
+  "templates": [
+    {
+      "title": "Audit an existing creative project",
+      "line": 1397,
+      "anchor": "audit-an-existing-creative-project",
+      "prompt": "“Inspect the selected project and its current outputs. Identify the latest source revision and owner correction. List the actual render route, native resolution, frame rate, asset origins, sound sources, and completed checks. Separate observed facts from README claims. Find the three most consequential visible or reproducibility defects, explain their effect on the viewer, and propose the smallest repairs. Do not install, publish, or alter unrelated files. Return an evidence-linked audit and a bounded next step.”",
+      "guidance": [
+        "The expected output is an audit tied to actual files and frames. It should distinguish a missing resource from a poorly designed resource. A folder named ‘high quality’ is not evidence of high-quality rendering. A script that mentions bunnies but creates only ducks should be reported as a mismatch."
+      ]
+    },
+    {
+      "title": "Research a rendering route",
+      "line": 1403,
+      "anchor": "research-a-rendering-route",
+      "prompt": "“For the specified scene and quality target, compare several materially different routes using current primary documentation and actual available tools. Consider full 3D, 3D cutouts over photography, layered 2.5D, licensed footage, and generated assets where authorized. For each route, state required assets, controllable variables, likely failure modes, rights implications, editability, and a minimal test. Recommend one route for this episode and preserve the alternatives for later. Do not fabricate timing or cost benchmarks.”",
+      "guidance": [
+        "The useful result is a route decision with a small executable test plan, not a list of every tool on the internet. If a route is unavailable, distinguish an absent installation from denied permission or a failed source download."
+      ]
+    },
+    {
+      "title": "Develop a rich original background",
+      "line": 1409,
+      "anchor": "develop-a-rich-original-background",
+      "prompt": "“Create or source an original or rights-cleared background for the specified episode. Preserve the intended visual richness and lighting. Include visible support surfaces suitable for character placement, readable depth separation, and quiet areas for titles. Avoid incidental target animals or target-like shapes when the episode has an exact count. Return the reviewed image or footage, source/rights record, support-surface annotations, crop-safe region, and limitations.”",
+      "guidance": [
+        "For generated backgrounds, inspect geometry and text rather than trusting the prompt. For photographs, record the actual license and whether the original may be bundled. For footage, inspect loop seams and camera movement before placing static anchors."
+      ]
+    },
+    {
+      "title": "Ground a character in the scene",
+      "line": 1415,
+      "anchor": "ground-a-character-in-the-scene",
+      "prompt": "“Using the exact background and character asset, define the support surface, contact point, scale, orientation, depth order, and camera transform. Keep the character's feet attached to the visible support during planted phases. Add a contact shadow consistent with the scene and an occlusion mask where foreground objects overlap. Test motion extremes, turns, and camera extrema. Return before/after previews and measured anchor drift, while distinguishing composited shadows from physical shadow catching.”",
+      "guidance": [
+        "The agent should not solve grounding by simply moving the character downward until it looks plausible in one frame. It must verify the complete pose range and the final camera path."
+      ]
+    },
+    {
+      "title": "Design progressive-size counting",
+      "line": 1421,
+      "anchor": "design-progressive-size-counting",
+      "prompt": "“Build an exact-count scene with a deliberate size hierarchy from a large foreground character to progressively smaller background characters. Use stable IDs and a count manifest. Keep each figure grounded on a visible surface and vary orientation and dance phase intentionally. Verify minimum identifiable target size in the final delivery encode. Do not add decorative target-like characters outside the answer manifest. Return the answer proof, visibility report, clean puzzle image, and complete reveal sequence.”",
+      "guidance": [
+        "If a tiny figure is not identifiable at ordinary viewing size, adjust its placement, contrast, exposure duration, or scale. The objective is a challenging but fair scene, not an answer hidden by technical degradation."
+      ]
+    },
+    {
+      "title": "Improve a dance cycle",
+      "line": 1427,
+      "anchor": "improve-a-dance-cycle",
+      "prompt": "“Inspect the existing rig and animation. Replace uniform whole-body bobbing with a readable sequence of anticipation, weight shift, planted step, lifted step, turn, accent, and recovery. Preserve character identity and loop continuity. Vary wings or arms, head direction, and timing without breaking foot contact. Produce a short native-resolution pose and motion test, including side and three-quarter views. Report joint intersections, slipping, silhouettes, and loop seam behavior before a full episode render.”",
+      "guidance": [
+        "A dance loop should have an intentional center of gravity and a readable rhythm. Random parameter noise is not a substitute for choreography. The agent should be able to describe what the character is doing at each beat."
+      ]
+    },
+    {
+      "title": "Adapt the performance to a bunny",
+      "line": 1433,
+      "anchor": "adapt-the-performance-to-a-bunny",
+      "prompt": "“Create an original bunny performance within the established scene style. Build species-appropriate silhouette, ears, muzzle, body proportions, hind-leg motion, and short forelimb gestures. Use ear follow-through and compression/recovery sparingly and coherently. Keep planted feet or landing contacts stable. Compare the bunny and duck at matching camera scale to avoid accidental dominance. Return native source, a pose sheet, a movement preview, and a list of limitations.”",
+      "guidance": [
+        "Do not merely attach long ears to the duck and label the result a new rig. A stylized design is acceptable, but its silhouette and motion should read as an intentional bunny character. Fur can be suggested by materials or detailed geometry where resources permit; a claim of high-quality fur requires actual review of the render."
+      ]
+    },
+    {
+      "title": "Add continuous camera motion",
+      "line": 1439,
+      "anchor": "add-continuous-camera-motion",
+      "prompt": "“Preserve the approved scene and answer logic. Replace slideshow-like holds or abrupt local resets with a continuous eased camera path. Specify start/end framing, protected targets, crop bounds, motion speed, and reveal timing. Move characters, support surfaces, shadows, and reveal masks through the same scene transform. Verify every required target is visible during the declared observation interval. Return encoded samples around all transitions and a motion continuity report.”",
+      "guidance": [
+        "The camera should guide attention without manufacturing motion blur that hides clues. Do not confuse a moving particle overlay with a moving scene. Both can contribute, but the scene's primary composition should visibly evolve when requested."
+      ]
+    },
+    {
+      "title": "Design a moving border",
+      "line": 1445,
+      "anchor": "design-a-moving-border",
+      "prompt": "“Choose one border language that fits the episode: environmental window, restrained light sweep, dimensional frame, or another justified treatment. Define its geometry, inset, mask, motion, and relationship to the background. Keep the working area and title safe zones readable. Avoid rapid flashes and avoid making the border more salient than the puzzle. Provide a clean frame, a short motion proof, and a layer-isolation view demonstrating that the border is genuinely controllable.”",
+      "guidance": [
+        "A border should not be a random decoration pasted onto every series. Its material and motion can help establish the environment: water around a pond puzzle, subtle drifting light around a cabinet search, or a playful dimensional frame around a character meme."
+      ]
+    },
+    {
+      "title": "Build the twenty-plus-layer composition",
+      "line": 1451,
+      "anchor": "build-the-twenty-plus-layer-composition",
+      "prompt": "“Implement the agreed layer manifest with at least twenty meaningful independently controllable visual roles appropriate to the scene. Each role must have a purpose, source, parameters, timing, and a visible or structural contribution. Do not pad the count with duplicate, empty, disabled, or arbitrary subdivisions. Keep audio tracks separate. Produce an isolation contact sheet and ablation comparisons for the most important layers, then review the complete composite for clutter and legibility.”",
+      "guidance": [
+        "If fewer layers produce the cleaner draft, report the mismatch and refine the architecture rather than pretending the count was met. Where the chosen brief explicitly requires twenty-plus layers, achieve them coherently and report the real implementation."
+      ]
+    },
+    {
+      "title": "Write an original meme episode",
+      "line": 1457,
+      "anchor": "write-an-original-meme-episode",
+      "prompt": "“Develop an original short character meme using the stated duck/bunny cast and visual setting. Define the setup, expectation, reaction, reversal, and payoff. Keep captions short and timed to the acting. Use original or cleared music and sound. Do not copy a reference creator's exact joke, character, audio, or sequence. Return three genuinely different premises, select one with a clear visual payoff, and produce a complete timed storyboard and render plan.”",
+      "guidance": [
+        "The reference can inform rhythm or compositing, but the resulting episode should have its own expression. A meme is not improved merely by adding a viral-looking caption to an unrelated dance loop. The character's reaction must make the joke legible."
+      ]
+    },
+    {
+      "title": "Make an honest before-and-after comparison",
+      "line": 1463,
+      "anchor": "make-an-honest-before-and-after-comparison",
+      "prompt": "“Compare the two specified actual revisions. Identify every material difference in assets, crop, camera, lighting, grounding, animation, sound, and encoding. If only one variable differs, label the comparison controlled; otherwise label it a multi-change revision comparison. Design a readable side-by-side or sequential reveal that teaches the improvement without hiding tradeoffs. Return the comparison image/video and a concise difference ledger.”",
+      "guidance": [
+        "Do not use an artificially degraded ‘before’ unless the task explicitly concerns a synthetic demonstration and that fact is labeled. Prefer actual earlier failures when teaching a repair, while keeping their historical status clear."
+      ]
+    },
+    {
+      "title": "Evaluate a historical anomaly scene",
+      "line": 1469,
+      "anchor": "evaluate-a-historical-anomaly-scene",
+      "prompt": "“Define the exact date, place, household or institution type, and availability standard. Audit every visible prop and graphic detail against reliable evidence. Identify the intended outsider and any accidental additional anachronisms. Preserve uncertainty about invention, introduction, adoption, and local availability. If the scene cannot support one clear answer, revise the scene or frame it as an explicitly fictional retro-rule puzzle. Return the all-object evidence table and answer proof before rendering a historical claim.”",
+      "guidance": [
+        "This protects the “what doesn't belong in 1980” format from a common failure: researching the obvious modern object while leaving the rest of the scene historically inconsistent."
+      ]
+    },
+    {
+      "title": "Verify a final media file",
+      "line": 1475,
+      "anchor": "verify-a-final-media-file",
+      "prompt": "“Test the exact final MP4 bytes. Verify stream metadata, full video and audio decode, expected frame count and duration, native versus delivery resolution, audio presence, clipping/silence, and output hash. Inspect encoded frames at scene boundaries and the most difficult target/character poses. Check continuous motion, title readability, puzzle answer visibility, reveal alignment, and loop seams. State which checks are automated, which are sampled visual review, and which require owner or audience feedback.”",
+      "guidance": [
+        "The report must not substitute a check against pre-encode frames for a check against the delivered file. If the file changes after QA, rerun the relevant checks and update the hash."
+      ]
+    },
+    {
+      "title": "Reopen the source package",
+      "line": 1481,
+      "anchor": "reopen-the-source-package",
+      "prompt": "“Extract the source package into a clean permitted directory. Verify archive integrity and manifest hashes. Resolve dependencies without installing unapproved software. Open the actual native project, inspect asset paths, and render a small representative sample. Confirm that the sample corresponds to the delivered revision. Record missing assets, external dependencies, font requirements, and any differences from the original environment. Do not label a ZIP CRC check as a native scene reopen.”",
+      "guidance": [
+        "If a package depends on an external licensed asset that cannot be redistributed, preserve its source and hash and document the required acquisition step. A package can be honestly incomplete for a new consumer even when it worked in the original environment."
+      ]
+    },
+    {
+      "title": "Extract a reusable component",
+      "line": 1487,
+      "anchor": "extract-a-reusable-component",
+      "prompt": "“From the completed episode, identify one repeated task that can be isolated usefully. Check the existing component catalog and shared implementations first. Define typed inputs, outputs, effects, errors, dependencies, and limitations. Implement the smallest useful callable, add positive, boundary, and known-wrong tests, and show a minimal invocation using preserved fixtures. Keep episode-specific content in configuration. Do not claim native Baltor compatibility until the real isolated intake contract is tested.”",
+      "guidance": [
+        "Good candidates include anchor projection, crop-bound validation, answer-mask joining, scene-local timing, motion continuity checks, or audio-fade planning. A renamed episode script is not automatically a reusable component."
+      ]
+    },
+    {
+      "title": "Research a competitor without inventing traction",
+      "line": 1493,
+      "anchor": "research-a-competitor-without-inventing-traction",
+      "prompt": "“Inspect the specified competitor's current public product, documentation, examples, pricing basis if relevant, and terms. Separate observed features from claims and inferential implementation hypotheses. Compare the complete user workflow, setup, output editability, rights, support, and switching costs. Identify a bounded opportunity where our existing factory could provide distinct value. Do not infer revenue or customer adoption from a polished landing page or a large social following.”",
+      "guidance": [
+        "The objective is a useful product decision, not a flattering comparison table. Include counterevidence and reasons the competitor may be a better choice for some users."
+      ]
+    },
+    {
+      "title": "Plan a showcase page",
+      "line": 1499,
+      "anchor": "plan-a-showcase-page",
+      "prompt": "“Design a proposed showcase information architecture around real completed examples. For each example, include the viewer task, reviewable media, actual production mechanism, editable-source status, rights scope, and limitations. Make images, videos, scenes, skills, tools, datasets, and templates discoverable without conflating them. Use clear task/category entry points before raw component search. Keep unqualified candidates visibly separate. Do not publish or alter production without authorization.”",
+      "guidance": [
+        "For public-good material, explain the practical beneficiary and task rather than relying on an SDG tag alone. Tags do not establish impact or endorsement. For a creative showcase, let users see the outcome before asking them to understand the entire harness architecture."
+      ]
+    },
+    {
+      "title": "Diagnose a failed render and recover safely",
+      "line": 1505,
+      "anchor": "diagnose-a-failed-render-and-recover-safely",
+      "prompt": "“Inspect the failed job's exact logs, last completed frame range, source/config hashes, and active process state. Determine whether the failure is reproducible, transient, permission-related, or caused by a changed dependency. Resume only when the checkpoint matches current inputs. Preserve partial output and avoid duplicate jobs. If a save or send has an ambiguous outcome, reconcile its actual state before retrying. Return the recovered result or a precise blocker with the next safe action.”",
+      "guidance": [
+        "A recovery plan must preserve any outstanding authorization or rights boundary."
+      ]
+    },
+    {
+      "title": "Challenge the design before scaling it",
+      "line": 1511,
+      "anchor": "challenge-the-design-before-scaling-it",
+      "prompt": "“Review this episode as a viewer, animator, compositor, puzzle editor, sound editor, accessibility reviewer, maintainer, and skeptical buyer. Identify concrete defects with frame/time references. Rank them by impact on the intended viewer task. Distinguish taste judgments from objective errors and measured audience results. Propose one high-value repair and one alternative artistic direction. Do not generate a large persona count as a substitute for real evidence.”",
+      "guidance": [
+        "The useful result is a prioritized correction, not a wall of generic compliments and cautions. A strong critique should explain how the next rendered version will visibly change."
+      ]
+    },
+    {
+      "title": "Expand variety without padding",
+      "line": 1517,
+      "anchor": "expand-variety-without-padding",
+      "prompt": "“Compare the current catalog with the proposed new episode. State which viewer task, story mechanism, interaction, evidence, or visual construction is genuinely different. Identify shared code and reusable assets. If the proposal is only a palette, size, or title change, classify it as a style variant rather than a new capability. Develop a more substantive alternative when needed. Preserve all useful variants but keep counts honest.”",
+      "guidance": [
+        "This prompt is especially important for recurring production. The goal is a growing library of useful experiences and reliable primitives, not a file-count contest."
+      ]
+    },
+    {
+      "title": "Write a funny suspenseful story before rendering",
+      "line": 1523,
+      "anchor": "write-a-funny-suspenseful-story-before-rendering",
+      "prompt": "\"Develop three materially different original premises for the intended audience. For each, state the first-frame event, protagonist want, visible stakes, constraint, active decision, causal escalation, fair plant, reversal and final image. Reject a premise if its middle repeats the same gag or its solution introduces an unplanted rescue. Make the action understandable without a narrator explaining every movement. Choose the strongest candidate only as a recommendation, then write a shot-by-shot storyboard with action, new information, sound and timing. Do not render a full film until the stronger story has been evaluated. Do not claim that synthetic critique is audience validation.\"",
+      "guidance": []
+    },
+    {
+      "title": "Adopt one physics interaction",
+      "line": 1527,
+      "anchor": "adopt-one-physics-interaction",
+      "prompt": "\"For the selected storyboard beat, define the original props, scale, mass assumptions, floor and wall geometry, fixed timestep, applied force and rendering sample map. Keep character acting authored unless body dynamics are explicitly part of the brief. Bake persistent-ID transforms and contact events, run a no-force control and known-wrong cases, compare a smaller timestep, and inspect the displayed poses against the trace. Report numerical limitations and whether the final encoded film actually uses the trace. Do not call props-only simulation full-body physics.\"",
+      "guidance": []
+    },
+    {
+      "title": "Audition narration honestly",
+      "line": 1531,
+      "anchor": "audition-narration-honestly",
+      "prompt": "\"Use the same short approved script for each permitted local candidate. Include names, numbers, one question, a quiet beat and a comic reaction. Preserve model, voice, version, license, speed, raw audio and actual durations. Prevent unapproved network behavior and honor existing access blocks. Check pronunciation and intelligibility through listening; technical decode and nonzero samples are separate checks. Return the clips and a bounded comparison, with any listening gap explicit. Do not select a voice on waveform statistics alone.\"",
+      "guidance": []
+    }
+  ]
+}

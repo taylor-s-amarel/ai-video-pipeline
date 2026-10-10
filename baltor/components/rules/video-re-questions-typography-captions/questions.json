@@ -1,0 +1,591 @@
+{
+  "spec": "baltor.video-re-questions/v1",
+  "lens": "typography_captions",
+  "title": "Typography and captions",
+  "purpose": "Lifts title, caption and label styling (position, size, weight, case, colour, backing, chunking) and caption timing against speech.",
+  "boundary": "The swarm lifts technique and structure only. Never store, transcribe or reuse the source's footage, frames, music, voice or script text. Keyframes and spectrograms are temporary analysis files in a scratch directory and are never copied into the format IR or a variant. On-screen text may be quoted only as a locating note in evidence.note, at most 6 words, and narration is never quoted. Patterns replace content words with slots, e.g. 'FACT {n}' or '{number} {unit} {noun}'. Analysing a public video for technique is fine; republishing its content is not.",
+  "answer_contract": "video_re_analyst_answer",
+  "ir_contract": "video_re_format_ir",
+  "ir_focus": [
+    "/typography/title",
+    "/typography/captions",
+    "/typography/labels",
+    "/typography/words_on_screen_max"
+  ],
+  "evidence": [
+    "text_regions[] bbox, area_ratio, y_center_ratio (video_re_text_regions)",
+    "captions[] (video_re_caption_track, video_re_ocr_adapter or video_re_transcribe_adapter)",
+    "audio.speech_segments"
+  ],
+  "inspect": "F3 crops of caption, title and label regions enlarged 2x; F9 for text and backing colours; F8 around caption changes.",
+  "pitfalls": [
+    "Naming a specific font from appearance; give a font class instead",
+    "Measuring caption sync from a transcription whose own timing error is unknown",
+    "Treating OCR misses as 'no caption'"
+  ],
+  "parameter_hints": [
+    "caption_font_class",
+    "caption_color / highlight_color",
+    "caption_max_words",
+    "caption_y_ratio",
+    "label_pattern"
+  ],
+  "optional_detectors": [
+    "video_re_detect_text_presence_timeline",
+    "video_re_detect_text_position_grid",
+    "video_re_detect_text_color_contrast",
+    "video_re_detect_text_outline_stroke",
+    "video_re_detect_text_box_backing",
+    "video_re_detect_caption_line_count",
+    "video_re_detect_font_weight_class",
+    "video_re_detect_label_patterns",
+    "video_re_detect_emoji_sticker_overlays",
+    "video_re_detect_karaoke_highlight",
+    "video_re_detect_safe_margin_usage"
+  ],
+  "methods": {
+    "measured": "A measurement tool produced the value (an evidence.json field or an ffmpeg/ffprobe filter output). Name the tool and the field.",
+    "observed": "You looked at extracted frames, crops, scopes, spectrograms or waveforms and saw it. Give the timestamps you looked at.",
+    "inferred": "Reasoned from measured or observed facts, e.g. 'synthetic voice' from flat pitch on a spectrogram. State the reasoning in the note.",
+    "assumed": "No direct evidence; a default or convention. Use only for gaps the format needs filled, and keep confidence at 0.3 or lower."
+  },
+  "pointer_conventions": [
+    "ir_path is a JSON Pointer (RFC 6901) into the Video format IR (contract schema video_re_format_ir).",
+    "A final '/-' means 'append this answer to the array' (the RFC 6901 end-of-array token), e.g. /motion/transitions/- or /generation_rules/-.",
+    "A '*' segment means 'each array element the answer is about'; the answer must say which elements (for example beats with role 'item'). The lifter resolves '*' to concrete indexes.",
+    "Paths under free-form objects (typography.title, typography.captions, typography.labels, audio.narration, audio.music, render_binding.mapping) use the snake_case key named in the question."
+  ],
+  "answer_types": {
+    "number": "{\"value\": n, \"unit\": \"...\"} optionally with \"min\" and \"max\"; becomes an IR observed_number",
+    "integer": "{\"value\": n}",
+    "ratio": "{\"value\": r} with 0 <= r <= 1",
+    "ms": "{\"value\": n, \"unit\": \"ms\"} optionally with \"min\"/\"max\"; signed when an offset (negative = earlier)",
+    "distribution": "{\"median\": m, \"p10\": a, \"p90\": b, \"n\": count, \"unit\": \"...\"}",
+    "boolean": "true or false",
+    "enum": "exactly one of the question's choices (a string)",
+    "color": "\"#RRGGBB\"",
+    "list": "array of short strings (technique names or kinds)",
+    "rule": "one procedural generation rule string, at most 400 characters, written in terms of parameters",
+    "object": "a JSON object with the keys the question's how_to_answer names"
+  },
+  "recipes": {
+    "F1": "Single frame: ffmpeg -v error -ss T -i \"$SRC\" -frames:v 1 -q:v 2 \"$WORK/f_T.jpg\"",
+    "F3": "Full-resolution crop (add ,scale=iw*2:-1:flags=lanczos to enlarge): ffmpeg -v error -ss T -i \"$SRC\" -frames:v 1 -vf \"crop=W:H:X:Y\" \"$WORK/crop_T.png\"",
+    "F8": "Every frame in a short window (animation timing; frame k is at T + k/fps): ffmpeg -v error -ss T -t 0.5 -i \"$SRC\" -vf \"scale=540:-2\" \"$WORK/step_T_%03d.png\"",
+    "F9": "Average colour of a region: ffmpeg -v error -ss T -i \"$SRC\" -frames:v 1 -vf \"crop=W:H:X:Y,scale=1:1:flags=area,format=rgb24\" -f rawvideo - | od -An -tu1",
+    "A1": "Spectrogram image (add highpass=f=3000, before showspectrumpic to isolate clicks and whooshes): ffmpeg -v error -ss T -t D -i \"$SRC\" -lavfi \"showspectrumpic=s=1200x600:legend=1\" \"$WORK/spec_T.png\"",
+    "A7": "Stream facts: ffprobe -v error -show_streams -show_format -of json \"$SRC\""
+  },
+  "questions": [
+    {
+      "id": "typography_captions-001",
+      "question": "Where do captions sit vertically (median y centre as a fraction of frame height)?",
+      "why_it_matters": "Fills caption y position.",
+      "how_to_answer": "Median y_center_ratio of evidence.text_regions[] entries in the caption role (recurring regions that change with speech); confirm on 3 F1 frames.",
+      "evidence_required": [
+        "evidence.text_regions[].y_center_ratio",
+        "frames: F1 samples"
+      ],
+      "ir_path": "/typography/captions/y_center_ratio",
+      "answer_type": "ratio",
+      "challenge": "Separate titles and labels from captions before taking the median; report how regions were assigned."
+    },
+    {
+      "id": "typography_captions-002",
+      "question": "What is the maximum number of caption lines on screen at once?",
+      "why_it_matters": "Fills caption lines_max.",
+      "how_to_answer": "Inspect F3 crops of the caption area at 6 times; count lines.",
+      "evidence_required": [
+        "frames: F3 caption crops"
+      ],
+      "ir_path": "/typography/captions/lines_max",
+      "answer_type": "integer",
+      "challenge": "Check the longest caption cards; maximums hide there."
+    },
+    {
+      "id": "typography_captions-003",
+      "question": "What is the maximum number of words on screen in one caption card?",
+      "why_it_matters": "Fills words_on_screen_max.",
+      "how_to_answer": "Word counts of caption cards (evidence.captions[] when burned-in OCR exists, otherwise F3 crops at 6 times); report max and median.",
+      "evidence_required": [
+        "evidence.captions[]",
+        "frames: F3"
+      ],
+      "ir_path": "/typography/words_on_screen_max",
+      "answer_type": "integer",
+      "challenge": "Word-by-word captions show one word at a time; distinguish card words from highlighted words."
+    },
+    {
+      "id": "typography_captions-004",
+      "question": "What font class do captions use (geometric sans, grotesque sans, condensed sans, rounded sans, serif, slab, handwritten, display)?",
+      "why_it_matters": "Gives a font class the renderer can map to an open font.",
+      "how_to_answer": "Enlarged F3 crops: check letter shapes (round 'o' and 'e' for geometric; narrow letters for condensed; serifs).",
+      "evidence_required": [
+        "frames: F3 enlarged"
+      ],
+      "ir_path": "/typography/captions/font_class",
+      "answer_type": "enum",
+      "choices": [
+        "geometric-sans",
+        "grotesque-sans",
+        "condensed-sans",
+        "rounded-sans",
+        "serif",
+        "slab",
+        "handwritten",
+        "display"
+      ],
+      "challenge": "Never name a specific commercial font as fact; a named font must be marked inferred."
+    },
+    {
+      "id": "typography_captions-005",
+      "question": "What weight are captions (regular, medium, bold, black)?",
+      "why_it_matters": "Fills caption weight.",
+      "how_to_answer": "Stroke thickness relative to letter height on F3 crops: stem width / cap height above about 0.18 is bold, above 0.24 black.",
+      "evidence_required": [
+        "frames: F3 enlarged"
+      ],
+      "ir_path": "/typography/captions/weight",
+      "answer_type": "enum",
+      "choices": [
+        "regular",
+        "medium",
+        "bold",
+        "black"
+      ],
+      "challenge": "Outline strokes add apparent weight; measure the fill only."
+    },
+    {
+      "id": "typography_captions-006",
+      "question": "What case do captions use (all caps, sentence case, title case, lower case)?",
+      "why_it_matters": "Fills caption case.",
+      "how_to_answer": "F3 crops at 6 times.",
+      "evidence_required": [
+        "frames: F3"
+      ],
+      "ir_path": "/typography/captions/case",
+      "answer_type": "enum",
+      "choices": [
+        "all-caps",
+        "sentence",
+        "title",
+        "lower",
+        "mixed"
+      ],
+      "challenge": "Check at least one caption with a proper noun."
+    },
+    {
+      "id": "typography_captions-007",
+      "question": "What colour is caption text, and what colour marks highlighted or key words?",
+      "why_it_matters": "Fills caption colour and highlight colour.",
+      "how_to_answer": "F9 average colour inside thick strokes (3x3 px) of normal and highlighted words.",
+      "evidence_required": [
+        "frames: F9"
+      ],
+      "ir_path": "/typography/captions/colors",
+      "answer_type": "object",
+      "challenge": "Sample three letters for each and report the spread."
+    },
+    {
+      "id": "typography_captions-008",
+      "question": "What backing do captions have (none, stroke, drop shadow, solid box, frosted panel)?",
+      "why_it_matters": "Fills caption backing.",
+      "how_to_answer": "F3 crops around letters and panel edges over busy and calm backgrounds.",
+      "evidence_required": [
+        "frames: F3"
+      ],
+      "ir_path": "/typography/captions/backing",
+      "answer_type": "enum",
+      "choices": [
+        "none",
+        "stroke",
+        "shadow",
+        "solid-box",
+        "frosted-panel",
+        "stroke-and-shadow"
+      ],
+      "challenge": "Compare two frames with different backgrounds to tell a frosted panel from a solid box."
+    },
+    {
+      "id": "typography_captions-009",
+      "question": "If captions have an outline stroke, how thick is it relative to letter height?",
+      "why_it_matters": "Fills stroke width ratio.",
+      "how_to_answer": "On an enlarged F3 crop, measure the stroke width in px / cap height in px.",
+      "evidence_required": [
+        "frames: F3 at 4x"
+      ],
+      "ir_path": "/typography/captions/stroke_ratio",
+      "answer_type": "ratio",
+      "challenge": "Anti-aliasing adds a pixel; report the measurement method."
+    },
+    {
+      "id": "typography_captions-010",
+      "question": "How tall are caption letters as a fraction of frame height (cap height)?",
+      "why_it_matters": "Fills caption size.",
+      "how_to_answer": "Measure the cap height of an upper-case letter in px on an F3 crop / source.height.",
+      "evidence_required": [
+        "frames: F3",
+        "evidence.source.height"
+      ],
+      "ir_path": "/typography/captions/size_ratio",
+      "answer_type": "ratio",
+      "challenge": "Text bboxes include descenders and padding; use letter measurements."
+    },
+    {
+      "id": "typography_captions-011",
+      "question": "What is the mean offset between caption appearance and the matching spoken word (ms; negative = caption early)?",
+      "why_it_matters": "Fills caption sync; a common house rule is within 150 ms.",
+      "how_to_answer": "For 10 caption cards, compare the on-screen appearance time (F8 at caption changes, or text_regions t_s) with the speech onset of the first word (A1 spectrogram or speech_segments).",
+      "evidence_required": [
+        "frames: F8 at caption changes",
+        "evidence.audio.speech_segments",
+        "A1"
+      ],
+      "ir_path": "/typography/captions/sync_offset_ms",
+      "answer_type": "ms",
+      "challenge": "Transcribed captions are not on-screen timings; only burned-in text can measure on-screen sync. Report n and spread."
+    },
+    {
+      "id": "typography_captions-012",
+      "question": "Do captions appear before, on, or after the spoken word?",
+      "why_it_matters": "Summarises sync behaviour for the caption timing rule.",
+      "how_to_answer": "From 011: 'on' when the mean is within +/-100 ms and the spread is under 150 ms.",
+      "evidence_required": [
+        "sync offsets"
+      ],
+      "ir_path": "/typography/captions/sync_offset_ms",
+      "answer_type": "enum",
+      "choices": [
+        "before",
+        "on",
+        "after",
+        "varies"
+      ],
+      "challenge": "Must agree with the numbers in 011."
+    },
+    {
+      "id": "typography_captions-013",
+      "question": "Are captions shown as phrase cards, word-by-word reveals, or karaoke-style highlighting within a card?",
+      "why_it_matters": "Fills caption mode.",
+      "how_to_answer": "F8 frame steps across a caption: watch whether words appear one at a time or highlights move.",
+      "evidence_required": [
+        "frames: F8"
+      ],
+      "ir_path": "/typography/captions/mode",
+      "answer_type": "enum",
+      "choices": [
+        "phrase-cards",
+        "word-by-word",
+        "karaoke-highlight",
+        "none"
+      ],
+      "challenge": "Check two cards; mixed behaviour must be reported."
+    },
+    {
+      "id": "typography_captions-014",
+      "question": "How are key words emphasised (colour change, scale pop, weight change, underline, box)?",
+      "why_it_matters": "Fills emphasis style.",
+      "how_to_answer": "Compare emphasised and normal words on F3 crops and F8 steps.",
+      "evidence_required": [
+        "frames: F3",
+        "frames: F8"
+      ],
+      "ir_path": "/typography/captions/emphasis",
+      "answer_type": "list",
+      "challenge": "Each listed method needs one timestamp."
+    },
+    {
+      "id": "typography_captions-015",
+      "question": "How long does a caption card stay on screen (median, min, max)?",
+      "why_it_matters": "Sets caption card duration.",
+      "how_to_answer": "From burned-in caption changes (text_regions in caption area) or evidence.captions[] when they represent the burned-in captions.",
+      "evidence_required": [
+        "evidence.text_regions[]",
+        "evidence.captions[]"
+      ],
+      "ir_path": "/typography/captions/card_s",
+      "answer_type": "distribution",
+      "challenge": "Say which source the timings came from."
+    },
+    {
+      "id": "typography_captions-016",
+      "question": "Are captions on screen during speech pauses, or do they clear when nobody is speaking?",
+      "why_it_matters": "Becomes a caption gap rule.",
+      "how_to_answer": "Check frames inside speech gaps over 0.5 s (speech_segments) for caption text.",
+      "evidence_required": [
+        "evidence.audio.speech_segments",
+        "frames: F1 inside gaps"
+      ],
+      "ir_path": "/typography/captions/gap_behaviour",
+      "answer_type": "enum",
+      "choices": [
+        "clear-in-pauses",
+        "hold-through-pauses",
+        "mixed"
+      ],
+      "challenge": "Check at least 4 gaps."
+    },
+    {
+      "id": "typography_captions-017",
+      "question": "How are captions aligned horizontally, and what is their maximum width as a fraction of the frame?",
+      "why_it_matters": "Fills alignment and max width.",
+      "how_to_answer": "evidence.text_regions[] bbox x and width for caption regions; report alignment and max width ratio.",
+      "evidence_required": [
+        "evidence.text_regions[].bbox"
+      ],
+      "ir_path": "/typography/captions/max_width_ratio",
+      "answer_type": "object",
+      "challenge": "Left-aligned and centred look alike for one-line captions; check multi-line cards."
+    },
+    {
+      "id": "typography_captions-018",
+      "question": "What font class and weight does the title use, and is it the same family as captions?",
+      "why_it_matters": "Fills title font class.",
+      "how_to_answer": "Compare enlarged F3 crops of title and captions.",
+      "evidence_required": [
+        "frames: F3 title and caption crops"
+      ],
+      "ir_path": "/typography/title/font_class",
+      "answer_type": "object",
+      "challenge": "Same weight but different family is a common confusion; compare 'a', 'g', 'R'."
+    },
+    {
+      "id": "typography_captions-019",
+      "question": "What colour is title text across title appearances?",
+      "why_it_matters": "Fills title colour.",
+      "how_to_answer": "F9 inside title strokes in each title appearance.",
+      "evidence_required": [
+        "frames: F9"
+      ],
+      "ir_path": "/typography/title/color",
+      "answer_type": "color",
+      "challenge": "Report the spread over appearances; one sample is not enough."
+    },
+    {
+      "id": "typography_captions-020",
+      "question": "What case and letter spacing does the title use?",
+      "why_it_matters": "Fills title case and tracking.",
+      "how_to_answer": "F3 crops; tracking judged from gap between letters relative to stem width.",
+      "evidence_required": [
+        "frames: F3"
+      ],
+      "ir_path": "/typography/title/case",
+      "answer_type": "object",
+      "challenge": "Give measured gap/stem values."
+    },
+    {
+      "id": "typography_captions-021",
+      "question": "Where does the title sit when it appears (y centre ratio, alignment), across all title appearances?",
+      "why_it_matters": "Fills title placement beyond the first frame.",
+      "how_to_answer": "evidence.text_regions[] for the title role.",
+      "evidence_required": [
+        "evidence.text_regions[]"
+      ],
+      "ir_path": "/typography/title/y_center_ratio",
+      "answer_type": "ratio",
+      "challenge": "Compare with the hook lens answer for the first frame; differences must be explained."
+    },
+    {
+      "id": "typography_captions-022",
+      "question": "How are item labels styled (font class, weight, colour, size ratio, backing, position)?",
+      "why_it_matters": "Fills typography.labels.",
+      "how_to_answer": "F3 and F9 on labels in 3 items; evidence.text_regions[] for position.",
+      "evidence_required": [
+        "frames: F3",
+        "frames: F9",
+        "evidence.text_regions[]"
+      ],
+      "ir_path": "/typography/labels/style",
+      "answer_type": "object",
+      "challenge": "All fields must be consistent across the 3 items or reported as varying."
+    },
+    {
+      "id": "typography_captions-023",
+      "question": "How large are key numbers compared with caption text (height ratio)?",
+      "why_it_matters": "Fills the number size ratio for reveals.",
+      "how_to_answer": "Number glyph height / caption cap height on F3 crops.",
+      "evidence_required": [
+        "frames: F3"
+      ],
+      "ir_path": "/typography/labels/number_size_ratio",
+      "answer_type": "number",
+      "challenge": "Measure at the number's settled size, not during its entrance animation."
+    },
+    {
+      "id": "typography_captions-024",
+      "question": "What are the minimum text margins from the frame edges (fraction of width and height)?",
+      "why_it_matters": "Fills safe margins for text.",
+      "how_to_answer": "Min of bbox distances to each edge over evidence.text_regions[].",
+      "evidence_required": [
+        "evidence.text_regions[].bbox"
+      ],
+      "ir_path": "/typography/captions/margins",
+      "answer_type": "object",
+      "challenge": "Exclude watermark regions; they are not format text."
+    },
+    {
+      "id": "typography_captions-025",
+      "question": "How often does text overlap faces or the main subject?",
+      "why_it_matters": "Becomes a placement constraint or confirms text-over-subject style.",
+      "how_to_answer": "For 10 frames with text and a subject, count overlaps.",
+      "evidence_required": [
+        "frames: F1 samples",
+        "evidence.text_regions[]"
+      ],
+      "ir_path": "/typography/captions/overlaps_subject",
+      "answer_type": "ratio",
+      "challenge": "Report n; do not identify faces."
+    },
+    {
+      "id": "typography_captions-026",
+      "question": "Are emoji or icons used in captions or labels?",
+      "why_it_matters": "Becomes an emoji rule.",
+      "how_to_answer": "F3 crops of captions and labels.",
+      "evidence_required": [
+        "frames: F3"
+      ],
+      "ir_path": "/typography/captions/emoji",
+      "answer_type": "boolean",
+      "challenge": "Check 6 or more cards."
+    },
+    {
+      "id": "typography_captions-027",
+      "question": "How is punctuation handled in captions (kept, stripped, only question marks)?",
+      "why_it_matters": "Becomes a caption text cleaning rule.",
+      "how_to_answer": "Inspect F3 crops of cards at sentence ends.",
+      "evidence_required": [
+        "frames: F3"
+      ],
+      "ir_path": "/typography/captions/punctuation",
+      "answer_type": "enum",
+      "choices": [
+        "kept",
+        "stripped",
+        "partial"
+      ],
+      "challenge": "Check at least 3 sentence-final cards."
+    },
+    {
+      "id": "typography_captions-028",
+      "question": "What is the maximum number of characters per caption line, and are lines balanced in length?",
+      "why_it_matters": "Becomes the line-breaking rule.",
+      "how_to_answer": "Count characters per line on F3 crops of the 5 longest cards.",
+      "evidence_required": [
+        "frames: F3"
+      ],
+      "ir_path": "/typography/captions/max_chars_per_line",
+      "answer_type": "integer",
+      "challenge": "Report counts per card."
+    },
+    {
+      "id": "typography_captions-029",
+      "question": "What is the approximate contrast ratio between caption text and its immediate backing?",
+      "why_it_matters": "Sets a minimum contrast for generated captions.",
+      "how_to_answer": "WCAG ratio from F9 samples of text fill and backing (or background next to the stroke).",
+      "evidence_required": [
+        "frames: F9"
+      ],
+      "ir_path": "/typography/captions/contrast_ratio",
+      "answer_type": "number",
+      "challenge": "Report the worst of 3 samples over different backgrounds."
+    },
+    {
+      "id": "typography_captions-030",
+      "question": "How many distinct text styles appear in the whole video (title, caption, label, number, source line, CTA)?",
+      "why_it_matters": "Bounds the style count of the type system.",
+      "how_to_answer": "Group F3 crops of all text roles by font class, weight, colour and size.",
+      "evidence_required": [
+        "frames: F3"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "integer",
+      "challenge": "Differences only in size count as one style."
+    },
+    {
+      "id": "typography_captions-031",
+      "question": "Is letter spacing tight, normal or wide in captions?",
+      "why_it_matters": "Fills tracking.",
+      "how_to_answer": "Gap between letters relative to stem width on F3 crops; tight below 0.5, wide above 1.2.",
+      "evidence_required": [
+        "frames: F3"
+      ],
+      "ir_path": "/typography/captions/tracking",
+      "answer_type": "enum",
+      "choices": [
+        "tight",
+        "normal",
+        "wide"
+      ],
+      "challenge": "Report measured ratios."
+    },
+    {
+      "id": "typography_captions-032",
+      "question": "Do captions stay clear of the bottom 20% and the right-hand 15% of the frame where vertical-video apps often draw controls?",
+      "why_it_matters": "Becomes a placement constraint; the exact zones vary by app and must be confirmed per platform.",
+      "how_to_answer": "Check caption bboxes in evidence.text_regions[] against those bands; read evidence.safe_area.violations for the template used.",
+      "evidence_required": [
+        "evidence.text_regions[]",
+        "evidence.safe_area.violations"
+      ],
+      "ir_path": "/typography/captions/safe_area_ok",
+      "answer_type": "boolean",
+      "challenge": "Name the safe-area template the probe used; percentages are a working assumption, not a platform specification."
+    },
+    {
+      "id": "typography_captions-033",
+      "question": "Are captions burned into the picture, supplied as a separate subtitle track, or absent?",
+      "why_it_matters": "Tells the pipeline which caption source to emit.",
+      "how_to_answer": "A7 stream list for subtitle streams; F1 frames for burned-in text; evidence.captions[] source as reported by video_re_caption_track.",
+      "evidence_required": [
+        "A7 streams",
+        "frames: F1",
+        "evidence.tools"
+      ],
+      "ir_path": "/typography/captions/source",
+      "answer_type": "enum",
+      "choices": [
+        "burned-in",
+        "subtitle-track",
+        "both",
+        "none"
+      ],
+      "challenge": "evidence.captions[] may come from transcription; it proves speech, not on-screen captions."
+    },
+    {
+      "id": "typography_captions-034",
+      "question": "What caption style parameters should a new video set (font class, colours, highlight, max words, position)?",
+      "why_it_matters": "Feeds the parameteriser.",
+      "how_to_answer": "Collect answers 001-014 into typed parameters with observed defaults.",
+      "evidence_required": [
+        "typography answers"
+      ],
+      "ir_path": "/parameters/-",
+      "answer_type": "list",
+      "challenge": "Each parameter needs derived_from."
+    },
+    {
+      "id": "typography_captions-035",
+      "question": "Write the caption chunking and timing rule (max words, break points, minimum hold, sync source).",
+      "why_it_matters": "Gives the compiler a procedural caption plan.",
+      "how_to_answer": "From 003, 011, 015 and 028, for example 'cards of at most N words, break at punctuation, hold at least X ms, time from word timestamps, never time-stretch speech'.",
+      "evidence_required": [
+        "typography answers"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "rule",
+      "challenge": "Apply the rule to 3 observed captions; the predicted card breaks should match at least 2."
+    },
+    {
+      "id": "typography_captions-036",
+      "question": "What is the largest share of the frame area covered by text at any moment?",
+      "why_it_matters": "Becomes a text density limit.",
+      "how_to_answer": "Max over t of sum(area_ratio) from evidence.text_regions[] grouped by t_s.",
+      "evidence_required": [
+        "evidence.text_regions[].area_ratio"
+      ],
+      "ir_path": "/typography/captions/max_area_ratio",
+      "answer_type": "ratio",
+      "challenge": "Backing panels may be included in bboxes; state whether they were."
+    }
+  ]
+}

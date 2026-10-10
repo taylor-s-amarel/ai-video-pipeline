@@ -1,0 +1,12 @@
+{
+  "_id": "@example/sdk", "name": "@example/sdk", "description": "Example SDK",
+  "dist-tags": {"latest": "5.1.0", "beta": "6.0.0-beta.1"},
+  "time": {"created": "2024-01-01T00:00:00.000Z", "modified": "2026-10-09T15:44:12.242Z", "4.9.9": "2026-03-01T00:00:00.000Z", "5.0.0": "2026-09-01T10:00:00.000Z", "5.1.0": "2026-10-09T15:44:11.865Z", "6.0.0-beta.1": "2026-10-05T00:00:00.000Z"},
+  "versions": {
+    "4.9.9": {"name": "@example/sdk", "version": "4.9.9", "deprecated": "4.x is no longer supported; upgrade to 5.x"},
+    "5.0.0": {"name": "@example/sdk", "version": "5.0.0", "description": "Example SDK"},
+    "5.1.0": {"name": "@example/sdk", "version": "5.1.0", "description": "Example SDK"},
+    "6.0.0-beta.1": {"name": "@example/sdk", "version": "6.0.0-beta.1"}
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,50 @@
+{
+  "id": "afi_0f1e2d3c4b5a69788796",
+  "source_id": "pypi-examplelib",
+  "collection": "agent-feeds-local",
+  "title": "GHSA-aaaa-bbbb-cccc: examplelib leaks Proxy-Authorization headers on redirect",
+  "url": "https://osv.dev/vulnerability/GHSA-aaaa-bbbb-cccc",
+  "published": "2026-10-08T18:00:00Z",
+  "updated": "2026-10-09T12:00:00Z",
+  "summary": "examplelib from 2.3.0 before 2.31.0 forwards the Proxy-Authorization header to the redirect target.",
+  "vendor": null,
+  "products": [
+    "examplelib"
+  ],
+  "versions": [],
+  "change_types": [
+    "security"
+  ],
+  "severity": "medium",
+  "cvss": 5.3,
+  "affected_packages": [
+    {
+      "ecosystem": "PyPI",
+      "name": "examplelib",
+      "version_range": ">=2.3.0,<2.31.0",
+      "fixed": [
+        "2.31.0"
+      ]
+    }
+  ],
+  "cve_ids": [
+    "CVE-2099-0100"
+  ],
+  "entities": [
+    "CVE-2099-0100",
+    "PYSEC-2099-1"
+  ],
+  "dedupe_key": "5d41402abc4b2a76b9719d91",
+  "cluster_id": "afi_0f1e2d3c4b5a69788796",
+  "relevance": {
+    "score": 95,
+    "reasons": [
+      "examplelib==2.30.0 (requirements.txt) is inside the affected range >=2.3.0,<2.31.0; fixed in 2.31.0"
+    ],
+    "matched_packages": [
+      "PyPI:examplelib"
+    ],
+    "affected": "yes"
+  },
+  "source_format": "osv"
+}

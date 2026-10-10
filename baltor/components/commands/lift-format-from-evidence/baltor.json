@@ -1,0 +1,119 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "lift_format_from_evidence",
+  "title": "/lift-format-from-evidence",
+  "kind": "command",
+  "subkind": "workflow",
+  "version": "1.0.0",
+  "summary": "Slash command that lifts a format IR from an existing evidence.json: runs missing analysts, challengers, the lifter and the parameteriser, then validates.",
+  "description": "Lift a format IR from an existing evidence bundle. Captures technique and structure only; never stores or reuses the source's footage, frames, music, voice or script text.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "research",
+    "build"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "shell",
+    "secrets": [],
+    "side_effects": [
+      "runs ffmpeg/ffprobe and Python modules; writes evidence, answers, IR and reports under the chosen output directory"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "opencode",
+    "baltor-harness"
+  ],
+  "entry": "command.md",
+  "tags": [
+    "video",
+    "reverse-engineering",
+    "video-re",
+    "swarm",
+    "command",
+    "workflow"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "video_re_analyst_structure_beats"
+    },
+    {
+      "identity": "video_re_analyst_hook_first_seconds"
+    },
+    {
+      "identity": "video_re_analyst_script_rhetoric"
+    },
+    {
+      "identity": "video_re_analyst_pacing_cut_rhythm"
+    },
+    {
+      "identity": "video_re_analyst_shot_list_framing"
+    },
+    {
+      "identity": "video_re_analyst_camera_motion"
+    },
+    {
+      "identity": "video_re_analyst_layers_compositing"
+    },
+    {
+      "identity": "video_re_analyst_background_system"
+    },
+    {
+      "identity": "video_re_analyst_typography_captions"
+    },
+    {
+      "identity": "video_re_analyst_text_animation"
+    },
+    {
+      "identity": "video_re_analyst_color_grade"
+    },
+    {
+      "identity": "video_re_analyst_characters_animation_style"
+    },
+    {
+      "identity": "video_re_analyst_transitions_effects"
+    },
+    {
+      "identity": "video_re_analyst_narration_voice"
+    },
+    {
+      "identity": "video_re_analyst_music_sfx_mix"
+    },
+    {
+      "identity": "video_re_analyst_retention_cta"
+    },
+    {
+      "identity": "video_re_analyst_platform_fit_safe_areas"
+    },
+    {
+      "identity": "video_re_analyst_rights_originality_boundary"
+    },
+    {
+      "identity": "video_re_challenger"
+    },
+    {
+      "identity": "video_re_lifter"
+    },
+    {
+      "identity": "video_re_parameteriser"
+    },
+    {
+      "identity": "video_re_ir_validate"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_re_swarm.py",
+    "data": "generators/data/video_re_swarm"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

@@ -1,0 +1,748 @@
+[
+  {
+    "id": "AVQ-023-001",
+    "domain_id": "D023",
+    "area": "voice and dialogue",
+    "question": "Can an unbriefed listener transcribe the sentence containing the film's main claim correctly?",
+    "failure_hypothesis": "Familiarity with the script masks unclear speech.",
+    "check_or_fix": "Play the final voice track to new listeners and compare their transcriptions.",
+    "severity": "high",
+    "modes": [
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7556,
+    "passes": [
+      "default_32",
+      "sound",
+      "longer_cardboard_32"
+    ]
+  },
+  {
+    "id": "AVQ-023-002",
+    "domain_id": "D023",
+    "area": "voice and dialogue",
+    "question": "Is vocal stress placed on the word that carries the intended contrast?",
+    "failure_hypothesis": "Incorrect emphasis changes which alternative the sentence rejects.",
+    "check_or_fix": "Listen without reading the script and reperform ambiguous stress.",
+    "severity": "high",
+    "modes": [
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "production",
+      "edit"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7558,
+    "passes": [
+      "sound"
+    ]
+  },
+  {
+    "id": "AVQ-023-003",
+    "domain_id": "D023",
+    "area": "voice and dialogue",
+    "question": "Are proper names and specialist terms pronounced accurately for the subject and audience?",
+    "failure_hypothesis": "Synthetic or unfamiliar pronunciation undermines meaning and credibility.",
+    "check_or_fix": "Listen with a knowledgeable speaker and correct the specific pronunciation.",
+    "severity": "high",
+    "modes": [
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "production",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7560,
+    "passes": [
+      "sound"
+    ]
+  },
+  {
+    "id": "AVQ-023-004",
+    "domain_id": "D023",
+    "area": "voice and dialogue",
+    "question": "Do numbers, ranges, and units remain distinguishable when spoken at the final pace?",
+    "failure_hypothesis": "Similar-sounding quantities merge into an ambiguous instruction.",
+    "check_or_fix": "Have listeners write down the quantities and re-record errors.",
+    "severity": "high",
+    "modes": [
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7562,
+    "passes": [
+      "sound"
+    ]
+  },
+  {
+    "id": "AVQ-023-005",
+    "domain_id": "D023",
+    "area": "voice and dialogue",
+    "question": "Does the narration sound as though it understands the sentence rather than reading punctuation mechanically?",
+    "failure_hypothesis": "Prosodic breaks interrupt the sentence's logical structure.",
+    "check_or_fix": "Listen phrase by phrase and revise punctuation or performance.",
+    "severity": "medium",
+    "modes": [
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "production",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7564,
+    "passes": [
+      "sound"
+    ]
+  },
+  {
+    "id": "AVQ-023-006",
+    "domain_id": "D023",
+    "area": "voice and dialogue",
+    "question": "Are breath pauses placed where a human speaker could plausibly breathe without splitting essential phrases?",
+    "failure_hypothesis": "Generated or edited speech has unnatural respiration and phrasing.",
+    "check_or_fix": "Listen through full sentences and restore plausible breath placement.",
+    "severity": "medium",
+    "modes": [
+      "auditory"
+    ],
+    "stages": [
+      "production",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7566,
+    "passes": [
+      "sound"
+    ]
+  },
+  {
+    "id": "AVQ-023-007",
+    "domain_id": "D023",
+    "area": "voice and dialogue",
+    "question": "Does the narrator's emotional intensity fit the evidence rather than oversell an ordinary result?",
+    "failure_hypothesis": "Excited delivery implies certainty or significance not supported by the film.",
+    "check_or_fix": "Listen blind to the claim and moderate unsupported enthusiasm.",
+    "severity": "high",
+    "modes": [
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "production",
+      "edit"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7568,
+    "passes": [
+      "sound"
+    ]
+  },
+  {
+    "id": "AVQ-023-008",
+    "domain_id": "D023",
+    "area": "voice and dialogue",
+    "question": "Can the audience distinguish recurring speakers without needing to look at the screen continuously?",
+    "failure_hypothesis": "Similar voices make the conversation hard to follow.",
+    "check_or_fix": "Listen audio-only and differentiate delivery or add clear attribution.",
+    "severity": "high",
+    "modes": [
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "production",
+      "edit"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7570,
+    "passes": [
+      "sound"
+    ]
+  },
+  {
+    "id": "AVQ-023-009",
+    "domain_id": "D023",
+    "area": "voice and dialogue",
+    "question": "Is the same character's voice consistent across separately generated or recorded lines?",
+    "failure_hypothesis": "Timbre, accent, or age changes imply a different speaker.",
+    "check_or_fix": "Audition adjacent and distant lines together and replace inconsistent takes.",
+    "severity": "high",
+    "modes": [
+      "auditory"
+    ],
+    "stages": [
+      "production",
+      "edit"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7572,
+    "passes": [
+      "sound"
+    ]
+  },
+  {
+    "id": "AVQ-023-010",
+    "domain_id": "D023",
+    "area": "voice and dialogue",
+    "question": "Does a change from narration to character speech sound intentional?",
+    "failure_hypothesis": "One delivery style blurs narrator and story-world dialogue.",
+    "check_or_fix": "Listen to entrances and establish a distinct, consistent performance convention.",
+    "severity": "medium",
+    "modes": [
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "production",
+      "edit"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7574,
+    "passes": [
+      "sound"
+    ]
+  },
+  {
+    "id": "AVQ-023-011",
+    "domain_id": "D023",
+    "area": "voice and dialogue",
+    "question": "Are plosive bursts obscuring the beginnings of important words?",
+    "failure_hypothesis": "Low-frequency microphone blasts mask consonants and distract.",
+    "check_or_fix": "Listen on full-range playback and repair or rerecord affected words.",
+    "severity": "medium",
+    "modes": [
+      "auditory"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7576,
+    "passes": [
+      "sound"
+    ]
+  },
+  {
+    "id": "AVQ-023-012",
+    "domain_id": "D023",
+    "area": "voice and dialogue",
+    "question": "Does sibilance become piercing on actual listening even when meters show no clipping?",
+    "failure_hypothesis": "High-frequency consonant energy causes discomfort.",
+    "check_or_fix": "Audition on representative headphones and apply selective de-essing.",
+    "severity": "medium",
+    "modes": [
+      "auditory"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7578,
+    "passes": [
+      "sound"
+    ]
+  },
+  {
+    "id": "AVQ-023-013",
+    "domain_id": "D023",
+    "area": "voice and dialogue",
+    "question": "Are mouth clicks or lip noises exposed in quiet passages enough to distract from the message?",
+    "failure_hypothesis": "Close-miked artifacts dominate a sparse soundtrack.",
+    "check_or_fix": "Listen to quiet intervals and remove artifacts without damaging speech.",
+    "severity": "medium",
+    "modes": [
+      "auditory"
+    ],
+    "stages": [
+      "production",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7580,
+    "passes": [
+      "sound"
+    ]
+  },
+  {
+    "id": "AVQ-023-014",
+    "domain_id": "D023",
+    "area": "voice and dialogue",
+    "question": "Does noise reduction distort consonant edges or leave watery modulation around the voice?",
+    "failure_hypothesis": "Aggressive cleanup trades background noise for speech artifacts.",
+    "check_or_fix": "Listen to original and processed takes and reduce processing where needed.",
+    "severity": "high",
+    "modes": [
+      "auditory"
+    ],
+    "stages": [
+      "production",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7582,
+    "passes": [
+      "sound"
+    ]
+  },
+  {
+    "id": "AVQ-023-015",
+    "domain_id": "D023",
+    "area": "voice and dialogue",
+    "question": "Do edits between takes change room tone, vocal distance, or vocal effort within one sentence?",
+    "failure_hypothesis": "Spliced speech sounds physically discontinuous.",
+    "check_or_fix": "Listen across every splice and choose compatible takes or natural boundaries.",
+    "severity": "medium",
+    "modes": [
+      "auditory"
+    ],
+    "stages": [
+      "production",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7584,
+    "passes": [
+      "sound"
+    ]
+  },
+  {
+    "id": "AVQ-023-016",
+    "domain_id": "D023",
+    "area": "voice and dialogue",
+    "question": "Is a whispered or subdued line still understandable at the intended playback level?",
+    "failure_hypothesis": "Acting choice removes words essential to the plot.",
+    "check_or_fix": "Listen at ordinary volume and improve delivery or mix without changing intent.",
+    "severity": "high",
+    "modes": [
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7586,
+    "passes": [
+      "sound"
+    ]
+  },
+  {
+    "id": "AVQ-023-017",
+    "domain_id": "D023",
+    "area": "voice and dialogue",
+    "question": "Does dialogue overlap communicate a motivated interruption rather than accidental timing congestion?",
+    "failure_hypothesis": "Simultaneous lines obscure both intention and content.",
+    "check_or_fix": "Listen with the scene and stagger or clarify the competing turns.",
+    "severity": "medium",
+    "modes": [
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7588,
+    "passes": []
+  },
+  {
+    "id": "AVQ-023-018",
+    "domain_id": "D023",
+    "area": "voice and dialogue",
+    "question": "Do the character's words and vocal emotion agree with the visible reaction at that moment?",
+    "failure_hypothesis": "Performance communicates an emotion the image does not support.",
+    "check_or_fix": "Listen with picture and reconcile the take with the reaction.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "production",
+      "edit"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7590,
+    "passes": []
+  },
+  {
+    "id": "AVQ-023-019",
+    "domain_id": "D023",
+    "area": "voice and dialogue",
+    "question": "Can listeners hear a meaning-changing negation clearly when it falls between louder words?",
+    "failure_hypothesis": "Reduced articulation makes 'not' or equivalent disappear.",
+    "check_or_fix": "Audition the exact phrase with new listeners and strengthen the negation.",
+    "severity": "high",
+    "modes": [
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7592,
+    "passes": []
+  },
+  {
+    "id": "AVQ-023-020",
+    "domain_id": "D023",
+    "area": "voice and dialogue",
+    "question": "Are acronyms expanded, spoken, or spelled consistently with how the intended audience recognizes them?",
+    "failure_hypothesis": "The voice invents an unfamiliar reading of a technical abbreviation.",
+    "check_or_fix": "Listen with domain users and standardize the acronym treatment.",
+    "severity": "medium",
+    "modes": [
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "production",
+      "edit"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7594,
+    "passes": []
+  },
+  {
+    "id": "AVQ-023-021",
+    "domain_id": "D023",
+    "area": "voice and dialogue",
+    "question": "Does switching languages preserve a credible pronunciation and speaking rhythm in each language?",
+    "failure_hypothesis": "Multilingual delivery distorts one language while sounding fluent in another.",
+    "check_or_fix": "Obtain fluent listening review for every language segment.",
+    "severity": "high",
+    "modes": [
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "production",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7596,
+    "passes": []
+  },
+  {
+    "id": "AVQ-023-022",
+    "domain_id": "D023",
+    "area": "voice and dialogue",
+    "question": "Is an accent being performed intelligibly without caricature or arbitrary inconsistency?",
+    "failure_hypothesis": "Exaggerated accent cues distract or stereotype the character.",
+    "check_or_fix": "Listen with informed speakers and revise unsupported performance choices.",
+    "severity": "high",
+    "modes": [
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "production",
+      "edit"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7598,
+    "passes": []
+  },
+  {
+    "id": "AVQ-023-023",
+    "domain_id": "D023",
+    "area": "voice and dialogue",
+    "question": "Do pauses around a quote make its beginning and end audible without visual punctuation?",
+    "failure_hypothesis": "Listeners misattribute quoted words to the narrator.",
+    "check_or_fix": "Listen audio-only and add natural attribution or clear vocal framing.",
+    "severity": "high",
+    "modes": [
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "production",
+      "edit"
+    ],
+    "style_filters": [
+      "educational",
+      "live-action"
+    ],
+    "source_line": 7600,
+    "passes": []
+  },
+  {
+    "id": "AVQ-023-024",
+    "domain_id": "D023",
+    "area": "voice and dialogue",
+    "question": "Does removing filler words accidentally make a hesitant or uncertain speaker sound more confident than they were?",
+    "failure_hypothesis": "Cleanup changes the meaning of an authentic statement.",
+    "check_or_fix": "Listen to source and edited context and preserve consequential hesitation.",
+    "severity": "high",
+    "modes": [
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "edit"
+    ],
+    "style_filters": [
+      "live-action"
+    ],
+    "source_line": 7602,
+    "passes": []
+  },
+  {
+    "id": "AVQ-023-025",
+    "domain_id": "D023",
+    "area": "voice and dialogue",
+    "question": "Is speech sped up enough to sound strained or erase the narrator's natural cadence?",
+    "failure_hypothesis": "Duration fitting sacrifices intelligibility and believable delivery.",
+    "check_or_fix": "Listen at final speed and shorten the script instead of overcompressing speech.",
+    "severity": "high",
+    "modes": [
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7604,
+    "passes": []
+  },
+  {
+    "id": "AVQ-023-026",
+    "domain_id": "D023",
+    "area": "voice and dialogue",
+    "question": "Does the narrator address the intended audience with an appropriate level of familiarity and authority?",
+    "failure_hypothesis": "Delivery assumes expertise, age, or intimacy the audience does not share.",
+    "check_or_fix": "Listen with representative viewers and adjust register rather than only vocabulary.",
+    "severity": "medium",
+    "modes": [
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7606,
+    "passes": []
+  },
+  {
+    "id": "AVQ-023-027",
+    "domain_id": "D023",
+    "area": "voice and dialogue",
+    "question": "Are sentence endings audible rather than trailing below the noise floor or music bed?",
+    "failure_hypothesis": "Important qualifiers are lost in fading vocal energy.",
+    "check_or_fix": "Listen to endings in the full mix and repair delivery or automation.",
+    "severity": "high",
+    "modes": [
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7608,
+    "passes": []
+  },
+  {
+    "id": "AVQ-023-028",
+    "domain_id": "D023",
+    "area": "voice and dialogue",
+    "question": "Does the dialogue give each character a distinct objective instead of making every line explain the plot?",
+    "failure_hypothesis": "Exposition replaces interaction and weakens performance.",
+    "check_or_fix": "Read aloud and listen for lines no character would need to say.",
+    "severity": "medium",
+    "modes": [
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7610,
+    "passes": []
+  },
+  {
+    "id": "AVQ-023-029",
+    "domain_id": "D023",
+    "area": "voice and dialogue",
+    "question": "Does the voice's apparent microphone perspective remain compatible with a supposedly continuous scene?",
+    "failure_hypothesis": "Dry close speech abruptly becomes distant without a scene change.",
+    "check_or_fix": "Listen consecutively and align recording or processing perspective.",
+    "severity": "medium",
+    "modes": [
+      "auditory"
+    ],
+    "stages": [
+      "production",
+      "edit"
+    ],
+    "style_filters": [
+      "live-action",
+      "fiction"
+    ],
+    "source_line": 7612,
+    "passes": []
+  },
+  {
+    "id": "AVQ-023-030",
+    "domain_id": "D023",
+    "area": "voice and dialogue",
+    "question": "Are generated breaths, laughs, or emotional interjections convincing in their immediate context?",
+    "failure_hypothesis": "Synthetic nonverbal sounds break character believability.",
+    "check_or_fix": "Listen with picture and replace or remove implausible interjections.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "production",
+      "edit"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7614,
+    "passes": []
+  },
+  {
+    "id": "AVQ-023-031",
+    "domain_id": "D023",
+    "area": "voice and dialogue",
+    "question": "Does a long narration segment develop vocal energy naturally instead of resetting to the same opening cadence each sentence?",
+    "failure_hypothesis": "Sentence-by-sentence generation produces a repetitive presentation pattern.",
+    "check_or_fix": "Listen to the complete paragraph and reperform it as a coherent thought.",
+    "severity": "medium",
+    "modes": [
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "production",
+      "edit"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7616,
+    "passes": []
+  },
+  {
+    "id": "AVQ-023-032",
+    "domain_id": "D023",
+    "area": "voice and dialogue",
+    "question": "Is there any spoken instruction or claim in the delivered voice that is absent from the approved script?",
+    "failure_hypothesis": "Ad-libs or generation artifacts introduce unreviewed content.",
+    "check_or_fix": "Listen end to end while reconciling the delivered transcript to the script.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "auditory"
+    ],
+    "stages": [
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7618,
+    "passes": []
+  }
+]

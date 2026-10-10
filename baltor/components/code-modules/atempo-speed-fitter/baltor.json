@@ -1,0 +1,56 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "atempo_speed_fitter",
+  "title": "atempo speed fitter",
+  "kind": "code-module",
+  "subkind": "mix-preset",
+  "version": "1.0.0",
+  "summary": "Computes the tempo factor that fits narration to a target length (refusing audible over-stretching) and builds pitch-preserving ffmpeg atempo chains within 0.5-2.0 per stage.",
+  "domain": "audio",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "atempo_speed_fitter.py",
+  "tags": [
+    "audio",
+    "narration",
+    "atempo",
+    "ffmpeg",
+    "timing",
+    "time-stretch"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "ffmpeg",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

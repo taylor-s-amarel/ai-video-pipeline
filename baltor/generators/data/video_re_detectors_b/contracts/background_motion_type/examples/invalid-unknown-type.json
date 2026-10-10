@@ -1,0 +1,6 @@
+{
+  "shots": [
+    { "shot_index": 0, "t_start_s": 0.0, "t_end_s": 5.6, "type": "slideshow", "confidence": 0.93, "raw_frame_diff": 2.71, "residual_after_compensation": 0.94, "rigid_share": 0.93, "pan_fw_per_s": [-0.009, 0.0], "zoom_per_s": 0.021, "hf_energy_fraction": 0.41, "palette_concentration": 0.07, "loops": false, "loop_period_s": 0, "pairs_used": 24 }
+  ],
+  "type_counts": { "slideshow": 1 }
+}

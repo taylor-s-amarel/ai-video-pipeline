@@ -1,0 +1,7 @@
+title: GIF palette export
+summary: One-pass ffmpeg palettegen/paletteuse GIF export with validated fps, width, colour count, dither and diff-based palette statistics for crisp previews.
+subkind: render-recipe
+domain: video
+tags: [video, gif, ffmpeg, preview, palette]
+step_kinds: [render, publish]
+depends_on: [ffmpeg]

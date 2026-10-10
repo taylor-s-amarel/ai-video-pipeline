@@ -1,0 +1,21 @@
+{
+  "question_id": "AVQ-006-002",
+  "target_artifact": "illustrative-final.mp4",
+  "target_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+  "status": "observed-pass",
+  "finding_type": "none",
+  "review_mode": "visual",
+  "scope": {
+    "start_frame": 412,
+    "end_frame": 436,
+    "coverage": "interval"
+  },
+  "evidence": [],
+  "rationale": "Illustrative: the box starts sliding at frame 419; the hand first touches it at frame 423",
+  "required_recheck_after": [
+    "rig_change",
+    "prop_attachment_change",
+    "camera_change"
+  ],
+  "reviewer": "illustrative example"
+}

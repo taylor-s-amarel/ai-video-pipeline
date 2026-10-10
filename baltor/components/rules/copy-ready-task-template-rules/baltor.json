@@ -1,0 +1,124 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "copy_ready_task_template_rules",
+  "title": "Rules for the copy-ready task templates",
+  "kind": "rules",
+  "subkind": "prompt-template",
+  "version": "1.0.0",
+  "summary": "How to use the owner's 24 copy-ready task templates: real inputs only, unresolved instead of invented, keep prompt/inputs/output/versions/corrections, use selectively; index of the 24 commands.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#how-to-use-the-templates"
+  },
+  "step_kinds": [
+    "plan",
+    "review"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "RULES.md",
+  "tags": [
+    "video",
+    "animation",
+    "task-template",
+    "rules"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "audit_existing_creative_project"
+    },
+    {
+      "identity": "research_rendering_route_for_scene"
+    },
+    {
+      "identity": "develop_rich_original_background"
+    },
+    {
+      "identity": "ground_character_in_scene"
+    },
+    {
+      "identity": "design_progressive_size_counting"
+    },
+    {
+      "identity": "improve_dance_cycle"
+    },
+    {
+      "identity": "adapt_performance_to_bunny"
+    },
+    {
+      "identity": "add_continuous_camera_motion"
+    },
+    {
+      "identity": "design_moving_border"
+    },
+    {
+      "identity": "build_twenty_plus_layer_composition"
+    },
+    {
+      "identity": "write_original_meme_episode"
+    },
+    {
+      "identity": "make_honest_before_after_comparison"
+    },
+    {
+      "identity": "evaluate_historical_anomaly_scene"
+    },
+    {
+      "identity": "verify_final_media_file_bytes"
+    },
+    {
+      "identity": "reopen_source_package"
+    },
+    {
+      "identity": "extract_reusable_component_from_episode"
+    },
+    {
+      "identity": "research_competitor_without_inventing_traction"
+    },
+    {
+      "identity": "plan_showcase_page"
+    },
+    {
+      "identity": "diagnose_failed_render_and_recover_safely"
+    },
+    {
+      "identity": "challenge_design_before_scaling"
+    },
+    {
+      "identity": "expand_variety_without_padding"
+    },
+    {
+      "identity": "write_funny_suspenseful_story_before_rendering"
+    },
+    {
+      "identity": "adopt_one_physics_interaction"
+    },
+    {
+      "identity": "audition_narration_honestly"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/ref_review_templates.py",
+    "data": "generators/data/ref_review_templates"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "considered",
+  "evidence_notes": "The guide's usage rules for its templates; no execution is implied."
+}

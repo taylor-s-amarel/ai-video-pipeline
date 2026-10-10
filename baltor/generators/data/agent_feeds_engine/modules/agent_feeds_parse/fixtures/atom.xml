@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Example Engineering Blog</title>
+  <id>tag:example.net,2026:blog</id>
+  <updated>2026-10-09T10:00:00Z</updated>
+  <link rel="alternate" href="https://example.net/blog"/>
+  <entry>
+    <title type="html">Security update: fix for &lt;b&gt;CVE-2099-0101&lt;/b&gt; in the gateway</title>
+    <id>tag:example.net,2026:post-77</id>
+    <link rel="alternate" type="text/html" href="https://example.net/blog/gateway-security-update/"/>
+    <published>2026-10-09T10:00:00Z</published>
+    <updated>2026-10-09T11:00:00Z</updated>
+    <author><name>Security Team</name></author>
+    <category term="security"/>
+    <summary>We released gateway 3.4.1 with a fix. Upgrade now.</summary>
+  </entry>
+  <entry>
+    <title>How we cut cold starts by 40%</title>
+    <id>tag:example.net,2026:post-76</id>
+    <link href="https://example.net/blog/cold-starts"/>
+    <updated>2026-10-02T08:00:00Z</updated>
+    <content type="html">&lt;p&gt;A long article body that must never be stored in full.&lt;/p&gt;</content>
+  </entry>
+</feed>

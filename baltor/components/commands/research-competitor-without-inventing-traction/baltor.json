@@ -1,0 +1,49 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "research_competitor_without_inventing_traction",
+  "title": "/research-competitor-without-inventing-traction",
+  "kind": "command",
+  "subkind": "prompt-template",
+  "version": "1.0.0",
+  "summary": "Owner's copy-ready task template, verbatim: Inspect the specified competitor's current public product, documentation, examples, pricing basis if relevant, and terms.",
+  "description": "The owner's copy-ready task template \"Research a competitor without inventing traction\" (Animation and Video Production Master Guide (10 Oct 2026)), with the template text unchanged and its inputs passed as $ARGUMENTS. Instructions for bounded work, not a guarantee: missing inputs are marked unresolved, never invented.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#research-a-competitor-without-inventing-traction"
+  },
+  "step_kinds": [
+    "research"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "opencode",
+    "baltor-harness"
+  ],
+  "entry": "command.md",
+  "tags": [
+    "video",
+    "animation",
+    "task-template",
+    "competitor",
+    "product"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/ref_review_templates.py",
+    "data": "generators/data/ref_review_templates"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "considered",
+  "evidence_notes": "Prompt template from the guide. The guide calls the templates instructions for bounded work, not magic guarantees, and records no run of this template; a successful output cannot be assumed reproducible from the prompt alone."
+}

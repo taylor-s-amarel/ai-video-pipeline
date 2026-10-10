@@ -1,0 +1,762 @@
+[
+  {
+    "id": "AVQ-020-001",
+    "domain_id": "D020",
+    "area": "text typography",
+    "question": "Can the smallest essential label be read at the intended phone viewing size without zooming?",
+    "failure_hypothesis": "Native-resolution review hides text that collapses at delivery scale.",
+    "check_or_fix": "Inspect the encoded video at ordinary phone size and enlarge necessary labels.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "edit",
+      "final-encode",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7358,
+    "passes": [
+      "default_32",
+      "accessible_text",
+      "longer_cardboard_32"
+    ]
+  },
+  {
+    "id": "AVQ-020-002",
+    "domain_id": "D020",
+    "area": "text typography",
+    "question": "Do thin letter strokes survive the final encode rather than flicker or disappear?",
+    "failure_hypothesis": "Compression and rasterization erase fine typographic detail.",
+    "check_or_fix": "Compare source and encoded crops across several frames.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "typographic"
+    ],
+    "source_line": 7360,
+    "passes": [
+      "accessible_text"
+    ]
+  },
+  {
+    "id": "AVQ-020-003",
+    "domain_id": "D020",
+    "area": "text typography",
+    "question": "Is the typeface's distinction between similar characters sufficient for the exact codes, numbers, or names shown?",
+    "failure_hypothesis": "Ambiguous glyphs change the information a viewer reads.",
+    "check_or_fix": "Test the actual strings and replace the face or annotate ambiguous characters.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "storyboard",
+      "edit"
+    ],
+    "style_filters": [
+      "screen-recording",
+      "educational",
+      "typographic"
+    ],
+    "source_line": 7362,
+    "passes": [
+      "accessible_text"
+    ]
+  },
+  {
+    "id": "AVQ-020-004",
+    "domain_id": "D020",
+    "area": "text typography",
+    "question": "Does text remain readable across the brightest and darkest parts of the moving background?",
+    "failure_hypothesis": "A single contrast check misses background changes under the text.",
+    "check_or_fix": "Inspect the complete text interval and add a stable backing where needed.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7364,
+    "passes": [
+      "accessible_text"
+    ]
+  },
+  {
+    "id": "AVQ-020-005",
+    "domain_id": "D020",
+    "area": "text typography",
+    "question": "Are line breaks preserving phrases that must be understood together?",
+    "failure_hypothesis": "Awkward wrapping splits negation, quantities, or modifier relationships.",
+    "check_or_fix": "Rewrap actual text manually at each delivery layout.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "storyboard",
+      "edit"
+    ],
+    "style_filters": [
+      "typographic",
+      "educational"
+    ],
+    "source_line": 7366,
+    "passes": [
+      "accessible_text"
+    ]
+  },
+  {
+    "id": "AVQ-020-006",
+    "domain_id": "D020",
+    "area": "text typography",
+    "question": "Is the typographic hierarchy showing the main claim before its supporting detail?",
+    "failure_hypothesis": "Equal size and weight leave viewers without a reading order.",
+    "check_or_fix": "Reduce secondary emphasis and test the first item readers notice.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "storyboard",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7368,
+    "passes": [
+      "accessible_text"
+    ]
+  },
+  {
+    "id": "AVQ-020-007",
+    "domain_id": "D020",
+    "area": "text typography",
+    "question": "Does the animation finish forming each word before the viewer needs to act on it?",
+    "failure_hypothesis": "Letter-by-letter motion delays access to essential instruction.",
+    "check_or_fix": "Reveal urgent instructions as complete phrases and retime the action.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "typographic",
+      "educational"
+    ],
+    "source_line": 7370,
+    "passes": [
+      "accessible_text"
+    ]
+  },
+  {
+    "id": "AVQ-020-008",
+    "domain_id": "D020",
+    "area": "text typography",
+    "question": "Are number formatting and units unambiguous for the intended audience?",
+    "failure_hypothesis": "Locale conventions or missing units change the apparent magnitude.",
+    "check_or_fix": "Specify units and consistent separators in the exact on-screen values.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "edit"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7372,
+    "passes": [
+      "accessible_text"
+    ]
+  },
+  {
+    "id": "AVQ-020-009",
+    "domain_id": "D020",
+    "area": "text typography",
+    "question": "Does justified or stretched text create word spacing that changes readability at short exposure times?",
+    "failure_hypothesis": "Artificial spacing breaks word recognition.",
+    "check_or_fix": "Use natural spacing and compare brief-exposure reading.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "storyboard",
+      "edit"
+    ],
+    "style_filters": [
+      "typographic"
+    ],
+    "source_line": 7374,
+    "passes": [
+      "accessible_text"
+    ]
+  },
+  {
+    "id": "AVQ-020-010",
+    "domain_id": "D020",
+    "area": "text typography",
+    "question": "Is text positioned inside the actual safe region after reframing and player overlays?",
+    "failure_hypothesis": "Reframing or controls cover critical words.",
+    "check_or_fix": "Preview platform framing and move essentials into verified safe space.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "edit",
+      "final-encode",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7376,
+    "passes": [
+      "accessible_text"
+    ]
+  },
+  {
+    "id": "AVQ-020-011",
+    "domain_id": "D020",
+    "area": "text typography",
+    "question": "Do labels stay attached to the objects they describe during camera motion?",
+    "failure_hypothesis": "Screen-space labels drift away from scene-space targets.",
+    "check_or_fix": "Track attachment points through the full move or use stable leader lines.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit"
+    ],
+    "style_filters": [
+      "vector",
+      "educational",
+      "3d"
+    ],
+    "source_line": 7378,
+    "passes": []
+  },
+  {
+    "id": "AVQ-020-012",
+    "domain_id": "D020",
+    "area": "text typography",
+    "question": "Are leader lines terminating on distinct targets rather than crossing or pointing into empty space?",
+    "failure_hypothesis": "Annotation geometry creates incorrect object associations.",
+    "check_or_fix": "Inspect the crowded state and reroute ambiguous connectors.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "production",
+      "edit"
+    ],
+    "style_filters": [
+      "educational",
+      "3d",
+      "vector"
+    ],
+    "source_line": 7380,
+    "passes": []
+  },
+  {
+    "id": "AVQ-020-013",
+    "domain_id": "D020",
+    "area": "text typography",
+    "question": "Does a kinetic word change its meaning through cropping or motion before the full phrase is available?",
+    "failure_hypothesis": "Moving fragments create an unintended statement.",
+    "check_or_fix": "Inspect every intermediate readable fragment and revise the animation.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit"
+    ],
+    "style_filters": [
+      "typographic"
+    ],
+    "source_line": 7382,
+    "passes": []
+  },
+  {
+    "id": "AVQ-020-014",
+    "domain_id": "D020",
+    "area": "text typography",
+    "question": "Are minus signs, decimal points, superscripts, and exponents visible after scaling?",
+    "failure_hypothesis": "Small mathematical marks disappear while surrounding digits remain readable.",
+    "check_or_fix": "Verify each critical mark in the delivered encode at target size.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "educational",
+      "typographic"
+    ],
+    "source_line": 7384,
+    "passes": []
+  },
+  {
+    "id": "AVQ-020-015",
+    "domain_id": "D020",
+    "area": "text typography",
+    "question": "Is a decorative display face being used for paragraphs that require sustained reading?",
+    "failure_hypothesis": "Ornament impairs word recognition over longer passages.",
+    "check_or_fix": "Reserve the display face for short emphasis and simplify body type.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "storyboard",
+      "edit"
+    ],
+    "style_filters": [
+      "typographic"
+    ],
+    "source_line": 7386,
+    "passes": []
+  },
+  {
+    "id": "AVQ-020-016",
+    "domain_id": "D020",
+    "area": "text typography",
+    "question": "Do font fallbacks preserve both meaning and layout when the project is reopened elsewhere?",
+    "failure_hypothesis": "Missing fonts change glyphs, wrapping, or timing.",
+    "check_or_fix": "Reopen in a clean environment and compare rendered text extents.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "final-encode",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7388,
+    "passes": []
+  },
+  {
+    "id": "AVQ-020-017",
+    "domain_id": "D020",
+    "area": "text typography",
+    "question": "Does animated emphasis land on the intended word without reversing the sentence's meaning?",
+    "failure_hypothesis": "Highlight timing stresses a qualifier or negation incorrectly.",
+    "check_or_fix": "Review the sentence with its actual emphasis sequence.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "typographic",
+      "educational"
+    ],
+    "source_line": 7390,
+    "passes": []
+  },
+  {
+    "id": "AVQ-020-018",
+    "domain_id": "D020",
+    "area": "text typography",
+    "question": "Are quotation marks, attribution, and paraphrase styling clear enough to distinguish someone else's words from the narrator's?",
+    "failure_hypothesis": "Typography blurs quotation and authorial assertion.",
+    "check_or_fix": "Apply a consistent quotation treatment and verify exact attribution.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "edit"
+    ],
+    "style_filters": [
+      "educational",
+      "live-action"
+    ],
+    "source_line": 7392,
+    "passes": []
+  },
+  {
+    "id": "AVQ-020-019",
+    "domain_id": "D020",
+    "area": "text typography",
+    "question": "Does the text remain crisp when transformed, or is a low-resolution raster layer being enlarged?",
+    "failure_hypothesis": "Typography is scaled beyond its raster source resolution.",
+    "check_or_fix": "Render at final size or preserve vector text through compositing.",
+    "severity": "medium",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "vector",
+      "typographic"
+    ],
+    "source_line": 7394,
+    "passes": []
+  },
+  {
+    "id": "AVQ-020-020",
+    "domain_id": "D020",
+    "area": "text typography",
+    "question": "Are right-to-left runs, mixed-direction numbers, or combined scripts displayed in the correct order?",
+    "failure_hypothesis": "Shaping or bidirectional handling rearranges meaning.",
+    "check_or_fix": "Have a fluent reader inspect the exact rendered strings.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "typographic"
+    ],
+    "source_line": 7396,
+    "passes": []
+  },
+  {
+    "id": "AVQ-020-021",
+    "domain_id": "D020",
+    "area": "text typography",
+    "question": "Do accented characters and non-Latin glyphs match the visual weight and baseline of surrounding text?",
+    "failure_hypothesis": "Partial font coverage produces conspicuous fallback glyphs.",
+    "check_or_fix": "Choose full-coverage fonts and inspect representative strings.",
+    "severity": "medium",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "typographic"
+    ],
+    "source_line": 7398,
+    "passes": []
+  },
+  {
+    "id": "AVQ-020-022",
+    "domain_id": "D020",
+    "area": "text typography",
+    "question": "Are automatically emphasized keywords actually important in context, including when they appear in negations or quotations?",
+    "failure_hypothesis": "Keyword matching highlights words whose local meaning should not receive emphasis.",
+    "check_or_fix": "Review every emphasis match in its complete sentence and correct semantic false positives.",
+    "severity": "medium",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "edit"
+    ],
+    "style_filters": [
+      "educational",
+      "typographic"
+    ],
+    "source_line": 7400,
+    "passes": []
+  },
+  {
+    "id": "AVQ-020-023",
+    "domain_id": "D020",
+    "area": "text typography",
+    "question": "Is a title's visual treatment making a tentative claim look definitive?",
+    "failure_hypothesis": "Bold headline hierarchy suppresses uncertainty qualifiers.",
+    "check_or_fix": "Place the scope and qualifier within the same readable hierarchy.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "edit"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7402,
+    "passes": []
+  },
+  {
+    "id": "AVQ-020-024",
+    "domain_id": "D020",
+    "area": "text typography",
+    "question": "Does text cast or receive effects that reduce the counters and internal spaces needed for reading?",
+    "failure_hypothesis": "Glow, shadow, or extrusion closes letter shapes.",
+    "check_or_fix": "Compare effect-free and treated text at delivery size.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "production",
+      "edit"
+    ],
+    "style_filters": [
+      "typographic",
+      "3d"
+    ],
+    "source_line": 7404,
+    "passes": []
+  },
+  {
+    "id": "AVQ-020-025",
+    "domain_id": "D020",
+    "area": "text typography",
+    "question": "Are tabular numbers aligned so viewers can compare place value rather than infer from uneven glyph widths?",
+    "failure_hypothesis": "Proportional spacing disguises numerical differences.",
+    "check_or_fix": "Use tabular figures or a clearly aligned layout.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "storyboard",
+      "edit"
+    ],
+    "style_filters": [
+      "educational",
+      "typographic"
+    ],
+    "source_line": 7406,
+    "passes": []
+  },
+  {
+    "id": "AVQ-020-026",
+    "domain_id": "D020",
+    "area": "text typography",
+    "question": "Does auto-fitting silently shrink the most important or longest message below the approved minimum?",
+    "failure_hypothesis": "Fit-to-box logic prioritizes containment over readability.",
+    "check_or_fix": "Log fitted sizes and redesign outlier text instead of shrinking indefinitely.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "typographic"
+    ],
+    "source_line": 7408,
+    "passes": []
+  },
+  {
+    "id": "AVQ-020-027",
+    "domain_id": "D020",
+    "area": "text typography",
+    "question": "Are labels introduced with terminology that matches the narration and later references?",
+    "failure_hypothesis": "Synonyms look like separate concepts in a short film.",
+    "check_or_fix": "Reconcile the spoken and displayed term lists.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "auditory"
+    ],
+    "stages": [
+      "script",
+      "edit"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7410,
+    "passes": []
+  },
+  {
+    "id": "AVQ-020-028",
+    "domain_id": "D020",
+    "area": "text typography",
+    "question": "Does perspective text become unreadable at oblique angles precisely when its information is needed?",
+    "failure_hypothesis": "Scene-integrated typography sacrifices legibility to perspective.",
+    "check_or_fix": "Adjust the camera, text plane, or repeat essentials in a readable view.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "production",
+      "edit"
+    ],
+    "style_filters": [
+      "3d",
+      "live-action"
+    ],
+    "source_line": 7412,
+    "passes": []
+  },
+  {
+    "id": "AVQ-020-029",
+    "domain_id": "D020",
+    "area": "text typography",
+    "question": "Is the visual reading order preserved when text is rearranged for a vertical version?",
+    "failure_hypothesis": "Responsive placement changes the intended argument sequence.",
+    "check_or_fix": "Read each format independently and revise its hierarchy.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "edit",
+      "delivery"
+    ],
+    "style_filters": [
+      "typographic"
+    ],
+    "source_line": 7414,
+    "passes": []
+  },
+  {
+    "id": "AVQ-020-030",
+    "domain_id": "D020",
+    "area": "text typography",
+    "question": "Does a legal or explanatory footnote contradict the prominent message while being too small to notice?",
+    "failure_hypothesis": "Fine print is used to repair an overbroad headline.",
+    "check_or_fix": "Correct the main statement and make material limitations directly readable.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "edit"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7416,
+    "passes": []
+  },
+  {
+    "id": "AVQ-020-031",
+    "domain_id": "D020",
+    "area": "text typography",
+    "question": "Are important words ever partially hidden by decorative foreground elements during their reading interval?",
+    "failure_hypothesis": "Layer order allows ornament to occlude essential text.",
+    "check_or_fix": "Inspect text visibility masks across the entire interval.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7418,
+    "passes": []
+  },
+  {
+    "id": "AVQ-020-032",
+    "domain_id": "D020",
+    "area": "text typography",
+    "question": "Can the title be shortened without losing the specific promise, leaving more screen space for the actual evidence?",
+    "failure_hypothesis": "Verbose wording consumes the image needed to support the claim.",
+    "check_or_fix": "Test a concise title alongside a larger evidence region.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7420,
+    "passes": []
+  }
+]

@@ -1,0 +1,51 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "alternating_zoom_planner",
+  "title": "Alternating zoom planner",
+  "kind": "code-module",
+  "subkind": "camera-move",
+  "version": "1.0.0",
+  "summary": "Assigns a camera move to every shot so zooms alternate in/out, pans break up runs, strength scales with shot length and very short shots get a punch-in.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "plan",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "alternating_zoom_planner.py",
+  "tags": [
+    "video",
+    "ken-burns",
+    "zoom",
+    "pacing",
+    "quick-cuts",
+    "planning"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

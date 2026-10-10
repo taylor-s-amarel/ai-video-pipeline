@@ -1,0 +1,53 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "platform_safe_areas",
+  "title": "Platform safe-area checker",
+  "kind": "code-module",
+  "subkind": "aspect-format",
+  "version": "1.0.0",
+  "summary": "Profile-driven safe areas for vertical and landscape video (house conservative defaults, custom JSON profiles) with text-box checks and a clamped caption band.",
+  "description": "Built-in margins are this project's own conservative defaults, not platform specifications: platform UI guidance changes and could not be verified from official sources on 2026-10-10. Load current official numbers as a custom profile.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "design",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "platform_safe_areas.py",
+  "tags": [
+    "video",
+    "safe-area",
+    "shorts",
+    "reels",
+    "tiktok",
+    "layout",
+    "qa"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

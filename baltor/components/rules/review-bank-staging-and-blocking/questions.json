@@ -1,0 +1,741 @@
+[
+  {
+    "id": "AVQ-005-001",
+    "domain_id": "D005",
+    "area": "staging and blocking",
+    "question": "Is the character's immediate goal visible in the staging?",
+    "failure_hypothesis": "Movement has no readable target.",
+    "check_or_fix": "Place goal and actor in a clear spatial relationship.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6368,
+    "passes": [
+      "visual_depth_contact",
+      "performance_motion",
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-005-002",
+    "domain_id": "D005",
+    "area": "staging and blocking",
+    "question": "Does the actor face the important event when it occurs?",
+    "failure_hypothesis": "Blocking hides attention and response.",
+    "check_or_fix": "Align gaze and torso with the attended event.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6370,
+    "passes": [
+      "visual_depth_contact",
+      "performance_motion",
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-005-003",
+    "domain_id": "D005",
+    "area": "staging and blocking",
+    "question": "Are cause and consequence visible in the same beat?",
+    "failure_hypothesis": "Staging separates the action from its result.",
+    "check_or_fix": "Reframe or add a motivated reaction cut.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6372,
+    "passes": [
+      "default_32",
+      "visual_depth_contact",
+      "performance_motion",
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-005-004",
+    "domain_id": "D005",
+    "area": "staging and blocking",
+    "question": "Does a supporting character accidentally steal the scene?",
+    "failure_hypothesis": "Secondary action is larger or earlier than the main action.",
+    "check_or_fix": "Reduce its motion during the decisive beat.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6374,
+    "passes": [
+      "visual_depth_contact",
+      "performance_motion",
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-005-005",
+    "domain_id": "D005",
+    "area": "staging and blocking",
+    "question": "Can characters reach their props without implausible stretching?",
+    "failure_hypothesis": "Prop placement exceeds the rig's natural reach.",
+    "check_or_fix": "Check reach envelopes before animation.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6376,
+    "passes": [
+      "visual_depth_contact",
+      "performance_motion",
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-005-006",
+    "domain_id": "D005",
+    "area": "staging and blocking",
+    "question": "Is a crucial exchange hidden behind another body?",
+    "failure_hypothesis": "Blocking conceals possession transfer.",
+    "check_or_fix": "Open a clean sightline to the handoff.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6378,
+    "passes": [
+      "visual_depth_contact",
+      "performance_motion",
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-005-007",
+    "domain_id": "D005",
+    "area": "staging and blocking",
+    "question": "Does each character have a distinct action rather than generic motion?",
+    "failure_hypothesis": "Busy movement substitutes for intention.",
+    "check_or_fix": "Assign one playable objective per beat.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6380,
+    "passes": [
+      "visual_depth_contact",
+      "performance_motion",
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-005-008",
+    "domain_id": "D005",
+    "area": "staging and blocking",
+    "question": "Are entrances timed to establish identity before interaction?",
+    "failure_hypothesis": "New actors arrive and act before recognition.",
+    "check_or_fix": "Allow an orienting pose or entrance cue.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6382,
+    "passes": [
+      "visual_depth_contact",
+      "performance_motion",
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-005-009",
+    "domain_id": "D005",
+    "area": "staging and blocking",
+    "question": "Does the exit direction preserve the established geography?",
+    "failure_hypothesis": "A character leaves toward an impossible destination.",
+    "check_or_fix": "Track screen and world directions together.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6384,
+    "passes": []
+  },
+  {
+    "id": "AVQ-005-010",
+    "domain_id": "D005",
+    "area": "staging and blocking",
+    "question": "Is the obstacle positioned where it can genuinely impede the goal?",
+    "failure_hypothesis": "Conflict is asserted without spatial support.",
+    "check_or_fix": "Show the blocked route and available alternatives.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6386,
+    "passes": []
+  },
+  {
+    "id": "AVQ-005-011",
+    "domain_id": "D005",
+    "area": "staging and blocking",
+    "question": "Do characters queue in a visually traceable order?",
+    "failure_hypothesis": "Crowd staging implies multiple conflicting lines.",
+    "check_or_fix": "Trace the queue path through turns and overlaps.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6388,
+    "passes": []
+  },
+  {
+    "id": "AVQ-005-012",
+    "domain_id": "D005",
+    "area": "staging and blocking",
+    "question": "Is a reaction staged where viewers are already looking?",
+    "failure_hypothesis": "Important response occurs outside the attention region.",
+    "check_or_fix": "Move the reaction or guide attention before it.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6390,
+    "passes": []
+  },
+  {
+    "id": "AVQ-005-013",
+    "domain_id": "D005",
+    "area": "staging and blocking",
+    "question": "Does the hero turn away during the most expressive pose?",
+    "failure_hypothesis": "Blocking hides the emotional information.",
+    "check_or_fix": "Use a readable three-quarter orientation.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6392,
+    "passes": []
+  },
+  {
+    "id": "AVQ-005-014",
+    "domain_id": "D005",
+    "area": "staging and blocking",
+    "question": "Are characters standing too close to read as separate agents?",
+    "failure_hypothesis": "Bodies merge into an ambiguous group.",
+    "check_or_fix": "Create meaningful spacing or stagger depth.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6394,
+    "passes": []
+  },
+  {
+    "id": "AVQ-005-015",
+    "domain_id": "D005",
+    "area": "staging and blocking",
+    "question": "Does the staging support the intended power relationship?",
+    "failure_hypothesis": "Height and distance contradict the dramatic roles.",
+    "check_or_fix": "Compare status cues with the scene's intention.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6396,
+    "passes": []
+  },
+  {
+    "id": "AVQ-005-016",
+    "domain_id": "D005",
+    "area": "staging and blocking",
+    "question": "Can the viewer see the object before it becomes important?",
+    "failure_hypothesis": "A prop appears only at the solution.",
+    "check_or_fix": "Plant the prop naturally in an earlier composition.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6398,
+    "passes": [
+      "longer_cardboard_32"
+    ]
+  },
+  {
+    "id": "AVQ-005-017",
+    "domain_id": "D005",
+    "area": "staging and blocking",
+    "question": "Does the solution require an unestablished route or opening?",
+    "failure_hypothesis": "Blocking invents space at the climax.",
+    "check_or_fix": "Establish usable pathways before the payoff.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6400,
+    "passes": []
+  },
+  {
+    "id": "AVQ-005-018",
+    "domain_id": "D005",
+    "area": "staging and blocking",
+    "question": "Are pauses placed where bodies can actually balance?",
+    "failure_hypothesis": "A held pose would topple without support.",
+    "check_or_fix": "Shift weight or add a justified contact point.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6402,
+    "passes": []
+  },
+  {
+    "id": "AVQ-005-019",
+    "domain_id": "D005",
+    "area": "staging and blocking",
+    "question": "Does simultaneous action overload the viewer's attention?",
+    "failure_hypothesis": "Several causal events compete within one interval.",
+    "check_or_fix": "Sequence actions or establish a deliberate hierarchy.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6404,
+    "passes": []
+  },
+  {
+    "id": "AVQ-005-020",
+    "domain_id": "D005",
+    "area": "staging and blocking",
+    "question": "Are paired characters differentiated by behavior and position?",
+    "failure_hypothesis": "Symmetric blocking makes identities interchangeable.",
+    "check_or_fix": "Give each a distinct stance and objective.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6406,
+    "passes": []
+  },
+  {
+    "id": "AVQ-005-021",
+    "domain_id": "D005",
+    "area": "staging and blocking",
+    "question": "Does the actor's path cross readable text at the wrong time?",
+    "failure_hypothesis": "Action occludes information during its reading interval.",
+    "check_or_fix": "Separate path and text regions or retime them.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6408,
+    "passes": []
+  },
+  {
+    "id": "AVQ-005-022",
+    "domain_id": "D005",
+    "area": "staging and blocking",
+    "question": "Are the most important hands visible from the chosen angle?",
+    "failure_hypothesis": "Torso or costume hides the acting instrument.",
+    "check_or_fix": "Adjust elbows, prop position or camera.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6410,
+    "passes": []
+  },
+  {
+    "id": "AVQ-005-023",
+    "domain_id": "D005",
+    "area": "staging and blocking",
+    "question": "Does the crowd leave enough room for the hero's performance?",
+    "failure_hypothesis": "Population fills the gesture envelope.",
+    "check_or_fix": "Reserve a clear acting pocket.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6412,
+    "passes": []
+  },
+  {
+    "id": "AVQ-005-024",
+    "domain_id": "D005",
+    "area": "staging and blocking",
+    "question": "Is the destination introduced before a long traversal?",
+    "failure_hypothesis": "Travel feels arbitrary until the endpoint appears.",
+    "check_or_fix": "Show a destination cue at departure.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6414,
+    "passes": []
+  },
+  {
+    "id": "AVQ-005-025",
+    "domain_id": "D005",
+    "area": "staging and blocking",
+    "question": "Does the blocking explain who initiates cooperation?",
+    "failure_hypothesis": "Joint action lacks a readable decision.",
+    "check_or_fix": "Stage an initiating gesture and acknowledgment.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6416,
+    "passes": []
+  },
+  {
+    "id": "AVQ-005-026",
+    "domain_id": "D005",
+    "area": "staging and blocking",
+    "question": "Are background actors reacting to the same event time?",
+    "failure_hypothesis": "Crowd responses imply conflicting causes.",
+    "check_or_fix": "Align reactions to the shared event clock.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6418,
+    "passes": []
+  },
+  {
+    "id": "AVQ-005-027",
+    "domain_id": "D005",
+    "area": "staging and blocking",
+    "question": "Does repeated staging make escalation feel unchanged?",
+    "failure_hypothesis": "New attempts look like copies of the first.",
+    "check_or_fix": "Change spatial stakes or action strategy meaningfully.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6420,
+    "passes": []
+  },
+  {
+    "id": "AVQ-005-028",
+    "domain_id": "D005",
+    "area": "staging and blocking",
+    "question": "Is the final tableau readable as a resolved relationship?",
+    "failure_hypothesis": "Ending poses do not show what changed.",
+    "check_or_fix": "Stage the new ownership, distance or shared goal.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6422,
+    "passes": []
+  },
+  {
+    "id": "AVQ-005-029",
+    "domain_id": "D005",
+    "area": "staging and blocking",
+    "question": "Can a viewer follow the hero through a crowd crossing?",
+    "failure_hypothesis": "Identifying features are hidden during a critical transition.",
+    "check_or_fix": "Preserve a visible marker or isolate the path.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6424,
+    "passes": []
+  },
+  {
+    "id": "AVQ-005-030",
+    "domain_id": "D005",
+    "area": "staging and blocking",
+    "question": "Does the staging accidentally imply aggression or danger?",
+    "failure_hypothesis": "Friendly interaction uses threatening proximity or angles.",
+    "check_or_fix": "Review body orientation and interpersonal distance.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6426,
+    "passes": []
+  },
+  {
+    "id": "AVQ-005-031",
+    "domain_id": "D005",
+    "area": "staging and blocking",
+    "question": "Are offscreen actions sufficiently established to be believable?",
+    "failure_hypothesis": "Plot depends on unseen unexplained activity.",
+    "check_or_fix": "Provide a clear setup or bounded evidence insert.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6428,
+    "passes": []
+  },
+  {
+    "id": "AVQ-005-032",
+    "domain_id": "D005",
+    "area": "staging and blocking",
+    "question": "Would a single repositioning remove the need for explanatory dialogue?",
+    "failure_hypothesis": "Language compensates for unclear spatial relationships.",
+    "check_or_fix": "Try a clearer blocking solution first.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6430,
+    "passes": []
+  }
+]

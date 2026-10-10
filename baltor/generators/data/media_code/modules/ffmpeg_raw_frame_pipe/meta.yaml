@@ -1,0 +1,10 @@
+title: ffmpeg raw frame pipe
+summary: Context-managed numpy frame reader and writer over ffmpeg pipes (scale, fps, pixel formats, optional audio mux) with shape checks and ffmpeg errors surfaced, for Python frame effects.
+subkind: render-recipe
+domain: video
+tags: [video, ffmpeg, numpy, frames, pipe, render]
+step_kinds: [render, build]
+effects:
+  filesystem: write
+  side_effects: ["starts ffmpeg subprocesses that read and write the given files"]
+depends_on: [ffmpeg]

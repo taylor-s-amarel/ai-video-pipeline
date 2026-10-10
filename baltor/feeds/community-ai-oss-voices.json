@@ -1,0 +1,833 @@
+{
+  "spec": "baltor.feed-collection/v1",
+  "id": "community-ai-oss-voices",
+  "title": "AI engineering, agent practitioners and open-source maintainers",
+  "description": "Blogs, newsletters and official news feeds from people and labs whose public work shapes coding agents and LLM practice, plus open-source maintainers whose posts affect the tools agents depend on. Feed URLs are given where confirmed; otherwise the publication page is listed with a note.",
+  "updated": "2026-10-10",
+  "tags": [
+    "community-sources",
+    "ai",
+    "coding-agents",
+    "open-source",
+    "voices"
+  ],
+  "items": [
+    {
+      "id": "simon-willison",
+      "title": "Simon Willison's Weblog (everything feed)",
+      "url": "https://simonwillison.net/atom/everything/",
+      "kind": "article",
+      "summary": "Daily notes on LLM tools, prompt injection, agent tooling and open-source releases; one of the fastest practitioner sources for new model and tool behaviour.",
+      "verification": "search-result",
+      "licence": "All rights reserved by the author unless stated",
+      "notes": "Feed URL confirmed in search results (an OPML subscription list and a 30 April 2026 post about changes to /atom/everything/) and listed in the Kagi Small Web index.",
+      "tags": [
+        "llm",
+        "coding-agents",
+        "prompt-injection"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "openai-news",
+      "title": "OpenAI News RSS",
+      "url": "https://openai.com/news/rss.xml",
+      "kind": "service",
+      "summary": "Every post on OpenAI's news page: product launches, research, safety updates and company news.",
+      "verification": "search-result",
+      "licence": "OpenAI terms; posts are OpenAI's copyright",
+      "notes": "Feed directories in search results agree on this URL; the older /blog/rss.xml forwards to it.",
+      "tags": [
+        "openai",
+        "official"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "openai-engineering-news",
+      "title": "OpenAI engineering news RSS",
+      "url": "https://openai.com/news/engineering/rss.xml",
+      "kind": "service",
+      "summary": "OpenAI's engineering posts only.",
+      "verification": "search-result",
+      "licence": "OpenAI terms",
+      "notes": "Listed in a directory of openai.com feeds in search results; not fetched.",
+      "tags": [
+        "openai",
+        "official",
+        "engineering"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "openai-release-notes",
+      "title": "OpenAI product release notes RSS",
+      "url": "https://openai.com/products/release-notes/rss.xml",
+      "kind": "service",
+      "summary": "Product release notes for OpenAI products.",
+      "verification": "search-result",
+      "licence": "OpenAI terms",
+      "notes": "Listed in a directory of openai.com feeds in search results; not fetched.",
+      "tags": [
+        "openai",
+        "official",
+        "changelog"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "google-deepmind-blog",
+      "title": "Google DeepMind blog RSS",
+      "url": "https://deepmind.google/blog/rss.xml",
+      "kind": "service",
+      "summary": "Research and model news from Google DeepMind, including Gemini.",
+      "verification": "search-result",
+      "licence": "Google terms",
+      "notes": "Listed by a Feeder AI-news guide updated 4 October 2026 and its AI feeds directory.",
+      "tags": [
+        "deepmind",
+        "gemini",
+        "official"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "github-changelog",
+      "title": "GitHub Changelog",
+      "url": "https://github.blog/changelog/feed/",
+      "kind": "service",
+      "summary": "Every GitHub product change as it ships, including Copilot coding agent and Actions changes.",
+      "verification": "search-result",
+      "licence": "GitHub terms",
+      "notes": "Feed listed in a feed directory in search results; github.blog could not be fetched.",
+      "tags": [
+        "github",
+        "changelog",
+        "official"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "anthropic-news",
+      "title": "Anthropic news (no official feed)",
+      "url": "https://www.anthropic.com/news",
+      "kind": "service",
+      "summary": "Anthropic's announcements page. No native RSS feed was found: feed directories report /news/rss.xml as not found and a July 2026 guide recommends the email subscription.",
+      "verification": "search-result",
+      "licence": "Anthropic terms",
+      "notes": "Check the page directly or subscribe by email; third-party generated feeds (RSSHub routes, Feeder) depend on page layout and can break.",
+      "cautions": [
+        "Do not scrape the page at high frequency; once a day is enough for announcements."
+      ],
+      "tags": [
+        "anthropic",
+        "official",
+        "no-feed"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "latent-space",
+      "title": "Latent Space (newsletter and podcast)",
+      "url": "https://www.latent.space/",
+      "kind": "article",
+      "summary": "AI engineering newsletter and podcast with interviews of people building agents and models.",
+      "verification": "search-result",
+      "licence": "All rights reserved by the publisher",
+      "notes": "Substack publication. Search results disagreed on a native feed: one directory reported no feed and a comment on the site points to a separate audio RSS host. Use feed autodiscovery on the page before polling.",
+      "tags": [
+        "ai-engineering",
+        "podcast",
+        "newsletter"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "interconnects",
+      "title": "Interconnects (Nathan Lambert)",
+      "url": "https://www.interconnects.ai/",
+      "kind": "article",
+      "summary": "Newsletter on frontier and open models, post-training methods and the open-model ecosystem; one to three posts a week per its about page.",
+      "verification": "search-result",
+      "licence": "All rights reserved by the author",
+      "notes": "Substack-distributed publication. Substack exposes RSS at /feed unless a publication disables it (Feedly help docs); confirm with autodiscovery before polling.",
+      "tags": [
+        "open-models",
+        "research",
+        "newsletter"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "one-useful-thing",
+      "title": "One Useful Thing (Ethan Mollick)",
+      "url": "https://www.oneusefulthing.org/",
+      "kind": "article",
+      "summary": "Research-based writing on the practical implications of AI for work and education by a Wharton professor.",
+      "verification": "search-result",
+      "licence": "All rights reserved by the author",
+      "notes": "Substack publication; Substack exposes RSS at /feed unless disabled. Confirm with autodiscovery before polling.",
+      "tags": [
+        "ai",
+        "work",
+        "newsletter"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "import-ai",
+      "title": "Import AI (Jack Clark)",
+      "url": "https://importai.substack.com/",
+      "kind": "article",
+      "summary": "Weekly newsletter analysing AI research, written by an Anthropic co-founder.",
+      "verification": "search-result",
+      "licence": "All rights reserved by the author",
+      "notes": "Substack publication; a feed directory reported no native feed and generates one from jack-clark.net. Confirm with autodiscovery before polling.",
+      "tags": [
+        "research",
+        "newsletter"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "simon-willison-til",
+      "title": "Simon Willison: TIL",
+      "url": "https://til.simonwillison.net/tils/feed.atom",
+      "summary": "Short 'today I learned' notes on tools, SQLite, Python and LLM utilities; frequent and practical.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "llm",
+        "tools"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "eugene-yan",
+      "title": "Eugene Yan",
+      "url": "https://eugeneyan.com/rss/",
+      "summary": "Applied machine learning and LLM systems: evaluation, recommendation and production patterns.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "llm",
+        "evals"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "chip-huyen",
+      "title": "Chip Huyen",
+      "url": "https://huyenchip.com/feed.xml",
+      "summary": "Machine learning systems and AI engineering essays.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "ml-systems",
+        "ai-engineering"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "hamel-husain",
+      "title": "Hamel Husain",
+      "url": "https://hamel.dev/index.xml",
+      "summary": "LLM evaluation, error analysis and fine-tuning practice.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "evals",
+        "llm"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "lilian-weng",
+      "title": "Lilian Weng: Lil'Log",
+      "url": "https://lilianweng.github.io/index.xml",
+      "summary": "Long-form explainers of machine learning research topics such as agents, hallucination and reward hacking.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "research",
+        "explainers"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "andrej-karpathy-bearblog",
+      "title": "Andrej Karpathy (bearblog)",
+      "url": "https://karpathy.bearblog.dev/feed/",
+      "summary": "Andrej Karpathy's current blog on neural networks, LLMs and software.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "llm",
+        "education"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "sebastian-raschka",
+      "title": "Sebastian Raschka",
+      "url": "https://sebastianraschka.com/rss_feed.xml",
+      "summary": "LLM architectures, training and from-scratch implementations.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "llm",
+        "research"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "armin-ronacher",
+      "title": "Armin Ronacher",
+      "url": "https://lucumr.pocoo.org/feed.atom",
+      "summary": "Essays on Python, Rust and working with coding agents in practice.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "coding-agents",
+        "python"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "mitchell-hashimoto",
+      "title": "Mitchell Hashimoto",
+      "url": "https://mitchellh.com/feed.xml",
+      "summary": "Notes on building software, terminals and AI-assisted development.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "coding-agents",
+        "tools"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "mario-zechner",
+      "title": "Mario Zechner",
+      "url": "https://mariozechner.at/rss.xml",
+      "summary": "Writing by the author of the Pi coding agent (a Baltor target harness), including harness and tool design.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "pi",
+        "coding-agents"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "thorsten-ball",
+      "title": "Thorsten Ball",
+      "url": "https://thorstenball.com/atom.xml",
+      "summary": "Programming and agentic coding essays.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "coding-agents"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "drew-breunig",
+      "title": "Drew Breunig",
+      "url": "https://www.dbreunig.com/feed.xml",
+      "summary": "Context engineering, LLM products and data.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "context-engineering",
+        "llm"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "harper-reed",
+      "title": "Harper Reed",
+      "url": "https://harper.blog/index.xml",
+      "summary": "Hands-on posts about LLM code-generation workflows.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "coding-agents"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "geoffrey-litt",
+      "title": "Geoffrey Litt",
+      "url": "https://www.geoffreylitt.com/feed.xml",
+      "summary": "Malleable software and end-user programming with AI.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "hci",
+        "ai"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "swyx",
+      "title": "swyx",
+      "url": "https://swyx.io/rss.xml",
+      "summary": "AI engineering and developer-tools essays.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "ai-engineering"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "addy-osmani",
+      "title": "Addy Osmani",
+      "url": "https://addyosmani.com/rss.xml",
+      "summary": "AI-assisted software engineering and web performance.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "coding-agents",
+        "web"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "martin-fowler",
+      "title": "Martin Fowler",
+      "url": "https://martinfowler.com/feed.atom",
+      "summary": "Software design articles, including a series on generative AI in software delivery.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "software-design"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "zvi-mowshowitz",
+      "title": "Zvi Mowshowitz: Don't Worry About the Vase",
+      "url": "https://thezvi.wordpress.com/feed/",
+      "summary": "Very long weekly AI news roundups with commentary.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "ai-news"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "jason-liu",
+      "title": "Jason Liu",
+      "url": "https://jxnl.co/feed_rss_created.xml",
+      "summary": "RAG, structured outputs and consulting lessons for LLM products.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "rag",
+        "llm"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "embrace-the-red",
+      "title": "Embrace The Red (Johann Rehberger)",
+      "url": "https://embracethered.com/blog/index.xml",
+      "summary": "Security research on LLM applications and coding agents, including prompt injection and data exfiltration.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "security",
+        "prompt-injection"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "julia-evans",
+      "title": "Julia Evans",
+      "url": "https://jvns.ca/atom.xml",
+      "summary": "Clear explanations of systems, networking and command-line tools.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "explainers",
+        "tools"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "jeff-geerling",
+      "title": "Jeff Geerling",
+      "url": "https://www.jeffgeerling.com/blog.xml",
+      "summary": "Raspberry Pi, homelab and open-source maintenance.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "hardware",
+        "open-source"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "daniel-stenberg",
+      "title": "Daniel Stenberg",
+      "url": "https://daniel.haxx.se/blog/feed/",
+      "summary": "The curl maintainer's blog on curl development and open-source maintenance.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "open-source",
+        "curl"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "antirez",
+      "title": "antirez",
+      "url": "https://antirez.com/rss",
+      "summary": "Programming essays from the creator of Redis, including LLM-assisted coding.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "programming"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "hynek-schlawack",
+      "title": "Hynek Schlawack",
+      "url": "https://hynek.me/index.xml",
+      "summary": "Python packaging, tooling and maintenance.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "python",
+        "open-source"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "drew-devault",
+      "title": "Drew DeVault",
+      "url": "https://drewdevault.com/blog/index.xml",
+      "summary": "Free software and its sustainability.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "open-source"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "matklad",
+      "title": "matklad",
+      "url": "https://matklad.github.io/feed.xml",
+      "summary": "Programming-language tooling and systems engineering.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "rust",
+        "zig"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "fasterthanlime",
+      "title": "fasterthanli.me",
+      "url": "https://fasterthanli.me/index.xml",
+      "summary": "Long-form Rust and systems deep dives.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "rust"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "xe-iaso",
+      "title": "Xe Iaso",
+      "url": "https://xeiaso.net/blog.rss",
+      "summary": "Infrastructure, self-hosting and writing about AI.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "infrastructure"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "brendan-gregg",
+      "title": "Brendan Gregg",
+      "url": "https://www.brendangregg.com/blog/rss.xml",
+      "summary": "Systems performance engineering.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "performance"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "dan-luu",
+      "title": "Dan Luu",
+      "url": "https://danluu.com/atom.xml",
+      "summary": "Essays on engineering practice and data.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "engineering"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    }
+  ]
+}

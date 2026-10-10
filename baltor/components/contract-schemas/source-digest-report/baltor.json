@@ -1,0 +1,48 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "source_digest_report",
+  "title": "Source digest report",
+  "kind": "contract-schema",
+  "subkind": "feed-builder",
+  "version": "1.0.0",
+  "summary": "JSON Schema for a digest or trend-scan result: sections of linked items, rising terms each cited by at least two feeds, counts and failed feeds.",
+  "domain": "source-monitoring",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "research",
+    "verify",
+    "build"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "schema.json",
+  "tags": [
+    "schema",
+    "feeds",
+    "contract",
+    "source-digest-report"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/community_sources.py",
+    "data": "generators/data/community_sources"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

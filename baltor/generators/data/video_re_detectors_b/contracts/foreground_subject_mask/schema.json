@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/video-re-contract-foreground-subject-mask",
+  "title": "Foreground subject mask payload",
+  "description": "Payload of video_re_detect_foreground_subject_mask: where the main salient region sits and how much of the frame it covers, per sample and per shot. Presence and geometry only; identity_inference is fixed to 'none' (no face recognition, no identity).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["identity_inference", "samples", "shots"],
+  "$defs": {
+    "bbox": { "type": ["array", "null"], "items": { "type": "number", "minimum": 0 }, "minItems": 4, "maxItems": 4 },
+    "ratio_box": { "type": ["array", "null"], "items": { "type": "number", "minimum": 0, "maximum": 1 }, "minItems": 4, "maxItems": 4 },
+    "point": { "type": ["array", "null"], "items": { "type": "number", "minimum": 0, "maximum": 1 }, "minItems": 2, "maxItems": 2 },
+    "unit": { "type": ["number", "null"], "minimum": 0, "maximum": 1 }
+  },
+  "properties": {
+    "identity_inference": { "const": "none" },
+    "samples": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["t_s", "shot_index", "present", "bbox", "area_ratio", "center_ratio", "delta_e", "separation_z"],
+        "properties": {
+          "t_s": { "type": "number", "minimum": 0 },
+          "shot_index": { "type": "integer", "minimum": 0 },
+          "present": { "type": "boolean" },
+          "bbox": { "$ref": "#/$defs/bbox" },
+          "area_ratio": { "$ref": "#/$defs/unit" },
+          "center_ratio": { "$ref": "#/$defs/point" },
+          "delta_e": { "type": "number", "minimum": 0, "description": "mean colour distance of the region from the border reference colour" },
+          "separation_z": { "type": "number", "description": "(mean saliency inside - outside) / std outside" }
+        }
+      }
+    },
+    "shots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["shot_index", "t_start_s", "t_end_s", "present_share", "bbox", "bbox_ratio", "area_ratio", "center_ratio", "framing", "size_class", "separation_z"],
+        "properties": {
+          "shot_index": { "type": "integer", "minimum": 0 },
+          "t_start_s": { "type": "number", "minimum": 0 },
+          "t_end_s": { "type": "number", "minimum": 0 },
+          "present_share": { "type": "number", "minimum": 0, "maximum": 1 },
+          "bbox": { "$ref": "#/$defs/bbox" },
+          "bbox_ratio": { "$ref": "#/$defs/ratio_box" },
+          "area_ratio": { "$ref": "#/$defs/unit" },
+          "center_ratio": { "$ref": "#/$defs/point" },
+          "framing": { "enum": ["left-third", "center", "right-third", null] },
+          "size_class": { "enum": ["close-up", "medium", "wide", null] },
+          "separation_z": { "type": ["number", "null"] }
+        }
+      }
+    }
+  }
+}

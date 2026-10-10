@@ -1,0 +1,42 @@
+# Conventions shared by every sources/*.yaml file in this folder.
+#
+# Each collection file holds `collection:` (id, title, description, tags, defaults) and `items:`.
+# An item is either written out in full (url, feed_url, feed_format, ...) or uses a shorthand
+# that the generator expands into the same fields:
+#
+#   gh: owner/repo        GitHub repository. With `feed:`
+#                           releases (default)   -> https://github.com/<repo>/releases.atom
+#                           tags                 -> https://github.com/<repo>/tags.atom
+#                           commits:<branch>     -> https://github.com/<repo>/commits/<branch>.atom
+#                           path:<branch>:<path> -> https://github.com/<repo>/commits/<branch>/<path>.atom
+#                           raw:<branch>:<path>  -> https://raw.githubusercontent.com/<repo>/<branch>/<path>
+#   pypi: <project>       PyPI per-project release RSS https://pypi.org/rss/project/<project>/releases.xml
+#   npm: <package>        npm registry "latest" document https://registry.npmjs.org/<package>/latest
+#
+# `seen` records what the endpoint returned when it was fetched on `verified_on` (newest entry and
+# its date). Items with `verification: fetched` had their feed_url (or url) fetched that day and
+# the response parsed as the stated format. `search-result` means the URL appeared in web search
+# results or in the vendor's own documentation found that way, but the host could not be fetched
+# from the research network. `from-prior-research` means the URL comes from a dataset downloaded
+# that day (named in notes) or from earlier research, not from a fetch of the URL itself.
+
+verified_on: "2026-10-10"
+
+terms:
+  github: "GitHub Atom feeds need no auth but are rate-limited per IP. Poll at most hourly with If-None-Match / If-Modified-Since. Store the tag, date, link and a short summary; link to GitHub for full notes. GitHub Terms of Service apply."
+  github-raw: "raw.githubusercontent.com serves the file as committed. Fetch at most a few times a day, keep only a hash and the changed section headings, and link to the file; the repository licence governs reuse of its text."
+  pypi: "PyPI RSS is public. Cache responses and poll no more than every few hours per project; for many projects prefer the JSON API with conditional requests. Store version, date and link only."
+  npm: "The npm registry is public for reads. Fetch the small /latest document (or abbreviated metadata) rather than the full packument, honour ETag, and store name, version and date only."
+  vendor-docs: "Vendor documentation page: link to it and summarise in your own words; never republish the page. Diff a local copy only to detect changes, respect robots.txt and rate limits, and prefer the vendor's .md or llms.txt variant when one is published."
+  vendor-feed: "Vendor RSS/Atom feed: store titles, links, dates and at most a short summary; link back for the full text. Poll no more than the stated interval and send conditional requests."
+  statuspage: "Public status endpoint: no auth. Poll every 5-15 minutes at most, cache, and store only incident title, status, impact, affected components, timestamps and link. Do not hammer status pages during an outage."
+  api-key: "Requires your own API key kept in an environment variable; the provider's API terms apply. Store model ids, dates and prices only; never log the key."
+  registry-api: "Public registry API: page with the documented cursor, cache results, poll no more than every few hours, and store server names, versions, status and links only."
+
+poll_hours:
+  status: 0.25
+  release: 6
+  changelog: 12
+  lifecycle: 24
+  registry: 6
+  catalog: 24

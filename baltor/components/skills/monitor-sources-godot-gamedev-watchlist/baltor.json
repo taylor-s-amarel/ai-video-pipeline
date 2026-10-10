@@ -1,0 +1,97 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "monitor_sources_godot_gamedev_watchlist",
+  "title": "Monitor sources: Godot and indie game development",
+  "kind": "skill",
+  "subkind": "workflow",
+  "version": "1.0.0",
+  "summary": "Watchlist preset for godot and indie game development: 4 source groups, 17 weighted keywords and digest sections, ready for the digest builder.",
+  "domain": "source-monitoring",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "research",
+    "learn"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "declared",
+    "executes": "python",
+    "secrets": [],
+    "hosts": [
+      "*"
+    ],
+    "side_effects": [
+      "polls the feed URLs named in the watchlist (Reddit, GitHub, arXiv, YouTube, forums, blogs)",
+      "writes .feed-cache.json and digests/"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "rss",
+    "monitoring",
+    "watchlist",
+    "digest",
+    "godot",
+    "gamedev"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "rss_atom_jsonfeed_reader"
+    },
+    {
+      "identity": "feed_url_patterns"
+    },
+    {
+      "identity": "source_digest_builder"
+    },
+    {
+      "identity": "feed_collection_opml"
+    },
+    {
+      "identity": "page_change_watcher"
+    },
+    {
+      "identity": "source_watchlist"
+    },
+    {
+      "identity": "normalized_feed_item"
+    },
+    {
+      "identity": "source_digest_report"
+    },
+    {
+      "identity": "source_monitoring_etiquette"
+    }
+  ],
+  "variant_of": "monitor_sources_with_rss_for_agents",
+  "provenance": {
+    "generator": "generators/community_sources.py",
+    "data": "generators/data/community_sources",
+    "parameters": {
+      "preset": "godot_gamedev",
+      "collections": [
+        "community-aggregators-forums",
+        "community-gamedev-3d-educators",
+        "community-reddit-gamedev-3d-animation",
+        "community-releases-game-3d-2d"
+      ],
+      "keywords": 17,
+      "cadence": "weekly"
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

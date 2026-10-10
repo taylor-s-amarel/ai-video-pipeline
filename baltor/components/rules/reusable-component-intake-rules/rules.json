@@ -1,0 +1,51 @@
+{
+  "candidate_tasks": [
+    "crop planning",
+    "text fit",
+    "anchor projection",
+    "two-bone contact",
+    "prop ownership",
+    "timeline validation",
+    "mask-to-answer joins",
+    "audio ducking",
+    "chunk verification",
+    "final-stream inspection"
+  ],
+  "component_definition": [
+    "inputs",
+    "outputs",
+    "errors",
+    "dependencies",
+    "time/resource limits",
+    "deterministic behavior",
+    "effects"
+  ],
+  "effect_boundaries": {
+    "crop planner": "no network access",
+    "renderer": "does not publish",
+    "source check": "does not create accounts"
+  },
+  "tests": [
+    "positive cases",
+    "boundaries",
+    "known-wrong consumers",
+    "failure behavior"
+  ],
+  "separate_states": [
+    "authored",
+    "rights-reviewed",
+    "focused-tested",
+    "source-reopened",
+    "minimally invoked by a consumer",
+    "actual isolated intake-qualified",
+    "admitted",
+    "published",
+    "used successfully"
+  ],
+  "never": [
+    "invent producer/source bindings",
+    "write directly to a production database",
+    "bypass admission",
+    "infer publication from a private Library save"
+  ]
+}

@@ -1,0 +1,273 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/agent-feed-item",
+  "title": "Agent feed item",
+  "description": "One normalised update (release, advisory, incident, deprecation, paper, post) as Agent Feeds stores and serves it. Summaries are short plain text; full article bodies are never stored.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "source_id",
+    "collection",
+    "title",
+    "url",
+    "published",
+    "updated",
+    "summary",
+    "vendor",
+    "products",
+    "versions",
+    "change_types",
+    "severity",
+    "affected_packages",
+    "cve_ids",
+    "entities",
+    "dedupe_key",
+    "cluster_id",
+    "relevance"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^afi_[0-9a-f]{20}$"
+    },
+    "source_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120
+    },
+    "collection": {
+      "type": "string",
+      "maxLength": 80
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 300
+    },
+    "url": {
+      "type": "string",
+      "pattern": "^(https?|mid):",
+      "format": "uri"
+    },
+    "published": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+    },
+    "updated": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+    },
+    "summary": {
+      "type": "string",
+      "maxLength": 600,
+      "description": "Short plain-text summary, never the full text"
+    },
+    "vendor": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 120
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 200
+      },
+      "maxItems": 20
+    },
+    "versions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 80
+      },
+      "maxItems": 20
+    },
+    "change_types": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "release",
+          "breaking-change",
+          "deprecation",
+          "security",
+          "incident",
+          "pricing",
+          "model-release",
+          "docs",
+          "research",
+          "community",
+          "policy",
+          "event",
+          "tutorial",
+          "dataset"
+        ]
+      }
+    },
+    "severity": {
+      "enum": [
+        "none",
+        "low",
+        "medium",
+        "high",
+        "critical",
+        "unknown",
+        null
+      ],
+      "description": "For security items and incidents; null otherwise"
+    },
+    "cvss": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 10
+    },
+    "affected_packages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "ecosystem",
+          "name",
+          "version_range"
+        ],
+        "properties": {
+          "ecosystem": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Known values: PyPI, npm, crates.io, Go, Maven, NuGet, RubyGems, Packagist, Hex, Pub, Docker, GitHub Actions, cpe (NVD vendor:product), mcp"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "version_range": {
+            "type": "string",
+            "description": "Specifier: '>=2.3.0,<2.31.0', '==1.2.3', '*' or alternatives joined with ' || '"
+          },
+          "fixed": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "maxItems": 50
+    },
+    "cve_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^CVE-[0-9]{4}-[0-9]{4,7}$"
+      }
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 200
+      },
+      "maxItems": 30,
+      "description": "Tags such as known-exploited, prerelease, yanked, status:resolved, arxiv:<id>"
+    },
+    "dedupe_key": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{24}$",
+      "description": "Hash of the normalised URL"
+    },
+    "cluster_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Id of the first item of the same announcement across sources"
+    },
+    "relevance": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "required": [
+        "score",
+        "reasons"
+      ],
+      "properties": {
+        "score": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "reasons": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 300
+          }
+        },
+        "matched_packages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "affected": {
+          "enum": [
+            "yes",
+            "maybe",
+            "no",
+            "unknown"
+          ]
+        }
+      }
+    },
+    "source_format": {
+      "type": "string"
+    },
+    "authors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 10
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 25
+    },
+    "fetched": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+    },
+    "seq": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Store insertion sequence (cursor position)"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Other source ids that carried the same item"
+    }
+  }
+}

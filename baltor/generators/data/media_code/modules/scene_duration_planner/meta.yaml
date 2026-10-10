@@ -1,0 +1,6 @@
+title: Scene duration planner
+summary: Allocates a 60+ second video across hook, numbered FACT/TIP items (weighted, clamped to min/max) and outro, frame-rounded so scene times add up exactly to the target.
+subkind: listicle-format
+domain: video
+tags: [video, planning, scenes, listicle, pacing, facts]
+step_kinds: [plan]

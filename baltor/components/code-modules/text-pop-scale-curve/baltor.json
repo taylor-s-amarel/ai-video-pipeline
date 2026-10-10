@@ -1,0 +1,55 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "text_pop_scale_curve",
+  "title": "Text pop scale curve",
+  "kind": "code-module",
+  "subkind": "text-animation",
+  "version": "1.0.0",
+  "summary": "Key-word pop curve (1.0 -> 1.12 -> 1.0 over 180 ms by default) as per-frame scales, an ffmpeg time expression and ASS transform tags, with ease and spring shapes.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "text_pop_scale_curve.py",
+  "tags": [
+    "video",
+    "captions",
+    "text-pop",
+    "animation",
+    "ffmpeg",
+    "ass"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "examples": [
+    "Pop the number '14 days' when it is spoken",
+    "Scale a drawtext caption word with a 180 ms pop"
+  ],
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

@@ -1,0 +1,193 @@
+{
+  "id": "godot-gamedev-weekly",
+  "title": "Godot and indie game dev: weekly",
+  "cadence": "weekly",
+  "window": "7d",
+  "sources": [
+    {
+      "collection": "community-releases-game-3d-2d",
+      "weight": 2.0,
+      "item_ids": [
+        "gh-godotengine-godot",
+        "gh-godotengine-godot-website",
+        "gh-godotengine-godot-demo-projects",
+        "gh-ramokz-phantom-camera",
+        "gh-dialogic-godot-dialogic",
+        "gh-nathanhoad-godot-dialogue-manager",
+        "gh-bitbrain-beehave",
+        "gh-zylann-godot-voxel",
+        "gh-maaack-godot-game-template",
+        "gh-coding-solo-godot-mcp",
+        "gh-orama-interactive-pixelorama",
+        "gh-viblo-pymunk",
+        "gh-dimforge-rapier"
+      ]
+    },
+    {
+      "collection": "community-reddit-gamedev-3d-animation",
+      "weight": 1.0,
+      "item_ids": [
+        "r-godot",
+        "r-madewithgodot",
+        "r-godotdev",
+        "r-gamedev",
+        "r-indiedev",
+        "r-gamedesign",
+        "r-proceduralgeneration",
+        "r-gamejams",
+        "r-pixelart",
+        "r-gameart"
+      ]
+    },
+    {
+      "collection": "community-gamedev-3d-educators",
+      "weight": 1.5,
+      "item_ids": [
+        "godot-blog",
+        "yt-gdquest",
+        "yt-brackeys",
+        "catlike-coding-godot",
+        "red-blob-games",
+        "game-developer",
+        "gamefromscratch",
+        "deepnight",
+        "slynyrd"
+      ]
+    },
+    {
+      "collection": "community-aggregators-forums",
+      "weight": 1.0,
+      "item_ids": [
+        "forum-forum-godotengine-org",
+        "hnrss-newest-godot-blender"
+      ]
+    }
+  ],
+  "keywords": [
+    {
+      "term": "godot",
+      "weight": 3
+    },
+    {
+      "term": "gdscript",
+      "weight": 2.5
+    },
+    {
+      "term": "godot 4",
+      "weight": 2
+    },
+    {
+      "term": "tilemap",
+      "weight": 1.5
+    },
+    {
+      "term": "platformer",
+      "weight": 1.5
+    },
+    {
+      "term": "shader",
+      "weight": 1
+    },
+    {
+      "term": "addon",
+      "weight": 1.5
+    },
+    {
+      "term": "add-on",
+      "weight": 1.5
+    },
+    {
+      "term": "asset pack",
+      "weight": 2
+    },
+    {
+      "term": "free assets",
+      "weight": 2
+    },
+    {
+      "term": "game jam",
+      "weight": 1
+    },
+    {
+      "term": "procedural",
+      "weight": 1
+    },
+    {
+      "term": "pixel art",
+      "weight": 1
+    },
+    {
+      "term": "physics",
+      "weight": 1
+    },
+    {
+      "term": "mcp",
+      "weight": 1.5
+    },
+    {
+      "term": "headless",
+      "weight": 1.5
+    },
+    {
+      "term": "export",
+      "weight": 0.5
+    }
+  ],
+  "exclude_terms": [
+    "hiring",
+    "for hire",
+    "paid gig"
+  ],
+  "groups": [
+    {
+      "title": "Engine and add-on releases",
+      "match": {
+        "feed_url_contains": [
+          "github.com"
+        ]
+      }
+    },
+    {
+      "title": "Official news and tutorials",
+      "match": {
+        "feed_url_contains": [
+          "godotengine.org",
+          "youtube.com",
+          "catlikecoding.com",
+          "redblobgames.com"
+        ]
+      }
+    },
+    {
+      "title": "Community",
+      "match": {
+        "feed_url_contains": [
+          "reddit.com",
+          "forum.godotengine.org",
+          "hnrss.org"
+        ]
+      }
+    }
+  ],
+  "max_items_per_source": 4,
+  "max_items": 40,
+  "recency_half_life_days": 4,
+  "trend_min_sources": 2,
+  "cautions": [
+    "Asset packs found through these sources keep their own licences; record the licence and credit line before using any asset."
+  ],
+  "polite": {
+    "user_agent": "baltor-feed-reader/1.0 (+https://github.com/taylor-s-amarel/ai-video-pipeline)",
+    "min_interval_s": 5,
+    "max_polls_per_day": 24,
+    "respect_retry_after": true,
+    "conditional_get": true,
+    "host_overrides": {
+      "www.reddit.com": 60
+    }
+  },
+  "outputs": {
+    "markdown": "digests/godot-gamedev-weekly/{date}.md",
+    "json": "digests/godot-gamedev-weekly/{date}.json"
+  }
+}

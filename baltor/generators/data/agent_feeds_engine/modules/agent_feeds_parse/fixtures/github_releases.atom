@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:lang="en-US">
+  <id>tag:github.com,2008:https://github.com/example-org/example-cli/releases</id>
+  <link type="text/html" rel="alternate" href="https://github.com/example-org/example-cli/releases"/>
+  <link type="application/atom+xml" rel="self" href="https://github.com/example-org/example-cli/releases.atom"/>
+  <title>Release notes from example-cli</title>
+  <updated>2026-10-09T19:28:36Z</updated>
+  <entry>
+    <id>tag:github.com,2008:Repository/100000001/v3.0.0</id>
+    <updated>2026-10-09T19:28:59Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/example-org/example-cli/releases/tag/v3.0.0"/>
+    <title>v3.0.0</title>
+    <content type="html">&lt;h2&gt;Breaking changes&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;Removed the deprecated &lt;code&gt;--legacy&lt;/code&gt; flag&lt;/li&gt;&lt;li&gt;Config file moved to &lt;code&gt;.example/config.toml&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;</content>
+    <author><name>maintainer-a</name></author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Repository/100000001/v3.1.0-rc.1</id>
+    <updated>2026-10-10T08:00:00Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/example-org/example-cli/releases/tag/v3.1.0-rc.1"/>
+    <title>v3.1.0-rc.1</title>
+    <content type="html">&lt;p&gt;Release candidate.&lt;/p&gt;</content>
+    <author><name>maintainer-b</name></author>
+  </entry>
+</feed>

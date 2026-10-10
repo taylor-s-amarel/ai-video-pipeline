@@ -1,0 +1,66 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "review_lens_motion_and_easing",
+  "title": "Review lens: motion and easing (D013)",
+  "kind": "subagent",
+  "subkind": "review-lens",
+  "version": "1.0.0",
+  "summary": "Applies the owner's 32 motion and easing questions to a brief, storyboard or exact final encode and returns ranked, evidence-backed findings plus what was not checked.",
+  "description": "This is the owner's authoritative adversarial review bank: the 1,024 questions of Appendix E of the Animation and Video Production Master Guide (10 Oct 2026), transcribed with the owner's exact text, ids, filters and pass membership. Another builder in this catalogue (harness_kit) independently wrote a different 1,024-question bank; it is not this set and does not override it. The lens embeds the D013 questions verbatim and returns adversarial_review_result records.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#d013-motion-and-easing"
+  },
+  "step_kinds": [
+    "review",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "shell",
+    "secrets": [],
+    "side_effects": [
+      "runs sha256sum, ffprobe and ffmpeg on the artifact under review",
+      "writes extracted frames and contact sheets to a scratch directory"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "opencode",
+    "baltor-harness"
+  ],
+  "entry": "agent.md",
+  "tags": [
+    "video",
+    "animation",
+    "adversarial-review",
+    "review-questions",
+    "subagent",
+    "motion-and-easing"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "review_bank_motion_and_easing"
+    },
+    {
+      "identity": "adversarial_review_result"
+    },
+    {
+      "identity": "adversarial_review_without_theater"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/ref_review_templates.py",
+    "data": "generators/data/ref_review_templates"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "considered",
+  "evidence_notes": "Agent definition written for this catalogue from the guide's method and the area's questions; it has not been run on a film. Its questions are the owner's exact text."
+}

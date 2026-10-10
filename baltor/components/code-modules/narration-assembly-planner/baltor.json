@@ -1,0 +1,57 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "narration_assembly_planner",
+  "title": "Narration assembly planner",
+  "kind": "code-module",
+  "subkind": "voice-preset",
+  "version": "1.0.0",
+  "summary": "Places TTS chunks on one timeline with sentence, paragraph and section pauses, shifts chunk word times to global caption times and builds the ffmpeg adelay+amix command.",
+  "domain": "audio",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "narration_assembly_planner.py",
+  "tags": [
+    "audio",
+    "tts",
+    "narration",
+    "timeline",
+    "ffmpeg",
+    "captions"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "ffmpeg",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

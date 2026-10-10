@@ -1,0 +1,68 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "video_re_questions_hook_first_seconds",
+  "title": "Video RE question bank: Hook and first seconds",
+  "kind": "rules",
+  "subkind": "review-lens",
+  "version": "1.0.0",
+  "summary": "36 answerable questions for reverse-engineering a video's hook and first seconds, each with evidence to cite, the format-IR pointer it fills and a challenge prompt.",
+  "description": "Describes exactly what happens in the first frame and the first 3-5 seconds (title, voice, motion, sound) so the opening can be rebuilt with new content. Every question says why it matters, how to answer it from evidence.json or targeted ffmpeg extracts, the evidence required, the JSON pointer it fills in the Video format IR, the answer type and how a sceptic would test the answer. Captures technique and structure only; never stores or reuses the source's footage, frames, music, voice or script text.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "research",
+    "measure",
+    "review"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "RULES.md",
+  "tags": [
+    "video",
+    "reverse-engineering",
+    "video-re",
+    "swarm",
+    "question-bank",
+    "hook-first-seconds"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "video_re_format_ir"
+    },
+    {
+      "identity": "video_re_analyst_answer"
+    },
+    {
+      "identity": "video_re_evidence"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_re_swarm.py",
+    "data": "generators/data/video_re_swarm",
+    "parameters": {
+      "lens": "hook_first_seconds",
+      "questions": 36
+    }
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Generator checks ids, fields, answer types, enum choices, IR pointers against the format IR schema, evidence field names, recipe codes and near-duplicate questions."
+  }
+}

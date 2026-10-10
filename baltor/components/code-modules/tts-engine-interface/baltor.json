@@ -1,0 +1,51 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "tts_engine_interface",
+  "title": "TTS engine interface and fallback chain",
+  "kind": "code-module",
+  "subkind": "tts-engine",
+  "version": "1.0.0",
+  "summary": "Common Speech/TTSEngine interface for local TTS adapters, a fallback chain that reports which engine was used and why others failed, and 16-bit WAV read/write.",
+  "domain": "audio",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "tts_engine_interface.py",
+  "tags": [
+    "audio",
+    "tts",
+    "interface",
+    "fallback",
+    "narration",
+    "wav"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

@@ -1,0 +1,269 @@
+{
+  "spec": "baltor.feed-collection/v1",
+  "id": "community-topic-mining-feeds",
+  "title": "Topic mining feeds for facts, history, science and trends",
+  "description": "Feeds that surface dated, citable topics for fact-led shorts: Wikipedia featured feeds and on-this-day data, NASA and APOD, ScienceDaily, Smithsonian and Google Trends. Use them to pick topics, then cite the primary source in the video description.",
+  "updated": "2026-10-10",
+  "tags": [
+    "community-sources",
+    "topics",
+    "facts",
+    "history",
+    "science",
+    "trends"
+  ],
+  "items": [
+    {
+      "id": "wikipedia-on-this-day-feed",
+      "title": "English Wikipedia 'On this day' featured feed (Atom)",
+      "url": "https://en.wikipedia.org/w/api.php?action=featuredfeed&feed=onthisday&feedformat=atom",
+      "kind": "service",
+      "summary": "Daily 'On this day' selections from the Main Page; a steady source of dated history topics.",
+      "verification": "search-result",
+      "licence": "CC-BY-SA-4.0 (text); images per file",
+      "notes": "The featuredfeed API module comes from the MediaWiki FeaturedFeeds extension (documentation in search results); the same URL pattern was listed for German Wikipedia. The English URL was not fetched.",
+      "cautions": [
+        "Wikipedia text is CC BY-SA: paraphrase facts and cite the underlying sources rather than reading the text verbatim; credit and share-alike apply if you reuse text."
+      ],
+      "tags": [
+        "wikipedia",
+        "history",
+        "on-this-day"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "wikipedia-featured-article-feed",
+      "title": "English Wikipedia featured article feed (Atom)",
+      "url": "https://en.wikipedia.org/w/api.php?action=featuredfeed&feed=featured&feedformat=atom",
+      "kind": "service",
+      "summary": "Today's featured article: one well-sourced long article a day.",
+      "verification": "search-result",
+      "licence": "CC-BY-SA-4.0 (text); images per file",
+      "notes": "Same FeaturedFeeds API pattern as the on-this-day feed; not fetched.",
+      "cautions": [
+        "Follow the article's references for facts and numbers."
+      ],
+      "tags": [
+        "wikipedia",
+        "featured"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "wikipedia-picture-of-the-day-feed",
+      "title": "English Wikipedia picture of the day feed (Atom)",
+      "url": "https://en.wikipedia.org/w/api.php?action=featuredfeed&feed=potd&feedformat=atom",
+      "kind": "media-source",
+      "summary": "Daily featured picture with caption.",
+      "verification": "search-result",
+      "licence": "Per file (check the file page on Wikimedia Commons)",
+      "notes": "Same FeaturedFeeds API pattern; a Phabricator task notes POTD feeds carry no licence information, so open each file page.",
+      "cautions": [
+        "Licence and credit are per image and not included in the feed."
+      ],
+      "tags": [
+        "wikipedia",
+        "images"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "wikipedia-onthisday-rest",
+      "title": "Wikimedia REST 'onthisday' endpoint (example: events on 15 January)",
+      "url": "https://en.wikipedia.org/api/rest_v1/feed/onthisday/events/01/15",
+      "kind": "service",
+      "summary": "JSON list of events for a month/day (/feed/onthisday/{type}/{mm}/{dd}); easier to parse than the Atom feed.",
+      "verification": "search-result",
+      "licence": "CC-BY-SA-4.0 (text)",
+      "notes": "Endpoint shape from Wikimedia Phabricator tickets in search results; the service was being moved from RESTBase to wikifeeds, so check the current path.",
+      "cautions": [
+        "Send a descriptive User-Agent with contact details, as Wikimedia's API etiquette asks."
+      ],
+      "tags": [
+        "wikipedia",
+        "api",
+        "on-this-day"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "nasa-rss-index",
+      "title": "NASA RSS feeds index",
+      "url": "https://www.nasa.gov/rss-feeds",
+      "kind": "guidance",
+      "summary": "NASA's official list of feeds, including Image of the Day and news releases.",
+      "verification": "search-result",
+      "licence": "NASA media generally not copyrighted; follow NASA media usage guidelines and per-item credits",
+      "notes": "Official page returned in search results.",
+      "tags": [
+        "nasa",
+        "space",
+        "official"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "nasa-image-of-the-day",
+      "title": "NASA Image of the Day feed",
+      "url": "https://www.nasa.gov/feeds/iotd-feed/",
+      "kind": "media-source",
+      "summary": "Daily NASA image with caption.",
+      "verification": "search-result",
+      "licence": "NASA media generally not copyrighted; check credits (some images are from partners)",
+      "notes": "URL given by a feed directory; the official index lists an Image of the Day feed.",
+      "cautions": [
+        "Images credited to non-NASA partners can carry other rights; NASA logos and insignia are restricted."
+      ],
+      "tags": [
+        "nasa",
+        "images"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "nasa-news-releases",
+      "title": "NASA news releases feed",
+      "url": "https://www.nasa.gov/news-release/feed/",
+      "kind": "service",
+      "summary": "Recent NASA news releases.",
+      "verification": "search-result",
+      "licence": "Public domain (US Government work) unless noted",
+      "notes": "A feed directory reports the old breaking-news feed redirects here.",
+      "tags": [
+        "nasa",
+        "news"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "nasa-all-content",
+      "title": "NASA all-content feed",
+      "url": "https://www.nasa.gov/feed/",
+      "kind": "service",
+      "summary": "Everything NASA publishes on nasa.gov.",
+      "verification": "search-result",
+      "licence": "Public domain (US Government work) unless noted",
+      "notes": "URL from a feed directory in search results.",
+      "tags": [
+        "nasa"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "apod",
+      "title": "Astronomy Picture of the Day RSS",
+      "url": "https://apod.nasa.gov/apod.rss",
+      "kind": "media-source",
+      "summary": "Daily astronomy image with an expert explanation, since 1995.",
+      "verification": "search-result",
+      "licence": "Per image: many APOD images are copyrighted by their photographers",
+      "notes": "Listed by Harvard's TagTeam feed hub (last change recorded 19 December 2025); older APOD pages give an antwrp.gsfc.nasa.gov address for the same feed.",
+      "cautions": [
+        "APOD images are often not NASA's: check the credit line and get permission for copyrighted images."
+      ],
+      "tags": [
+        "space",
+        "images"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "google-trends-us",
+      "title": "Google Trends: trending now (US) RSS",
+      "url": "https://trends.google.com/trending/rss?geo=US",
+      "kind": "service",
+      "summary": "Currently trending US searches with approximate traffic and related news links; change geo= for other countries.",
+      "verification": "search-result",
+      "licence": "Google terms",
+      "notes": "Used by several third-party tools in search results; Google offers no official API for this list and may change it without notice.",
+      "cautions": [
+        "Trends show attention, not facts: research each topic from primary sources before scripting."
+      ],
+      "tags": [
+        "trends",
+        "topics"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "sciencedaily-all",
+      "title": "ScienceDaily: all news",
+      "url": "https://www.sciencedaily.com/rss/all.xml",
+      "kind": "service",
+      "summary": "All ScienceDaily research news summaries, updated as often as hourly.",
+      "verification": "search-result",
+      "licence": "Custom: headlines may be integrated with attribution and a link; no full-text reposting",
+      "licence_url": "https://www.sciencedaily.com/newsfeeds.htm",
+      "notes": "Listed on ScienceDaily's own newsfeeds page in search results.",
+      "cautions": [
+        "Summaries are press releases: read the linked paper before using any number."
+      ],
+      "tags": [
+        "science",
+        "news"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "smithsonian-latest",
+      "title": "Smithsonian Magazine: latest articles",
+      "url": "https://www.smithsonianmag.com/rss/latest_articles/",
+      "kind": "article",
+      "summary": "Latest Smithsonian Magazine articles on history, science and culture.",
+      "verification": "search-result",
+      "licence": "Publisher terms (Smithsonian Magazine)",
+      "notes": "Listed by a feed directory in search results.",
+      "tags": [
+        "history",
+        "science"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "smithsonian-smart-news",
+      "title": "Smithsonian Magazine: Smart News",
+      "url": "https://www.smithsonianmag.com/rss/smart-news/",
+      "kind": "article",
+      "summary": "Short daily science and history news items; well suited to 60-second fact topics.",
+      "verification": "search-result",
+      "licence": "Publisher terms (Smithsonian Magazine)",
+      "notes": "Listed by a feed directory in search results.",
+      "tags": [
+        "history",
+        "science",
+        "news"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "smithsonian-science-nature",
+      "title": "Smithsonian Magazine: Science & Nature",
+      "url": "https://www.smithsonianmag.com/rss/science-nature/",
+      "kind": "article",
+      "summary": "Science and nature articles.",
+      "verification": "search-result",
+      "licence": "Publisher terms (Smithsonian Magazine)",
+      "notes": "Listed by a feed directory in search results.",
+      "tags": [
+        "science"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "smithsonian-arts-culture",
+      "title": "Smithsonian Magazine: Arts & Culture",
+      "url": "https://www.smithsonianmag.com/rss/arts-culture/",
+      "kind": "article",
+      "summary": "Arts, culture and history articles.",
+      "verification": "search-result",
+      "licence": "Publisher terms (Smithsonian Magazine)",
+      "notes": "Listed by a feed directory in search results.",
+      "tags": [
+        "history",
+        "culture"
+      ],
+      "verified_on": "2026-10-10"
+    }
+  ]
+}

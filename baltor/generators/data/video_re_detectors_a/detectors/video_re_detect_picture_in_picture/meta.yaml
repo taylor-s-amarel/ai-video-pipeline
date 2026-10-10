@@ -1,0 +1,14 @@
+title: Detect picture-in-picture insets
+summary: Finds inset windows (facecams, reaction clips, overlaid photos) as rectangles whose outline stays put while the pictures change, with corner, margins, border, drop-shadow direction and on-screen interval.
+description: >-
+  Computes edge persistence per one-second window, pairs persistent straight runs into rectangles, merges nested
+  rectangles into a bordered inset, compares bands outside opposite sides for a drop shadow and links windows by
+  overlap into time intervals.
+tags: [picture-in-picture, inset, facecam, overlay, layout]
+limits:
+  - Static backgrounds with rectangular structure lower the support and can produce false insets.
+  - Moving or scaling insets are only linked while consecutive windows overlap by IoU >= 0.6.
+  - Timing resolution is one window (default 1 s).
+contract:
+  title: Picture-in-picture payload
+  summary: JSON Schema for the picture-in-picture payload - insets with bbox, corner, margins, border, shadow direction, start and end time and edge support.

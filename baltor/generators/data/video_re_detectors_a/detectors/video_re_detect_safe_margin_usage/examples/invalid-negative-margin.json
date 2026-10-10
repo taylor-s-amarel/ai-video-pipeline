@@ -1,0 +1,10 @@
+{
+  "min_margin_px": { "top": -5, "bottom": 168, "left": 72 },
+  "min_margin_ratio": null,
+  "p10_margin_px": null,
+  "closest_t_s": null,
+  "source": "ocr",
+  "windows_with_overlay": 31,
+  "static_background": false,
+  "frames_analysed": 128
+}

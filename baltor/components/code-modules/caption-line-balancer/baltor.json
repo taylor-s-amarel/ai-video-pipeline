@@ -1,0 +1,50 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "caption_line_balancer",
+  "title": "Caption line balancer",
+  "kind": "code-module",
+  "subkind": "caption-style",
+  "version": "1.0.0",
+  "summary": "Splits a caption into one or two lines of balanced rendered width measured with the real font via Pillow, avoiding function-word and number-unit breaks.",
+  "domain": "captions",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "caption_line_balancer.py",
+  "tags": [
+    "captions",
+    "line-breaking",
+    "typography",
+    "pillow",
+    "readability"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

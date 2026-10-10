@@ -1,0 +1,6 @@
+title: Block-matching motion estimator
+summary: Estimates global camera motion between frames by SAD block matching on textured blocks (median vector plus agreement confidence) to verify pan direction, drift and shake.
+subkind: evaluator
+domain: video
+tags: [video, motion, block-matching, camera, qa, numpy]
+step_kinds: [verify, measure]

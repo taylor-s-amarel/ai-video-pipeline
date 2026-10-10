@@ -1,0 +1,12 @@
+{
+  "nominal_fps": 30.0,
+  "avg_fps": 30.0,
+  "effective_fps": 15.0,
+  "duplicate_ratio": 0.4983,
+  "cadence": "on-twos",
+  "hold_pattern": [2],
+  "vfr": false,
+  "interval_ms": { "median": 33.333, "min": 33.333, "max": 33.334, "cv": 0.0 },
+  "active_share": 0.962,
+  "frames_analysed": 600
+}

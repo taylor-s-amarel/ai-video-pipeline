@@ -1,0 +1,57 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "ffmpeg_encode_profiles",
+  "title": "ffmpeg encode profiles",
+  "kind": "code-module",
+  "subkind": "render-recipe",
+  "version": "1.0.0",
+  "summary": "Named house encode profiles (vertical and landscape H.264 delivery with faststart and fixed GOP, small review proxy, lossless FFV1 master) that produce complete ffmpeg argv lists.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "render",
+    "publish"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "ffmpeg_encode_profiles.py",
+  "tags": [
+    "video",
+    "ffmpeg",
+    "encoding",
+    "h264",
+    "delivery",
+    "presets"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "ffmpeg",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

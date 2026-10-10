@@ -1,0 +1,383 @@
+{
+  "spec": "baltor.feed-collection/v1",
+  "id": "community-creator-marketing-security-voices",
+  "title": "Creator platform policy, creator economy, marketing and security sources",
+  "description": "Official YouTube, Meta and TikTok policy sources that decide whether faceless and AI-assisted channels can monetise, creator-economy publications, search-marketing news and defensive security feeds.",
+  "updated": "2026-10-10",
+  "tags": [
+    "community-sources",
+    "creators",
+    "policy",
+    "marketing",
+    "seo",
+    "security"
+  ],
+  "items": [
+    {
+      "id": "youtube-monetization-policies",
+      "title": "YouTube channel monetization policies (inauthentic and reused content)",
+      "url": "https://support.google.com/youtube/answer/1311392",
+      "kind": "guidance",
+      "summary": "Official YouTube Partner Program policy. On 15 July 2025 'repetitious content' was renamed 'inauthentic content' and clarified to cover mass-produced or repetitive uploads; it applies channel-wide and regardless of whether AI was used. Reused-content rules (clips, compilations, reactions) were unchanged.",
+      "verification": "search-result",
+      "licence": "YouTube Help content",
+      "licence_url": "https://support.google.com/youtube/answer/1311392",
+      "notes": "Official page returned in search results; summary combines the page and coverage quoting it. Re-read before each new series format.",
+      "cautions": [
+        "A faceless series must differ visibly from video to video (topic, script, visuals); near-identical narrated slideshows can cost monetisation for the whole channel."
+      ],
+      "tags": [
+        "youtube",
+        "policy",
+        "monetization",
+        "faceless"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "youtube-altered-synthetic-disclosure",
+      "title": "YouTube: disclosing use of altered or synthetic content",
+      "url": "https://support.google.com/youtube/answer/14328491",
+      "kind": "guidance",
+      "summary": "Official help page: creators must disclose realistic altered or synthetic content (a real person saying something they did not, altered real events, realistic invented scenes). Clearly unrealistic, animated or effects content and production assistance are exempt.",
+      "verification": "search-result",
+      "licence": "YouTube Help content",
+      "licence_url": "https://support.google.com/youtube/answer/14328491",
+      "notes": "Official page returned in search results; introduced March 2024. A May 2026 labelling update was mentioned by a third party but not confirmed.",
+      "cautions": [
+        "Repeated non-disclosure can lead to removal or YouTube Partner Program suspension."
+      ],
+      "tags": [
+        "youtube",
+        "policy",
+        "ai-disclosure"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "youtube-blog-ai-disclosure",
+      "title": "YouTube Official Blog: how we're helping creators disclose altered or synthetic content",
+      "url": "https://blog.youtube/news-and-events/disclosing-ai-generated-content",
+      "kind": "article",
+      "summary": "YouTube's announcement of the altered or synthetic content disclosure tool.",
+      "verification": "search-result",
+      "licence": "YouTube blog content",
+      "notes": "Returned in search results. A native YouTube blog feed could not be confirmed (sources conflicted).",
+      "tags": [
+        "youtube",
+        "policy",
+        "ai-disclosure"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "meta-unoriginal-content",
+      "title": "Meta for Creators: combating unoriginal content on Facebook",
+      "url": "https://creators.facebook.com/blog/combating-unoriginal-content",
+      "kind": "guidance",
+      "summary": "Meta's 14 July 2025 announcement: accounts that repeatedly repost others' videos, photos or text without credit or meaningful changes lose monetisation access for a period and get reduced distribution; reshares with commentary or a unique take remain welcome.",
+      "verification": "search-result",
+      "licence": "Meta content",
+      "notes": "Post URL appeared in search results; details come from press coverage quoting it (Tubefilter, Medianama).",
+      "cautions": [
+        "Applies to Facebook monetisation; credit and transform any third-party material, or better, use only your own and licensed media."
+      ],
+      "tags": [
+        "facebook",
+        "meta",
+        "policy",
+        "monetization"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "tubefilter-meta-unoriginal",
+      "title": "Tubefilter: the fight against unoriginal content is coming to Facebook",
+      "url": "https://www.tubefilter.com/2025/07/15/ai-slop-unoriginal-repetitive-content-monetization-facebook-meta/",
+      "kind": "article",
+      "summary": "Coverage of Meta's unoriginal-content policy and its link to YouTube's inauthentic-content change.",
+      "verification": "search-result",
+      "licence": "Publisher terms",
+      "tags": [
+        "facebook",
+        "policy",
+        "creator-economy"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "tiktok-ai-labels-smt",
+      "title": "Social Media Today: TikTok launches labels for AI-generated content",
+      "url": "https://www.socialmediatoday.com/news/tiktok-officially-launches-new-stream-labels-ai-generated-content/694154/",
+      "kind": "article",
+      "summary": "Coverage of TikTok's AI-generated content label (launched September 2023); TikTok's guidelines require labelling realistic AI depictions of people or scenes and it auto-labels some content via C2PA Content Credentials.",
+      "verification": "search-result",
+      "licence": "Publisher terms",
+      "notes": "TikTok's own support article was not found in search results; check TikTok's Support Center for the current rule.",
+      "tags": [
+        "tiktok",
+        "policy",
+        "ai-disclosure"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "tubefilter-creator-economy",
+      "title": "Tubefilter: creator economy section",
+      "url": "https://www.tubefilter.com/category/creator-economy/",
+      "kind": "article",
+      "summary": "Near-daily creator-economy news (founded 2007): platform deals, creator funds, monetisation changes.",
+      "verification": "search-result",
+      "licence": "Publisher terms",
+      "notes": "Category page confirmed in search results; the feed URL was not confirmed, so use autodiscovery.",
+      "tags": [
+        "creator-economy",
+        "news"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "publish-press",
+      "title": "The Publish Press (Colin and Samir)",
+      "url": "https://news.thepublishpress.com/",
+      "kind": "article",
+      "summary": "Creator-economy newsletter from Colin and Samir, published several times a week since May 2021, hosted on beehiiv.",
+      "verification": "search-result",
+      "licence": "All rights reserved by the publisher",
+      "notes": "Publication pages confirmed in search results; no feed URL confirmed.",
+      "tags": [
+        "creator-economy",
+        "newsletter",
+        "youtube-strategy"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "colin-samir-new-rules-youtube",
+      "title": "Colin and Samir: the new rules of YouTube from Paddy Galloway",
+      "url": "https://www.colinandsamir.com/resources/the-new-rules-of-youtube-from-paddy-galloway",
+      "kind": "article",
+      "summary": "Resource page on YouTube strategy from a widely cited YouTube strategist; useful for packaging (titles, thumbnails) and niche strategy.",
+      "verification": "search-result",
+      "licence": "All rights reserved by the publisher",
+      "tags": [
+        "youtube-strategy"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "creator-science",
+      "title": "Creator Science podcast (Jay Clouse)",
+      "url": "https://podcast.creatorscience.com/about/",
+      "kind": "article",
+      "summary": "Interview podcast with working creators on growth and business (formerly Creative Elements).",
+      "verification": "search-result",
+      "licence": "All rights reserved by the publisher",
+      "notes": "Site confirmed in search results; podcast RSS URL not confirmed (check the site's RSS link).",
+      "tags": [
+        "creator-economy",
+        "podcast"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "search-engine-land",
+      "title": "Search Engine Land RSS",
+      "url": "https://searchengineland.com/feed",
+      "kind": "service",
+      "summary": "Search marketing news: Google updates, SEO and paid search.",
+      "verification": "search-result",
+      "licence": "Publisher terms",
+      "notes": "Feed directory in search results lists this URL (a FeedBurner address also exists).",
+      "tags": [
+        "seo",
+        "news"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "search-engine-roundtable",
+      "title": "Search Engine Roundtable RSS",
+      "url": "https://www.seroundtable.com/index.xml",
+      "kind": "service",
+      "summary": "Daily coverage of search-engine ranking changes and Google statements; a full-text feed is also offered.",
+      "verification": "search-result",
+      "licence": "Publisher terms",
+      "notes": "URL listed on the site's own subscribe page in search results (full feed: index-full.rdf).",
+      "tags": [
+        "seo",
+        "news"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "google-search-central-blog",
+      "title": "Google Search Central Blog",
+      "url": "https://developers.google.com/search/blog",
+      "kind": "guidance",
+      "summary": "Official Google Search announcements: ranking updates, structured data and spam policies.",
+      "verification": "search-result",
+      "licence": "Google Developers site terms",
+      "notes": "The page says it offers an RSS feed; the exact feed URL was not confirmed, so use autodiscovery.",
+      "tags": [
+        "seo",
+        "official"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "krebs-on-security",
+      "title": "Krebs on Security",
+      "url": "https://krebsonsecurity.com/feed/",
+      "kind": "article",
+      "summary": "Investigative security journalism on breaches and cybercrime.",
+      "verification": "search-result",
+      "licence": "All rights reserved by the author",
+      "notes": "Feed listed by FeedSpot, Feeder and Harvard's TagTeam hub in search results.",
+      "tags": [
+        "security",
+        "news"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "cisa-advisories",
+      "title": "CISA cybersecurity advisories (all)",
+      "url": "https://www.cisa.gov/cybersecurity-advisories/all.xml",
+      "kind": "service",
+      "summary": "All CISA cybersecurity advisories; related feeds cover alerts, ICS advisories and Known Exploited Vulnerabilities updates.",
+      "verification": "search-result",
+      "licence": "Public domain (US Government work) unless marked",
+      "notes": "Listed by several feed directories in search results; old us-cert.cisa.gov feeds reportedly redirect.",
+      "tags": [
+        "security",
+        "advisories",
+        "official"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "seth-godin",
+      "title": "Seth Godin",
+      "url": "https://seths.blog/feed/atom/",
+      "summary": "Short daily posts on marketing and creative work.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "marketing"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "benedict-evans",
+      "title": "Benedict Evans",
+      "url": "https://www.ben-evans.com/benedictevans?format=rss",
+      "summary": "Technology strategy essays and presentations.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "strategy"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "schneier",
+      "title": "Schneier on Security",
+      "url": "https://www.schneier.com/feed/atom/",
+      "summary": "Security and policy commentary.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "security"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "troy-hunt",
+      "title": "Troy Hunt",
+      "url": "https://www.troyhunt.com/rss/",
+      "summary": "Data breaches and web security from the creator of Have I Been Pwned.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "security",
+        "breaches"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "filippo-valsorda",
+      "title": "Filippo Valsorda",
+      "url": "https://words.filippo.io/rss/",
+      "summary": "Cryptography engineering and Go security.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "security",
+        "cryptography"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    },
+    {
+      "id": "matthew-green",
+      "title": "Matthew Green: A Few Thoughts on Cryptographic Engineering",
+      "url": "https://blog.cryptographyengineering.com/feed/",
+      "summary": "Applied cryptography commentary.",
+      "kind": "article",
+      "licence": "All rights reserved by the author unless the site states otherwise",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "blog",
+        "personal-site",
+        "rss",
+        "security",
+        "cryptography"
+      ],
+      "notes": "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network.",
+      "cautions": [
+        "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+      ]
+    }
+  ]
+}

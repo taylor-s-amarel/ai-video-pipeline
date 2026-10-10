@@ -247,7 +247,7 @@
   why: "Shows pacing shape (flat, peaks at items, burst in hook) for the compiler."
   how: "Count shot starts per 10 s window; list counts in order."
   evidence: ["evidence.shots[].start_s"]
-  ir_path: "/timeline/cut_rate_per_min"
+  ir_path: "/generation_rules/-"
   type: list
   challenge: "The last window is usually partial; normalise it or mark it."
 
@@ -261,12 +261,12 @@
   challenge: "Stills with no Ken Burns also show zero difference; a freeze must follow moving footage in the same shot."
 
 - id: pacing_cut_rhythm-030
-  question: "How many of the detected cuts are false positives (flashes, fast pans, text pops) when 10 are spot-checked?"
+  question: "After spot-checking 10 detected cuts for false positives (flashes, fast pans, text pops), what is the corrected cut rate per minute?"
   why: "Calibrates trust in shot_stats for this video."
-  how: "Pick 10 cuts at random from evidence.shots[]; inspect F8 at each; count those that are not real shot changes."
+  how: "Pick 10 cuts at random from evidence.shots[]; inspect F8 at each; scale shot_stats.cut_rate_per_min by the share of real cuts. List the sampled cut times in the note."
   evidence: ["evidence.shots[]", "frames: F8 at 10 cuts"]
   ir_path: "/timeline/cut_rate_per_min"
-  type: object
+  type: number
   challenge: "Report which cuts were sampled so the check can be repeated."
 
 - id: pacing_cut_rhythm-031

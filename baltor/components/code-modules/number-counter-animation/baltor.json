@@ -1,0 +1,61 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "number_counter_animation",
+  "title": "Number counter animation",
+  "kind": "code-module",
+  "subkind": "text-animation",
+  "version": "1.0.0",
+  "summary": "Eased count-up/count-down frames with thousands separators, decimals, prefix and suffix that land exactly on the final number, plus a self-evaluating ffmpeg drawtext counter.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "number_counter_animation.py",
+  "tags": [
+    "video",
+    "numbers",
+    "counter",
+    "kinetic-typography",
+    "drawtext",
+    "facts"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "ffmpeg",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "examples": [
+    "Count up to '1,000 dogs' over 1.2 seconds",
+    "Show 86.5% counting from zero"
+  ],
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

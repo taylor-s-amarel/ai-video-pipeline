@@ -1,0 +1,134 @@
+{
+  "rules": [
+    "These prompts are instructions for bounded work, not magic guarantees.",
+    "Fill their inputs with actual project data.",
+    "If an input is missing, mark it unresolved rather than inventing a source, license, test result, or customer preference.",
+    "Each prompt should result in a concrete artifact or decision that can be reviewed.",
+    "Keep the prompt, actual inputs, output, model/tool version when known, and human correction.",
+    "Do not infer that a successful output can be reproduced from the prompt alone.",
+    "Preserve generated assets and exact source bytes.",
+    "Use the prompts selectively; running all of them for every minor revision would waste effort."
+  ],
+  "templates": [
+    {
+      "title": "Audit an existing creative project",
+      "command": "audit_existing_creative_project",
+      "anchor": "audit-an-existing-creative-project"
+    },
+    {
+      "title": "Research a rendering route",
+      "command": "research_rendering_route_for_scene",
+      "anchor": "research-a-rendering-route"
+    },
+    {
+      "title": "Develop a rich original background",
+      "command": "develop_rich_original_background",
+      "anchor": "develop-a-rich-original-background"
+    },
+    {
+      "title": "Ground a character in the scene",
+      "command": "ground_character_in_scene",
+      "anchor": "ground-a-character-in-the-scene"
+    },
+    {
+      "title": "Design progressive-size counting",
+      "command": "design_progressive_size_counting",
+      "anchor": "design-progressive-size-counting"
+    },
+    {
+      "title": "Improve a dance cycle",
+      "command": "improve_dance_cycle",
+      "anchor": "improve-a-dance-cycle"
+    },
+    {
+      "title": "Adapt the performance to a bunny",
+      "command": "adapt_performance_to_bunny",
+      "anchor": "adapt-the-performance-to-a-bunny"
+    },
+    {
+      "title": "Add continuous camera motion",
+      "command": "add_continuous_camera_motion",
+      "anchor": "add-continuous-camera-motion"
+    },
+    {
+      "title": "Design a moving border",
+      "command": "design_moving_border",
+      "anchor": "design-a-moving-border"
+    },
+    {
+      "title": "Build the twenty-plus-layer composition",
+      "command": "build_twenty_plus_layer_composition",
+      "anchor": "build-the-twenty-plus-layer-composition"
+    },
+    {
+      "title": "Write an original meme episode",
+      "command": "write_original_meme_episode",
+      "anchor": "write-an-original-meme-episode"
+    },
+    {
+      "title": "Make an honest before-and-after comparison",
+      "command": "make_honest_before_after_comparison",
+      "anchor": "make-an-honest-before-and-after-comparison"
+    },
+    {
+      "title": "Evaluate a historical anomaly scene",
+      "command": "evaluate_historical_anomaly_scene",
+      "anchor": "evaluate-a-historical-anomaly-scene"
+    },
+    {
+      "title": "Verify a final media file",
+      "command": "verify_final_media_file_bytes",
+      "anchor": "verify-a-final-media-file"
+    },
+    {
+      "title": "Reopen the source package",
+      "command": "reopen_source_package",
+      "anchor": "reopen-the-source-package"
+    },
+    {
+      "title": "Extract a reusable component",
+      "command": "extract_reusable_component_from_episode",
+      "anchor": "extract-a-reusable-component"
+    },
+    {
+      "title": "Research a competitor without inventing traction",
+      "command": "research_competitor_without_inventing_traction",
+      "anchor": "research-a-competitor-without-inventing-traction"
+    },
+    {
+      "title": "Plan a showcase page",
+      "command": "plan_showcase_page",
+      "anchor": "plan-a-showcase-page"
+    },
+    {
+      "title": "Diagnose a failed render and recover safely",
+      "command": "diagnose_failed_render_and_recover_safely",
+      "anchor": "diagnose-a-failed-render-and-recover-safely"
+    },
+    {
+      "title": "Challenge the design before scaling it",
+      "command": "challenge_design_before_scaling",
+      "anchor": "challenge-the-design-before-scaling-it"
+    },
+    {
+      "title": "Expand variety without padding",
+      "command": "expand_variety_without_padding",
+      "anchor": "expand-variety-without-padding"
+    },
+    {
+      "title": "Write a funny suspenseful story before rendering",
+      "command": "write_funny_suspenseful_story_before_rendering",
+      "anchor": "write-a-funny-suspenseful-story-before-rendering"
+    },
+    {
+      "title": "Adopt one physics interaction",
+      "command": "adopt_one_physics_interaction",
+      "anchor": "adopt-one-physics-interaction"
+    },
+    {
+      "title": "Audition narration honestly",
+      "command": "audition_narration_honestly",
+      "anchor": "audition-narration-honestly"
+    }
+  ]
+}

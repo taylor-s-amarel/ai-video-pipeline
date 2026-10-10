@@ -1,0 +1,63 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "whisper_word_timestamps_adapter",
+  "title": "Whisper word timestamps adapter",
+  "kind": "code-module",
+  "subkind": "api-client",
+  "version": "1.0.0",
+  "summary": "Normalises word timestamps from faster-whisper (run locally, lazily imported) and openai-whisper results into one monotonic word list for caption timing.",
+  "domain": "captions",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "declared",
+    "executes": "python",
+    "secrets": [],
+    "hosts": [
+      "huggingface.co"
+    ],
+    "side_effects": [
+      "faster-whisper downloads model weights from the Hugging Face Hub on first use and caches them locally"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "whisper_word_timestamps_adapter.py",
+  "tags": [
+    "captions",
+    "asr",
+    "whisper",
+    "faster-whisper",
+    "word-timestamps",
+    "alignment"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "faster_whisper",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

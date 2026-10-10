@@ -1,0 +1,754 @@
+[
+  {
+    "id": "AVQ-019-001",
+    "domain_id": "D019",
+    "area": "transitions and editing",
+    "question": "Does the cut preserve the moving subject's screen direction when viewers need to track a continuous journey?",
+    "failure_hypothesis": "A direction reversal implies a turn that never happened.",
+    "check_or_fix": "Insert an orienting shot or choose directionally consistent coverage.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "storyboard",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7292,
+    "passes": [
+      "default_32",
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-019-002",
+    "domain_id": "D019",
+    "area": "transitions and editing",
+    "question": "Is a jump across the action axis motivated by a visible crossing or a clear new orientation?",
+    "failure_hypothesis": "Unsignaled axis crossing reverses spatial relationships.",
+    "check_or_fix": "Establish the new axis before relying on left-right meaning.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "storyboard",
+      "edit"
+    ],
+    "style_filters": [
+      "live-action",
+      "fiction",
+      "3d"
+    ],
+    "source_line": 7294,
+    "passes": [
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-019-003",
+    "domain_id": "D019",
+    "area": "transitions and editing",
+    "question": "Does an action match join the same physical phase rather than replaying or skipping the decisive movement?",
+    "failure_hypothesis": "The cut duplicates or omits part of one action.",
+    "check_or_fix": "Align contact and limb landmarks across both takes.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7296,
+    "passes": [
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-019-004",
+    "domain_id": "D019",
+    "area": "transitions and editing",
+    "question": "Does the viewer's gaze land near the next shot's important subject after the cut?",
+    "failure_hypothesis": "A large unprepared attention jump hides the next event.",
+    "check_or_fix": "Reframe, delay the event, or guide gaze before cutting.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "storyboard",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7298,
+    "passes": [
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-019-005",
+    "domain_id": "D019",
+    "area": "transitions and editing",
+    "question": "Is a dissolve briefly creating a false composite count, relationship, or impossible object?",
+    "failure_hypothesis": "Overlapping shots produce misleading intermediate evidence.",
+    "check_or_fix": "Inspect transition frames and use a clean cut for exact evidence.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "educational",
+      "puzzle"
+    ],
+    "source_line": 7300,
+    "passes": [
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-019-006",
+    "domain_id": "D019",
+    "area": "transitions and editing",
+    "question": "Does a wipe reveal scene information in a deliberate order rather than cover the clue at the crucial moment?",
+    "failure_hypothesis": "Transition geometry dictates an unintended information sequence.",
+    "check_or_fix": "Align the wipe path with the intended reveal order.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "puzzle",
+      "educational"
+    ],
+    "source_line": 7302,
+    "passes": [
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-019-007",
+    "domain_id": "D019",
+    "area": "transitions and editing",
+    "question": "Are match cuts based on meaningful shared form or action, rather than a resemblance too weak to read?",
+    "failure_hypothesis": "The conceptual connection depends on an unnoticed visual match.",
+    "check_or_fix": "Test the cut without explanation and strengthen the common anchor.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "storyboard",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7304,
+    "passes": [
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-019-008",
+    "domain_id": "D019",
+    "area": "transitions and editing",
+    "question": "Does a temporal jump make elapsed time legible without being mistaken for continuous action?",
+    "failure_hypothesis": "A cut compresses time while preserving misleading continuity cues.",
+    "check_or_fix": "Add a changed-state cue or concise elapsed-time marker.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7306,
+    "passes": [
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-019-009",
+    "domain_id": "D019",
+    "area": "transitions and editing",
+    "question": "Can viewers identify a location change before interpreting the next action?",
+    "failure_hypothesis": "A new setting inherits the previous scene's spatial assumptions.",
+    "check_or_fix": "Establish one distinctive spatial cue before the action.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "storyboard",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7308,
+    "passes": []
+  },
+  {
+    "id": "AVQ-019-010",
+    "domain_id": "D019",
+    "area": "transitions and editing",
+    "question": "Does an inserted reaction shot belong to the event and moment viewers are likely to attribute to it?",
+    "failure_hypothesis": "Editorial juxtaposition fabricates a response or relationship.",
+    "check_or_fix": "Verify take context and use an honestly corresponding reaction.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "edit"
+    ],
+    "style_filters": [
+      "live-action"
+    ],
+    "source_line": 7310,
+    "passes": []
+  },
+  {
+    "id": "AVQ-019-011",
+    "domain_id": "D019",
+    "area": "transitions and editing",
+    "question": "Does a cutaway conceal the only evidence that an operation actually succeeded?",
+    "failure_hypothesis": "Editing replaces observable completion with an implied result.",
+    "check_or_fix": "Retain the critical completion interval or label the discontinuity.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "edit"
+    ],
+    "style_filters": [
+      "screen-recording",
+      "educational"
+    ],
+    "source_line": 7312,
+    "passes": []
+  },
+  {
+    "id": "AVQ-019-012",
+    "domain_id": "D019",
+    "area": "transitions and editing",
+    "question": "Are transition effects consistent with the distinction between memory, imagination, and present action?",
+    "failure_hypothesis": "The same visual grammar marks incompatible narrative states.",
+    "check_or_fix": "Assign a readable transition rule to each state.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7314,
+    "passes": []
+  },
+  {
+    "id": "AVQ-019-013",
+    "domain_id": "D019",
+    "area": "transitions and editing",
+    "question": "Does the return from an insert reestablish the subject's position after the audience has lost spatial context?",
+    "failure_hypothesis": "A close detail interrupts tracking without a way back.",
+    "check_or_fix": "Return to a matching anchor or include an orienting view.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "storyboard",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7316,
+    "passes": []
+  },
+  {
+    "id": "AVQ-019-014",
+    "domain_id": "D019",
+    "area": "transitions and editing",
+    "question": "Is a hidden cut exposed by a mismatch in texture, object position, or movement speed?",
+    "failure_hypothesis": "A supposedly seamless join contains a local discontinuity.",
+    "check_or_fix": "Compare both sides frame by frame and repair or make the cut explicit.",
+    "severity": "medium",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7318,
+    "passes": []
+  },
+  {
+    "id": "AVQ-019-015",
+    "domain_id": "D019",
+    "area": "transitions and editing",
+    "question": "Does a crossfade between faces or text create a distracting hybrid expression or unreadable word?",
+    "failure_hypothesis": "Blended semantic features attract attention to the transition itself.",
+    "check_or_fix": "Shorten the overlap or choose a nonblending transition.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "edit"
+    ],
+    "style_filters": [
+      "live-action",
+      "typographic",
+      "cutout",
+      "fiction"
+    ],
+    "source_line": 7320,
+    "passes": []
+  },
+  {
+    "id": "AVQ-019-016",
+    "domain_id": "D019",
+    "area": "transitions and editing",
+    "question": "Is the shot sequence using eyelines that point toward the intended person or object?",
+    "failure_hypothesis": "Mismatched look direction connects the wrong spatial targets.",
+    "check_or_fix": "Plot eyelines and replace or reposition inconsistent coverage.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "edit"
+    ],
+    "style_filters": [
+      "live-action",
+      "fiction",
+      "3d",
+      "cutout"
+    ],
+    "source_line": 7322,
+    "passes": []
+  },
+  {
+    "id": "AVQ-019-017",
+    "domain_id": "D019",
+    "area": "transitions and editing",
+    "question": "Does the edit accidentally imply that two simultaneous processes happened one after another?",
+    "failure_hypothesis": "Sequential presentation changes the timing relationship.",
+    "check_or_fix": "Add overlap, split-screen, or an explicit simultaneity cue.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "edit"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7324,
+    "passes": []
+  },
+  {
+    "id": "AVQ-019-018",
+    "domain_id": "D019",
+    "area": "transitions and editing",
+    "question": "Do split-screen panels remain synchronized at meaningful events after separate retiming?",
+    "failure_hypothesis": "Independent edits fabricate a comparative advantage or delay.",
+    "check_or_fix": "Lock shared landmarks to one time reference.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "educational",
+      "screen-recording"
+    ],
+    "source_line": 7326,
+    "passes": []
+  },
+  {
+    "id": "AVQ-019-019",
+    "domain_id": "D019",
+    "area": "transitions and editing",
+    "question": "Is an L-cut carrying dialogue into a shot where viewers might attribute it to the wrong speaker?",
+    "failure_hypothesis": "Continued speech is reassigned by the new image.",
+    "check_or_fix": "Clarify speaker identity or change the cut point.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "edit"
+    ],
+    "style_filters": [
+      "live-action",
+      "fiction"
+    ],
+    "source_line": 7328,
+    "passes": []
+  },
+  {
+    "id": "AVQ-019-020",
+    "domain_id": "D019",
+    "area": "transitions and editing",
+    "question": "Does a J-cut reveal a place, person, or answer earlier than the visual story intends?",
+    "failure_hypothesis": "Incoming sound spoils a planned visual reveal.",
+    "check_or_fix": "Check the reveal once without prior knowledge and move the audio entrance.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "fiction",
+      "puzzle"
+    ],
+    "source_line": 7330,
+    "passes": []
+  },
+  {
+    "id": "AVQ-019-021",
+    "domain_id": "D019",
+    "area": "transitions and editing",
+    "question": "Do alternating close-ups preserve the number and identity of objects in the shared scene?",
+    "failure_hypothesis": "Coverage changes make one object look like several or vice versa.",
+    "check_or_fix": "Maintain distinctive identifiers and a confirming wide shot.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "edit"
+    ],
+    "style_filters": [
+      "puzzle",
+      "educational"
+    ],
+    "source_line": 7332,
+    "passes": []
+  },
+  {
+    "id": "AVQ-019-022",
+    "domain_id": "D019",
+    "area": "transitions and editing",
+    "question": "Does cutting on every musical beat flatten the distinction between important actions and decorative motion?",
+    "failure_hypothesis": "Beat-grid obedience overrides editorial emphasis.",
+    "check_or_fix": "Reserve selected cuts for meaningful events and let minor beats pass.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7334,
+    "passes": []
+  },
+  {
+    "id": "AVQ-019-023",
+    "domain_id": "D019",
+    "area": "transitions and editing",
+    "question": "Does a transition rely on motion blur that removes evidence viewers need to verify continuity?",
+    "failure_hypothesis": "Visual concealment masks inconsistent scene state.",
+    "check_or_fix": "Inspect clean boundary frames and repair underlying continuity.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7336,
+    "passes": []
+  },
+  {
+    "id": "AVQ-019-024",
+    "domain_id": "D019",
+    "area": "transitions and editing",
+    "question": "Are freeze-frame inserts clearly intentional rather than accidental dropped motion?",
+    "failure_hypothesis": "Unmarked frozen footage resembles playback failure.",
+    "check_or_fix": "Add an editorial cue or preserve subtle contextual motion.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7338,
+    "passes": []
+  },
+  {
+    "id": "AVQ-019-025",
+    "domain_id": "D019",
+    "area": "transitions and editing",
+    "question": "Does a black-frame punctuation create an unintended apparent end before more essential content follows?",
+    "failure_hypothesis": "A long black interval triggers abandonment.",
+    "check_or_fix": "Shorten the gap or keep an unmistakable continuation cue.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "edit",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7340,
+    "passes": []
+  },
+  {
+    "id": "AVQ-019-026",
+    "domain_id": "D019",
+    "area": "transitions and editing",
+    "question": "Is the transition out of a screen recording hiding a click or system response needed to reproduce the task?",
+    "failure_hypothesis": "Edit compression removes a necessary interaction.",
+    "check_or_fix": "Keep the command and resulting state together or annotate the omission.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "edit"
+    ],
+    "style_filters": [
+      "screen-recording",
+      "educational"
+    ],
+    "source_line": 7342,
+    "passes": []
+  },
+  {
+    "id": "AVQ-019-027",
+    "domain_id": "D019",
+    "area": "transitions and editing",
+    "question": "Does the edit preserve a physical object's trajectory through an occlusion rather than teleport it to a convenient position?",
+    "failure_hypothesis": "Occlusion is used to disguise an impossible path.",
+    "check_or_fix": "Compare pre/post-occlusion position and plausible travel time.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit"
+    ],
+    "style_filters": [
+      "3d",
+      "cutout",
+      "live-action",
+      "stop-motion",
+      "fiction"
+    ],
+    "source_line": 7344,
+    "passes": []
+  },
+  {
+    "id": "AVQ-019-028",
+    "domain_id": "D019",
+    "area": "transitions and editing",
+    "question": "Are parallel cuts suggesting causation where only coincidence is supported?",
+    "failure_hypothesis": "Juxtaposition converts correlation into an apparent causal link.",
+    "check_or_fix": "Reorder or label the relationship to match the evidence.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "edit"
+    ],
+    "style_filters": [
+      "educational",
+      "live-action"
+    ],
+    "source_line": 7346,
+    "passes": []
+  },
+  {
+    "id": "AVQ-019-029",
+    "domain_id": "D019",
+    "area": "transitions and editing",
+    "question": "Does an aspect-ratio change carry meaning or merely distract at a scene boundary?",
+    "failure_hypothesis": "Unexplained framing shifts feel like an export or source mismatch.",
+    "check_or_fix": "Standardize framing or establish the narrative reason for the shift.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "storyboard",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7348,
+    "passes": []
+  },
+  {
+    "id": "AVQ-019-030",
+    "domain_id": "D019",
+    "area": "transitions and editing",
+    "question": "Does the final cut remove the last tiny movement required to see an object settle or a gesture finish?",
+    "failure_hypothesis": "Action is truncated at nominal contact rather than perceptual completion.",
+    "check_or_fix": "Include recovery and check the endpoint at normal speed.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7350,
+    "passes": []
+  },
+  {
+    "id": "AVQ-019-031",
+    "domain_id": "D019",
+    "area": "transitions and editing",
+    "question": "Are alternate takes introducing continuity errors in prop state, costume, or handedness that affect understanding?",
+    "failure_hypothesis": "The edit joins incompatible world states.",
+    "check_or_fix": "Audit story-relevant state on both sides of every coverage change.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "edit"
+    ],
+    "style_filters": [
+      "live-action",
+      "stop-motion",
+      "fiction"
+    ],
+    "source_line": 7352,
+    "passes": []
+  },
+  {
+    "id": "AVQ-019-032",
+    "domain_id": "D019",
+    "area": "transitions and editing",
+    "question": "If an elaborate transition is replaced with a straight cut, what comprehension or emotion is actually lost?",
+    "failure_hypothesis": "Decorative transitions add workload without serving the story.",
+    "check_or_fix": "Compare a plain-cut version and retain only purposeful complexity.",
+    "severity": "low",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7354,
+    "passes": []
+  }
+]

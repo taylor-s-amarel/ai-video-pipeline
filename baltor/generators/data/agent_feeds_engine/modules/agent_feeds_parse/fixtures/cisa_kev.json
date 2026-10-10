@@ -1,0 +1,10 @@
+{
+  "title": "CISA Catalog of Known Exploited Vulnerabilities",
+  "catalogVersion": "2099.10.10",
+  "dateReleased": "2099-10-10T14:00:00.0000Z",
+  "count": 2,
+  "vulnerabilities": [
+    {"cveID": "CVE-2099-0001", "vendorProject": "Examplesoft", "product": "Example Gateway", "vulnerabilityName": "Examplesoft Example Gateway Path Traversal Vulnerability", "dateAdded": "2026-10-08", "shortDescription": "Example Gateway contains a path traversal vulnerability that allows reading arbitrary files.", "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.", "dueDate": "2026-10-29", "knownRansomwareCampaignUse": "Unknown", "notes": "https://example.com/advisory ; https://nvd.nist.gov/vuln/detail/CVE-2099-0001", "cwes": ["CWE-22"]},
+    {"cveID": "CVE-2099-0002", "vendorProject": "Exampleware", "product": "Example VPN", "vulnerabilityName": "Exampleware Example VPN Authentication Bypass", "dateAdded": "2026-10-09", "shortDescription": "Example VPN allows authentication bypass.", "requiredAction": "Apply updates per vendor instructions.", "dueDate": "2026-10-30", "knownRansomwareCampaignUse": "Known", "notes": "", "cwes": ["CWE-287"]}
+  ]
+}

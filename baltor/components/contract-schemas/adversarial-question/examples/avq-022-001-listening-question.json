@@ -1,0 +1,25 @@
+{
+  "id": "AVQ-022-001",
+  "domain_id": "D022",
+  "area": "music composition",
+  "question": "Does the melody leave enough rhythmic space for the spoken explanation to remain easy to follow?",
+  "failure_hypothesis": "Dense melodic activity competes with speech segmentation.",
+  "check_or_fix": "Listen to the full mix and simplify the melody during information-heavy passages.",
+  "severity": "high",
+  "modes": [
+    "auditory",
+    "human-audience"
+  ],
+  "stages": [
+    "animatic",
+    "edit"
+  ],
+  "style_filters": [
+    "any"
+  ],
+  "source_line": 7490,
+  "passes": [
+    "default_32",
+    "sound"
+  ]
+}

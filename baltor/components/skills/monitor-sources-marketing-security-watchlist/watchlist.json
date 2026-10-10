@@ -1,0 +1,192 @@
+{
+  "id": "marketing-security-weekly",
+  "title": "Marketing, SEO and security: weekly",
+  "cadence": "weekly",
+  "window": "7d",
+  "sources": [
+    {
+      "collection": "community-releases-maker-marketing-security",
+      "weight": 2.0,
+      "item_ids": [
+        "gh-n8n-io-n8n",
+        "gh-plausible-analytics",
+        "gh-umami-software-umami",
+        "gh-matomo-org-matomo",
+        "gh-projectdiscovery-nuclei",
+        "gh-trufflesecurity-trufflehog",
+        "gh-gitleaks-gitleaks",
+        "gh-aquasecurity-trivy",
+        "gh-semgrep-semgrep"
+      ]
+    },
+    {
+      "collection": "community-reddit-marketing-security",
+      "weight": 1.0
+    },
+    {
+      "collection": "community-creator-marketing-security-voices",
+      "weight": 1.8,
+      "item_ids": [
+        "search-engine-land",
+        "search-engine-roundtable",
+        "google-search-central-blog",
+        "krebs-on-security",
+        "cisa-advisories",
+        "schneier",
+        "troy-hunt",
+        "filippo-valsorda",
+        "matthew-green",
+        "seth-godin",
+        "benedict-evans"
+      ]
+    },
+    {
+      "collection": "community-ai-oss-voices",
+      "weight": 1.5,
+      "item_ids": [
+        "embrace-the-red"
+      ]
+    },
+    {
+      "collection": "community-aggregators-forums",
+      "weight": 1.0,
+      "item_ids": [
+        "arxiv-cs-cr"
+      ]
+    }
+  ],
+  "keywords": [
+    {
+      "term": "core update",
+      "weight": 3
+    },
+    {
+      "term": "google update",
+      "weight": 2.5
+    },
+    {
+      "term": "seo",
+      "weight": 1.5
+    },
+    {
+      "term": "ga4",
+      "weight": 2
+    },
+    {
+      "term": "analytics",
+      "weight": 1.5
+    },
+    {
+      "term": "conversion",
+      "weight": 1.5
+    },
+    {
+      "term": "landing page",
+      "weight": 1.5
+    },
+    {
+      "term": "attribution",
+      "weight": 1
+    },
+    {
+      "term": "cve",
+      "weight": 2
+    },
+    {
+      "term": "zero-day",
+      "weight": 2.5
+    },
+    {
+      "term": "supply chain",
+      "weight": 2
+    },
+    {
+      "term": "secret",
+      "weight": 1.5
+    },
+    {
+      "term": "prompt injection",
+      "weight": 2.5
+    },
+    {
+      "term": "ransomware",
+      "weight": 1.5
+    },
+    {
+      "term": "breach",
+      "weight": 1.5
+    },
+    {
+      "term": "advisory",
+      "weight": 1.5
+    }
+  ],
+  "exclude_terms": [
+    "webinar replay",
+    "sponsored"
+  ],
+  "groups": [
+    {
+      "title": "Security advisories and research",
+      "match": {
+        "terms_any": [
+          "cve",
+          "zero-day",
+          "advisory",
+          "vulnerability",
+          "prompt injection",
+          "breach"
+        ]
+      }
+    },
+    {
+      "title": "Search and analytics",
+      "match": {
+        "terms_any": [
+          "seo",
+          "google",
+          "analytics",
+          "ga4",
+          "search"
+        ]
+      }
+    },
+    {
+      "title": "Tool releases",
+      "match": {
+        "feed_url_contains": [
+          "github.com"
+        ]
+      }
+    },
+    {
+      "title": "Community",
+      "match": {
+        "feed_url_contains": [
+          "reddit.com"
+        ]
+      }
+    }
+  ],
+  "max_items_per_source": 3,
+  "max_items": 40,
+  "recency_half_life_days": 3,
+  "trend_min_sources": 2,
+  "cautions": [
+    "Security tools in this list are for systems you are authorised to test."
+  ],
+  "polite": {
+    "user_agent": "baltor-feed-reader/1.0 (+https://github.com/taylor-s-amarel/ai-video-pipeline)",
+    "min_interval_s": 5,
+    "max_polls_per_day": 24,
+    "respect_retry_after": true,
+    "conditional_get": true,
+    "host_overrides": {
+      "www.reddit.com": 60
+    }
+  },
+  "outputs": {
+    "markdown": "digests/marketing-security-weekly/{date}.md",
+    "json": "digests/marketing-security-weekly/{date}.json"
+  }
+}

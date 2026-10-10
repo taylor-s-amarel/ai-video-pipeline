@@ -1,0 +1,61 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "piper_tts_adapter",
+  "title": "Piper TTS adapter",
+  "kind": "code-module",
+  "subkind": "tts-engine",
+  "version": "1.0.0",
+  "summary": "Adapter for Piper speech via its Python API (speed through length_scale) or a shell-free CLI argv, with lazy import, clear voice-file errors and mono float32 output.",
+  "description": "Piper (piper1-gpl) is GPL-3.0 per its repository (checked 2026-10-10). This MIT adapter does not include or link Piper code; it imports the separately installed package at run time.",
+  "domain": "audio",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "render"
+  ],
+  "effects": {
+    "filesystem": "read",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "loads a Piper voice model from local disk",
+      "cli_argv output, when run, starts a Python subprocess"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "piper_tts_adapter.py",
+  "tags": [
+    "audio",
+    "tts",
+    "piper",
+    "onnx",
+    "narration",
+    "local"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "piper_tts",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

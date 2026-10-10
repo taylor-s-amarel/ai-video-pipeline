@@ -1,0 +1,23 @@
+{
+  "id": "ea3cb98adb86bf0894474dfcabf53e11ee41b687ea84c7ea06666603bbf6ff1a",
+  "guid": "post-1001",
+  "title": "Godot 4.7 & the new tile editor",
+  "url": "https://news.example.org/posts/godot-47?a=1&b=2",
+  "published": "2026-10-09T19:28:59Z",
+  "updated": null,
+  "authors": [
+    "Ada Example"
+  ],
+  "summary": "The tile editor got faster. Read more.",
+  "tags": [
+    "godot",
+    "release"
+  ],
+  "enclosures": [],
+  "source": {
+    "feed_url": "https://news.example.org/rss.xml",
+    "feed_title": "Example Godot News",
+    "format": "rss2"
+  },
+  "also_in": []
+}

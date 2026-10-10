@@ -1,0 +1,530 @@
+{
+  "spec": "baltor.feed-collection/v1",
+  "id": "community-reddit-story-topic-mining",
+  "title": "Subreddits: topic mining for facts, history, comparisons and relationship stories",
+  "description": "Communities that surface facts, history, 'who would win' comparisons, data visualisations and relationship questions. Use them to find topics and then research primary sources; never lift a post's text, image or story into a video.",
+  "updated": "2026-10-10",
+  "tags": [
+    "community-sources",
+    "topics",
+    "story-ideas",
+    "facts",
+    "history",
+    "faceless"
+  ],
+  "items": [
+    {
+      "id": "r-todayilearned",
+      "title": "r/todayilearned",
+      "url": "https://www.reddit.com/r/todayilearned/.rss",
+      "summary": "Specific facts people just learned; rules require a verifiable claim with a direct link to a reliable source, which makes each post a lead to a citable source.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "topics",
+        "story-ideas"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: Rules page summarised in search results (verifiable claims, direct source link, no news older than two months). reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-explainlikeimfive",
+      "title": "r/explainlikeimfive",
+      "url": "https://www.reddit.com/r/explainlikeimfive/.rss",
+      "summary": "Plain-language explanations of how things work; good for explainer hooks.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "topics",
+        "story-ideas"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile and detailed-rules wiki (mirror) in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-askhistorians",
+      "title": "r/AskHistorians",
+      "url": "https://www.reddit.com/r/AskHistorians/.rss",
+      "summary": "Moderated history Q&A requiring in-depth, academic-level answers; follow the cited sources, not the answer text.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "topics",
+        "story-ideas"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile and rules wiki (mirror) in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Answers are the authors' work; cite and link, never read them out.",
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-history",
+      "title": "r/history",
+      "url": "https://www.reddit.com/r/history/.rss",
+      "summary": "General history discussion with a resources wiki.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "topics",
+        "story-ideas"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: Resources wiki page (mirror) in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-space",
+      "title": "r/space",
+      "url": "https://www.reddit.com/r/space/.rss",
+      "summary": "Space news and imagery.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "topics",
+        "story-ideas"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-spaceflight",
+      "title": "r/spaceflight",
+      "url": "https://www.reddit.com/r/spaceflight/.rss",
+      "summary": "Launches and spaceflight news.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "topics",
+        "story-ideas"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-science",
+      "title": "r/science",
+      "url": "https://www.reddit.com/r/science/.rss",
+      "summary": "Science news linking to research.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "topics",
+        "story-ideas"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: Wikipedia article on r/science in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Headlines often overstate studies; read the paper before using a number.",
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-askscience",
+      "title": "r/askscience",
+      "url": "https://www.reddit.com/r/askscience/.rss",
+      "summary": "Science Q&A answered by panelists.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "topics",
+        "story-ideas"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: Listed among similar communities in GummySearch results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-dataisbeautiful",
+      "title": "r/dataisbeautiful",
+      "url": "https://www.reddit.com/r/dataisbeautiful/.rss",
+      "summary": "Data visualisations; original work is tagged [OC] with the data source and tools named, which gives a source to re-chart.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "topics",
+        "story-ideas"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: Wikipedia article and GummySearch profile (updated 2026-06-10) in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Charts are their authors' work; rebuild from the named data source instead of reusing an image.",
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-mapporn",
+      "title": "r/MapPorn",
+      "url": "https://www.reddit.com/r/MapPorn/.rss",
+      "summary": "Maps of countries, history and statistics.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "topics",
+        "story-ideas"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile (updated 2026-08-08) in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Maps are often copied without credit; trace the original source before use.",
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-coolguides",
+      "title": "r/coolguides",
+      "url": "https://www.reddit.com/r/coolguides/.rss",
+      "summary": "Picture-based reference guides.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "topics",
+        "story-ideas"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile and a sidebar snapshot in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Guides are frequently uncredited copies; find the original author.",
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-youshouldknow",
+      "title": "r/YouShouldKnow",
+      "url": "https://www.reddit.com/r/YouShouldKnow/.rss",
+      "summary": "Practical tips people think others should know.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "topics",
+        "story-ideas"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-damnthatsinteresting",
+      "title": "r/Damnthatsinteresting",
+      "url": "https://www.reddit.com/r/Damnthatsinteresting/.rss",
+      "summary": "Interesting things on the internet, often news clips.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "topics",
+        "story-ideas"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Clips are third-party footage; never reuse them.",
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-whowouldwin",
+      "title": "r/whowouldwin",
+      "url": "https://www.reddit.com/r/whowouldwin/.rss",
+      "summary": "Hypothetical match-ups ('battle', 'challenge', 'matchmaker' flairs) between characters; a source of 'this vs that' formats.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "topics",
+        "story-ideas"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile (updated 2026-06-28) in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Fictional characters are copyrighted and trademarked; use original or public-domain subjects in videos.",
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-relationship-advice",
+      "title": "r/relationship_advice",
+      "url": "https://www.reddit.com/r/relationship_advice/.rss",
+      "summary": "Very large relationship advice community; shows which relationship questions people actually ask.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "topics",
+        "story-ideas"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile (updated June 2026) in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts describe real private people: use only aggregated themes, never a specific story.",
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-relationships",
+      "title": "r/relationships",
+      "url": "https://www.reddit.com/r/relationships/.rss",
+      "summary": "Relationship questions and advice.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "topics",
+        "story-ideas"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile (updated 2026-06-16) in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts describe real private people: use only aggregated themes, never a specific story.",
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-dating-advice",
+      "title": "r/dating_advice",
+      "url": "https://www.reddit.com/r/dating_advice/.rss",
+      "summary": "Specific dating situations (longer-term relationship posts go to r/relationship_advice).",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "topics",
+        "story-ideas"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts describe real private people: use only aggregated themes.",
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-amitheasshole",
+      "title": "r/AmItheAsshole",
+      "url": "https://www.reddit.com/r/AmItheAsshole/.rss",
+      "summary": "Interpersonal conflict stories; widely narrated by 'Reddit story' channels.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "topics",
+        "story-ideas"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: Listed as a common story-video source in a 2026 creator guide in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Authors hold copyright; narrating posts without permission invites takedowns, and YouTube's inauthentic content policy targets channels that upload near-identical narrated stories.",
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-tifu",
+      "title": "r/tifu",
+      "url": "https://www.reddit.com/r/tifu/.rss",
+      "summary": "First-person mishap stories; another common story-video source.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "topics",
+        "story-ideas"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: Listed as a common story-video source in a creator guide in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Authors hold copyright; do not narrate posts without permission.",
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-hfy",
+      "title": "r/HFY",
+      "url": "https://www.reddit.com/r/HFY/.rss",
+      "summary": "Original science-fiction short stories; moderators ask narrators to get the author's permission first.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "topics",
+        "story-ideas"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: Moderator guidance on narration permission found via Reddit mirrors in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Ask the author before any adaptation; respect a refusal.",
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    }
+  ]
+}

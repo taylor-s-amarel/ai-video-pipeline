@@ -1,0 +1,8 @@
+title: Flash risk screen (WCAG 2.3.1 heuristic)
+summary: Screens frames for general flashes (opposing 10%+ relative-luminance changes with the darker state below 0.80) per visual-field-sized tile and flags more than three per second.
+subkind: accessibility
+domain: video
+tags: [video, accessibility, wcag, photosensitive, flashing, qa]
+step_kinds: [verify, review]
+references: ["https://www.w3.org/WAI/WCAG22/Understanding/three-flashes-or-below-threshold.html"]
+description: "A screening heuristic based on the WCAG 2.x general flash definition (checked 2026-10-10 via the W3C Understanding document); it is not a certified photosensitive epilepsy analysis."

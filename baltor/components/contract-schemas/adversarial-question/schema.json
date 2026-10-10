@@ -1,0 +1,166 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/adversarial-question/schema.json",
+  "title": "Adversarial review question (owner's bank, Master Guide Appendix E)",
+  "description": "This is the owner's authoritative adversarial review bank: the 1,024 questions of Appendix E of the Animation and Video Production Master Guide (10 Oct 2026), transcribed with the owner's exact text, ids, filters and pass membership. Another builder in this catalogue (harness_kit) independently wrote a different 1,024-question bank; it is not this set and does not override it. One record per question. Fields follow the appendix: stable ID, question, failure hypothesis, practical check/fix, severity and modality/stage/style filters, plus the named passes that list the question. Filters are candidate filters: they cannot make an irrelevant question applicable or turn missing evidence into a pass.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "domain_id",
+    "area",
+    "question",
+    "failure_hypothesis",
+    "check_or_fix",
+    "severity",
+    "modes",
+    "stages",
+    "style_filters"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^AVQ-\\d{3}-\\d{3}$",
+      "description": "Stable id AVQ-<domain>-<number>, e.g. AVQ-006-002"
+    },
+    "domain_id": {
+      "type": "string",
+      "pattern": "^D\\d{3}$",
+      "description": "Review area id, D001-D032"
+    },
+    "area": {
+      "enum": [
+        "concept and design",
+        "composition and hierarchy",
+        "foreground background separation",
+        "depth and occlusion",
+        "staging and blocking",
+        "contact and props",
+        "silhouette and anatomy",
+        "acting and expression",
+        "camera and projection",
+        "lighting and shadows",
+        "color and materials",
+        "texture and detail",
+        "motion and easing",
+        "physics and weight",
+        "layers and compositing",
+        "continuity and state",
+        "pacing and holds",
+        "story setup payoff",
+        "transitions and editing",
+        "text typography",
+        "captions and accessibility",
+        "music composition",
+        "voice and dialogue",
+        "sfx and mix",
+        "audio visual timing",
+        "rights and asset provenance",
+        "factual and algorithmic integrity",
+        "rendering and export",
+        "decoding and delivery",
+        "audience value",
+        "puzzles and fairness",
+        "reproducibility and maintenance"
+      ],
+      "description": "Review area name as the guide gives it"
+    },
+    "question": {
+      "type": "string",
+      "minLength": 5,
+      "description": "The owner's exact question text"
+    },
+    "failure_hypothesis": {
+      "type": "string",
+      "minLength": 3,
+      "description": "What goes wrong when the answer is no (the guide's 'Failure hypothesis')"
+    },
+    "check_or_fix": {
+      "type": "string",
+      "minLength": 3,
+      "description": "How to check it or fix it (the guide's 'Check or fix')"
+    },
+    "severity": {
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "modes": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "visual",
+          "auditory",
+          "machine",
+          "human-audience"
+        ]
+      },
+      "description": "How the question can be answered. 'auditory' means listening; a waveform statistic is a separate machine check."
+    },
+    "stages": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "concept",
+          "script",
+          "storyboard",
+          "animatic",
+          "production",
+          "edit",
+          "final-encode",
+          "delivery"
+        ]
+      }
+    },
+    "style_filters": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "3d",
+          "any",
+          "cutout",
+          "educational",
+          "fiction",
+          "live-action",
+          "puzzle",
+          "screen-recording",
+          "stop-motion",
+          "typographic",
+          "vector"
+        ]
+      }
+    },
+    "passes": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "default_32",
+          "visual_depth_contact",
+          "performance_motion",
+          "story_edit",
+          "sound",
+          "accessible_text",
+          "factual_puzzle",
+          "final_delivery",
+          "longer_cardboard_32"
+        ]
+      },
+      "description": "Named review passes that list this question (Appendix E, 'Named review passes')"
+    },
+    "source_line": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Line of the entry in the guide file the bank was transcribed from"
+    }
+  }
+}

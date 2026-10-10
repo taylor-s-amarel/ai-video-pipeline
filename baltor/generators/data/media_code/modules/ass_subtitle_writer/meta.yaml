@@ -1,5 +1,5 @@
 title: ASS subtitle writer
-summary: Writes complete libass-ready .ass scripts (PlayRes, styles, events) with #RRGGBB+opacity colour conversion and text escaping that stops caption text from injecting override tags.
+summary: "Writes complete libass-ready .ass scripts (PlayRes, styles, events) with #RRGGBB+opacity colour conversion and text escaping that stops caption text from injecting override tags."
 subkind: caption-style
 domain: captions
 tags: [captions, ass, libass, subtitles, styling, ffmpeg]

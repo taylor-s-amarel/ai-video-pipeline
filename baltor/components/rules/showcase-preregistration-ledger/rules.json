@@ -1,168 +1,147 @@
 {
   "spec": "baltor.showcase-ledger/v1",
-  "hash_method": "sha256 of the canonical JSON of task.json without the keys spec_hash and preregistration (keys sorted, separators ',' ':', UTF-8, ensure_ascii false); see showcase_eval.compute_spec_hash",
+  "hash_method": "spec_sha256 = sha256 of the canonical JSON of task.json without the key spec_sha256 (keys sorted, separators ',' ':', UTF-8, ensure_ascii false); task.json lists every other package file in files_sha256",
+  "content_method": "content_sha256 = sha256 of the canonical JSON of task.json without spec_sha256, version, preregistered_on and the SKILL.md entry of files_sha256; used only to detect whether a spec changed",
   "task_count": 9,
   "negative_controls": 9,
+  "study": {
+    "harness": "claude-code",
+    "harness_version": "2.",
+    "model": "claude-sonnet-4-5",
+    "allowed_tools": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep"
+    ],
+    "transcript_format": "stream-json",
+    "isolation": "home",
+    "registered_by": "Baltor showcase task library (generators/showcase_tasks.py)"
+  },
   "tasks": [
     {
       "task_id": "showcase_task_control_arithmetic_word_problems",
-      "domain": "negative-control",
+      "domain": "other",
       "negative_control": true,
-      "spec_hash": "cfd17698c33e4f2098c66a9ae701397ee0683dba93d3d7708e3542f43b2ecd99",
+      "spec_sha256": "70c09804612decf416b3d9da1ae336516d56931726b759413a411f4c7cf78638",
+      "content_sha256": "03119812d0b0e646c9a8063f79563504feb58023701fe62f83c731094e00596a",
       "preregistered": "2026-10-10",
-      "revision": 2,
+      "revision": 1,
       "trials_per_arm": 5
     },
     {
       "task_id": "showcase_task_control_csv_two_key_sort",
-      "domain": "negative-control",
+      "domain": "data-cleaning",
       "negative_control": true,
-      "spec_hash": "a75a936b115c54769d181dabc452d668d9863b6fab65fd7f27f7f4ee908af1b6",
+      "spec_sha256": "137c3c0c6bc3d1c5ae782af27a219289102ed24918d6ebc851fd4658cb159f2c",
+      "content_sha256": "478474a546174ac57bc4ac4153b0a5487b37c5a5982888f31ee6fc9564668fa5",
       "preregistered": "2026-10-10",
-      "revision": 2,
+      "revision": 1,
       "trials_per_arm": 5
     },
     {
       "task_id": "showcase_task_control_fizzbuzz_variant",
-      "domain": "negative-control",
+      "domain": "coding",
       "negative_control": true,
-      "spec_hash": "5ca77da9f6d09146c7a0f88c8783e143ca403d3dd3372cb73dcbd82203847eef",
+      "spec_sha256": "2b8b88bf5ddc669ad51c0436d8932a035356ac53d8ee20bea3c7f89229f59172",
+      "content_sha256": "1b88d8d873da0b0511942f139d73dc1f8445bfee84e00a80d80781402f30e87e",
       "preregistered": "2026-10-10",
-      "revision": 2,
+      "revision": 1,
       "trials_per_arm": 5
     },
     {
       "task_id": "showcase_task_control_leap_year_function",
-      "domain": "negative-control",
+      "domain": "coding",
       "negative_control": true,
-      "spec_hash": "8380a8a928dba0fbd9f5ce0a71e14bc756c2601d3310676a1c8e034b39630d64",
+      "spec_sha256": "8cfe5b3e2b23265f2f9fa1568834f0bac6fd3433b960195b31bfd05df68d9239",
+      "content_sha256": "4ab40bd58d38b202ef750ffc44af01855fd01e6fa7eee5c9835bb6d830b4c66d",
       "preregistered": "2026-10-10",
-      "revision": 2,
+      "revision": 1,
       "trials_per_arm": 5
     },
     {
       "task_id": "showcase_task_control_readme_typo_fix",
-      "domain": "negative-control",
+      "domain": "other",
       "negative_control": true,
-      "spec_hash": "b5fb0e340b84d677a6312bead6e2dfc0b70fed7cd842a63576137b277f2a0cd6",
+      "spec_sha256": "32c4cfd757ba394b37952f843f68c948500505891b8b52f63f5a0d4dddb9213e",
+      "content_sha256": "19dfcf0586f601ff8ab5655cc353ad298bf210b05ce58aa5ec598a834be93495",
       "preregistered": "2026-10-10",
-      "revision": 2,
+      "revision": 1,
       "trials_per_arm": 5
     },
     {
       "task_id": "showcase_task_control_rename_function_refactor",
-      "domain": "negative-control",
+      "domain": "coding",
       "negative_control": true,
-      "spec_hash": "26384af9ebfc49578482c748e295a8014bb71157978b855fe28563efec0c6248",
+      "spec_sha256": "32e13f0a2e1fae91d76bb7435911da049c307bdb6a2d75242c9f143b373b835a",
+      "content_sha256": "7b14d13c81509af994194a5de25206e9d191ed1555c3344031596ee8b200c842",
       "preregistered": "2026-10-10",
-      "revision": 2,
+      "revision": 1,
       "trials_per_arm": 5
     },
     {
       "task_id": "showcase_task_control_unit_conversion_table",
-      "domain": "negative-control",
+      "domain": "other",
       "negative_control": true,
-      "spec_hash": "c8de5b5f2a8846a994826f627bba09c296bc3f81a1c1f84114aea5929a3f0b5f",
+      "spec_sha256": "541e4f2eb14651fada71efe95ea7eafd946444e417daa956364e6d95afe6360d",
+      "content_sha256": "71238ad847ee0173b3b2e7fcd695708db7dbe999723c83ba610b48a96293427b",
       "preregistered": "2026-10-10",
-      "revision": 2,
+      "revision": 1,
       "trials_per_arm": 5
     },
     {
       "task_id": "showcase_task_control_word_frequency_count",
-      "domain": "negative-control",
+      "domain": "data-cleaning",
       "negative_control": true,
-      "spec_hash": "2831859025b90b1b4b798e0e507288ba40143450b4b7e72484039bb7faa32a22",
+      "spec_sha256": "d108b27a5a4609962ed10d9d37164e8bda35cb5ebc0b1c424b2083ef3930c79f",
+      "content_sha256": "a9b6885042c333d642815d48cb4f2bb3e2888fc44e6389e92aa5873d56f76f8b",
       "preregistered": "2026-10-10",
-      "revision": 2,
+      "revision": 1,
       "trials_per_arm": 5
     },
     {
       "task_id": "showcase_task_control_yaml_to_json",
-      "domain": "negative-control",
+      "domain": "coding",
       "negative_control": true,
-      "spec_hash": "baa62ce6003d6cb72ee3df2f24ffb0405f2b68b0de579bccfd530647be9bcada",
+      "spec_sha256": "d30a247f1c9710a5ec23ef79f5223faeec362070a6ed5e9904274c8ab0c32194",
+      "content_sha256": "9ee7e2b13dfcf108ab4495eebef3eaf61f880925722bec06971908d287d8eb00",
       "preregistered": "2026-10-10",
-      "revision": 2,
+      "revision": 1,
       "trials_per_arm": 5
     }
   ],
   "withdrawn": [],
   "protocol": {
-    "arms": {
-      "baseline": {
-        "description": "Harness and model alone.",
-        "catalogue_access": "none",
-        "preamble": "You are working in a fresh workspace. Read TASK.md first. Before you finish, check your deliverables against every requirement in TASK.md.",
-        "preplaced": []
-      },
-      "treatment": {
-        "description": "The same harness and model plus access to the Baltor catalogue. Nothing is pre-placed: the agent decides whether to search, what to read and what to place.",
-        "catalogue_access": "search-read-place",
-        "tools": [
-          "intelligence_search",
-          "provisioning_read",
-          "baltor_catalog.py search",
-          "baltor_catalog.py read",
-          "baltor_catalog.py place"
-        ],
-        "preamble": "You are working in a fresh workspace. Read TASK.md first. Before you finish, check your deliverables against every requirement in TASK.md. You can also search the Baltor component catalogue (intelligence_search, or `python3 baltor_catalog.py search`) and download items (provisioning_read, or `baltor_catalog.py read/place`) if you think something there would help. Using it is optional.",
-        "preplaced": [],
-        "catalogue_exclusions": {
-          "identity_prefixes": [
-            "showcase_task_",
-            "showcase_preregistration_ledger"
-          ],
-          "tags": [
-            "showcase-task"
-          ],
-          "reason": "The task packages contain evaluators, reference outputs and fixture generators; an agent that reads them is not solving the task."
-        },
-        "catalogue_release": "recorded per run (catalog/release.json 'release'); one release for the whole study"
-      },
-      "held_constant": [
-        "model and sampling settings",
-        "harness and harness version",
-        "budget",
-        "starting workspace (same fixture seed per trial)",
-        "network policy",
-        "machine type",
-        "prompt text apart from the one catalogue sentence",
-        "evaluator version (spec hash)"
+    "shared_preamble": "You are working in a fresh workspace. The full task is below and in TASK.md. Before you finish, check your deliverables against every requirement.",
+    "baltor_addendum": "A command named `baltor` is on your PATH. `baltor search \"<words>\"` lists components in the Baltor catalogue (skills, rules, code modules, schemas and more), `baltor read IDENTITY --out DIR` downloads one into your workspace, and `baltor place IDENTITY` installs it where this harness reads it. Using it is optional.",
+    "catalogue_exclusions": {
+      "identity_prefixes": [
+        "showcase_task_",
+        "showcase_preregistration_ledger"
       ],
-      "contamination_rule": "A treatment run whose transcript or step lock shows it read an excluded identity is marked contaminated and counted as a failure for the treatment arm."
-    },
-    "trials": {
-      "minimum_per_arm": 3,
-      "order": "paired: in trial k both arms start from the same fixture seed; which arm runs first is showcase_eval.arm_order(spec_hash, k); arms never share a workspace",
-      "fixture_seed": "showcase_eval.fixture_seed(spec_hash, k) = int(sha256(f'{spec_hash}:fixture:{k}')[:8], 16)"
+      "tags": [
+        "showcase-task"
+      ],
+      "reason": "Task packages contain evaluators, reference outputs and fixture generators; an agent that reads them is not solving the task.",
+      "rule": "The catalogue served to the baltor arm must omit these items; a run whose catalogue log shows one of them is contaminated and counts as a failure for the baltor arm."
     },
     "analysis": {
-      "unit": "paired trial (one baseline run and one treatment run with the same fixture seed)",
-      "primary_outcome": "passed (boolean) as printed by evaluate.py",
-      "primary_effect": "treatment pass rate minus baseline pass rate, with a 95% percentile bootstrap interval over paired trials (10,000 resamples, resampling seed derived from the spec hash)",
+      "primary": "task_pass (1 when evaluate.py reports passed): baltor minus baseline pass rate with a 95% percentile bootstrap interval over paired trials (10,000 resamples), plus the win rate",
       "secondary": [
-        "mean composite score difference (treatment minus baseline) with a 95% bootstrap interval",
-        "win rate: share of paired trials where the treatment score is higher (ties count one half)",
-        "cost per run and per passing run: input and output tokens, wall time, tool calls, estimated USD",
-        "blind pairwise preference where judging.pairwise is set (secondary evidence only)"
+        "composite_score and each task metric: difference with a 95% bootstrap interval and Cliff's delta",
+        "cost per run and per passing run: tokens, wall time, tool calls, catalogue calls, USD",
+        "blind pairwise judge scores where the task has them (secondary evidence only)"
       ],
-      "report_all_runs": true,
-      "missing_or_failed_runs": "A run that crashes, times out, exceeds its budget or is contaminated counts as not passed with score 0 for its arm. Nothing is dropped or re-run selectively; a whole trial may be re-run only for an infrastructure fault, and the fault is reported.",
-      "pooling": "Negative controls are analysed and reported separately. A pooled effect across tasks weights each task equally and is reported alongside every per-task result."
+      "missing_or_failed_runs": "Crashed, timed-out, over-budget and contaminated runs count as failures for their arm; nothing is dropped or selectively re-run. A whole trial may be re-run only for an infrastructure fault, which is reported.",
+      "pooling": "Negative controls are reported separately. A pooled effect weights tasks equally and is shown next to every per-task result."
     },
-    "cost_metrics": [
-      "input_tokens",
-      "output_tokens",
-      "cached_input_tokens",
-      "wall_time_s",
-      "tool_calls",
-      "catalogue_calls",
-      "usd_estimate"
-    ],
+    "conflict_of_interest": "The tasks, the evaluators, the Baltor catalogue components available to the baltor arm and any report built from these runs come from the same team. Treat results as vendor-run evidence until an independent party reproduces them; every input needed to reproduce a run is in this package.",
     "disclosures": [
-      "Conflict of interest: the tasks, evaluators and the Baltor catalogue components were written by the same team. Treat results as the team's own evaluation, not an independent study; independent replication is invited and every input needed to replicate is in this package.",
-      "Deterministic evaluator results are the primary evidence. Blind pairwise and LLM-judge preferences, where collected, are weaker evidence and are reported separately.",
-      "The task library and this ledger are excluded from the treatment arm's catalogue view so neither arm can read evaluators or reference outputs."
+      "Deterministic evaluator results are the primary evidence. Blind pairwise or LLM-judge scores, where collected, are weaker evidence (position, length and style biases) and are reported separately.",
+      "The showcase task packages and the pre-registration ledger are excluded from the catalogue served to the baltor arm.",
+      "Third-party datasets are never copied into this package: offline tasks use data bundled with scikit-learn or seeded synthetic data; Kaggle tasks need the user's own account and rule acceptance."
     ],
     "data_rules": [
       "Never copy a third-party dataset into the repository or a package.",

@@ -1,0 +1,6 @@
+title: Layer spec linter
+summary: Lints scene/layer specs before rendering for the 0.98 opacity cap, five-plus layers, a moving background per scene, feathered photo edges, forbidden layers, contiguity and 60 s minimum.
+subkind: qa-check
+domain: video
+tags: [video, lint, layers, house-rules, opacity, spec]
+step_kinds: [plan, verify]

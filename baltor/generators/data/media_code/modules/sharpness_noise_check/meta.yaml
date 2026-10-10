@@ -1,0 +1,6 @@
+title: Sharpness and noise check
+summary: Laplacian-variance sharpness and Immerkaer noise-sigma estimates on a fixed-width resample, flagging soft or noisy photos and frames before they go into a render.
+subkind: qa-check
+domain: video
+tags: [video, sharpness, blur, noise, photo, qa]
+step_kinds: [verify]

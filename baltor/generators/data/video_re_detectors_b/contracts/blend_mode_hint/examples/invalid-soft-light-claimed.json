@@ -1,0 +1,9 @@
+{
+  "mode": "soft-light",
+  "candidates": ["soft-light"],
+  "confidence": 0.9,
+  "region": null,
+  "scores": { "normal": 0.61, "screen": 0.05 },
+  "fit": null,
+  "frames_used": 40
+}

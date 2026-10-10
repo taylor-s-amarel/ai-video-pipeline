@@ -6,8 +6,8 @@
   "subkind": "evaluator",
   "version": "1.0.0",
   "summary": "Negative control. Implement is_leap_year(year) in leap.py for the Gregorian rules.",
-  "description": "Pre-registered 2026-10-10, spec hash 8380a8a928dba0fbd9f5ce0a71e14bc756c2601d3310676a1c8e034b39630d64. 5 paired trials per arm. A capable model solves this without outside help, and no catalogue component targets it. Any treatment advantage beyond noise points to a placebo or prompt effect; extra treatment-arm tokens or tool calls measure the overhead of searching when nothing useful exists.",
-  "domain": "negative-control",
+  "description": "Pre-registered 2026-10-10 (revision 1), spec_sha256 8cfe5b3e2b23265f2f9fa1568834f0bac6fd3433b960195b31bfd05df68d9239. 5 paired trials per arm. A capable model solves this without outside help, and no catalogue component targets it. Any treatment advantage beyond noise points to a placebo or prompt effect; extra treatment-arm tokens or tool calls measure the overhead of searching when nothing useful exists.",
+  "domain": "coding",
   "licence": "MIT",
   "source": {
     "type": "original",
@@ -24,7 +24,7 @@
     "executes": "python",
     "secrets": [],
     "side_effects": [
-      "setup writes a fresh workspace and a hidden ground-truth directory",
+      "setup writes a fresh workspace and a private ground-truth directory",
       "evaluate.py runs agent-written code in a subprocess with a timeout"
     ]
   },
@@ -41,8 +41,9 @@
     "showcase-task",
     "preregistered",
     "evaluator",
-    "negative-control",
+    "coding",
     "control-coding",
+    "negative-control",
     "placebo"
   ],
   "collection": "public-good",
@@ -51,17 +52,17 @@
     "data": "generators/data/showcase_tasks",
     "parameters": {
       "family": "controls",
-      "spec_hash": "8380a8a928dba0fbd9f5ce0a71e14bc756c2601d3310676a1c8e034b39630d64",
+      "spec_sha256": "8cfe5b3e2b23265f2f9fa1568834f0bac6fd3433b960195b31bfd05df68d9239",
       "source": "negative_controls.yaml"
     }
   },
   "examples": [
-    "Set up trial 1 of showcase_task_control_leap_year_function and score the agent's workspace",
+    "Set up a trial of showcase_task_control_leap_year_function and score the agent's workspace",
     "Print the run plan for this task: python3 showcase_eval.py ."
   ],
   "review": {
     "status": "automated-passed",
     "checked": "2026-10-10",
-    "notes": "Evaluator self-test proves a known-good output passes and a known-bad output fails."
+    "notes": "The evaluator self-test proves a known-good output passes and a known-bad output fails."
   }
 }

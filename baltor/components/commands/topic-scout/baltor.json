@@ -1,0 +1,52 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "topic_scout",
+  "title": "/topic-scout",
+  "kind": "command",
+  "subkind": "workflow",
+  "version": "1.0.0",
+  "summary": "Slash command that proposes distinct, primary-sourced faceless short ideas from topic feeds with numbers, visuals licences and policy and rights checks.",
+  "domain": "source-monitoring",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "research",
+    "write"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "opencode",
+    "baltor-harness"
+  ],
+  "entry": "command.md",
+  "tags": [
+    "topics",
+    "faceless",
+    "command"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "faceless_topic_scout"
+    },
+    {
+      "identity": "monitor_sources_with_rss_for_agents"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/community_sources.py",
+    "data": "generators/data/community_sources"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

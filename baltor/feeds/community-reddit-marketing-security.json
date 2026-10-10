@@ -1,0 +1,417 @@
+{
+  "spec": "baltor.feed-collection/v1",
+  "id": "community-reddit-marketing-security",
+  "title": "Subreddits: marketing, SEO, analytics and defensive security",
+  "description": "Communities for the marketing-measurement and security domain packs: SEO and paid search changes, analytics tooling, and defensive security news.",
+  "updated": "2026-10-10",
+  "tags": [
+    "community-sources",
+    "marketing",
+    "seo",
+    "analytics",
+    "security"
+  ],
+  "items": [
+    {
+      "id": "r-marketing",
+      "title": "r/marketing",
+      "url": "https://www.reddit.com/r/marketing/.rss",
+      "summary": "Large general marketing community.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "marketing",
+        "seo"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch marketer rankings in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-digital-marketing",
+      "title": "r/digital_marketing",
+      "url": "https://www.reddit.com/r/digital_marketing/.rss",
+      "summary": "Digital marketing tactics and tools.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "marketing",
+        "seo"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch marketer rankings in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-digitalmarketing",
+      "title": "r/DigitalMarketing",
+      "url": "https://www.reddit.com/r/DigitalMarketing/.rss",
+      "summary": "Digital marketing discussion (separate community from r/digital_marketing).",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "marketing",
+        "seo"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile page in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-seo",
+      "title": "r/SEO",
+      "url": "https://www.reddit.com/r/SEO/.rss",
+      "summary": "Search engine optimisation: ranking changes, Google updates, tools.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "marketing",
+        "seo"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch marketer rankings in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "SEO claims are often anecdotal; confirm against Google Search Central.",
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-bigseo",
+      "title": "r/bigseo",
+      "url": "https://www.reddit.com/r/bigseo/.rss",
+      "summary": "Professional SEO discussion.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "marketing",
+        "seo"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch marketer rankings in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-ppc",
+      "title": "r/PPC",
+      "url": "https://www.reddit.com/r/PPC/.rss",
+      "summary": "Paid search and paid social advertising.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "marketing",
+        "seo"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch marketer rankings in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-googleanalytics",
+      "title": "r/GoogleAnalytics",
+      "url": "https://www.reddit.com/r/GoogleAnalytics/.rss",
+      "summary": "Google Analytics 4 help and alternatives.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "marketing",
+        "seo"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-content-marketing",
+      "title": "r/content_marketing",
+      "url": "https://www.reddit.com/r/content_marketing/.rss",
+      "summary": "Content marketing strategy.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "marketing",
+        "seo"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: Listed among related communities in GummySearch results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-emailmarketing",
+      "title": "r/Emailmarketing",
+      "url": "https://www.reddit.com/r/Emailmarketing/.rss",
+      "summary": "Email marketing and newsletters.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "marketing",
+        "seo"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch marketer rankings in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-socialmediamarketing",
+      "title": "r/SocialMediaMarketing",
+      "url": "https://www.reddit.com/r/SocialMediaMarketing/.rss",
+      "summary": "Social media marketing tactics.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "marketing",
+        "seo"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch listings in search results (counts conflicted). reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-netsec",
+      "title": "r/netsec",
+      "url": "https://www.reddit.com/r/netsec/.rss",
+      "summary": "Community-curated aggregator of technical security content.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "marketing",
+        "seo"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-asknetsec",
+      "title": "r/AskNetsec",
+      "url": "https://www.reddit.com/r/AskNetsec/.rss",
+      "summary": "Security questions and advice, including small-business security.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "marketing",
+        "seo"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-cybersecurity",
+      "title": "r/cybersecurity",
+      "url": "https://www.reddit.com/r/cybersecurity/.rss",
+      "summary": "General cybersecurity discussion and news.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "marketing",
+        "seo"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: Listed among similar communities in GummySearch results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-blueteamsec",
+      "title": "r/blueteamsec",
+      "url": "https://www.reddit.com/r/blueteamsec/.rss",
+      "summary": "Defensive security: detection, response and threat intel.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "marketing",
+        "seo"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: Listed among similar communities in GummySearch results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-netsecstudents",
+      "title": "r/netsecstudents",
+      "url": "https://www.reddit.com/r/netsecstudents/.rss",
+      "summary": "Security learning and career questions.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "marketing",
+        "seo"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile page in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-sysadmin",
+      "title": "r/sysadmin",
+      "url": "https://www.reddit.com/r/sysadmin/.rss",
+      "summary": "System administrators: outages, patches and vendor changes.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "marketing",
+        "seo"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: Listed among similar communities in GummySearch results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    }
+  ]
+}

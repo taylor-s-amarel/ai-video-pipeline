@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel rdf:about="https://arxiv.example.org/rss/cs.SE">
+    <title>cs.SE updates</title>
+    <link>https://arxiv.example.org/list/cs.SE/new</link>
+    <description>Fixture</description>
+  </channel>
+  <item rdf:about="https://arxiv.example.org/abs/2610.00001">
+    <title>Agents That Repair Builds</title>
+    <link>https://arxiv.example.org/abs/2610.00001</link>
+    <description>We study coding agents.</description>
+    <dc:creator>A. Researcher, B. Researcher</dc:creator>
+    <dc:date>2026-10-10</dc:date>
+    <dc:subject>cs.SE</dc:subject>
+  </item>
+</rdf:RDF>

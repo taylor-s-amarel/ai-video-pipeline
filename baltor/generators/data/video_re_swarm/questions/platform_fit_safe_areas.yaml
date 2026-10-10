@@ -8,12 +8,12 @@
   challenge: "A rotation tag can swap width and height; confirm on an F1 frame."
 
 - id: platform_fit_safe_areas-002
-  question: "What is the frame rate, and is it constant?"
+  question: "What is the average frame rate in frames per second?"
   why: "Fills source.fps and the render frame rate."
-  how: "evidence.source.fps; compare r_frame_rate and avg_frame_rate in A7."
+  how: "evidence.source.fps (avg_frame_rate); compare with r_frame_rate in A7 and report both in the note."
   evidence: ["evidence.source.fps", "A7"]
   ir_path: "/source/fps"
-  type: object
+  type: number
   challenge: "Different r_frame_rate and avg_frame_rate indicate variable frame rate; say so."
 
 - id: platform_fit_safe_areas-003
@@ -156,7 +156,7 @@
   why: "Variable frame rate affects frame-accurate measurements and renders."
   how: "Compare A7 r_frame_rate and avg_frame_rate; inspect pts deltas with ffprobe -show_frames on 100 frames."
   evidence: ["A7", "ffprobe frames"]
-  ir_path: "/source/fps"
+  ir_path: "/render_binding/mapping/variable_frame_rate"
   type: boolean
   challenge: "Report min and max frame durations."
 

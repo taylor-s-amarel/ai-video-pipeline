@@ -1,0 +1,57 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "camera_shake_noise",
+  "title": "Camera shake from smooth noise",
+  "kind": "code-module",
+  "subkind": "camera-move",
+  "version": "1.0.0",
+  "summary": "Deterministic per-frame camera shake (x, y, rotation) from layered value noise with trauma decay, overscan calculation and an ffmpeg crop-based shake filter.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "camera_shake_noise.py",
+  "tags": [
+    "video",
+    "camera",
+    "shake",
+    "noise",
+    "impact",
+    "ffmpeg"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "ffmpeg",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

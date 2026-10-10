@@ -1,0 +1,60 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "ffmpeg_raw_frame_pipe",
+  "title": "ffmpeg raw frame pipe",
+  "kind": "code-module",
+  "subkind": "render-recipe",
+  "version": "1.0.0",
+  "summary": "Context-managed numpy frame reader and writer over ffmpeg pipes (scale, fps, pixel formats, optional audio mux) with shape checks and ffmpeg errors surfaced, for Python frame effects.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "render",
+    "build"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "starts ffmpeg subprocesses that read and write the given files"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "ffmpeg_raw_frame_pipe.py",
+  "tags": [
+    "video",
+    "ffmpeg",
+    "numpy",
+    "frames",
+    "pipe",
+    "render"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "ffmpeg",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

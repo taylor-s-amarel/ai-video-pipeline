@@ -1,0 +1,55 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "ken_burns_path",
+  "title": "Ken Burns pan/zoom path generator",
+  "kind": "code-module",
+  "subkind": "camera-move",
+  "version": "1.0.0",
+  "summary": "Per-frame crop rectangles for pan and zoom moves over a still, kept inside the image, log-space zoom, eased, with named presets and an upscale-risk measure.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "ken_burns_path.py",
+  "tags": [
+    "video",
+    "ken-burns",
+    "pan",
+    "zoom",
+    "camera",
+    "photo"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "examples": [
+    "Zoom in 15% on the subject's face over 5 seconds",
+    "Pan right across a wide 4:3 photo for a 9:16 short"
+  ],
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

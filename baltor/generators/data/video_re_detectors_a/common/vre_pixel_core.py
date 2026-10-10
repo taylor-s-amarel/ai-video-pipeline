@@ -719,6 +719,26 @@ def persistent_edges(gray_frames, rel_thr: float = 3.0, abs_thr: float = 4.0) ->
     return (ax > thr).mean(0), (ay > thr).mean(0)
 
 
+def seam_maps(gray_frames, ratio_thr: float = 2.0, abs_min: float = 3.0):
+    """Seams between unrelated pictures: the time-mean absolute difference across each column boundary
+    (between x and x+1) and row boundary, compared with the same quantity 2-4 px away on both sides. A seam pixel
+    is >= ratio_thr x its neighbourhood (+0.5) and >= abs_min. Returns (sx (H, W-1), sy (H-1, W), dx, dy)."""
+    g = np.asarray(gray_frames, dtype=np.float32)
+    if g.ndim == 2:
+        g = g[None]
+    dx = np.abs(np.diff(g, axis=2)).mean(axis=0)
+    dy = np.abs(np.diff(g, axis=1)).mean(axis=0)
+
+    def ratio(d, axis):
+        pad = np.pad(d, [(0, 0), (4, 4)] if axis == 1 else [(4, 4), (0, 0)], mode="edge")
+        n = d.shape[axis]
+        sl = (lambda k: pad[:, 4 + k:4 + k + n]) if axis == 1 else (lambda k: pad[4 + k:4 + k + n, :])
+        ref = (sl(-4) + sl(-3) + sl(-2) + sl(2) + sl(3) + sl(4)) / 6.0
+        return (d >= ratio_thr * (ref + 0.5)) & (d >= abs_min)
+
+    return ratio(dx, 1), ratio(dy, 0), dx, dy
+
+
 def edge_segments(E, axis: str, min_len: int, thr: float = 0.7, max_gap: int = 2) -> list[tuple[int, int, int]]:
     """Straight runs in a persistence map. axis 'v': vertical runs -> (x, y0, y1); 'h': horizontal -> (y, x0, x1).
     Runs separated by up to max_gap weak pixels are joined. Adjacent duplicate lines are thinned to the strongest."""
@@ -748,37 +768,63 @@ def edge_segments(E, axis: str, min_len: int, thr: float = 0.7, max_gap: int = 2
     return [(s[0], s[1], s[2]) for s in sorted(kept)]
 
 
-def find_rectangles(Ev, Eh, min_w: int, min_h: int, tol: int = 3, corner_gap: int = 0,
-                    thr: float = 0.7, dedup_iou: float = 0.85) -> list[dict]:
-    """Axis-aligned rectangles whose four sides are persistent edges.
+def find_rectangles(Ev, Eh, min_w: int, min_h: int, tol: int = 1, corner_gap: int = 0,
+                    thr: float = 0.7, dedup_iou: float = 0.85, max_gap: int = 2, min_cover: float = 0.75,
+                    max_positions: int = 40) -> list[dict]:
+    """Axis-aligned rectangles whose four sides are marked in edge maps.
 
-    corner_gap allows sides that stop short of the corners (rounded corners). Each rectangle:
-    {bbox:[x,y,w,h], support} where support = mean coverage of the four sides (0-1)."""
-    vs = edge_segments(Ev, "v", max(4, min_h // 2), thr)
-    hs = edge_segments(Eh, "h", max(4, min_w // 2), thr)
+    Candidate x positions come from vertical runs in Ev and y positions from horizontal runs in Eh (see
+    edge_segments). Every (left, right, top, bottom) combination is scored by side coverage: the share of each
+    side's pixels marked (>= thr) within +-tol px, leaving corner_gap px free at each end for rounded corners.
+    All four coverages must reach min_cover. Returns [{bbox:[x,y,w,h], support}] best first, without
+    near-duplicates (IoU > dedup_iou)."""
+    Ev = np.asarray(Ev, dtype=np.float32)
+    Eh = np.asarray(Eh, dtype=np.float32)
+    h, w = Ev.shape
+    vs = edge_segments(Ev, "v", max(4, min_h // 2), thr, max_gap)
+    hs = edge_segments(Eh, "h", max(4, min_w // 2), thr, max_gap)
+
+    def positions(segs):
+        best: dict[int, int] = {}
+        for pos, a0, a1 in segs:
+            best[pos] = max(best.get(pos, 0), a1 - a0)
+        ranked = sorted(best, key=lambda k: -best[k])[:max_positions]
+        return sorted(ranked)
+
+    xs, ys = positions(vs), positions(hs)
+    Mv = Ev >= thr
+    Mh = Eh >= thr
+    if tol > 0:
+        Mv = np.maximum.reduce([np.roll(Mv, k, axis=1) for k in range(-tol, tol + 1)])
+        Mh = np.maximum.reduce([np.roll(Mh, k, axis=0) for k in range(-tol, tol + 1)])
+    Cv = np.vstack([np.zeros((1, w)), np.cumsum(Mv, axis=0)])  # column prefix sums over rows
+    Ch = np.hstack([np.zeros((h, 1)), np.cumsum(Mh, axis=1)])  # row prefix sums over columns
+
+    g = int(corner_gap)
+    Y = np.array(ys, dtype=int)
+    A, B = np.meshgrid(Y, Y, indexing="ij")  # A = top, B = bottom
+    ok_y = (B - A) >= max(min_h, 2 * g + 2)
+    a_idx, b_idx = A[ok_y], B[ok_y]
     rects = []
-    for i, (xa, ya0, ya1) in enumerate(vs):
-        for xb, yb0, yb1 in vs[i + 1:]:
-            if xb - xa < min_w:
-                continue
-            y0 = min(ya0, yb0)
-            y1 = max(ya1, yb1)
-            if min(ya1, yb1) - max(ya0, yb0) < 0.6 * max(ya1 - ya0, yb1 - yb0):
-                continue
-            top = [s for s in hs if abs(s[0] - (y0 - corner_gap - 1)) <= tol + corner_gap and s[1] <= xa + tol + corner_gap and s[2] >= xb - tol - corner_gap]
-            bot = [s for s in hs if abs(s[0] - (y1 + corner_gap + 1)) <= tol + corner_gap and s[1] <= xa + tol + corner_gap and s[2] >= xb - tol - corner_gap]
-            if not top or not bot:
-                continue
-            ty = min(top, key=lambda s: abs(s[0] - (y0 - corner_gap - 1)))[0]
-            by = min(bot, key=lambda s: abs(s[0] - (y1 + corner_gap + 1)))[0]
-            if by - ty < min_h:
-                continue
-            x0, x1, yy0, yy1 = xa, xb, ty, by
-            sides = [Ev[yy0:yy1 + 1, x0].mean(), Ev[yy0:yy1 + 1, x1].mean(),
-                     Eh[yy0, x0:x1 + 1].mean(), Eh[yy1, x0:x1 + 1].mean()]
-            rects.append({"bbox": [int(x0), int(yy0), int(x1 - x0), int(yy1 - yy0)], "support": float(np.mean(sides))})
-    # remove near-duplicates (keep best support)
-    rects.sort(key=lambda r: -r["support"])
+    if len(a_idx):
+        r0 = np.clip(a_idx + g, 0, h - 1)
+        r1 = np.clip(b_idx - g, 0, h - 1)
+        nrows = np.maximum(1, r1 - r0 + 1)
+        for i, xa in enumerate(xs):
+            for xb in xs[i + 1:]:
+                if xb - xa < max(min_w, 2 * g + 2):
+                    continue
+                cl = (Cv[r1 + 1, xa] - Cv[r0, xa]) / nrows
+                cr = (Cv[r1 + 1, xb] - Cv[r0, xb]) / nrows
+                c0, c1 = min(w - 1, xa + g), max(0, xb - g)
+                ncols = max(1, c1 - c0 + 1)
+                ct = (Ch[a_idx, c1 + 1] - Ch[a_idx, c0]) / ncols
+                cb = (Ch[b_idx, c1 + 1] - Ch[b_idx, c0]) / ncols
+                cmin = np.minimum(np.minimum(cl, cr), np.minimum(ct, cb))
+                for k in np.flatnonzero(cmin >= min_cover):
+                    rects.append({"bbox": [int(xa), int(a_idx[k]), int(xb - xa), int(b_idx[k] - a_idx[k])],
+                                  "support": float((cl[k] + cr[k] + ct[k] + cb[k]) / 4.0)})
+    rects.sort(key=lambda r: (-round(r["support"], 2), -r["bbox"][2] * r["bbox"][3]))
     out: list[dict] = []
     for r in rects:
         if any(iou(r["bbox"], o["bbox"]) > dedup_iou for o in out):

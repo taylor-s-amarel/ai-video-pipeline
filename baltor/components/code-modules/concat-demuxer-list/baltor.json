@@ -1,0 +1,55 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "concat_demuxer_list",
+  "title": "Concat demuxer list writer",
+  "kind": "code-module",
+  "subkind": "render-recipe",
+  "version": "1.0.0",
+  "summary": "Writes ffmpeg concat-demuxer lists with correct quote escaping and in/out points, adds -safe 0 only when needed and checks clip compatibility before stream-copy joins.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "concat_demuxer_list.py",
+  "tags": [
+    "video",
+    "ffmpeg",
+    "concat",
+    "editing",
+    "join"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "ffmpeg",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

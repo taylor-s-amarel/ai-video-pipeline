@@ -1,0 +1,765 @@
+[
+  {
+    "id": "AVQ-014-001",
+    "domain_id": "D014",
+    "area": "physics and weight",
+    "question": "Does the center of mass stay supported during a static pose?",
+    "failure_hypothesis": "Body appears to balance on empty space.",
+    "check_or_fix": "Compare mass projection with the support region.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6962,
+    "passes": [
+      "performance_motion",
+      "longer_cardboard_32"
+    ]
+  },
+  {
+    "id": "AVQ-014-002",
+    "domain_id": "D014",
+    "area": "physics and weight",
+    "question": "Is momentum preserved through release and free flight?",
+    "failure_hypothesis": "Object changes speed without an apparent force.",
+    "check_or_fix": "Inspect velocity before and after release.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6964,
+    "passes": [
+      "performance_motion"
+    ]
+  },
+  {
+    "id": "AVQ-014-003",
+    "domain_id": "D014",
+    "area": "physics and weight",
+    "question": "Does gravity act consistently within the fictional world?",
+    "failure_hypothesis": "Similar objects fall under different unexplained rules.",
+    "check_or_fix": "Compare fall trajectories under matched conditions.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6966,
+    "passes": [
+      "performance_motion"
+    ]
+  },
+  {
+    "id": "AVQ-014-004",
+    "domain_id": "D014",
+    "area": "physics and weight",
+    "question": "Are collisions resolved at the visible surfaces?",
+    "failure_hypothesis": "Objects react before touching or after interpenetrating.",
+    "check_or_fix": "Check contact geometry and reaction frame.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6968,
+    "passes": [
+      "performance_motion"
+    ]
+  },
+  {
+    "id": "AVQ-014-005",
+    "domain_id": "D014",
+    "area": "physics and weight",
+    "question": "Does an impact produce an appropriate response in both participants?",
+    "failure_hypothesis": "Only one object acknowledges the collision.",
+    "check_or_fix": "Add coherent recoil or justified immovability.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6970,
+    "passes": [
+      "performance_motion"
+    ]
+  },
+  {
+    "id": "AVQ-014-006",
+    "domain_id": "D014",
+    "area": "physics and weight",
+    "question": "Are heavy objects harder to start and stop than light ones?",
+    "failure_hypothesis": "Weight cues contradict material identity.",
+    "check_or_fix": "Compare acceleration and recovery timing.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6972,
+    "passes": [
+      "performance_motion"
+    ]
+  },
+  {
+    "id": "AVQ-014-007",
+    "domain_id": "D014",
+    "area": "physics and weight",
+    "question": "Does a pushed object remain in contact with the pushing hand?",
+    "failure_hypothesis": "Force appears transmitted across a gap.",
+    "check_or_fix": "Track hand-surface distance throughout the push.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6974,
+    "passes": [
+      "performance_motion"
+    ]
+  },
+  {
+    "id": "AVQ-014-008",
+    "domain_id": "D014",
+    "area": "physics and weight",
+    "question": "Are friction changes motivated by surface changes?",
+    "failure_hypothesis": "Objects suddenly stick or slide without cause.",
+    "check_or_fix": "Audit surface states along the trajectory.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6976,
+    "passes": [
+      "performance_motion"
+    ]
+  },
+  {
+    "id": "AVQ-014-009",
+    "domain_id": "D014",
+    "area": "physics and weight",
+    "question": "Does a bouncing object lose or gain energy intentionally?",
+    "failure_hypothesis": "Bounce heights imply unexplained energy creation.",
+    "check_or_fix": "Compare successive apex heights and timing.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6978,
+    "passes": []
+  },
+  {
+    "id": "AVQ-014-010",
+    "domain_id": "D014",
+    "area": "physics and weight",
+    "question": "Are pendulum or hanging motions constrained to their support?",
+    "failure_hypothesis": "Suspended objects travel outside their allowed arc.",
+    "check_or_fix": "Check pivot distance over time.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6980,
+    "passes": [
+      "default_32"
+    ]
+  },
+  {
+    "id": "AVQ-014-011",
+    "domain_id": "D014",
+    "area": "physics and weight",
+    "question": "Does a flexible object respond where force is applied?",
+    "failure_hypothesis": "Deformation ignores load direction.",
+    "check_or_fix": "Align bend and stretch with force cues.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6982,
+    "passes": []
+  },
+  {
+    "id": "AVQ-014-012",
+    "domain_id": "D014",
+    "area": "physics and weight",
+    "question": "Are stacked objects stable under the depicted load?",
+    "failure_hypothesis": "Top-heavy arrangements defy the intended realism.",
+    "check_or_fix": "Inspect support and center-of-mass relationships.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6984,
+    "passes": []
+  },
+  {
+    "id": "AVQ-014-013",
+    "domain_id": "D014",
+    "area": "physics and weight",
+    "question": "Does water contact match the hull or floating body?",
+    "failure_hypothesis": "Object hovers over or sinks through the surface.",
+    "check_or_fix": "Compare waterline and object geometry.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "3d",
+      "cutout",
+      "educational"
+    ],
+    "source_line": 6986,
+    "passes": []
+  },
+  {
+    "id": "AVQ-014-014",
+    "domain_id": "D014",
+    "area": "physics and weight",
+    "question": "Is a floating object's buoyancy consistent as weight changes?",
+    "failure_hypothesis": "Added load has no plausible displacement effect.",
+    "check_or_fix": "Show or justify the response to loading.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "3d",
+      "cutout",
+      "educational"
+    ],
+    "source_line": 6988,
+    "passes": []
+  },
+  {
+    "id": "AVQ-014-015",
+    "domain_id": "D014",
+    "area": "physics and weight",
+    "question": "Are falling objects occluded correctly by intervening geometry?",
+    "failure_hypothesis": "Trajectory visually passes through solid structures.",
+    "check_or_fix": "Check swept volumes and depth order together.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6990,
+    "passes": []
+  },
+  {
+    "id": "AVQ-014-016",
+    "domain_id": "D014",
+    "area": "physics and weight",
+    "question": "Does a turning character lean coherently with speed?",
+    "failure_hypothesis": "Body lean contradicts the turn.",
+    "check_or_fix": "Compare direction, acceleration and pose.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6992,
+    "passes": []
+  },
+  {
+    "id": "AVQ-014-017",
+    "domain_id": "D014",
+    "area": "physics and weight",
+    "question": "Are feet slipping only when the scene intends a slip?",
+    "failure_hypothesis": "Uncontrolled skating undermines weight.",
+    "check_or_fix": "Track support-phase contacts separately from swing.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6994,
+    "passes": []
+  },
+  {
+    "id": "AVQ-014-018",
+    "domain_id": "D014",
+    "area": "physics and weight",
+    "question": "Does a rope or cable transmit tension visibly?",
+    "failure_hypothesis": "Slack cable pulls an object impossibly.",
+    "check_or_fix": "Align tension state with the applied action.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6996,
+    "passes": []
+  },
+  {
+    "id": "AVQ-014-019",
+    "domain_id": "D014",
+    "area": "physics and weight",
+    "question": "Are force effects proportional enough to communicate cause?",
+    "failure_hypothesis": "Tiny taps launch huge objects without established stylization.",
+    "check_or_fix": "Establish exaggeration rules or rebalance response.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6998,
+    "passes": [
+      "longer_cardboard_32"
+    ]
+  },
+  {
+    "id": "AVQ-014-020",
+    "domain_id": "D014",
+    "area": "physics and weight",
+    "question": "Does a projectile clear the obstacle it visibly crosses?",
+    "failure_hypothesis": "Trajectory intersects geometry between sampled frames.",
+    "check_or_fix": "Test the swept path at finer intervals.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7000,
+    "passes": []
+  },
+  {
+    "id": "AVQ-014-021",
+    "domain_id": "D014",
+    "area": "physics and weight",
+    "question": "Are particles inheriting appropriate motion at emission?",
+    "failure_hypothesis": "Debris launches without the source's velocity.",
+    "check_or_fix": "Include source motion in initial conditions.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7002,
+    "passes": []
+  },
+  {
+    "id": "AVQ-014-022",
+    "domain_id": "D014",
+    "area": "physics and weight",
+    "question": "Does a rotating object maintain a coherent pivot or axle?",
+    "failure_hypothesis": "Rotation axis wanders without a joint.",
+    "check_or_fix": "Track pivot position and orientation.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7004,
+    "passes": []
+  },
+  {
+    "id": "AVQ-014-023",
+    "domain_id": "D014",
+    "area": "physics and weight",
+    "question": "Are gears or wheels synchronized with their visible engagement?",
+    "failure_hypothesis": "Meshing objects rotate incompatibly.",
+    "check_or_fix": "Compare tooth counts, direction and angular rates.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7006,
+    "passes": []
+  },
+  {
+    "id": "AVQ-014-024",
+    "domain_id": "D014",
+    "area": "physics and weight",
+    "question": "Does a moving platform carry its passenger consistently?",
+    "failure_hypothesis": "Passenger drifts relative to the support.",
+    "check_or_fix": "Track local coordinates during the ride.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7008,
+    "passes": []
+  },
+  {
+    "id": "AVQ-014-025",
+    "domain_id": "D014",
+    "area": "physics and weight",
+    "question": "Are spring-like motions damped in a plausible direction?",
+    "failure_hypothesis": "Oscillation grows unexpectedly or never resolves.",
+    "check_or_fix": "Inspect amplitude envelope and intended energy input.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7010,
+    "passes": []
+  },
+  {
+    "id": "AVQ-014-026",
+    "domain_id": "D014",
+    "area": "physics and weight",
+    "question": "Does a character's jump include a readable takeoff and landing?",
+    "failure_hypothesis": "Flight starts or ends without force transfer.",
+    "check_or_fix": "Stage compression, extension and recovery.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7012,
+    "passes": []
+  },
+  {
+    "id": "AVQ-014-027",
+    "domain_id": "D014",
+    "area": "physics and weight",
+    "question": "Are collision margins appropriate to visible shape rather than proxy size?",
+    "failure_hypothesis": "Invisible collision boxes stop objects too early.",
+    "check_or_fix": "Compare proxy and rendered contact boundaries.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7014,
+    "passes": []
+  },
+  {
+    "id": "AVQ-014-028",
+    "domain_id": "D014",
+    "area": "physics and weight",
+    "question": "Does an offscreen force have enough setup to be understood?",
+    "failure_hypothesis": "Unexplained motion looks like a simulation error.",
+    "check_or_fix": "Show or establish the force source.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7016,
+    "passes": []
+  },
+  {
+    "id": "AVQ-014-029",
+    "domain_id": "D014",
+    "area": "physics and weight",
+    "question": "Are physical simplifications disclosed in an educational mechanism?",
+    "failure_hypothesis": "Toy behavior is presented as a universal law.",
+    "check_or_fix": "State the model's assumptions and limits.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7018,
+    "passes": []
+  },
+  {
+    "id": "AVQ-014-030",
+    "domain_id": "D014",
+    "area": "physics and weight",
+    "question": "Does the animation distinguish kinematic proof from simulation evidence?",
+    "failure_hypothesis": "Authored paths are mislabeled as physical validation.",
+    "check_or_fix": "Record which relationships are tested versus simulated.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7020,
+    "passes": [
+      "longer_cardboard_32"
+    ]
+  },
+  {
+    "id": "AVQ-014-031",
+    "domain_id": "D014",
+    "area": "physics and weight",
+    "question": "Are numerical tolerances small enough for the final camera view?",
+    "failure_hypothesis": "World-space error becomes visible after zoom.",
+    "check_or_fix": "Convert tolerances to projected pixel error.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7022,
+    "passes": []
+  },
+  {
+    "id": "AVQ-014-032",
+    "domain_id": "D014",
+    "area": "physics and weight",
+    "question": "Would one extra weight cue make the interaction convincing?",
+    "failure_hypothesis": "Correct trajectories still lack perceived effort.",
+    "check_or_fix": "Add a clear brace, compression or follow-through.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7024,
+    "passes": []
+  }
+]

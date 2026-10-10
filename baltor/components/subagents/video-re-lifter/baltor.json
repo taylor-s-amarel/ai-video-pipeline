@@ -1,0 +1,69 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "video_re_lifter",
+  "title": "Video RE lifter",
+  "kind": "subagent",
+  "subkind": "workflow",
+  "version": "1.0.0",
+  "summary": "Subagent that merges the answers surviving the challengers into one Video format IR with video_re_ir_merge, resolves conflicts by method and confidence, and turns gaps into open questions.",
+  "description": "Like a decompiler lifting verified facts into a typed IR: shapes answers into observed numbers and texts, applies JSON-pointer appends and per-element paths, records conflicts, fills required fields honestly (assumed values are marked) and validates with video_re_ir_validate. Captures technique and structure only; never stores or reuses the source's footage, frames, music, voice or script text.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "design"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "writes format_ir.json, proposals.json and lift_report.json in the output directory"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "opencode",
+    "baltor-harness"
+  ],
+  "entry": "agent.md",
+  "tags": [
+    "video",
+    "reverse-engineering",
+    "video-re",
+    "swarm",
+    "lifter",
+    "format-ir",
+    "subagent"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "video_re_ir_merge"
+    },
+    {
+      "identity": "video_re_ir_validate"
+    },
+    {
+      "identity": "video_re_format_ir"
+    },
+    {
+      "identity": "video_re_analyst_answer"
+    },
+    {
+      "identity": "video_re_challenger"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_re_swarm.py",
+    "data": "generators/data/video_re_swarm"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

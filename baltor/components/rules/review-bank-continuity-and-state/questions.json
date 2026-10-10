@@ -1,0 +1,786 @@
+[
+  {
+    "id": "AVQ-016-001",
+    "domain_id": "D016",
+    "area": "continuity and state",
+    "question": "Does the important object keep the same owner across the cut?",
+    "failure_hypothesis": "Possession changes without an exchange.",
+    "check_or_fix": "Compare ownership immediately before and after edits.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7094,
+    "passes": [
+      "performance_motion",
+      "story_edit",
+      "factual_puzzle",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-016-002",
+    "domain_id": "D016",
+    "area": "continuity and state",
+    "question": "Are character screen directions consistent through continuous travel?",
+    "failure_hypothesis": "Cut reverses the apparent route.",
+    "check_or_fix": "Track world path and projected direction.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7096,
+    "passes": [
+      "performance_motion",
+      "story_edit",
+      "factual_puzzle",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-016-003",
+    "domain_id": "D016",
+    "area": "continuity and state",
+    "question": "Does the costume retain meaningful details between shots?",
+    "failure_hypothesis": "Character identity changes unintentionally.",
+    "check_or_fix": "Compare distinctive features across adjacent views.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7098,
+    "passes": [
+      "performance_motion",
+      "story_edit",
+      "factual_puzzle",
+      "final_delivery",
+      "longer_cardboard_32"
+    ]
+  },
+  {
+    "id": "AVQ-016-004",
+    "domain_id": "D016",
+    "area": "continuity and state",
+    "question": "Are persistent props present in the correct locations after reframing?",
+    "failure_hypothesis": "Set objects vanish or teleport.",
+    "check_or_fix": "Use a scene-state ledger and frame comparison.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7100,
+    "passes": [
+      "performance_motion",
+      "story_edit",
+      "factual_puzzle",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-016-005",
+    "domain_id": "D016",
+    "area": "continuity and state",
+    "question": "Does elapsed story time match visible environmental change?",
+    "failure_hypothesis": "Lighting or wear changes too quickly.",
+    "check_or_fix": "Audit chronology against state changes.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7102,
+    "passes": [
+      "performance_motion",
+      "story_edit",
+      "factual_puzzle",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-016-006",
+    "domain_id": "D016",
+    "area": "continuity and state",
+    "question": "Are actions matched at the same phase across an edit?",
+    "failure_hypothesis": "Motion jumps backward or repeats.",
+    "check_or_fix": "Compare pose and velocity around the cut.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7104,
+    "passes": [
+      "performance_motion",
+      "story_edit",
+      "factual_puzzle",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-016-007",
+    "domain_id": "D016",
+    "area": "continuity and state",
+    "question": "Does a consumed or broken object remain changed afterward?",
+    "failure_hypothesis": "State resets undermine consequence.",
+    "check_or_fix": "Track irreversible state transitions explicitly.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7106,
+    "passes": [
+      "performance_motion",
+      "story_edit",
+      "factual_puzzle",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-016-008",
+    "domain_id": "D016",
+    "area": "continuity and state",
+    "question": "Are crowds preserving entity identity through occlusion and return?",
+    "failure_hypothesis": "Duplicate or missing actors alter the story.",
+    "check_or_fix": "Audit persistent IDs rather than visible count alone.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7108,
+    "passes": [
+      "performance_motion",
+      "story_edit",
+      "factual_puzzle",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-016-009",
+    "domain_id": "D016",
+    "area": "continuity and state",
+    "question": "Does the timeline preserve the order of cause and effect?",
+    "failure_hypothesis": "Result appears before its enabling event.",
+    "check_or_fix": "Check event dependencies against frame times.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7110,
+    "passes": [
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-016-010",
+    "domain_id": "D016",
+    "area": "continuity and state",
+    "question": "Are labels describing the current state rather than the previous shot?",
+    "failure_hypothesis": "Overlay update lags the scene.",
+    "check_or_fix": "Join label state to the same event clock.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7112,
+    "passes": [
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-016-011",
+    "domain_id": "D016",
+    "area": "continuity and state",
+    "question": "Does a map remain geometrically consistent across zooms?",
+    "failure_hypothesis": "Local views contradict the overview.",
+    "check_or_fix": "Compare landmarks in shared world coordinates.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7114,
+    "passes": []
+  },
+  {
+    "id": "AVQ-016-012",
+    "domain_id": "D016",
+    "area": "continuity and state",
+    "question": "Are the hero's handedness and held items stable?",
+    "failure_hypothesis": "Mirrored shots swap meaningful hands.",
+    "check_or_fix": "Audit left-right semantics at each camera change.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7116,
+    "passes": []
+  },
+  {
+    "id": "AVQ-016-013",
+    "domain_id": "D016",
+    "area": "continuity and state",
+    "question": "Does a door or obstacle remain open after being moved?",
+    "failure_hypothesis": "Environment resets without narrative explanation.",
+    "check_or_fix": "Retain state across scene boundaries.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7118,
+    "passes": []
+  },
+  {
+    "id": "AVQ-016-014",
+    "domain_id": "D016",
+    "area": "continuity and state",
+    "question": "Are marks, damage and dirt consistent with prior events?",
+    "failure_hypothesis": "Evidence of action disappears.",
+    "check_or_fix": "Track material changes as persistent states.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7120,
+    "passes": []
+  },
+  {
+    "id": "AVQ-016-015",
+    "domain_id": "D016",
+    "area": "continuity and state",
+    "question": "Does a returning character enter from a plausible location?",
+    "failure_hypothesis": "Reentry contradicts the established exit.",
+    "check_or_fix": "Map offscreen travel and available time.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7122,
+    "passes": []
+  },
+  {
+    "id": "AVQ-016-016",
+    "domain_id": "D016",
+    "area": "continuity and state",
+    "question": "Are numerical counters updated at the event they claim to count?",
+    "failure_hypothesis": "Display increments early or twice.",
+    "check_or_fix": "Bind counters to unique event IDs.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7124,
+    "passes": []
+  },
+  {
+    "id": "AVQ-016-017",
+    "domain_id": "D016",
+    "area": "continuity and state",
+    "question": "Does a clock distinguish story time from playback time clearly?",
+    "failure_hypothesis": "Timer implies an inaccurate duration.",
+    "check_or_fix": "Document timer semantics and check displayed values.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7126,
+    "passes": []
+  },
+  {
+    "id": "AVQ-016-018",
+    "domain_id": "D016",
+    "area": "continuity and state",
+    "question": "Are alternative viewpoints synchronized to the same object state?",
+    "failure_hypothesis": "Comparison panels show incompatible moments.",
+    "check_or_fix": "Use one authoritative state sample per frame.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7128,
+    "passes": []
+  },
+  {
+    "id": "AVQ-016-019",
+    "domain_id": "D016",
+    "area": "continuity and state",
+    "question": "Does a repeated flashback look distinct from current action?",
+    "failure_hypothesis": "Temporal structure is ambiguous.",
+    "check_or_fix": "Use a consistent bounded flashback cue.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7130,
+    "passes": []
+  },
+  {
+    "id": "AVQ-016-020",
+    "domain_id": "D016",
+    "area": "continuity and state",
+    "question": "Are object scale changes motivated by camera or story events?",
+    "failure_hypothesis": "Props resize between shots unnoticed by the script.",
+    "check_or_fix": "Compare world dimensions and projection separately.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7132,
+    "passes": []
+  },
+  {
+    "id": "AVQ-016-021",
+    "domain_id": "D016",
+    "area": "continuity and state",
+    "question": "Does a loop return to a compatible starting state?",
+    "failure_hypothesis": "Ending creates a discontinuity on replay.",
+    "check_or_fix": "Inspect seam pose, ownership and environment.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7134,
+    "passes": []
+  },
+  {
+    "id": "AVQ-016-022",
+    "domain_id": "D016",
+    "area": "continuity and state",
+    "question": "Are hidden objects still accounted for in the state model?",
+    "failure_hypothesis": "Occlusion is mistaken for deletion.",
+    "check_or_fix": "Separate visibility from existence.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "puzzle",
+      "educational"
+    ],
+    "source_line": 7136,
+    "passes": []
+  },
+  {
+    "id": "AVQ-016-023",
+    "domain_id": "D016",
+    "area": "continuity and state",
+    "question": "Does the final count refer to entities rather than repeated appearances?",
+    "failure_hypothesis": "Reentry inflates the claimed population.",
+    "check_or_fix": "Count unique IDs under the declared rule.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7138,
+    "passes": []
+  },
+  {
+    "id": "AVQ-016-024",
+    "domain_id": "D016",
+    "area": "continuity and state",
+    "question": "Are scene resets labeled when demonstrating alternatives?",
+    "failure_hypothesis": "Viewer interprets a comparison as continuous action.",
+    "check_or_fix": "Mark resets or maintain a clear split-screen structure.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7140,
+    "passes": []
+  },
+  {
+    "id": "AVQ-016-025",
+    "domain_id": "D016",
+    "area": "continuity and state",
+    "question": "Does the narrative preserve information characters have learned?",
+    "failure_hypothesis": "Actor forgets the solution to prolong the plot.",
+    "check_or_fix": "Track knowledge state alongside physical state.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7142,
+    "passes": []
+  },
+  {
+    "id": "AVQ-016-026",
+    "domain_id": "D016",
+    "area": "continuity and state",
+    "question": "Are shadows and reflections consistent with object existence?",
+    "failure_hypothesis": "Removed objects leave visual evidence behind.",
+    "check_or_fix": "Check secondary passes after state changes.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7144,
+    "passes": []
+  },
+  {
+    "id": "AVQ-016-027",
+    "domain_id": "D016",
+    "area": "continuity and state",
+    "question": "Does the final artifact correspond to the cited source revision?",
+    "failure_hypothesis": "Review evidence describes an older movie.",
+    "check_or_fix": "Match hashes and version identifiers before approval.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7146,
+    "passes": [
+      "default_32"
+    ]
+  },
+  {
+    "id": "AVQ-016-028",
+    "domain_id": "D016",
+    "area": "continuity and state",
+    "question": "Are title, captions and narration using the same names and numbers?",
+    "failure_hypothesis": "Parallel text sources drift apart.",
+    "check_or_fix": "Compare against one approved script ledger.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7148,
+    "passes": []
+  },
+  {
+    "id": "AVQ-016-029",
+    "domain_id": "D016",
+    "area": "continuity and state",
+    "question": "Does a repaired shot retain compatibility with neighboring shots?",
+    "failure_hypothesis": "Local fix introduces a new continuity break.",
+    "check_or_fix": "Review both boundaries after replacement.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7150,
+    "passes": []
+  },
+  {
+    "id": "AVQ-016-030",
+    "domain_id": "D016",
+    "area": "continuity and state",
+    "question": "Are transition overlaps creating a brief duplicate of a unique object?",
+    "failure_hypothesis": "Crossfade looks like two simultaneous copies.",
+    "check_or_fix": "Inspect mixed frames at peak overlap.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7152,
+    "passes": []
+  },
+  {
+    "id": "AVQ-016-031",
+    "domain_id": "D016",
+    "area": "continuity and state",
+    "question": "Does the ending retain the unresolved constraint needed for the joke?",
+    "failure_hypothesis": "Final state accidentally removes the comic problem.",
+    "check_or_fix": "Compare payoff requirements with the actual tableau.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7154,
+    "passes": []
+  },
+  {
+    "id": "AVQ-016-032",
+    "domain_id": "D016",
+    "area": "continuity and state",
+    "question": "Would a small continuity cue prevent a major viewer misreading?",
+    "failure_hypothesis": "State change is correct but visually unannounced.",
+    "check_or_fix": "Add one clear possession, location or time cue.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7156,
+    "passes": []
+  }
+]

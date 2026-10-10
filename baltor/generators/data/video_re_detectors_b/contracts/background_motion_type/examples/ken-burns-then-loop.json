@@ -1,0 +1,8 @@
+{
+  "shots": [
+    { "shot_index": 0, "t_start_s": 0.0, "t_end_s": 5.6, "type": "still_pan_zoom", "confidence": 0.93, "raw_frame_diff": 2.71, "residual_after_compensation": 0.94, "rigid_share": 0.93, "pan_fw_per_s": [-0.009, 0.0], "zoom_per_s": 0.021, "hf_energy_fraction": 0.41, "palette_concentration": 0.07, "loops": false, "loop_period_s": null, "pairs_used": 24 },
+    { "shot_index": 1, "t_start_s": 5.6, "t_end_s": 14.0, "type": "video_loop", "confidence": 0.6, "raw_frame_diff": 6.8, "residual_after_compensation": 6.1, "rigid_share": 0.31, "pan_fw_per_s": [0.002, 0.004], "zoom_per_s": 0.0, "hf_energy_fraction": 0.38, "palette_concentration": 0.05, "loops": true, "loop_period_s": 4.0, "pairs_used": 24 },
+    { "shot_index": 2, "t_start_s": 14.0, "t_end_s": 20.0, "type": "procedural", "confidence": 0.7, "raw_frame_diff": 3.2, "residual_after_compensation": 3.1, "rigid_share": 0.12, "pan_fw_per_s": null, "zoom_per_s": null, "hf_energy_fraction": 0.004, "palette_concentration": 0.81, "loops": true, "loop_period_s": 2.0, "pairs_used": 24 }
+  ],
+  "type_counts": { "still_pan_zoom": 1, "video_loop": 1, "procedural": 1 }
+}

@@ -1,0 +1,62 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "compare_formats",
+  "title": "/compare-formats",
+  "kind": "command",
+  "subkind": "workflow",
+  "version": "1.0.0",
+  "summary": "Slash command that runs the round-trip judge on a variant: per-dimension fidelity, originality gate, proposed IR patches and the stop decision.",
+  "description": "Score a variant against its source format and propose IR fixes. Captures technique and structure only; never stores or reuses the source's footage, frames, music, voice or script text.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "verify",
+    "measure"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "shell",
+    "secrets": [],
+    "side_effects": [
+      "runs ffmpeg/ffprobe and Python modules; writes evidence, answers, IR and reports under the chosen output directory"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "opencode",
+    "baltor-harness"
+  ],
+  "entry": "command.md",
+  "tags": [
+    "video",
+    "reverse-engineering",
+    "video-re",
+    "swarm",
+    "command",
+    "workflow"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "video_re_round_trip_judge"
+    },
+    {
+      "identity": "video_re_ir_diff_fidelity"
+    },
+    {
+      "identity": "video_re_ir_validate"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_re_swarm.py",
+    "data": "generators/data/video_re_swarm"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

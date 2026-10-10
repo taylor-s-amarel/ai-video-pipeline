@@ -1,0 +1,74 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "weekly_source_digest_writer",
+  "title": "Weekly source digest writer",
+  "kind": "subagent",
+  "subkind": "workflow",
+  "version": "1.0.0",
+  "summary": "Polls a watchlist's feeds politely, deduplicates, ranks and writes a weekly digest in which every line links to its source and nothing is claimed that was not read.",
+  "domain": "source-monitoring",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "research",
+    "write",
+    "review"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "declared",
+    "executes": "python",
+    "secrets": [],
+    "hosts": [
+      "*"
+    ],
+    "side_effects": [
+      "polls the feed URLs named in the watchlist (Reddit, GitHub, arXiv, YouTube, forums, blogs)",
+      "writes .feed-cache.json and digests/"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "opencode",
+    "baltor-harness"
+  ],
+  "entry": "agent.md",
+  "tags": [
+    "digest",
+    "rss",
+    "monitoring",
+    "citations",
+    "subagent"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "rss_atom_jsonfeed_reader"
+    },
+    {
+      "identity": "feed_url_patterns"
+    },
+    {
+      "identity": "source_digest_builder"
+    },
+    {
+      "identity": "feed_collection_opml"
+    },
+    {
+      "identity": "page_change_watcher"
+    },
+    {
+      "identity": "monitor_sources_with_rss_for_agents"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/community_sources.py",
+    "data": "generators/data/community_sources"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "review_bank_continuity_and_state",
+  "title": "Review bank: continuity and state (D016)",
+  "kind": "rules",
+  "subkind": "review-lens",
+  "version": "1.0.0",
+  "summary": "The owner's 32 adversarial review questions for continuity and state (D016), exact text, with failure hypothesis, check or fix, severity, modes, stages and named passes.",
+  "description": "This is the owner's authoritative adversarial review bank: the 1,024 questions of Appendix E of the Animation and Video Production Master Guide (10 Oct 2026), transcribed with the owner's exact text, ids, filters and pass membership. Another builder in this catalogue (harness_kit) independently wrote a different 1,024-question bank; it is not this set and does not override it. Area D016 continuity and state: 32 medium severity.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#d016-continuity-and-state"
+  },
+  "step_kinds": [
+    "review",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "RULES.md",
+  "tags": [
+    "video",
+    "animation",
+    "adversarial-review",
+    "review-questions",
+    "continuity-and-state"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/ref_review_templates.py",
+    "data": "generators/data/ref_review_templates"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Generator asserts 1,024 questions with unique ids, 32 per area, nine passes matching declared counts, and every record valid against the adversarial_question schema."
+  },
+  "evidence_stage": "source-inspected",
+  "evidence_notes": "Transcribed verbatim from Appendix E (lines 7094-7156 of the guide file, SHA-256 d5e454b50f6abccd...). The guide states the source bank (Library libfile_40e3c6edac1c8191b3fe1ffed949ef9b v0, 980,912 bytes) was demonstrated with selection and evidence contracts, 39 validator regression tests and bounded applications to actual films (a 17-record focused application; BOXED IN's later 32-record review). That does not mean any question here was executed on a film; the bank is a menu, not completed tests."
+}

@@ -124,3 +124,29 @@ def test_load_collection_and_cli(tmp_path, capsys):
     bad.write_text("{}", encoding="utf-8")
     with pytest.raises(ValueError):
         m.load_collection(bad)
+
+
+def test_expand_watchlist_resolves_collections_items_urls_and_pages(tmp_path, capsys):
+    (tmp_path / "community-test.json").write_text(json.dumps(COLLECTION), encoding="utf-8")
+    watch = {"sources": [
+        {"collection": "community-test", "weight": 1.0},
+        {"collection": "community-test", "item_ids": ["gh-godot", "nope"], "weight": 2.5},
+        {"url": "https://hnrss.org/newest?q=godot", "weight": 0.5},
+        {"url": "https://www.latent.space/"},
+        {"collection": "community-absent"},
+    ]}
+    res = m.expand_watchlist(watch, tmp_path)
+    by_url = {f["url"]: f for f in res["feeds"]}
+    assert set(by_url) == {"https://www.reddit.com/r/godot/.rss", "https://github.com/godotengine/godot/releases.atom",
+                           "https://www.youtube.com/feeds/videos.xml?channel_id=UCxboW7x0jZqFdvMdCFKTMsQ",
+                           "https://hnrss.org/newest?q=godot"}
+    assert by_url["https://github.com/godotengine/godot/releases.atom"]["weight"] == 2.5  # highest weight wins
+    assert [p["url"] for p in res["pages"]] == ["https://support.google.com/youtube/answer/1311392",
+                                               "https://www.latent.space/"]
+    assert res["missing"] == ["community-test#nope", "community-absent"]
+    wl = tmp_path / "watch.json"
+    wl.write_text(json.dumps(watch), encoding="utf-8")
+    assert m.main(["--watchlist-urls", str(wl), "--feeds-dir", str(tmp_path)]) == 0
+    out = capsys.readouterr()
+    assert "https://www.reddit.com/r/godot/.rss" in out.out.splitlines()
+    assert "missing: community-absent" in out.err

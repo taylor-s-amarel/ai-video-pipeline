@@ -1,0 +1,157 @@
+{
+  "id": "makers-home-cad-weekly",
+  "title": "Home automation, CAD and printing: weekly",
+  "cadence": "weekly",
+  "window": "7d",
+  "sources": [
+    {
+      "collection": "community-releases-maker-marketing-security",
+      "weight": 2.0,
+      "item_ids": [
+        "gh-home-assistant-core",
+        "gh-esphome-esphome",
+        "gh-cadquery-cadquery",
+        "gh-gumyr-build123d",
+        "gh-freecad-freecad",
+        "gh-openscad-openscad",
+        "gh-prusa3d-prusaslicer",
+        "gh-softfever-orcaslicer"
+      ]
+    },
+    {
+      "collection": "community-reddit-makers-home-cad",
+      "weight": 1.0
+    },
+    {
+      "collection": "community-aggregators-forums",
+      "weight": 1.0,
+      "item_ids": [
+        "forum-community-openhab-org"
+      ]
+    },
+    {
+      "collection": "community-gamedev-3d-educators",
+      "weight": 1.0,
+      "item_ids": [
+        "matt-keeter"
+      ]
+    }
+  ],
+  "keywords": [
+    {
+      "term": "home assistant",
+      "weight": 3
+    },
+    {
+      "term": "esphome",
+      "weight": 2.5
+    },
+    {
+      "term": "esp32",
+      "weight": 2
+    },
+    {
+      "term": "zigbee",
+      "weight": 1.5
+    },
+    {
+      "term": "matter",
+      "weight": 1.5
+    },
+    {
+      "term": "breaking change",
+      "weight": 2.5
+    },
+    {
+      "term": "cadquery",
+      "weight": 2.5
+    },
+    {
+      "term": "build123d",
+      "weight": 2.5
+    },
+    {
+      "term": "openscad",
+      "weight": 2
+    },
+    {
+      "term": "freecad",
+      "weight": 2
+    },
+    {
+      "term": "parametric",
+      "weight": 1.5
+    },
+    {
+      "term": "slicer",
+      "weight": 1
+    },
+    {
+      "term": "3d print",
+      "weight": 1
+    },
+    {
+      "term": "functional print",
+      "weight": 1
+    }
+  ],
+  "exclude_terms": [
+    "deal alert",
+    "coupon"
+  ],
+  "groups": [
+    {
+      "title": "Releases",
+      "match": {
+        "feed_url_contains": [
+          "github.com"
+        ]
+      }
+    },
+    {
+      "title": "Home automation",
+      "match": {
+        "terms_any": [
+          "home assistant",
+          "esphome",
+          "zigbee",
+          "matter",
+          "esp32"
+        ]
+      }
+    },
+    {
+      "title": "CAD and printing",
+      "match": {
+        "terms_any": [
+          "cad",
+          "openscad",
+          "freecad",
+          "print",
+          "slicer"
+        ]
+      }
+    }
+  ],
+  "max_items_per_source": 3,
+  "max_items": 30,
+  "recency_half_life_days": 5,
+  "trend_min_sources": 2,
+  "cautions": [
+    "Printable models shared in communities keep their own licences; check before reuse."
+  ],
+  "polite": {
+    "user_agent": "baltor-feed-reader/1.0 (+https://github.com/taylor-s-amarel/ai-video-pipeline)",
+    "min_interval_s": 5,
+    "max_polls_per_day": 24,
+    "respect_retry_after": true,
+    "conditional_get": true,
+    "host_overrides": {
+      "www.reddit.com": 60
+    }
+  },
+  "outputs": {
+    "markdown": "digests/makers-home-cad-weekly/{date}.md",
+    "json": "digests/makers-home-cad-weekly/{date}.json"
+  }
+}

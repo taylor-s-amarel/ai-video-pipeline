@@ -1,0 +1,58 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "motion_grid_2x2",
+  "title": "2x2 motion grid compositor",
+  "kind": "code-module",
+  "subkind": "grid-system",
+  "version": "1.0.0",
+  "summary": "ffmpeg filter_complex for four drifting, feather-masked panels in a 2x2 grid laid over a background at capped opacity, so a grid layer always moves and never shows hard rectangles.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "motion_grid_2x2.py",
+  "tags": [
+    "video",
+    "ffmpeg",
+    "grid",
+    "2x2",
+    "background",
+    "compositing",
+    "motion"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "ffmpeg",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

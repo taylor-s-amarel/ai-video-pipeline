@@ -1,14 +1,15 @@
 ---
 name: "showcase-task-control-rename-function-refactor"
-description: "Pre-registered Baltor showcase task (negative-control): Negative control. Rename calc_total to compute_order_total everywhere in a five-file package and keep tests passing. Use when running or reproducing a with-versus-without-Baltor comparison; creates seeded fixtures and scores a run with a deterministic evaluator that prints JSON."
+description: "Pre-registered Baltor showcase task (coding): Negative control. Rename calc_total to compute_order_total everywhere in a five-file package and keep tests passing. Use when running or reproducing a with-versus-without-Baltor comparison: makes seeded fixtures and scores a run with a deterministic evaluator that prints JSON."
 ---
 
 # Showcase task: Rename a function across a small package
 
 Negative control. Rename calc_total to compute_order_total everywhere in a five-file package and keep tests passing.
 
-Pre-registered 2026-10-10 (revision 2) · spec hash `26384af9ebfc4957…` ·
-5 trials per arm · domain `negative-control` · **negative control**
+Pre-registered 2026-10-10 (revision 1) · 5 paired trials per arm ·
+domain `coding` · **negative control** · spec hash in `task.json` (`spec_sha256`) and in the
+`showcase_preregistration_ledger` rules package.
 
 ## What this task tests
 
@@ -21,35 +22,36 @@ Deliverables:
 
 ## Why Baltor might help, or not
 
-Expected effect (pre-registered): **none**. A capable model solves this without outside help, and no catalogue component targets it. Any treatment advantage beyond noise points to a placebo or prompt effect; extra treatment-arm tokens or tool calls measure the overhead of searching when nothing useful exists.
+Pre-registered expectation: **none**. A capable model solves this without outside help, and no catalogue component targets it. Any treatment advantage beyond noise points to a placebo or prompt effect; extra treatment-arm tokens or tool calls measure the overhead of searching when nothing useful exists.
 
-Components the authors expect could matter (post-hoc analysis only; nothing is pre-placed): none on disk yet.
+Components the authors expect could matter (for post-hoc analysis only; nothing is pre-placed): none identified on disk yet.
 Capabilities: -.
 
 ## Fair comparison
 
-- Baseline arm: harness and model alone. Treatment arm: the same harness and model plus access to the
-  Baltor catalogue (search, read, place). Nothing is pre-placed; the agent decides what to look for.
-- Held constant: model and settings, harness version, budget (600 s wall time,
-  30 tool calls, 120,000 tokens), starting workspace (same fixture seed in both arms
-  of a trial), network policy and machine. The prompts differ by one sentence that tells the treatment arm
-  the catalogue exists.
-- 5 paired trials; which arm runs first in each trial comes from the spec hash.
-- Every run is reported, including crashes, timeouts and losses, with tokens, wall time and tool calls.
-- This package and the ledger are excluded from the treatment arm's catalogue view; a run that reads them
-  is marked contaminated and counts as a failure.
+- Baseline arm: claude-code with claude-sonnet-4-5 alone. Baltor arm: the same harness, model, tools and
+  flags plus a logged `baltor` command for searching, reading and placing catalogue items. Nothing is
+  pre-placed; the agent decides whether and what to look for.
+- Held constant: model, harness version, allowed tools, budget (600 s wall time, 30 tool
+  calls, 120,000 tokens; over budget scores as failure), the starting workspace (same fixture seed in
+  both arms of a trial), no network, isolated home directory. The prompts differ only by the access addendum.
+- 5 paired trials, randomised order, every run reported (failures, timeouts and losses included)
+  with tokens, wall time and tool calls.
+- Showcase task packages and the ledger are excluded from the catalogue the Baltor arm sees; a run that reads
+  one is contaminated and counts as a failure for that arm.
 
 ## Run it end to end
 
 ```
-python3 showcase_eval.py .            # spec hash and the full run plan (trial, arm order, fixture seed)
-python3 setup/make_fixtures.py --workspace RUN/workspace --hidden RUN/hidden --seed SEED
-# start the agent in RUN/workspace with the arm's preamble (task.json arms.*.preamble) + task.json prompt
-python3 evaluate.py --workspace RUN/workspace --hidden RUN/hidden --out RUN/evaluation.json
+python3 showcase_eval.py .        # spec hash, integrity check and a per-trial plan (arm order, fixture seed)
+python3 setup/make_fixtures.py --workspace RUN/workspace --private RUN/private --seed SEED
+# run the agent in RUN/workspace with task.json "prompt" (+ "prompt_addendum" for the baltor arm)
+python3 evaluate.py --workspace RUN/workspace --private RUN/private --out RUN/evaluation.json
 ```
 
-Keep `RUN/hidden` unreadable to the agent (different user, or mount it only after the agent exits).
-Self-test of the evaluator: `python3 -m pytest -q .` (external tools needed: none (Python only)).
+Keep `RUN/private` unreadable by the agent (another user, or create it only after the agent exits by
+re-running setup with the same seed into a fresh directory pair and copying just the private half).
+Evaluator self-test: `python3 -m pytest -q .` (needs: none beyond Python 3.10+).
 
 ## Metrics and pass rule
 
@@ -57,11 +59,14 @@ Self-test of the evaluator: `python3 -m pytest -q .` (external tools needed: non
 |---|---|---|---:|---|---|
 | `correct_fraction` | Share of answers, lines or rows that exactly match the expected output | maximize | 1 | 0 → 1 | >= 1 |
 
-pass when correct_fraction >= 1. The composite score is the weighted mean of the normalised metrics.
+pass when the evaluation ran without errors, the package is unmodified and correct_fraction >= 1. `composite_score` is the weighted mean of the normalised metrics; `task_pass` is
+the primary outcome.
 
-## Data and licences
+## Inputs and licences
 
-- Seeded synthetic fixture (synthetic, MIT): Generated by setup/make_fixtures.py from the fixture seed.
+- `TASK.md`: Task description (TASK.md, written by setup from task_detail.json) (task-dir, MIT)
+- `shop/`: shop/ (synthetic, MIT): Generated by setup/make_fixtures.py from the fixture seed.
+- `tests/test_shop.py`: tests/test_shop.py (synthetic, MIT): Generated by setup/make_fixtures.py from the fixture seed.
 
 ## Cautions
 
@@ -69,6 +74,7 @@ pass when correct_fraction >= 1. The composite score is the weighted mean of the
 
 ## Disclosures
 
-- Conflict of interest: the tasks, evaluators and the Baltor catalogue components were written by the same team. Treat results as the team's own evaluation, not an independent study; independent replication is invited and every input needed to replicate is in this package.
-- Deterministic evaluator results are the primary evidence. Blind pairwise and LLM-judge preferences, where collected, are weaker evidence and are reported separately.
-- The task library and this ledger are excluded from the treatment arm's catalogue view so neither arm can read evaluators or reference outputs.
+- The tasks, the evaluators, the Baltor catalogue components available to the baltor arm and any report built from these runs come from the same team. Treat results as vendor-run evidence until an independent party reproduces them; every input needed to reproduce a run is in this package.
+- Deterministic evaluator results are the primary evidence. Blind pairwise or LLM-judge scores, where collected, are weaker evidence (position, length and style biases) and are reported separately.
+- The showcase task packages and the pre-registration ledger are excluded from the catalogue served to the baltor arm.
+- Third-party datasets are never copied into this package: offline tasks use data bundled with scikit-learn or seeded synthetic data; Kaggle tasks need the user's own account and rule acceptance.

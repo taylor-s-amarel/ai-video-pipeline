@@ -1,0 +1,6 @@
+title: Rule-of-thirds composition score
+summary: Scores a subject position against thirds intersections and centre, and computes the clamped crop offset that moves the subject to a target point in the frame.
+subkind: qa-check
+domain: video
+tags: [video, composition, rule-of-thirds, crop, layout]
+step_kinds: [design, verify]

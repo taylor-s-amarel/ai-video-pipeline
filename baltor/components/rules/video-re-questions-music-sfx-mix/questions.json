@@ -1,0 +1,466 @@
+{
+  "spec": "baltor.video-re-questions/v1",
+  "lens": "music_sfx_mix",
+  "title": "Music, sound effects and mix",
+  "purpose": "Measures music presence, tempo, level under the voice, ducking, sound effects and loudness, and writes a mix recipe and a licence-safe music brief.",
+  "boundary": "The swarm lifts technique and structure only. Never store, transcribe or reuse the source's footage, frames, music, voice or script text. Keyframes and spectrograms are temporary analysis files in a scratch directory and are never copied into the format IR or a variant. On-screen text may be quoted only as a locating note in evidence.note, at most 6 words, and narration is never quoted. Patterns replace content words with slots, e.g. 'FACT {n}' or '{number} {unit} {noun}'. Analysing a public video for technique is fine; republishing its content is not.",
+  "answer_contract": "video_re_analyst_answer",
+  "ir_contract": "video_re_format_ir",
+  "ir_focus": [
+    "/audio/music",
+    "/audio/sfx",
+    "/audio/integrated_lufs",
+    "/audio/music_under_voice_db",
+    "/generation_rules",
+    "/parameters"
+  ],
+  "evidence": [
+    "audio.integrated_lufs, audio.loudness_range (video_re_audio_loudness)",
+    "audio.onsets_s, audio.tempo_bpm (video_re_onsets_beats)",
+    "audio.speech_segments"
+  ],
+  "inspect": "A1 spectrograms (full band and highpassed), A3 momentary loudness, A5 side vs mid loudness for music under voice (stereo only), A6 RMS in speech gaps.",
+  "pitfalls": [
+    "Naming a commercial track; never identify or reuse it",
+    "Using side-channel loudness on a mono source",
+    "Calling every onset a sound effect"
+  ],
+  "parameter_hints": [
+    "music_track (asset with licence)",
+    "music_bpm (range)",
+    "music_under_voice_db",
+    "duck_db",
+    "sfx_set (list)",
+    "target_lufs"
+  ],
+  "optional_detectors": [
+    "video_re_detect_music_presence",
+    "video_re_detect_ducking",
+    "video_re_detect_sfx_hits",
+    "video_re_detect_dynamics_compression",
+    "video_re_detect_stereo_width",
+    "video_re_detect_tempo_changes",
+    "video_re_detect_silence_gaps"
+  ],
+  "methods": {
+    "measured": "A measurement tool produced the value (an evidence.json field or an ffmpeg/ffprobe filter output). Name the tool and the field.",
+    "observed": "You looked at extracted frames, crops, scopes, spectrograms or waveforms and saw it. Give the timestamps you looked at.",
+    "inferred": "Reasoned from measured or observed facts, e.g. 'synthetic voice' from flat pitch on a spectrogram. State the reasoning in the note.",
+    "assumed": "No direct evidence; a default or convention. Use only for gaps the format needs filled, and keep confidence at 0.3 or lower."
+  },
+  "pointer_conventions": [
+    "ir_path is a JSON Pointer (RFC 6901) into the Video format IR (contract schema video_re_format_ir).",
+    "A final '/-' means 'append this answer to the array' (the RFC 6901 end-of-array token), e.g. /motion/transitions/- or /generation_rules/-.",
+    "A '*' segment means 'each array element the answer is about'; the answer must say which elements (for example beats with role 'item'). The lifter resolves '*' to concrete indexes.",
+    "Paths under free-form objects (typography.title, typography.captions, typography.labels, audio.narration, audio.music, render_binding.mapping) use the snake_case key named in the question."
+  ],
+  "answer_types": {
+    "number": "{\"value\": n, \"unit\": \"...\"} optionally with \"min\" and \"max\"; becomes an IR observed_number",
+    "ratio": "{\"value\": r} with 0 <= r <= 1",
+    "seconds": "{\"value\": s, \"unit\": \"s\"} optionally with \"min\"/\"max\"",
+    "boolean": "true or false",
+    "enum": "exactly one of the question's choices (a string)",
+    "text": "one technique description, at most 300 characters, no copied content",
+    "list": "array of short strings (technique names or kinds)",
+    "timestamps": "array of seconds from the start of the source",
+    "segments": "[{\"start_s\": a, \"end_s\": b, \"label\": \"...\"}]",
+    "rule": "one procedural generation rule string, at most 400 characters, written in terms of parameters",
+    "object": "a JSON object with the keys the question's how_to_answer names"
+  },
+  "recipes": {
+    "F1": "Single frame: ffmpeg -v error -ss T -i \"$SRC\" -frames:v 1 -q:v 2 \"$WORK/f_T.jpg\"",
+    "A1": "Spectrogram image (add highpass=f=3000, before showspectrumpic to isolate clicks and whooshes): ffmpeg -v error -ss T -t D -i \"$SRC\" -lavfi \"showspectrumpic=s=1200x600:legend=1\" \"$WORK/spec_T.png\"",
+    "A2": "Waveform image: ffmpeg -v error -i \"$SRC\" -filter_complex \"aformat=channel_layouts=mono,showwavespic=s=1800x300\" -frames:v 1 \"$WORK/wave.png\"",
+    "A3": "Momentary loudness every 100 ms (LUFS): ffmpeg -v error -i \"$SRC\" -af \"ebur128=metadata=1,ametadata=mode=print:key=lavfi.r128.M:file=$WORK/lufs_m.txt\" -f null -",
+    "A5": "Side (L-R) channel loudness, which removes centre-panned voice and leaves most stereo music: replace the A3 filter with \"pan=mono|c0=0.5*c0-0.5*c1,ebur128=metadata=1,ametadata=mode=print:key=lavfi.r128.M:file=$WORK/side_m.txt\"; mid channel uses 0.5*c0+0.5*c1. Only meaningful for stereo sources.",
+    "A6": "RMS level per 100 ms at 48 kHz: ffmpeg -v error -i \"$SRC\" -af \"aresample=48000,asetnsamples=n=4800,astats=metadata=1:reset=1,ametadata=mode=print:key=lavfi.astats.Overall.RMS_level:file=$WORK/rms.txt\" -f null -",
+    "A7": "Stream facts: ffprobe -v error -show_streams -show_format -of json \"$SRC\""
+  },
+  "questions": [
+    {
+      "id": "music_sfx_mix-001",
+      "question": "Is there music, and what share of the runtime does it cover?",
+      "why_it_matters": "Fills music coverage.",
+      "how_to_answer": "A1 spectrograms in 5 s windows across the video (sustained tonal or rhythmic content); for stereo sources A5 side loudness above -50 LUFS also indicates music.",
+      "evidence_required": [
+        "A1 per window",
+        "A5"
+      ],
+      "ir_path": "/audio/music/coverage_ratio",
+      "answer_type": "ratio",
+      "challenge": "Ambience and room tone are not music; require tonal or rhythmic structure."
+    },
+    {
+      "id": "music_sfx_mix-002",
+      "question": "What is the music tempo in BPM?",
+      "why_it_matters": "Fills music tempo for beat-synced edits.",
+      "how_to_answer": "Read evidence.audio.tempo_bpm (video_re_onsets_beats); verify by counting onsets on an A1 spectrogram over 10 s.",
+      "evidence_required": [
+        "evidence.audio.tempo_bpm",
+        "A1"
+      ],
+      "ir_path": "/audio/music/tempo_bpm",
+      "answer_type": "number",
+      "challenge": "Tempo estimators often double or halve; check the manual count."
+    },
+    {
+      "id": "music_sfx_mix-003",
+      "question": "What is the instrumentation class (piano, acoustic guitar, strings or orchestral, synth pads, electronic beat, lo-fi, percussion only)?",
+      "why_it_matters": "Fills the music brief for licensed or original replacement music; never identifies the track.",
+      "how_to_answer": "Describe from A1 spectrograms (harmonic patterns, percussion transients) and frame-independent listening cues; method inferred.",
+      "evidence_required": [
+        "A1"
+      ],
+      "ir_path": "/audio/music/instrumentation",
+      "answer_type": "list",
+      "challenge": "Answers that name the track, artist or album are rejected."
+    },
+    {
+      "id": "music_sfx_mix-004",
+      "question": "How many dB below the voice does the music sit during speech?",
+      "why_it_matters": "Fills music_under_voice_db (a common house target is about 18 dB).",
+      "how_to_answer": "Stereo: A5 side loudness versus mid loudness during speech segments (approximation). Otherwise compare A6 RMS in speech gaps (music only) with RMS during speech, noting the music level may change (ducking).",
+      "evidence_required": [
+        "A5",
+        "A6",
+        "evidence.audio.speech_segments"
+      ],
+      "ir_path": "/audio/music_under_voice_db",
+      "answer_type": "number",
+      "challenge": "State the method; ducking makes the gap method overestimate music under voice."
+    },
+    {
+      "id": "music_sfx_mix-005",
+      "question": "Is the music ducked under speech, and by how many dB?",
+      "why_it_matters": "Fills ducking depth.",
+      "how_to_answer": "A5 side loudness (or music band energy on A1) just before and during speech onsets at 4 points.",
+      "evidence_required": [
+        "A5",
+        "A1"
+      ],
+      "ir_path": "/audio/music/duck_db",
+      "answer_type": "number",
+      "challenge": "Musical dynamics change on their own; check that drops align with speech onsets in most cases."
+    },
+    {
+      "id": "music_sfx_mix-006",
+      "question": "What is the integrated loudness of the whole mix?",
+      "why_it_matters": "Fills audio.integrated_lufs.",
+      "how_to_answer": "Read evidence.audio.integrated_lufs (video_re_audio_loudness).",
+      "evidence_required": [
+        "evidence.audio.integrated_lufs"
+      ],
+      "ir_path": "/audio/integrated_lufs",
+      "answer_type": "number",
+      "challenge": "Recompute with ffmpeg ebur128 summary if the value looks implausible."
+    },
+    {
+      "id": "music_sfx_mix-007",
+      "question": "What is the loudness range (LRA)?",
+      "why_it_matters": "Sets dynamic range target.",
+      "how_to_answer": "Read evidence.audio.loudness_range.",
+      "evidence_required": [
+        "evidence.audio.loudness_range"
+      ],
+      "ir_path": "/audio/music/loudness_range",
+      "answer_type": "number",
+      "challenge": "Recompute with ebur128 if missing."
+    },
+    {
+      "id": "music_sfx_mix-008",
+      "question": "What is the true peak, and is there clipping?",
+      "why_it_matters": "Sets a peak limit in the mix recipe.",
+      "how_to_answer": "ffmpeg -i SRC -af ebur128=peak=true -f null - (summary true peak); A2 waveform for flat tops.",
+      "evidence_required": [
+        "ebur128 true peak",
+        "A2"
+      ],
+      "ir_path": "/audio/music/true_peak_dbtp",
+      "answer_type": "number",
+      "challenge": "Lossy encoding can push true peak above 0; report the codec."
+    },
+    {
+      "id": "music_sfx_mix-009",
+      "question": "How does the music evolve (intro, build, drop at the hook or payoff, steady loop)?",
+      "why_it_matters": "Becomes a music structure rule aligned with beats.",
+      "how_to_answer": "A3 momentary loudness of the side channel (or full mix in gaps) over time; mark rises and drops with timestamps.",
+      "evidence_required": [
+        "A3",
+        "A5"
+      ],
+      "ir_path": "/audio/music/structure",
+      "answer_type": "segments",
+      "challenge": "Separate voice-driven loudness from music changes."
+    },
+    {
+      "id": "music_sfx_mix-010",
+      "question": "Does the music change between beats (new track or section per item)?",
+      "why_it_matters": "Becomes a per-beat music rule.",
+      "how_to_answer": "A1 spectrograms at beat boundaries: changes in key, instrumentation or tempo.",
+      "evidence_required": [
+        "A1 at boundaries"
+      ],
+      "ir_path": "/audio/music/per_beat_change",
+      "answer_type": "boolean",
+      "challenge": "Check 3 boundaries."
+    },
+    {
+      "id": "music_sfx_mix-011",
+      "question": "Which sound effect types occur (whoosh, pop, click, ding, riser, impact, typewriter, camera shutter, swoosh-up), with counts?",
+      "why_it_matters": "Fills audio.sfx.",
+      "how_to_answer": "A1 spectrograms with highpass=f=3000 at visual events (cuts, text pops); onsets not explained by music or speech.",
+      "evidence_required": [
+        "A1 highpassed",
+        "evidence.audio.onsets_s"
+      ],
+      "ir_path": "/audio/sfx/-",
+      "answer_type": "object",
+      "challenge": "Each type needs at least one timestamp; music percussion is not sfx."
+    },
+    {
+      "id": "music_sfx_mix-012",
+      "question": "How many sound effects per minute are used?",
+      "why_it_matters": "Sets sfx density.",
+      "how_to_answer": "Count from 011 / duration x 60.",
+      "evidence_required": [
+        "sfx timestamps"
+      ],
+      "ir_path": "/audio/sfx/-",
+      "answer_type": "number",
+      "challenge": "Report total count and duration."
+    },
+    {
+      "id": "music_sfx_mix-013",
+      "question": "What share of sound effects align with a visual event (within 80 ms)?",
+      "why_it_matters": "Becomes an sfx sync rule.",
+      "how_to_answer": "Match sfx timestamps with cuts, text entrances and transitions.",
+      "evidence_required": [
+        "sfx timestamps",
+        "visual event times"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "ratio",
+      "challenge": "Report the matching tolerance and chance rate."
+    },
+    {
+      "id": "music_sfx_mix-014",
+      "question": "How does the music end (ends on a final hit with the video, fades out, cut mid-phrase)?",
+      "why_it_matters": "Fills music ending.",
+      "how_to_answer": "A1 and A3 over the last 3 s.",
+      "evidence_required": [
+        "A1",
+        "A3"
+      ],
+      "ir_path": "/audio/music/ending",
+      "answer_type": "enum",
+      "choices": [
+        "button-ending",
+        "fade-out",
+        "cut-mid-phrase",
+        "no-music-at-end"
+      ],
+      "challenge": "Check whether the fade is in the music itself or applied in the mix (fade starts before content ends)."
+    },
+    {
+      "id": "music_sfx_mix-015",
+      "question": "What mood does the music support, described by measurable features (tempo, mode if apparent, density)?",
+      "why_it_matters": "Fills the music brief for replacement music.",
+      "how_to_answer": "Combine tempo (002), instrumentation (003) and loudness (009); mode (major/minor) only if clearly audible from harmonic content; method inferred.",
+      "evidence_required": [
+        "music answers"
+      ],
+      "ir_path": "/audio/music/mood",
+      "answer_type": "text",
+      "challenge": "Mood words must be tied to features; 'epic' alone is taste."
+    },
+    {
+      "id": "music_sfx_mix-016",
+      "question": "Is silence used as emphasis (music cut out right before a reveal)?",
+      "why_it_matters": "Adds a pre-reveal silence rule.",
+      "how_to_answer": "A3 drops of over 10 LU lasting 0.2-1 s before payoff moments.",
+      "evidence_required": [
+        "A3",
+        "timeline beats"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "timestamps",
+      "challenge": "Each drop must be followed by a reveal within 1.5 s."
+    },
+    {
+      "id": "music_sfx_mix-017",
+      "question": "How wide is the music's stereo image (side/mid loudness ratio)?",
+      "why_it_matters": "Fills stereo width guidance.",
+      "how_to_answer": "A5 side versus mid loudness in music-only gaps.",
+      "evidence_required": [
+        "A5"
+      ],
+      "ir_path": "/audio/music/stereo_width",
+      "answer_type": "number",
+      "challenge": "Mono sources make this 0; check A7 channels."
+    },
+    {
+      "id": "music_sfx_mix-018",
+      "question": "How heavy is the low end (energy below 150 Hz relative to the full band)?",
+      "why_it_matters": "Guides music selection and EQ.",
+      "how_to_answer": "A6 RMS with lowpass=f=150 versus unfiltered, in music-only gaps.",
+      "evidence_required": [
+        "A6 filtered"
+      ],
+      "ir_path": "/audio/music/low_end_db",
+      "answer_type": "number",
+      "challenge": "Report both RMS values."
+    },
+    {
+      "id": "music_sfx_mix-019",
+      "question": "Are risers used before reveals, and how long are they?",
+      "why_it_matters": "Adds risers to the sfx plan.",
+      "how_to_answer": "A1: rising pitch or noise sweeps ending at reveals.",
+      "evidence_required": [
+        "A1"
+      ],
+      "ir_path": "/audio/sfx/-",
+      "answer_type": "object",
+      "challenge": "Report timestamps and lengths."
+    },
+    {
+      "id": "music_sfx_mix-020",
+      "question": "Are ambience beds used (ocean, crowd, wind, room) under the music or voice?",
+      "why_it_matters": "Adds an ambience layer.",
+      "how_to_answer": "A1: broadband noise textures consistent with the scene; F1 frames for the matching visual.",
+      "evidence_required": [
+        "A1",
+        "frames: F1"
+      ],
+      "ir_path": "/audio/sfx/-",
+      "answer_type": "list",
+      "challenge": "Encoder noise is not ambience."
+    },
+    {
+      "id": "music_sfx_mix-021",
+      "question": "Does the music loop, and what is the loop length?",
+      "why_it_matters": "Fills loop length for music editing.",
+      "how_to_answer": "Compare A1 spectrogram patterns in successive windows for repetition.",
+      "evidence_required": [
+        "A1"
+      ],
+      "ir_path": "/audio/music/loop_s",
+      "answer_type": "seconds",
+      "challenge": "Report the repeat points."
+    },
+    {
+      "id": "music_sfx_mix-022",
+      "question": "Does the music mask the voice's intelligibility band (about 1-4 kHz) during speech?",
+      "why_it_matters": "Becomes an EQ rule (dip music in the voice band).",
+      "how_to_answer": "A1 during speech: music energy in 1-4 kHz relative to voice harmonics.",
+      "evidence_required": [
+        "A1"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "boolean",
+      "challenge": "Inferred from images; confidence under 0.6."
+    },
+    {
+      "id": "music_sfx_mix-023",
+      "question": "Write the mix recipe (music level under voice, ducking, sfx level, target loudness, peak limit).",
+      "why_it_matters": "Gives the compiler a reproducible mix.",
+      "how_to_answer": "Combine 004, 005, 006 and 008, for example 'music -18 dB under voice; duck 6 dB with 150 ms attack; sfx peaks 6 dB under voice; master to {target_lufs} LUFS integrated, -1 dBTP'.",
+      "evidence_required": [
+        "mix answers"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "rule",
+      "challenge": "Every number must come from a measurement or be marked as a default."
+    },
+    {
+      "id": "music_sfx_mix-024",
+      "question": "Which audio parameters should a new video set (music track asset with licence, bpm range, music under voice, sfx set, target LUFS)?",
+      "why_it_matters": "Feeds the parameteriser.",
+      "how_to_answer": "Collect 002, 004, 006 and 011; the track is an asset slot that requires a licence field.",
+      "evidence_required": [
+        "mix answers"
+      ],
+      "ir_path": "/parameters/-",
+      "answer_type": "list",
+      "challenge": "No parameter may point to the source's music."
+    },
+    {
+      "id": "music_sfx_mix-025",
+      "question": "How long are audio fade-ins and fade-outs at the start and end?",
+      "why_it_matters": "Fills fade lengths.",
+      "how_to_answer": "A3 at the first and last 3 s.",
+      "evidence_required": [
+        "A3"
+      ],
+      "ir_path": "/audio/music/fades",
+      "answer_type": "object",
+      "challenge": "Report ms for both."
+    },
+    {
+      "id": "music_sfx_mix-026",
+      "question": "Do music downbeats or section changes coincide with item boundaries?",
+      "why_it_matters": "Becomes a music-to-structure alignment rule.",
+      "how_to_answer": "Compare A3 or onset clusters with beat boundaries; share within 1/8 beat.",
+      "evidence_required": [
+        "evidence.audio.onsets_s",
+        "timeline beats"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "ratio",
+      "challenge": "Compare with chance."
+    },
+    {
+      "id": "music_sfx_mix-027",
+      "question": "What are the audio stream facts (codec, sample rate, channels, bitrate)?",
+      "why_it_matters": "Fills render audio settings.",
+      "how_to_answer": "A7 stream info.",
+      "evidence_required": [
+        "A7"
+      ],
+      "ir_path": "/render_binding/mapping/audio_format",
+      "answer_type": "object",
+      "challenge": "Copy values exactly from ffprobe."
+    },
+    {
+      "id": "music_sfx_mix-028",
+      "question": "Do any sound effects peak louder than the voice?",
+      "why_it_matters": "Becomes an sfx level limit.",
+      "how_to_answer": "A6 RMS at sfx moments versus median speech RMS.",
+      "evidence_required": [
+        "A6"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "boolean",
+      "challenge": "Report the levels."
+    },
+    {
+      "id": "music_sfx_mix-029",
+      "question": "Is there a sonic logo or jingle at the start or end?",
+      "why_it_matters": "Adds a sonic-logo slot a new series fills with its own sound.",
+      "how_to_answer": "A1 at the first and last 3 s for a short distinctive motif.",
+      "evidence_required": [
+        "A1"
+      ],
+      "ir_path": "/audio/sfx/-",
+      "answer_type": "boolean",
+      "challenge": "Never reuse the source's motif; the slot must be new."
+    },
+    {
+      "id": "music_sfx_mix-030",
+      "question": "Is the music a recognisable commercial track that cannot be reused?",
+      "why_it_matters": "Sets the rights flag on the music slot.",
+      "how_to_answer": "Do not identify the track. Classify only by cues (vocals with lyrics, high production with distinctive hook) and mark inferred; in all cases the variant uses separately licensed or original music.",
+      "evidence_required": [
+        "A1"
+      ],
+      "ir_path": "/audio/music/licence_status",
+      "answer_type": "enum",
+      "choices": [
+        "likely-commercial",
+        "likely-library",
+        "original-or-unknown",
+        "no-music"
+      ],
+      "challenge": "Any track name or artist in the answer is rejected."
+    }
+  ]
+}

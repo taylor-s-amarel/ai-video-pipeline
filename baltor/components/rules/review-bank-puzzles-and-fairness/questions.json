@@ -1,0 +1,753 @@
+[
+  {
+    "id": "AVQ-031-001",
+    "domain_id": "D031",
+    "area": "puzzles and fairness",
+    "question": "Does the stated rule define exactly what counts as a target, including partial, stylized, or obscured examples?",
+    "failure_hypothesis": "Solvers apply different reasonable category boundaries.",
+    "check_or_fix": "Write explicit inclusion criteria and test ambiguous instances.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 8084,
+    "passes": [
+      "default_32",
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-031-002",
+    "domain_id": "D031",
+    "area": "puzzles and fairness",
+    "question": "Can every counted target be identified at ordinary viewing size in the actual delivery encode?",
+    "failure_hypothesis": "Technical degradation makes nominally present targets practically unknowable.",
+    "check_or_fix": "Test all targets at destination size without zooming.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "final-encode",
+      "delivery"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 8086,
+    "passes": [
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-031-003",
+    "domain_id": "D031",
+    "area": "puzzles and fairness",
+    "question": "Are target-like decorations excluded, removed, or clearly distinguishable from valid targets?",
+    "failure_hypothesis": "Incidental shapes create an equally reasonable alternate count.",
+    "check_or_fix": "Audit the whole image for unmanifested target-like forms.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "storyboard",
+      "production"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 8088,
+    "passes": [
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-031-004",
+    "domain_id": "D031",
+    "area": "puzzles and fairness",
+    "question": "Do reflections, shadows, pictures-within-pictures, or repeated displays have a stated counting rule?",
+    "failure_hypothesis": "Representation layers are confused with additional physical targets.",
+    "check_or_fix": "Declare the rule before solving and apply it consistently.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 8090,
+    "passes": [
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-031-005",
+    "domain_id": "D031",
+    "area": "puzzles and fairness",
+    "question": "Is the answer unique under every interpretation allowed by the written rules?",
+    "failure_hypothesis": "The puzzle has multiple valid solutions despite a single-answer reveal.",
+    "check_or_fix": "Enumerate or independently reason through admissible solutions.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "production"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 8092,
+    "passes": [
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-031-006",
+    "domain_id": "D031",
+    "area": "puzzles and fairness",
+    "question": "Does the reveal use the same scene and rules the solver actually saw?",
+    "failure_hypothesis": "The answer is justified by altered evidence or a revised definition.",
+    "check_or_fix": "Compare puzzle and reveal states before adding annotations.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 8094,
+    "passes": [
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-031-007",
+    "domain_id": "D031",
+    "area": "puzzles and fairness",
+    "question": "Can the answer be proven from visible evidence without relying on hidden object IDs or creator knowledge?",
+    "failure_hypothesis": "Internal scene metadata supplies information unavailable to viewers.",
+    "check_or_fix": "Ask an independent solver to justify the answer from the delivered video alone.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 8096,
+    "passes": [
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-031-008",
+    "domain_id": "D031",
+    "area": "puzzles and fairness",
+    "question": "Are targets that leave the frame counted consistently with the declared observation window?",
+    "failure_hypothesis": "A moving-camera puzzle silently changes whether off-screen objects count.",
+    "check_or_fix": "Define the window and whether counting is instantaneous or cumulative.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 8098,
+    "passes": [
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-031-009",
+    "domain_id": "D031",
+    "area": "puzzles and fairness",
+    "question": "Can solvers track a target through motion without counting it again when it reappears?",
+    "failure_hypothesis": "Identity loss through cuts or occlusion inflates cumulative counts.",
+    "check_or_fix": "Preserve distinctive identity or redesign motion to avoid ambiguous reentry.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "storyboard",
+      "animatic",
+      "production",
+      "edit"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 8100,
+    "passes": [
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-031-010",
+    "domain_id": "D031",
+    "area": "puzzles and fairness",
+    "question": "Does each valid target receive enough unobscured exposure to be found within the promised solving time?",
+    "failure_hypothesis": "Brief technical visibility is mistaken for a fair observation opportunity.",
+    "check_or_fix": "Measure clear exposure and verify detection with new solvers.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 8102,
+    "passes": [
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-031-011",
+    "domain_id": "D031",
+    "area": "puzzles and fairness",
+    "question": "Are the hardest targets difficult because of intended reasoning or search, rather than blur, compression, or unreadable size?",
+    "failure_hypothesis": "The challenge depends on production defects rather than puzzle design.",
+    "check_or_fix": "Compare clean and delivered versions and remove degradation-dependent difficulty.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 8104,
+    "passes": []
+  },
+  {
+    "id": "AVQ-031-012",
+    "domain_id": "D031",
+    "area": "puzzles and fairness",
+    "question": "Does an occluded target expose enough diagnostic features to justify its classification?",
+    "failure_hypothesis": "Solvers must guess what is behind a foreground object.",
+    "check_or_fix": "Identify the visible evidence for membership or increase fair exposure.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "storyboard",
+      "production"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 8106,
+    "passes": []
+  },
+  {
+    "id": "AVQ-031-013",
+    "domain_id": "D031",
+    "area": "puzzles and fairness",
+    "question": "Are similarly drawn species or categories distinguishable under the puzzle's actual target definition?",
+    "failure_hypothesis": "Stylization erases the trait needed to separate valid and invalid objects.",
+    "check_or_fix": "Test category recognition independently of the counting task.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "storyboard",
+      "production"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 8108,
+    "passes": []
+  },
+  {
+    "id": "AVQ-031-014",
+    "domain_id": "D031",
+    "area": "puzzles and fairness",
+    "question": "Does a size-ordering puzzle specify whether solvers should compare apparent image size or implied real-world size?",
+    "failure_hypothesis": "Perspective creates two reasonable size rankings under an unstated metric.",
+    "check_or_fix": "State the comparison metric and verify the answer using that metric.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "production"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 8110,
+    "passes": []
+  },
+  {
+    "id": "AVQ-031-015",
+    "domain_id": "D031",
+    "area": "puzzles and fairness",
+    "question": "Does the puzzle require outside knowledge that the premise presents as a purely visual search?",
+    "failure_hypothesis": "Hidden trivia changes the task without warning.",
+    "check_or_fix": "State the knowledge requirement or supply the needed information.",
+    "severity": "high",
+    "modes": [
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "script"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 8112,
+    "passes": []
+  },
+  {
+    "id": "AVQ-031-016",
+    "domain_id": "D031",
+    "area": "puzzles and fairness",
+    "question": "Does the wording leak the intended answer when the task is meant to require discovery?",
+    "failure_hypothesis": "A title, count label, or grammatical cue gives away the solution.",
+    "check_or_fix": "Read all visible text before viewing the puzzle and check for answer leakage.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 8114,
+    "passes": []
+  },
+  {
+    "id": "AVQ-031-017",
+    "domain_id": "D031",
+    "area": "puzzles and fairness",
+    "question": "Do relational clues still identify the intended objects after mirroring or reframing for another layout?",
+    "failure_hypothesis": "Left-right or relative-position clues become false in a transformed version.",
+    "check_or_fix": "Solve each delivered layout independently and revise directional clues where needed.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "edit",
+      "final-encode",
+      "delivery"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 8116,
+    "passes": []
+  },
+  {
+    "id": "AVQ-031-018",
+    "domain_id": "D031",
+    "area": "puzzles and fairness",
+    "question": "Is an impossible instance allowed by the prompt, or does the wording guarantee a solution that may not exist?",
+    "failure_hypothesis": "Contradictory constraints force solvers to search indefinitely for a nonexistent answer.",
+    "check_or_fix": "Check satisfiability and state explicitly when 'no solution' is an admissible response.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "production"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 8118,
+    "passes": []
+  },
+  {
+    "id": "AVQ-031-019",
+    "domain_id": "D031",
+    "area": "puzzles and fairness",
+    "question": "Can pausing or replaying change the challenge in a way that should be acknowledged in the instructions?",
+    "failure_hypothesis": "A timed challenge implies control over playback it does not possess.",
+    "check_or_fix": "Describe the intended play convention without claiming enforced interactivity.",
+    "severity": "medium",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "delivery"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 8120,
+    "passes": []
+  },
+  {
+    "id": "AVQ-031-020",
+    "domain_id": "D031",
+    "area": "puzzles and fairness",
+    "question": "Are optional hints ordered so each helps without accidentally giving away the entire solution?",
+    "failure_hypothesis": "The first hint collapses the task while later hints add nothing.",
+    "check_or_fix": "Test hint-by-hint solving and revise the information progression.",
+    "severity": "medium",
+    "modes": [
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 8122,
+    "passes": []
+  },
+  {
+    "id": "AVQ-031-021",
+    "domain_id": "D031",
+    "area": "puzzles and fairness",
+    "question": "Does the answer reveal identify every counted target exactly once?",
+    "failure_hypothesis": "Highlighting omits, duplicates, or skips targets while displaying a plausible total.",
+    "check_or_fix": "Reconcile reveal IDs and visible markers with the count manifest.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 8124,
+    "passes": []
+  },
+  {
+    "id": "AVQ-031-022",
+    "domain_id": "D031",
+    "area": "puzzles and fairness",
+    "question": "Do reveal outlines remain registered to moving targets under the final camera transform?",
+    "failure_hypothesis": "Annotations point at empty space or neighboring distractors.",
+    "check_or_fix": "Inspect marker-to-target alignment across the full reveal.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 8126,
+    "passes": []
+  },
+  {
+    "id": "AVQ-031-023",
+    "domain_id": "D031",
+    "area": "puzzles and fairness",
+    "question": "Is the clean solving view free from faint reveal masks, numbering, or residual answer overlays?",
+    "failure_hypothesis": "Hidden or partially transparent solution layers leak assistance.",
+    "check_or_fix": "Inspect exported solving frames with the intended contrast and brightness.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 8128,
+    "passes": []
+  },
+  {
+    "id": "AVQ-031-024",
+    "domain_id": "D031",
+    "area": "puzzles and fairness",
+    "question": "Can a target enter or leave the valid set during animation without an explicit rule for that state change?",
+    "failure_hypothesis": "Morphing, opening, or orientation changes make the answer time-dependent.",
+    "check_or_fix": "Freeze membership or define when and how it changes.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "production"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 8130,
+    "passes": []
+  },
+  {
+    "id": "AVQ-031-025",
+    "domain_id": "D031",
+    "area": "puzzles and fairness",
+    "question": "Does random layout generation preserve solution uniqueness and fair spacing for this specific instance?",
+    "failure_hypothesis": "Generic generator constraints fail on the selected arrangement.",
+    "check_or_fix": "Validate the delivered instance and independently solve it.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "production"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 8132,
+    "passes": []
+  },
+  {
+    "id": "AVQ-031-026",
+    "domain_id": "D031",
+    "area": "puzzles and fairness",
+    "question": "Are distractors wrong for a visible reason rather than an arbitrary creator-only exception?",
+    "failure_hypothesis": "The answer depends on an unstated special case.",
+    "check_or_fix": "Require an observable exclusion reason for each close distractor.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "production"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 8134,
+    "passes": []
+  },
+  {
+    "id": "AVQ-031-027",
+    "domain_id": "D031",
+    "area": "puzzles and fairness",
+    "question": "Does a visual pattern have a defensible next step rather than several equally simple continuations?",
+    "failure_hypothesis": "A preferred pattern is presented as mathematically compelled.",
+    "check_or_fix": "Compare alternative rules and narrow the prompt where necessary.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 8136,
+    "passes": []
+  },
+  {
+    "id": "AVQ-031-028",
+    "domain_id": "D031",
+    "area": "puzzles and fairness",
+    "question": "Are number puzzles robust to rounding, operation-order, and notation conventions used by the audience?",
+    "failure_hypothesis": "Different standard conventions yield different answers.",
+    "check_or_fix": "State conventions and independently solve the displayed notation.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "production"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 8138,
+    "passes": []
+  },
+  {
+    "id": "AVQ-031-029",
+    "domain_id": "D031",
+    "area": "puzzles and fairness",
+    "question": "If an audio clue is essential, is that requirement clear before muted viewers begin solving?",
+    "failure_hypothesis": "A seemingly visual puzzle quietly depends on unheard information.",
+    "check_or_fix": "Listen to identify essential audio clues and label the required modality.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 8140,
+    "passes": []
+  },
+  {
+    "id": "AVQ-031-030",
+    "domain_id": "D031",
+    "area": "puzzles and fairness",
+    "question": "Are example solutions consistent with the actual rules rather than teaching an exception that never returns?",
+    "failure_hypothesis": "The tutorial primes a strategy the main puzzle rejects.",
+    "check_or_fix": "Apply every example's reasoning to the final instance.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 8142,
+    "passes": []
+  },
+  {
+    "id": "AVQ-031-031",
+    "domain_id": "D031",
+    "area": "puzzles and fairness",
+    "question": "Does the difficulty claim reflect actual cold solving rather than the creator's familiarity with the answer?",
+    "failure_hypothesis": "Insider knowledge distorts both estimated difficulty and allotted time.",
+    "check_or_fix": "Test with unbriefed relevant solvers and report the limited sample honestly.",
+    "severity": "medium",
+    "modes": [
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "delivery"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 8144,
+    "passes": []
+  },
+  {
+    "id": "AVQ-031-032",
+    "domain_id": "D031",
+    "area": "puzzles and fairness",
+    "question": "Does the reveal explain why plausible alternative answers fail, rather than merely displaying the preferred number?",
+    "failure_hypothesis": "A declarative answer leaves legitimate ambiguity unresolved.",
+    "check_or_fix": "Address the strongest alternate interpretation with visible evidence.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 8146,
+    "passes": []
+  }
+]

@@ -1,0 +1,490 @@
+{
+  "spec": "baltor.feed-collection/v1",
+  "id": "community-releases-video-audio",
+  "title": "Release feeds: video, TTS and audio tools",
+  "description": "Official GitHub release and tag Atom feeds for the video and audio tools in the short-video factory: FFmpeg, editors, programmatic video frameworks, open TTS engines and audio editors. Each feed was fetched on 2026-10-10.",
+  "updated": "2026-10-10",
+  "tags": [
+    "community-sources",
+    "video",
+    "audio",
+    "tts"
+  ],
+  "items": [
+    {
+      "id": "gh-ffmpeg-ffmpeg",
+      "title": "FFmpeg tags (GitHub mirror)",
+      "url": "https://github.com/FFmpeg/FFmpeg/tags.atom",
+      "summary": "Tag feed of the FFmpeg mirror; point releases on several branches appear as n-prefixed tags.",
+      "kind": "repository",
+      "licence": "LGPL-2.1-or-later (GPL-2.0-or-later when built with --enable-gpl)",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "video",
+        "ffmpeg"
+      ],
+      "notes": "Atom tags feed fetched 2026-10-10; newest entry: n8.1.3 on 2026-09-21; n9.0.2 on 2026-09-18.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/FFmpeg/FFmpeg/HEAD/LICENSE.md"
+    },
+    {
+      "id": "gh-yt-dlp-yt-dlp",
+      "title": "yt-dlp releases",
+      "url": "https://github.com/yt-dlp/yt-dlp/releases.atom",
+      "summary": "Release notes for yt-dlp; extractor fixes land often.",
+      "kind": "repository",
+      "licence": "Unlicense",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "video",
+        "download"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: 2026.08.19.",
+      "cautions": [
+        "Downloading does not grant rights to the media; only process media you own or that is licensed for reuse.",
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/yt-dlp/yt-dlp/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-obsproject-obs-studio",
+      "title": "OBS Studio releases",
+      "url": "https://github.com/obsproject/obs-studio/releases.atom",
+      "summary": "Release notes for OBS Studio including release candidates.",
+      "kind": "repository",
+      "licence": "GPL-2.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "video",
+        "recording"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: OBS Studio 33.0.0 RC1 on 2026-10-09.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/obsproject/obs-studio/HEAD/COPYING"
+    },
+    {
+      "id": "gh-mltframework-shotcut",
+      "title": "Shotcut releases",
+      "url": "https://github.com/mltframework/shotcut/releases.atom",
+      "summary": "Release notes for the Shotcut editor.",
+      "kind": "repository",
+      "licence": "GPL-3.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "video",
+        "editor"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v26.9.27 on 2026-10-05.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/mltframework/shotcut/HEAD/COPYING"
+    },
+    {
+      "id": "gh-kde-kdenlive",
+      "title": "Kdenlive tags (GitHub mirror)",
+      "url": "https://github.com/KDE/kdenlive/tags.atom",
+      "summary": "Tag feed of the Kdenlive mirror.",
+      "kind": "repository",
+      "licence": "GPL-3.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "video",
+        "editor"
+      ],
+      "notes": "Atom tags feed fetched 2026-10-10; newest entry: v26.08.2 on 2026-10-08. Development happens on KDE's GitLab; this is a mirror.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/KDE/kdenlive/HEAD/COPYING"
+    },
+    {
+      "id": "gh-openshot-openshot-qt",
+      "title": "OpenShot releases",
+      "url": "https://github.com/OpenShot/openshot-qt/releases.atom",
+      "summary": "Release notes for OpenShot video editor.",
+      "kind": "repository",
+      "licence": "GPL-3.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "video",
+        "editor"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v4.0.1 on 2026-09-27.",
+      "cautions": [
+        "Very large feed (about 1 MB).",
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/OpenShot/openshot-qt/HEAD/COPYING"
+    },
+    {
+      "id": "gh-handbrake-handbrake",
+      "title": "HandBrake releases",
+      "url": "https://github.com/HandBrake/HandBrake/releases.atom",
+      "summary": "Release notes for HandBrake transcoder.",
+      "kind": "repository",
+      "licence": "GPL-2.0 (compiled builds)",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "video",
+        "transcode"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: 1.11.2 on 2026-06-07.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/HandBrake/HandBrake/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-remotion-dev-remotion",
+      "title": "Remotion releases",
+      "url": "https://github.com/remotion-dev/remotion/releases.atom",
+      "summary": "Release notes for Remotion (React-based programmatic video).",
+      "kind": "repository",
+      "licence": "Remotion License (free for individuals and small companies; company licence required above a size threshold)",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "video",
+        "programmatic-video"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v4.0.534 on 2026-10-07.",
+      "cautions": [
+        "Not OSI open source; check whether your organisation needs a company licence. The licence file notes changes planned for Remotion 5.0.",
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/remotion-dev/remotion/HEAD/LICENSE.md"
+    },
+    {
+      "id": "gh-motion-canvas-motion-canvas",
+      "title": "Motion Canvas releases",
+      "url": "https://github.com/motion-canvas/motion-canvas/releases.atom",
+      "summary": "Release notes for Motion Canvas (TypeScript animation for explainer videos).",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "video",
+        "programmatic-video"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v3.18.0-alpha.0 on 2025-02-16. No release since February 2025 as of 2026-10-10.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/motion-canvas/motion-canvas/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-manimcommunity-manim",
+      "title": "Manim Community releases",
+      "url": "https://github.com/ManimCommunity/manim/releases.atom",
+      "summary": "Release notes for Manim Community Edition.",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "video",
+        "programmatic-video",
+        "math"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: Manim v0.22.0 on 2026-10-08.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/ManimCommunity/manim/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-zulko-moviepy",
+      "title": "MoviePy releases",
+      "url": "https://github.com/Zulko/moviepy/releases.atom",
+      "summary": "Release notes for MoviePy (Python video editing).",
+      "kind": "repository",
+      "licence": "No top-level LICENSE file found at HEAD",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "video",
+        "programmatic-video",
+        "python"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v2.2.1 on 2025-05-21.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ]
+    },
+    {
+      "id": "gh-hexgrad-kokoro",
+      "title": "Kokoro TTS commits",
+      "url": "https://github.com/hexgrad/kokoro/commits/main.atom",
+      "summary": "Commit feed for the Kokoro-82M TTS inference library (the repository publishes no releases).",
+      "kind": "repository",
+      "licence": "Apache-2.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "video",
+        "tts"
+      ],
+      "notes": "Atom commit feed fetched 2026-10-10; newest entry: 'Enable Python 3.13 (#244)' on 2025-08-06. Quiet since August 2025; model weights are distributed separately.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/hexgrad/kokoro/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-ohf-voice-piper1-gpl",
+      "title": "Piper TTS releases",
+      "url": "https://github.com/OHF-Voice/piper1-gpl/releases.atom",
+      "summary": "Release notes for Piper TTS, now maintained by the Open Home Foundation.",
+      "kind": "repository",
+      "licence": "GPL-3.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "video",
+        "tts"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v1.8.0 on 2026-09-04.",
+      "cautions": [
+        "Each Piper voice has its own dataset licence; check the voice card before commercial use.",
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/OHF-Voice/piper1-gpl/HEAD/COPYING"
+    },
+    {
+      "id": "gh-kyutai-labs-pocket-tts",
+      "title": "Pocket TTS releases",
+      "url": "https://github.com/kyutai-labs/pocket-tts/releases.atom",
+      "summary": "Release notes for Kyutai's Pocket TTS.",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "video",
+        "tts"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v3.3.0 on 2026-09-24.",
+      "cautions": [
+        "Code licence and voice/model licences can differ; check the model card.",
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/kyutai-labs/pocket-tts/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-resemble-ai-chatterbox",
+      "title": "Chatterbox TTS releases",
+      "url": "https://github.com/resemble-ai/chatterbox/releases.atom",
+      "summary": "Release notes for Resemble AI's Chatterbox TTS.",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "video",
+        "tts",
+        "voice-cloning"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v0.1.2 on 2025-06-13.",
+      "cautions": [
+        "Supports voice cloning: clone only voices you have written consent to use.",
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/resemble-ai/chatterbox/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-swivid-f5-tts",
+      "title": "F5-TTS releases",
+      "url": "https://github.com/SWivid/F5-TTS/releases.atom",
+      "summary": "Release notes for F5-TTS.",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "video",
+        "tts",
+        "voice-cloning"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: 1.1.22 on 2026-07-23.",
+      "cautions": [
+        "The code licence does not cover pretrained checkpoints; read the model card for the checkpoint licence before commercial use.",
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/SWivid/F5-TTS/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-idiap-coqui-ai-tts",
+      "title": "Coqui TTS (Idiap fork) releases",
+      "url": "https://github.com/idiap/coqui-ai-TTS/releases.atom",
+      "summary": "Release notes for the maintained fork of Coqui TTS.",
+      "kind": "repository",
+      "licence": "MPL-2.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "video",
+        "tts"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v0.27.5 on 2026-01-26.",
+      "cautions": [
+        "Model checkpoints are licensed separately from the code; read each model card, some are non-commercial.",
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/idiap/coqui-ai-TTS/HEAD/LICENSE.txt"
+    },
+    {
+      "id": "gh-audacity-audacity",
+      "title": "Audacity releases",
+      "url": "https://github.com/audacity/audacity/releases.atom",
+      "summary": "Release notes for Audacity audio editor.",
+      "kind": "repository",
+      "licence": "GPL-3.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "video",
+        "audio-editor"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: Audacity-4.0.1 on 2026-09-30.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/audacity/audacity/HEAD/LICENSE.txt"
+    },
+    {
+      "id": "gh-lmms-lmms",
+      "title": "LMMS releases",
+      "url": "https://github.com/LMMS/lmms/releases.atom",
+      "summary": "Release notes for LMMS music production software.",
+      "kind": "repository",
+      "licence": "GPL-2.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "video",
+        "music"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: 1.3.0-alpha.2 on 2026-09-06.",
+      "cautions": [
+        "Very large feed (about 1.7 MB).",
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/LMMS/lmms/HEAD/LICENSE.txt"
+    },
+    {
+      "id": "gh-musescore-musescore",
+      "title": "MuseScore Studio releases",
+      "url": "https://github.com/musescore/MuseScore/releases.atom",
+      "summary": "Release notes for MuseScore Studio notation.",
+      "kind": "repository",
+      "licence": "GPL-3.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "video",
+        "music"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: MuseScore Studio 4.7.5 on 2026-09-08.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/musescore/MuseScore/HEAD/LICENSE.txt"
+    },
+    {
+      "id": "gh-ardour-ardour",
+      "title": "Ardour tags (GitHub mirror)",
+      "url": "https://github.com/Ardour/ardour/tags.atom",
+      "summary": "Tag feed of the Ardour DAW mirror.",
+      "kind": "repository",
+      "licence": "GPL-2.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "video",
+        "music",
+        "daw"
+      ],
+      "notes": "Atom tags feed fetched 2026-10-10; newest entry: 9.8 on 2026-08-20.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/Ardour/ardour/HEAD/COPYING"
+    }
+  ]
+}

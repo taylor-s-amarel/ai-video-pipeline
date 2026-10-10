@@ -1,0 +1,413 @@
+# Starter-pack manifests. Each becomes a skill with SKILL.md and pack.json (agent_media_pack_manifest).
+# 'assets' maps catalogue keys to their intended use in this pack. Packs never contain media files.
+- id: stick_figure_explainer_kit
+  title: Stick-figure explainer kit (faceless 2D)
+  summary: Media pack manifest for faceless stick-figure explainer shorts - CC0 flat characters, narrator avatar, icons, caption fonts, UI panels and pop sounds.
+  description: >-
+    Use when building a faceless stick-figure or flat-character explainer short (1080x1920). Lists CC0/OFL/MIT
+    sources for characters, a narrator avatar, concept icons, caption and title fonts, UI panels, particles and
+    pop sounds, with licences and credit lines, as a manifest to fetch (no files included).
+  tags: [stick-figure, explainer, faceless, 2d, shorts]
+  targets: [ffmpeg-video, godot-4]
+  style: |
+    - Thick-outline flat characters on a moving gradient or patterned background (never a static slide).
+    - One concept icon per beat, popping in with the caption keyword; keep icons from one family.
+    - Title in Bebas Neue (bold yellow #FFD21F per house style), captions in Montserrat Bold, one line at a time.
+  assemble: |
+    1. Build characters from Kenney Modular Characters parts (or draw stick figures as Line2D in Godot so they are original).
+    2. Narrator portrait: Notion Avatar (CC0 assets) in a corner card.
+    3. Icons: Tabler/Lucide for UI concepts, game-icons for action concepts (credit the author).
+    4. Pops: Kenney Interface Sounds under each keyword pop.
+  excluded:
+    - "xkcd font (ipython/xkcd-font): CC BY-NC 3.0, not for monetised videos."
+    - "Platform emoji screenshots (Apple, Samsung): not openly licensed."
+  assets:
+    kenney-modular-characters: [flat explainer characters]
+    notion-avatar: [narrator portrait card]
+    tabler-icons: [concept icons for steps and facts]
+    lucide-icons: [UI-style icons for apps and devices]
+    game-icons-crossed-swords: [conflict or versus beat icon]
+    font-bebas-neue: [hook title on the first frame]
+    font-montserrat: [one-line synced captions]
+    kenney-ui-pack: [frosted caption panel shapes and arrows]
+    kenney-particle-pack: [sparkles behind keyword pops]
+    kenney-interface-sounds: [caption pop and click sounds]
+
+- id: low_poly_diorama_kit
+  title: Low-poly diorama kit (3D, Godot/Blender)
+  summary: Media pack manifest for a low-poly island or village diorama - CC0 nature, town and hex tiles, mini characters, sunset HDRI and particles for slow orbit shots.
+  description: >-
+    Use when a short needs a cute low-poly diorama (island, village, hex board) rendered in Godot 4 or Blender
+    with a slow camera orbit. Lists CC0 kits from Kenney, Quaternius and KayKit plus a Poly Haven sunset HDRI,
+    with licences and import hints, as a manifest to fetch.
+  tags: [low-poly, diorama, 3d, godot, blender]
+  targets: [godot-4, blender-4, ffmpeg-video]
+  style: |
+    - Small square or hex base, soft sunset HDRI lighting, slight tilt-shift depth of field, 8-12 s orbit per beat.
+    - Keep one kit family per frame (Kenney with Kenney, KayKit with KayKit) so shading matches.
+  assemble: |
+    1. Lay the hex or square base with KayKit Medieval Hexagon tiles (GridMap in Godot).
+    2. Dress with Kenney Nature Kit and Quaternius Stylized Nature; add Fantasy Town buildings.
+    3. Light with the Rosendal Park sunset HDRI; add Kenney particle sprites as drifting dust.
+    4. Run `gltf_glb_inspector` on each model to normalise scale before placing.
+  excluded:
+    - "Synty and other paid packs that appear in Poly Pizza search results."
+  assets:
+    kaykit-medieval-hexagon: [hex tile base and buildings]
+    kenney-nature-kit: [trees, rocks and plants]
+    quaternius-ultimate-stylized-nature: [extra stylised foliage]
+    kenney-fantasy-town-kit: [village buildings]
+    kenney-mini-characters: [tiny villagers]
+    polyhaven-rosendal-park-sunset-puresky: [warm sky and lighting]
+    kenney-particle-pack: [drifting dust and sparkles]
+    font-bebas-neue: [hook title]
+
+- id: top_down_maze_kit
+  title: Top-down maze kit (2D pixel art)
+  summary: Media pack manifest for top-down maze and dungeon shorts - CC0 1-bit and 16x16 tiles, animated heroes, AStarGrid2D demo, handheld palette, pixel font and retro SFX.
+  description: >-
+    Use when making a top-down maze or dungeon escape short ('one small adjustment', 'stuck in a maze') in
+    Godot 4 at pixel-art scale. Lists CC0 tiles and characters, the MIT AStarGrid2D pathfinding demo, a 4-colour
+    palette, a pixel font and CC0 retro sounds, with import presets.
+  tags: [maze, top-down, pixel-art, godot, dungeon]
+  targets: [godot-4, ffmpeg-video]
+  frame: {width: 1080, height: 1920, fps: 30}
+  style: |
+    - 16x16 tiles scaled by a whole number with `pixel_art_video_fit` (x4 fits a 224-px-wide maze, 14 tiles, inside the 9:16 safe area).
+    - Show the path being found: AStarGrid2D steps drawn as a glowing trail, one step per beat of narration.
+  assemble: |
+    1. Pick tiles from 0x72 DungeonTileset II or Kenney 1-Bit Pack (do not mix the two styles in one maze).
+    2. Apply `godot_texture_import_presets --preset pixel-art-2d`; slice sheets with `sprite_sheet_slicer grid --size 16x16`.
+    3. Copy the AStarGrid2D logic from the Godot demo; animate the hero along the path.
+    4. Optional: quantise everything to the Lospec GB palette for a handheld look, then `check` each frame.
+  excluded:
+    - "Bundled music in some itch.io packs (licensed separately)."
+  assets:
+    dungeontileset-ii: [dungeon walls, floors and animated heroes]
+    kenney-1-bit-pack: [alternative monochrome maze tiles and icons]
+    kenney-micro-roguelike: [8x8 variant for very small mazes]
+    kenney-tiny-series: [Tiny Dungeon tiles on the shared 16x16 grid]
+    godot-demo-navigation-astar: [pathfinding logic for the maze solver]
+    lospec-gb: [optional 4-colour handheld palette]
+    font-press-start-2p: [pixel captions and step counter]
+    oga-512-sfx: [footsteps, pickups, door sounds]
+    kenney-interface-sounds: [caption pops]
+
+- id: top_down_maze_kit_3d
+  variant_of: top_down_maze_kit
+  title: Top-down maze kit (3D low-poly variant)
+  summary: Variant of the maze kit for an angled 3D camera - KayKit and Kenney modular dungeon pieces, skeleton characters and the same grid pathfinding.
+  description: >-
+    Use when the maze short should be a 3D low-poly scene seen from a high angle instead of pixel art. Swaps the
+    tiles for KayKit Dungeon Remastered and Kenney Modular Dungeon Kit pieces and adds CC0 characters; pathfinding
+    still runs on a grid.
+  tags: [maze, 3d, low-poly, dungeon, godot]
+  targets: [godot-4, ffmpeg-video]
+  style: |
+    - Orthographic or high-angle perspective camera; build walls in a GridMap so the AStarGrid2D grid matches cells.
+  assemble: |
+    1. Make a MeshLibrary from KayKit/Kenney dungeon pieces and paint the maze in a GridMap.
+    2. Mirror the GridMap cells into AStarGrid2D (from the Godot demo) for the solver path.
+  excluded:
+    - "GDQuest premade characters (CC-BY-NC-SA 4.0) for monetised videos."
+  assets:
+    kaykit-dungeon-remastered: [modular dungeon walls, props and chests]
+    kenney-modular-dungeon-kit: [alternative modular rooms]
+    kaykit-skeletons-github: [skeleton characters chasing the hero]
+    kenney-mini-characters: [the hero]
+    godot-demo-navigation-astar: [grid pathfinding logic]
+    polyhaven-industrial-sunset-puresky: [ambient lighting from above]
+    kenney-rpg-audio: [footsteps and doors]
+
+- id: platformer_2d_kit
+  title: 2D platformer kit (pixel art)
+  summary: Media pack manifest for 2D platformer shorts and Godot prototypes - CC0 pixel platformer tiles and characters, Godot demo, input glyphs, pixel font and retro SFX.
+  description: >-
+    Use when building a 2D side-scrolling platformer scene or short in Godot 4. Lists CC0 tiles and characters
+    (Kenney, Pixel Frog, Ansimuz art), the MIT Godot 2D platformer demo, CC0 input-prompt glyphs, an OFL pixel
+    font and CC0 retro sounds, with exclusions for licensed music.
+  tags: [platformer, 2d, pixel-art, godot]
+  targets: [godot-4, ffmpeg-video]
+  style: |
+    - 18x18 (Kenney) or 16x16 (Pixel Frog) tiles; do not mix grids in one level.
+    - Use Kenney Pattern Pack Pixel layers for parallax so the background always moves.
+  assemble: |
+    1. Start from the Godot 2D platformer demo (MIT) and replace its art with Kenney Pixel Platformer tiles.
+    2. Use `pixel-art-2d` imports, Nearest filter and integer stretch (as the demo's project settings do).
+    3. Add input glyphs for tutorial captions; credit nothing extra (CC0), but keep the demo's music credit if you keep the music.
+  excluded:
+    - "Sunny Land's bundled music by Pascal Belisle unless credited."
+    - "Pixel Adventure's OpenGameArt mirror (CC-BY 4.0) when the itch.io CC0 copy is available."
+  assets:
+    kenney-pixel-platformer: [tiles, hero and enemies]
+    pixel-adventure-1: [alternative hero and traps]
+    sunny-land-art: [parallax forest backgrounds]
+    kenney-pattern-pack-pixel: [scrolling background layers]
+    godot-demo-2d-platformer: [character controller reference]
+    kenney-input-prompts-pixel: [tutorial button glyphs]
+    font-pixelify-sans: [pixel captions]
+    oga-512-sfx: [jump, coin and hit sounds]
+
+- id: platformer_3d_kit
+  variant_of: platformer_2d_kit
+  title: 3D platformer kit (low-poly variant)
+  summary: Variant of the platformer kit for a 3D low-poly level - Kenney and KayKit platformer pieces, Kenney's Godot 4.6 starter kit and the official 3D platformer demo.
+  description: >-
+    Use when the platformer should be a 3D low-poly level. Lists Kenney's Platformer Kit and KayKit Platformer
+    Pack (CC0), Kenney's MIT/CC0 Godot 3D platformer starter kit and the official 3D platformer demo, plus a
+    sunset HDRI and UI sounds.
+  tags: [platformer, 3d, low-poly, godot]
+  targets: [godot-4, ffmpeg-video]
+  style: |
+    - Chase camera with gentle lag; bright HDRI; one kit family per level.
+  assemble: |
+    1. Clone Kenney's Starter Kit 3D Platformer (Godot 4.6) and swap or extend its CC0 pieces.
+    2. Compare with the official 3D platformer demo for CharacterBody3D details.
+  excluded:
+    - "GDQuest third-person controller art (CC-BY-NC-SA 4.0); its MIT code is fine."
+  assets:
+    kenney-starter-kit-3d-platformer: [ready Godot 4.6 template]
+    kenney-platformer-kit: [level blocks and props]
+    kaykit-platformer: [alternative stylised pieces]
+    godot-demo-3d-platformer: [CharacterBody3D reference]
+    polyhaven-sunset-fairway: [sky and lighting]
+    kenney-interface-sounds: [UI and pickup sounds]
+
+- id: isometric_town_kit
+  title: Isometric town kit (2D tiles)
+  summary: Media pack manifest for isometric town and city explainers - CC0 isometric city tiles and blocks, the Godot isometric depth-sorting demo, fonts and UI sounds.
+  description: >-
+    Use when a short or Godot scene shows a town, city plan or map in 2D isometric view. Lists CC0 Kenney
+    isometric tiles and blocks, the MIT Godot isometric demo for depth sorting, caption fonts and CC0 sounds.
+  tags: [isometric, town, city, 2d, godot]
+  targets: [godot-4, ffmpeg-video]
+  style: |
+    - Build the town on an isometric TileMapLayer; pan slowly across it while labels pop above buildings.
+  assemble: |
+    1. Import tiles with `smooth-2d` (these are not pixel-art sized); create an isometric TileSet.
+    2. Use the Godot isometric demo's Y-sort setup so characters pass behind buildings.
+  excluded: []
+  assets:
+    kenney-isometric-tiles-city: [roads, buildings and parks]
+    kenney-isometric-blocks: [terrain blocks]
+    godot-demo-2d-isometric: [depth sorting reference]
+    font-inter: [labels above buildings]
+    kenney-interface-sounds: [label pops]
+
+- id: isometric_town_kit_3d
+  variant_of: isometric_town_kit
+  title: Isometric town kit (3D city-kit variant)
+  summary: Variant of the town kit built from Kenney's 3D city kits with an orthographic camera and Kenney's MIT/CC0 Godot city-builder starter kit.
+  description: >-
+    Use when the town should be 3D under an orthographic isometric camera, for example a city growth timelapse.
+    Lists Kenney City Kits (Suburban, Commercial, Roads), Car Kit, the Godot 4.6 city-builder starter kit and an
+    evening HDRI.
+  tags: [isometric, city, 3d, godot, timelapse]
+  targets: [godot-4, ffmpeg-video]
+  style: |
+    - Orthographic camera at the classic isometric angle; animate buildings appearing tile by tile.
+  assemble: |
+    1. Start from Kenney's Starter Kit City Builder (dynamic MeshLibrary, save/load) and script the timelapse.
+  excluded: []
+  assets:
+    kenney-starter-kit-city-builder: [Godot 4.6 city-builder template]
+    kenney-city-kit-suburban: [houses]
+    kenney-city-kit-commercial: [shops and towers]
+    kenney-city-kit-roads: [roads, signs and lights]
+    kenney-car-kit: [traffic]
+    polyhaven-evening-road-01-puresky: [evening lighting]
+
+- id: space_nasa_kit
+  title: Space and NASA kit (real spacecraft + stylised extras)
+  summary: Media pack manifest for space shorts - NASA 3D Resources GLBs with recorded SHA-256 (Apollo LM, astronaut, Hubble), Gateway and Curiosity, plus CC0 stylised space kits.
+  description: >-
+    Use when a space or Moon-landing short needs real spacecraft models plus stylised filler. Three NASA GLBs
+    were downloaded and hashed on 2026-10-10 (all need Draco decoding); others are listed to fetch. Includes NASA
+    usage rules (no insignia, no implied endorsement) and CC0 Kenney/Quaternius space kits.
+  tags: [space, nasa, 3d, history, science]
+  targets: [blender-4, godot-4, ffmpeg-video]
+  style: |
+    - Black space background with a slow-moving starfield layer; hero model lit by one hard key light.
+    - Scale models before animation: the Astronaut GLB is about 74 units tall and Hubble (A) about 525 units.
+  assemble: |
+    1. `python media_pack_fetcher.py pack.json --out assets/space` fetches the NASA GLBs and verifies their hashes.
+    2. Import in Blender (Draco and WebP supported), normalise scale, and re-export decoded GLBs for Godot if needed.
+    3. Use Kenney/Quaternius space kits for stylised cutaways and diagrams.
+  excluded:
+    - "NASA logos/insignia and anything implying NASA endorsement."
+  assets:
+    nasa-apollo-lm: [Moon landing hero model]
+    nasa-astronaut: [astronaut figure]
+    nasa-hubble-a: [telescope explainer]
+    nasa-gateway-core: [Artemis-era station]
+    nasa-curiosity-rover: [Mars rover beat]
+    kenney-space-kit: [stylised base and rockets]
+    quaternius-ultimate-space-kit: [stylised astronauts, planets and enemies]
+    font-inter: [clean data captions]
+
+- id: nature_backgrounds_kit
+  title: Nature backgrounds kit (moving HDRI skies and foliage)
+  summary: Media pack manifest for moving nature backgrounds behind facts - five CC0 sunset/sky HDRIs, CC0 foliage packs, PBR ground materials and particle overlays.
+  description: >-
+    Use when a short needs calm, moving nature backgrounds (panning skies, swaying foliage, drifting particles)
+    behind photos and captions. Lists CC0 Poly Haven HDRIs, Quaternius and Kenney nature models, ambientCG and
+    cgbookcase materials, and Kenney particles.
+  tags: [nature, backgrounds, hdri, foliage, shorts]
+  targets: [blender-4, godot-4, ffmpeg-video]
+  style: |
+    - Rotate the HDRI slowly (one degree per second reads as motion without distraction); keep 5+ layers moving.
+    - Blur the background plate slightly so the main photo and captions stay sharp.
+  assemble: |
+    1. Blender: World > Environment Texture with a Mapping node keyframed on Z rotation; render 1080x1920.
+    2. Godot: PanoramaSkyMaterial on a WorldEnvironment; rotate the sky via Environment.sky_rotation.
+  excluded: []
+  assets:
+    polyhaven-belfast-sunset-puresky: [sunset over water]
+    polyhaven-grasslands-sunset: [golden field]
+    polyhaven-rosendal-park-sunset-puresky: [clear warm sky]
+    polyhaven-evening-road-01-puresky: [evening sky]
+    polyhaven-industrial-sunset-puresky: [sky-only gradient]
+    quaternius-ultimate-nature: [foreground foliage]
+    kenney-nature-kit: [stylised foliage]
+    ambientcg-materials: [ground and rock materials]
+    cgbookcase-textures: [extra ground textures]
+    kenney-particle-pack: [drifting particles layer]
+
+- id: ui_caption_kit
+  title: UI and caption kit (fonts, panels, icons, pops)
+  summary: Media pack manifest for caption and title styling - OFL title/caption fonts, CC0 UI panels and particles, MIT/ISC icons, CC-BY emoji and CC0 pop sounds.
+  description: >-
+    Use when styling hook titles, one-line captions, FACT labels, lower thirds and reaction stickers for
+    1080x1920 shorts or Godot UI. Lists OFL fonts (Bebas Neue, Anton, Montserrat, Inter), Kenney UI Pack,
+    Lucide/Tabler icons, Twemoji (credit) and Kenney Interface Sounds.
+  tags: [captions, ui, fonts, icons, shorts]
+  targets: [ffmpeg-video, godot-4, web]
+  style: |
+    - Title: Bebas Neue or Anton, bold yellow #FFD21F, upper third over the photo, frosted backing.
+    - Captions: Montserrat Bold, max 7 words, one line, keyword pop 1.0 -> 1.12 -> 1.0 over 180 ms with a click.
+  assemble: |
+    1. Install fonts locally (keep OFL.txt); point the subtitle renderer at the font directory.
+    2. Use Kenney UI Pack shapes as frosted panel masks; never a hard rectangular cutout.
+  excluded:
+    - "Font Awesome Pro icons; platform emoji screenshots."
+  assets:
+    font-bebas-neue: [hook titles]
+    font-anton: [alternative heavy title]
+    font-montserrat: [captions]
+    font-inter: [small labels and sources line]
+    kenney-ui-pack: [panels and arrows]
+    lucide-icons: [inline caption icons]
+    tabler-icons: [check and cross marks]
+    twemoji: [reaction stickers]
+    kenney-particle-pack: [keyword sparkle]
+    kenney-interface-sounds: [pop and click]
+
+- id: pa_farm_diorama_kit
+  title: Pennsylvania farm diorama kit (Godot 3D showcase)
+  summary: Media pack manifest for a low-poly farm diorama in Godot 4 - CC0 farm buildings, animated animals, crops, vehicles, terrain addon, city-builder template and a golden-field HDRI.
+  description: >-
+    Use when building a farm or rural-business 3D visualisation in Godot 4 (for example a contest showcase of
+    a small farm's product or service). Lists CC0 Quaternius farm buildings, animals and crops, Kenney nature
+    and car kits, Kenney's MIT/CC0 city-builder template for placement, the MIT Terrain3D addon and a CC0 HDRI.
+  tags: [farm, diorama, godot, 3d, showcase]
+  targets: [godot-4, ffmpeg-video]
+  style: |
+    - Late-afternoon light (Grasslands Sunset HDRI), low-poly fields in rows, animated animals idling.
+    - Label each building with the product or service it represents; keep labels in Inter, max 3 words.
+  assemble: |
+    1. Start from Kenney's Starter Kit City Builder (build/remove, MeshLibrary, save/load) and swap the
+       MeshLibrary for farm buildings and crop tiles.
+    2. Sculpt gentle terrain with Terrain3D or use flat tiles for a board-game look.
+    3. Record a 60-90 s fly-through; check every model with `gltf_glb_inspector` before import.
+  excluded:
+    - "GDQuest characters (non-commercial) and Mixamo raw files in the shared project."
+  assets:
+    quaternius-farm-buildings: [barn, silo and fences]
+    quaternius-farm-animals: [animated cows, pigs and chickens]
+    quaternius-ultimate-crops: [crop rows]
+    kenney-nature-kit: [trees and rocks]
+    kenney-car-kit: [delivery vehicles]
+    kenney-starter-kit-city-builder: [placement and save/load template]
+    terrain3d: [editable terrain]
+    polyhaven-grasslands-sunset: [golden-hour lighting]
+    font-inter: [building labels]
+    kenney-interface-sounds: [UI sounds]
+
+- id: this_vs_that_comparison_kit
+  title: This-vs-that comparison kit
+  summary: Media pack manifest for 'this vs that' comparison shorts - CC0 food/props, versus icon (CC BY), tick/cross icons, heavy title fonts, reveal sounds and UI panels.
+  description: >-
+    Use when making split-screen 'this vs that' or ranking shorts. Lists CC0 Kenney props, a game-icons versus
+    icon (CC BY 3.0 credit), MIT check/cross icons, OFL heavy title fonts, Kenney Casino Audio for reveals,
+    Kenney UI panels and Twemoji reaction stickers (CC-BY credit).
+  tags: [comparison, versus, split-screen, shorts, ranking]
+  targets: [ffmpeg-video, godot-4]
+  style: |
+    - Vertical split (top vs bottom) for 9:16; each side has one hero object, one number and one icon.
+    - Reveal winner with a scale pop and a casino chip sound; never more than two lines of text on screen.
+  assemble: |
+    1. Render props (Kenney Food Kit or any CC0 kit) on turntables; place them in the two halves.
+    2. Put the crossed-swords icon on the divider; credit 'Icon by Lorc, game-icons.net, CC BY 3.0'.
+  excluded:
+    - "Brand logos and product photos you do not have rights to."
+  assets:
+    kenney-food-kit: [comparison props]
+    game-icons-crossed-swords: [versus divider]
+    tabler-icons: [tick and cross]
+    font-anton: [side labels]
+    font-bebas-neue: [hook title]
+    kenney-casino-audio: [reveal sounds]
+    kenney-ui-pack: [score panels]
+    twemoji: [reaction stickers]
+
+- id: history_museum_kit
+  title: History and museum kit (CC0 records, ruins, castles)
+  summary: Media pack manifest for history shorts - Smithsonian CC0 records, NASA Apollo model, CC0 castle, ruins, graveyard and skeleton kits, and CC0 stone/wood textures.
+  description: >-
+    Use when a history short ('today in history', battles, ancient sites) needs props and sources. Lists
+    Smithsonian Open Access metadata (CC0 records), the NASA Apollo LM GLB (hashed), CC0 Kenney castle and
+    graveyard kits, Quaternius modular ruins, KayKit skeletons and CC0 textures.
+  tags: [history, museum, castle, ruins, shorts]
+  targets: [blender-4, godot-4, ffmpeg-video]
+  style: |
+    - Dark warm grade, torch-like key light, slow push-in on each prop; FACT labels with dates and sources.
+  assemble: |
+    1. Query Smithsonian Open Access records for real objects and dates; cite record URLs in the description.
+    2. Build reconstructions from Kenney Castle Kit and Quaternius Modular Ruins; texture with CC0 stone/wood.
+  excluded:
+    - "Research scan models with unclear rights (for example the common-3d-test-models set) until their licence is confirmed."
+    - "Sketchfab museum scans marked BY-NC for monetised videos."
+  assets:
+    smithsonian-openaccess: [real object records and dates]
+    nasa-apollo-lm: [1969 Moon landing beat]
+    kenney-castle-kit: [castle reconstructions]
+    quaternius-ultimate-modular-ruins: [ancient ruins]
+    kenney-graveyard-kit: [graveyard scenes]
+    kaykit-skeletons-github: [skeleton characters]
+    cgbookcase-textures: [stone and wood surfaces]
+    polyhaven-textures: [extra PBR surfaces]
+
+- id: animal_crowd_story_kit
+  title: Animal crowd story kit (silly stories, many animals)
+  summary: Media pack manifest for silly animal-crowd stories - CC0 animated animal packs, small characters, nature kit, a sunny HDRI and generated or CC0 sound effects.
+  description: >-
+    Use when a ridiculous story needs many animals on screen (a crowd of pets, a farm stampede). Lists CC0
+    Quaternius animated animal packs, Kenney mini and blocky characters, nature props, a CC0 sunny HDRI, ZzFX
+    for generated sounds and Kenney Interface Sounds.
+  tags: [animals, crowd, story, 3d, shorts]
+  targets: [godot-4, blender-4, ffmpeg-video]
+  style: |
+    - Use MultiMeshInstance3D or many instanced scenes with randomised animation offsets so the crowd never moves in sync.
+  assemble: |
+    1. Check which species each animal pack actually contains before writing the script.
+    2. Instance hundreds of animals with random rotation, scale (0.9-1.1) and animation start time.
+  excluded: []
+  assets:
+    quaternius-ultimate-animated-animals: [animated animal crowd]
+    quaternius-farm-animals: [extra farm animals]
+    kenney-mini-characters: [owners and bystanders]
+    kenney-blocky-characters: [cartoon townsfolk]
+    kenney-nature-kit: [park setting]
+    polyhaven-sunset-fairway: [grassy hill lighting]
+    zzfx: [generated boing and pop sounds]
+    kenney-interface-sounds: [caption pops]

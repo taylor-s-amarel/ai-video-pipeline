@@ -37,4 +37,4 @@ def test_crop_filter_runs():
                         "-vf", vf, "-f", "rawvideo", "-pix_fmt", "gray", "-"],
                        capture_output=True, timeout=60, stdin=subprocess.DEVNULL)
     assert r.returncode == 0, r.stderr
-    assert len(r.stdout) == 160 * 90 * 13 or len(r.stdout) % (160 * 90) == 0
+    assert len(r.stdout) % (160 * 90) == 0 and len(r.stdout) // (160 * 90) >= 12

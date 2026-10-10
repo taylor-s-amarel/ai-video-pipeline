@@ -1,0 +1,60 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "ken_burns_zoompan_filter",
+  "title": "Ken Burns zoompan filter builder",
+  "kind": "code-module",
+  "subkind": "camera-move",
+  "version": "1.0.0",
+  "summary": "Builds ffmpeg zoompan filters for eased Ken Burns zooms on a still, cropped to the output aspect and pre-scaled to remove the integer-position jitter zoompan is known for.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "tests run ffmpeg when installed"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "ken_burns_zoompan_filter.py",
+  "tags": [
+    "video",
+    "ken-burns",
+    "ffmpeg",
+    "zoompan",
+    "filter",
+    "photo"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "ffmpeg",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

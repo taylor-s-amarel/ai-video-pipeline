@@ -1,0 +1,6 @@
+title: Multi-track timeline model
+summary: Multi-track clip timeline with duration, active clips at time t, overlap/gap/continuity checks, source-range and opacity-cap checks, and JSON round trip.
+subkind: layer-stack
+domain: video
+tags: [video, timeline, editing, tracks, validation, json]
+step_kinds: [plan, build, render]

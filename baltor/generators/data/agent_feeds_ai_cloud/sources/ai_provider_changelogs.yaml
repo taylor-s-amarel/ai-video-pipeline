@@ -1,0 +1,144 @@
+collection:
+  id: updates-ai-provider-changelogs
+  title: "Model and API provider changelogs and release notes"
+  description: "Official release notes, API changelogs and machine-readable API specifications from model providers (Anthropic, OpenAI, Google Gemini and Vertex AI, Microsoft Foundry, Amazon Bedrock, xAI, DeepSeek, Cohere). Use them to learn about new models, new API features, breaking changes and price changes before a coding agent writes code against an API. Most vendor documentation hosts could not be fetched from the research network on 2026-10-10; those items are search-verified and marked html-diff so an agent knows to diff the page (or its .md variant) instead of expecting a feed."
+  tags: [ai, model-providers, api, changelog]
+  defaults: {terms: vendor-docs, poll: changelog, feed_format: html-diff, auth: none,
+             change_types: [model-release, release, breaking-change, deprecation, pricing, docs]}
+
+items:
+  - id: anthropic-platform-release-notes
+    title: "Claude Platform release notes (overview)"
+    url: "https://platform.claude.com/docs/en/release-notes/overview"
+    summary: "Anthropic's combined release notes for the Claude Developer Platform: new models, API features, beta graduations, pricing changes and behaviour changes such as the August 2026 note that Claude Opus 5 only allows disabling thinking at effort 'high' or below."
+    vendor: Anthropic
+    products: [Claude API, Claude Developer Platform, Claude Managed Agents]
+    verification: search-result
+    notes: "A Markdown variant is published at https://platform.claude.com/docs/en/release-notes/overview.md (seen in search results); diff that instead of the HTML. docs.claude.com URLs are older copies."
+  - id: anthropic-api-release-notes
+    title: "Claude API release notes"
+    url: "https://platform.claude.com/docs/en/release-notes/api"
+    summary: "API-only release notes for the Claude API: new endpoints and tools, beta headers, rate-limit and pricing changes (for example Claude Sonnet 5 introductory pricing becoming standard) and Managed Agents session budgets."
+    vendor: Anthropic
+    products: [Claude API]
+    verification: search-result
+    notes: "Markdown variant: https://platform.claude.com/docs/en/release-notes/api.md (seen in search results)."
+  - id: openai-api-changelog
+    title: "OpenAI API changelog"
+    url: "https://developers.openai.com/api/docs/changelog"
+    summary: "OpenAI's dated API changelog: model snapshot updates (for example chat-latest moving to a new snapshot), new tools and endpoints, access tiers and dashboard releases. The old platform.openai.com/docs/changelog address now lives on developers.openai.com."
+    vendor: OpenAI
+    products: [OpenAI API, Responses API, Realtime API]
+    verification: search-result
+    notes: "A Markdown variant appeared in search results at https://developers.openai.com/api/docs/changelog.md. No RSS feed for the API changelog was found; an OpenAI forum thread reports Cloudflare blocks naive scraping, so poll gently or watch the OpenAPI spec commits instead."
+    cautions: ["No official feed was confirmed; treat page diffs as best effort and fall back to the openai-openapi commit feed."]
+  - id: openai-developers-changelog-hub
+    title: "OpenAI developers changelog hub"
+    url: "https://developers.openai.com/changelog/"
+    summary: "Cross-product changelog index on developers.openai.com covering the API, Codex, the Agents SDK and Apps SDK; useful as one page to diff when an agent uses several OpenAI products."
+    vendor: OpenAI
+    products: [OpenAI API, Codex, Agents SDK, Apps SDK]
+    verification: search-result
+  - id: openai-openapi-spec-commits
+    title: "OpenAI OpenAPI specification commits"
+    gh: openai/openai-openapi
+    feed: "commits:main"
+    summary: "Commit feed of OpenAI's published OpenAPI document. Every new endpoint, parameter or deprecation flag in the OpenAI API appears here as a commit (for example the organization-wide Decisions API usage endpoint on 2026-10-09), which makes it the most reliable machine signal for OpenAI API surface changes."
+    vendor: OpenAI
+    products: [OpenAI API]
+    seen: "'Add new endpoint for organization-wide Decisions API usage reporting' on 2026-10-09"
+    verification: fetched
+    terms: github
+    poll: release
+    change_types: [release, breaking-change, deprecation, docs]
+    notes: "The default branch is main; https://github.com/openai/openai-openapi/commits/master.atom returned 404 on 2026-10-10."
+  - id: google-gemini-api-changelog
+    title: "Gemini API changelog"
+    url: "https://ai.google.dev/gemini-api/docs/changelog"
+    summary: "Google's Gemini API changelog: model launches and GA dates, preview shutdowns, Interactions API changes, File API and retention changes. Mid-2026 entries record the Gemini 2.0 Flash shutdown on 2026-06-01 and Gemini 3.x image models going GA."
+    vendor: Google
+    products: [Gemini API, Google AI Studio]
+    verification: search-result
+    cautions: ["Search caches of this page lagged by months; diff the live page."]
+  - id: google-vertex-genai-release-notes
+    title: "Generative AI on Vertex AI release notes"
+    url: "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/release-notes"
+    feed_url: "https://docs.cloud.google.com/feeds/generative-ai-on-vertex-ai-release-notes.xml"
+    feed_format: atom
+    terms: vendor-feed
+    summary: "Release notes for Gemini and partner models on Vertex AI (Agent Platform): model availability by region, feature previews and GA, and deprecations such as Vertex AI Extensions being shut down after 2026-11-26."
+    vendor: Google Cloud
+    products: [Vertex AI, Gemini on Vertex AI, Agent Platform]
+    verification: search-result
+    notes: "The Atom document itself appeared in search results with this self link; Google Cloud product feeds follow docs.cloud.google.com/feeds/<product>-release-notes.xml."
+  - id: google-vertex-ai-release-notes
+    title: "Vertex AI platform release notes"
+    url: "https://docs.cloud.google.com/vertex-ai/docs/release-notes"
+    summary: "Release notes for the wider Vertex AI platform (training, pipelines, Workbench, model registry) that agents touch when they deploy or tune models on Google Cloud."
+    vendor: Google Cloud
+    products: [Vertex AI]
+    verification: search-result
+  - id: microsoft-foundry-whats-new
+    title: "What's new in Microsoft Foundry (Azure OpenAI)"
+    url: "https://learn.microsoft.com/en-us/azure/foundry/whats-new-foundry"
+    summary: "Microsoft Learn's monthly 'what's new' for Microsoft Foundry, which now carries Azure OpenAI changes: new model deployments, model router, provisioned throughput guidance and auto-upgrade of Azure OpenAI resources to Foundry."
+    vendor: Microsoft
+    products: [Microsoft Foundry, Azure OpenAI]
+    verification: search-result
+  - id: microsoft-foundry-devblog
+    title: "Microsoft Foundry developer blog"
+    url: "https://devblogs.microsoft.com/foundry/"
+    summary: "Microsoft's Foundry developer blog with monthly 'What's new in Microsoft Foundry' recaps (for example June 2026: Claude generally available in Foundry, GPT-Realtime-1.5 audio models)."
+    vendor: Microsoft
+    products: [Microsoft Foundry, Azure OpenAI]
+    verification: search-result
+    feed_format: none
+    poll: lifecycle
+  - id: aws-bedrock-document-history
+    title: "Amazon Bedrock user guide document history"
+    url: "https://docs.aws.amazon.com/bedrock/latest/userguide/doc-history.html"
+    feed_url: "https://docs.aws.amazon.com/bedrock/latest/userguide/bedrock-ug.rss"
+    feed_format: rss
+    terms: vendor-feed
+    summary: "Dated list of Amazon Bedrock documentation releases: new foundation models, Converse API features, batch inference, agents and guardrails changes. The page says it offers an RSS feed of updates."
+    vendor: Amazon Web Services
+    products: [Amazon Bedrock]
+    verification: search-result
+    cautions: ["The RSS URL was seen only in a third-party feed directory, not on the AWS page; confirm it returns RSS on first poll and fall back to diffing doc-history.md."]
+  - id: xai-release-notes
+    title: "xAI API release notes"
+    url: "https://docs.x.ai/developers/release-notes"
+    summary: "xAI's API release notes: Grok model launches and prices (Grok 4.5 on 2026-07-08 at $2/$6 per million tokens), priority processing tiers, voice and text-to-speech features, and coding models in early access."
+    vendor: xAI
+    products: [xAI API, Grok]
+    verification: search-result
+  - id: deepseek-api-updates
+    title: "DeepSeek API change log"
+    url: "https://api-docs.deepseek.com/updates"
+    summary: "DeepSeek's API change log, which records which model each API name points to. It announced V4-Pro and V4-Flash and the retirement of the legacy names deepseek-chat and deepseek-reasoner on 2026-07-24 (they mapped to deepseek-v4-flash modes until then)."
+    vendor: DeepSeek
+    products: [DeepSeek API]
+    verification: search-result
+    change_types: [model-release, deprecation, breaking-change, pricing]
+    notes: "Chinese edition: https://api-docs.deepseek.com/zh-cn/updates (often updated first)."
+  - id: cohere-changelog
+    title: "Cohere changelog"
+    url: "https://docs.cohere.com/changelog"
+    summary: "Cohere's release notes for Command, Embed, Rerank and Aya models and API endpoints, including major deprecation announcements such as the September 2025 Command deprecations."
+    vendor: Cohere
+    products: [Cohere API, Command, Embed, Rerank]
+    verification: search-result
+    notes: "Cohere publishes an agent-oriented index at https://docs.cohere.com/llms.txt (and llms-full.txt); individual entries live under docs.cohere.com/changelog/<date-slug>."
+  - id: meta-llama-models-releases
+    title: "Meta Llama models repository releases"
+    gh: meta-llama/llama-models
+    summary: "Release feed of Meta's llama-models repository (model cards, tokenizer and prompt-format utilities). Quiet since April 2025; kept because a new Llama release would land here first."
+    vendor: Meta
+    products: [Llama]
+    seen: "v0.2.0 on 2025-04-05"
+    verification: fetched
+    terms: github
+    poll: lifecycle
+    feed_format: github-releases
+    change_types: [model-release, release]
+    cautions: ["No release for 18 months as of 2026-10-10; Llama Stack moved to OGX (see updates-ai-inference-runtimes)."]

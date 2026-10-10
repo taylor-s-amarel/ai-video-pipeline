@@ -1,0 +1,204 @@
+{
+  "id": "blender-3d-animation-weekly",
+  "title": "Blender, 3D and animation: weekly",
+  "cadence": "weekly",
+  "window": "7d",
+  "sources": [
+    {
+      "collection": "community-releases-game-3d-2d",
+      "weight": 2.0,
+      "item_ids": [
+        "gh-blender-blender",
+        "gh-ahujasid-blender-mcp",
+        "gh-blenderkit-blenderkit",
+        "gh-khronosgroup-gltf-blender-io",
+        "gh-khronosgroup-gltf-sample-assets",
+        "gh-assimp-assimp",
+        "gh-cnr-isti-vclab-meshlab",
+        "gh-mrdoob-three-js",
+        "gh-jannisx11-blockbench",
+        "gh-libresprite-libresprite",
+        "gh-kde-krita",
+        "gh-opentoonz-opentoonz",
+        "gh-friction2d-friction",
+        "gh-pencil2d-pencil",
+        "gh-danielswolf-rhubarb-lip-sync"
+      ]
+    },
+    {
+      "collection": "community-reddit-gamedev-3d-animation",
+      "weight": 1.0,
+      "item_ids": [
+        "r-blender",
+        "r-blenderhelp",
+        "r-low-poly",
+        "r-3dmodeling",
+        "r-gaussiansplatting",
+        "r-animation",
+        "r-2danimation",
+        "r-motiondesign",
+        "r-stopmotion",
+        "r-manim",
+        "r-pixelart",
+        "r-aseprite",
+        "r-krita"
+      ]
+    },
+    {
+      "collection": "community-gamedev-3d-educators",
+      "weight": 1.5,
+      "item_ids": [
+        "blender-news",
+        "yt-blender",
+        "yt-blender-guru",
+        "aras-p",
+        "the-orange-duck",
+        "josh-comeau",
+        "cyriak-animation",
+        "zeux",
+        "slynyrd",
+        "yt-3blue1brown"
+      ]
+    },
+    {
+      "collection": "community-aggregators-forums",
+      "weight": 1.0,
+      "item_ids": [
+        "forum-blenderartists-org",
+        "forum-devtalk-blender-org",
+        "arxiv-cs-gr"
+      ]
+    }
+  ],
+  "keywords": [
+    {
+      "term": "blender",
+      "weight": 3
+    },
+    {
+      "term": "geometry nodes",
+      "weight": 2
+    },
+    {
+      "term": "low poly",
+      "weight": 2
+    },
+    {
+      "term": "low-poly",
+      "weight": 2
+    },
+    {
+      "term": "rigging",
+      "weight": 1.5
+    },
+    {
+      "term": "animation",
+      "weight": 1.5
+    },
+    {
+      "term": "gltf",
+      "weight": 1.5
+    },
+    {
+      "term": "grease pencil",
+      "weight": 1.5
+    },
+    {
+      "term": "eevee",
+      "weight": 1
+    },
+    {
+      "term": "cycles",
+      "weight": 1
+    },
+    {
+      "term": "add-on",
+      "weight": 1
+    },
+    {
+      "term": "pixel art",
+      "weight": 1.5
+    },
+    {
+      "term": "lip sync",
+      "weight": 1.5
+    },
+    {
+      "term": "motion graphics",
+      "weight": 1.5
+    },
+    {
+      "term": "gaussian splatting",
+      "weight": 1.5
+    },
+    {
+      "term": "procedural",
+      "weight": 1
+    },
+    {
+      "term": "mesh",
+      "weight": 1
+    }
+  ],
+  "exclude_terms": [
+    "commission",
+    "for hire"
+  ],
+  "groups": [
+    {
+      "title": "Tool releases",
+      "match": {
+        "feed_url_contains": [
+          "github.com"
+        ]
+      }
+    },
+    {
+      "title": "Official and educators",
+      "match": {
+        "feed_url_contains": [
+          "blender.org",
+          "youtube.com"
+        ]
+      }
+    },
+    {
+      "title": "Research",
+      "match": {
+        "feed_url_contains": [
+          "rss.arxiv.org"
+        ]
+      }
+    },
+    {
+      "title": "Community",
+      "match": {
+        "feed_url_contains": [
+          "reddit.com",
+          "blenderartists.org"
+        ]
+      }
+    }
+  ],
+  "max_items_per_source": 4,
+  "max_items": 40,
+  "recency_half_life_days": 4,
+  "trend_min_sources": 2,
+  "cautions": [
+    "Models and textures shared in communities carry per-asset licences; Mixamo/Adobe and asset-store terms forbid redistribution of the files themselves."
+  ],
+  "polite": {
+    "user_agent": "baltor-feed-reader/1.0 (+https://github.com/taylor-s-amarel/ai-video-pipeline)",
+    "min_interval_s": 5,
+    "max_polls_per_day": 24,
+    "respect_retry_after": true,
+    "conditional_get": true,
+    "host_overrides": {
+      "www.reddit.com": 60
+    }
+  },
+  "outputs": {
+    "markdown": "digests/blender-3d-animation-weekly/{date}.md",
+    "json": "digests/blender-3d-animation-weekly/{date}.json"
+  }
+}

@@ -1,0 +1,737 @@
+[
+  {
+    "id": "AVQ-004-001",
+    "domain_id": "D004",
+    "area": "depth and occlusion",
+    "question": "Does every overlap agree with the intended front-to-back order?",
+    "failure_hypothesis": "Layer order contradicts scene geometry.",
+    "check_or_fix": "Inspect crossings against a depth-order map.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6302,
+    "passes": [
+      "default_32",
+      "visual_depth_contact",
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-004-002",
+    "domain_id": "D004",
+    "area": "depth and occlusion",
+    "question": "Does an occluded object return with the same identity?",
+    "failure_hypothesis": "Reappearance silently substitutes the object.",
+    "check_or_fix": "Track stable object IDs through occlusion.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6304,
+    "passes": [
+      "visual_depth_contact",
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-004-003",
+    "domain_id": "D004",
+    "area": "depth and occlusion",
+    "question": "Are disoccluded areas actually painted or modeled?",
+    "failure_hypothesis": "Camera movement exposes empty holes.",
+    "check_or_fix": "Inspect maximum parallax and edge reveals.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6306,
+    "passes": [
+      "visual_depth_contact",
+      "factual_puzzle",
+      "longer_cardboard_32"
+    ]
+  },
+  {
+    "id": "AVQ-004-004",
+    "domain_id": "D004",
+    "area": "depth and occlusion",
+    "question": "Does a hand disappear behind the prop it should hold in front?",
+    "failure_hypothesis": "Incorrect depth ordering breaks the grasp.",
+    "check_or_fix": "Review hand-prop masks at contact extrema.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6308,
+    "passes": [
+      "visual_depth_contact",
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-004-005",
+    "domain_id": "D004",
+    "area": "depth and occlusion",
+    "question": "Are transparent surfaces ordered correctly with opaque objects?",
+    "failure_hypothesis": "Transparency sorting creates impossible overlaps.",
+    "check_or_fix": "Test each intersecting layer from the final camera.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6310,
+    "passes": [
+      "visual_depth_contact",
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-004-006",
+    "domain_id": "D004",
+    "area": "depth and occlusion",
+    "question": "Does the hero pass through a foreground object without response?",
+    "failure_hypothesis": "Occlusion hides a geometric collision.",
+    "check_or_fix": "Check trajectories against collision silhouettes.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6312,
+    "passes": [
+      "visual_depth_contact",
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-004-007",
+    "domain_id": "D004",
+    "area": "depth and occlusion",
+    "question": "Do objects change apparent depth without crossing a boundary?",
+    "failure_hypothesis": "Sort order pops during movement.",
+    "check_or_fix": "Inspect depth swaps one frame at a time.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6314,
+    "passes": [
+      "visual_depth_contact",
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-004-008",
+    "domain_id": "D004",
+    "area": "depth and occlusion",
+    "question": "Can the viewer infer which route lies above another?",
+    "failure_hypothesis": "Crossing paths have ambiguous elevation.",
+    "check_or_fix": "Add bridge, shadow or cutaway cues.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6316,
+    "passes": [
+      "visual_depth_contact",
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-004-009",
+    "domain_id": "D004",
+    "area": "depth and occlusion",
+    "question": "Is a distant object larger without an established scale reason?",
+    "failure_hypothesis": "Projection cues imply impossible depth.",
+    "check_or_fix": "Compare world scale and camera projection.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6318,
+    "passes": [
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-004-010",
+    "domain_id": "D004",
+    "area": "depth and occlusion",
+    "question": "Does parallax direction agree with camera travel?",
+    "failure_hypothesis": "Layers move as if depth were inverted.",
+    "check_or_fix": "Plot layer displacement against declared depth.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6320,
+    "passes": [
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-004-011",
+    "domain_id": "D004",
+    "area": "depth and occlusion",
+    "question": "Are contact shadows behind the correct object?",
+    "failure_hypothesis": "Shadow stacking contradicts grounding.",
+    "check_or_fix": "Review shadow masks independently from color layers.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6322,
+    "passes": []
+  },
+  {
+    "id": "AVQ-004-012",
+    "domain_id": "D004",
+    "area": "depth and occlusion",
+    "question": "Does a mask hide more than the physical occluder should?",
+    "failure_hypothesis": "Loose masks remove visible limbs or props.",
+    "check_or_fix": "Compare matte contour to the actual boundary.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6324,
+    "passes": []
+  },
+  {
+    "id": "AVQ-004-013",
+    "domain_id": "D004",
+    "area": "depth and occlusion",
+    "question": "Are soft alpha edges revealing the hidden layer unnaturally?",
+    "failure_hypothesis": "Premultiplication or feathering creates ghost edges.",
+    "check_or_fix": "Inspect compositing over contrasting backgrounds.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6326,
+    "passes": []
+  },
+  {
+    "id": "AVQ-004-014",
+    "domain_id": "D004",
+    "area": "depth and occlusion",
+    "question": "Does depth-of-field change imply a different focal plane than intended?",
+    "failure_hypothesis": "Focus favors the wrong spatial relationship.",
+    "check_or_fix": "Mark focus targets against shot purpose.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6328,
+    "passes": []
+  },
+  {
+    "id": "AVQ-004-015",
+    "domain_id": "D004",
+    "area": "depth and occlusion",
+    "question": "Can partly occluded characters still be counted fairly?",
+    "failure_hypothesis": "Occlusion leaves ambiguous identity fragments.",
+    "check_or_fix": "Review visible identifying features for each counted entity.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "puzzle",
+      "educational"
+    ],
+    "source_line": 6330,
+    "passes": []
+  },
+  {
+    "id": "AVQ-004-016",
+    "domain_id": "D004",
+    "area": "depth and occlusion",
+    "question": "Does the foreground reveal happen before the viewer needs it?",
+    "failure_hypothesis": "Late disocclusion withholds causal information.",
+    "check_or_fix": "Move the reveal earlier or add an establishing cue.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6332,
+    "passes": []
+  },
+  {
+    "id": "AVQ-004-017",
+    "domain_id": "D004",
+    "area": "depth and occlusion",
+    "question": "Are far objects clipped by a near-plane artifact?",
+    "failure_hypothesis": "Camera settings remove legitimate scene geometry.",
+    "check_or_fix": "Check clipping planes at closest camera positions.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6334,
+    "passes": []
+  },
+  {
+    "id": "AVQ-004-018",
+    "domain_id": "D004",
+    "area": "depth and occlusion",
+    "question": "Does a cutaway show interior parts in their real relative positions?",
+    "failure_hypothesis": "Illustrative separation masquerades as spatial truth.",
+    "check_or_fix": "Label exploded offsets or restore spatial registration.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6336,
+    "passes": []
+  },
+  {
+    "id": "AVQ-004-019",
+    "domain_id": "D004",
+    "area": "depth and occlusion",
+    "question": "Are stacked paper planes thick enough to match their shadows?",
+    "failure_hypothesis": "Shadow depth exceeds the depicted material thickness.",
+    "check_or_fix": "Align layer spacing and shadow treatment.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6338,
+    "passes": []
+  },
+  {
+    "id": "AVQ-004-020",
+    "domain_id": "D004",
+    "area": "depth and occlusion",
+    "question": "Does a rotating flat asset expose its lack of volume?",
+    "failure_hypothesis": "Billboard rotation reveals an unintended paper edge.",
+    "check_or_fix": "Limit rotation or provide appropriate alternate geometry.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6340,
+    "passes": []
+  },
+  {
+    "id": "AVQ-004-021",
+    "domain_id": "D004",
+    "area": "depth and occlusion",
+    "question": "Are reflections occluded consistently with the reflecting surface?",
+    "failure_hypothesis": "Reflection content ignores scene boundaries.",
+    "check_or_fix": "Compare reflection mask with surface visibility.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6342,
+    "passes": []
+  },
+  {
+    "id": "AVQ-004-022",
+    "domain_id": "D004",
+    "area": "depth and occlusion",
+    "question": "Does a moving camera reveal duplicate copies of one object?",
+    "failure_hypothesis": "Patch layers overlap as two distinct objects.",
+    "check_or_fix": "Inspect seams during the entire camera move.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6344,
+    "passes": []
+  },
+  {
+    "id": "AVQ-004-023",
+    "domain_id": "D004",
+    "area": "depth and occlusion",
+    "question": "Is an object hidden for so long that its return feels unmotivated?",
+    "failure_hypothesis": "Occlusion becomes an unexplained teleport.",
+    "check_or_fix": "Retain an audible or visual continuity cue.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6346,
+    "passes": []
+  },
+  {
+    "id": "AVQ-004-024",
+    "domain_id": "D004",
+    "area": "depth and occlusion",
+    "question": "Do atmospheric layers correctly exclude nearer objects?",
+    "failure_hypothesis": "Fog paints over the wrong depth range.",
+    "check_or_fix": "Inspect depth masks against scene distances.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6348,
+    "passes": []
+  },
+  {
+    "id": "AVQ-004-025",
+    "domain_id": "D004",
+    "area": "depth and occlusion",
+    "question": "Can depth be understood without relying solely on size?",
+    "failure_hypothesis": "Identical-size assets flatten the scene.",
+    "check_or_fix": "Use overlap, ground contact and perspective cues together.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6350,
+    "passes": []
+  },
+  {
+    "id": "AVQ-004-026",
+    "domain_id": "D004",
+    "area": "depth and occlusion",
+    "question": "Are depth transitions smooth enough for the intended medium?",
+    "failure_hypothesis": "Layer snapping produces unintended spatial jumps.",
+    "check_or_fix": "Use controlled sorting boundaries or continuous geometry.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6352,
+    "passes": []
+  },
+  {
+    "id": "AVQ-004-027",
+    "domain_id": "D004",
+    "area": "depth and occlusion",
+    "question": "Does the background show through a supposedly solid object?",
+    "failure_hypothesis": "Alpha or topology holes contradict solidity.",
+    "check_or_fix": "Check object opacity and silhouette interiors.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6354,
+    "passes": []
+  },
+  {
+    "id": "AVQ-004-028",
+    "domain_id": "D004",
+    "area": "depth and occlusion",
+    "question": "Are multiple viewpoints showing the same occluded state?",
+    "failure_hypothesis": "Views disagree about object visibility and position.",
+    "check_or_fix": "Synchronize cameras to one scene-time sample.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6356,
+    "passes": []
+  },
+  {
+    "id": "AVQ-004-029",
+    "domain_id": "D004",
+    "area": "depth and occlusion",
+    "question": "Does a label's leader line terminate on the visible object?",
+    "failure_hypothesis": "Occluded endpoints attach to the wrong surface.",
+    "check_or_fix": "Reproject anchors and inspect final pixels.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6358,
+    "passes": []
+  },
+  {
+    "id": "AVQ-004-030",
+    "domain_id": "D004",
+    "area": "depth and occlusion",
+    "question": "Is the occlusion itself doing useful storytelling?",
+    "failure_hypothesis": "Obscuration creates difficulty without payoff.",
+    "check_or_fix": "Remove arbitrary blockers from the causal beat.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6360,
+    "passes": []
+  },
+  {
+    "id": "AVQ-004-031",
+    "domain_id": "D004",
+    "area": "depth and occlusion",
+    "question": "Does the depth treatment remain coherent during a zoom?",
+    "failure_hypothesis": "Screen-space layers scale as incompatible distances.",
+    "check_or_fix": "Compare scaling rates across near and far planes.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6362,
+    "passes": []
+  },
+  {
+    "id": "AVQ-004-032",
+    "domain_id": "D004",
+    "area": "depth and occlusion",
+    "question": "Can a viewer tell an intentional hidden clue from missing artwork?",
+    "failure_hypothesis": "Unexplained gaps resemble rendering errors.",
+    "check_or_fix": "Design a readable occluder and fair reveal.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6364,
+    "passes": []
+  }
+]

@@ -1,0 +1,56 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "ken_burns_frame_renderer",
+  "title": "Ken Burns frame renderer",
+  "kind": "code-module",
+  "subkind": "camera-move",
+  "version": "1.0.0",
+  "summary": "Renders crop-rectangle paths from a still into output frames with sub-pixel accurate Pillow EXTENT transforms (no zoom jitter), optional supersampling and an ffmpeg pipe argv.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "ken_burns_frame_renderer.py",
+  "tags": [
+    "video",
+    "ken-burns",
+    "pillow",
+    "render",
+    "frames",
+    "photo"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "ffmpeg",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

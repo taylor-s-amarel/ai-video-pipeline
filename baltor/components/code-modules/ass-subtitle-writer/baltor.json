@@ -1,0 +1,57 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "ass_subtitle_writer",
+  "title": "ASS subtitle writer",
+  "kind": "code-module",
+  "subkind": "caption-style",
+  "version": "1.0.0",
+  "summary": "Writes complete libass-ready .ass scripts (PlayRes, styles, events) with #RRGGBB+opacity colour conversion and text escaping that stops caption text from injecting override tags.",
+  "domain": "captions",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "ass_subtitle_writer.py",
+  "tags": [
+    "captions",
+    "ass",
+    "libass",
+    "subtitles",
+    "styling",
+    "ffmpeg"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "ffmpeg",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

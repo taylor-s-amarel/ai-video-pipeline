@@ -1,0 +1,51 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "saliency_crop_window",
+  "title": "Saliency crop window",
+  "kind": "code-module",
+  "subkind": "aspect-format",
+  "version": "1.0.0",
+  "summary": "Chooses the crop window of a target aspect that keeps the most salient content (edges plus colour distinctness via integral images) and smooths it over time for jitter-free reframing.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "saliency_crop_window.py",
+  "tags": [
+    "video",
+    "reframe",
+    "saliency",
+    "crop",
+    "9x16",
+    "numpy"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

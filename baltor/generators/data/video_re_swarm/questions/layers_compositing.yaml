@@ -58,7 +58,7 @@
   why: "Fills edge treatment; hard rectangular cut-outs are a known failure in this project."
   how: "F3 enlarged crops at the edges of the main photo in 3 shots."
   evidence: ["frames: F3 edge crops"]
-  ir_path: "/visual/layers/*/feather_px"
+  ir_path: "/generation_rules/-"
   type: enum
   challenge: "Check all four edges in one shot; feathering only at the bottom is a gradient mask, not a feather."
 
@@ -140,7 +140,7 @@
   why: "Adds shadow parameters."
   how: "F3 crop under a cut-out; measure shadow offset and blur radius in px."
   evidence: ["frames: F3 shadow crops"]
-  ir_path: "/visual/layers/*/feather_px"
+  ir_path: "/generation_rules/-"
   type: object
   challenge: "Report px values; a 'soft shadow' alone is incomplete."
 

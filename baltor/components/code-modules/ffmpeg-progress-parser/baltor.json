@@ -1,0 +1,59 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "ffmpeg_progress_parser",
+  "title": "ffmpeg progress parser",
+  "kind": "code-module",
+  "subkind": "worker",
+  "version": "1.0.0",
+  "summary": "Parses ffmpeg -progress key=value blocks into frame, fps, output time, speed, percent and ETA, and runs a render with a progress callback (no shell).",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "render",
+    "operate"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "run_with_progress starts the given ffmpeg command"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "ffmpeg_progress_parser.py",
+  "tags": [
+    "video",
+    "ffmpeg",
+    "progress",
+    "render",
+    "monitoring"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "ffmpeg",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

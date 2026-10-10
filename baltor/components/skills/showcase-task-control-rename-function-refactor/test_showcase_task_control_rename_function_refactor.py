@@ -15,55 +15,56 @@ import pytest
 
 PKG = Path(__file__).resolve().parent
 TASK = json.loads((PKG / "task.json").read_text(encoding="utf-8"))
-PARAMS = TASK["params"]
+DETAIL = json.loads((PKG / "task_detail.json").read_text(encoding="utf-8"))
+PARAMS = DETAIL["params"]
 sys.path.insert(0, str(PKG))
 
 
 def run_setup(tmp_path: Path, seed: int = 20261010, extra: list | None = None) -> tuple[Path, Path]:
-    ws, hd = tmp_path / "workspace", tmp_path / "hidden"
+    ws, pv = tmp_path / "workspace", tmp_path / "private"
     proc = subprocess.run([sys.executable, str(PKG / "setup" / "make_fixtures.py"), "--workspace", str(ws),
-                           "--hidden", str(hd), "--seed", str(seed)] + (extra or []),
+                           "--private", str(pv), "--seed", str(seed)] + (extra or []),
                           capture_output=True, text=True)
     assert proc.returncode == 0, proc.stderr
     assert (ws / "TASK.md").exists()
-    return ws, hd
+    return ws, pv
 
 
-def evaluate(ws: Path, hd: Path) -> dict:
-    proc = subprocess.run([sys.executable, str(PKG / "evaluate.py"), "--workspace", str(ws), "--hidden", str(hd)],
-                          capture_output=True, text=True, timeout=TASK["evaluator"]["timeout_s"] + 60)
+def evaluate(ws: Path, pv: Path) -> dict:
+    proc = subprocess.run([sys.executable, str(PKG / "evaluate.py"), "--workspace", str(ws), "--private", str(pv)],
+                          capture_output=True, text=True, timeout=DETAIL["evaluator_timeout_s"] + 120)
     assert proc.returncode == 0, proc.stderr
     result = json.loads(proc.stdout)
-    assert result["task_id"] == TASK["task_id"]
+    assert result["task_id"] == TASK["id"]
     assert result["valid"], result["integrity_problems"]
     return result
 
 
 def assert_good(result: dict) -> None:
     assert not result["errors"], result["errors"]
-    assert result["passed"], json.dumps({k: result[k] for k in ("gates", "required_checks", "metrics", "checks")}, indent=1)[:4000]
+    assert result["passed"], json.dumps({k: result[k] for k in ("gates", "required_checks", "metrics", "checks", "flags")},
+                                        indent=1)[:6000]
+    assert result["metrics"]["task_pass"] == 1.0
 
 
 def assert_bad(result: dict, good: dict | None = None) -> None:
     assert not result["passed"]
+    assert result["metrics"]["task_pass"] == 0.0
     if good is not None:
         assert result["score"] < good["score"]
 
 
-def test_spec_hash_matches():
+def test_spec_hash_and_files_match():
     import showcase_eval as se
-    assert se.compute_spec_hash(TASK) == TASK["spec_hash"]
+    assert se.compute_spec_hash(TASK) == TASK["spec_sha256"]
     assert se.integrity_problems(TASK, PKG) == []
 
 
-def test_empty_workspace_fails(tmp_path):
-    ws, hd = run_setup(tmp_path)
-    for d in TASK["deliverables"]:
-        p = ws / d["path"]
-        if p.is_file():
-            p.unlink()
-    result = evaluate(ws, hd)
+def test_missing_deliverables_fail(tmp_path):
+    ws, pv = run_setup(tmp_path)
+    result = evaluate(ws, pv)
     assert not result["passed"]
+    assert result["metrics"]["task_pass"] == 0.0
 
 
 import controls_fixtures as cf  # noqa: E402

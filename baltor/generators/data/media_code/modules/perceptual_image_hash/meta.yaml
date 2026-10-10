@@ -1,0 +1,6 @@
+title: Perceptual image hashes
+summary: aHash, dHash and DCT pHash as 64-bit integers with Hamming distance and near-duplicate pairing, robust to resizing and JPEG recompression, for finding reused photos and frames.
+subkind: qa-check
+domain: video
+tags: [video, hashing, duplicates, phash, images, qa]
+step_kinds: [verify, research]

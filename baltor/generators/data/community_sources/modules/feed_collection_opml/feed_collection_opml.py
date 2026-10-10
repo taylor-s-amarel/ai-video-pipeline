@@ -7,6 +7,8 @@ out by default, or kept as ``type="link"`` outlines with ``--include-pages``.
     python feed_collection_opml.py baltor/feeds/community-*.json -o community.opml
     python feed_collection_opml.py baltor/feeds/community-releases-agents-ai.json --group-by tags
     python feed_collection_opml.py --list community.opml       # read an OPML back as JSON
+    python feed_collection_opml.py --watchlist-urls watchlist.json --feeds-dir baltor/feeds
+                                                                # feed URLs a watchlist resolves to
 """
 
 from __future__ import annotations
@@ -23,7 +25,7 @@ from pathlib import Path
 from typing import Iterable
 
 __all__ = ["is_feed_url", "html_url_for", "collections_to_opml", "collection_to_opml", "parse_opml",
-           "load_collection"]
+           "load_collection", "expand_watchlist"]
 
 FEED_PATTERNS = [
     re.compile(r"\.(rss|atom|rdf)(\?|$)", re.I),
@@ -168,6 +170,46 @@ def parse_opml(text: str) -> list[dict]:
     return out
 
 
+def expand_watchlist(watchlist: dict, feeds_dir: str | Path) -> dict:
+    """Resolve a source_watchlist into feed URLs using the collections in ``feeds_dir``.
+
+    Returns {"feeds": [{"url", "weight", "collection", "item_id"}], "pages": [...], "missing": [...]}.
+    ``pages`` are items whose URL is not a feed (check them directly or run autodiscovery);
+    ``missing`` lists collection ids or item ids that were not found.
+    """
+    feeds_dir = Path(feeds_dir)
+    feeds: dict[str, dict] = {}
+    pages: list[dict] = []
+    missing: list[str] = []
+    for src in watchlist.get("sources", []):
+        weight = float(src.get("weight", 1.0))
+        if src.get("url"):
+            target = feeds if is_feed_url(src["url"]) else None
+            entry = {"url": src["url"], "weight": weight, "collection": None, "item_id": None}
+            if target is None:
+                pages.append(entry)
+            elif src["url"] not in feeds or feeds[src["url"]]["weight"] < weight:
+                feeds[src["url"]] = entry
+            continue
+        path = feeds_dir / f"{src['collection']}.json"
+        if not path.exists():
+            missing.append(src["collection"])
+            continue
+        items = load_collection(path)["items"]
+        wanted = set(src.get("item_ids") or [])
+        found = {i["id"] for i in items}
+        missing += [f"{src['collection']}#{i}" for i in sorted(wanted - found)]
+        for item in items:
+            if wanted and item["id"] not in wanted:
+                continue
+            entry = {"url": item["url"], "weight": weight, "collection": src["collection"], "item_id": item["id"]}
+            if not is_feed_url(item["url"]):
+                pages.append(entry)
+            elif item["url"] not in feeds or feeds[item["url"]]["weight"] < weight:
+                feeds[item["url"]] = entry
+    return {"feeds": list(feeds.values()), "pages": pages, "missing": missing}
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("collections", nargs="*", help="feeds/<id>.json files")
@@ -176,7 +218,18 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--include-pages", action="store_true", help="keep non-feed items as link outlines")
     ap.add_argument("--group-by", choices=["kind", "tags"], help="sub-folders inside each collection")
     ap.add_argument("--list", metavar="OPML", help="print the feeds in an OPML file as JSON")
+    ap.add_argument("--watchlist-urls", metavar="WATCHLIST", help="print the feed URLs a watchlist resolves to")
+    ap.add_argument("--feeds-dir", default="feeds", help="directory holding feeds/<id>.json (with --watchlist-urls)")
     a = ap.parse_args(argv)
+    if a.watchlist_urls:
+        res = expand_watchlist(json.loads(Path(a.watchlist_urls).read_text(encoding="utf-8")), a.feeds_dir)
+        for f in res["feeds"]:
+            print(f["url"])
+        for p in res["pages"]:
+            print(f"page (no feed; check directly): {p['url']}", file=sys.stderr)
+        for m in res["missing"]:
+            print(f"missing: {m}", file=sys.stderr)
+        return 0 if res["feeds"] else 1
     if a.list:
         print(json.dumps(parse_opml(Path(a.list).read_text(encoding="utf-8")), indent=2))
         return 0

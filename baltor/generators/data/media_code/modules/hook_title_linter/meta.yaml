@@ -1,0 +1,6 @@
+title: Hook title linter
+summary: Lints first-frame hook titles for 2-7 words, length, concreteness (a number, name or topic term), vague filler phrases and repeating the first caption.
+subkind: hook-bank
+domain: video
+tags: [video, hook, title, engagement, lint, shorts]
+step_kinds: [write, review]

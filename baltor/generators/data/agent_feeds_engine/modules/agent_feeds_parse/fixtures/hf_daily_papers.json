@@ -1,0 +1,4 @@
+[
+  {"paper": {"id": "2610.01234", "authors": [{"_id": "x1", "name": "A. Researcher", "hidden": false}], "publishedAt": "2026-10-09T17:59:59.000Z", "title": "Tool-Use Agents That Read Their Own Changelogs", "summary": "We study coding agents that subscribe to dependency release notes.", "upvotes": 42, "discussionId": "d1", "ai_summary": "Agents that read release notes break fewer upgrades.", "ai_keywords": ["coding agents", "dependency updates"], "githubRepo": "https://github.com/example/changelog-agents"},
+   "publishedAt": "2026-10-10T03:00:00.000Z", "title": "Tool-Use Agents That Read Their Own Changelogs", "thumbnail": "https://example.org/t.png", "numComments": 3, "submittedBy": {"_id": "u", "user": "someone", "fullname": "Some One"}, "isAuthorParticipating": false}
+]

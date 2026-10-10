@@ -75,16 +75,22 @@ def walk(obj, path=""):
 
 
 def opacity_problems(preset: dict) -> list[str]:
+    """Every layer, panel and keyframed opacity must stay at or below 0.98.
+
+    Text-animation keyframes (keyframes/from/to/samples) hold multipliers of the text layer's own
+    opacity, which is itself capped, so they are not layer opacities and are skipped.
+    """
     out = []
+    multiplier_paths = ("/keyframes/", "/from/", "/to/", "/samples/")
     for path, value in walk(preset):
+        if preset.get("type") == "text-animation" and any(m in path for m in multiplier_paths):
+            continue
         leaf = path.rsplit("/", 1)[-1]
-        parent = path.rsplit("/", 2)[-2] if path.count("/") >= 2 else ""
         is_opacity = "opacity" in leaf and leaf != "opacity_keyframes"
-        in_keyframes = "opacity_keyframes" in path and leaf == "1"
+        in_keyframes = "/opacity_keyframes/" in path and leaf == "1"
         if (is_opacity or in_keyframes) and isinstance(value, (int, float)) and not isinstance(value, bool):
             if value > MAX_OPACITY:
                 out.append(f"{path} = {value} exceeds {MAX_OPACITY}")
-        del parent
     return out
 
 

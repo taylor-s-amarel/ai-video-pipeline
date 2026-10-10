@@ -141,7 +141,7 @@
   why: "Places a reversal beat in the format."
   how: "Find a sentence that contradicts an expectation set earlier (contrast word plus new information); give its start ratio."
   evidence: ["evidence.captions[] (analysis only)"]
-  ir_path: "/timeline/beats/*/role"
+  ir_path: "/timeline/beats"
   type: ratio
   challenge: "A contrast word alone is not a twist; the claim must invert something earlier."
 
@@ -264,7 +264,7 @@
   why: "Tells the render pipeline which claim types require a cited source."
   how: "Classify each factual sentence by claim type; list the types present with counts."
   evidence: ["evidence.captions[] (analysis only)"]
-  ir_path: "/script/claims_need_sources"
+  ir_path: "/generation_rules/-"
   type: list
   challenge: "Health, money and safety claims must be listed if present at all, even once."
 

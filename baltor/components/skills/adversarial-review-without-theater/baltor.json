@@ -1,0 +1,68 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "adversarial_review_without_theater",
+  "title": "Adversarial review without checklist theater",
+  "kind": "skill",
+  "subkind": "review-lens",
+  "version": "1.0.0",
+  "summary": "Bounded adversarial review of a film: pick a named pass, review the brief then the exact final encode, record untested/observed/blocked/not-applicable with hashed evidence, say what was not checked.",
+  "description": "This is the owner's authoritative adversarial review bank: the 1,024 questions of Appendix E of the Animation and Video Production Master Guide (10 Oct 2026), transcribed with the owner's exact text, ids, filters and pass membership. Another builder in this catalogue (harness_kit) independently wrote a different 1,024-question bank; it is not this set and does not override it.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#adversarial-review-without-checklist-theater"
+  },
+  "step_kinds": [
+    "review",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "read",
+    "network": "none",
+    "executes": "shell",
+    "secrets": [],
+    "side_effects": [
+      "hashes, probes and decodes the artifact under review"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "video",
+    "animation",
+    "adversarial-review",
+    "review-questions",
+    "method",
+    "evidence",
+    "qa"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "review_bank_index"
+    },
+    {
+      "identity": "adversarial_review_result"
+    },
+    {
+      "identity": "adversarial_review_kit"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/ref_review_templates.py",
+    "data": "generators/data/ref_review_templates"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "source-inspected",
+  "evidence_notes": "Method taken from the guide's section. The guide records a 17-record focused film application (11 observed passes, 4 untested potential improvements, 2 audio blockers), 39 passing validator regression tests and 3 contact-sheet lineages reproduced from exact MP4s; it says these do not establish that whole films were watched continuously or listened to independently."
+}

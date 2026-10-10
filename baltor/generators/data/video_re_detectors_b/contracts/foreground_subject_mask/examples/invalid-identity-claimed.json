@@ -1,0 +1,7 @@
+{
+  "identity_inference": "face-match",
+  "samples": [],
+  "shots": [
+    { "shot_index": 0, "t_start_s": 0.0, "t_end_s": 1.0, "present_share": 1.0, "bbox": [149, 41, 83, 95], "bbox_ratio": [0.582, 0.2847, 0.3242, 0.6597], "area_ratio": 0.2139, "center_ratio": [0.7441, 0.6146], "framing": "rule-of-thirds", "size_class": "medium", "separation_z": 7.75, "person_name": "someone" }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "Example Models Blog",
+  "home_page_url": "https://models.example.ai/",
+  "feed_url": "https://models.example.ai/feed.json",
+  "items": [
+    {
+      "id": "https://models.example.ai/posts/model-x-2",
+      "url": "https://models.example.ai/posts/model-x-2",
+      "title": "Model X 2 is generally available",
+      "content_html": "<p>Model X 2 is available in the API today with a 1M token context window.</p>",
+      "summary": "Model X 2 is generally available in the API.",
+      "date_published": "2026-10-07T14:00:00-07:00",
+      "authors": [{"name": "Example AI"}],
+      "tags": ["models", "api"]
+    },
+    {
+      "id": "post-2",
+      "external_url": "https://models.example.ai/posts/pricing-update",
+      "title": "Pricing update for batch requests",
+      "content_text": "Batch pricing changes on November 1.",
+      "date_published": "2026-10-01T00:00:00Z"
+    }
+  ]
+}

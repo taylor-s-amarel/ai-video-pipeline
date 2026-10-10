@@ -1,0 +1,51 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "bezier_motion_path",
+  "title": "Constant-speed Bezier motion path",
+  "kind": "code-module",
+  "subkind": "motion-preset",
+  "version": "1.0.0",
+  "summary": "Chains of cubic Bezier segments with an arc-length table so objects move at constant speed, plus heading angles and smooth paths through waypoints.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "bezier_motion_path.py",
+  "tags": [
+    "video",
+    "motion",
+    "bezier",
+    "path",
+    "animation",
+    "arc-length"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

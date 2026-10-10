@@ -1,0 +1,52 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "precipitation_overlay",
+  "title": "Looping rain and snow overlays",
+  "kind": "code-module",
+  "subkind": "overlay",
+  "version": "1.0.0",
+  "summary": "Deterministic, exactly looping rain streaks and swaying snow rendered as transparent Pillow overlays with depth-based size and opacity capped at 98%.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "precipitation_overlay.py",
+  "tags": [
+    "video",
+    "overlay",
+    "rain",
+    "snow",
+    "weather",
+    "loop",
+    "procedural"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

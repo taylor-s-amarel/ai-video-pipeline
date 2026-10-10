@@ -103,7 +103,7 @@
 
 - id: typography_captions-012
   question: "Do captions appear before, on, or after the spoken word?"
-  choices: [before, on, after, varies]
+  choices: [before, "on", after, varies]
   why: "Summarises sync behaviour for the caption timing rule."
   how: "From 011: 'on' when the mean is within +/-100 ms and the spread is under 150 ms."
   evidence: ["sync offsets"]
@@ -272,7 +272,7 @@
   why: "Bounds the style count of the type system."
   how: "Group F3 crops of all text roles by font class, weight, colour and size."
   evidence: ["frames: F3"]
-  ir_path: "/typography/evidence"
+  ir_path: "/generation_rules/-"
   type: integer
   challenge: "Differences only in size count as one style."
 

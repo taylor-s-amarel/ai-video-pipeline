@@ -1,0 +1,53 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "tts_cache_keys",
+  "title": "TTS content-addressed cache",
+  "kind": "code-module",
+  "subkind": "tts-engine",
+  "version": "1.0.0",
+  "summary": "Caches synthesized speech under SHA-256 keys of engine, model, voice, speed and exact text, with atomic writes so crashed renders never leave reusable half files.",
+  "domain": "audio",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "creates cache directories and WAV files under the given root"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "tts_cache_keys.py",
+  "tags": [
+    "audio",
+    "tts",
+    "cache",
+    "sha256",
+    "reproducibility"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

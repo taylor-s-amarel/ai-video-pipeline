@@ -1,0 +1,25 @@
+{
+  "id": "AVQ-029-001",
+  "domain_id": "D029",
+  "area": "decoding and delivery",
+  "question": "Does the delivered filename's extension agree with the actual media container and streams?",
+  "failure_hypothesis": "A renamed file is mistaken for a valid export in the promised format.",
+  "check_or_fix": "Inspect file signatures and stream metadata rather than trusting the name.",
+  "severity": "high",
+  "modes": [
+    "machine"
+  ],
+  "stages": [
+    "final-encode",
+    "delivery"
+  ],
+  "style_filters": [
+    "any"
+  ],
+  "source_line": 7952,
+  "passes": [
+    "default_32",
+    "accessible_text",
+    "final_delivery"
+  ]
+}

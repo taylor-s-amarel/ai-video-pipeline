@@ -1,0 +1,725 @@
+[
+  {
+    "id": "AVQ-028-001",
+    "domain_id": "D028",
+    "area": "rendering and export",
+    "question": "Does the final render contain every intended frame exactly once and in the correct order?",
+    "failure_hypothesis": "Batch rendering omits, duplicates, or misorders frames.",
+    "check_or_fix": "Compare the frame sequence against the expected index manifest.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7886,
+    "passes": [
+      "default_32",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-028-002",
+    "domain_id": "D028",
+    "area": "rendering and export",
+    "question": "Are nominally adjacent render chunks evaluating animation at the same shared time authority?",
+    "failure_hypothesis": "Local chunk clocks create motion jumps at boundaries.",
+    "check_or_fix": "Render boundary overlaps and compare identical-time frames.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7888,
+    "passes": [
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-028-003",
+    "domain_id": "D028",
+    "area": "rendering and export",
+    "question": "Is the export using final-resolution assets rather than proxies or preview caches?",
+    "failure_hypothesis": "Low-resolution working material survives a successful render.",
+    "check_or_fix": "Audit resolved asset paths and inspect final-scale texture/detail crops.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7890,
+    "passes": [
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-028-004",
+    "domain_id": "D028",
+    "area": "rendering and export",
+    "question": "Do the output dimensions and pixel aspect ratio produce the intended display geometry?",
+    "failure_hypothesis": "Correct pixel counts still yield stretched or squeezed playback.",
+    "check_or_fix": "Inspect sample/display aspect metadata and compare a known geometric reference.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7892,
+    "passes": [
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-028-005",
+    "domain_id": "D028",
+    "area": "rendering and export",
+    "question": "Is the chosen crop preserving every required subject and label throughout the full camera move?",
+    "failure_hypothesis": "Static framing checks miss content lost at movement extremes.",
+    "check_or_fix": "Scan the delivered frame bounds against protected regions over time.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7894,
+    "passes": [
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-028-006",
+    "domain_id": "D028",
+    "area": "rendering and export",
+    "question": "Does the color-management path apply the display transform exactly once?",
+    "failure_hypothesis": "Missing or doubled transforms alter contrast and color.",
+    "check_or_fix": "Trace source, working, and output transforms and compare reference patches.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7896,
+    "passes": [
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-028-007",
+    "domain_id": "D028",
+    "area": "rendering and export",
+    "question": "Are HDR sources and SDR output being mapped without losing important highlight or shadow information?",
+    "failure_hypothesis": "Automatic tone mapping hides detail or changes intended hierarchy.",
+    "check_or_fix": "Inspect controlled reference scenes through the actual output transform.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7898,
+    "passes": [
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-028-008",
+    "domain_id": "D028",
+    "area": "rendering and export",
+    "question": "Do saturated colors survive output conversion without clipping away distinctions needed for the task?",
+    "failure_hypothesis": "Gamut conversion merges separate color categories.",
+    "check_or_fix": "Compare important color regions before and after export conversion.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "final-encode"
+    ],
+    "style_filters": [
+      "educational",
+      "puzzle"
+    ],
+    "source_line": 7900,
+    "passes": [
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-028-009",
+    "domain_id": "D028",
+    "area": "rendering and export",
+    "question": "Does limited bit depth introduce visible banding in gradients that were smooth in the working render?",
+    "failure_hypothesis": "Quantization creates contour steps after export.",
+    "check_or_fix": "Inspect final encoded gradients at ordinary and stressed viewing conditions.",
+    "severity": "medium",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7902,
+    "passes": []
+  },
+  {
+    "id": "AVQ-028-010",
+    "domain_id": "D028",
+    "area": "rendering and export",
+    "question": "Are transparent edges composited with the correct premultiplied or straight-alpha interpretation?",
+    "failure_hypothesis": "Alpha mismatch creates dark or bright halos around cutouts.",
+    "check_or_fix": "Composite edge tests over light and dark backgrounds.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "cutout",
+      "vector",
+      "3d"
+    ],
+    "source_line": 7904,
+    "passes": []
+  },
+  {
+    "id": "AVQ-028-011",
+    "domain_id": "D028",
+    "area": "rendering and export",
+    "question": "Does motion blur erase a puzzle target, contact event, or technical detail needed to verify the action?",
+    "failure_hypothesis": "A cinematic shutter setting destroys required evidence.",
+    "check_or_fix": "Review the decisive frames and lower blur selectively where needed.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "educational",
+      "puzzle"
+    ],
+    "source_line": 7906,
+    "passes": []
+  },
+  {
+    "id": "AVQ-028-012",
+    "domain_id": "D028",
+    "area": "rendering and export",
+    "question": "Are temporal denoising or upscaling leaving ghost trails around moving silhouettes?",
+    "failure_hypothesis": "History-based processing blends incompatible object positions.",
+    "check_or_fix": "Inspect moving edges across consecutive final frames.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "3d",
+      "live-action"
+    ],
+    "source_line": 7908,
+    "passes": []
+  },
+  {
+    "id": "AVQ-028-013",
+    "domain_id": "D028",
+    "area": "rendering and export",
+    "question": "Does the sample count support stable shadows and reflections rather than flickering noise?",
+    "failure_hypothesis": "Undersampling turns static surface appearance into distracting temporal variation.",
+    "check_or_fix": "Render a short motion test at candidate settings and compare stability.",
+    "severity": "medium",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "3d"
+    ],
+    "source_line": 7910,
+    "passes": []
+  },
+  {
+    "id": "AVQ-028-014",
+    "domain_id": "D028",
+    "area": "rendering and export",
+    "question": "Are fine patterns and linework stable under motion after rasterization?",
+    "failure_hypothesis": "Spatial detail exceeds the sampling rate and produces shimmer or moire.",
+    "check_or_fix": "Inspect full-speed output and adjust filtering or detail frequency.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "vector",
+      "3d",
+      "live-action"
+    ],
+    "source_line": 7912,
+    "passes": []
+  },
+  {
+    "id": "AVQ-028-015",
+    "domain_id": "D028",
+    "area": "rendering and export",
+    "question": "Does frame interpolation invent malformed intermediate geometry or duplicate a decisive event?",
+    "failure_hypothesis": "Synthetic in-between frames distort the action.",
+    "check_or_fix": "Inspect interpolated intervals around occlusions and contact.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7914,
+    "passes": []
+  },
+  {
+    "id": "AVQ-028-016",
+    "domain_id": "D028",
+    "area": "rendering and export",
+    "question": "Are cached simulations and rendered layers from the same approved scene revision?",
+    "failure_hypothesis": "Stale caches combine old motion with new geometry or timing.",
+    "check_or_fix": "Reconcile cache hashes and invalidate mismatched dependencies.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "3d"
+    ],
+    "source_line": 7916,
+    "passes": []
+  },
+  {
+    "id": "AVQ-028-017",
+    "domain_id": "D028",
+    "area": "rendering and export",
+    "question": "Are all required render passes actually included in the final composite?",
+    "failure_hypothesis": "A successful beauty export omits masks, shadows, or corrective passes.",
+    "check_or_fix": "Compare the pass manifest to the compositing graph and final image.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "3d",
+      "cutout"
+    ],
+    "source_line": 7918,
+    "passes": []
+  },
+  {
+    "id": "AVQ-028-018",
+    "domain_id": "D028",
+    "area": "rendering and export",
+    "question": "Does the export accidentally include guides, bounding boxes, debug text, or temporary watermarks?",
+    "failure_hypothesis": "Review overlays remain enabled in the delivery render.",
+    "check_or_fix": "Scan the full encoded file for nonfinal layers and markers.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7920,
+    "passes": []
+  },
+  {
+    "id": "AVQ-028-019",
+    "domain_id": "D028",
+    "area": "rendering and export",
+    "question": "Are procedural expressions and animated effects evaluated correctly by the final renderer rather than only the editor?",
+    "failure_hypothesis": "The export path silently drops unsupported runtime behavior.",
+    "check_or_fix": "Compare representative editor and final-render frames at effect extremes.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "vector",
+      "typographic",
+      "3d"
+    ],
+    "source_line": 7922,
+    "passes": []
+  },
+  {
+    "id": "AVQ-028-020",
+    "domain_id": "D028",
+    "area": "rendering and export",
+    "question": "Does final depth of field keep necessary labels, clues, and causal contacts identifiable?",
+    "failure_hypothesis": "Preview sharpness differs from the final camera's focus treatment.",
+    "check_or_fix": "Inspect final focus at each required observation interval.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "3d",
+      "live-action"
+    ],
+    "source_line": 7924,
+    "passes": []
+  },
+  {
+    "id": "AVQ-028-021",
+    "domain_id": "D028",
+    "area": "rendering and export",
+    "question": "Is the export frame rate the approved rate rather than a default inherited from another project?",
+    "failure_hypothesis": "A preset silently changes duration or motion cadence.",
+    "check_or_fix": "Verify nominal and actual frame timestamps against the project contract.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7926,
+    "passes": []
+  },
+  {
+    "id": "AVQ-028-022",
+    "domain_id": "D028",
+    "area": "rendering and export",
+    "question": "Does the render range include the intended final resolved pose without appending an accidental blank or repeated frame?",
+    "failure_hypothesis": "Inclusive/exclusive endpoint confusion damages the ending.",
+    "check_or_fix": "Compare requested frame range with decoded first and last frames.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7928,
+    "passes": []
+  },
+  {
+    "id": "AVQ-028-023",
+    "domain_id": "D028",
+    "area": "rendering and export",
+    "question": "Are color-range flags consistent with the actual encoded signal levels?",
+    "failure_hypothesis": "Full/limited-range mismatch produces washed-out or crushed output.",
+    "check_or_fix": "Decode with verified interpretation and inspect reference levels.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7930,
+    "passes": []
+  },
+  {
+    "id": "AVQ-028-024",
+    "domain_id": "D028",
+    "area": "rendering and export",
+    "question": "Is the pixel format supported by the intended playback route while retaining required visual detail?",
+    "failure_hypothesis": "A technically valid export is unsuitable for destination decoding or chroma detail.",
+    "check_or_fix": "Test the exact format in destination players and inspect critical edges.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "final-encode",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7932,
+    "passes": []
+  },
+  {
+    "id": "AVQ-028-025",
+    "domain_id": "D028",
+    "area": "rendering and export",
+    "question": "Do subtitles, graphics, and audio belong to the same language and revision in a batch export?",
+    "failure_hypothesis": "Reused batch variables combine incompatible version components.",
+    "check_or_fix": "Verify each package against its language/revision manifest.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "auditory"
+    ],
+    "stages": [
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7934,
+    "passes": []
+  },
+  {
+    "id": "AVQ-028-026",
+    "domain_id": "D028",
+    "area": "rendering and export",
+    "question": "Does the final duration satisfy the requested range without padded silence or black frames?",
+    "failure_hypothesis": "A duration target is met by filler instead of a coherent edit.",
+    "check_or_fix": "Measure runtime and review the opening and closing content intervals.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7936,
+    "passes": []
+  },
+  {
+    "id": "AVQ-028-027",
+    "domain_id": "D028",
+    "area": "rendering and export",
+    "question": "Can high-compression output still preserve the smallest essential target and distinction?",
+    "failure_hypothesis": "File-size optimization defeats the video's core viewing task.",
+    "check_or_fix": "Compare candidate encodes at intended viewing size using the actual task.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "final-encode"
+    ],
+    "style_filters": [
+      "educational",
+      "puzzle"
+    ],
+    "source_line": 7938,
+    "passes": []
+  },
+  {
+    "id": "AVQ-028-028",
+    "domain_id": "D028",
+    "area": "rendering and export",
+    "question": "Does export metadata accidentally mark the file as rotated, stereoscopic, or panoramic when it is ordinary flat video?",
+    "failure_hypothesis": "Inherited metadata causes unintended player transformations.",
+    "check_or_fix": "Inspect relevant flags and verify plain playback geometry.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "final-encode",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7940,
+    "passes": []
+  },
+  {
+    "id": "AVQ-028-029",
+    "domain_id": "D028",
+    "area": "rendering and export",
+    "question": "Is the encoded file truly generated from the reviewed source rather than an older render with a new filename?",
+    "failure_hypothesis": "Renaming conceals stale content while appearing current.",
+    "check_or_fix": "Verify source/render hashes and compare changed landmarks.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7942,
+    "passes": []
+  },
+  {
+    "id": "AVQ-028-030",
+    "domain_id": "D028",
+    "area": "rendering and export",
+    "question": "Are separate render jobs contaminating one another through shared temporary files or output paths?",
+    "failure_hypothesis": "Concurrent jobs overwrite assets or frames silently.",
+    "check_or_fix": "Use isolated job directories and reconcile per-job output hashes.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7944,
+    "passes": []
+  },
+  {
+    "id": "AVQ-028-031",
+    "domain_id": "D028",
+    "area": "rendering and export",
+    "question": "Does an interrupted export leave a partial file that could be mistaken for a complete deliverable?",
+    "failure_hypothesis": "File existence is treated as render success.",
+    "check_or_fix": "Require successful completion plus full decode and duration validation.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7946,
+    "passes": []
+  },
+  {
+    "id": "AVQ-028-032",
+    "domain_id": "D028",
+    "area": "rendering and export",
+    "question": "Are final-render quality claims supported by viewing the whole encoded result rather than selected attractive stills?",
+    "failure_hypothesis": "Still-frame inspection misses motion, transition, and temporal defects.",
+    "check_or_fix": "Watch the full delivered encode and record timecoded findings.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7948,
+    "passes": []
+  }
+]

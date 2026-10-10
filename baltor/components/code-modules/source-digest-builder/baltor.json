@@ -1,0 +1,64 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "source_digest_builder",
+  "title": "Cited source digest and trend scan builder",
+  "kind": "code-module",
+  "subkind": "feed-builder",
+  "version": "1.0.0",
+  "summary": "Ranks normalised feed items against a watchlist (weighted keywords, exclusions, recency, per-source caps), groups them and lists rising terms backed by two or more feeds, with a link on every line.",
+  "description": "Standard library only, no network. Input: rss_atom_jsonfeed_reader JSON and a source_watchlist; output: source_digest_report JSON and Markdown. Trends compare equal windows and need at least two different feeds and two distinct URLs. 7 tests on fixtures.",
+  "domain": "source-monitoring",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "research",
+    "write",
+    "measure"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "CLI writes the --out and --json files"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "source_digest_builder.py",
+  "tags": [
+    "digest",
+    "trends",
+    "citations",
+    "ranking",
+    "python"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "source_watchlist"
+    },
+    {
+      "identity": "source_digest_report"
+    },
+    {
+      "identity": "rss_atom_jsonfeed_reader"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/community_sources.py",
+    "data": "generators/data/community_sources"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

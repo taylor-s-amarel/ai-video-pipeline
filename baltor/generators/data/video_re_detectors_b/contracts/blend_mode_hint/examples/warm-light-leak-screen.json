@@ -1,0 +1,9 @@
+{
+  "mode": "screen",
+  "candidates": ["screen"],
+  "confidence": 0.86,
+  "region": { "bbox": [80, 48, 160, 88], "bbox_ratio": [0.25, 0.2667, 0.5, 0.4889], "cells": 160 },
+  "scores": { "normal": 0.61, "screen": 0.05, "multiply": 1.02, "add": 0.79 },
+  "fit": { "gain_median": [0.4, 0.62, 0.82], "offset_median": [0.6, 0.38, 0.18], "gain_spread": 0.21, "offset_spread": 0.21 },
+  "frames_used": 40
+}

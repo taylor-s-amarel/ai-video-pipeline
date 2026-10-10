@@ -558,8 +558,9 @@ def layer_stack_filter(layers: Sequence[dict], width: int, height: int, fps: int
                        out_label: str = "v") -> str:
     """filter_complex that composites layers bottom-to-top.
 
-    Each layer needs ``input`` (an ffmpeg input index, so input order is yours to choose),
-    ``opacity`` (<= 0.98) and ``blend``. Full-frame layers blend in planar RGB with
+    Each layer needs ``input`` (an ffmpeg input index, so input order is yours to choose) or
+    ``label`` (an existing filter-graph label such as a procedural source), ``opacity`` (<= 0.98)
+    and ``blend``. Full-frame layers blend in planar RGB with
     ``blend=all_mode=...:all_opacity=...``; a layer with ``rect`` {x, y, w, h} (fractions of the frame)
     is scaled into that rectangle, feathered by ``feather_px`` and overlaid with its opacity as alpha.
     The first layer is the base and is drawn at its own opacity over black.
@@ -573,11 +574,15 @@ def layer_stack_filter(layers: Sequence[dict], width: int, height: int, fps: int
             raise ValueError(f"layer {layer.get('id', i)} opacity {op} exceeds {MAX_LAYER_OPACITY}")
         if layer.get("blend", "normal") not in BLEND_MODES:
             raise ValueError(f"layer {layer.get('id', i)} has unknown blend {layer.get('blend')}")
-        if "input" not in layer:
-            raise ValueError(f"layer {layer.get('id', i)} needs an ffmpeg input index")
+        if "input" not in layer and "label" not in layer:
+            raise ValueError(f"layer {layer.get('id', i)} needs an ffmpeg input index or a filter label")
+
+    def src_of(layer: dict) -> str:
+        return f"[{layer['label']}]" if "label" in layer else f"[{layer['input']}:v]"
+
     first = layers[0]
     parts.append(f"color=c=black:s={width}x{height}:r={fps},format=gbrp[k]")
-    parts.append(f"[{first['input']}:v]scale={width}:{height}:force_original_aspect_ratio=increase,"
+    parts.append(f"{src_of(first)}scale={width}:{height}:force_original_aspect_ratio=increase,"
                  f"crop={width}:{height},fps={fps},format=gbrp,setsar=1[l0]")
     # blend 'normal' computes first*opacity + second*(1 - opacity); every other mode treats the
     # first input as the base and mixes the blended result in by opacity.
@@ -585,7 +590,7 @@ def layer_stack_filter(layers: Sequence[dict], width: int, height: int, fps: int
     acc = "acc0"
     for i, layer in enumerate(layers[1:], start=1):
         op = float(layer.get("opacity", 0.98))
-        src = f"[{layer['input']}:v]"
+        src = src_of(layer)
         nxt = out_label if i == len(layers) - 1 else f"acc{i}"
         rect = layer.get("rect")
         if rect:

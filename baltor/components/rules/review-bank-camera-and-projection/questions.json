@@ -1,0 +1,728 @@
+[
+  {
+    "id": "AVQ-009-001",
+    "domain_id": "D009",
+    "area": "camera and projection",
+    "question": "Does the projection suit the spatial relationship being explained?",
+    "failure_hypothesis": "Perspective hides the quantity or connection.",
+    "check_or_fix": "Compare orthographic and perspective evidence views.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6632,
+    "passes": [
+      "visual_depth_contact"
+    ]
+  },
+  {
+    "id": "AVQ-009-002",
+    "domain_id": "D009",
+    "area": "camera and projection",
+    "question": "Is the horizon consistent across shots in the same location?",
+    "failure_hypothesis": "Camera changes imply a different world orientation.",
+    "check_or_fix": "Check horizon and vanishing directions together.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6634,
+    "passes": [
+      "visual_depth_contact"
+    ]
+  },
+  {
+    "id": "AVQ-009-003",
+    "domain_id": "D009",
+    "area": "camera and projection",
+    "question": "Does camera movement reveal information rather than merely add activity?",
+    "failure_hypothesis": "Motion consumes attention without benefit.",
+    "check_or_fix": "State what becomes knowable because of the move.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6636,
+    "passes": [
+      "default_32",
+      "visual_depth_contact",
+      "longer_cardboard_32"
+    ]
+  },
+  {
+    "id": "AVQ-009-004",
+    "domain_id": "D009",
+    "area": "camera and projection",
+    "question": "Are camera cuts crossing the action axis intentionally?",
+    "failure_hypothesis": "Screen direction reverses without orientation.",
+    "check_or_fix": "Map the axis and provide a reestablishing view.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6638,
+    "passes": [
+      "visual_depth_contact"
+    ]
+  },
+  {
+    "id": "AVQ-009-005",
+    "domain_id": "D009",
+    "area": "camera and projection",
+    "question": "Does the lens distort a character's proportions unintentionally?",
+    "failure_hypothesis": "Wide-angle proximity changes identity.",
+    "check_or_fix": "Test focal length and camera distance together.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6640,
+    "passes": [
+      "visual_depth_contact"
+    ]
+  },
+  {
+    "id": "AVQ-009-006",
+    "domain_id": "D009",
+    "area": "camera and projection",
+    "question": "Is the camera close enough to show the decisive contact?",
+    "failure_hypothesis": "Wide framing makes causality microscopic.",
+    "check_or_fix": "Insert or hold a closer evidence view.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6642,
+    "passes": [
+      "visual_depth_contact"
+    ]
+  },
+  {
+    "id": "AVQ-009-007",
+    "domain_id": "D009",
+    "area": "camera and projection",
+    "question": "Does a tracking shot keep the destination understandable?",
+    "failure_hypothesis": "Following the hero hides the route ahead.",
+    "check_or_fix": "Include landmarks or a destination glimpse.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6644,
+    "passes": [
+      "visual_depth_contact"
+    ]
+  },
+  {
+    "id": "AVQ-009-008",
+    "domain_id": "D009",
+    "area": "camera and projection",
+    "question": "Are near and far objects scaled consistently under orthographic projection?",
+    "failure_hypothesis": "Manual scaling falsely implies perspective.",
+    "check_or_fix": "Audit scale overrides against projection rules.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "3d",
+      "cutout",
+      "educational"
+    ],
+    "source_line": 6646,
+    "passes": [
+      "visual_depth_contact"
+    ]
+  },
+  {
+    "id": "AVQ-009-009",
+    "domain_id": "D009",
+    "area": "camera and projection",
+    "question": "Does camera roll carry meaning worth its disorientation?",
+    "failure_hypothesis": "Tilt distracts from stable information.",
+    "check_or_fix": "Compare with a level horizon.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6648,
+    "passes": []
+  },
+  {
+    "id": "AVQ-009-010",
+    "domain_id": "D009",
+    "area": "camera and projection",
+    "question": "Does a zoom mimic movement that should create parallax?",
+    "failure_hypothesis": "Lens scaling is presented as spatial travel.",
+    "check_or_fix": "Use actual translation or label the graphic treatment.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6650,
+    "passes": []
+  },
+  {
+    "id": "AVQ-009-011",
+    "domain_id": "D009",
+    "area": "camera and projection",
+    "question": "Is camera acceleration comfortable at the viewing size?",
+    "failure_hypothesis": "Abrupt movement creates unintended discomfort.",
+    "check_or_fix": "Inspect velocity changes and preview full-screen.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6652,
+    "passes": []
+  },
+  {
+    "id": "AVQ-009-012",
+    "domain_id": "D009",
+    "area": "camera and projection",
+    "question": "Does the camera settle before text must be read?",
+    "failure_hypothesis": "Moving frame makes reading unnecessarily difficult.",
+    "check_or_fix": "Hold or stabilize during the reading interval.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6654,
+    "passes": []
+  },
+  {
+    "id": "AVQ-009-013",
+    "domain_id": "D009",
+    "area": "camera and projection",
+    "question": "Are all required objects inside near and far clipping planes?",
+    "failure_hypothesis": "Camera configuration removes scene content.",
+    "check_or_fix": "Inspect bounds at every camera extreme.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "3d",
+      "cutout",
+      "educational"
+    ],
+    "source_line": 6656,
+    "passes": []
+  },
+  {
+    "id": "AVQ-009-014",
+    "domain_id": "D009",
+    "area": "camera and projection",
+    "question": "Does an orbit reveal valid alternate sides of the model?",
+    "failure_hypothesis": "Hidden geometry fails outside the hero view.",
+    "check_or_fix": "Inspect the entire used orbit before approval.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6658,
+    "passes": []
+  },
+  {
+    "id": "AVQ-009-015",
+    "domain_id": "D009",
+    "area": "camera and projection",
+    "question": "Is the apparent up direction stable through camera transitions?",
+    "failure_hypothesis": "Orientation shifts without an anchoring cue.",
+    "check_or_fix": "Preserve a landmark or use a motivated transition.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6660,
+    "passes": []
+  },
+  {
+    "id": "AVQ-009-016",
+    "domain_id": "D009",
+    "area": "camera and projection",
+    "question": "Does depth compression hide separation between interacting objects?",
+    "failure_hypothesis": "Long-lens overlap makes contact ambiguous.",
+    "check_or_fix": "Adjust angle or focal length for spatial clarity.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6662,
+    "passes": []
+  },
+  {
+    "id": "AVQ-009-017",
+    "domain_id": "D009",
+    "area": "camera and projection",
+    "question": "Are multiple cameras sampling exactly the same action time?",
+    "failure_hypothesis": "Matched views show different states.",
+    "check_or_fix": "Drive all views from one timestamp.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6664,
+    "passes": []
+  },
+  {
+    "id": "AVQ-009-018",
+    "domain_id": "D009",
+    "area": "camera and projection",
+    "question": "Does a top-down view preserve enough height information?",
+    "failure_hypothesis": "Vertical relationships are flattened away.",
+    "check_or_fix": "Add side evidence or explicit height cues.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6666,
+    "passes": []
+  },
+  {
+    "id": "AVQ-009-019",
+    "domain_id": "D009",
+    "area": "camera and projection",
+    "question": "Is camera shake appropriate to the source of motion?",
+    "failure_hypothesis": "Uniform shake feels unmotivated or excessive.",
+    "check_or_fix": "Tie shake onset and decay to the event.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6668,
+    "passes": []
+  },
+  {
+    "id": "AVQ-009-020",
+    "domain_id": "D009",
+    "area": "camera and projection",
+    "question": "Does the camera lead or lag the hero for a clear reason?",
+    "failure_hypothesis": "Framing feels late or anticipates unseen action.",
+    "check_or_fix": "Choose intentional follow behavior per beat.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6670,
+    "passes": []
+  },
+  {
+    "id": "AVQ-009-021",
+    "domain_id": "D009",
+    "area": "camera and projection",
+    "question": "Are perspective lines compatible across composited assets?",
+    "failure_hypothesis": "Mixed projections make the set incoherent.",
+    "check_or_fix": "Align vanishing structure or separate graphic planes.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6672,
+    "passes": []
+  },
+  {
+    "id": "AVQ-009-022",
+    "domain_id": "D009",
+    "area": "camera and projection",
+    "question": "Does the camera path pass through geometry?",
+    "failure_hypothesis": "View briefly enters walls or objects.",
+    "check_or_fix": "Check path clearance and intermediate frames.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6674,
+    "passes": []
+  },
+  {
+    "id": "AVQ-009-023",
+    "domain_id": "D009",
+    "area": "camera and projection",
+    "question": "Is focus breathing distracting during a focus handoff?",
+    "failure_hypothesis": "Refocusing unexpectedly changes framing.",
+    "check_or_fix": "Reduce breathing or compensate composition.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6676,
+    "passes": []
+  },
+  {
+    "id": "AVQ-009-024",
+    "domain_id": "D009",
+    "area": "camera and projection",
+    "question": "Does a push-in end on the information it promised?",
+    "failure_hypothesis": "Move lands on empty or irrelevant detail.",
+    "check_or_fix": "Define the endpoint before animating the camera.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6678,
+    "passes": []
+  },
+  {
+    "id": "AVQ-009-025",
+    "domain_id": "D009",
+    "area": "camera and projection",
+    "question": "Are camera speed changes synchronized with emotional emphasis?",
+    "failure_hypothesis": "Uniform movement ignores the dramatic turn.",
+    "check_or_fix": "Shape the move around the story beat.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6680,
+    "passes": []
+  },
+  {
+    "id": "AVQ-009-026",
+    "domain_id": "D009",
+    "area": "camera and projection",
+    "question": "Does the final framing leave adequate platform-overlay space?",
+    "failure_hypothesis": "UI covers the subject or conclusion.",
+    "check_or_fix": "Preview verified target-platform overlay regions.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6682,
+    "passes": []
+  },
+  {
+    "id": "AVQ-009-027",
+    "domain_id": "D009",
+    "area": "camera and projection",
+    "question": "Can a viewer reconstruct geography after repeated close shots?",
+    "failure_hypothesis": "Coverage loses spatial orientation.",
+    "check_or_fix": "Return to a clear establishing relationship.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6684,
+    "passes": []
+  },
+  {
+    "id": "AVQ-009-028",
+    "domain_id": "D009",
+    "area": "camera and projection",
+    "question": "Does a reverse angle preserve object handedness correctly?",
+    "failure_hypothesis": "Mirroring changes tools, text or character features.",
+    "check_or_fix": "Use a real reverse view or audit all mirrors.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6686,
+    "passes": []
+  },
+  {
+    "id": "AVQ-009-029",
+    "domain_id": "D009",
+    "area": "camera and projection",
+    "question": "Are camera coordinates and object coordinates using the same convention?",
+    "failure_hypothesis": "Axis mismatch produces reversed or tilted motion.",
+    "check_or_fix": "Test a known directional reference.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6688,
+    "passes": []
+  },
+  {
+    "id": "AVQ-009-030",
+    "domain_id": "D009",
+    "area": "camera and projection",
+    "question": "Does a locked camera remain genuinely stable after compositing?",
+    "failure_hypothesis": "Layer drift creates unintended camera wobble.",
+    "check_or_fix": "Track fixed landmarks in encoded frames.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6690,
+    "passes": []
+  },
+  {
+    "id": "AVQ-009-031",
+    "domain_id": "D009",
+    "area": "camera and projection",
+    "question": "Is the camera's proximity emotionally appropriate for the moment?",
+    "failure_hypothesis": "Distant framing weakens an intimate response.",
+    "check_or_fix": "Test a closer reaction while retaining context.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6692,
+    "passes": []
+  },
+  {
+    "id": "AVQ-009-032",
+    "domain_id": "D009",
+    "area": "camera and projection",
+    "question": "Would a simpler camera move make the action easier to judge?",
+    "failure_hypothesis": "Complex travel conceals animation weaknesses.",
+    "check_or_fix": "Review a locked-camera alternative.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6694,
+    "passes": []
+  }
+]

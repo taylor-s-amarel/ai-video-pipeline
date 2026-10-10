@@ -1,0 +1,51 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "spring_motion",
+  "title": "Damped spring motion",
+  "kind": "code-module",
+  "subkind": "easing",
+  "version": "1.0.0",
+  "summary": "Closed-form damped spring (under, critical, over) with overshoot and settle-time measurement and per-frame sampling, for springy text pops and entrances.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "spring_motion.py",
+  "tags": [
+    "video",
+    "motion",
+    "spring",
+    "overshoot",
+    "text-pop",
+    "physics"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

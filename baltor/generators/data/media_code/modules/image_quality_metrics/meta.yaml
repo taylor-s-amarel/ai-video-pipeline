@@ -1,0 +1,6 @@
+title: Image quality metrics (PSNR, SSIM)
+summary: Numpy-only MSE, PSNR and SSIM (Gaussian 11x11 window, luma) for comparing renders and re-encodes against a reference frame, with an optional SSIM map.
+subkind: evaluator
+domain: video
+tags: [video, quality, ssim, psnr, compression, qa]
+step_kinds: [verify, measure]

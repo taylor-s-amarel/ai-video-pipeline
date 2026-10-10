@@ -1,0 +1,134 @@
+{
+  "spec": "baltor.source-digest/v1",
+  "watchlist_id": "godot-blender-weekly",
+  "generated_at": "2026-10-10T12:00:00Z",
+  "window": {
+    "since": "2026-10-03T12:00:00Z",
+    "until": "2026-10-10T12:00:00Z"
+  },
+  "counts": {
+    "items_in": 10,
+    "items_in_window": 7,
+    "items_selected": 6,
+    "sources": 5
+  },
+  "sections": [
+    {
+      "title": "Releases",
+      "items": [
+        {
+          "title": "Godot 4.7.2 stable released",
+          "url": "https://github.com/godotengine/godot/releases/tag/4.7.2-stable",
+          "source": "Release notes from godot",
+          "published": "2026-10-08T12:00:00Z",
+          "score": 3.0314,
+          "matched": [
+            "godot"
+          ],
+          "also_in": []
+        }
+      ]
+    },
+    {
+      "title": "Agent workflows",
+      "items": [
+        {
+          "title": "Claude Code hooks for Godot projects",
+          "url": "https://www.reddit.com/r/ClaudeCode/comments/c3/",
+          "source": "r/ClaudeCode",
+          "published": "2026-10-06T20:00:00Z",
+          "score": 1.8045,
+          "matched": [
+            "godot",
+            "hooks"
+          ],
+          "also_in": []
+        }
+      ]
+    },
+    {
+      "title": "Community",
+      "items": [
+        {
+          "title": "Show HN: Gaussian splatting viewer for Godot",
+          "url": "https://news.example.com/item?id=1",
+          "source": "Hacker News: godot OR blender",
+          "published": "2026-10-09T15:00:00Z",
+          "score": 2.1258,
+          "matched": [
+            "godot",
+            "gaussian splatting"
+          ],
+          "also_in": []
+        },
+        {
+          "title": "Tile map layers in Godot 4.7 are great",
+          "url": "https://www.reddit.com/r/godot/comments/a1/",
+          "source": "r/godot",
+          "published": "2026-10-09T09:00:00Z",
+          "score": 1.7112,
+          "matched": [
+            "godot"
+          ],
+          "also_in": []
+        },
+        {
+          "title": "Gaussian splatting in Blender 5.2 add-on",
+          "url": "https://www.reddit.com/r/blender/comments/b2/",
+          "source": "r/blender",
+          "published": "2026-10-07T10:00:00Z",
+          "score": 1.6304,
+          "matched": [
+            "blender",
+            "gaussian splatting"
+          ],
+          "also_in": []
+        },
+        {
+          "title": "Gaussian splatting tutorial",
+          "url": "https://www.reddit.com/r/blender/comments/e5/",
+          "source": "r/blender",
+          "published": "2026-10-05T12:00:00Z",
+          "score": 0.5,
+          "matched": [
+            "gaussian splatting"
+          ],
+          "also_in": []
+        }
+      ]
+    }
+  ],
+  "trends": [
+    {
+      "term": "godot",
+      "count": 4,
+      "previous_count": 0,
+      "change": 5.0,
+      "sources": 4,
+      "citations": [
+        "https://news.example.com/item?id=1",
+        "https://www.reddit.com/r/godot/comments/a1/",
+        "https://github.com/godotengine/godot/releases/tag/4.7.2-stable",
+        "https://www.reddit.com/r/ClaudeCode/comments/c3/"
+      ]
+    },
+    {
+      "term": "gaussian splatting",
+      "count": 3,
+      "previous_count": 0,
+      "change": 4.0,
+      "sources": 2,
+      "citations": [
+        "https://news.example.com/item?id=1",
+        "https://www.reddit.com/r/blender/comments/b2/",
+        "https://www.reddit.com/r/blender/comments/e5/"
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "feed_url": "https://example.org/broken.xml",
+      "error": "HTTP 404"
+    }
+  ]
+}

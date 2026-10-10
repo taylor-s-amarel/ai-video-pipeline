@@ -1,0 +1,54 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "claude_code_source_watch_settings",
+  "title": "Claude Code settings for a source watch step",
+  "kind": "harness-settings",
+  "subkind": "settings-profile",
+  "version": "1.0.0",
+  "summary": "Project settings that allow the feed tools and WebFetch for the main feed hosts, deny reading .env files, and wire the digest citation Stop hook.",
+  "domain": "source-monitoring",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "research",
+    "operate"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code"
+  ],
+  "entry": "settings.json",
+  "tags": [
+    "claude-code",
+    "settings",
+    "permissions",
+    "monitoring"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "require_digest_citations"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/community_sources.py",
+    "data": "generators/data/community_sources"
+  },
+  "install": {
+    "claude-code": {
+      "path": ".baltor/settings/claude-code-source-watch-settings/",
+      "merge_into": ".claude/settings.json"
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

@@ -1,0 +1,398 @@
+{
+  "spec": "baltor.feed-collection/v1",
+  "id": "community-releases-maker-marketing-security",
+  "title": "Release feeds: home automation, CAD, 3D printing, analytics and security tools",
+  "description": "Official GitHub release Atom feeds for the home-automation, parametric CAD, 3D printing, marketing-analytics and defensive-security domain packs. Each feed was fetched on 2026-10-10.",
+  "updated": "2026-10-10",
+  "tags": [
+    "community-sources",
+    "home-automation",
+    "cad",
+    "analytics",
+    "security"
+  ],
+  "items": [
+    {
+      "id": "gh-home-assistant-core",
+      "title": "Home Assistant Core releases",
+      "url": "https://github.com/home-assistant/core/releases.atom",
+      "summary": "Monthly Home Assistant releases and patch releases; breaking changes are listed in each.",
+      "kind": "repository",
+      "licence": "Apache-2.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "home-automation"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: 2026.10.0 on 2026-10-07.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/home-assistant/core/HEAD/LICENSE.md"
+    },
+    {
+      "id": "gh-esphome-esphome",
+      "title": "ESPHome releases",
+      "url": "https://github.com/esphome/esphome/releases.atom",
+      "summary": "ESPHome firmware framework releases, including betas.",
+      "kind": "repository",
+      "licence": "MIT (Python) and GPL-3.0 (C++ runtime)",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "home-automation",
+        "esp32"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: 2026.10.0b2 on 2026-10-09.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/esphome/esphome/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-cadquery-cadquery",
+      "title": "CadQuery releases",
+      "url": "https://github.com/CadQuery/cadquery/releases.atom",
+      "summary": "Release notes for CadQuery parametric CAD in Python.",
+      "kind": "repository",
+      "licence": "Apache-2.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "home-automation",
+        "cad"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: CadQuery 2.8.0 on 2026-06-22.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/CadQuery/cadquery/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-gumyr-build123d",
+      "title": "build123d releases",
+      "url": "https://github.com/gumyr/build123d/releases.atom",
+      "summary": "Release notes for build123d parametric CAD.",
+      "kind": "repository",
+      "licence": "Apache-2.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "home-automation",
+        "cad"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v0.13.0 on 2026-09-21.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/gumyr/build123d/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-freecad-freecad",
+      "title": "FreeCAD releases",
+      "url": "https://github.com/FreeCAD/FreeCAD/releases.atom",
+      "summary": "Release notes for FreeCAD including release candidates.",
+      "kind": "repository",
+      "licence": "LGPL-2.1",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "home-automation",
+        "cad"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: FreeCAD 26.3 RC1 on 2026-10-08.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/FreeCAD/FreeCAD/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-openscad-openscad",
+      "title": "OpenSCAD releases",
+      "url": "https://github.com/openscad/openscad/releases.atom",
+      "summary": "OpenSCAD releases and test builds.",
+      "kind": "repository",
+      "licence": "GPL-2.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "home-automation",
+        "cad"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: openscad-2026.10-TEST3 on 2026-10-04.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/openscad/openscad/HEAD/COPYING"
+    },
+    {
+      "id": "gh-prusa3d-prusaslicer",
+      "title": "PrusaSlicer releases",
+      "url": "https://github.com/prusa3d/PrusaSlicer/releases.atom",
+      "summary": "PrusaSlicer releases including alphas.",
+      "kind": "repository",
+      "licence": "AGPL-3.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "home-automation",
+        "3d-printing"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: PrusaSlicer 3.0.0-alpha12 on 2026-09-21.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/prusa3d/PrusaSlicer/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-softfever-orcaslicer",
+      "title": "OrcaSlicer releases",
+      "url": "https://github.com/SoftFever/OrcaSlicer/releases.atom",
+      "summary": "OrcaSlicer releases and nightly builds.",
+      "kind": "repository",
+      "licence": "AGPL-3.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "home-automation",
+        "3d-printing"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: OrcaSlicer Nightly Builds on 2026-10-10.",
+      "cautions": [
+        "Very large feed (about 1.3 MB) dominated by nightlies.",
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/SoftFever/OrcaSlicer/HEAD/LICENSE.txt"
+    },
+    {
+      "id": "gh-n8n-io-n8n",
+      "title": "n8n releases",
+      "url": "https://github.com/n8n-io/n8n/releases.atom",
+      "summary": "Release notes for n8n workflow automation.",
+      "kind": "repository",
+      "licence": "Sustainable Use License (fair-code, not OSI open source); .ee files need an Enterprise licence",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "home-automation",
+        "automation",
+        "marketing"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: 'stable' on 2026-10-09.",
+      "cautions": [
+        "Not open source: the licence allows use only for internal business purposes or non-commercial/personal use, and distribution only free of charge for non-commercial purposes.",
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/n8n-io/n8n/HEAD/LICENSE.md"
+    },
+    {
+      "id": "gh-plausible-analytics",
+      "title": "Plausible Analytics releases",
+      "url": "https://github.com/plausible/analytics/releases.atom",
+      "summary": "Release notes for Plausible privacy-friendly web analytics.",
+      "kind": "repository",
+      "licence": "AGPL-3.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "home-automation",
+        "analytics"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v3.2.1 on 2026-06-01.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/plausible/analytics/HEAD/LICENSE.md"
+    },
+    {
+      "id": "gh-umami-software-umami",
+      "title": "Umami releases",
+      "url": "https://github.com/umami-software/umami/releases.atom",
+      "summary": "Release notes for Umami web analytics.",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "home-automation",
+        "analytics"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v3.4.0 on 2026-09-17.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/umami-software/umami/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-matomo-org-matomo",
+      "title": "Matomo releases",
+      "url": "https://github.com/matomo-org/matomo/releases.atom",
+      "summary": "Matomo analytics releases including betas.",
+      "kind": "repository",
+      "licence": "GPL-3.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "home-automation",
+        "analytics"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: 6.0.0-b5 on 2026-10-09.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/matomo-org/matomo/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-projectdiscovery-nuclei",
+      "title": "Nuclei releases",
+      "url": "https://github.com/projectdiscovery/nuclei/releases.atom",
+      "summary": "Release notes for the Nuclei vulnerability scanner.",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "home-automation",
+        "security"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v3.11.1 on 2026-08-08.",
+      "cautions": [
+        "Scan only systems you are authorised to test.",
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/projectdiscovery/nuclei/HEAD/LICENSE.md"
+    },
+    {
+      "id": "gh-trufflesecurity-trufflehog",
+      "title": "TruffleHog releases",
+      "url": "https://github.com/trufflesecurity/trufflehog/releases.atom",
+      "summary": "Release notes for TruffleHog secret scanning.",
+      "kind": "repository",
+      "licence": "AGPL-3.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "home-automation",
+        "security",
+        "secrets"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v3.99.2 on 2026-10-08.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/trufflesecurity/trufflehog/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-gitleaks-gitleaks",
+      "title": "Gitleaks releases",
+      "url": "https://github.com/gitleaks/gitleaks/releases.atom",
+      "summary": "Release notes for Gitleaks secret scanning.",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "home-automation",
+        "security",
+        "secrets"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v8.30.1 on 2026-03-21.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/gitleaks/gitleaks/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-aquasecurity-trivy",
+      "title": "Trivy releases",
+      "url": "https://github.com/aquasecurity/trivy/releases.atom",
+      "summary": "Release notes for Trivy vulnerability and misconfiguration scanning.",
+      "kind": "repository",
+      "licence": "Apache-2.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "home-automation",
+        "security",
+        "supply-chain"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v0.75.0 on 2026-10-01.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/aquasecurity/trivy/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-semgrep-semgrep",
+      "title": "Semgrep releases",
+      "url": "https://github.com/semgrep/semgrep/releases.atom",
+      "summary": "Release notes for Semgrep static analysis.",
+      "kind": "repository",
+      "licence": "LGPL-2.1",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "home-automation",
+        "security",
+        "static-analysis"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: Release v1.180.0 on 2026-10-07.",
+      "cautions": [
+        "Rule packs and hosted services can carry terms separate from the engine licence; check before redistributing rules.",
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/semgrep/semgrep/HEAD/LICENSE"
+    }
+  ]
+}

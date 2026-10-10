@@ -1,0 +1,63 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "pocket_tts_adapter",
+  "title": "Pocket TTS adapter",
+  "kind": "code-module",
+  "subkind": "tts-engine",
+  "version": "1.0.0",
+  "summary": "Adapter for Kyutai Pocket TTS (lazy import, model loaded once, voice states cached) returning mono float32 audio; lists the English built-in voice names.",
+  "description": "Pocket TTS code is MIT per its repository (checked 2026-10-10); the README links model and voice licences separately and they were not verified here. Check them before publishing.",
+  "domain": "audio",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "render"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "declared",
+    "executes": "python",
+    "secrets": [],
+    "hosts": [
+      "huggingface.co"
+    ],
+    "side_effects": [
+      "pocket-tts may download model weights and voices from the Hugging Face Hub on first use and cache them"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "pocket_tts_adapter.py",
+  "tags": [
+    "audio",
+    "tts",
+    "pocket-tts",
+    "kyutai",
+    "narration",
+    "local"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "pocket_tts",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

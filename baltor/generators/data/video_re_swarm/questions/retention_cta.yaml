@@ -45,12 +45,12 @@
   challenge: "Spoken-only CTAs are easy to miss; check the audio transcript too."
 
 - id: retention_cta-006
-  question: "When does the CTA appear (ratio of runtime and seconds before the end)?"
+  question: "At what fraction of the runtime does the CTA start (seconds before the end in the note)?"
   why: "Places the CTA beat."
   how: "First CTA cue time / duration; duration - time."
   evidence: ["CTA cue time", "evidence.source.duration_s"]
   ir_path: "/timeline/beats/*/start_ratio"
-  type: object
+  type: ratio
   challenge: "Report both values."
 
 - id: retention_cta-007
@@ -204,7 +204,7 @@
   why: "Adds proof slots that require sourced numbers in variants."
   how: "Captions and text crops with numbers about people or authority."
   evidence: ["evidence.captions[] (analysis only)", "frames: F3"]
-  ir_path: "/script/claims_need_sources"
+  ir_path: "/generation_rules/-"
   type: timestamps
   challenge: "Every proof cue becomes a claim that needs a source in a variant."
 

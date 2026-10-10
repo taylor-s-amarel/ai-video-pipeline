@@ -1,0 +1,26 @@
+{
+  "id": "AVQ-001-001",
+  "domain_id": "D001",
+  "area": "concept and design",
+  "question": "Can the first image communicate the film's central promise?",
+  "failure_hypothesis": "Opening conceals the viewing purpose.",
+  "check_or_fix": "Show opening without its title to a fresh viewer.",
+  "severity": "urgent",
+  "modes": [
+    "visual"
+  ],
+  "stages": [
+    "concept",
+    "script",
+    "storyboard",
+    "animatic"
+  ],
+  "style_filters": [
+    "any"
+  ],
+  "source_line": 6104,
+  "passes": [
+    "default_32",
+    "story_edit"
+  ]
+}

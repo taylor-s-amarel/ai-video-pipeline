@@ -1,0 +1,455 @@
+{
+  "spec": "baltor.video-re-questions/v1",
+  "lens": "platform_fit_safe_areas",
+  "title": "Platform fit and safe areas",
+  "purpose": "Checks aspect, resolution, frame rate, encoding, loudness, safe-area use and sound-off readability, and records them as render settings and constraints.",
+  "boundary": "The swarm lifts technique and structure only. Never store, transcribe or reuse the source's footage, frames, music, voice or script text. Keyframes and spectrograms are temporary analysis files in a scratch directory and are never copied into the format IR or a variant. On-screen text may be quoted only as a locating note in evidence.note, at most 6 words, and narration is never quoted. Patterns replace content words with slots, e.g. 'FACT {n}' or '{number} {unit} {noun}'. Analysing a public video for technique is fine; republishing its content is not.",
+  "answer_contract": "video_re_analyst_answer",
+  "ir_contract": "video_re_format_ir",
+  "ir_focus": [
+    "/source/resolution",
+    "/source/fps",
+    "/source/platform",
+    "/visual/aspect",
+    "/visual/safe_area_respected",
+    "/render_binding/mapping",
+    "/generation_rules"
+  ],
+  "evidence": [
+    "source.* (video_re_probe_metadata)",
+    "safe_area.violations (video_re_safe_area_probe)",
+    "text_regions[]",
+    "audio.integrated_lufs"
+  ],
+  "inspect": "A7 stream facts; F1 frames with a safe-area overlay drawn by drawbox; F12 black frames; F6 YAVG series for flashes.",
+  "pitfalls": [
+    "Stating platform limits from memory; check current platform documentation and cite it, or say 'not checked'",
+    "Treating a safe-area template from one app as universal",
+    "Ignoring that the source may be a re-encode"
+  ],
+  "parameter_hints": [
+    "target_platforms (list)",
+    "aspect (enum)",
+    "fps (number)",
+    "safe_box (object)",
+    "target_lufs (number)"
+  ],
+  "optional_detectors": [
+    "video_re_detect_safe_margin_usage",
+    "video_re_detect_letterbox_pillarbox",
+    "video_re_detect_frame_rate_cadence",
+    "video_re_detect_interlacing",
+    "video_re_detect_color_range_space",
+    "video_re_detect_compression_blockiness",
+    "video_re_detect_true_resolution",
+    "video_re_detect_static_overlay_regions"
+  ],
+  "methods": {
+    "measured": "A measurement tool produced the value (an evidence.json field or an ffmpeg/ffprobe filter output). Name the tool and the field.",
+    "observed": "You looked at extracted frames, crops, scopes, spectrograms or waveforms and saw it. Give the timestamps you looked at.",
+    "inferred": "Reasoned from measured or observed facts, e.g. 'synthetic voice' from flat pitch on a spectrogram. State the reasoning in the note.",
+    "assumed": "No direct evidence; a default or convention. Use only for gaps the format needs filled, and keep confidence at 0.3 or lower."
+  },
+  "pointer_conventions": [
+    "ir_path is a JSON Pointer (RFC 6901) into the Video format IR (contract schema video_re_format_ir).",
+    "A final '/-' means 'append this answer to the array' (the RFC 6901 end-of-array token), e.g. /motion/transitions/- or /generation_rules/-.",
+    "A '*' segment means 'each array element the answer is about'; the answer must say which elements (for example beats with role 'item'). The lifter resolves '*' to concrete indexes.",
+    "Paths under free-form objects (typography.title, typography.captions, typography.labels, audio.narration, audio.music, render_binding.mapping) use the snake_case key named in the question."
+  ],
+  "answer_types": {
+    "number": "{\"value\": n, \"unit\": \"...\"} optionally with \"min\" and \"max\"; becomes an IR observed_number",
+    "ratio": "{\"value\": r} with 0 <= r <= 1",
+    "seconds": "{\"value\": s, \"unit\": \"s\"} optionally with \"min\"/\"max\"",
+    "boolean": "true or false",
+    "enum": "exactly one of the question's choices (a string)",
+    "text": "one technique description, at most 300 characters, no copied content",
+    "list": "array of short strings (technique names or kinds)",
+    "segments": "[{\"start_s\": a, \"end_s\": b, \"label\": \"...\"}]",
+    "rule": "one procedural generation rule string, at most 400 characters, written in terms of parameters",
+    "object": "a JSON object with the keys the question's how_to_answer names"
+  },
+  "recipes": {
+    "F1": "Single frame: ffmpeg -v error -ss T -i \"$SRC\" -frames:v 1 -q:v 2 \"$WORK/f_T.jpg\"",
+    "F3": "Full-resolution crop (add ,scale=iw*2:-1:flags=lanczos to enlarge): ffmpeg -v error -ss T -i \"$SRC\" -frames:v 1 -vf \"crop=W:H:X:Y\" \"$WORK/crop_T.png\"",
+    "F6": "Per-frame colour statistics (YMIN, YAVG, YMAX, SATAVG, HUEMED, UAVG, VAVG): ffmpeg -v error -ss T -t D -i \"$SRC\" -vf \"signalstats,metadata=mode=print:file=$WORK/stats.txt\" -an -f null -",
+    "F12": "Black frames: ffmpeg -i \"$SRC\" -vf \"blackdetect=d=0.05:pix_th=0.10\" -an -f null - 2>&1 | grep black_",
+    "A7": "Stream facts: ffprobe -v error -show_streams -show_format -of json \"$SRC\""
+  },
+  "questions": [
+    {
+      "id": "platform_fit_safe_areas-001",
+      "question": "What are the resolution and display aspect ratio?",
+      "why_it_matters": "Fills source.resolution and visual.aspect.",
+      "how_to_answer": "evidence.source.width and height (video_re_probe_metadata); check A7 for sample_aspect_ratio and rotation side data.",
+      "evidence_required": [
+        "evidence.source.width",
+        "evidence.source.height",
+        "A7"
+      ],
+      "ir_path": "/source/resolution",
+      "answer_type": "object",
+      "challenge": "A rotation tag can swap width and height; confirm on an F1 frame."
+    },
+    {
+      "id": "platform_fit_safe_areas-002",
+      "question": "What is the average frame rate in frames per second?",
+      "why_it_matters": "Fills source.fps and the render frame rate.",
+      "how_to_answer": "evidence.source.fps (avg_frame_rate); compare with r_frame_rate in A7 and report both in the note.",
+      "evidence_required": [
+        "evidence.source.fps",
+        "A7"
+      ],
+      "ir_path": "/source/fps",
+      "answer_type": "number",
+      "challenge": "Different r_frame_rate and avg_frame_rate indicate variable frame rate; say so."
+    },
+    {
+      "id": "platform_fit_safe_areas-003",
+      "question": "Which duration band does the video fit, and which platform limits should be checked against current platform documentation?",
+      "why_it_matters": "Records duration constraints without stating platform limits from memory.",
+      "how_to_answer": "Report source.duration_s; list platforms the user targets and mark each limit 'check current docs' unless a citation is supplied in the run.",
+      "evidence_required": [
+        "evidence.source.duration_s"
+      ],
+      "ir_path": "/render_binding/mapping/duration_constraints",
+      "answer_type": "object",
+      "challenge": "Any platform limit stated without a dated source is rejected."
+    },
+    {
+      "id": "platform_fit_safe_areas-004",
+      "question": "Which safe-area violations did the probe report, and are they real?",
+      "why_it_matters": "Fills visual.safe_area_respected.",
+      "how_to_answer": "Read evidence.safe_area.violations (video_re_safe_area_probe); inspect F1 frames at 3 violation times with a drawbox overlay of the template.",
+      "evidence_required": [
+        "evidence.safe_area.violations",
+        "frames: F1 with drawbox"
+      ],
+      "ir_path": "/visual/safe_area_respected",
+      "answer_type": "boolean",
+      "challenge": "Name the template the probe used; violations from watermark regions are not format violations."
+    },
+    {
+      "id": "platform_fit_safe_areas-005",
+      "question": "Is any text placed in the bottom 20% of the frame?",
+      "why_it_matters": "Becomes a placement constraint (many vertical apps draw captions and controls there).",
+      "how_to_answer": "evidence.text_regions[] with bbox bottom beyond 0.8 x height.",
+      "evidence_required": [
+        "evidence.text_regions[].bbox"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "ratio",
+      "challenge": "Treat the 20% figure as a working template, not a platform specification."
+    },
+    {
+      "id": "platform_fit_safe_areas-006",
+      "question": "Is any text placed in the right-hand 15% of the frame?",
+      "why_it_matters": "Becomes a placement constraint for side action buttons.",
+      "how_to_answer": "evidence.text_regions[] with bbox right edge beyond 0.85 x width.",
+      "evidence_required": [
+        "evidence.text_regions[].bbox"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "ratio",
+      "challenge": "Same caveat as 005."
+    },
+    {
+      "id": "platform_fit_safe_areas-007",
+      "question": "Is the top 10% kept free of important content?",
+      "why_it_matters": "Becomes a top margin constraint.",
+      "how_to_answer": "text_regions and subject positions in the top band.",
+      "evidence_required": [
+        "evidence.text_regions[]",
+        "frames: F1"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "boolean",
+      "challenge": "Report what occupies the band if anything."
+    },
+    {
+      "id": "platform_fit_safe_areas-008",
+      "question": "Would the important content survive a centre crop to 4:5 and to 1:1?",
+      "why_it_matters": "Decides whether variants can be re-framed for other placements.",
+      "how_to_answer": "Overlay 4:5 and 1:1 centre boxes on 5 F1 frames (drawbox); check title, captions and subject.",
+      "evidence_required": [
+        "frames: F1 with drawbox"
+      ],
+      "ir_path": "/render_binding/mapping/reframe_ok",
+      "answer_type": "object",
+      "challenge": "Report per frame."
+    },
+    {
+      "id": "platform_fit_safe_areas-009",
+      "question": "Are there letterbox or pillarbox bars?",
+      "why_it_matters": "Flags a framing error to avoid.",
+      "how_to_answer": "ffmpeg cropdetect over 10 s: ffmpeg -i SRC -vf cropdetect -t 10 -f null - 2>&1 | tail -3.",
+      "evidence_required": [
+        "cropdetect output"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "boolean",
+      "challenge": "Dark content can trigger cropdetect; check on F1."
+    },
+    {
+      "id": "platform_fit_safe_areas-010",
+      "question": "What are the video codec, profile, pixel format and bitrate?",
+      "why_it_matters": "Fills render video settings.",
+      "how_to_answer": "A7 stream and format fields.",
+      "evidence_required": [
+        "A7"
+      ],
+      "ir_path": "/render_binding/mapping/video_format",
+      "answer_type": "object",
+      "challenge": "Copy exactly from ffprobe."
+    },
+    {
+      "id": "platform_fit_safe_areas-011",
+      "question": "How does integrated loudness compare with common streaming normalisation targets (difference in LU from a target the run specifies)?",
+      "why_it_matters": "Sets the loudness target for the render.",
+      "how_to_answer": "evidence.audio.integrated_lufs minus the target given in the run parameters; if none, report the value only.",
+      "evidence_required": [
+        "evidence.audio.integrated_lufs"
+      ],
+      "ir_path": "/audio/integrated_lufs",
+      "answer_type": "number",
+      "challenge": "Do not assert a platform's target from memory; cite or omit."
+    },
+    {
+      "id": "platform_fit_safe_areas-012",
+      "question": "Are platform UI elements, usernames or watermarks burned into the frames?",
+      "why_it_matters": "Flags re-uploads and fills source.platform as an observation; such marks never enter variants.",
+      "how_to_answer": "F3 crops of corners and edges at 3 times.",
+      "evidence_required": [
+        "frames: F3 corners"
+      ],
+      "ir_path": "/source/platform",
+      "answer_type": "object",
+      "challenge": "Do not name individuals; record the kind of mark and its position."
+    },
+    {
+      "id": "platform_fit_safe_areas-013",
+      "question": "Are captions burned in so the video can be followed with sound off?",
+      "why_it_matters": "Fills burned_in for sound-off viewing.",
+      "how_to_answer": "F1 frames during speech.",
+      "evidence_required": [
+        "frames: F1",
+        "evidence.audio.speech_segments"
+      ],
+      "ir_path": "/typography/captions/burned_in",
+      "answer_type": "boolean",
+      "challenge": "Check 5 speech moments."
+    },
+    {
+      "id": "platform_fit_safe_areas-014",
+      "question": "What share of speech time has matching on-screen text (sound-off coverage)?",
+      "why_it_matters": "Measures sound-off readability.",
+      "how_to_answer": "Speech segments overlapped by caption-area text regions / speech time.",
+      "evidence_required": [
+        "evidence.audio.speech_segments",
+        "evidence.text_regions[]"
+      ],
+      "ir_path": "/typography/captions/sound_off_coverage",
+      "answer_type": "ratio",
+      "challenge": "Text regions are sampled; state the sampling interval."
+    },
+    {
+      "id": "platform_fit_safe_areas-015",
+      "question": "Are there interlacing or combing artefacts?",
+      "why_it_matters": "Flags a source quality issue.",
+      "how_to_answer": "ffmpeg idet filter over 500 frames: ffmpeg -i SRC -vf idet -frames:v 500 -an -f null - 2>&1 | grep 'Multi frame'.",
+      "evidence_required": [
+        "idet output"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "boolean",
+      "challenge": "Report the counts."
+    },
+    {
+      "id": "platform_fit_safe_areas-016",
+      "question": "What colour primaries, transfer and range are tagged?",
+      "why_it_matters": "Fills render colour tags.",
+      "how_to_answer": "A7: color_space, color_transfer, color_primaries, color_range.",
+      "evidence_required": [
+        "A7"
+      ],
+      "ir_path": "/render_binding/mapping/color_tags",
+      "answer_type": "object",
+      "challenge": "Untagged streams must be reported as untagged, not as bt709."
+    },
+    {
+      "id": "platform_fit_safe_areas-017",
+      "question": "What are the audio channel layout and sample rate?",
+      "why_it_matters": "Fills render audio settings.",
+      "how_to_answer": "A7 audio stream.",
+      "evidence_required": [
+        "A7"
+      ],
+      "ir_path": "/render_binding/mapping/audio_layout",
+      "answer_type": "object",
+      "challenge": "Copy exactly."
+    },
+    {
+      "id": "platform_fit_safe_areas-018",
+      "question": "Is the frame rate variable?",
+      "why_it_matters": "Variable frame rate affects frame-accurate measurements and renders.",
+      "how_to_answer": "Compare A7 r_frame_rate and avg_frame_rate; inspect pts deltas with ffprobe -show_frames on 100 frames.",
+      "evidence_required": [
+        "A7",
+        "ffprobe frames"
+      ],
+      "ir_path": "/render_binding/mapping/variable_frame_rate",
+      "answer_type": "boolean",
+      "challenge": "Report min and max frame durations."
+    },
+    {
+      "id": "platform_fit_safe_areas-019",
+      "question": "What are the minimum text margins in px at the source resolution?",
+      "why_it_matters": "Fills a safe box for the render template.",
+      "how_to_answer": "Min distance from text bboxes to each edge.",
+      "evidence_required": [
+        "evidence.text_regions[].bbox"
+      ],
+      "ir_path": "/render_binding/mapping/text_margins_px",
+      "answer_type": "object",
+      "challenge": "Exclude watermarks."
+    },
+    {
+      "id": "platform_fit_safe_areas-020",
+      "question": "What changes would a 16:9 version need (re-layout, pillarbox, side panels)?",
+      "why_it_matters": "Adds a reframing plan for other aspects.",
+      "how_to_answer": "Inspect layout on F1 frames; propose a layout that keeps title, captions and subject; method inferred.",
+      "evidence_required": [
+        "frames: F1"
+      ],
+      "ir_path": "/render_binding/mapping/reframe_16x9",
+      "answer_type": "text",
+      "challenge": "Must not require source footage."
+    },
+    {
+      "id": "platform_fit_safe_areas-021",
+      "question": "Are handles, hashtags or account names overlaid as part of the design?",
+      "why_it_matters": "Adds a handle slot (filled with the new channel's own handle) or rules it out.",
+      "how_to_answer": "F3 crops; describe placement and style only.",
+      "evidence_required": [
+        "frames: F3"
+      ],
+      "ir_path": "/typography/labels/handle_slot",
+      "answer_type": "boolean",
+      "challenge": "Never copy the handle."
+    },
+    {
+      "id": "platform_fit_safe_areas-022",
+      "question": "Are there black frames at the start, the end, or anywhere else?",
+      "why_it_matters": "Flags autoplay and thumbnail problems.",
+      "how_to_answer": "F12 blackdetect.",
+      "evidence_required": [
+        "F12"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "segments",
+      "challenge": "Report all segments."
+    },
+    {
+      "id": "platform_fit_safe_areas-023",
+      "question": "How many large luminance flashes per second occur at most (three per second is the WCAG 2.3.1 general flash threshold)?",
+      "why_it_matters": "An accessibility check; renders should stay under the threshold.",
+      "how_to_answer": "F6 YAVG per frame; count opposing changes above about 10% of full range within any 1 s window. This is a screening estimate, not a certified photosensitivity test.",
+      "evidence_required": [
+        "F6 series"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "number",
+      "challenge": "Small-area flashes count differently under WCAG; mark the result as a screening estimate."
+    },
+    {
+      "id": "platform_fit_safe_areas-024",
+      "question": "How tall is caption text in pixels at 1080 px width (scaled from the source)?",
+      "why_it_matters": "Gives a concrete size for phone legibility.",
+      "how_to_answer": "Cap height (typography lens) scaled to a 1080-wide frame.",
+      "evidence_required": [
+        "cap height",
+        "evidence.source.width"
+      ],
+      "ir_path": "/typography/captions/cap_height_px_at_1080w",
+      "answer_type": "number",
+      "challenge": "Recompute the scaling."
+    },
+    {
+      "id": "platform_fit_safe_areas-025",
+      "question": "Which platform parameters should a new video set (target platforms, aspect, fps, safe box, target loudness)?",
+      "why_it_matters": "Feeds the parameteriser.",
+      "how_to_answer": "Collect 001, 002, 004, 011 and 019.",
+      "evidence_required": [
+        "platform answers"
+      ],
+      "ir_path": "/parameters/-",
+      "answer_type": "list",
+      "challenge": "Each parameter needs derived_from."
+    },
+    {
+      "id": "platform_fit_safe_areas-026",
+      "question": "Write the safe-box rule for text and key subjects as fractions of width and height.",
+      "why_it_matters": "Gives the compiler a placement constraint.",
+      "how_to_answer": "From 005-007 and 019, for example 'text inside x 0.06-0.85, y 0.10-0.80'.",
+      "evidence_required": [
+        "platform answers"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "rule",
+      "challenge": "Check the source's own text against the rule and report violations."
+    },
+    {
+      "id": "platform_fit_safe_areas-027",
+      "question": "Is the file a re-encode of an earlier upload (double compression signs, burned UI, odd bitrate)?",
+      "why_it_matters": "Calibrates trust in colour, sharpness and audio measurements.",
+      "how_to_answer": "A7 encoder tags, F3 crops for blocking, burned-in UI from 012; method inferred.",
+      "evidence_required": [
+        "A7",
+        "frames: F3"
+      ],
+      "ir_path": "/source/platform",
+      "answer_type": "enum",
+      "choices": [
+        "likely-original-export",
+        "likely-re-encode",
+        "not-determinable"
+      ],
+      "challenge": "Encoder tags can be stripped; low confidence unless two cues agree."
+    },
+    {
+      "id": "platform_fit_safe_areas-028",
+      "question": "What keyframe (GOP) interval does the file use?",
+      "why_it_matters": "Informs render settings and seek accuracy of measurements.",
+      "how_to_answer": "ffprobe -select_streams v -skip_frame nokey -show_entries frame=pts_time -of csv SRC | head -20; median interval.",
+      "evidence_required": [
+        "ffprobe keyframes"
+      ],
+      "ir_path": "/render_binding/mapping/gop_s",
+      "answer_type": "seconds",
+      "challenge": "Report the first 10 keyframe times."
+    },
+    {
+      "id": "platform_fit_safe_areas-029",
+      "question": "Is the audio present for the whole duration, or shorter or longer than the video?",
+      "why_it_matters": "Flags sync and duration problems.",
+      "how_to_answer": "Compare audio and video stream durations in A7.",
+      "evidence_required": [
+        "A7"
+      ],
+      "ir_path": "/render_binding/mapping/av_duration_delta_s",
+      "answer_type": "seconds",
+      "challenge": "Report both durations."
+    },
+    {
+      "id": "platform_fit_safe_areas-030",
+      "question": "Does the first frame contain the title and subject so a paused autoplay frame still communicates the topic?",
+      "why_it_matters": "Becomes a first-frame content rule.",
+      "how_to_answer": "F1 at 0.0 s.",
+      "evidence_required": [
+        "frames: F1 at 0.0 s"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "boolean",
+      "challenge": "Cross-check with hook_first_seconds-001 and -019."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "question_id": "AVQ-006-002",
+  "target_artifact": "illustrative-final.mp4",
+  "target_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+  "status": "observed-fail",
+  "finding_type": "demonstrated_defect",
+  "review_mode": "visual",
+  "scope": {
+    "start_frame": null,
+    "end_frame": null,
+    "coverage": "interval"
+  },
+  "evidence": [
+    {
+      "evidence_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "target_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "method": "ffmpeg decode of every frame 412-436 from the exact final MP4, tiled 5x5",
+      "locator": "frames 412-436 (00:17.17-00:18.17 at 24 fps)",
+      "coverage": "interval",
+      "limitations": "Illustrative record with synthetic hashes; one interval only, no other hand-offs inspected",
+      "observation": "contact-sheet"
+    }
+  ],
+  "rationale": "Illustrative: the box starts sliding at frame 419; the hand first touches it at frame 423",
+  "required_recheck_after": [
+    "rig_change",
+    "prop_attachment_change",
+    "camera_change"
+  ],
+  "reviewer": "illustrative example"
+}

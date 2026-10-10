@@ -1,0 +1,740 @@
+[
+  {
+    "id": "AVQ-030-001",
+    "domain_id": "D030",
+    "area": "audience value",
+    "question": "What concrete thing should the intended viewer understand, feel, or be able to do after this video?",
+    "failure_hypothesis": "A vague audience goal prevents meaningful evaluation of success.",
+    "check_or_fix": "Write one observable viewer outcome before judging the cut.",
+    "severity": "high",
+    "modes": [
+      "human-audience"
+    ],
+    "stages": [
+      "concept"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 8018,
+    "passes": [
+      "default_32",
+      "story_edit",
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-030-002",
+    "domain_id": "D030",
+    "area": "audience value",
+    "question": "Can first-time viewers state the video's central point without being told the creator's intention?",
+    "failure_hypothesis": "Production familiarity is mistaken for communicated meaning.",
+    "check_or_fix": "Collect unprompted summaries after a single complete viewing.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 8020,
+    "passes": [
+      "story_edit",
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-030-003",
+    "domain_id": "D030",
+    "area": "audience value",
+    "question": "Does the film assume background knowledge its intended audience actually lacks?",
+    "failure_hypothesis": "Unstated prerequisites make the explanation inaccessible to novices.",
+    "check_or_fix": "Test the premise with representative novices and introduce necessary prerequisites.",
+    "severity": "high",
+    "modes": [
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 8022,
+    "passes": [
+      "story_edit",
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-030-004",
+    "domain_id": "D030",
+    "area": "audience value",
+    "question": "Is there enough specific value for an experienced viewer, or only an elaborate statement of the obvious?",
+    "failure_hypothesis": "Visual polish disguises a trivial takeaway.",
+    "check_or_fix": "Ask informed viewers what new useful distinction they gained.",
+    "severity": "medium",
+    "modes": [
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "animatic"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 8024,
+    "passes": [
+      "story_edit",
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-030-005",
+    "domain_id": "D030",
+    "area": "audience value",
+    "question": "Does the opening promise accurately describe the value the rest of the film delivers?",
+    "failure_hypothesis": "A compelling hook attracts viewers to a different or weaker result.",
+    "check_or_fix": "Compare the hook with the actual demonstrated takeaway.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 8026,
+    "passes": [
+      "story_edit",
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-030-006",
+    "domain_id": "D030",
+    "area": "audience value",
+    "question": "Can viewers apply the lesson to a new example rather than merely repeat the shown answer?",
+    "failure_hypothesis": "Recognition is mistaken for transferable understanding.",
+    "check_or_fix": "Present a different appropriate case after viewing.",
+    "severity": "high",
+    "modes": [
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit",
+      "delivery"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 8028,
+    "passes": [
+      "story_edit",
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-030-007",
+    "domain_id": "D030",
+    "area": "audience value",
+    "question": "Do viewers remember the essential point after a short delay without replaying the film?",
+    "failure_hypothesis": "Immediate fluency masks fragile retention.",
+    "check_or_fix": "Use a delayed recall check matched to the intended use.",
+    "severity": "medium",
+    "modes": [
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit",
+      "delivery"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 8030,
+    "passes": [
+      "story_edit",
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-030-008",
+    "domain_id": "D030",
+    "area": "audience value",
+    "question": "Does the video save a user measurable effort compared with the manual workflow it claims to improve?",
+    "failure_hypothesis": "Claimed convenience ignores setup, corrections, and review effort.",
+    "check_or_fix": "Compare complete workflows on the same realistic task.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "delivery"
+    ],
+    "style_filters": [
+      "educational",
+      "screen-recording"
+    ],
+    "source_line": 8032,
+    "passes": [
+      "story_edit",
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-030-009",
+    "domain_id": "D030",
+    "area": "audience value",
+    "question": "Is the benefit still present when the user must correct the output's common errors?",
+    "failure_hypothesis": "A fast first result creates more downstream repair work.",
+    "check_or_fix": "Include observed repair effort in the usefulness comparison.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "delivery"
+    ],
+    "style_filters": [
+      "educational",
+      "screen-recording"
+    ],
+    "source_line": 8034,
+    "passes": [
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-030-010",
+    "domain_id": "D030",
+    "area": "audience value",
+    "question": "Can viewers identify what remains uncertain or unproven after watching?",
+    "failure_hypothesis": "Persuasive presentation creates confidence beyond the evidence.",
+    "check_or_fix": "Ask viewers which claims were demonstrated and which remain open.",
+    "severity": "high",
+    "modes": [
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit",
+      "delivery"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 8036,
+    "passes": [
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-030-011",
+    "domain_id": "D030",
+    "area": "audience value",
+    "question": "Does the piece respect the viewing situation, such as interruption, background noise, or a small screen?",
+    "failure_hypothesis": "A design that works in a quiet review room fails in normal use.",
+    "check_or_fix": "Test the actual intended context and prioritize its essential information.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 8038,
+    "passes": []
+  },
+  {
+    "id": "AVQ-030-012",
+    "domain_id": "D030",
+    "area": "audience value",
+    "question": "Would a viewer choose to watch the full runtime for the value delivered, without being obliged to review it?",
+    "failure_hypothesis": "Creator interest is mistaken for audience attention.",
+    "check_or_fix": "Observe voluntary stopping points and ask what value remained unclear.",
+    "severity": "medium",
+    "modes": [
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 8040,
+    "passes": []
+  },
+  {
+    "id": "AVQ-030-013",
+    "domain_id": "D030",
+    "area": "audience value",
+    "question": "Does the film provide a reason to care before requesting effortful interpretation?",
+    "failure_hypothesis": "Audience labor is demanded before a relevant benefit is established.",
+    "check_or_fix": "Introduce a concrete stake or practical question early.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 8042,
+    "passes": []
+  },
+  {
+    "id": "AVQ-030-014",
+    "domain_id": "D030",
+    "area": "audience value",
+    "question": "Are emotional reactions based on the story rather than pressure from manipulative framing or exaggerated claims?",
+    "failure_hypothesis": "Presentation extracts a response without earning trust.",
+    "check_or_fix": "Ask viewers what specifically caused their reaction and check supporting content.",
+    "severity": "high",
+    "modes": [
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 8044,
+    "passes": []
+  },
+  {
+    "id": "AVQ-030-015",
+    "domain_id": "D030",
+    "area": "audience value",
+    "question": "Does the film's novelty come from a useful idea or experience rather than only a different visual skin?",
+    "failure_hypothesis": "Surface variation is counted as additional audience value.",
+    "check_or_fix": "Compare takeaways and experiences across related films without style labels.",
+    "severity": "medium",
+    "modes": [
+      "human-audience"
+    ],
+    "stages": [
+      "concept"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 8046,
+    "passes": []
+  },
+  {
+    "id": "AVQ-030-016",
+    "domain_id": "D030",
+    "area": "audience value",
+    "question": "Can a viewer distinguish the intended subject from decorative spectacle when asked what mattered?",
+    "failure_hypothesis": "High production density competes with the actual point.",
+    "check_or_fix": "Collect salience rankings and reduce low-value dominant elements.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 8048,
+    "passes": []
+  },
+  {
+    "id": "AVQ-030-017",
+    "domain_id": "D030",
+    "area": "audience value",
+    "question": "Does the video make a difficult concept easier to reason about than a simpler static explanation would?",
+    "failure_hypothesis": "Motion adds complexity without explanatory benefit.",
+    "check_or_fix": "Compare comprehension using the video and a concise static alternative.",
+    "severity": "medium",
+    "modes": [
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "animatic"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 8050,
+    "passes": []
+  },
+  {
+    "id": "AVQ-030-018",
+    "domain_id": "D030",
+    "area": "audience value",
+    "question": "Is the format appropriate to the viewer's task, such as learning a process versus checking a reference fact?",
+    "failure_hypothesis": "A linear film is used for information viewers need to scan or revisit.",
+    "check_or_fix": "Observe task behavior and add a suitable companion reference if warranted.",
+    "severity": "medium",
+    "modes": [
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "delivery",
+      "edit"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 8052,
+    "passes": []
+  },
+  {
+    "id": "AVQ-030-019",
+    "domain_id": "D030",
+    "area": "audience value",
+    "question": "Does the conclusion leave the viewer with a feasible next step when action is the purpose?",
+    "failure_hypothesis": "The film motivates action without explaining what can actually be done.",
+    "check_or_fix": "Ask viewers to name their next step and remove practical ambiguity.",
+    "severity": "high",
+    "modes": [
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "animatic",
+      "edit",
+      "delivery"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 8054,
+    "passes": []
+  },
+  {
+    "id": "AVQ-030-020",
+    "domain_id": "D030",
+    "area": "audience value",
+    "question": "Are effort, tools, prerequisites, and costs disclosed when viewers are encouraged to replicate a result?",
+    "failure_hypothesis": "A polished demonstration hides barriers that affect usefulness.",
+    "check_or_fix": "Itemize the actual replication requirements beside the demonstrated outcome.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "delivery"
+    ],
+    "style_filters": [
+      "educational",
+      "screen-recording"
+    ],
+    "source_line": 8056,
+    "passes": []
+  },
+  {
+    "id": "AVQ-030-021",
+    "domain_id": "D030",
+    "area": "audience value",
+    "question": "Can viewers recognize the limits of the example instead of generalizing it to unsuitable situations?",
+    "failure_hypothesis": "A memorable example becomes an overbroad rule.",
+    "check_or_fix": "Test a boundary case and make the relevant limitation explicit.",
+    "severity": "high",
+    "modes": [
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "animatic",
+      "edit",
+      "delivery"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 8058,
+    "passes": []
+  },
+  {
+    "id": "AVQ-030-022",
+    "domain_id": "D030",
+    "area": "audience value",
+    "question": "Does humor rely on cultural knowledge the intended audience is likely to share?",
+    "failure_hypothesis": "The setup is invisible to viewers outside the creator's reference group.",
+    "check_or_fix": "Test the joke with relevant audience groups and revise missing context.",
+    "severity": "medium",
+    "modes": [
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "animatic"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 8060,
+    "passes": []
+  },
+  {
+    "id": "AVQ-030-023",
+    "domain_id": "D030",
+    "area": "audience value",
+    "question": "Are potentially alienating depictions necessary to the film's purpose and understood as intended?",
+    "failure_hypothesis": "Unexamined stereotypes distract or harm trust.",
+    "check_or_fix": "Seek relevant perspective and revise unsupported representational shortcuts.",
+    "severity": "high",
+    "modes": [
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 8062,
+    "passes": []
+  },
+  {
+    "id": "AVQ-030-024",
+    "domain_id": "D030",
+    "area": "audience value",
+    "question": "Does the film reward attention with a satisfying resolution rather than an engagement bait that never pays off?",
+    "failure_hypothesis": "A question or promise exists only to prolong viewing.",
+    "check_or_fix": "Identify the delivered payoff and test whether viewers feel the promise was met.",
+    "severity": "high",
+    "modes": [
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 8064,
+    "passes": []
+  },
+  {
+    "id": "AVQ-030-025",
+    "domain_id": "D030",
+    "area": "audience value",
+    "question": "Do actual audience findings remain separate from synthetic reviewer suggestions in the report?",
+    "failure_hypothesis": "Generated opinions are presented as human research.",
+    "check_or_fix": "Label the origin of every review and report human sample details honestly.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "animatic",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 8066,
+    "passes": []
+  },
+  {
+    "id": "AVQ-030-026",
+    "domain_id": "D030",
+    "area": "audience value",
+    "question": "Is the audience sample relevant to the intended users rather than only the production team?",
+    "failure_hypothesis": "Familiar or expert reviewers miss novice misunderstandings.",
+    "check_or_fix": "Document participant relevance and recruit appropriate review when authorized.",
+    "severity": "high",
+    "modes": [
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 8068,
+    "passes": []
+  },
+  {
+    "id": "AVQ-030-027",
+    "domain_id": "D030",
+    "area": "audience value",
+    "question": "Does the evaluation question measure the intended outcome instead of asking only whether viewers liked the video?",
+    "failure_hypothesis": "Satisfaction is mistaken for comprehension, accuracy, or usefulness.",
+    "check_or_fix": "Match the question and task to the stated success criterion.",
+    "severity": "high",
+    "modes": [
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "animatic"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 8070,
+    "passes": []
+  },
+  {
+    "id": "AVQ-030-028",
+    "domain_id": "D030",
+    "area": "audience value",
+    "question": "Are observed improvements large enough to matter in the viewer's real task?",
+    "failure_hypothesis": "A measurable change is framed as valuable despite negligible practical effect.",
+    "check_or_fix": "Define a task-relevant benefit threshold and compare actual outcomes.",
+    "severity": "medium",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "delivery"
+    ],
+    "style_filters": [
+      "educational",
+      "screen-recording"
+    ],
+    "source_line": 8072,
+    "passes": []
+  },
+  {
+    "id": "AVQ-030-029",
+    "domain_id": "D030",
+    "area": "audience value",
+    "question": "Does a polished before-and-after comparison hold task difficulty and input quality constant?",
+    "failure_hypothesis": "Unfair conditions exaggerate the apparent value of the approach.",
+    "check_or_fix": "Match inputs and conditions and disclose unavoidable differences.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "animatic",
+      "delivery"
+    ],
+    "style_filters": [
+      "educational",
+      "screen-recording"
+    ],
+    "source_line": 8074,
+    "passes": []
+  },
+  {
+    "id": "AVQ-030-030",
+    "domain_id": "D030",
+    "area": "audience value",
+    "question": "Is the viewer asked to do more work than the payoff justifies, such as reading dense setup for a minor joke?",
+    "failure_hypothesis": "Participation cost exceeds the value of the experience.",
+    "check_or_fix": "Observe effort and confusion, then simplify setup or strengthen payoff.",
+    "severity": "medium",
+    "modes": [
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "animatic"
+    ],
+    "style_filters": [
+      "fiction",
+      "puzzle"
+    ],
+    "source_line": 8076,
+    "passes": []
+  },
+  {
+    "id": "AVQ-030-031",
+    "domain_id": "D030",
+    "area": "audience value",
+    "question": "Can skeptical viewers locate the evidence behind the video's strongest claim?",
+    "failure_hypothesis": "Credibility depends on production authority rather than inspectable support.",
+    "check_or_fix": "Provide a clear evidence route appropriate to the delivery format.",
+    "severity": "high",
+    "modes": [
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "delivery"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 8078,
+    "passes": []
+  },
+  {
+    "id": "AVQ-030-032",
+    "domain_id": "D030",
+    "area": "audience value",
+    "question": "Does repeating the viewing reveal useful detail or merely expose the lack of a clear first-view explanation?",
+    "failure_hypothesis": "Required replay is mislabeled as replay value.",
+    "check_or_fix": "Ask what prompted replay and distinguish enrichment from repair.",
+    "severity": "medium",
+    "modes": [
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 8080,
+    "passes": []
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "id": "00b51b431ebb79ab3f736a32d7c7ba67f2279282b0a973552521c1f0fa17b10d",
+  "guid": "1",
+  "title": "Kokoro voices compared",
+  "url": "https://json.example.org/a",
+  "published": "2026-10-08T12:00:00Z",
+  "updated": null,
+  "authors": [
+    "Feed Author"
+  ],
+  "summary": "Heart vs Bella",
+  "tags": [
+    "kokoro",
+    "tts"
+  ],
+  "enclosures": [
+    {
+      "url": "https://json.example.org/audio/sample.wav",
+      "type": "audio/wav",
+      "length": 2048
+    }
+  ],
+  "source": {
+    "feed_url": "https://json.example.org/feed.json",
+    "feed_title": "Example JSON Feed",
+    "format": "jsonfeed"
+  },
+  "also_in": []
+}

@@ -1,0 +1,47 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "require_digest_citations",
+  "title": "Require a source link on every digest line",
+  "kind": "hook",
+  "subkind": "guardrail",
+  "version": "1.0.0",
+  "summary": "Stop hook that blocks finishing while a recently written digest under digests/ has a bullet without an http(s) source link; never loops when a stop hook is already active.",
+  "domain": "source-monitoring",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "review",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "read",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "hook.json",
+  "tags": [
+    "hook",
+    "citations",
+    "digest",
+    "guardrail"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/community_sources.py",
+    "data": "generators/data/community_sources"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

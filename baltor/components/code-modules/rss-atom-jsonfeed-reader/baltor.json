@@ -1,0 +1,66 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "rss_atom_jsonfeed_reader",
+  "title": "RSS, Atom and JSON Feed reader with dedupe",
+  "kind": "code-module",
+  "subkind": "feed-builder",
+  "version": "1.0.0",
+  "summary": "Parses RSS 2.0, RSS 1.0, Atom and JSON Feed into one normalised item list; canonical URLs, UTC dates, dedupe across feeds, since-date filter, feed autodiscovery and polite conditional fetch.",
+  "description": "Standard library only. parse_feed, merge_feeds, dedupe, filter_since and discover_feeds never touch the network; fetch() sends a descriptive User-Agent, ETag/Last-Modified, spaces requests per host, caps size and returns Retry-After on 429/503. Refuses XML with entity declarations. Output follows the normalized_feed_item contract schema. 17 tests on local fixtures.",
+  "domain": "source-monitoring",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "research",
+    "build",
+    "operate"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "declared",
+    "executes": "python",
+    "secrets": [],
+    "hosts": [
+      "*"
+    ],
+    "side_effects": [
+      "CLI only: fetches the http(s) feed URLs given as arguments",
+      "CLI only: writes .feed-cache.json"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "rss_atom_jsonfeed_reader.py",
+  "tags": [
+    "rss",
+    "atom",
+    "jsonfeed",
+    "parser",
+    "dedupe",
+    "python"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "normalized_feed_item"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/community_sources.py",
+    "data": "generators/data/community_sources"
+  },
+  "examples": [
+    "python3 rss_atom_jsonfeed_reader.py https://github.com/godotengine/godot/releases.atom --since 30d"
+  ],
+  "review": {
+    "status": "unreviewed"
+  }
+}

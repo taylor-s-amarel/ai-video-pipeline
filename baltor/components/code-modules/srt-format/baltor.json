@@ -1,0 +1,50 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "srt_format",
+  "title": "SRT subtitle reader and writer",
+  "kind": "code-module",
+  "version": "1.0.0",
+  "summary": "Tolerant SubRip parser (BOM, CRLF, dot milliseconds, missing blank lines) and strict writer with cue validation for overlaps, empty text and too-short cues.",
+  "domain": "captions",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "srt_format.py",
+  "tags": [
+    "captions",
+    "srt",
+    "subtitles",
+    "parser",
+    "writer"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

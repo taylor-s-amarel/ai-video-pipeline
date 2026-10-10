@@ -1,0 +1,714 @@
+[
+  {
+    "id": "AVQ-011-001",
+    "domain_id": "D011",
+    "area": "color and materials",
+    "question": "Can key categories be distinguished without hue alone?",
+    "failure_hypothesis": "Color-only coding excludes some viewers.",
+    "check_or_fix": "Add shape, position or label redundancy.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6764,
+    "passes": [
+      "default_32"
+    ]
+  },
+  {
+    "id": "AVQ-011-002",
+    "domain_id": "D011",
+    "area": "color and materials",
+    "question": "Do material properties match the action's implied friction?",
+    "failure_hypothesis": "Slippery-looking objects behave as high-grip surfaces.",
+    "check_or_fix": "Align appearance and motion cues.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6766,
+    "passes": []
+  },
+  {
+    "id": "AVQ-011-003",
+    "domain_id": "D011",
+    "area": "color and materials",
+    "question": "Is the accent color reserved for meaningful emphasis?",
+    "failure_hypothesis": "Every object uses the attention color.",
+    "check_or_fix": "Reduce accents on nonessential elements.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6768,
+    "passes": []
+  },
+  {
+    "id": "AVQ-011-004",
+    "domain_id": "D011",
+    "area": "color and materials",
+    "question": "Do adjacent materials separate at delivery resolution?",
+    "failure_hypothesis": "Similar values merge distinct surfaces.",
+    "check_or_fix": "Adjust value, roughness or boundary treatment.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6770,
+    "passes": []
+  },
+  {
+    "id": "AVQ-011-005",
+    "domain_id": "D011",
+    "area": "color and materials",
+    "question": "Does the material imply a weight the animation contradicts?",
+    "failure_hypothesis": "Metal-looking prop moves like foam.",
+    "check_or_fix": "Revise motion weight or material appearance.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6772,
+    "passes": []
+  },
+  {
+    "id": "AVQ-011-006",
+    "domain_id": "D011",
+    "area": "color and materials",
+    "question": "Are skin or character colors stable across shots?",
+    "failure_hypothesis": "Grading changes identity unintentionally.",
+    "check_or_fix": "Compare color references under matched illumination.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6774,
+    "passes": []
+  },
+  {
+    "id": "AVQ-011-007",
+    "domain_id": "D011",
+    "area": "color and materials",
+    "question": "Is transparency revealing the intended contents clearly?",
+    "failure_hypothesis": "Tint and reflections obscure the explanation.",
+    "check_or_fix": "Tune opacity and reflection balance.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6776,
+    "passes": []
+  },
+  {
+    "id": "AVQ-011-008",
+    "domain_id": "D011",
+    "area": "color and materials",
+    "question": "Does metallic shading retain shape in the chosen environment?",
+    "failure_hypothesis": "Uninformative reflections make metal look flat.",
+    "check_or_fix": "Provide meaningful reflected structure.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "3d",
+      "cutout",
+      "educational"
+    ],
+    "source_line": 6778,
+    "passes": []
+  },
+  {
+    "id": "AVQ-011-009",
+    "domain_id": "D011",
+    "area": "color and materials",
+    "question": "Are roughness changes motivated by actual surface variation?",
+    "failure_hypothesis": "Random roughness looks like damage.",
+    "check_or_fix": "Use a coherent material variation map.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6780,
+    "passes": []
+  },
+  {
+    "id": "AVQ-011-010",
+    "domain_id": "D011",
+    "area": "color and materials",
+    "question": "Does the palette support the emotional transition?",
+    "failure_hypothesis": "Color stays emotionally static despite a major turn.",
+    "check_or_fix": "Test a restrained motivated palette shift.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6782,
+    "passes": []
+  },
+  {
+    "id": "AVQ-011-011",
+    "domain_id": "D011",
+    "area": "color and materials",
+    "question": "Are warning colors used consistently?",
+    "failure_hypothesis": "Red or amber sometimes means decoration.",
+    "check_or_fix": "Audit semantic color assignments.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6784,
+    "passes": []
+  },
+  {
+    "id": "AVQ-011-012",
+    "domain_id": "D011",
+    "area": "color and materials",
+    "question": "Does a color gradient accidentally imply quantitative data?",
+    "failure_hypothesis": "Decorative shading looks like a heat map.",
+    "check_or_fix": "Separate decoration from measured encodings.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6786,
+    "passes": []
+  },
+  {
+    "id": "AVQ-011-013",
+    "domain_id": "D011",
+    "area": "color and materials",
+    "question": "Are bright saturated regions clipping in the output gamut?",
+    "failure_hypothesis": "Color detail collapses after conversion.",
+    "check_or_fix": "Inspect encoded channels and gamut handling.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6788,
+    "passes": []
+  },
+  {
+    "id": "AVQ-011-014",
+    "domain_id": "D011",
+    "area": "color and materials",
+    "question": "Does a white object retain form on a light background?",
+    "failure_hypothesis": "High-key palette loses boundaries.",
+    "check_or_fix": "Use controlled value and shadow separation.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6790,
+    "passes": [
+      "longer_cardboard_32"
+    ]
+  },
+  {
+    "id": "AVQ-011-015",
+    "domain_id": "D011",
+    "area": "color and materials",
+    "question": "Are cloth, paper and clay differentiated by appropriate cues?",
+    "failure_hypothesis": "Different materials share generic plastic shading.",
+    "check_or_fix": "Choose specific roughness, edge and deformation behavior.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6792,
+    "passes": []
+  },
+  {
+    "id": "AVQ-011-016",
+    "domain_id": "D011",
+    "area": "color and materials",
+    "question": "Does the material scale match the object's physical scale?",
+    "failure_hypothesis": "Grain makes miniature objects look enormous.",
+    "check_or_fix": "Compare texture feature size with object dimensions.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6794,
+    "passes": []
+  },
+  {
+    "id": "AVQ-011-017",
+    "domain_id": "D011",
+    "area": "color and materials",
+    "question": "Is the palette coherent across imported and original assets?",
+    "failure_hypothesis": "Assets carry incompatible color treatments.",
+    "check_or_fix": "Normalize them within one approved palette.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6796,
+    "passes": []
+  },
+  {
+    "id": "AVQ-011-018",
+    "domain_id": "D011",
+    "area": "color and materials",
+    "question": "Do transparent overlays preserve readability underneath?",
+    "failure_hypothesis": "Tint layers reduce contrast unpredictably.",
+    "check_or_fix": "Test the busiest underlying frame.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6798,
+    "passes": []
+  },
+  {
+    "id": "AVQ-011-019",
+    "domain_id": "D011",
+    "area": "color and materials",
+    "question": "Does wetness or gloss appear only where justified?",
+    "failure_hypothesis": "Uniform shine makes every surface look wet.",
+    "check_or_fix": "Restrict specularity to material logic.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6800,
+    "passes": []
+  },
+  {
+    "id": "AVQ-011-020",
+    "domain_id": "D011",
+    "area": "color and materials",
+    "question": "Are color changes signaling state rather than arbitrary variation?",
+    "failure_hypothesis": "Viewers infer a state transition that did not occur.",
+    "check_or_fix": "Document and audit state-color rules.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6802,
+    "passes": []
+  },
+  {
+    "id": "AVQ-011-021",
+    "domain_id": "D011",
+    "area": "color and materials",
+    "question": "Does the final grade preserve the original hierarchy?",
+    "failure_hypothesis": "Global treatment promotes previously quiet colors.",
+    "check_or_fix": "Recheck focal contrast after grading.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6804,
+    "passes": []
+  },
+  {
+    "id": "AVQ-011-022",
+    "domain_id": "D011",
+    "area": "color and materials",
+    "question": "Is the background color compatible with the caption treatment?",
+    "failure_hypothesis": "Changing scenery makes text contrast unstable.",
+    "check_or_fix": "Use a stable backing or adaptive verified treatment.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6806,
+    "passes": []
+  },
+  {
+    "id": "AVQ-011-023",
+    "domain_id": "D011",
+    "area": "color and materials",
+    "question": "Are textures and base colors fighting each other?",
+    "failure_hypothesis": "Surface pattern destroys the intended palette.",
+    "check_or_fix": "Reduce texture contrast or recolor it coherently.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6808,
+    "passes": []
+  },
+  {
+    "id": "AVQ-011-024",
+    "domain_id": "D011",
+    "area": "color and materials",
+    "question": "Does a material's translucency change incorrectly with camera angle?",
+    "failure_hypothesis": "Surface appears to pop between solid and transparent.",
+    "check_or_fix": "Inspect angle-dependent shading behavior.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6810,
+    "passes": []
+  },
+  {
+    "id": "AVQ-011-025",
+    "domain_id": "D011",
+    "area": "color and materials",
+    "question": "Are symbolic colors culturally appropriate for the intended audience?",
+    "failure_hypothesis": "Color meaning is assumed to be universal.",
+    "check_or_fix": "Check audience interpretation before relying on symbolism.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6812,
+    "passes": []
+  },
+  {
+    "id": "AVQ-011-026",
+    "domain_id": "D011",
+    "area": "color and materials",
+    "question": "Does color distinguish before-and-after states clearly?",
+    "failure_hypothesis": "The transformation is too subtle to notice.",
+    "check_or_fix": "Choose a visible state contrast with redundant cues.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6814,
+    "passes": []
+  },
+  {
+    "id": "AVQ-011-027",
+    "domain_id": "D011",
+    "area": "color and materials",
+    "question": "Are object interiors and cut surfaces materially plausible?",
+    "failure_hypothesis": "Cutaway reveals the wrong material identity.",
+    "check_or_fix": "Assign coherent interior materials.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6816,
+    "passes": []
+  },
+  {
+    "id": "AVQ-011-028",
+    "domain_id": "D011",
+    "area": "color and materials",
+    "question": "Does a stylized material remain consistent through deformation?",
+    "failure_hypothesis": "Texture or highlights detach from the body.",
+    "check_or_fix": "Track material coordinates on moving surfaces.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6818,
+    "passes": []
+  },
+  {
+    "id": "AVQ-011-029",
+    "domain_id": "D011",
+    "area": "color and materials",
+    "question": "Are dark outlines changing the perceived color category?",
+    "failure_hypothesis": "Heavy contour overwhelms small colored regions.",
+    "check_or_fix": "Review filled shapes at actual display size.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6820,
+    "passes": []
+  },
+  {
+    "id": "AVQ-011-030",
+    "domain_id": "D011",
+    "area": "color and materials",
+    "question": "Does the palette accommodate both calm and urgent beats?",
+    "failure_hypothesis": "Only one intensity level is available.",
+    "check_or_fix": "Reserve saturation and contrast for escalation.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6822,
+    "passes": []
+  },
+  {
+    "id": "AVQ-011-031",
+    "domain_id": "D011",
+    "area": "color and materials",
+    "question": "Can the audience tell a material change from a lighting change?",
+    "failure_hypothesis": "Visual cause of transformation is ambiguous.",
+    "check_or_fix": "Keep one variable stable during the demonstration.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6824,
+    "passes": []
+  },
+  {
+    "id": "AVQ-011-032",
+    "domain_id": "D011",
+    "area": "color and materials",
+    "question": "Would a smaller material vocabulary improve coherence?",
+    "failure_hypothesis": "Too many surface types fragment the world.",
+    "check_or_fix": "Consolidate materials by narrative function.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6826,
+    "passes": []
+  }
+]

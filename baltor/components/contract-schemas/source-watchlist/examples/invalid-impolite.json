@@ -1,0 +1,81 @@
+{
+  "id": "godot-blender-weekly",
+  "title": "Godot and Blender weekly",
+  "cadence": "every minute",
+  "sources": [
+    {
+      "url": "https://github.com/godotengine/godot/releases.atom",
+      "weight": 2.0,
+      "collection": "community-releases-game-3d-2d"
+    },
+    {
+      "url": "https://www.reddit.com/r/godot/.rss",
+      "weight": 1.0
+    },
+    {
+      "url": "https://hnrss.org/newest?q=godot+OR+blender",
+      "weight": 0.8
+    },
+    {
+      "url": "https://www.reddit.com/r/blender/.rss"
+    },
+    {
+      "url": "https://www.reddit.com/r/ClaudeCode/.rss"
+    }
+  ],
+  "keywords": [
+    {
+      "term": "godot",
+      "weight": 2
+    },
+    {
+      "term": "blender",
+      "weight": 1.5
+    },
+    {
+      "term": "gaussian splatting",
+      "weight": 1
+    },
+    "hooks"
+  ],
+  "exclude_terms": [
+    "pricing drama"
+  ],
+  "groups": [
+    {
+      "title": "Releases",
+      "match": {
+        "feed_url_contains": [
+          "github.com"
+        ]
+      }
+    },
+    {
+      "title": "Agent workflows",
+      "match": {
+        "terms_any": [
+          "claude code",
+          "hooks"
+        ]
+      }
+    },
+    {
+      "title": "Community",
+      "match": {
+        "feed_url_contains": [
+          "reddit.com",
+          "hnrss.org"
+        ]
+      }
+    }
+  ],
+  "max_items_per_source": 3,
+  "max_items": 20,
+  "recency_half_life_days": 5,
+  "trend_min_sources": 2,
+  "polite": {
+    "user_agent": "Mozilla/5.0",
+    "min_interval_s": 0,
+    "max_polls_per_day": 1440
+  }
+}

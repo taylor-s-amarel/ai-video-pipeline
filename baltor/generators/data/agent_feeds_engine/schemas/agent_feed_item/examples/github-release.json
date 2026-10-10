@@ -1,0 +1,30 @@
+{
+  "id": "afi_aa11bb22cc33dd44ee55",
+  "source_id": "github-example-cli",
+  "collection": "agent-feeds-local",
+  "title": "v3.0.0",
+  "url": "https://github.com/example-org/example-cli/releases/tag/v3.0.0",
+  "published": "2026-10-09T19:28:59Z",
+  "updated": "2026-10-09T19:28:59Z",
+  "summary": "Breaking changes Removed the deprecated --legacy flag Config file moved to .example/config.toml",
+  "vendor": "example-org",
+  "products": [
+    "example-cli"
+  ],
+  "versions": [
+    "3.0.0"
+  ],
+  "change_types": [
+    "release",
+    "breaking-change",
+    "deprecation"
+  ],
+  "severity": null,
+  "affected_packages": [],
+  "cve_ids": [],
+  "entities": [],
+  "dedupe_key": "0123456789abcdef01234567",
+  "cluster_id": null,
+  "relevance": null,
+  "source_format": "github-releases"
+}

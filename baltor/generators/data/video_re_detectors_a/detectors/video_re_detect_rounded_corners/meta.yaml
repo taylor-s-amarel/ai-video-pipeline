@@ -1,0 +1,14 @@
+title: Detect corner radius of panels and photos
+summary: Measures the corner radius of cards, panels, photos and insets by fitting circles to the outline insets at each corner, from static-element masks over moving backgrounds, edge maps or given rectangles.
+description: >-
+  Static elements over moving backgrounds give an exact mask; otherwise outlines come from persistent edges and
+  seams. Each corner's inset profile (rows and columns next to the corner) is fitted with a circle by grid search;
+  the element radius is the median corner, with shape rect / rounded / pill and fit error.
+tags: [corner-radius, rounded-corners, cards, panels, shape]
+limits:
+  - Squircles and chamfers get the best-fitting circle and a larger fit error.
+  - Precision is about one analysis pixel (default 480 px wide) times the scale.
+  - Moving elements need rectangles from another detector.
+contract:
+  title: Rounded corners payload
+  summary: JSON Schema for the rounded-corners payload - elements with bbox, median and per-corner radius, fit error, shape and outline source.

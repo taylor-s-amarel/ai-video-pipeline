@@ -1,0 +1,56 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "render_manifest_writer",
+  "title": "Render manifest writer",
+  "kind": "code-module",
+  "subkind": "rights-manifest",
+  "version": "1.0.0",
+  "summary": "Records every render input and output with SHA-256 and size plus params, tool versions and credits; verifies files later and flags outputs re-delivered under a different job.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "render",
+    "verify",
+    "publish"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "reads input/output files to hash them",
+      "writes the manifest JSON atomically"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "render_manifest_writer.py",
+  "tags": [
+    "video",
+    "manifest",
+    "sha256",
+    "reproducibility",
+    "credits",
+    "qa"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

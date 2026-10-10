@@ -1,0 +1,757 @@
+[
+  {
+    "id": "AVQ-013-001",
+    "domain_id": "D013",
+    "area": "motion and easing",
+    "question": "Does the action accelerate for a physical or expressive reason?",
+    "failure_hypothesis": "Uniform motion feels mechanical.",
+    "check_or_fix": "Shape speed around intention and resistance.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6896,
+    "passes": [
+      "performance_motion"
+    ]
+  },
+  {
+    "id": "AVQ-013-002",
+    "domain_id": "D013",
+    "area": "motion and easing",
+    "question": "Are holds truly still where the pose should be planted?",
+    "failure_hypothesis": "Residual interpolation creates unwanted drift.",
+    "check_or_fix": "Inspect held channels and encoded landmarks.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6898,
+    "passes": [
+      "performance_motion"
+    ]
+  },
+  {
+    "id": "AVQ-013-003",
+    "domain_id": "D013",
+    "area": "motion and easing",
+    "question": "Does easing delay the action until the beat has passed?",
+    "failure_hypothesis": "Overlong ease-in weakens timing.",
+    "check_or_fix": "Compare onset with the narrative cue.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6900,
+    "passes": [
+      "performance_motion"
+    ]
+  },
+  {
+    "id": "AVQ-013-004",
+    "domain_id": "D013",
+    "area": "motion and easing",
+    "question": "Is the motion arc smooth through intermediate poses?",
+    "failure_hypothesis": "Keyframe interpolation creates corners.",
+    "check_or_fix": "Plot and inspect the path between keys.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6902,
+    "passes": [
+      "performance_motion"
+    ]
+  },
+  {
+    "id": "AVQ-013-005",
+    "domain_id": "D013",
+    "area": "motion and easing",
+    "question": "Do different body parts lead and follow coherently?",
+    "failure_hypothesis": "All parts start together like a rigid cutout.",
+    "check_or_fix": "Stagger initiation and follow-through.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6904,
+    "passes": [
+      "performance_motion"
+    ]
+  },
+  {
+    "id": "AVQ-013-006",
+    "domain_id": "D013",
+    "area": "motion and easing",
+    "question": "Does overshoot fit the material and emotional tone?",
+    "failure_hypothesis": "Elastic easing makes rigid objects rubbery.",
+    "check_or_fix": "Tune overshoot by object and intent.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6906,
+    "passes": [
+      "performance_motion"
+    ]
+  },
+  {
+    "id": "AVQ-013-007",
+    "domain_id": "D013",
+    "area": "motion and easing",
+    "question": "Are direction reversals prepared rather than instantaneous?",
+    "failure_hypothesis": "Velocity flips without anticipation.",
+    "check_or_fix": "Add braking, weight shift or stylized punctuation.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6908,
+    "passes": [
+      "performance_motion"
+    ]
+  },
+  {
+    "id": "AVQ-013-008",
+    "domain_id": "D013",
+    "area": "motion and easing",
+    "question": "Does a repeated cycle visibly snap at its seam?",
+    "failure_hypothesis": "First and last poses or velocities disagree.",
+    "check_or_fix": "Compare seam position and derivatives.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6910,
+    "passes": [
+      "performance_motion"
+    ]
+  },
+  {
+    "id": "AVQ-013-009",
+    "domain_id": "D013",
+    "area": "motion and easing",
+    "question": "Are walk cycles matched to actual travel speed?",
+    "failure_hypothesis": "Stride frequency causes skating.",
+    "check_or_fix": "Relate stride distance to root displacement.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6912,
+    "passes": []
+  },
+  {
+    "id": "AVQ-013-010",
+    "domain_id": "D013",
+    "area": "motion and easing",
+    "question": "Does motion remain readable after temporal sampling?",
+    "failure_hypothesis": "Fast gesture disappears between delivered frames.",
+    "check_or_fix": "Adjust duration or pose emphasis at output frame rate.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6914,
+    "passes": [
+      "default_32",
+      "longer_cardboard_32"
+    ]
+  },
+  {
+    "id": "AVQ-013-011",
+    "domain_id": "D013",
+    "area": "motion and easing",
+    "question": "Are interpolation handles creating hidden extreme poses?",
+    "failure_hypothesis": "Spline overshoot produces unintended excursions.",
+    "check_or_fix": "Inspect curves and sampled extrema.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6916,
+    "passes": []
+  },
+  {
+    "id": "AVQ-013-012",
+    "domain_id": "D013",
+    "area": "motion and easing",
+    "question": "Does a settle end with a clear stable pose?",
+    "failure_hypothesis": "Endless damping prevents the beat from landing.",
+    "check_or_fix": "Choose a meaningful final hold.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6918,
+    "passes": []
+  },
+  {
+    "id": "AVQ-013-013",
+    "domain_id": "D013",
+    "area": "motion and easing",
+    "question": "Is anticipation proportionate to the upcoming action?",
+    "failure_hypothesis": "Large preparation promises an underwhelming result.",
+    "check_or_fix": "Balance preparation and payoff amplitude.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6920,
+    "passes": []
+  },
+  {
+    "id": "AVQ-013-014",
+    "domain_id": "D013",
+    "area": "motion and easing",
+    "question": "Are motion trails consistent with trajectory and timing?",
+    "failure_hypothesis": "Trails suggest an incorrect movement path.",
+    "check_or_fix": "Derive trails from actual sampled motion.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6922,
+    "passes": []
+  },
+  {
+    "id": "AVQ-013-015",
+    "domain_id": "D013",
+    "area": "motion and easing",
+    "question": "Does secondary motion stop before it becomes distracting?",
+    "failure_hypothesis": "Hair or scarf continues competing with the next beat.",
+    "check_or_fix": "Control decay around attention shifts.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6924,
+    "passes": []
+  },
+  {
+    "id": "AVQ-013-016",
+    "domain_id": "D013",
+    "area": "motion and easing",
+    "question": "Are camera and object easing accidentally canceling each other?",
+    "failure_hypothesis": "Combined motion makes the subject appear stalled.",
+    "check_or_fix": "Inspect relative screen-space velocity.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6926,
+    "passes": []
+  },
+  {
+    "id": "AVQ-013-017",
+    "domain_id": "D013",
+    "area": "motion and easing",
+    "question": "Does a crowd cycle repeat in obvious synchronized bands?",
+    "failure_hypothesis": "Shared phase exposes duplication.",
+    "check_or_fix": "Vary phase while preserving causal coordination.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6928,
+    "passes": []
+  },
+  {
+    "id": "AVQ-013-018",
+    "domain_id": "D013",
+    "area": "motion and easing",
+    "question": "Is a slow action slow because it is meaningful?",
+    "failure_hypothesis": "Unmotivated slowness wastes the viewer's attention.",
+    "check_or_fix": "Shorten or enrich the information-bearing interval.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6930,
+    "passes": []
+  },
+  {
+    "id": "AVQ-013-019",
+    "domain_id": "D013",
+    "area": "motion and easing",
+    "question": "Do moving labels remain attached without jitter?",
+    "failure_hypothesis": "Annotation smoothing lags or oscillates.",
+    "check_or_fix": "Use stable anchors and inspect final projection.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6932,
+    "passes": []
+  },
+  {
+    "id": "AVQ-013-020",
+    "domain_id": "D013",
+    "area": "motion and easing",
+    "question": "Are speed changes legible without relying on motion blur?",
+    "failure_hypothesis": "Blur hides the actual acceleration.",
+    "check_or_fix": "Review a no-blur motion pass.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6934,
+    "passes": []
+  },
+  {
+    "id": "AVQ-013-021",
+    "domain_id": "D013",
+    "area": "motion and easing",
+    "question": "Does a character stop with a plausible transfer of weight?",
+    "failure_hypothesis": "Root halts while limbs continue incorrectly.",
+    "check_or_fix": "Coordinate braking steps and torso settle.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6936,
+    "passes": []
+  },
+  {
+    "id": "AVQ-013-022",
+    "domain_id": "D013",
+    "area": "motion and easing",
+    "question": "Are path corners rounded enough for the object's turning ability?",
+    "failure_hypothesis": "Motion cuts through corners or rotates unnaturally.",
+    "check_or_fix": "Match turn radius to body and environment.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6938,
+    "passes": []
+  },
+  {
+    "id": "AVQ-013-023",
+    "domain_id": "D013",
+    "area": "motion and easing",
+    "question": "Does the motion preserve screen direction across edits?",
+    "failure_hypothesis": "Action reverses unintentionally at the cut.",
+    "check_or_fix": "Compare outgoing and incoming velocity vectors.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6940,
+    "passes": []
+  },
+  {
+    "id": "AVQ-013-024",
+    "domain_id": "D013",
+    "area": "motion and easing",
+    "question": "Are tiny idle loops visible as repetitive nervousness?",
+    "failure_hypothesis": "Subtle cycles become distracting over long holds.",
+    "check_or_fix": "Reduce frequency or use noncyclic pauses.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6942,
+    "passes": []
+  },
+  {
+    "id": "AVQ-013-025",
+    "domain_id": "D013",
+    "area": "motion and easing",
+    "question": "Does a scale animation imply intentional deformation rather than camera error?",
+    "failure_hypothesis": "Object growth looks like accidental zoom.",
+    "check_or_fix": "Pair deformation with appropriate contour and timing cues.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6944,
+    "passes": []
+  },
+  {
+    "id": "AVQ-013-026",
+    "domain_id": "D013",
+    "area": "motion and easing",
+    "question": "Are separate layers driven by one time authority?",
+    "failure_hypothesis": "Animation drifts because clocks differ.",
+    "check_or_fix": "Sample all layers from the same timeline.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6946,
+    "passes": []
+  },
+  {
+    "id": "AVQ-013-027",
+    "domain_id": "D013",
+    "area": "motion and easing",
+    "question": "Does a delayed reaction still feel causally connected?",
+    "failure_hypothesis": "Lag becomes too long to read as response.",
+    "check_or_fix": "Test the cue-to-reaction interval in context.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6948,
+    "passes": []
+  },
+  {
+    "id": "AVQ-013-028",
+    "domain_id": "D013",
+    "area": "motion and easing",
+    "question": "Is the movement envelope compatible with safe areas?",
+    "failure_hypothesis": "Easing overshoot pushes important content offscreen.",
+    "check_or_fix": "Check extrema rather than only key positions.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6950,
+    "passes": []
+  },
+  {
+    "id": "AVQ-013-029",
+    "domain_id": "D013",
+    "area": "motion and easing",
+    "question": "Do repeated actions escalate meaningfully in timing or strategy?",
+    "failure_hypothesis": "Cycles repeat without advancing the story.",
+    "check_or_fix": "Change the consequential variable per attempt.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6952,
+    "passes": []
+  },
+  {
+    "id": "AVQ-013-030",
+    "domain_id": "D013",
+    "area": "motion and easing",
+    "question": "Are contact constraints preserved through interpolation?",
+    "failure_hypothesis": "Valid keys hide invalid in-between contacts.",
+    "check_or_fix": "Sample the full interval at delivery rate or finer.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6954,
+    "passes": []
+  },
+  {
+    "id": "AVQ-013-031",
+    "domain_id": "D013",
+    "area": "motion and easing",
+    "question": "Does stylized stepped motion use a consistent cadence?",
+    "failure_hypothesis": "Uneven holds resemble dropped frames.",
+    "check_or_fix": "Document and inspect intended pose exposure timing.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6956,
+    "passes": []
+  },
+  {
+    "id": "AVQ-013-032",
+    "domain_id": "D013",
+    "area": "motion and easing",
+    "question": "Would fewer moving elements make the main action clearer?",
+    "failure_hypothesis": "Continuous animation overloads attention.",
+    "check_or_fix": "Mute secondary motion and compare comprehension.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "machine"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6958,
+    "passes": []
+  }
+]

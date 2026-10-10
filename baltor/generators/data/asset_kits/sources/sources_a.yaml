@@ -1,0 +1,786 @@
+# Source skills, part A: model, texture and game-asset libraries.
+# Every URL below was verified on 2026-10-10 (fetched on GitHub or confirmed in search results).
+- id: kenney_assets_cc0
+  name: Kenney game assets (CC0)
+  description: >-
+    Use when a project needs free, consistent 2D sprites, tiles, UI, 3D low-poly kits, fonts or sound
+    effects with no attribution duty: Kenney's packs are CC0. Covers finding the right pack, the
+    optional credit line, Godot 4 and Blender import, and pitfalls (logo use, paid All-in-1 bundle).
+  summary: Find, credit and import Kenney's CC0 2D, 3D, UI, font and audio packs into Godot 4, Blender and video renders.
+  tags: [kenney, cc0, 2d, 3d, ui, audio, godot]
+  homepage: https://kenney.nl/support
+  licence_summary: "All game assets on Kenney's asset pages are CC0 (public domain dedication). Credit is optional. Do not use the Kenney logo, which is reserved for official projects."
+  licences:
+    - {id: CC0-1.0, url: "https://kenney.nl/support", applies_to: "all asset packs on kenney.nl"}
+    - {id: MIT, url: "https://github.com/KenneyNL/Starter-Kit-3D-Platformer", applies_to: "code of the Godot starter kits"}
+  attribution: {required: optional, credit_template: "Assets by Kenney (kenney.nl), CC0"}
+  redistribution: allowed
+  commercial_use: allowed
+  ai_training: unspecified
+  automated_download: unspecified
+  formats: [png, svg, glb, fbx, obj, ogg, wav, ttf]
+  search:
+    - {label: "3D kits", url: "https://kenney.nl/assets/category:3D"}
+    - {label: "Audio packs", url: "https://kenney.nl/assets/category:Audio"}
+    - {label: "Tiny 16x16 series", url: "https://kenney.nl/assets/series:Tiny"}
+    - {label: "Godot starter kits", url: "https://kenney.nl/starter-kits"}
+    - {label: "Kenney on the Godot Asset Store", url: "https://store.godotengine.org/publisher/kenney/"}
+    - {label: "KenneyNL on GitHub", url: "https://github.com/KenneyNL"}
+  cautions:
+    - "Do not use the Kenney logo or imply an official Kenney project."
+    - "The All-in-1 bundle is a paid convenience; every pack is free from its own page."
+    - "Input-prompt packs show console controllers: CC0 covers the art, not the platform trademarks."
+  search_howto: |
+    Open a category or series page, pick packs that share a grid (all "Tiny" packs are 16x16; Pixel Platformer is 18x18)
+    and download each pack's zip from its page. Packs that share a series also share a palette, so they mix cleanly.
+    For Godot templates, the starter kits (3D platformer, city builder, racing, FPS) are MIT code with CC0 assets.
+  godot: |
+    - 2D pixel packs: copy PNGs under `res://art/kenney/<pack>/`, then run the `godot_texture_import_presets`
+      module with `--preset pixel-art-2d` before opening the editor (Nearest filter, lossless, no mipmaps).
+    - Tile sheets: create a TileSet from the spritesheet PNG with the pack's tile size and spacing (read it from the
+      pack's sheet or the `sprite_sheet_slicer` module's `grid` output).
+    - 3D kits: prefer the GLB files; drag into the scene or instance them; use the `texture-3d` preset for any
+      separate textures. Most Kenney 3D kits use a shared colour-palette texture, so keep it lossless.
+  blender: |
+    - `bpy.ops.import_scene.gltf(filepath="kit/Models/GLB format/tree.glb")` for GLB, `bpy.ops.import_scene.fbx` for FBX.
+    - Pixel-palette textures: set the Image Texture node interpolation to Closest so colours do not bleed.
+  pitfalls:
+    - "Do not rescale pixel art by non-integer factors; use `pixel_art_video_fit` for 1080x1920 frames."
+    - "Pack versions change asset counts over time; record the version in the media pack manifest notes."
+  example_asset:
+    id: kenney-tiny-town
+    title: Tiny Town
+    creator: Kenney
+    source_url: https://kenney.nl/assets/tiny-town
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    attribution: "Tiny Town by Kenney (kenney.nl), CC0"
+    attribution_required: false
+    redistribution: allowed
+    format: zip
+    intended_use: [top-down town background, maze walls]
+    fetch: {method: manual-page, status: to-fetch}
+    import_hints: {godot: {importer: texture, preset: pixel-art-2d}}
+
+- id: quaternius_low_poly_assets
+  name: Quaternius low-poly packs (CC0)
+  description: >-
+    Use when a scene needs free low-poly 3D models or humanoid animations (nature, farm, medieval,
+    sci-fi, animals, characters, Universal Animation Library) under CC0. Explains free versus paid Source
+    tiers, credit, glTF import into Godot 4 and Blender, and retargeting the animation library.
+  summary: Choose, credit and import Quaternius CC0 low-poly packs and the Universal Animation Library into Godot 4 and Blender.
+  tags: [quaternius, cc0, 3d, low-poly, animation, godot, blender]
+  homepage: https://quaternius.com/
+  licence_summary: "Quaternius releases its free packs under CC0: commercial use allowed, no attribution required. Some MegaKits also sell a 'Source' tier with engine projects."
+  licences:
+    - {id: CC0-1.0, url: "https://quaternius.com/", applies_to: "free pack downloads"}
+  attribution: {required: optional, credit_template: "Models by Quaternius (quaternius.com), CC0"}
+  redistribution: allowed
+  commercial_use: allowed
+  ai_training: unspecified
+  automated_download: unspecified
+  formats: [glb, gltf, fbx, obj, blend]
+  search:
+    - {label: "All packs", url: "https://quaternius.com/"}
+    - {label: "Universal Animation Library", url: "https://quaternius.com/packs/universalanimationlibrary.html"}
+    - {label: "Universal Base Characters", url: "https://quaternius.com/packs/universalbasecharacters.html"}
+    - {label: "Farm Buildings", url: "https://quaternius.com/packs/farmbuildings.html"}
+    - {label: "Ultimate Space Kit", url: "https://quaternius.com/packs/ultimatespacekit.html"}
+  cautions:
+    - "MegaKit 'Source' tiers (Unity/Unreal/Godot implementations) are paid; the free download is the model set."
+    - "CC0 has no warranty: check scale, pivots and animation names after import."
+  search_howto: |
+    Browse the home page by theme; each pack page lists model count, release date and formats. Prefer packs that
+    list glTF. For characters, pair Universal Base Characters with the Universal Animation Library (120+ animations
+    on one humanoid rig) instead of Mixamo when you need files you can redistribute.
+  godot: |
+    - Import the `.glb`/`.gltf`; in the Import dock set Root Type as needed and enable animation import.
+    - For the Universal Animation Library, set up a BoneMap with `SkeletonProfileHumanoid` in Advanced Import
+      Settings so the clips retarget onto other humanoids (see the Godot "Retargeting 3D Skeletons" guide).
+  blender: |
+    - `bpy.ops.import_scene.gltf(filepath=...)`; `.blend` packs can be appended with File > Append.
+    - Check Object > Apply > Scale before export if you rescale; keep Y-up/+Z-forward glTF conventions on re-export.
+  pitfalls:
+    - "Older packs ship FBX/OBJ/Blend only; convert to GLB in Blender rather than using OBJ (no animation)."
+  example_asset:
+    id: quaternius-farm-animals
+    title: Farm Animal Pack
+    creator: Quaternius
+    source_url: https://quaternius.com/packs/farmanimal.html
+    licence: CC0-1.0
+    licence_url: https://quaternius.com/packs/farmanimal.html
+    attribution: "Farm Animal Pack by Quaternius, CC0"
+    attribution_required: false
+    redistribution: allowed
+    format: zip
+    intended_use: [animated farm animals for a diorama]
+    fetch: {method: manual-page, status: to-fetch}
+    import_hints: {godot: {importer: scene}, blender: {operator: bpy.ops.import_scene.fbx}}
+
+- id: kaykit_asset_packs
+  name: KayKit packs by Kay Lousberg (CC0, paid extras)
+  description: >-
+    Use when a project wants stylised low-poly KayKit models (dungeon, medieval hexagon, platformer,
+    city builder, adventurer and skeleton characters). Covers the CC0 free tiers, paid Extra/Source
+    tiers, the author's no-resale request, GitHub mirrors for scripted download, and import steps.
+  summary: Use KayKit CC0 low-poly packs and rigged characters, respecting free versus paid tiers, with Godot 4 and Blender import steps.
+  tags: [kaykit, cc0, 3d, low-poly, characters, godot]
+  homepage: https://kaylousberg.itch.io/
+  licence_summary: "Free KayKit tiers are CC0 (free for personal and commercial use, no attribution). The author asks that unmodified copies are not resold or claimed as your own. Extra and Source tiers are paid."
+  licences:
+    - {id: CC0-1.0, url: "https://creativecommons.org/publicdomain/zero/1.0/deed.en", applies_to: "free-tier downloads, as stated on each itch.io page"}
+  attribution: {required: optional, credit_template: "KayKit assets by Kay Lousberg (kaylousberg.itch.io), CC0"}
+  redistribution: allowed
+  commercial_use: allowed
+  ai_training: unspecified
+  automated_download: unspecified
+  formats: [glb, gltf, fbx, obj, blend]
+  search:
+    - {label: "All KayKit packs on itch.io", url: "https://kaylousberg.itch.io/"}
+    - {label: "Dungeon Pack Remastered", url: "https://kaylousberg.itch.io/kaykit-dungeon-remastered"}
+    - {label: "Medieval Hexagon Pack", url: "https://kaylousberg.itch.io/kaykit-medieval-hexagon"}
+    - {label: "Character Pack: Adventurers", url: "https://kaylousberg.itch.io/kaykit-adventurers"}
+    - {label: "GitHub mirrors", url: "https://github.com/KayKit-Game-Assets"}
+  cautions:
+    - "Do not resell unmodified copies or present them as your own work (author's request alongside CC0)."
+    - "Record which tier you downloaded; Extra and Source tier files are paid."
+  search_howto: |
+    Each itch.io page shows the free tier contents and the paid tiers. For scripted downloads, several packs are
+    mirrored in the KayKit-Game-Assets GitHub organisation; check each repository's LICENSE before relying on it.
+  godot: |
+    - Import GLB; KayKit characters come rigged and animated, so enable animation import and check clip names.
+    - Hex tiles: build a GridMap MeshLibrary from the tile scenes (Scene > Export As > MeshLibrary).
+  blender: |
+    - `bpy.ops.import_scene.gltf(filepath=...)`; source `.blend` files are only in the paid Source tier.
+  pitfalls:
+    - "Do not mix KayKit gradient-atlas textures with VRAM compression on low-res atlases; use lossless if banding appears."
+  example_asset:
+    id: kaykit-dungeon-remastered
+    title: KayKit Dungeon Pack Remastered
+    creator: Kay Lousberg
+    source_url: https://kaylousberg.itch.io/kaykit-dungeon-remastered
+    licence: CC0-1.0
+    licence_url: https://creativecommons.org/publicdomain/zero/1.0/deed.en
+    attribution: "KayKit Dungeon Pack Remastered by Kay Lousberg, CC0"
+    attribution_required: false
+    redistribution: allowed
+    format: zip
+    intended_use: [3D maze and dungeon set]
+    restrictions: ["Do not resell unmodified copies (author request)."]
+    fetch: {method: manual-page, status: to-fetch}
+
+- id: poly_haven_assets
+  name: Poly Haven HDRIs, textures and models (CC0, with API)
+  description: >-
+    Use when a render or Godot scene needs photoreal HDRI lighting/skies, PBR textures or models. Poly
+    Haven assets are CC0 and its public JSON API lists every asset with download URLs and hashes.
+    Covers API use, credit expectations, Godot sky/material setup and Blender world lighting.
+  summary: Fetch Poly Haven CC0 HDRIs, PBR textures and models via its API, verify hashes, and set them up in Godot 4 and Blender.
+  tags: [polyhaven, cc0, hdri, pbr, api, godot, blender]
+  homepage: https://polyhaven.com/
+  licence_summary: "All Poly Haven assets are CC0. You may not claim to be the original author or re-license them as your own. The API is free for everyone including commercial use; Poly Haven asks API users to make clear to their users that the assets come from Poly Haven."
+  licences:
+    - {id: CC0-1.0, url: "https://docs.polyhaven.com/en/faq", applies_to: "all HDRIs, textures and models"}
+  attribution: {required: optional, credit_template: "HDRI/texture: {title} from Poly Haven (polyhaven.com), CC0"}
+  redistribution: allowed
+  commercial_use: allowed
+  ai_training: allowed
+  automated_download: api-only
+  formats: [hdr, exr, jpg, png, glb, gltf, blend, fbx]
+  search:
+    - {label: "HDRIs", url: "https://polyhaven.com/hdris"}
+    - {label: "Textures", url: "https://polyhaven.com/textures"}
+    - {label: "Models", url: "https://polyhaven.com/models"}
+    - {label: "Sunrise/sunset HDRIs", url: "https://polyhaven.com/hdris/sunrise-sunset"}
+  api: {url: "https://polyhaven.com/our-api", auth: none, notes: "Lists assets with categories, tags, authors, download URLs, hashes and sizes; e.g. api.polyhaven.com/assets?type=hdris."}
+  cautions:
+    - "CC0 does not clear trademarks or recognisable private places in scans."
+    - "Download only what the project uses; bulk mirroring wastes donated bandwidth."
+  search_howto: |
+    Filter HDRIs by category (Pure Skies, Fields & Countryside, Studio ...). A 2K or 4K HDRI is enough for lighting
+    and a blurred moving background; 8K+ is only needed when the sky is seen sharp. Use the API for scripted
+    pipelines (the `polydown` CLI or the `dcc-asset-polyhaven` agent skill wrap it) and verify each download against
+    the hash the API returns with the `media_pack_fetcher` module.
+  godot: |
+    - HDRI sky: WorldEnvironment > Environment > Background: Sky > Sky Material: PanoramaSkyMaterial, panorama = the
+      imported `.hdr`/`.exr`. Ambient light and reflections then come from the sky.
+    - Textures: albedo/roughness/AO with the `texture-3d` preset, the normal map with `normal-map-3d`.
+  blender: |
+    - World shader: Environment Texture node -> Background; set the strength, rotate with a Mapping node.
+    - Models: `bpy.ops.import_scene.gltf(filepath=...)` or append from the `.blend`.
+  pitfalls:
+    - "Godot expects OpenGL-style normal maps (Y+); pick the GL variant when a site offers GL and DX."
+    - "Very large EXRs slow imports; downscale for video backgrounds."
+  example_asset:
+    id: polyhaven-grasslands-sunset
+    title: Grasslands Sunset HDRI
+    creator: Poly Haven
+    source_url: https://polyhaven.com/a/grasslands_sunset
+    licence: CC0-1.0
+    licence_url: https://docs.polyhaven.com/en/faq
+    attribution: "Grasslands Sunset HDRI from Poly Haven, CC0"
+    attribution_required: false
+    redistribution: allowed
+    format: hdr
+    intended_use: [sky and lighting for a farm diorama]
+    fetch: {method: api, status: to-fetch}
+    import_hints: {godot: {importer: texture, notes: "PanoramaSkyMaterial panorama"}, video: {role: hdri-lighting}}
+
+- id: ambientcg_materials
+  name: ambientCG PBR materials and HDRIs (CC0, API v2/v3)
+  description: >-
+    Use when a Blender or Godot scene needs CC0 PBR materials (ground, wood, brick, metal ...) or HDRIs
+    from ambientCG, by hand or through its JSON API. Covers the licence, the frozen v2 versus current v3
+    API, map naming, and Godot/Blender material setup.
+  summary: Search ambientCG CC0 materials by API or site, download the right map set and build Godot 4 and Blender materials.
+  tags: [ambientcg, cc0, pbr, materials, api]
+  homepage: https://ambientcg.com/
+  licence_summary: "All ambientCG assets are under CC0 1.0 Universal; credit is not required but appreciated."
+  licences:
+    - {id: CC0-1.0, url: "https://docs.ambientcg.com/license/", applies_to: "all assets"}
+  attribution: {required: optional, credit_template: "Materials from ambientCG.com, CC0"}
+  redistribution: allowed
+  commercial_use: allowed
+  ai_training: unspecified
+  automated_download: api-only
+  formats: [jpg, png, exr, zip]
+  search:
+    - {label: "Asset search", url: "https://ambientcg.com/list"}
+    - {label: "API overview", url: "https://docs.ambientcg.com/api/"}
+    - {label: "API v2 /full_json", url: "https://docs.ambientcg.com/api/v2/full_json/"}
+  api: {url: "https://docs.ambientcg.com/api/", auth: none, notes: "v2 is frozen; new projects should use v3. The v2 zipContent field now always returns []."}
+  cautions:
+    - "Watch the technical updates page before relying on API response shapes."
+  search_howto: |
+    Filter the list page, then copy the same filters into an API query. Download the zip at the resolution you need
+    (2K is plenty for most video shots); each zip holds colour, normal (GL and DX variants), roughness,
+    displacement and sometimes AO/metalness maps.
+  godot: |
+    - StandardMaterial3D: albedo = Color map, roughness = Roughness, normal = NormalGL (enable Normal Map),
+      heightmap = Displacement if needed. Import maps with `texture-3d` and the normal with `normal-map-3d`.
+  blender: |
+    - Principled BSDF: Color -> Base Color; Roughness (Non-Color) -> Roughness; NormalGL (Non-Color) -> Normal Map node.
+  pitfalls:
+    - "Use the NormalGL map for both Godot and Blender; the DX map has the green channel flipped."
+  example_asset:
+    id: ambientcg-wood-026
+    title: Wood 026
+    creator: ambientCG
+    source_url: https://ambientcg.com/view?id=Wood026
+    licence: CC0-1.0
+    licence_url: https://docs.ambientcg.com/license/
+    attribution: "Wood 026 from ambientCG.com, CC0"
+    attribution_required: false
+    redistribution: allowed
+    format: zip
+    intended_use: [table and floor material]
+    fetch: {method: api, status: to-fetch}
+    import_hints: {godot: {importer: texture, preset: texture-3d}}
+
+- id: poly_pizza_models
+  name: Poly Pizza low-poly models (per-model CC0 or CC-BY)
+  description: >-
+    Use when you need one specific low-poly object fast (a pizza, a car, a cloud) from Poly Pizza's
+    library, which mixes CC0 uploads with CC-BY models such as the archived Poly by Google set.
+    Explains reading each model's licence, building the credit line, and importing the GLB.
+  summary: Find single low-poly models on Poly Pizza, record the per-model CC0/CC-BY licence and credit line, and import the GLB.
+  tags: [poly-pizza, low-poly, cc-by, cc0, 3d]
+  homepage: https://poly.pizza/
+  licence_summary: "Licence is per model: many are CC0 (Kenney, Quaternius uploads), many archived Poly by Google models are CC-BY and need credit."
+  licences:
+    - {id: CC0-1.0, url: "https://creativecommons.org/publicdomain/zero/1.0/deed.en", applies_to: "models marked CC0"}
+    - {id: CC-BY, url: "https://creativecommons.org/licenses/by/4.0/deed.en", applies_to: "models marked Creative Commons Attribution (check the version on the page)"}
+  attribution: {required: per-asset, credit_template: "{title} by {creator} [CC-BY] via Poly Pizza (poly.pizza)"}
+  redistribution: per-asset
+  commercial_use: allowed
+  ai_training: unspecified
+  automated_download: unspecified
+  formats: [glb, gltf, obj]
+  search:
+    - {label: "Search", url: "https://poly.pizza/search/Low%20Poly%20Art"}
+    - {label: "Example CC0 model (Kenney pizza)", url: "https://poly.pizza/m/fJsz9IVM8f"}
+    - {label: "Example CC-BY model (Poly by Google forest)", url: "https://poly.pizza/m/2_fv3tn3NG_"}
+  api: {url: "https://poly.pizza/docs/press", auth: key, notes: "The press page describes an API (free for hobby use, pay-as-you-go commercially); check current docs."}
+  cautions:
+    - "Paid packs from other studios appear in search results; skip anything not free."
+    - "Record the exact CC-BY version shown on each model page."
+  search_howto: |
+    Search by object name, open the model page, read the licence badge and creator, then download GLTF/GLB.
+    Put the credit line in the media pack manifest before you use the model.
+  godot: |
+    - Import the GLB; Poly by Google models often have very different scales, so normalise with the
+      `gltf_glb_inspector` bounds before placing them.
+  blender: |
+    - `bpy.ops.import_scene.gltf(filepath=...)`; apply scale after normalising.
+  pitfalls:
+    - "Do not assume a whole search page shares one licence."
+  example_asset:
+    id: poly-pizza-forest
+    title: Forest
+    creator: Poly by Google
+    source_url: https://poly.pizza/m/2_fv3tn3NG_
+    licence: "CC-BY (version as shown on the model page)"
+    licence_url: https://poly.pizza/m/2_fv3tn3NG_
+    attribution: "Forest by Poly by Google [CC-BY] via Poly Pizza"
+    attribution_required: true
+    redistribution: allowed-with-licence
+    format: glb
+    intended_use: [background tree cluster]
+    fetch: {method: manual-page, status: to-fetch}
+
+- id: opengameart_assets
+  name: OpenGameArt (per-asset licences)
+  description: >-
+    Use when searching OpenGameArt for sprites, tiles, music or sound effects. Every submission has its
+    own licence (CC0, CC-BY, CC-BY-SA, OGA-BY, GPL); this skill explains reading it, building credits in
+    the artist's requested format, share-alike and DRM clauses, and LPC-style collections.
+  summary: "Use OpenGameArt safely: per-asset licences, artist credit format, share-alike and DRM clauses, and LPC collections."
+  tags: [opengameart, licensing, cc-by-sa, sprites, sfx]
+  homepage: https://opengameart.org/content/faq
+  licence_summary: "Each OpenGameArt submission has its own licence (CC0, CC-BY, CC-BY-SA, OGA-BY, GPL ...). You may use art commercially if you follow its licence. Credit in the artist's 'Copyright/Attribution Notice' format when one is given."
+  licences:
+    - {id: per-asset, url: "https://opengameart.org/content/faq", applies_to: "every submission"}
+  attribution: {required: per-asset, credit_template: "\"{title}\" by {creator} (opengameart.org), {licence}"}
+  redistribution: per-asset
+  commercial_use: per-asset
+  ai_training: per-asset
+  automated_download: unspecified
+  formats: [png, ogg, wav, mp3, zip]
+  search:
+    - {label: "FAQ and licences", url: "https://opengameart.org/content/faq"}
+    - {label: "Liberated Pixel Cup collection", url: "https://opengameart.org/content/liberated-pixel-cup-0"}
+    - {label: "512 retro sound effects (CC0)", url: "https://opengameart.org/content/512-sound-effects-8-bit-style"}
+  cautions:
+    - "CC-BY 3.0 and CC-BY-SA forbid adding technical restrictions (DRM); OGA-BY exists to allow DRM platforms."
+    - "Collections mix licences; credit every contributing author."
+    - "Mirrors can disagree with the original (Pixel Adventure is CC0 on itch.io, CC-BY 4.0 on OGA)."
+  search_howto: |
+    Use the site search with a licence filter, open each result and copy the licence and the attribution notice
+    into the media pack manifest. Prefer CC0 for packages and repositories; CC-BY is fine for videos with credits.
+  godot: |
+    - Pixel art: `godot_texture_import_presets` with `pixel-art-2d`; slice sheets with `sprite_sheet_slicer`.
+    - Audio: OGG for music loops (enable Loop in the import dock), WAV for short effects.
+  blender: |
+    - 2D sprites as planes: File > Import > Images as Planes; set interpolation to Closest for pixel art.
+  pitfalls:
+    - "Share-alike art that you modify must be released under the same licence; keep it out of packages that use another licence."
+  example_asset:
+    id: oga-512-sfx
+    title: 512 Sound Effects (8-bit style)
+    creator: SubspaceAudio
+    source_url: https://opengameart.org/content/512-sound-effects-8-bit-style
+    licence: CC0-1.0
+    licence_url: https://opengameart.org/content/512-sound-effects-8-bit-style
+    attribution: "512 Sound Effects (8-bit style) by SubspaceAudio, CC0"
+    attribution_required: false
+    redistribution: allowed
+    format: zip
+    intended_use: [retro UI and pickup sounds]
+    fetch: {method: manual-page, status: to-fetch}
+    import_hints: {video: {role: sfx}}
+
+- id: itch_io_cc0_assets
+  name: itch.io free CC0 asset packs (per-pack terms)
+  description: >-
+    Use when browsing itch.io for free game assets. The licence field and tags are set by each uploader,
+    so this skill shows the CC0 filter pages, how to confirm a pack's terms, what to save as evidence,
+    and creator examples (0x72, Pixel Frog, Ansimuz) with their fine print.
+  summary: Browse itch.io's CC0 asset filters, confirm each pack's own licence, keep evidence, and avoid bundled-music and mirror traps.
+  tags: [itch-io, cc0, sprites, packs, licensing]
+  homepage: https://itch.io/game-assets/assets-cc0/free
+  licence_summary: "Terms are per pack. The 'Creative Commons Zero v1.0 Universal' licence filter and the cc0 tag are uploader-declared; read the pack page before use."
+  licences:
+    - {id: per-asset, url: "https://itch.io/game-assets/assets-cc0/free", applies_to: "each pack's own licence field and description"}
+  attribution: {required: per-asset, credit_template: "{title} by {creator} (itch.io), {licence}"}
+  redistribution: per-asset
+  commercial_use: per-asset
+  ai_training: per-asset
+  automated_download: unspecified
+  formats: [png, zip, ogg, wav]
+  search:
+    - {label: "Free assets, CC0 licence filter", url: "https://itch.io/game-assets/assets-cc0/free"}
+    - {label: "2D + cc0 tag", url: "https://itch.io/game-assets/tag-2d/tag-cc0"}
+    - {label: "New and popular CC0", url: "https://itch.io/game-assets/new-and-popular/assets-cc0/free"}
+    - {label: "0x72 DungeonTileset II", url: "https://0x72.itch.io/dungeontileset-ii"}
+    - {label: "Pixel Frog: Pixel Adventure", url: "https://pixelfrog-assets.itch.io/pixel-adventure-1"}
+  cautions:
+    - "Bundled music can have a different licence from the art (Sunny Land's music requires credit)."
+    - "Name-your-price packs are free to download, but paid extensions are not."
+  search_howto: |
+    Start from the licence-filter pages, open each pack, and copy the licence field and any extra conditions into
+    the manifest with the date. Save the page text (or a screenshot) alongside the download as evidence.
+  godot: |
+    - Most itch.io packs are pixel art sheets: import with `pixel-art-2d` and slice with `sprite_sheet_slicer grid`.
+  blender: |
+    - Use Images as Planes with Closest interpolation for 2.5D shots.
+  pitfalls:
+    - "Never assume 'free' means CC0."
+  example_asset:
+    id: dungeontileset-ii
+    title: 16x16 DungeonTileset II
+    creator: 0x72
+    source_url: https://0x72.itch.io/dungeontileset-ii
+    licence: CC0-1.0
+    licence_url: https://creativecommons.org/publicdomain/zero/1.0/deed.en
+    attribution: "16x16 DungeonTileset II by 0x72, CC0"
+    attribution_required: false
+    redistribution: allowed
+    format: zip
+    intended_use: [top-down dungeon maze tiles and animated characters]
+    fetch: {method: manual-page, status: to-fetch}
+    import_hints: {godot: {importer: texture, preset: pixel-art-2d}}
+
+- id: sketchfab_downloadable_models
+  name: Sketchfab downloadable models (per-model CC licences)
+  description: >-
+    Use when a scan, museum object or hero model is only available on Sketchfab. Downloadable models
+    carry a per-model Creative Commons licence (CC0, BY, BY-SA, BY-ND, BY-NC); store purchases use
+    Standard or Editorial licences. Covers filters, credit format, NC/ND pitfalls and import.
+  summary: Pick Sketchfab downloads whose per-model licence fits the use, credit them correctly, and avoid NC, ND and Editorial traps.
+  tags: [sketchfab, cc-by, scans, museum, 3d, licensing]
+  homepage: https://help.sketchfab.com/en/articles/16152221-choosing-your-model-s-license
+  licence_summary: "Each downloadable model has a CC licence chosen by its author; CC BY requires credit, NC forbids commercial use, ND forbids modification. Store models use Standard or Editorial licences, and purchased models may never be offered for download to others."
+  licences:
+    - {id: per-asset, url: "https://help.sketchfab.com/en/articles/16152221-choosing-your-model-s-license", applies_to: "downloadable models"}
+    - {id: Sketchfab-Store, url: "https://help.sketchfab.com/en/articles/16152225-store-license-usage-faq", applies_to: "store purchases"}
+  attribution: {required: per-asset, credit_template: "\"{title}\" by {creator} on Sketchfab, licensed {licence}"}
+  redistribution: per-asset
+  commercial_use: per-asset
+  ai_training: per-asset
+  automated_download: unspecified
+  formats: [glb, gltf, fbx, obj, usdz]
+  search:
+    - {label: "Licence filters announcement", url: "https://sketchfab.com/blogs/community/refine-downloadable-model-searches-with-new-license-filters"}
+    - {label: "Crediting creators", url: "https://help.sketchfab.com/en/articles/16152215-crediting-users-for-3d-model-downloads"}
+  cautions:
+    - "Editorial store licences cover news/public-interest use only, never promotion."
+    - "BY-NC models cannot be used in monetised videos; BY-ND models cannot be re-textured, cropped into new models or re-rigged."
+  search_howto: |
+    Filter downloadable models by licence (CC0 or CC BY for monetised work). Open the model, copy the title, author
+    and licence into the manifest, then download the glTF/GLB conversion.
+  godot: |
+    - Import the GLB; scans are often huge: decimate in Blender first and check triangles with `gltf_glb_inspector`.
+  blender: |
+    - `bpy.ops.import_scene.gltf(filepath=...)`; use Decimate and bake to reduce scan meshes before Godot.
+  pitfalls:
+    - "Museum accounts often choose NC licences; check every object."
+  example_asset:
+    id: sketchfab-scan
+    title: Example museum scan (fill in)
+    creator: Museum account (fill in)
+    source_url: https://help.sketchfab.com/en/articles/16152221-choosing-your-model-s-license
+    licence: CC-BY-4.0
+    licence_url: https://creativecommons.org/licenses/by/4.0/deed.en
+    attribution: "\"Model title\" by Author on Sketchfab, CC BY 4.0"
+    attribution_required: true
+    redistribution: allowed-with-licence
+    format: glb
+    intended_use: [history short hero prop]
+    fetch: {method: manual-page, status: to-fetch}
+
+- id: khronos_gltf_sample_assets
+  name: Khronos glTF Sample Assets (test models)
+  description: >-
+    Use when you need known-good glTF/GLB files to test an importer, a Godot scene loader, a Blender
+    script or the glTF inspector. Each model folder documents its own licence and credit.
+  summary: Use Khronos glTF Sample Assets as importer test files, reading each model's README for its licence and credit.
+  tags: [gltf, testing, khronos, reference]
+  homepage: https://github.com/KhronosGroup/glTF-Sample-Assets
+  licence_summary: "Licences are per model and stated in Models/<Name>/README.md (many CC-BY 4.0, some CC0); keep the credit with the file."
+  licences:
+    - {id: per-asset, url: "https://github.com/KhronosGroup/glTF-Sample-Assets", applies_to: "each model folder"}
+  attribution: {required: per-asset, credit_template: "{title} from Khronos glTF Sample Assets, {licence}, {credit from README}"}
+  redistribution: per-asset
+  commercial_use: per-asset
+  ai_training: per-asset
+  automated_download: allowed
+  formats: [gltf, glb]
+  search:
+    - {label: "Repository", url: "https://github.com/KhronosGroup/glTF-Sample-Assets"}
+    - {label: "Duck GLB (raw)", url: "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/Duck/glTF-Binary/Duck.glb"}
+  cautions:
+    - "Do not ship sample models in a product without checking their individual licence."
+  search_howto: |
+    Use `Models/<Name>/glTF-Binary/<Name>.glb` for single-file tests. The repository's testing list highlights models
+    meant for exercising viewers and converters.
+  godot: |
+    - Drop the GLB into a test project and compare node/mesh counts with `gltf_glb_inspector --json`.
+  blender: |
+    - `bpy.ops.import_scene.gltf(filepath="Duck.glb")`, then compare object counts with the inspector.
+  pitfalls:
+    - "Some samples exercise extensions your importer may not support; that is their purpose."
+  example_asset:
+    id: khronos-duck
+    title: Duck
+    creator: Khronos Group sample assets
+    source_url: https://github.com/KhronosGroup/glTF-Sample-Assets
+    download_url: https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/Duck/glTF-Binary/Duck.glb
+    licence: "See Models/Duck/README.md"
+    licence_url: https://github.com/KhronosGroup/glTF-Sample-Assets
+    attribution: "Duck from Khronos glTF Sample Assets (see Models/Duck/README.md for licence and credit)"
+    attribution_required: true
+    redistribution: allowed-with-licence
+    format: glb
+    file_name: Duck.glb
+    sha256: 65bf938f54d6073e619e76e007820bbf980cdc3dc0daec0d94830ffc4ae54ab5
+    bytes: 120484
+    intended_use: [importer smoke test]
+    fetch: {method: direct, status: fetched, fetched_on: "2026-10-10"}
+
+- id: blenderkit_and_fab_licences
+  name: Royalty-free marketplaces (BlenderKit, Fab) - what you may not do
+  description: >-
+    Use when an asset comes from BlenderKit (Royalty Free or CC0) or Epic's Fab (Fab Standard License,
+    formerly Megascans). These are not CC licences: use inside your work is broad, but redistributing
+    the asset files is not allowed. Explains how to keep them out of repositories and Baltor packages.
+  summary: "Handle BlenderKit Royalty Free and Fab Standard License assets: use them in renders, never redistribute the files."
+  tags: [blenderkit, fab, megascans, royalty-free, licensing]
+  homepage: https://www.blenderkit.com/docs/licenses/
+  licence_summary: "BlenderKit Royalty Free: commercial use without credit, but no resale or redistribution of the asset itself (including inside asset packs or game levels sold on marketplaces); BlenderKit also hosts CC0 assets. Fab Standard License: use in any engine or tool under Epic's terms; files are licensed to the claiming account."
+  licences:
+    - {id: BlenderKit-Royalty-Free, url: "https://www.blenderkit.com/docs/licenses/", applies_to: "BlenderKit RF assets"}
+    - {id: Fab-Standard-License, url: "https://www.cgchannel.com/2024/10/epic-games-has-made-megascans-free-to-all-but-only-until-the-end-of-2024/", applies_to: "Fab/Megascans (read the current licence on fab.com)"}
+  attribution: {required: never, credit_template: "Asset: {title} ({marketplace}), used under {licence}"}
+  redistribution: project-only
+  commercial_use: allowed
+  ai_training: unspecified
+  automated_download: forbidden
+  formats: [blend, fbx, glb, jpg, exr]
+  search:
+    - {label: "BlenderKit licences", url: "https://www.blenderkit.com/docs/licenses/"}
+    - {label: "Fab launch (Sketchfab blog)", url: "https://sketchfab.com/blogs/community/epics-unified-marketplace-fab-launches-today"}
+  cautions:
+    - "Never commit Royalty Free or Fab files to a public repository or a Baltor package; ship a manifest entry with redistribution: project-only."
+    - "Fab terms changed in 2024-2025; re-read the current Fab Standard License before each project."
+  search_howto: |
+    Prefer CC0 sources first. When a marketplace asset is the only option, record it with redistribution
+    `project-only`, keep the files in an ignored local folder, and render them into the final video only.
+  godot: |
+    - Keep marketplace assets in a `.gitignore`d folder (for example `res://_licensed/`) and ship the project
+      without them; the media pack manifest tells the next person what to download.
+  blender: |
+    - Link or append from a local library outside the repository; pack textures only in local renders.
+  pitfalls:
+    - "A downloaded .blend that embeds RF textures is still the RF asset; do not share it."
+  example_asset:
+    id: blenderkit-rf-chair
+    title: Example BlenderKit Royalty Free chair (fill in)
+    creator: BlenderKit author (fill in)
+    source_url: https://www.blenderkit.com/docs/licenses/
+    licence: "BlenderKit Royalty Free"
+    licence_url: https://www.blenderkit.com/docs/licenses/
+    attribution: ""
+    attribution_required: false
+    redistribution: project-only
+    format: blend
+    intended_use: [rendered prop only]
+    fetch: {method: manual-page, status: manual}
+
+- id: cc0_texture_sites
+  name: Smaller CC0 texture libraries (cgbookcase, 3DTextures.me) and ShareTextures' limits
+  description: >-
+    Use when Poly Haven and ambientCG lack a material. cgbookcase and 3DTextures.me publish CC0 PBR
+    textures; ShareTextures uses a custom CC0-based licence that forbids automated downloads and
+    redistribution. Explains which to script, which to download by hand, and how to credit.
+  summary: Use cgbookcase and 3DTextures.me CC0 textures, and treat ShareTextures' custom licence (no automated downloads) correctly.
+  tags: [textures, pbr, cc0, cgbookcase, sharetextures]
+  homepage: https://www.cgbookcase.com/
+  licence_summary: "cgbookcase: CC0, 100% free. 3DTextures.me: recent pages state CC0 for the free resolutions (higher resolutions on Patreon). ShareTextures: custom CC0 with restrictions (no automated downloads, no embedding in apps/add-ons, no redistribution without permission)."
+  licences:
+    - {id: CC0-1.0, url: "https://www.cgbookcase.com/", applies_to: "cgbookcase textures"}
+    - {id: CC0-1.0, url: "https://3dtextures.me/about/", applies_to: "3DTextures.me free textures"}
+    - {id: ShareTextures-custom, url: "https://www.sharetextures.com/p/license", applies_to: "ShareTextures assets"}
+  attribution: {required: optional, credit_template: "Texture: {title} from {site}"}
+  redistribution: per-asset
+  commercial_use: allowed
+  ai_training: unspecified
+  automated_download: forbidden
+  formats: [jpg, png, zip]
+  search:
+    - {label: "cgbookcase textures", url: "https://www.cgbookcase.com/textures"}
+    - {label: "3DTextures.me", url: "https://3dtextures.me/"}
+    - {label: "ShareTextures licence", url: "https://www.sharetextures.com/p/license"}
+  cautions:
+    - "ShareTextures: an agent must not bulk-download or script downloads; fetch by hand only."
+    - "3DTextures.me Patreon-only resolutions are not covered by the free CC0 statement."
+  search_howto: |
+    Use these as fall-backs. Download by hand, record the page URL and licence in the manifest, and import with the
+    same map wiring as ambientCG.
+  godot: |
+    - Albedo/roughness with `texture-3d`, normal with `normal-map-3d`; check whether a site ships GL or DX normals.
+  blender: |
+    - Principled BSDF wiring as for ambientCG; set non-colour maps to Non-Color.
+  pitfalls:
+    - "Automating ShareTextures downloads violates its licence even though it calls itself CC0."
+  example_asset:
+    id: cgbookcase-wood-10
+    title: Wood 10
+    creator: cgbookcase
+    source_url: https://www.cgbookcase.com/textures/wood-10
+    licence: CC0-1.0
+    licence_url: https://www.cgbookcase.com/
+    attribution: "Wood 10 from cgbookcase.com, CC0"
+    attribution_required: false
+    redistribution: allowed
+    format: zip
+    intended_use: [wooden sign material]
+    fetch: {method: manual-page, status: to-fetch}
+
+- id: nasa_3d_resources
+  name: NASA 3D Resources (spacecraft, rovers, suits)
+  description: >-
+    Use for space and science shorts that need real spacecraft models (Apollo Lunar Module, Hubble,
+    Curiosity, astronaut, Gateway). NASA's repository states the assets are free and without copyright,
+    subject to NASA's media usage guidelines. Covers download from GitHub, Draco/WebP pitfalls and scale.
+  summary: Download NASA 3D Resources GLB/BLEND models from GitHub, handle Draco and WebP, normalise scale, and follow NASA usage rules.
+  tags: [nasa, space, 3d, gltf, public-domain]
+  homepage: https://github.com/nasa/NASA-3D-Resources
+  licence_summary: "The repository README says the assets are free and without copyright and points to NASA's usage guidelines. Do not use NASA insignia or imply NASA endorsement; some models come from outside contributors."
+  licences:
+    - {id: "Public domain statement (NASA)", url: "https://github.com/nasa/NASA-3D-Resources", applies_to: "repository assets, with NASA usage guidelines"}
+  attribution: {required: optional, credit_template: "3D model: {title}, NASA 3D Resources (github.com/nasa/NASA-3D-Resources)"}
+  redistribution: allowed
+  commercial_use: allowed
+  ai_training: unspecified
+  automated_download: allowed
+  formats: [glb, blend, lwo, png]
+  search:
+    - {label: "3D Models folder", url: "https://github.com/nasa/NASA-3D-Resources/tree/master/3D%20Models"}
+    - {label: "Apollo Lunar Module", url: "https://github.com/nasa/NASA-3D-Resources/tree/master/3D%20Models/Apollo%20Lunar%20Module"}
+    - {label: "Astronaut", url: "https://github.com/nasa/NASA-3D-Resources/tree/master/3D%20Models/Astronaut"}
+  cautions:
+    - "Do not use NASA logos/insignia or imply endorsement; follow NASA's media usage guidelines."
+    - "Several GLBs require KHR_draco_mesh_compression and use EXT_texture_webp (checked 2026-10-10 on the Apollo LM, Astronaut and Hubble files)."
+    - "Units vary: the Astronaut GLB is about 74 units tall and Hubble (A) about 525 units; normalise before placing."
+  search_howto: |
+    Browse the `3D Models` folder; each model has a preview PNG plus GLB, BLEND or LWO. Download raw files from
+    `https://raw.githubusercontent.com/nasa/NASA-3D-Resources/master/3D%20Models/<folder>/<file>` with the
+    `media_pack_fetcher` module (raw.githubusercontent.com is on its default allow-list) and record the SHA-256.
+  godot: |
+    - Decode Draco first (for example with glTF-Transform) if your Godot version does not import the file, then import
+      the GLB and scale the root so the model matches your scene units (use the inspector's bounds).
+  blender: |
+    - Blender's glTF importer reads Draco and WebP: `bpy.ops.import_scene.gltf(filepath="Apollo Lunar Module.glb")`.
+      Re-export a decoded GLB for other tools if needed.
+  pitfalls:
+    - "Curiosity is .blend only: export a GLB from Blender for Godot."
+  example_asset:
+    id: nasa-apollo-lunar-module
+    title: Apollo Lunar Module
+    creator: NASA
+    source_url: https://github.com/nasa/NASA-3D-Resources/tree/master/3D%20Models/Apollo%20Lunar%20Module
+    download_url: https://raw.githubusercontent.com/nasa/NASA-3D-Resources/master/3D%20Models/Apollo%20Lunar%20Module/Apollo%20Lunar%20Module.glb
+    licence: "Public domain statement (NASA) + NASA usage guidelines"
+    licence_url: https://github.com/nasa/NASA-3D-Resources
+    attribution: "Apollo Lunar Module 3D model, NASA 3D Resources"
+    attribution_required: false
+    redistribution: allowed
+    format: glb
+    file_name: Apollo Lunar Module.glb
+    sha256: 379101dfcee399267addf771709107c35e826b0b9e5233272f123e4c8a585c4e
+    bytes: 716840
+    intended_use: [Moon landing history short hero model]
+    restrictions: ["Requires KHR_draco_mesh_compression; textures are WebP with PNG fallbacks.", "No NASA insignia; no implied endorsement."]
+    fetch: {method: direct, status: fetched, fetched_on: "2026-10-10"}
+    import_hints: {blender: {operator: bpy.ops.import_scene.gltf}, video: {role: prop}}
+
+- id: smithsonian_open_access
+  name: Smithsonian Open Access (CC0 records)
+  description: >-
+    Use for history and science shorts that need museum objects. Smithsonian Open Access publishes
+    CC0 metadata (11M+ records) and CC0 media for objects marked Open Access; this skill shows how to
+    query the metadata dump, check each record's rights, and avoid people/trademark problems.
+  summary: Find CC0 Smithsonian Open Access objects via the metadata dump, confirm each record's rights, and credit the museum.
+  tags: [smithsonian, museum, cc0, history, metadata]
+  homepage: https://github.com/Smithsonian/OpenAccess
+  licence_summary: "The Open Access metadata repository is CC0-1.0. Media is CC0 only where the record says Open Access; other media keep their own rights."
+  licences:
+    - {id: CC0-1.0, url: "https://github.com/Smithsonian/OpenAccess", applies_to: "Open Access metadata and media marked CC0"}
+  attribution: {required: optional, credit_template: "{title}, {unit}, Smithsonian Institution (Open Access, CC0)"}
+  redistribution: per-asset
+  commercial_use: per-asset
+  ai_training: per-asset
+  automated_download: allowed
+  formats: [json, jpg, glb]
+  search:
+    - {label: "OpenAccess metadata (line-delimited JSON)", url: "https://github.com/Smithsonian/OpenAccess"}
+  cautions:
+    - "The GitHub repo is read-only; the archive moved to AWS."
+    - "CC0 does not clear publicity rights of people shown or trademarks on objects."
+  search_howto: |
+    Filter the line-delimited JSON by unit and keywords, keep records whose usage/rights fields say CC0, and follow the
+    media links they contain. Record the record ID and URL in the manifest so the claim is traceable.
+  godot: |
+    - Treat downloaded 3D scans like other GLBs: inspect, decimate if heavy, import with `texture-3d` maps.
+  blender: |
+    - Import scans with `bpy.ops.import_scene.gltf`; decimate for real-time use.
+  pitfalls:
+    - "Do not caption a historical claim from an object record without checking the record's own description."
+  example_asset:
+    id: smithsonian-record
+    title: Example Open Access record (fill in)
+    creator: Smithsonian Institution
+    source_url: https://github.com/Smithsonian/OpenAccess
+    licence: CC0-1.0
+    licence_url: https://github.com/Smithsonian/OpenAccess
+    attribution: "Object name, Smithsonian Institution (CC0)"
+    attribution_required: false
+    redistribution: allowed
+    format: json
+    intended_use: [history fact source and image]
+    fetch: {method: git, status: to-fetch}
+
+- id: gltf_cleanup_for_godot_and_video
+  name: Clean up downloaded 3D models for Godot, Blender and video
+  description: >-
+    Use after downloading any GLB/FBX/OBJ: inspect it, decode Draco or meshopt if needed, fix scale and
+    units, reduce triangles and textures, validate, then import. Uses the gltf_glb_inspector module and
+    open tools (glTF-Transform, gltfpack, glTF-Validator, obj2gltf, Blender).
+  summary: Inspect, decode, rescale, optimise and validate downloaded 3D models before they enter a Godot scene or render.
+  tags: [gltf, optimisation, validation, godot, blender, pipeline]
+  homepage: https://github.com/donmccurdy/glTF-Transform
+  licence_summary: "Tools: glTF-Transform MIT, meshoptimizer/gltfpack MIT, glTF-Validator Apache-2.0, obj2gltf Apache-2.0. Tool licences do not change the model's own licence."
+  licences:
+    - {id: MIT, url: "https://github.com/donmccurdy/glTF-Transform", applies_to: "glTF-Transform"}
+    - {id: MIT, url: "https://github.com/zeux/meshoptimizer", applies_to: "meshoptimizer and gltfpack"}
+    - {id: Apache-2.0, url: "https://github.com/KhronosGroup/glTF-Validator", applies_to: "glTF-Validator"}
+    - {id: Apache-2.0, url: "https://github.com/CesiumGS/obj2gltf", applies_to: "obj2gltf"}
+  attribution: {required: never, credit_template: ""}
+  redistribution: allowed
+  commercial_use: allowed
+  ai_training: unspecified
+  automated_download: allowed
+  formats: [glb, gltf, obj, fbx]
+  search:
+    - {label: "glTF-Transform", url: "https://github.com/donmccurdy/glTF-Transform"}
+    - {label: "glTF-Validator", url: "https://github.com/KhronosGroup/glTF-Validator"}
+    - {label: "meshoptimizer / gltfpack", url: "https://github.com/zeux/meshoptimizer"}
+    - {label: "Godot: available 3D formats", url: "https://docs.godotengine.org/en/stable/tutorials/assets_pipeline/importing_3d_scenes/available_formats.html"}
+  cautions:
+    - "Optimising never changes the licence: carry the source, licence and credit into the new file's manifest entry."
+  search_howto: |
+    1. `python gltf_glb_inspector.py model.glb` - note extensionsRequired, triangles, bounds and copyright.
+    2. If Draco/meshopt is required and your importer lacks it, decode it (Blender import + GLB re-export works).
+    3. Scale: set the root scale so the largest dimension matches real size (inspector bounds).
+    4. Reduce: `gltf-transform resize in.glb out.glb --width 1024 --height 1024`; `gltf-transform optimize` for size.
+    5. Validate with glTF-Validator, then import.
+  godot: |
+    - glTF 2.0 is Godot's recommended 3D format; `.blend` import needs Blender installed and FBX goes through ufbx.
+  blender: |
+    - `bpy.ops.import_scene.gltf(filepath=...)` then File > Export > glTF 2.0 to write a cleaned GLB.
+  pitfalls:
+    - "OBJ carries no animation or PBR metadata; convert to glTF with obj2gltf or Blender."
+  example_asset:
+    id: cleaned-model
+    title: Cleaned model (derived)
+    creator: Original creator (keep)
+    source_url: https://github.com/donmccurdy/glTF-Transform
+    licence: "Same as the original model"
+    licence_url: https://github.com/donmccurdy/glTF-Transform
+    attribution: "Keep the original credit line"
+    attribution_required: false
+    redistribution: allowed
+    format: glb
+    intended_use: [optimised copy for Godot]
+    will_modify: true
+    fetch: {method: manual-page, status: manual}

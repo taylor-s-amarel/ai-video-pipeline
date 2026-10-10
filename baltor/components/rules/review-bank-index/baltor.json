@@ -1,0 +1,154 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "review_bank_index",
+  "title": "Review bank index (1,024 questions)",
+  "kind": "rules",
+  "subkind": "review-lens",
+  "version": "1.0.0",
+  "summary": "Index of the owner's adversarial review bank: 32 areas x 32 questions with their rules packages and lenses, and the nine named passes with exact ordered question ids.",
+  "description": "This is the owner's authoritative adversarial review bank: the 1,024 questions of Appendix E of the Animation and Video Production Master Guide (10 Oct 2026), transcribed with the owner's exact text, ids, filters and pass membership. Another builder in this catalogue (harness_kit) independently wrote a different 1,024-question bank; it is not this set and does not override it.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#appendix-e-all-1024-adversarial-review-questions"
+  },
+  "step_kinds": [
+    "review",
+    "verify",
+    "plan"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "RULES.md",
+  "tags": [
+    "video",
+    "animation",
+    "adversarial-review",
+    "review-questions",
+    "index",
+    "review-passes"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "review_bank_concept_and_design"
+    },
+    {
+      "identity": "review_bank_composition_and_hierarchy"
+    },
+    {
+      "identity": "review_bank_foreground_background_separation"
+    },
+    {
+      "identity": "review_bank_depth_and_occlusion"
+    },
+    {
+      "identity": "review_bank_staging_and_blocking"
+    },
+    {
+      "identity": "review_bank_contact_and_props"
+    },
+    {
+      "identity": "review_bank_silhouette_and_anatomy"
+    },
+    {
+      "identity": "review_bank_acting_and_expression"
+    },
+    {
+      "identity": "review_bank_camera_and_projection"
+    },
+    {
+      "identity": "review_bank_lighting_and_shadows"
+    },
+    {
+      "identity": "review_bank_color_and_materials"
+    },
+    {
+      "identity": "review_bank_texture_and_detail"
+    },
+    {
+      "identity": "review_bank_motion_and_easing"
+    },
+    {
+      "identity": "review_bank_physics_and_weight"
+    },
+    {
+      "identity": "review_bank_layers_and_compositing"
+    },
+    {
+      "identity": "review_bank_continuity_and_state"
+    },
+    {
+      "identity": "review_bank_pacing_and_holds"
+    },
+    {
+      "identity": "review_bank_story_setup_payoff"
+    },
+    {
+      "identity": "review_bank_transitions_and_editing"
+    },
+    {
+      "identity": "review_bank_text_typography"
+    },
+    {
+      "identity": "review_bank_captions_and_accessibility"
+    },
+    {
+      "identity": "review_bank_music_composition"
+    },
+    {
+      "identity": "review_bank_voice_and_dialogue"
+    },
+    {
+      "identity": "review_bank_sfx_and_mix"
+    },
+    {
+      "identity": "review_bank_audio_visual_timing"
+    },
+    {
+      "identity": "review_bank_rights_and_asset_provenance"
+    },
+    {
+      "identity": "review_bank_factual_and_algorithmic_integrity"
+    },
+    {
+      "identity": "review_bank_rendering_and_export"
+    },
+    {
+      "identity": "review_bank_decoding_and_delivery"
+    },
+    {
+      "identity": "review_bank_audience_value"
+    },
+    {
+      "identity": "review_bank_puzzles_and_fairness"
+    },
+    {
+      "identity": "review_bank_reproducibility_and_maintenance"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/ref_review_templates.py",
+    "data": "generators/data/ref_review_templates"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Generator asserts 1,024 questions with unique ids, 32 per area, nine passes matching declared counts, and every record valid against the adversarial_question schema."
+  },
+  "evidence_stage": "source-inspected",
+  "evidence_notes": "Transcribed verbatim from Appendix E (lines 6048-8213 of the guide file, SHA-256 d5e454b50f6abccd...). The guide states the source bank (Library libfile_40e3c6edac1c8191b3fe1ffed949ef9b v0, 980,912 bytes) was demonstrated with selection and evidence contracts, 39 validator regression tests and bounded applications to actual films (a 17-record focused application; BOXED IN's later 32-record review). That does not mean any question here was executed on a film; the bank is a menu, not completed tests."
+}

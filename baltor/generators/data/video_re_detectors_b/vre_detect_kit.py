@@ -23,6 +23,7 @@ footage: detectors return numbers, boxes and labels only.
 from __future__ import annotations
 
 import argparse
+import functools
 import json
 import math
 import shutil
@@ -48,6 +49,7 @@ def have(tool: str) -> bool:
     return shutil.which(tool) is not None
 
 
+@functools.lru_cache(maxsize=16)
 def tool_version(tool: str) -> str | None:
     if not have(tool):
         return None
@@ -492,6 +494,18 @@ def contrast_ratio(c1: Iterable[float], c2: Iterable[float]) -> float:
     return (hi + 0.05) / (lo + 0.05)
 
 
+def rgb_to_lab(rgb: np.ndarray) -> np.ndarray:
+    """CIE L*a*b* (D65) from sRGB 0-255, any leading shape."""
+    lin = srgb_to_linear(np.asarray(rgb, dtype=np.float64))
+    m = np.array([[0.4124, 0.3576, 0.1805], [0.2126, 0.7152, 0.0722], [0.0193, 0.1192, 0.9505]])
+    xyz = lin @ m.T / np.array([0.95047, 1.0, 1.08883])
+    f = np.where(xyz > 216 / 24389, np.cbrt(xyz), (24389 / 27 * xyz + 16) / 116)
+    L = 116 * f[..., 1] - 16
+    a = 500 * (f[..., 0] - f[..., 1])
+    b = 200 * (f[..., 1] - f[..., 2])
+    return np.stack([L, a, b], axis=-1).astype(np.float32)
+
+
 def color_name(rgb: Iterable[float]) -> str:
     """Coarse colour word (black, white, grey, red, orange, yellow, green, cyan, blue, purple, pink)."""
     r, g, b = (float(c) / 255.0 for c in rgb)
@@ -764,8 +778,17 @@ def warp_similarity(img: np.ndarray, scale: float = 1.0, tx: float = 0.0, ty: fl
 
 # =============================================================== motion
 
+@functools.lru_cache(maxsize=32)
 def hann2d(h: int, w: int) -> np.ndarray:
     return np.outer(np.hanning(h), np.hanning(w)).astype(np.float32)
+
+
+@functools.lru_cache(maxsize=32)
+def _lowpass_weights(h: int, w: int, lowpass: float) -> np.ndarray:
+    fy = np.fft.fftfreq(h)[:, None]
+    g = np.exp(-(np.fft.rfftfreq(w)[None, :] ** 2 + fy ** 2) / (2 * lowpass ** 2))
+    gfull = np.exp(-(np.fft.fftfreq(w)[None, :] ** 2 + fy ** 2) / (2 * lowpass ** 2))
+    return (g * (h * w / float(gfull.sum()))).astype(np.float32)
 
 
 def phase_correlation(a: np.ndarray, b: np.ndarray, window: bool = True,
@@ -791,11 +814,7 @@ def phase_correlation(a: np.ndarray, b: np.ndarray, window: bool = True,
     mag = np.abs(r)
     # whitened cross-power, weighted by a Gaussian low-pass (sigma = lowpass cycles/pixel) so that
     # noise-dominated high frequencies do not flatten the peak; normalised so a perfect match peaks at 1
-    fy = np.fft.fftfreq(H)[:, None]
-    fx = np.fft.rfftfreq(W)[None, :]
-    g = np.exp(-(fx ** 2 + fy ** 2) / (2 * lowpass ** 2)).astype(np.float32)
-    gfull = np.exp(-(np.fft.fftfreq(W)[None, :] ** 2 + fy ** 2) / (2 * lowpass ** 2))
-    r = r / (mag + 1e-3 * (mag.mean(axis=(-2, -1), keepdims=True) + 1e-9)) * g * (H * W / float(gfull.sum()))
+    r = r / (mag + 1e-3 * (mag.mean(axis=(-2, -1), keepdims=True) + 1e-9)) * _lowpass_weights(H, W, float(lowpass))
     surf = np.fft.irfft2(r, s=(H, W))
     flat = surf.reshape(*surf.shape[:-2], H * W)
     idx = np.argmax(flat, axis=-1)
@@ -1109,6 +1128,73 @@ def motion_layers(tracks: dict, frame_hw: tuple[int, int], tol: float = 0.6, min
         remaining = np.setdiff1d(remaining, members)
     return {"layers": layers, "rigid": rigid, "nonrigid": nonrigid, "flat": ~textured,
             "unassigned": remaining, "n_blocks": nb, "center": c}
+
+
+def frame_signatures(frames: np.ndarray, w: int = 16, h: int = 9) -> np.ndarray:
+    """Tiny grey thumbnails (N, h*w) for self-similarity: area-resized, float32 0-255."""
+    g = as_gray(np.asarray(frames))
+    return np.stack([resize(downsample(f, max(1, min(f.shape[0] // (2 * h), f.shape[1] // (2 * w)))), h, w).ravel()
+                     for f in g]).astype(np.float32)
+
+
+def find_period(sigs: np.ndarray, fps: float, min_period_s: float = 1.0, max_score: float = 0.15,
+                min_repeats: float = 1.5) -> dict | None:
+    """Smallest lag L (frames) at which the signature sequence repeats.
+
+    score(L) = median_i |s_i - s_{i+L}| / median over all lags >= min_period of the same distance.
+    A loop needs score <= max_score and the sequence must contain at least ``min_repeats`` periods.
+    Returns {period_frames, score, scores} or None.
+    """
+    s = np.asarray(sigs, dtype=np.float32)
+    n = len(s)
+    lo = max(1, int(round(min_period_s * fps)))
+    hi = int(n / min_repeats)
+    if hi < lo:
+        return None
+    d = {L: float(np.median(np.abs(s[:-L] - s[L:]).mean(axis=1))) for L in range(lo, hi + 1)}
+    sample = [float(np.abs(s[:-L] - s[L:]).mean(axis=1).mean()) for L in range(lo, n - 1)]
+    typical = float(np.median(sample)) if sample else 0.0
+    if typical <= 1e-6:
+        return None
+    scores = {L: v / typical for L, v in d.items()}
+    best = min(scores.values())
+    if best > max_score:
+        return None
+    period = min(L for L, v in scores.items() if v <= max(best * 1.25, best + 0.02))
+    return {"period_frames": period, "score": scores[period], "scores": scores}
+
+
+def hf_energy_fraction(gray: np.ndarray, f_cut: float = 0.03) -> float:
+    """Share of a Hann-windowed grey frame's AC power at spatial frequencies >= ``f_cut`` cycles/pixel.
+
+    Photographs and footage (edges, texture, grain) keep a large share of power above a few
+    hundredths of a cycle per pixel; smooth rendered gradients and plasma keep almost none.
+    """
+    g = np.asarray(gray, dtype=np.float32)
+    H, W = g.shape
+    g = (g - g.mean()) * hann2d(H, W)
+    pw = np.abs(np.fft.rfft2(g)) ** 2
+    fr = np.hypot(np.fft.rfftfreq(W)[None, :], np.fft.fftfreq(H)[:, None])
+    ac = pw[fr > 0].sum()
+    return float(pw[fr >= f_cut].sum() / ac) if ac > 0 else 0.0
+
+
+def palette_concentration(rgb: np.ndarray, top: int = 8, bits: int = 4) -> float:
+    """Share of pixels in the ``top`` most common colours after quantising to ``bits`` per channel."""
+    a = as_rgb(np.asarray(rgb)).reshape(-1, 3).astype(np.int32) >> (8 - bits)
+    codes = (a[:, 0] << (2 * bits)) | (a[:, 1] << bits) | a[:, 2]
+    counts = np.sort(np.bincount(codes))[::-1]
+    return float(counts[:top].sum() / max(1, len(codes)))
+
+
+def compensated_residual(a: np.ndarray, b: np.ndarray, fit: dict | None, border: float = 0.1) -> float:
+    """Mean abs grey difference between b and a warped by a similarity fit, over the central area."""
+    a = np.asarray(a, dtype=np.float32)
+    b = np.asarray(b, dtype=np.float32)
+    H, W = a.shape
+    wa = a if fit is None else warp_similarity(a, fit["scale"], fit["tx"], fit["ty"], fit.get("rot_deg", 0.0))
+    y0, x0 = int(H * border), int(W * border)
+    return float(np.abs(wa[y0:H - y0, x0:W - x0] - b[y0:H - y0, x0:W - x0]).mean())
 
 
 # =============================================================== text localisation

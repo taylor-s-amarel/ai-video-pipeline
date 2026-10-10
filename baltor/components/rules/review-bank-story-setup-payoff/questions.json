@@ -1,0 +1,787 @@
+[
+  {
+    "id": "AVQ-018-001",
+    "domain_id": "D018",
+    "area": "story setup payoff",
+    "question": "What visible event establishes what the protagonist wants before the first obstacle appears?",
+    "failure_hypothesis": "The plot moves before a goal gives its events meaning.",
+    "check_or_fix": "Add or clarify a goal-defining action in the opening.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7226,
+    "passes": [
+      "default_32",
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-018-002",
+    "domain_id": "D018",
+    "area": "story setup payoff",
+    "question": "Is the obstacle caused by the established situation, or does an unexplained intervention manufacture it?",
+    "failure_hypothesis": "Arbitrary trouble replaces causal storytelling.",
+    "check_or_fix": "Connect the obstacle to a shown condition or earlier choice.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7228,
+    "passes": [
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-018-003",
+    "domain_id": "D018",
+    "area": "story setup payoff",
+    "question": "Does the eventual solution use a capability or resource the audience had a fair chance to notice?",
+    "failure_hypothesis": "An unseeded resource resolves the conflict without earned setup.",
+    "check_or_fix": "Seed the resource naturally before its decisive use.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7230,
+    "passes": [
+      "story_edit",
+      "longer_cardboard_32"
+    ]
+  },
+  {
+    "id": "AVQ-018-004",
+    "domain_id": "D018",
+    "area": "story setup payoff",
+    "question": "Can viewers tell what failure would cost the character without being told in a long caption?",
+    "failure_hypothesis": "Stakes remain abstract and do not support the action.",
+    "check_or_fix": "Show one concrete consequence of failure before escalation.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7232,
+    "passes": [
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-018-005",
+    "domain_id": "D018",
+    "area": "story setup payoff",
+    "question": "Does the character's final choice differ meaningfully from the choice they would have made at the start?",
+    "failure_hypothesis": "Surface action conceals an unchanged dramatic state.",
+    "check_or_fix": "Define the changed belief or keep the piece explicitly observational.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7234,
+    "passes": [
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-018-006",
+    "domain_id": "D018",
+    "area": "story setup payoff",
+    "question": "Is the payoff answering the specific expectation created by the opening image or line?",
+    "failure_hypothesis": "The film promises one question and resolves another.",
+    "check_or_fix": "Write the promise and payoff side by side and reconcile them.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7236,
+    "passes": [
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-018-007",
+    "domain_id": "D018",
+    "area": "story setup payoff",
+    "question": "Does an early background detail actually matter later, or merely imitate the look of foreshadowing?",
+    "failure_hypothesis": "Decorative setup attracts attention without narrative return.",
+    "check_or_fix": "Pay off, downweight, or remove the conspicuous detail.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7238,
+    "passes": [
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-018-008",
+    "domain_id": "D018",
+    "area": "story setup payoff",
+    "question": "Can viewers distinguish a deliberate misdirection from information the film simply withheld unfairly?",
+    "failure_hypothesis": "Surprise depends on hiding facts the chosen viewpoint should reveal.",
+    "check_or_fix": "Audit viewpoint access and plant an honest alternative interpretation.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "fiction",
+      "puzzle"
+    ],
+    "source_line": 7240,
+    "passes": [
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-018-009",
+    "domain_id": "D018",
+    "area": "story setup payoff",
+    "question": "Does the protagonist cause the resolution through an understandable action?",
+    "failure_hypothesis": "Coincidence completes the story while the protagonist watches.",
+    "check_or_fix": "Link the resolution to a choice, effort, or purposeful nonaction.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7242,
+    "passes": []
+  },
+  {
+    "id": "AVQ-018-010",
+    "domain_id": "D018",
+    "area": "story setup payoff",
+    "question": "Is the helper's intervention motivated before it becomes essential?",
+    "failure_hypothesis": "A convenient helper enters solely to repair the plot.",
+    "check_or_fix": "Establish the helper's motive or prior relationship.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7244,
+    "passes": []
+  },
+  {
+    "id": "AVQ-018-011",
+    "domain_id": "D018",
+    "area": "story setup payoff",
+    "question": "Do repeated failed attempts change the character's understanding or the audience's expectation?",
+    "failure_hypothesis": "Escalation is padded with interchangeable failures.",
+    "check_or_fix": "Give each attempt a distinct lesson, cost, or strategy change.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7246,
+    "passes": [
+      "longer_cardboard_32"
+    ]
+  },
+  {
+    "id": "AVQ-018-012",
+    "domain_id": "D018",
+    "area": "story setup payoff",
+    "question": "Does the middle contain a meaningful change in circumstances rather than a longer version of the opening problem?",
+    "failure_hypothesis": "The story stalls between premise and ending.",
+    "check_or_fix": "Introduce a consequence that forces a different approach.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7248,
+    "passes": [
+      "longer_cardboard_32"
+    ]
+  },
+  {
+    "id": "AVQ-018-013",
+    "domain_id": "D018",
+    "area": "story setup payoff",
+    "question": "Is a comic reversal grounded in a recognizable expectation that the audience actually forms?",
+    "failure_hypothesis": "The punchline overturns an assumption viewers never made.",
+    "check_or_fix": "Test predictions immediately before the reversal and adjust setup.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7250,
+    "passes": []
+  },
+  {
+    "id": "AVQ-018-014",
+    "domain_id": "D018",
+    "area": "story setup payoff",
+    "question": "Can the central relationship be inferred from behavior instead of unexplained symbolic labels?",
+    "failure_hypothesis": "Relationship stakes depend on exposition the film never supplies.",
+    "check_or_fix": "Add an interaction that demonstrates the relevant bond or tension.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7252,
+    "passes": []
+  },
+  {
+    "id": "AVQ-018-015",
+    "domain_id": "D018",
+    "area": "story setup payoff",
+    "question": "Does a flashback explain the present action without introducing a second unresolved story?",
+    "failure_hypothesis": "Backstory competes with the current goal and creates stray promises.",
+    "check_or_fix": "Limit the flashback to the fact needed for the present decision.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7254,
+    "passes": []
+  },
+  {
+    "id": "AVQ-018-016",
+    "domain_id": "D018",
+    "area": "story setup payoff",
+    "question": "Is the audience supposed to know more than the character, and is that knowledge difference consistently maintained?",
+    "failure_hypothesis": "Inconsistent dramatic irony makes reactions look irrational.",
+    "check_or_fix": "Track audience and character knowledge at every reveal.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7256,
+    "passes": []
+  },
+  {
+    "id": "AVQ-018-017",
+    "domain_id": "D018",
+    "area": "story setup payoff",
+    "question": "Does the ending show the consequence of the solution, rather than cutting immediately after the successful action?",
+    "failure_hypothesis": "Resolution is asserted without a visible changed state.",
+    "check_or_fix": "Add a concise consequence or reaction that confirms the result.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7258,
+    "passes": [
+      "longer_cardboard_32"
+    ]
+  },
+  {
+    "id": "AVQ-018-018",
+    "domain_id": "D018",
+    "area": "story setup payoff",
+    "question": "Is an ambiguous ending intentionally bounded to a small set of interpretations?",
+    "failure_hypothesis": "Missing information is mistaken for purposeful ambiguity.",
+    "check_or_fix": "State the intended open question and test plausible readings.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7260,
+    "passes": []
+  },
+  {
+    "id": "AVQ-018-019",
+    "domain_id": "D018",
+    "area": "story setup payoff",
+    "question": "Does an emotional reversal have a visible trigger that belongs to this character?",
+    "failure_hypothesis": "Music or narration substitutes for motivated emotional change.",
+    "check_or_fix": "Show the triggering observation or decision in performance.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7262,
+    "passes": []
+  },
+  {
+    "id": "AVQ-018-020",
+    "domain_id": "D018",
+    "area": "story setup payoff",
+    "question": "Are objects important to the payoff introduced with enough identity to be recognized later?",
+    "failure_hypothesis": "The audience sees a prop but cannot connect its later appearance.",
+    "check_or_fix": "Preserve a distinctive feature and stage its first appearance clearly.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "storyboard",
+      "animatic",
+      "production",
+      "edit"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7264,
+    "passes": []
+  },
+  {
+    "id": "AVQ-018-021",
+    "domain_id": "D018",
+    "area": "story setup payoff",
+    "question": "Does the resolution honor the world's established rules about ability, scale, or consequence?",
+    "failure_hypothesis": "The film changes its own rules to obtain a convenient ending.",
+    "check_or_fix": "Compare the payoff against a short explicit world-rule sheet.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7266,
+    "passes": []
+  },
+  {
+    "id": "AVQ-018-022",
+    "domain_id": "D018",
+    "area": "story setup payoff",
+    "question": "Does a supposed sacrifice actually remove something the film has shown to matter?",
+    "failure_hypothesis": "The story asks for emotion without demonstrating a real cost.",
+    "check_or_fix": "Establish the value beforehand and show the loss afterward.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7268,
+    "passes": []
+  },
+  {
+    "id": "AVQ-018-023",
+    "domain_id": "D018",
+    "area": "story setup payoff",
+    "question": "Can a short explanatory story be summarized as a causal chain rather than a list of related facts?",
+    "failure_hypothesis": "Topic coherence is mistaken for an explanatory argument.",
+    "check_or_fix": "Connect each fact to the mechanism the next beat develops.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7270,
+    "passes": []
+  },
+  {
+    "id": "AVQ-018-024",
+    "domain_id": "D018",
+    "area": "story setup payoff",
+    "question": "Does the opening question remain answerable from the evidence actually shown?",
+    "failure_hypothesis": "The story drifts into a broader claim than its demonstration supports.",
+    "check_or_fix": "Narrow the question or supply the missing evidence.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "edit"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7272,
+    "passes": []
+  },
+  {
+    "id": "AVQ-018-025",
+    "domain_id": "D018",
+    "area": "story setup payoff",
+    "question": "Is the demonstration's result revealed only after the viewer has seen the relevant starting conditions?",
+    "failure_hypothesis": "Outcome-first editing makes a causal lesson impossible to evaluate.",
+    "check_or_fix": "Show the necessary baseline before interpreting the result.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7274,
+    "passes": []
+  },
+  {
+    "id": "AVQ-018-026",
+    "domain_id": "D018",
+    "area": "story setup payoff",
+    "question": "Does a moral or takeaway emerge from the shown consequences rather than contradicting them?",
+    "failure_hypothesis": "The closing lesson is appended despite contrary story evidence.",
+    "check_or_fix": "Rewrite the takeaway to match the events or revise those events.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "educational",
+      "fiction"
+    ],
+    "source_line": 7276,
+    "passes": []
+  },
+  {
+    "id": "AVQ-018-027",
+    "domain_id": "D018",
+    "area": "story setup payoff",
+    "question": "Do two parallel storylines intersect for a reason the audience can explain?",
+    "failure_hypothesis": "Alternation suggests a relationship that never becomes meaningful.",
+    "check_or_fix": "Establish the shared cause, contrast, or eventual interaction.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7278,
+    "passes": []
+  },
+  {
+    "id": "AVQ-018-028",
+    "domain_id": "D018",
+    "area": "story setup payoff",
+    "question": "Is a character's misunderstanding plausible from what they actually saw and heard?",
+    "failure_hypothesis": "The plot relies on ignorance despite available information.",
+    "check_or_fix": "Audit the character's sensory access and adjust the mistaken inference.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "animatic"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7280,
+    "passes": []
+  },
+  {
+    "id": "AVQ-018-029",
+    "domain_id": "D018",
+    "area": "story setup payoff",
+    "question": "Does a callback change the meaning of the original beat rather than merely repeat it?",
+    "failure_hypothesis": "Familiarity is used as a substitute for a payoff.",
+    "check_or_fix": "Give the repeated action a new consequence or interpretation.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7282,
+    "passes": []
+  },
+  {
+    "id": "AVQ-018-030",
+    "domain_id": "D018",
+    "area": "story setup payoff",
+    "question": "Is a cliffhanger appropriate to the promised viewing experience, or does it withhold the only useful answer?",
+    "failure_hypothesis": "An incomplete ending breaks the short film's central promise.",
+    "check_or_fix": "Resolve the promised unit before opening a new question.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7284,
+    "passes": []
+  },
+  {
+    "id": "AVQ-018-031",
+    "domain_id": "D018",
+    "area": "story setup payoff",
+    "question": "If the final caption were removed, would the key emotional or causal resolution still be visible?",
+    "failure_hypothesis": "Explanatory text conceals an unstaged ending.",
+    "check_or_fix": "Test a caption-free cut and strengthen the decisive visual action.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "storyboard",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "educational",
+      "fiction"
+    ],
+    "source_line": 7286,
+    "passes": []
+  },
+  {
+    "id": "AVQ-018-032",
+    "domain_id": "D018",
+    "area": "story setup payoff",
+    "question": "Could the premise survive a change of palette and rendering style because its dramatic mechanism is specific?",
+    "failure_hypothesis": "Cosmetic variation is being counted as a genuinely new story.",
+    "check_or_fix": "Compare goals, obstacles, choices, and outcomes across related pieces.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "script"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7288,
+    "passes": []
+  }
+]

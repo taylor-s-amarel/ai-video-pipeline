@@ -1,0 +1,56 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "gif_palette_export",
+  "title": "GIF palette export",
+  "kind": "code-module",
+  "subkind": "render-recipe",
+  "version": "1.0.0",
+  "summary": "One-pass ffmpeg palettegen/paletteuse GIF export with validated fps, width, colour count, dither and diff-based palette statistics for crisp previews.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "render",
+    "publish"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "gif_palette_export.py",
+  "tags": [
+    "video",
+    "gif",
+    "ffmpeg",
+    "preview",
+    "palette"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "ffmpeg",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

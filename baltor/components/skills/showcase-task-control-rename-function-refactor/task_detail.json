@@ -1,0 +1,98 @@
+{
+  "spec": "baltor.showcase-task-detail/v1",
+  "task_id": "showcase_task_control_rename_function_refactor",
+  "slug": "control-rename-function-refactor",
+  "title": "Rename a function across a small package",
+  "domain": "coding",
+  "category": "control-coding",
+  "negative_control": true,
+  "summary": "Negative control. Rename calc_total to compute_order_total everywhere in a five-file package and keep tests passing.",
+  "tests": "Mechanical refactoring across files.",
+  "prompt": "Rename the function calc_total to compute_order_total everywhere in this workspace (definition, imports, calls, exports and tests). Behaviour must not change.",
+  "requirements": [
+    "The name calc_total no longer appears in any .py file.",
+    "shop.compute_order_total, Cart.total and invoice_line return the same values as before for any items and tax rate.",
+    "python3 -m pytest -q tests passes."
+  ],
+  "workspace_rules": [],
+  "deliverables": [
+    {
+      "path": "shop/",
+      "description": "refactored package"
+    },
+    {
+      "path": "tests/",
+      "description": "updated tests"
+    }
+  ],
+  "workspace_files": [
+    "shop/",
+    "tests/test_shop.py"
+  ],
+  "private_files": [
+    "expected.json"
+  ],
+  "budget": {
+    "preset": "xs",
+    "wall_s": 600,
+    "tool_calls": 30,
+    "tokens": 120000
+  },
+  "params": {
+    "kind": "rename",
+    "old_name": "calc_total",
+    "new_name": "compute_order_total"
+  },
+  "metrics": [
+    {
+      "name": "correct_fraction",
+      "description": "Share of answers, lines or rows that exactly match the expected output",
+      "direction": "maximize",
+      "weight": 1.0,
+      "scale": [
+        0.0,
+        1.0
+      ],
+      "gate": true,
+      "threshold": 1.0
+    }
+  ],
+  "success": {
+    "rule": "pass when the evaluation ran without errors, the package is unmodified and correct_fraction >= 1",
+    "min_score": 0.0,
+    "required_checks": []
+  },
+  "hypothesis": {
+    "expected_effect": "none",
+    "rationale": "A capable model solves this without outside help, and no catalogue component targets it. Any treatment advantage beyond noise points to a placebo or prompt effect; extra treatment-arm tokens or tool calls measure the overhead of searching when nothing useful exists."
+  },
+  "pairwise": null,
+  "expected_capabilities": [],
+  "cautions": [],
+  "external_tools": [],
+  "evaluator_timeout_s": 300,
+  "runs_agent_code": true,
+  "deterministic": true,
+  "catalogue_exclusions": {
+    "identity_prefixes": [
+      "showcase_task_",
+      "showcase_preregistration_ledger"
+    ],
+    "tags": [
+      "showcase-task"
+    ],
+    "reason": "Task packages contain evaluators, reference outputs and fixture generators; an agent that reads them is not solving the task.",
+    "rule": "The catalogue served to the baltor arm must omit these items; a run whose catalogue log shows one of them is contaminated and counts as a failure for the baltor arm."
+  },
+  "analysis": {
+    "primary": "task_pass (1 when evaluate.py reports passed): baltor minus baseline pass rate with a 95% percentile bootstrap interval over paired trials (10,000 resamples), plus the win rate",
+    "secondary": [
+      "composite_score and each task metric: difference with a 95% bootstrap interval and Cliff's delta",
+      "cost per run and per passing run: tokens, wall time, tool calls, catalogue calls, USD",
+      "blind pairwise judge scores where the task has them (secondary evidence only)"
+    ],
+    "missing_or_failed_runs": "Crashed, timed-out, over-budget and contaminated runs count as failures for their arm; nothing is dropped or selectively re-run. A whole trial may be re-run only for an infrastructure fault, which is reported.",
+    "pooling": "Negative controls are reported separately. A pooled effect weights tasks equally and is shown next to every per-task result."
+  },
+  "fixture_seeds": "The runner passes --seed. Both arms of a trial always use the same seed. To vary fixtures across trials use showcase_eval.fixture_seed(spec_sha256, trial)."
+}

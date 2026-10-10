@@ -1,0 +1,732 @@
+[
+  {
+    "id": "AVQ-007-001",
+    "domain_id": "D007",
+    "area": "silhouette and anatomy",
+    "question": "Can the key pose be recognized as a filled black silhouette?",
+    "failure_hypothesis": "Overlapping limbs conceal the action.",
+    "check_or_fix": "Review silhouette-only key poses.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6500,
+    "passes": [
+      "default_32",
+      "visual_depth_contact",
+      "performance_motion",
+      "longer_cardboard_32"
+    ]
+  },
+  {
+    "id": "AVQ-007-002",
+    "domain_id": "D007",
+    "area": "silhouette and anatomy",
+    "question": "Are left and right limbs distinguishable during crossings?",
+    "failure_hypothesis": "Limbs swap identity visually.",
+    "check_or_fix": "Use depth, spacing or differentiated contour.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6502,
+    "passes": [
+      "visual_depth_contact",
+      "performance_motion"
+    ]
+  },
+  {
+    "id": "AVQ-007-003",
+    "domain_id": "D007",
+    "area": "silhouette and anatomy",
+    "question": "Does the joint bend in the intended anatomical direction?",
+    "failure_hypothesis": "Rig orientation produces inverted elbows or knees.",
+    "check_or_fix": "Inspect bend extrema in the final view.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6504,
+    "passes": [
+      "visual_depth_contact",
+      "performance_motion"
+    ]
+  },
+  {
+    "id": "AVQ-007-004",
+    "domain_id": "D007",
+    "area": "silhouette and anatomy",
+    "question": "Does the head remain attached during squash or rotation?",
+    "failure_hypothesis": "Deformation opens an unintended neck gap.",
+    "check_or_fix": "Check head-neck overlap through extreme poses.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6506,
+    "passes": [
+      "visual_depth_contact",
+      "performance_motion"
+    ]
+  },
+  {
+    "id": "AVQ-007-005",
+    "domain_id": "D007",
+    "area": "silhouette and anatomy",
+    "question": "Are limb lengths consistent unless deliberate deformation is clear?",
+    "failure_hypothesis": "Uncontrolled stretching changes body proportions.",
+    "check_or_fix": "Compare segment lengths across key poses.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6508,
+    "passes": [
+      "visual_depth_contact",
+      "performance_motion"
+    ]
+  },
+  {
+    "id": "AVQ-007-006",
+    "domain_id": "D007",
+    "area": "silhouette and anatomy",
+    "question": "Do feet have enough shape to communicate their orientation?",
+    "failure_hypothesis": "Featureless feet make planted direction ambiguous.",
+    "check_or_fix": "Add a readable toe or sole cue.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6510,
+    "passes": [
+      "visual_depth_contact",
+      "performance_motion"
+    ]
+  },
+  {
+    "id": "AVQ-007-007",
+    "domain_id": "D007",
+    "area": "silhouette and anatomy",
+    "question": "Are hands readable at the delivered size?",
+    "failure_hypothesis": "Finger detail collapses into noise.",
+    "check_or_fix": "Simplify hand shapes and enlarge important gestures.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6512,
+    "passes": [
+      "visual_depth_contact",
+      "performance_motion"
+    ]
+  },
+  {
+    "id": "AVQ-007-008",
+    "domain_id": "D007",
+    "area": "silhouette and anatomy",
+    "question": "Does a character's tail emerge from a coherent attachment point?",
+    "failure_hypothesis": "Tail floats or changes anatomical origin.",
+    "check_or_fix": "Track tail root through turns.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6514,
+    "passes": [
+      "visual_depth_contact",
+      "performance_motion"
+    ]
+  },
+  {
+    "id": "AVQ-007-009",
+    "domain_id": "D007",
+    "area": "silhouette and anatomy",
+    "question": "Are ears visibly attached throughout expressive motion?",
+    "failure_hypothesis": "Ear pivots detach from the skull.",
+    "check_or_fix": "Inspect bases at widest rotations.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6516,
+    "passes": []
+  },
+  {
+    "id": "AVQ-007-010",
+    "domain_id": "D007",
+    "area": "silhouette and anatomy",
+    "question": "Does the mouth remain on the face during perspective changes?",
+    "failure_hypothesis": "Facial features slide independently of head volume.",
+    "check_or_fix": "Use consistent face-space projection.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6518,
+    "passes": []
+  },
+  {
+    "id": "AVQ-007-011",
+    "domain_id": "D007",
+    "area": "silhouette and anatomy",
+    "question": "Are eyes aligned to the same implied head orientation?",
+    "failure_hypothesis": "Eye placement contradicts skull rotation.",
+    "check_or_fix": "Compare eye line and face contour.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6520,
+    "passes": []
+  },
+  {
+    "id": "AVQ-007-012",
+    "domain_id": "D007",
+    "area": "silhouette and anatomy",
+    "question": "Does the silhouette distinguish the character from nearby props?",
+    "failure_hypothesis": "Similar shapes obscure identity.",
+    "check_or_fix": "Change contour rhythm or local spacing.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6522,
+    "passes": []
+  },
+  {
+    "id": "AVQ-007-013",
+    "domain_id": "D007",
+    "area": "silhouette and anatomy",
+    "question": "Are thin limbs lost after encoding?",
+    "failure_hypothesis": "Line width falls below stable display resolution.",
+    "check_or_fix": "Inspect encoded limbs at intended screen size.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6524,
+    "passes": []
+  },
+  {
+    "id": "AVQ-007-014",
+    "domain_id": "D007",
+    "area": "silhouette and anatomy",
+    "question": "Does a bent torso retain believable structural continuity?",
+    "failure_hypothesis": "Body folds at an arbitrary point.",
+    "check_or_fix": "Place curvature around the intended spine or hinge.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6526,
+    "passes": []
+  },
+  {
+    "id": "AVQ-007-015",
+    "domain_id": "D007",
+    "area": "silhouette and anatomy",
+    "question": "Are contact poses clear without internal line detail?",
+    "failure_hypothesis": "Interior strokes rescue an unreadable outline.",
+    "check_or_fix": "Open the silhouette around the contact.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6528,
+    "passes": []
+  },
+  {
+    "id": "AVQ-007-016",
+    "domain_id": "D007",
+    "area": "silhouette and anatomy",
+    "question": "Does the character preserve recognizable proportions in perspective?",
+    "failure_hypothesis": "Foreshortening is applied inconsistently.",
+    "check_or_fix": "Compare near and far body segments coherently.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6530,
+    "passes": []
+  },
+  {
+    "id": "AVQ-007-017",
+    "domain_id": "D007",
+    "area": "silhouette and anatomy",
+    "question": "Do shoulder attachments permit the demonstrated arm range?",
+    "failure_hypothesis": "Arms rotate through the torso.",
+    "check_or_fix": "Review shoulder clearance during reach arcs.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6532,
+    "passes": []
+  },
+  {
+    "id": "AVQ-007-018",
+    "domain_id": "D007",
+    "area": "silhouette and anatomy",
+    "question": "Are knees visually separated from the ground during crouches?",
+    "failure_hypothesis": "Bent legs merge into an indistinct base.",
+    "check_or_fix": "Adjust pose spacing and camera elevation.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6534,
+    "passes": []
+  },
+  {
+    "id": "AVQ-007-019",
+    "domain_id": "D007",
+    "area": "silhouette and anatomy",
+    "question": "Does clothing preserve rather than obscure essential joint action?",
+    "failure_hypothesis": "Costume hides the mechanism of the gesture.",
+    "check_or_fix": "Simplify folds around active joints.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6536,
+    "passes": []
+  },
+  {
+    "id": "AVQ-007-020",
+    "domain_id": "D007",
+    "area": "silhouette and anatomy",
+    "question": "Are extra apparent limbs created by motion trails?",
+    "failure_hypothesis": "Effects make one actor look anatomically duplicated.",
+    "check_or_fix": "Reduce trail opacity or separate trail styling.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6538,
+    "passes": []
+  },
+  {
+    "id": "AVQ-007-021",
+    "domain_id": "D007",
+    "area": "silhouette and anatomy",
+    "question": "Does a side-view animal show a coherent leg pairing?",
+    "failure_hypothesis": "Gait reads as an impossible limb count.",
+    "check_or_fix": "Track near and far leg silhouettes.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6540,
+    "passes": []
+  },
+  {
+    "id": "AVQ-007-022",
+    "domain_id": "D007",
+    "area": "silhouette and anatomy",
+    "question": "Are facial proportions stable across expressions?",
+    "failure_hypothesis": "Expression deformation accidentally changes identity.",
+    "check_or_fix": "Compare neutral and extreme landmark relationships.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6542,
+    "passes": []
+  },
+  {
+    "id": "AVQ-007-023",
+    "domain_id": "D007",
+    "area": "silhouette and anatomy",
+    "question": "Does the pose communicate balance from its silhouette alone?",
+    "failure_hypothesis": "Center of mass lies outside support without explanation.",
+    "check_or_fix": "Align body mass with the support base.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6544,
+    "passes": []
+  },
+  {
+    "id": "AVQ-007-024",
+    "domain_id": "D007",
+    "area": "silhouette and anatomy",
+    "question": "Are extreme poses intentional rather than single-frame rig failures?",
+    "failure_hypothesis": "Transient deformation looks broken.",
+    "check_or_fix": "Review frames around acceleration peaks.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6546,
+    "passes": []
+  },
+  {
+    "id": "AVQ-007-025",
+    "domain_id": "D007",
+    "area": "silhouette and anatomy",
+    "question": "Does the character retain volume during squash and stretch?",
+    "failure_hypothesis": "Deformation arbitrarily gains or loses mass.",
+    "check_or_fix": "Compare approximate body area or volume.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6548,
+    "passes": []
+  },
+  {
+    "id": "AVQ-007-026",
+    "domain_id": "D007",
+    "area": "silhouette and anatomy",
+    "question": "Are line intersections creating unintended facial expressions?",
+    "failure_hypothesis": "Contours form accidental brows or mouths.",
+    "check_or_fix": "Inspect small facial regions at delivery size.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6550,
+    "passes": []
+  },
+  {
+    "id": "AVQ-007-027",
+    "domain_id": "D007",
+    "area": "silhouette and anatomy",
+    "question": "Does an occluded limb reappear on the correct side?",
+    "failure_hypothesis": "Depth changes imply anatomical swapping.",
+    "check_or_fix": "Track limb identity through overlap intervals.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6552,
+    "passes": []
+  },
+  {
+    "id": "AVQ-007-028",
+    "domain_id": "D007",
+    "area": "silhouette and anatomy",
+    "question": "Are articulated cutout seams hidden in normal poses?",
+    "failure_hypothesis": "Joint gaps reveal construction unintentionally.",
+    "check_or_fix": "Increase overlap or redesign pivot placement.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6554,
+    "passes": []
+  },
+  {
+    "id": "AVQ-007-029",
+    "domain_id": "D007",
+    "area": "silhouette and anatomy",
+    "question": "Can a viewer distinguish a limp from a rigging error?",
+    "failure_hypothesis": "Asymmetry has no narrative or physical context.",
+    "check_or_fix": "Establish intentional gait characteristics consistently.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6556,
+    "passes": []
+  },
+  {
+    "id": "AVQ-007-030",
+    "domain_id": "D007",
+    "area": "silhouette and anatomy",
+    "question": "Are resting hands posed rather than left in a default spread?",
+    "failure_hypothesis": "Default rig shape undermines natural acting.",
+    "check_or_fix": "Pose inactive hands for the character's state.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6558,
+    "passes": []
+  },
+  {
+    "id": "AVQ-007-031",
+    "domain_id": "D007",
+    "area": "silhouette and anatomy",
+    "question": "Does the hero's outline remain distinct in the crowd version?",
+    "failure_hypothesis": "Small-scale duplicates lose signature features.",
+    "check_or_fix": "Create a simplified distance silhouette.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6560,
+    "passes": []
+  },
+  {
+    "id": "AVQ-007-032",
+    "domain_id": "D007",
+    "area": "silhouette and anatomy",
+    "question": "Would reducing internal detail strengthen the acting silhouette?",
+    "failure_hypothesis": "Decorative strokes interfere with pose reading.",
+    "check_or_fix": "Compare a simplified contour-first variant.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6562,
+    "passes": []
+  }
+]

@@ -1,0 +1,12 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Example//Events//EN
+BEGIN:VEVENT
+UID:evt-1@example.org
+DTSTART:20261105T170000Z
+SUMMARY:Example DevDay: agents and
+  tools
+URL:https://example.org/devday
+DESCRIPTION:Keynote and new API announcements.
+END:VEVENT
+END:VCALENDAR

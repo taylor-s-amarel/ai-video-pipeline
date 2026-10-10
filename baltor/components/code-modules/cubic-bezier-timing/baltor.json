@@ -1,0 +1,50 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "cubic_bezier_timing",
+  "title": "CSS cubic-bezier timing functions",
+  "kind": "code-module",
+  "subkind": "easing",
+  "version": "1.0.0",
+  "summary": "Evaluates cubic-bezier(x1, y1, x2, y2) timing curves exactly like CSS (Newton + bisection), with the ease/ease-in/ease-out/ease-in-out presets and a CSS parser.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "cubic_bezier_timing.py",
+  "tags": [
+    "video",
+    "motion",
+    "easing",
+    "css",
+    "cubic-bezier"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

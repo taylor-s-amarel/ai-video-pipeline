@@ -1,0 +1,6 @@
+title: Shot list planner
+summary: Turns scripted beats into a timed shot list, splitting long beats into quick cuts, alternating camera moves, punching in on emphasised beats and reporting cuts per minute.
+subkind: story-template
+domain: video
+tags: [video, shot-list, pacing, quick-cuts, planning, editing]
+step_kinds: [plan]

@@ -1,0 +1,172 @@
+{
+  "id": "media-tools-weekly",
+  "title": "Video, TTS and audio tools: weekly",
+  "cadence": "weekly",
+  "window": "7d",
+  "sources": [
+    {
+      "collection": "community-releases-video-audio",
+      "weight": 2.0
+    },
+    {
+      "collection": "community-releases-agents-ai",
+      "weight": 1.5,
+      "item_ids": [
+        "gh-ggml-org-whisper-cpp",
+        "gh-systran-faster-whisper"
+      ]
+    },
+    {
+      "collection": "community-reddit-video-audio-creators",
+      "weight": 1.0,
+      "item_ids": [
+        "r-ffmpeg",
+        "r-videoediting",
+        "r-editors",
+        "r-davinciresolve",
+        "r-shotcut",
+        "r-obs",
+        "r-audioengineering",
+        "r-musicproduction",
+        "r-sounddesign",
+        "r-gameaudio",
+        "r-podcasting",
+        "r-recordthis"
+      ]
+    },
+    {
+      "collection": "community-aggregators-forums",
+      "weight": 1.0,
+      "item_ids": [
+        "arxiv-cs-sd",
+        "arxiv-eess-as",
+        "arxiv-cs-mm"
+      ]
+    }
+  ],
+  "keywords": [
+    {
+      "term": "ffmpeg",
+      "weight": 2.5
+    },
+    {
+      "term": "tts",
+      "weight": 2.5
+    },
+    {
+      "term": "text-to-speech",
+      "weight": 2.5
+    },
+    {
+      "term": "kokoro",
+      "weight": 2.5
+    },
+    {
+      "term": "piper",
+      "weight": 2
+    },
+    {
+      "term": "voice cloning",
+      "weight": 2
+    },
+    {
+      "term": "whisper",
+      "weight": 2
+    },
+    {
+      "term": "captions",
+      "weight": 2
+    },
+    {
+      "term": "subtitles",
+      "weight": 1.5
+    },
+    {
+      "term": "remotion",
+      "weight": 1.5
+    },
+    {
+      "term": "manim",
+      "weight": 1.5
+    },
+    {
+      "term": "motion canvas",
+      "weight": 1.5
+    },
+    {
+      "term": "moviepy",
+      "weight": 1.5
+    },
+    {
+      "term": "loudness",
+      "weight": 1.5
+    },
+    {
+      "term": "lufs",
+      "weight": 1.5
+    },
+    {
+      "term": "music generation",
+      "weight": 1.5
+    },
+    {
+      "term": "royalty-free",
+      "weight": 1.5
+    },
+    {
+      "term": "speech synthesis",
+      "weight": 2
+    }
+  ],
+  "exclude_terms": [
+    "crack",
+    "keygen"
+  ],
+  "groups": [
+    {
+      "title": "Releases",
+      "match": {
+        "feed_url_contains": [
+          "github.com"
+        ]
+      }
+    },
+    {
+      "title": "Research",
+      "match": {
+        "feed_url_contains": [
+          "rss.arxiv.org"
+        ]
+      }
+    },
+    {
+      "title": "Practice",
+      "match": {
+        "feed_url_contains": [
+          "reddit.com"
+        ]
+      }
+    }
+  ],
+  "max_items_per_source": 3,
+  "max_items": 40,
+  "recency_half_life_days": 5,
+  "trend_min_sources": 2,
+  "cautions": [
+    "TTS voices and model checkpoints carry licences separate from the code; clone only voices with written consent."
+  ],
+  "polite": {
+    "user_agent": "baltor-feed-reader/1.0 (+https://github.com/taylor-s-amarel/ai-video-pipeline)",
+    "min_interval_s": 5,
+    "max_polls_per_day": 24,
+    "respect_retry_after": true,
+    "conditional_get": true,
+    "host_overrides": {
+      "www.reddit.com": 60
+    }
+  },
+  "outputs": {
+    "markdown": "digests/media-tools-weekly/{date}.md",
+    "json": "digests/media-tools-weekly/{date}.json"
+  }
+}

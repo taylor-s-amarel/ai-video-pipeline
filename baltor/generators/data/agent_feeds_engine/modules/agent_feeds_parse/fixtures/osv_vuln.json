@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.6.0",
+  "id": "GHSA-aaaa-bbbb-cccc",
+  "modified": "2026-10-09T12:00:00Z",
+  "published": "2026-10-08T18:00:00Z",
+  "aliases": ["CVE-2099-0100", "PYSEC-2099-1"],
+  "summary": "examplelib leaks Proxy-Authorization headers on redirect",
+  "details": "examplelib from 2.3.0 before 2.31.0 forwards the Proxy-Authorization header to the redirect target.",
+  "severity": [{"type": "CVSS_V3", "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N"}],
+  "affected": [
+    {"package": {"ecosystem": "PyPI", "name": "examplelib", "purl": "pkg:pypi/examplelib"},
+     "ranges": [{"type": "ECOSYSTEM", "events": [{"introduced": "2.3.0"}, {"fixed": "2.31.0"}]}],
+     "versions": ["2.3.0", "2.30.0"]}
+  ],
+  "references": [{"type": "ADVISORY", "url": "https://github.com/advisories/GHSA-aaaa-bbbb-cccc"}, {"type": "FIX", "url": "https://github.com/example/examplelib/commit/abc"}],
+  "database_specific": {"severity": "MODERATE", "cwe_ids": ["CWE-200"], "github_reviewed": true}
+}

@@ -1,0 +1,515 @@
+{
+  "spec": "baltor.video-re-questions/v1",
+  "lens": "camera_motion",
+  "title": "Camera and virtual camera motion",
+  "purpose": "Lifts real and virtual camera moves (Ken Burns zooms, pans, punch-ins, parallax, shake) with speeds, easing and alternation rules.",
+  "boundary": "The swarm lifts technique and structure only. Never store, transcribe or reuse the source's footage, frames, music, voice or script text. Keyframes and spectrograms are temporary analysis files in a scratch directory and are never copied into the format IR or a variant. On-screen text may be quoted only as a locating note in evidence.note, at most 6 words, and narration is never quoted. Patterns replace content words with slots, e.g. 'FACT {n}' or '{number} {unit} {noun}'. Analysing a public video for technique is fine; republishing its content is not.",
+  "answer_contract": "video_re_analyst_answer",
+  "ir_contract": "video_re_format_ir",
+  "ir_focus": [
+    "/motion/camera_moves",
+    "/motion/easing",
+    "/visual/layers",
+    "/generation_rules",
+    "/parameters"
+  ],
+  "evidence": [
+    "shots[].camera.pan_x, pan_y, zoom (video_re_camera_motion)",
+    "shots[].motion_energy (video_re_motion_energy)"
+  ],
+  "inspect": "F1 at the first and last frame of a shot to measure scale change; F8 for punch-ins and shake; F5 on a corner region.",
+  "pitfalls": [
+    "Reading subject motion inside footage as camera motion",
+    "Estimating zoom from text that animates separately",
+    "Stating a speed without the shot duration it was measured over"
+  ],
+  "parameter_hints": [
+    "zoom_per_s (range)",
+    "zoom_alternate (boolean)",
+    "punch_in_scale",
+    "parallax_ratio",
+    "shake_px"
+  ],
+  "optional_detectors": [
+    "video_re_detect_ken_burns",
+    "video_re_detect_zoom_punch_in",
+    "video_re_detect_whip_pan",
+    "video_re_detect_camera_shake",
+    "video_re_detect_motion_blur",
+    "video_re_detect_parallax_depth_layers",
+    "video_re_detect_easing_profile",
+    "video_re_detect_speed_ramp_freeze"
+  ],
+  "methods": {
+    "measured": "A measurement tool produced the value (an evidence.json field or an ffmpeg/ffprobe filter output). Name the tool and the field.",
+    "observed": "You looked at extracted frames, crops, scopes, spectrograms or waveforms and saw it. Give the timestamps you looked at.",
+    "inferred": "Reasoned from measured or observed facts, e.g. 'synthetic voice' from flat pitch on a spectrogram. State the reasoning in the note.",
+    "assumed": "No direct evidence; a default or convention. Use only for gaps the format needs filled, and keep confidence at 0.3 or lower."
+  },
+  "pointer_conventions": [
+    "ir_path is a JSON Pointer (RFC 6901) into the Video format IR (contract schema video_re_format_ir).",
+    "A final '/-' means 'append this answer to the array' (the RFC 6901 end-of-array token), e.g. /motion/transitions/- or /generation_rules/-.",
+    "A '*' segment means 'each array element the answer is about'; the answer must say which elements (for example beats with role 'item'). The lifter resolves '*' to concrete indexes.",
+    "Paths under free-form objects (typography.title, typography.captions, typography.labels, audio.narration, audio.music, render_binding.mapping) use the snake_case key named in the question."
+  ],
+  "answer_types": {
+    "number": "{\"value\": n, \"unit\": \"...\"} optionally with \"min\" and \"max\"; becomes an IR observed_number",
+    "ratio": "{\"value\": r} with 0 <= r <= 1",
+    "ms": "{\"value\": n, \"unit\": \"ms\"} optionally with \"min\"/\"max\"; signed when an offset (negative = earlier)",
+    "range": "{\"value\": typical, \"min\": a, \"max\": b, \"unit\": \"...\"}",
+    "boolean": "true or false",
+    "enum": "exactly one of the question's choices (a string)",
+    "timestamps": "array of seconds from the start of the source",
+    "parameter": "one IR parameter object (name, type, description, default, min/max or choices, derived_from)",
+    "rule": "one procedural generation rule string, at most 400 characters, written in terms of parameters",
+    "object": "a JSON object with the keys the question's how_to_answer names"
+  },
+  "recipes": {
+    "F1": "Single frame: ffmpeg -v error -ss T -i \"$SRC\" -frames:v 1 -q:v 2 \"$WORK/f_T.jpg\"",
+    "F5": "Per-frame motion in a region (mean absolute frame difference, 0-255): ffmpeg -v error -i \"$SRC\" -vf \"crop=iw:ih*0.15:0:0,tblend=all_mode=difference,signalstats,metadata=mode=print:key=lavfi.signalstats.YAVG:file=$WORK/diff.txt\" -an -f null -  (drop the crop for the full frame)",
+    "F8": "Every frame in a short window (animation timing; frame k is at T + k/fps): ffmpeg -v error -ss T -t 0.5 -i \"$SRC\" -vf \"scale=540:-2\" \"$WORK/step_T_%03d.png\"",
+    "F10": "Similarity of two frames (SSIM, 1.0 = identical): ffmpeg -i a.jpg -i b.jpg -lavfi \"[0:v]scale=320:-2[a];[1:v]scale=320:-2[b];[a][b]ssim\" -f null - 2>&1 | grep -o \"All:[0-9.]*\"",
+    "A7": "Stream facts: ffprobe -v error -show_streams -show_format -of json \"$SRC\""
+  },
+  "questions": [
+    {
+      "id": "camera_motion-001",
+      "question": "What share of shots have camera or virtual-camera motion (zoom, pan, tilt, rotation)?",
+      "why_it_matters": "Sets how often the renderer applies a move.",
+      "how_to_answer": "From evidence.shots[].camera (video_re_camera_motion: zoom is the natural-log scale change per second, pan_x/pan_y are frame widths/heights per second), count shots with |zoom| > 0.01 or |pan_x| or |pan_y| > 0.01; confirm on F1 at shot start and end for 5 shots.",
+      "evidence_required": [
+        "evidence.shots[].camera",
+        "frames: F1 at shot start and end"
+      ],
+      "ir_path": "/motion/camera_moves/-",
+      "answer_type": "ratio",
+      "challenge": "Check the camera estimator on a shot where the subject moves but the frame does not; subject motion must not count."
+    },
+    {
+      "id": "camera_motion-002",
+      "question": "Which move types occur and how often (push-in, pull-out, pan left, pan right, tilt up, tilt down, rotate, parallax, shake, static)?",
+      "why_it_matters": "Lists moves for the motion vocabulary with weights.",
+      "how_to_answer": "Classify each shot from camera.zoom sign and pan direction; verify ambiguous ones with F1 first/last frame.",
+      "evidence_required": [
+        "evidence.shots[].camera"
+      ],
+      "ir_path": "/motion/camera_moves/-",
+      "answer_type": "object",
+      "challenge": "A combined zoom and pan must be classified once with both components, not counted twice."
+    },
+    {
+      "id": "camera_motion-003",
+      "question": "How fast are zooms (scale change per second, median and range)?",
+      "why_it_matters": "Becomes the zoom_per_s parameter.",
+      "how_to_answer": "For zoom shots, scale change per second = exp(camera.zoom) - 1 (camera.zoom is already a log rate per second); cross-check by measuring a feature width on F1 at shot start and end: (w_end / w_start)^(1 / duration_s) - 1.",
+      "evidence_required": [
+        "evidence.shots[].camera.zoom",
+        "evidence.shots[].duration_s",
+        "frames: F1 start/end"
+      ],
+      "ir_path": "/motion/camera_moves/-",
+      "answer_type": "range",
+      "challenge": "Recompute one shot manually from pixel widths; disagreement above 30% questions the estimator."
+    },
+    {
+      "id": "camera_motion-004",
+      "question": "Do zoom directions alternate between consecutive shots (in, out, in, out)?",
+      "why_it_matters": "Becomes the zoom_alternate rule.",
+      "how_to_answer": "Write the sign sequence of evidence.shots[].camera.zoom (positive = zoom in); count sign alternations / consecutive pairs.",
+      "evidence_required": [
+        "evidence.shots[].camera.zoom"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "ratio",
+      "challenge": "Static shots break the sequence; say how they were treated."
+    },
+    {
+      "id": "camera_motion-005",
+      "question": "What easing do moves use (linear, ease-in-out, ease-out, ease-in)?",
+      "why_it_matters": "Fills motion.easing.",
+      "how_to_answer": "For 3 moving shots, measure a feature position or width on F8-style frames at 0%, 25%, 50%, 75%, 100% of the shot; compare increments (equal = linear).",
+      "evidence_required": [
+        "frames: 5 samples per shot in 3 shots"
+      ],
+      "ir_path": "/motion/easing",
+      "answer_type": "enum",
+      "choices": [
+        "linear",
+        "ease-in-out",
+        "ease-out",
+        "ease-in",
+        "mixed"
+      ],
+      "challenge": "Short shots (under 1 s) cannot show easing reliably; exclude them."
+    },
+    {
+      "id": "camera_motion-006",
+      "question": "Are there punch-ins (instant scale jumps within a shot or on a cut to the same framing) and when do they occur?",
+      "why_it_matters": "Adds punch-in emphasis to the motion list with timing.",
+      "how_to_answer": "F10 SSIM across cuts with similar content, or frame steps (F8) showing a one-frame scale change; list timestamps and scale factor.",
+      "evidence_required": [
+        "frames: F8",
+        "frames: F10"
+      ],
+      "ir_path": "/motion/camera_moves/-",
+      "answer_type": "object",
+      "challenge": "Check that a punch-in is not a cut to a different crop of a new asset."
+    },
+    {
+      "id": "camera_motion-007",
+      "question": "Is there camera shake, and what are its amplitude (px) and rough frequency?",
+      "why_it_matters": "Adds a shake effect with parameters.",
+      "how_to_answer": "Track a fixed point across F8 frames (0.5 s); record max displacement and oscillations per second.",
+      "evidence_required": [
+        "frames: F8 over 0.5 s"
+      ],
+      "ir_path": "/motion/camera_moves/-",
+      "answer_type": "object",
+      "challenge": "Handheld footage shake belongs to the footage; say whether it was added in edit (it appears on stills or graphics)."
+    },
+    {
+      "id": "camera_motion-008",
+      "question": "How fast are pans as a fraction of frame width per second?",
+      "why_it_matters": "Becomes the pan speed parameter.",
+      "how_to_answer": "Read evidence.shots[].camera.pan_x (already frame widths per second); cross-check one shot by tracking a feature on F1 at start and end: displacement_px / width / duration_s.",
+      "evidence_required": [
+        "evidence.shots[].camera.pan_x",
+        "evidence.source.width"
+      ],
+      "ir_path": "/motion/camera_moves/-",
+      "answer_type": "range",
+      "challenge": "Check the sign convention (positive pan_x = camera moves right, content travels left) and that the feature track agrees within 30%."
+    },
+    {
+      "id": "camera_motion-009",
+      "question": "Does the move start right at the cut or after a delay?",
+      "why_it_matters": "Sets a move start offset.",
+      "how_to_answer": "F8 over the first 0.5 s of 4 moving shots; find the first frame where the feature moves.",
+      "evidence_required": [
+        "frames: F8 at shot starts"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "ms",
+      "challenge": "Convert frames to ms with the true fps from A7."
+    },
+    {
+      "id": "camera_motion-010",
+      "question": "Does motion continue across cuts (the next shot keeps the same direction and speed)?",
+      "why_it_matters": "Becomes a motion-matching rule.",
+      "how_to_answer": "Compare direction and speed of moves in adjacent shots.",
+      "evidence_required": [
+        "evidence.shots[].camera"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "ratio",
+      "challenge": "Alternating zooms (004) and matched motion are opposite rules; the answers must be consistent."
+    },
+    {
+      "id": "camera_motion-011",
+      "question": "Is motion filmed (real camera) or virtual (Ken Burns on stills), or both?",
+      "why_it_matters": "Decides whether the renderer needs footage or can animate stills.",
+      "how_to_answer": "On moving shots, check for parallax between near and far objects (filmed) versus a uniform scale of a flat image (virtual), using F1 start and end.",
+      "evidence_required": [
+        "frames: F1 start/end"
+      ],
+      "ir_path": "/motion/camera_moves/-",
+      "answer_type": "enum",
+      "choices": [
+        "filmed",
+        "virtual",
+        "both"
+      ],
+      "challenge": "2.5D parallax on stills mimics filmed motion; look for cut-out edges."
+    },
+    {
+      "id": "camera_motion-012",
+      "question": "Do different layers move at different speeds (parallax), and what is the speed ratio between foreground and background?",
+      "why_it_matters": "Fills parallax_ratio for 2.5D renders.",
+      "how_to_answer": "Track a background feature and a foreground feature across the same shot; ratio of displacements.",
+      "evidence_required": [
+        "frames: F1 start/end of parallax shots"
+      ],
+      "ir_path": "/visual/layers/*/motion",
+      "answer_type": "number",
+      "challenge": "Make sure the foreground is not moving on its own (animation) rather than with the camera."
+    },
+    {
+      "id": "camera_motion-013",
+      "question": "Are rotations used, and how many degrees over how long?",
+      "why_it_matters": "Adds a rotation range to the move vocabulary.",
+      "how_to_answer": "Measure the angle of a straight edge on F1 at shot start and end.",
+      "evidence_required": [
+        "frames: F1 start/end"
+      ],
+      "ir_path": "/motion/camera_moves/-",
+      "answer_type": "object",
+      "challenge": "Report measured degrees; 'slight rotation' alone is rejected."
+    },
+    {
+      "id": "camera_motion-014",
+      "question": "Are move starts or speed changes aligned with music onsets?",
+      "why_it_matters": "Becomes a sync rule for motion keyframes.",
+      "how_to_answer": "Compare move start times (009) or punch-in times (006) with evidence.audio.onsets_s; share within 80 ms.",
+      "evidence_required": [
+        "move times",
+        "evidence.audio.onsets_s"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "ratio",
+      "challenge": "Compare with the chance rate given onset density."
+    },
+    {
+      "id": "camera_motion-015",
+      "question": "What is the maximum zoom factor reached on any shot?",
+      "why_it_matters": "Bounds zoom so assets are not over-enlarged.",
+      "how_to_answer": "Max over shots of exp(|camera.zoom| x duration_s), the total scale change across the shot.",
+      "evidence_required": [
+        "evidence.shots[].camera.zoom"
+      ],
+      "ir_path": "/parameters/-",
+      "answer_type": "number",
+      "challenge": "Check the extreme shot by eye; estimators overshoot on blurry frames."
+    },
+    {
+      "id": "camera_motion-016",
+      "question": "Where are zooms centred (subject face, frame centre, text, a detail being explained)?",
+      "why_it_matters": "Becomes the zoom focus rule.",
+      "how_to_answer": "Find the fixed point of the zoom by comparing feature positions between start and end frames.",
+      "evidence_required": [
+        "frames: F1 start/end"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "enum",
+      "choices": [
+        "subject",
+        "frame-centre",
+        "text",
+        "detail",
+        "varies"
+      ],
+      "challenge": "Check at least 4 shots before naming a rule."
+    },
+    {
+      "id": "camera_motion-017",
+      "question": "Is motion blur visible during fast moves?",
+      "why_it_matters": "Tells the renderer to add motion blur on fast virtual moves.",
+      "how_to_answer": "F8 frames during the fastest move; look for directional smearing compared with a static frame.",
+      "evidence_required": [
+        "frames: F8 during fast moves"
+      ],
+      "ir_path": "/motion/camera_moves/-",
+      "answer_type": "boolean",
+      "challenge": "Compression blocks on fast motion are not motion blur; check edge direction."
+    },
+    {
+      "id": "camera_motion-018",
+      "question": "Are there speed ramps or slow-motion segments?",
+      "why_it_matters": "Adds time remapping to the motion vocabulary.",
+      "how_to_answer": "Compare motion speed of the same subject across frames; look for sudden slow-down (F5 difference drops while motion continues).",
+      "evidence_required": [
+        "F5",
+        "frames: F8"
+      ],
+      "ir_path": "/motion/camera_moves/-",
+      "answer_type": "timestamps",
+      "challenge": "A slow virtual zoom is not slow motion; ramps change the speed of filmed action."
+    },
+    {
+      "id": "camera_motion-019",
+      "question": "Does camera motion pause or slow while dense text is on screen?",
+      "why_it_matters": "Becomes a readability rule for moves.",
+      "how_to_answer": "Compare camera speed in shots with text area_ratio above 0.1 against shots with less text.",
+      "evidence_required": [
+        "evidence.shots[].camera",
+        "evidence.text_regions[]"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "boolean",
+      "challenge": "Report the two group medians and their sizes."
+    },
+    {
+      "id": "camera_motion-020",
+      "question": "Is the hook shot's move stronger (faster or larger) than body moves?",
+      "why_it_matters": "Becomes a hook-intensity multiplier.",
+      "how_to_answer": "Ratio of hook zoom_per_s to body median zoom_per_s.",
+      "evidence_required": [
+        "evidence.shots[].camera",
+        "hook beat"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "number",
+      "challenge": "One hook shot is a single sample; confidence must reflect that."
+    },
+    {
+      "id": "camera_motion-021",
+      "question": "Are there 3D camera moves through layered 2.5D scenes (dolly through cut-out planes)?",
+      "why_it_matters": "Adds a 2.5D dolly option.",
+      "how_to_answer": "Look for layers scaling at different rates during one move (F1 start/end).",
+      "evidence_required": [
+        "frames: F1 start/end"
+      ],
+      "ir_path": "/motion/camera_moves/-",
+      "answer_type": "boolean",
+      "challenge": "Different-rate scaling can also be separate animations; require consistent depth ordering."
+    },
+    {
+      "id": "camera_motion-022",
+      "question": "Are whip pans used as transitions, and how long are they?",
+      "why_it_matters": "Adds whip transitions with a duration.",
+      "how_to_answer": "F8 across cuts with heavy directional blur; count frames of blur.",
+      "evidence_required": [
+        "frames: F8 across cuts"
+      ],
+      "ir_path": "/motion/transitions/-",
+      "answer_type": "object",
+      "challenge": "Must show directional blur on at least 2 frames."
+    },
+    {
+      "id": "camera_motion-023",
+      "question": "Is there a simulated handheld drift (slow low-amplitude wander) on stills or graphics?",
+      "why_it_matters": "Adds a subtle drift effect.",
+      "how_to_answer": "Track a feature on F1 frames every 0.5 s across a graphic shot; non-linear wander of a few px suggests drift.",
+      "evidence_required": [
+        "frames: F1 every 0.5 s"
+      ],
+      "ir_path": "/motion/camera_moves/-",
+      "answer_type": "boolean",
+      "challenge": "Linear motion is a pan, not drift."
+    },
+    {
+      "id": "camera_motion-024",
+      "question": "Is there a dominant pan direction (left to right versus right to left) and does it carry meaning (timeline, progress)?",
+      "why_it_matters": "Becomes a direction rule.",
+      "how_to_answer": "Count pan directions from camera.pan_x signs.",
+      "evidence_required": [
+        "evidence.shots[].camera.pan_x"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "object",
+      "challenge": "Report counts; meaning is inferred and must say so."
+    },
+    {
+      "id": "camera_motion-025",
+      "question": "Does the background layer move independently of the foreground (separate virtual cameras)?",
+      "why_it_matters": "Fills per-layer motion fields.",
+      "how_to_answer": "Compare border-region motion (evidence.shots[].motion_energy.border, F5 on edges) with foreground scale change.",
+      "evidence_required": [
+        "evidence.shots[].motion_energy",
+        "F5"
+      ],
+      "ir_path": "/visual/layers/*/motion",
+      "answer_type": "boolean",
+      "challenge": "A moving background video naturally moves independently; say whether it is a camera move or footage motion."
+    },
+    {
+      "id": "camera_motion-026",
+      "question": "What share of runtime is static (no camera or virtual camera motion), and where do static shots fall?",
+      "why_it_matters": "Sets where the generator may hold still.",
+      "how_to_answer": "Sum durations of shots classified static in 002 / duration; list their beat roles.",
+      "evidence_required": [
+        "evidence.shots[]",
+        "move classification"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "object",
+      "challenge": "Check one static shot with F5 to confirm no slow zoom was missed."
+    },
+    {
+      "id": "camera_motion-027",
+      "question": "Write the Ken Burns rule per shot (start scale, end scale, direction policy, focus point) in terms of parameters.",
+      "why_it_matters": "Gives the compiler a procedural move plan.",
+      "how_to_answer": "Combine 003, 004, 016 and 015, for example 'scale 1.00 to 1.00 + zoom_per_s x shot_s, alternate in/out, centred on subject, max zoom_max'.",
+      "evidence_required": [
+        "camera lens answers"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "rule",
+      "challenge": "Apply the rule to 3 observed shots; the predicted end scale must be within 0.03 of the measured one."
+    },
+    {
+      "id": "camera_motion-028",
+      "question": "What range should zoom_per_s take, justified by the observed spread?",
+      "why_it_matters": "Turns observed speeds into a parameter with an evidence-based range.",
+      "how_to_answer": "Default = observed median; min/max = observed p25/p75; derived_from camera_motion-003.",
+      "evidence_required": [
+        "zoom speeds"
+      ],
+      "ir_path": "/parameters/-",
+      "answer_type": "parameter",
+      "challenge": "A range wider than observed must be marked assumed."
+    },
+    {
+      "id": "camera_motion-029",
+      "question": "What is the median absolute zoom change per second across all shots from the camera estimator?",
+      "why_it_matters": "A single motion-intensity number for fidelity scoring.",
+      "how_to_answer": "Median of |evidence.shots[].camera.zoom| over shots with a non-null estimate (log scale change per second).",
+      "evidence_required": [
+        "evidence.shots[].camera.zoom",
+        "evidence.shots[].duration_s"
+      ],
+      "ir_path": "/motion/camera_moves/-",
+      "answer_type": "number",
+      "challenge": "Recompute from evidence."
+    },
+    {
+      "id": "camera_motion-030",
+      "question": "Does any move push the subject or text out of the safe area?",
+      "why_it_matters": "Becomes a constraint on move size near frame edges.",
+      "how_to_answer": "Check end frames of moving shots against the safe box used by the platform lens.",
+      "evidence_required": [
+        "frames: F1 at shot ends",
+        "evidence.safe_area.violations"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "boolean",
+      "challenge": "Cross-check with safe_area.violations timestamps."
+    },
+    {
+      "id": "camera_motion-031",
+      "question": "Do moves follow a subject (tracking) or a fixed path regardless of content?",
+      "why_it_matters": "Decides whether the renderer needs subject detection for moves.",
+      "how_to_answer": "Check whether the subject stays at the same frame position during moves in filmed shots.",
+      "evidence_required": [
+        "frames: F1 start/middle/end"
+      ],
+      "ir_path": "/motion/camera_moves/-",
+      "answer_type": "enum",
+      "choices": [
+        "tracking",
+        "fixed-path",
+        "mixed"
+      ],
+      "challenge": "Virtual moves on stills are fixed-path by definition unless the focus point changes."
+    },
+    {
+      "id": "camera_motion-032",
+      "question": "Is there a final pull-back or reveal move in the last shots?",
+      "why_it_matters": "Adds an ending move to the outro.",
+      "how_to_answer": "Inspect camera.zoom on the last 2 shots and F1 start/end frames.",
+      "evidence_required": [
+        "evidence.shots[-2:].camera",
+        "frames: F1"
+      ],
+      "ir_path": "/motion/camera_moves/-",
+      "answer_type": "boolean",
+      "challenge": "Make sure the move is not the same alternating pattern as all other shots."
+    },
+    {
+      "id": "camera_motion-033",
+      "question": "Are moves applied to the whole frame or only to inset media inside a fixed layout?",
+      "why_it_matters": "Tells the renderer which layer receives the move.",
+      "how_to_answer": "Check whether text, borders and backgrounds stay fixed while the photo moves (F1 start/end).",
+      "evidence_required": [
+        "frames: F1 start/end"
+      ],
+      "ir_path": "/visual/layers/*/motion",
+      "answer_type": "enum",
+      "choices": [
+        "whole-frame",
+        "inset-only",
+        "both"
+      ],
+      "challenge": "Look at the frame edges and text positions in both frames."
+    }
+  ]
+}

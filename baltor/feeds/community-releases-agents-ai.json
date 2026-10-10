@@ -1,0 +1,844 @@
+{
+  "spec": "baltor.feed-collection/v1",
+  "id": "community-releases-agents-ai",
+  "title": "Release feeds: coding agents, MCP and local AI tools",
+  "description": "Official GitHub release, tag and commit Atom feeds for the agent harnesses Baltor targets (Claude Code, Codex, OpenCode, Pi, Gemini CLI), MCP, local model runtimes and agent libraries. Each feed was fetched on 2026-10-10.",
+  "updated": "2026-10-10",
+  "tags": [
+    "community-sources",
+    "coding-agents",
+    "mcp",
+    "local-llm"
+  ],
+  "items": [
+    {
+      "id": "gh-anthropics-claude-code",
+      "title": "Claude Code releases",
+      "url": "https://github.com/anthropics/claude-code/releases.atom",
+      "summary": "Release notes for Anthropic's Claude Code CLI; frequent releases that change hooks, settings, plugins and tools.",
+      "kind": "repository",
+      "licence": "Proprietary: All rights reserved; use subject to Anthropic's Commercial Terms",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "claude-code",
+        "harness"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v2.1.296 on 2026-10-09.",
+      "cautions": [
+        "Not open source; the repository hosts issues and release notes.",
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/anthropics/claude-code/HEAD/LICENSE.md"
+    },
+    {
+      "id": "gh-openai-codex",
+      "title": "OpenAI Codex CLI releases",
+      "url": "https://github.com/openai/codex/releases.atom",
+      "summary": "Release notes for the Codex CLI (Rust); includes alpha builds, so filter by tag when only stable releases matter.",
+      "kind": "repository",
+      "licence": "Apache-2.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "codex",
+        "harness"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: rust-v0.163.0-alpha.6 on 2026-10-10.",
+      "cautions": [
+        "Alpha tags appear in the same feed; filter titles containing '-alpha'.",
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/openai/codex/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-sst-opencode",
+      "title": "OpenCode releases",
+      "url": "https://github.com/sst/opencode/releases.atom",
+      "summary": "Release notes for the OpenCode terminal coding agent.",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "opencode",
+        "harness"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v2.0.26 on 2026-10-08.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/sst/opencode/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-badlogic-pi-mono",
+      "title": "Pi coding agent releases",
+      "url": "https://github.com/badlogic/pi-mono/releases.atom",
+      "summary": "Release notes for Mario Zechner's Pi coding agent monorepo (feed title 'Release notes from pi').",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "pi",
+        "harness"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v1.1.0 on 2026-10-07.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/badlogic/pi-mono/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-google-gemini-gemini-cli",
+      "title": "Gemini CLI releases",
+      "url": "https://github.com/google-gemini/gemini-cli/releases.atom",
+      "summary": "Release notes for Google's Gemini CLI agent; nightly builds are published in the same feed.",
+      "kind": "repository",
+      "licence": "Apache-2.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "gemini-cli",
+        "harness"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v0.65.0-nightly.20261010 on 2026-10-10.",
+      "cautions": [
+        "Nightly releases dominate the feed; filter 'nightly' for stable-only digests.",
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/google-gemini/gemini-cli/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-aider-ai-aider",
+      "title": "Aider releases",
+      "url": "https://github.com/Aider-AI/aider/releases.atom",
+      "summary": "Release notes for the Aider pair-programming CLI.",
+      "kind": "repository",
+      "licence": "Apache-2.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "aider",
+        "harness"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v0.86.3.dev on 2026-02-12. Slow release cadence in 2026.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/Aider-AI/aider/HEAD/LICENSE.txt"
+    },
+    {
+      "id": "gh-cline-cline",
+      "title": "Cline releases",
+      "url": "https://github.com/cline/cline/releases.atom",
+      "summary": "Release notes for the Cline VS Code agent; SDK package tags share the feed.",
+      "kind": "repository",
+      "licence": "Apache-2.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "cline"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: sdk/shared/v0.0.92 on 2026-10-08.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/cline/cline/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-continuedev-continue",
+      "title": "Continue releases",
+      "url": "https://github.com/continuedev/continue/releases.atom",
+      "summary": "Release notes for the Continue IDE assistant.",
+      "kind": "repository",
+      "licence": "Apache-2.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "continue"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v2.1.0-vscode on 2026-06-19.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/continuedev/continue/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-block-goose",
+      "title": "goose releases",
+      "url": "https://github.com/block/goose/releases.atom",
+      "summary": "Release notes for Block's open-source goose agent.",
+      "kind": "repository",
+      "licence": "Apache-2.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "goose"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v1.54.0 on 2026-10-08.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/block/goose/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-all-hands-ai-openhands",
+      "title": "OpenHands releases",
+      "url": "https://github.com/All-Hands-AI/OpenHands/releases.atom",
+      "summary": "Release notes for the OpenHands software-engineering agent platform.",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "openhands"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v1.26.0 on 2026-10-08.",
+      "cautions": [
+        "Large feed (about 350 KB); use conditional requests.",
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/All-Hands-AI/OpenHands/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-modelcontextprotocol-modelcontextprotocol",
+      "title": "MCP specification releases",
+      "url": "https://github.com/modelcontextprotocol/modelcontextprotocol/releases.atom",
+      "summary": "Dated releases of the Model Context Protocol specification.",
+      "kind": "repository",
+      "licence": "Apache-2.0 for new contributions (transition from MIT); docs CC-BY-4.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "mcp",
+        "specification"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: 2026-07-28 on 2026-07-28. The licence file describes a transition from MIT to Apache-2.0; older contributions may remain MIT.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/modelcontextprotocol/modelcontextprotocol/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-modelcontextprotocol-python-sdk",
+      "title": "MCP Python SDK releases",
+      "url": "https://github.com/modelcontextprotocol/python-sdk/releases.atom",
+      "summary": "Release notes for the official MCP Python SDK.",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "mcp",
+        "python"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v2.3.0 on 2026-10-02.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/modelcontextprotocol/python-sdk/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-modelcontextprotocol-typescript-sdk",
+      "title": "MCP TypeScript SDK releases",
+      "url": "https://github.com/modelcontextprotocol/typescript-sdk/releases.atom",
+      "summary": "Release notes for the official MCP TypeScript SDK.",
+      "kind": "repository",
+      "licence": "Apache-2.0 for new contributions (transition from MIT)",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "mcp",
+        "typescript"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: 1.32.1 on 2026-10-05.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/modelcontextprotocol/typescript-sdk/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-modelcontextprotocol-servers",
+      "title": "MCP reference servers commits",
+      "url": "https://github.com/modelcontextprotocol/servers/commits/main.atom",
+      "summary": "Commit feed for the MCP reference servers repository; shows new and retired reference servers.",
+      "kind": "repository",
+      "licence": "Apache-2.0 for new contributions (transition from MIT)",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "mcp",
+        "servers"
+      ],
+      "notes": "Atom commit feed fetched 2026-10-10; newest entry: merge of PR #5081 on 2026-10-10.",
+      "cautions": [
+        "Commit feeds are noisy; summarise merged pull requests only.",
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/modelcontextprotocol/servers/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-github-github-mcp-server",
+      "title": "GitHub MCP Server releases",
+      "url": "https://github.com/github/github-mcp-server/releases.atom",
+      "summary": "Release notes for GitHub's official MCP server.",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "mcp"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: GitHub MCP Server 2.0.2 on 2026-10-08.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/github/github-mcp-server/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-microsoft-playwright-mcp",
+      "title": "Playwright MCP releases",
+      "url": "https://github.com/microsoft/playwright-mcp/releases.atom",
+      "summary": "Release notes for Microsoft's Playwright MCP browser server.",
+      "kind": "repository",
+      "licence": "Apache-2.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "mcp",
+        "browser"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v0.0.83 on 2026-09-28.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/microsoft/playwright-mcp/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-anthropics-anthropic-sdk-python",
+      "title": "Anthropic Python SDK releases",
+      "url": "https://github.com/anthropics/anthropic-sdk-python/releases.atom",
+      "summary": "Release notes for the Anthropic Python SDK.",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "anthropic",
+        "sdk"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v1.13.0 on 2026-10-09.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/anthropics/anthropic-sdk-python/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-anthropics-claude-agent-sdk-python",
+      "title": "Claude Agent SDK (Python) releases",
+      "url": "https://github.com/anthropics/claude-agent-sdk-python/releases.atom",
+      "summary": "Release notes for the Claude Agent SDK for Python.",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "anthropic",
+        "agent-sdk"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v0.2.165 on 2026-10-08.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/anthropics/claude-agent-sdk-python/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-anthropics-skills",
+      "title": "Anthropic Agent Skills commits",
+      "url": "https://github.com/anthropics/skills/commits/main.atom",
+      "summary": "Commit feed for Anthropic's public Agent Skills repository; shows new and updated example skills.",
+      "kind": "repository",
+      "licence": "Per-skill (no top-level LICENSE file found)",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "skills",
+        "agent-skills"
+      ],
+      "notes": "Atom commit feed fetched 2026-10-10; newest entry: claude-api skill update on 2026-10-09.",
+      "cautions": [
+        "No top-level licence file was found; check each skill folder's licence before copying.",
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ]
+    },
+    {
+      "id": "gh-agentsmd-agents-md",
+      "title": "AGENTS.md standard commits",
+      "url": "https://github.com/agentsmd/agents.md/commits/main.atom",
+      "summary": "Commit feed for the AGENTS.md instruction-file convention.",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "agents-md",
+        "standard"
+      ],
+      "notes": "Atom commit feed fetched 2026-10-10; newest entry: charter file rename on 2026-09-10.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/agentsmd/agents.md/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-ollama-ollama",
+      "title": "Ollama releases",
+      "url": "https://github.com/ollama/ollama/releases.atom",
+      "summary": "Release notes for Ollama: new model support, API changes and GPU fixes.",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "local-llm",
+        "ollama"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v0.40.2 on 2026-10-09.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/ollama/ollama/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-ggml-org-llama-cpp",
+      "title": "llama.cpp releases",
+      "url": "https://github.com/ggml-org/llama.cpp/releases.atom",
+      "summary": "Build-numbered releases of llama.cpp; several per day.",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "local-llm"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: b11545 on 2026-10-10.",
+      "cautions": [
+        "Very high cadence (build numbers); digest weekly, not per release.",
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/ggml-org/llama.cpp/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-vllm-project-vllm",
+      "title": "vLLM releases",
+      "url": "https://github.com/vllm-project/vllm/releases.atom",
+      "summary": "Release notes for the vLLM inference server.",
+      "kind": "repository",
+      "licence": "Apache-2.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "inference"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: proto-v0.5.0 on 2026-10-09.",
+      "cautions": [
+        "Large feed (about 380 KB).",
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/vllm-project/vllm/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-huggingface-transformers",
+      "title": "Transformers releases",
+      "url": "https://github.com/huggingface/transformers/releases.atom",
+      "summary": "Release notes for Hugging Face Transformers; new model architectures land here.",
+      "kind": "repository",
+      "licence": "Apache-2.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "huggingface",
+        "models"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v5.19.0 on 2026-10-06.",
+      "cautions": [
+        "Very large feed (about 1.3 MB); conditional requests matter.",
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/huggingface/transformers/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-huggingface-smolagents",
+      "title": "smolagents releases",
+      "url": "https://github.com/huggingface/smolagents/releases.atom",
+      "summary": "Release notes for Hugging Face's smolagents library.",
+      "kind": "repository",
+      "licence": "Apache-2.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "huggingface",
+        "agents"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v1.26.0 on 2026-05-29.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/huggingface/smolagents/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-huggingface-blog",
+      "title": "Hugging Face blog repository commits",
+      "url": "https://github.com/huggingface/blog/commits/main.atom",
+      "summary": "Commit feed of the repository behind the Hugging Face blog; new posts appear as 'Add blog post' commits. Used because no official blog feed URL was confirmed.",
+      "kind": "repository",
+      "licence": "No top-level LICENSE file found",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "huggingface",
+        "blog"
+      ],
+      "notes": "Atom commit feed fetched 2026-10-10; newest entry: 'Add blog post: building with ML Intern' on 2026-10-08.",
+      "cautions": [
+        "Blog posts keep their authors' rights; link, do not republish.",
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ]
+    },
+    {
+      "id": "gh-langchain-ai-langgraph",
+      "title": "LangGraph releases",
+      "url": "https://github.com/langchain-ai/langgraph/releases.atom",
+      "summary": "Release notes for LangGraph and its CLI.",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "agents"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: langgraph-cli==0.4.33 on 2026-10-07.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-pydantic-pydantic-ai",
+      "title": "Pydantic AI releases",
+      "url": "https://github.com/pydantic/pydantic-ai/releases.atom",
+      "summary": "Release notes for Pydantic AI, including bleeding-edge CLI builds.",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "agents"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: CLAI2 bleeding on 2026-10-10.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/pydantic/pydantic-ai/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-open-webui-open-webui",
+      "title": "Open WebUI releases",
+      "url": "https://github.com/open-webui/open-webui/releases.atom",
+      "summary": "Release notes for Open WebUI, a self-hosted chat front end for local and remote models.",
+      "kind": "repository",
+      "licence": "Open WebUI License (BSD-3-Clause terms plus a branding clause)",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "local-llm",
+        "ui"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v0.11.4 on 2026-09-21.",
+      "cautions": [
+        "Licence forbids removing 'Open WebUI' branding above 50 end users in 30 days unless permitted; read clause 4.",
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/open-webui/open-webui/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-comfyanonymous-comfyui",
+      "title": "ComfyUI releases",
+      "url": "https://github.com/comfyanonymous/ComfyUI/releases.atom",
+      "summary": "Release notes for ComfyUI node-based generation.",
+      "kind": "repository",
+      "licence": "GPL-3.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "image",
+        "video",
+        "generation"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v0.39.2 on 2026-10-07.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/comfyanonymous/ComfyUI/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-ggml-org-whisper-cpp",
+      "title": "whisper.cpp releases",
+      "url": "https://github.com/ggml-org/whisper.cpp/releases.atom",
+      "summary": "Release notes for whisper.cpp local speech recognition; relevant to caption timing.",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "speech",
+        "captions"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: v1.9.5 on 2026-10-07.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/ggml-org/whisper.cpp/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-systran-faster-whisper",
+      "title": "faster-whisper releases",
+      "url": "https://github.com/SYSTRAN/faster-whisper/releases.atom",
+      "summary": "Release notes for faster-whisper (CTranslate2 Whisper).",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "speech",
+        "captions"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: faster-whisper 1.2.1 on 2025-10-31. No release in the 11 months before 2026-10-10.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/SYSTRAN/faster-whisper/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-astral-sh-uv",
+      "title": "uv releases",
+      "url": "https://github.com/astral-sh/uv/releases.atom",
+      "summary": "Release notes for the uv Python package manager used by many agent tools.",
+      "kind": "repository",
+      "licence": "MIT OR Apache-2.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "python",
+        "tooling"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: 0.13.0 on 2026-10-09.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/astral-sh/uv/HEAD/LICENSE-MIT"
+    },
+    {
+      "id": "gh-simonw-llm",
+      "title": "llm CLI releases",
+      "url": "https://github.com/simonw/llm/releases.atom",
+      "summary": "Release notes for Simon Willison's llm command-line tool and plugin system.",
+      "kind": "repository",
+      "licence": "Apache-2.0",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "cli",
+        "tooling"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: 0.36 on 2026-09-22.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/simonw/llm/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-microsoft-markitdown",
+      "title": "MarkItDown releases",
+      "url": "https://github.com/microsoft/markitdown/releases.atom",
+      "summary": "Release notes for MarkItDown, which converts documents to Markdown for LLM input.",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "documents",
+        "tooling"
+      ],
+      "notes": "Atom releases feed fetched 2026-10-10; newest entry: Version 0.1.8 on 2026-09-21.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/microsoft/markitdown/HEAD/LICENSE"
+    },
+    {
+      "id": "gh-kagisearch-smallweb",
+      "title": "Kagi Small Web list commits",
+      "url": "https://github.com/kagisearch/smallweb/commits/main.atom",
+      "summary": "Commit feed for Kagi's curated list of personal-blog and small YouTube feeds; shows additions and removals.",
+      "kind": "repository",
+      "licence": "MIT",
+      "verified_on": "2026-10-10",
+      "verification": "fetched",
+      "tags": [
+        "github",
+        "atom",
+        "release-feed",
+        "coding-agents",
+        "feeds",
+        "discovery"
+      ],
+      "notes": "Atom commit feed fetched 2026-10-10; newest entry: 'update url + add a new url' on 2026-10-09.",
+      "cautions": [
+        "GitHub serves these feeds without authentication but rate-limits by IP; poll at most hourly and send If-None-Match / If-Modified-Since."
+      ],
+      "licence_url": "https://raw.githubusercontent.com/kagisearch/smallweb/HEAD/LICENSE"
+    }
+  ]
+}

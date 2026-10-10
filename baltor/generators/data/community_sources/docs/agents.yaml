@@ -14,9 +14,11 @@ subagents:
       (`feeds/community-*.json` or `.baltor/feeds/`). If no watchlist is given, ask which preset
       (`monitor-sources-*-watchlist` skills) applies, or use the one in the current step folder.
 
-      1. Expand sources into feed URLs. Skip non-feed pages unless the watchlist marks them for a
-         daily page check. Note any `verification: unverified` items and run feed autodiscovery on them
-         once (`rss_atom_jsonfeed_reader.discover_feeds`).
+      1. Expand sources into feed URLs with `python3 feed_collection_opml.py --watchlist-urls
+         watchlist.json --feeds-dir feeds`. Pages without a feed (policy and programme pages) go to
+         `page_change_watcher` at most once a day; report the sentences it says changed, with the link.
+         Note any `verification: unverified` items and run feed autodiscovery on them once
+         (`rss_atom_jsonfeed_reader.discover_feeds`).
       2. Fetch with `python3 rss_atom_jsonfeed_reader.py <urls> --since <last_run or 7d> --json
          --min-interval <polite.min_interval_s> > items.json`. Keep `.feed-cache.json` between runs so
          requests are conditional. If a host answers 429/503, stop polling it for this run.

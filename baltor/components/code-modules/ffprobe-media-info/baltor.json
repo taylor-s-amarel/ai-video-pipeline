@@ -1,0 +1,59 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "ffprobe_media_info",
+  "title": "ffprobe media info",
+  "kind": "code-module",
+  "subkind": "qa-check",
+  "version": "1.0.0",
+  "summary": "Runs ffprobe without a shell and summarises streams into typed fields (duration, codecs, rotation-corrected size, fps, VFR flag, audio rate and channels), with a pure summariser for tests.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "verify",
+    "build"
+  ],
+  "effects": {
+    "filesystem": "read",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "runs ffprobe on the given file"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "ffprobe_media_info.py",
+  "tags": [
+    "video",
+    "ffprobe",
+    "metadata",
+    "qa",
+    "media-info"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "ffmpeg",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Example AI Status - Incident History</title>
+    <link>https://status.example.ai</link>
+    <description>Statuspage</description>
+    <item>
+      <title>Elevated errors on the Messages API</title>
+      <description>&lt;p&gt;&lt;small&gt;Oct &lt;var data-var='date'&gt;10&lt;/var&gt;&lt;/small&gt;&lt;br&gt;&lt;strong&gt;Resolved&lt;/strong&gt; - This incident has been resolved.&lt;/p&gt;</description>
+      <pubDate>Sat, 10 Oct 2026 09:02:11 +0000</pubDate>
+      <link>https://status.example.ai/incidents/inc123</link>
+      <guid>https://status.example.ai/incidents/inc123</guid>
+    </item>
+  </channel>
+</rss>

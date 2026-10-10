@@ -1,0 +1,57 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "xstack_grid_layout",
+  "title": "xstack grid layout builder",
+  "kind": "code-module",
+  "subkind": "grid-system",
+  "version": "1.0.0",
+  "summary": "Computes rows x columns grids with gutters and margins (even cell sizes) and the matching ffmpeg xstack filter with cover-cropped cells and padded full-frame output.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "xstack_grid_layout.py",
+  "tags": [
+    "video",
+    "ffmpeg",
+    "xstack",
+    "grid",
+    "layout",
+    "compositing"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "ffmpeg",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

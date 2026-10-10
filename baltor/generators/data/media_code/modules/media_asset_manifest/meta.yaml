@@ -1,0 +1,7 @@
+title: Media asset manifest and licence checks
+summary: Records every media asset with source URL, author, exact licence, credit line and SHA-256, and flags missing attribution, NC/ND/SA conflicts and 'fair use' mislabelled as a licence.
+subkind: rights-manifest
+domain: video
+tags: [video, licensing, attribution, creative-commons, assets, rights]
+step_kinds: [research, verify, publish]
+references: ["https://creativecommons.org/licenses/by/4.0/"]

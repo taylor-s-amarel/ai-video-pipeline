@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/video-re-contract-rounded-corners",
+  "title": "Rounded corners payload",
+  "description": "Payload of video_re_detect_rounded_corners: corner radius per element, in source pixels.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["elements", "method", "frames_analysed"],
+  "properties": {
+    "elements": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["bbox", "radius_px", "corners", "fit_rmse_px", "shape", "source"],
+        "properties": {
+          "bbox": { "type": "array", "items": { "type": "integer" }, "minItems": 4, "maxItems": 4, "description": "[x, y, w, h] source px" },
+          "radius_px": { "type": "number", "minimum": 0, "description": "median of the four corner radii" },
+          "corners": {
+            "type": "object", "additionalProperties": false, "required": ["tl", "tr", "br", "bl"],
+            "properties": { "tl": { "type": "number", "minimum": 0 }, "tr": { "type": "number", "minimum": 0 }, "br": { "type": "number", "minimum": 0 }, "bl": { "type": "number", "minimum": 0 } }
+          },
+          "fit_rmse_px": { "type": "number", "minimum": 0, "description": "median circle-fit error; large values mean a non-circular corner" },
+          "shape": { "enum": ["rect", "rounded", "pill"] },
+          "source": { "enum": ["static-mask", "edge-rect", "given"] }
+        }
+      }
+    },
+    "method": { "enum": ["static-mask", "edge-rect", "given-rects", null] },
+    "frames_analysed": { "type": "integer", "minimum": 1 }
+  }
+}

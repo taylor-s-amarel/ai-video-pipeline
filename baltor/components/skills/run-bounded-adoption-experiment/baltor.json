@@ -1,0 +1,52 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "run_bounded_adoption_experiment",
+  "title": "Run a bounded adoption experiment",
+  "kind": "skill",
+  "subkind": "workflow",
+  "version": "1.0.0",
+  "summary": "Nine proposed adoption experiments (storyboards, rig polish, Pymunk prop, depth, voice, sketch, pixel/block, generative insert, sound review) with the evidence each needs and when to stop or hold.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#bounded-adoption-experiments"
+  },
+  "step_kinds": [
+    "plan",
+    "test",
+    "review"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "video",
+    "animation",
+    "experiment",
+    "adoption",
+    "evaluation"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/ref_review_templates.py",
+    "data": "generators/data/ref_review_templates"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "considered",
+  "evidence_notes": "The guide labels these proposed adoption experiments, not authorizations. None is recorded as run in this section."
+}

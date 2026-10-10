@@ -13,7 +13,7 @@
   why: "Checks the moving-background rule."
   how: "F5 on the top 15% and bottom 15% bands (regions without text); a shot passes when the mean difference exceeds 0.6 (0-255 scale) for every 2 s window. Also read evidence.shots[].motion_energy.border."
   evidence: ["F5 on border bands", "evidence.shots[].motion_energy.border"]
-  ir_path: "/motion/background_motion_level"
+  ir_path: "/generation_rules/-"
   type: boolean
   challenge: "Make sure the measured band contains no text, subject or camera zoom; a zoom on a photo moves the band too."
 
@@ -262,7 +262,7 @@
   why: "Gives a qualitative speed class tied to a number."
   how: "Use 003 and 019; classify with the stated boundaries and report the numbers."
   evidence: ["background motion numbers"]
-  ir_path: "/motion/background_motion_level"
+  ir_path: "/visual/layers/*/motion"
   type: enum
   challenge: "The class must be consistent with the measured values."
 

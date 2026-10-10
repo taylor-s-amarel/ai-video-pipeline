@@ -1,0 +1,52 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "weekly_source_digest",
+  "title": "/weekly-source-digest",
+  "kind": "command",
+  "subkind": "workflow",
+  "version": "1.0.0",
+  "summary": "Slash command that runs the weekly digest for a watchlist preset or file and saves digest.md and digest.json with a link on every line.",
+  "domain": "source-monitoring",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "research",
+    "write"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "opencode",
+    "baltor-harness"
+  ],
+  "entry": "command.md",
+  "tags": [
+    "digest",
+    "rss",
+    "command"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "weekly_source_digest_writer"
+    },
+    {
+      "identity": "monitor_sources_with_rss_for_agents"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/community_sources.py",
+    "data": "generators/data/community_sources"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

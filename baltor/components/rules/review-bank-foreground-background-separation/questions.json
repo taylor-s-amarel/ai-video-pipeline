@@ -1,0 +1,736 @@
+[
+  {
+    "id": "AVQ-003-001",
+    "domain_id": "D003",
+    "area": "foreground background separation",
+    "question": "Does the hero's outline merge with the scenery at any key pose?",
+    "failure_hypothesis": "Matching values erase the silhouette.",
+    "check_or_fix": "Inspect key poses over grayscale backgrounds.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6236,
+    "passes": [
+      "default_32",
+      "visual_depth_contact",
+      "accessible_text",
+      "longer_cardboard_32"
+    ]
+  },
+  {
+    "id": "AVQ-003-002",
+    "domain_id": "D003",
+    "area": "foreground background separation",
+    "question": "Are foreground and background equally sharp without a reason?",
+    "failure_hypothesis": "Every layer demands equal attention.",
+    "check_or_fix": "Use controlled detail or focus hierarchy.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6238,
+    "passes": [
+      "visual_depth_contact",
+      "accessible_text"
+    ]
+  },
+  {
+    "id": "AVQ-003-003",
+    "domain_id": "D003",
+    "area": "foreground background separation",
+    "question": "Does background motion compete with the hero's reaction?",
+    "failure_hypothesis": "Ambient activity masks the meaningful gesture.",
+    "check_or_fix": "Pause or reduce background motion during the reaction.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6240,
+    "passes": [
+      "visual_depth_contact",
+      "accessible_text"
+    ]
+  },
+  {
+    "id": "AVQ-003-004",
+    "domain_id": "D003",
+    "area": "foreground background separation",
+    "question": "Is a dark costume lost against a dark set region?",
+    "failure_hypothesis": "Local contrast collapses along the path.",
+    "check_or_fix": "Track costume-background contrast throughout movement.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6242,
+    "passes": [
+      "visual_depth_contact",
+      "accessible_text"
+    ]
+  },
+  {
+    "id": "AVQ-003-005",
+    "domain_id": "D003",
+    "area": "foreground background separation",
+    "question": "Do background objects resemble extra limbs on the hero?",
+    "failure_hypothesis": "Aligned props create anatomical ambiguity.",
+    "check_or_fix": "Move the prop or change camera angle.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6244,
+    "passes": [
+      "visual_depth_contact",
+      "accessible_text"
+    ]
+  },
+  {
+    "id": "AVQ-003-006",
+    "domain_id": "D003",
+    "area": "foreground background separation",
+    "question": "Does the hero cross a bright patch just before the payoff?",
+    "failure_hypothesis": "Background flash hijacks the eye.",
+    "check_or_fix": "Reduce patch contrast or retime the crossing.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6246,
+    "passes": [
+      "visual_depth_contact",
+      "accessible_text"
+    ]
+  },
+  {
+    "id": "AVQ-003-007",
+    "domain_id": "D003",
+    "area": "foreground background separation",
+    "question": "Are labels visually mistaken for physical scene objects?",
+    "failure_hypothesis": "Overlay styling implies false spatial membership.",
+    "check_or_fix": "Use a consistent annotation treatment.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6248,
+    "passes": [
+      "visual_depth_contact",
+      "accessible_text"
+    ]
+  },
+  {
+    "id": "AVQ-003-008",
+    "domain_id": "D003",
+    "area": "foreground background separation",
+    "question": "Can target objects be distinguished from background texture?",
+    "failure_hypothesis": "Texture contains target-like forms.",
+    "check_or_fix": "Inspect texture without target layers present.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6250,
+    "passes": [
+      "visual_depth_contact",
+      "accessible_text"
+    ]
+  },
+  {
+    "id": "AVQ-003-009",
+    "domain_id": "D003",
+    "area": "foreground background separation",
+    "question": "Does atmospheric depth weaken an essential distant clue?",
+    "failure_hypothesis": "Depth treatment removes required information.",
+    "check_or_fix": "Keep evidence contrast above the chosen viewing threshold.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6252,
+    "passes": [
+      "accessible_text"
+    ]
+  },
+  {
+    "id": "AVQ-003-010",
+    "domain_id": "D003",
+    "area": "foreground background separation",
+    "question": "Are background crowds individual when the story needs a mass?",
+    "failure_hypothesis": "Excess individuality produces visual noise.",
+    "check_or_fix": "Group distant figures while preserving meaningful identities.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6254,
+    "passes": [
+      "accessible_text"
+    ]
+  },
+  {
+    "id": "AVQ-003-011",
+    "domain_id": "D003",
+    "area": "foreground background separation",
+    "question": "Do foreground silhouettes block facial reactions?",
+    "failure_hypothesis": "Framing elements cover expression at the worst moment.",
+    "check_or_fix": "Plot overlap during the full reaction interval.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6256,
+    "passes": []
+  },
+  {
+    "id": "AVQ-003-012",
+    "domain_id": "D003",
+    "area": "foreground background separation",
+    "question": "Does scenery contain a stronger face-like pattern than the hero?",
+    "failure_hypothesis": "Pareidolia steals attention from intended characters.",
+    "check_or_fix": "Simplify face-like background clusters.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6258,
+    "passes": []
+  },
+  {
+    "id": "AVQ-003-013",
+    "domain_id": "D003",
+    "area": "foreground background separation",
+    "question": "Are foreground edge treatments consistent with the background medium?",
+    "failure_hypothesis": "Cutout edges look pasted onto incompatible art.",
+    "check_or_fix": "Match appropriate softness, grain and contour logic.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6260,
+    "passes": []
+  },
+  {
+    "id": "AVQ-003-014",
+    "domain_id": "D003",
+    "area": "foreground background separation",
+    "question": "Does foreground saturation overwhelm subtle background evidence?",
+    "failure_hypothesis": "Accent color makes the clue easy to miss.",
+    "check_or_fix": "Rebalance saturation around the evidence beat.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6262,
+    "passes": []
+  },
+  {
+    "id": "AVQ-003-015",
+    "domain_id": "D003",
+    "area": "foreground background separation",
+    "question": "Is the background too blank to establish contact and scale?",
+    "failure_hypothesis": "Minimalism removes grounding cues.",
+    "check_or_fix": "Add restrained ground plane and reference details.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6264,
+    "passes": []
+  },
+  {
+    "id": "AVQ-003-016",
+    "domain_id": "D003",
+    "area": "foreground background separation",
+    "question": "Does a background line continue through the hero as a tangent?",
+    "failure_hypothesis": "Apparent line continuity flattens the layer separation.",
+    "check_or_fix": "Break or relocate the line behind the subject.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6266,
+    "passes": []
+  },
+  {
+    "id": "AVQ-003-017",
+    "domain_id": "D003",
+    "area": "foreground background separation",
+    "question": "Is the hero distinguishable during backlighting?",
+    "failure_hypothesis": "Silhouette merges into an uncontrolled dark mass.",
+    "check_or_fix": "Preserve contour or adjust background luminance.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6268,
+    "passes": []
+  },
+  {
+    "id": "AVQ-003-018",
+    "domain_id": "D003",
+    "area": "foreground background separation",
+    "question": "Are distant outlines heavier than foreground outlines?",
+    "failure_hypothesis": "Line weight reverses the depth hierarchy.",
+    "check_or_fix": "Normalize contour weight by intended depth logic.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6270,
+    "passes": []
+  },
+  {
+    "id": "AVQ-003-019",
+    "domain_id": "D003",
+    "area": "foreground background separation",
+    "question": "Does background contrast rise during narration-heavy passages?",
+    "failure_hypothesis": "Scenery competes with reading and listening.",
+    "check_or_fix": "Reduce nonessential contrast during information delivery.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6272,
+    "passes": []
+  },
+  {
+    "id": "AVQ-003-020",
+    "domain_id": "D003",
+    "area": "foreground background separation",
+    "question": "Can a newcomer identify which objects are interactive?",
+    "failure_hypothesis": "Visual affordances do not distinguish usable props.",
+    "check_or_fix": "Give important props clear placement or introduction.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6274,
+    "passes": []
+  },
+  {
+    "id": "AVQ-003-021",
+    "domain_id": "D003",
+    "area": "foreground background separation",
+    "question": "Does the background change imply a location change unintentionally?",
+    "failure_hypothesis": "Palette or texture shifts break scene identity.",
+    "check_or_fix": "Match persistent landmarks across adjacent shots.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6276,
+    "passes": []
+  },
+  {
+    "id": "AVQ-003-022",
+    "domain_id": "D003",
+    "area": "foreground background separation",
+    "question": "Are foreground particles obscuring the decisive contact frame?",
+    "failure_hypothesis": "Effects conceal whether the action succeeded.",
+    "check_or_fix": "Delay or thin particles at the contact moment.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6278,
+    "passes": []
+  },
+  {
+    "id": "AVQ-003-023",
+    "domain_id": "D003",
+    "area": "foreground background separation",
+    "question": "Does a moving background make a stationary subject seem to drift?",
+    "failure_hypothesis": "Relative motion creates unintended self-motion.",
+    "check_or_fix": "Add stable grounding cues or change motion balance.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6280,
+    "passes": []
+  },
+  {
+    "id": "AVQ-003-024",
+    "domain_id": "D003",
+    "area": "foreground background separation",
+    "question": "Do shadows merge foreground and background into one blob?",
+    "failure_hypothesis": "Shadow design removes object separation.",
+    "check_or_fix": "Adjust shadow softness, offset or intensity.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6282,
+    "passes": []
+  },
+  {
+    "id": "AVQ-003-025",
+    "domain_id": "D003",
+    "area": "foreground background separation",
+    "question": "Does a light outline become a distracting halo?",
+    "failure_hypothesis": "Separation aid looks like a compositing defect.",
+    "check_or_fix": "Test subtler contour and local-background adjustments.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6284,
+    "passes": []
+  },
+  {
+    "id": "AVQ-003-026",
+    "domain_id": "D003",
+    "area": "foreground background separation",
+    "question": "Are foreground and background using incompatible perspective cues?",
+    "failure_hypothesis": "The subject appears pasted into another world.",
+    "check_or_fix": "Compare horizon, vanishing directions and scale cues.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6286,
+    "passes": []
+  },
+  {
+    "id": "AVQ-003-027",
+    "domain_id": "D003",
+    "area": "foreground background separation",
+    "question": "Can background story details be discovered without stealing the main beat?",
+    "failure_hypothesis": "Secondary storytelling competes with primary causality.",
+    "check_or_fix": "Place discoveries in quieter intervals.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6288,
+    "passes": []
+  },
+  {
+    "id": "AVQ-003-028",
+    "domain_id": "D003",
+    "area": "foreground background separation",
+    "question": "Does color grading erase previously good layer separation?",
+    "failure_hypothesis": "Final treatment compresses local contrast.",
+    "check_or_fix": "Repeat separation checks on the encoded graded output.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6290,
+    "passes": []
+  },
+  {
+    "id": "AVQ-003-029",
+    "domain_id": "D003",
+    "area": "foreground background separation",
+    "question": "Are reflected subjects confused with additional real subjects?",
+    "failure_hypothesis": "Reflections lack a clear surface context.",
+    "check_or_fix": "Make the reflective boundary and relationship legible.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6292,
+    "passes": []
+  },
+  {
+    "id": "AVQ-003-030",
+    "domain_id": "D003",
+    "area": "foreground background separation",
+    "question": "Does foreground blur hide information the viewer must use?",
+    "failure_hypothesis": "Depth-of-field prioritizes atmosphere over evidence.",
+    "check_or_fix": "Keep task-relevant objects in an inspectable focus range.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6294,
+    "passes": []
+  },
+  {
+    "id": "AVQ-003-031",
+    "domain_id": "D003",
+    "area": "foreground background separation",
+    "question": "Can the scene remain readable on a dim phone display?",
+    "failure_hypothesis": "Low-end viewing conditions collapse contrast.",
+    "check_or_fix": "Preview at modest brightness and intended size.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6296,
+    "passes": []
+  },
+  {
+    "id": "AVQ-003-032",
+    "domain_id": "D003",
+    "area": "foreground background separation",
+    "question": "Are guide lines strong enough to remain visible in the overview?",
+    "failure_hypothesis": "Navigation cues disappear when the camera pulls back.",
+    "check_or_fix": "Compare the wide encoded frame at phone size and adjust guide contrast if needed.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6298,
+    "passes": []
+  }
+]

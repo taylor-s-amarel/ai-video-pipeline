@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Example Godot News</title>
+    <link>https://news.example.org/</link>
+    <description>Fixture feed</description>
+    <item>
+      <title>Godot 4.7 &amp; the new &lt;b&gt;tile&lt;/b&gt; editor</title>
+      <link>https://news.example.org/posts/godot-47?utm_source=rss&amp;utm_medium=feed&amp;b=2&amp;a=1#comments</link>
+      <guid isPermaLink="false">post-1001</guid>
+      <pubDate>Thu, 09 Oct 2026 19:28:59 +0000</pubDate>
+      <dc:creator>Ada Example</dc:creator>
+      <category>godot</category>
+      <category>release</category>
+      <description><![CDATA[<p>The <b>tile editor</b> got faster.</p><script>alert(1)</script><p>Read&nbsp;more.</p>]]></description>
+    </item>
+    <item>
+      <title>Relative link post</title>
+      <link>/posts/relative</link>
+      <guid>https://news.example.org/posts/relative</guid>
+      <pubDate>Mon, 29 Sep 2026 08:00:00 -0400</pubDate>
+      <enclosure url="https://cdn.example.org/ep1.mp3" length="12345" type="audio/mpeg"/>
+      <description>Plain text body</description>
+    </item>
+    <item>
+      <title>Undated note</title>
+      <guid>https://news.example.org/notes/undated</guid>
+      <description>No date and the guid is the permalink.</description>
+    </item>
+  </channel>
+</rss>

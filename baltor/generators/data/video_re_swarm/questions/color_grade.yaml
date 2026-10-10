@@ -189,7 +189,7 @@
   why: "Bounds palette size."
   how: "Cluster palette colours by hue (30-degree bins); count bins holding at least 5% of area."
   evidence: ["evidence.shots[].palette"]
-  ir_path: "/visual/palette"
+  ir_path: "/generation_rules/-"
   type: integer
   challenge: "Greys have no hue; exclude low-saturation colours from the count."
 

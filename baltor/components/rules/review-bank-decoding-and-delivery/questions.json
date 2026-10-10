@@ -1,0 +1,702 @@
+[
+  {
+    "id": "AVQ-029-001",
+    "domain_id": "D029",
+    "area": "decoding and delivery",
+    "question": "Does the delivered filename's extension agree with the actual media container and streams?",
+    "failure_hypothesis": "A renamed file is mistaken for a valid export in the promised format.",
+    "check_or_fix": "Inspect file signatures and stream metadata rather than trusting the name.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "final-encode",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7952,
+    "passes": [
+      "default_32",
+      "accessible_text",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-029-002",
+    "domain_id": "D029",
+    "area": "decoding and delivery",
+    "question": "Are the downloaded bytes identical to the approved deliverable when no destination transcoding is intended?",
+    "failure_hypothesis": "Transfer or packaging corruption changes the approved file.",
+    "check_or_fix": "Compare cryptographic hashes before and after the real download path.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7954,
+    "passes": [
+      "accessible_text",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-029-003",
+    "domain_id": "D029",
+    "area": "decoding and delivery",
+    "question": "Can the complete delivered file be decoded without errors, including its final frames?",
+    "failure_hypothesis": "Header inspection misses corruption late in the media stream.",
+    "check_or_fix": "Run a full decode and review every reported error.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "final-encode",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7956,
+    "passes": [
+      "accessible_text",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-029-004",
+    "domain_id": "D029",
+    "area": "decoding and delivery",
+    "question": "Does the exact codec profile and level play on the lowest supported device?",
+    "failure_hypothesis": "General codec support is mistaken for support of every profile and resolution.",
+    "check_or_fix": "Test the delivered file on the stated minimum device/player.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7958,
+    "passes": [
+      "accessible_text",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-029-005",
+    "domain_id": "D029",
+    "area": "decoding and delivery",
+    "question": "Is hardware acceleration required for smooth playback on the intended audience's devices?",
+    "failure_hypothesis": "A demanding encode stutters on realistic decoding hardware.",
+    "check_or_fix": "Measure dropped frames and responsiveness on representative devices.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7960,
+    "passes": [
+      "accessible_text",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-029-006",
+    "domain_id": "D029",
+    "area": "decoding and delivery",
+    "question": "Can progressive playback begin promptly without downloading the entire file first?",
+    "failure_hypothesis": "Container layout delays access to essential playback metadata.",
+    "check_or_fix": "Test a fresh download over the expected connection and inspect startup behavior.",
+    "severity": "medium",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7962,
+    "passes": [
+      "accessible_text",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-029-007",
+    "domain_id": "D029",
+    "area": "decoding and delivery",
+    "question": "Does the video remain useful under the destination's lowest likely adaptive rendition?",
+    "failure_hypothesis": "Automatic quality reduction erases critical text or puzzle details.",
+    "check_or_fix": "Inspect the actual low-bitrate rendition using the viewer's task.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "delivery"
+    ],
+    "style_filters": [
+      "educational",
+      "puzzle"
+    ],
+    "source_line": 7964,
+    "passes": [
+      "accessible_text",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-029-008",
+    "domain_id": "D029",
+    "area": "decoding and delivery",
+    "question": "Does constrained bandwidth cause stalls precisely during the solving or decision interval?",
+    "failure_hypothesis": "Buffer interruptions alter the intended experience and available response time.",
+    "check_or_fix": "Test realistic constrained playback and provide a suitable download option if needed.",
+    "severity": "medium",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7966,
+    "passes": [
+      "accessible_text",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-029-009",
+    "domain_id": "D029",
+    "area": "decoding and delivery",
+    "question": "Are rotation and display-orientation flags interpreted consistently by target players?",
+    "failure_hypothesis": "Different players rotate or letterbox the same pixels differently.",
+    "check_or_fix": "Compare the file on the supported player set.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7968,
+    "passes": [
+      "accessible_text"
+    ]
+  },
+  {
+    "id": "AVQ-029-010",
+    "domain_id": "D029",
+    "area": "decoding and delivery",
+    "question": "Does the selected thumbnail reveal a puzzle answer or narrative surprise before playback?",
+    "failure_hypothesis": "Automatically chosen preview imagery spoils the experience.",
+    "check_or_fix": "Review the actual destination thumbnail and select an appropriate authorized replacement.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "delivery"
+    ],
+    "style_filters": [
+      "puzzle",
+      "fiction"
+    ],
+    "source_line": 7970,
+    "passes": [
+      "accessible_text"
+    ]
+  },
+  {
+    "id": "AVQ-029-011",
+    "domain_id": "D029",
+    "area": "decoding and delivery",
+    "question": "Is the intended audio track selected by default rather than commentary, a stem, or another language?",
+    "failure_hypothesis": "Track ordering or metadata causes the wrong listening experience.",
+    "check_or_fix": "Open the final file fresh in target players and listen to the default track.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "auditory"
+    ],
+    "stages": [
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7972,
+    "passes": []
+  },
+  {
+    "id": "AVQ-029-012",
+    "domain_id": "D029",
+    "area": "decoding and delivery",
+    "question": "Does muted autoplay still make the opening intelligible enough for the viewer to choose whether to continue?",
+    "failure_hypothesis": "The initial experience depends on audio the platform suppresses.",
+    "check_or_fix": "Test actual muted autoplay and make the opening promise visible.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7974,
+    "passes": []
+  },
+  {
+    "id": "AVQ-029-013",
+    "domain_id": "D029",
+    "area": "decoding and delivery",
+    "question": "Are caption sidecars actually linked and available to the recipient rather than merely sitting beside the source file?",
+    "failure_hypothesis": "Captions exist in storage but are absent from the delivery player.",
+    "check_or_fix": "Open the recipient-facing player and enable the supplied captions.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7976,
+    "passes": []
+  },
+  {
+    "id": "AVQ-029-014",
+    "domain_id": "D029",
+    "area": "decoding and delivery",
+    "question": "Does switching language tracks select a matching caption track where the player supports that behavior?",
+    "failure_hypothesis": "Independent track defaults produce mismatched spoken and written languages.",
+    "check_or_fix": "Test the available language combinations explicitly.",
+    "severity": "medium",
+    "modes": [
+      "machine",
+      "visual",
+      "auditory"
+    ],
+    "stages": [
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7978,
+    "passes": []
+  },
+  {
+    "id": "AVQ-029-015",
+    "domain_id": "D029",
+    "area": "decoding and delivery",
+    "question": "Has destination transcoding finished before the video is described as ready for review?",
+    "failure_hypothesis": "A placeholder or incomplete low-quality rendition is mistaken for final delivery.",
+    "check_or_fix": "Verify processing completion and inspect the resulting rendition.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7980,
+    "passes": []
+  },
+  {
+    "id": "AVQ-029-016",
+    "domain_id": "D029",
+    "area": "decoding and delivery",
+    "question": "Does playback reach the intended ending rather than stop early at a bad duration or timestamp boundary?",
+    "failure_hypothesis": "Container timing makes a valid tail inaccessible to the player.",
+    "check_or_fix": "Play through the end and compare visible duration with decoded content.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7982,
+    "passes": []
+  },
+  {
+    "id": "AVQ-029-017",
+    "domain_id": "D029",
+    "area": "decoding and delivery",
+    "question": "Can a viewer seek to a critical explanation without waiting excessively or landing on corrupted frames?",
+    "failure_hypothesis": "Sparse or malformed random-access points impair navigation.",
+    "check_or_fix": "Seek repeatedly around key sections on target players.",
+    "severity": "medium",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7984,
+    "passes": []
+  },
+  {
+    "id": "AVQ-029-018",
+    "domain_id": "D029",
+    "area": "decoding and delivery",
+    "question": "Does loop playback include an unintended pause, black flash, or duplicate frame imposed by the destination player?",
+    "failure_hypothesis": "Local seamlessness is broken by destination loop behavior.",
+    "check_or_fix": "Observe multiple actual destination loops and adjust delivery if possible.",
+    "severity": "medium",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7986,
+    "passes": []
+  },
+  {
+    "id": "AVQ-029-019",
+    "domain_id": "D029",
+    "area": "decoding and delivery",
+    "question": "Do player controls or captions supplied by the destination cover evidence placed near the frame edge?",
+    "failure_hypothesis": "Delivery UI obscures content that was safe in the clean export.",
+    "check_or_fix": "Inspect the real player with controls and captions visible.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7988,
+    "passes": []
+  },
+  {
+    "id": "AVQ-029-020",
+    "domain_id": "D029",
+    "area": "decoding and delivery",
+    "question": "Does automatic platform cropping preserve the intended composition in every supported presentation slot?",
+    "failure_hypothesis": "Feed, preview, or full-screen modes use different crops.",
+    "check_or_fix": "Test each actual slot and prepare separately reviewed variants where needed.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7990,
+    "passes": []
+  },
+  {
+    "id": "AVQ-029-021",
+    "domain_id": "D029",
+    "area": "decoding and delivery",
+    "question": "Are the file's access settings limited to the audience the user authorized?",
+    "failure_hypothesis": "Delivery convenience accidentally makes a private film publicly reachable.",
+    "check_or_fix": "Inspect sharing scope before sending and verify the intended recipient view.",
+    "severity": "critical",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7992,
+    "passes": []
+  },
+  {
+    "id": "AVQ-029-022",
+    "domain_id": "D029",
+    "area": "decoding and delivery",
+    "question": "Can the intended recipient open the delivered attachment or link with their actual permissions?",
+    "failure_hypothesis": "Owner access is mistaken for recipient access.",
+    "check_or_fix": "Verify recipient access without broadening permissions beyond authorization.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7994,
+    "passes": []
+  },
+  {
+    "id": "AVQ-029-023",
+    "domain_id": "D029",
+    "area": "decoding and delivery",
+    "question": "Will the access link remain valid for the expected review period?",
+    "failure_hypothesis": "An expiring transfer fails before reviewers can use it.",
+    "check_or_fix": "Check expiry against the agreed review window and choose a suitable authorized route.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7996,
+    "passes": []
+  },
+  {
+    "id": "AVQ-029-024",
+    "domain_id": "D029",
+    "area": "decoding and delivery",
+    "question": "Does destination caching continue serving an older rendition after the approved file has been replaced?",
+    "failure_hypothesis": "A cached media response defeats an otherwise correct version update.",
+    "check_or_fix": "Compare fresh-session playback and downloaded rendition identity with the approved replacement.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7998,
+    "passes": []
+  },
+  {
+    "id": "AVQ-029-025",
+    "domain_id": "D029",
+    "area": "decoding and delivery",
+    "question": "Does the media metadata expose unintended location, personal names, internal paths, or production notes?",
+    "failure_hypothesis": "Hidden metadata leaks information absent from the visible film.",
+    "check_or_fix": "Audit metadata and remove unnecessary private fields from the delivery copy.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "final-encode",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 8000,
+    "passes": []
+  },
+  {
+    "id": "AVQ-029-026",
+    "domain_id": "D029",
+    "area": "decoding and delivery",
+    "question": "Is a compatibility fallback the same approved revision as the primary file?",
+    "failure_hypothesis": "A playable alternate silently delivers an older story or fact.",
+    "check_or_fix": "Compare version manifests and content landmarks across all variants.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 8002,
+    "passes": []
+  },
+  {
+    "id": "AVQ-029-027",
+    "domain_id": "D029",
+    "area": "decoding and delivery",
+    "question": "Is the playable film clearly separated from source archives so the recipient does not have to unpack a project to watch it?",
+    "failure_hypothesis": "Packaging makes a technically complete delivery unusable for its audience.",
+    "check_or_fix": "Provide a clearly identified playback file alongside any approved source package.",
+    "severity": "medium",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 8004,
+    "passes": []
+  },
+  {
+    "id": "AVQ-029-028",
+    "domain_id": "D029",
+    "area": "decoding and delivery",
+    "question": "Are the delivery instructions naming a genuinely available file rather than a private build path?",
+    "failure_hypothesis": "The handoff points to storage the recipient cannot reach.",
+    "check_or_fix": "Follow every recipient-facing link or attachment path from the recipient context.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 8006,
+    "passes": []
+  },
+  {
+    "id": "AVQ-029-029",
+    "domain_id": "D029",
+    "area": "decoding and delivery",
+    "question": "Does an embedded player require third-party cookies or an account that the intended audience may not have?",
+    "failure_hypothesis": "Authentication or browser privacy constraints block otherwise valid media.",
+    "check_or_fix": "Test the expected signed-out or restricted-browser context.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 8008,
+    "passes": []
+  },
+  {
+    "id": "AVQ-029-030",
+    "domain_id": "D029",
+    "area": "decoding and delivery",
+    "question": "Does the destination recompress audio in a way that introduces artifacts or changes speech intelligibility?",
+    "failure_hypothesis": "Source audio review does not cover the platform's actual rendition.",
+    "check_or_fix": "Listen to the processed destination audio on representative devices.",
+    "severity": "high",
+    "modes": [
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 8010,
+    "passes": []
+  },
+  {
+    "id": "AVQ-029-031",
+    "domain_id": "D029",
+    "area": "decoding and delivery",
+    "question": "Are review comments attached to an immutable version so later replacement cannot change what was approved?",
+    "failure_hypothesis": "A moving link makes prior feedback and signoff ambiguous.",
+    "check_or_fix": "Preserve version IDs or hashes in the review record.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 8012,
+    "passes": []
+  },
+  {
+    "id": "AVQ-029-032",
+    "domain_id": "D029",
+    "area": "decoding and delivery",
+    "question": "Can a recipient tell which file is the final intended version when several drafts or aspect ratios are present?",
+    "failure_hypothesis": "Ambiguous naming leads to review or distribution of the wrong asset.",
+    "check_or_fix": "Use a clear manifest identifying status, purpose, and approved version.",
+    "severity": "medium",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 8014,
+    "passes": []
+  }
+]

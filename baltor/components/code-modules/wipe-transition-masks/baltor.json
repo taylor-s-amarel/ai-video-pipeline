@@ -1,0 +1,51 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "wipe_transition_masks",
+  "title": "Wipe transition masks",
+  "kind": "code-module",
+  "subkind": "transition",
+  "version": "1.0.0",
+  "summary": "Soft-edged numpy alpha masks for linear (any angle), radial, clock, diamond and blinds wipes that go exactly from clip A to clip B, plus a frame blender.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "wipe_transition_masks.py",
+  "tags": [
+    "video",
+    "transitions",
+    "wipe",
+    "mask",
+    "numpy",
+    "compositing"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

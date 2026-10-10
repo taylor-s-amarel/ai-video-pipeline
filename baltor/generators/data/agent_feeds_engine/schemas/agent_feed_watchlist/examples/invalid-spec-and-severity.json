@@ -1,0 +1,75 @@
+{
+  "spec": "watchlist",
+  "project": "ai-video-pipeline",
+  "generated": "2026-10-10T12:00:00Z",
+  "root": ".",
+  "ecosystems": [
+    "PyPI",
+    "Docker"
+  ],
+  "packages": [
+    {
+      "ecosystem": "PyPI",
+      "name": "examplelib",
+      "version": "==2.30.0",
+      "pinned": "2.30.0",
+      "dev": false,
+      "source_file": "requirements.txt"
+    },
+    {
+      "ecosystem": "PyPI",
+      "name": "anthropic",
+      "version": ">=0.40",
+      "pinned": null,
+      "dev": false,
+      "source_file": "requirements.txt"
+    },
+    {
+      "ecosystem": "Docker",
+      "name": "python",
+      "version": "3.12-slim",
+      "pinned": "3.12-slim",
+      "source_file": "Dockerfile"
+    }
+  ],
+  "runtimes": [
+    {
+      "name": "python",
+      "version": "3.12",
+      "source_file": "Dockerfile"
+    }
+  ],
+  "vendors": [
+    "Anthropic"
+  ],
+  "products": [
+    "anthropic",
+    "claude-code",
+    "ffmpeg"
+  ],
+  "mcp_servers": [
+    {
+      "name": "filesystem",
+      "package": "@modelcontextprotocol/server-filesystem",
+      "ecosystem": "npm",
+      "url": null,
+      "harness": "claude-code",
+      "source_file": ".mcp.json"
+    }
+  ],
+  "harnesses": [
+    "claude-code",
+    "codex"
+  ],
+  "topics": [
+    "tts",
+    "video",
+    "mcp"
+  ],
+  "excluded_topics": [
+    "crypto"
+  ],
+  "min_severity": "severe",
+  "include_prereleases": false,
+  "min_score": 30
+}

@@ -1,0 +1,51 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "isometric_projection",
+  "title": "Isometric and dimetric projection",
+  "kind": "code-module",
+  "subkind": "grid-system",
+  "version": "1.0.0",
+  "summary": "True isometric and 2:1 pixel-art dimetric projection with ground unprojection, diamond tile picking and painter's-order depth sorting for 2.5D and top-down scenes.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "isometric_projection.py",
+  "tags": [
+    "video",
+    "isometric",
+    "2.5d",
+    "projection",
+    "tiles",
+    "game-art"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

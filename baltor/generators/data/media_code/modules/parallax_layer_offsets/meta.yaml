@@ -1,5 +1,5 @@
 title: Parallax layer offsets (2.5D camera)
-summary: Pinhole-camera parallax for flat layers: per-layer screen shift and dolly scale from depth, focal picking for a target shift, and overscan needed so edges never show.
+summary: "Pinhole-camera parallax for flat layers: per-layer screen shift and dolly scale from depth, focal picking for a target shift, and overscan needed so edges never show."
 subkind: camera-move
 domain: video
 tags: [video, parallax, 2.5d, layers, camera, depth]

@@ -1,0 +1,509 @@
+{
+ "heading": "New suspense and comedy storyboards",
+ "anchor": "new-suspense-and-comedy-storyboards",
+ "line": 145,
+ "scope": "Eight new development topics: three complete timed storyboards and five additional pitches. They are separate from the earlier 240-premise catalogue and its 2,400 treatment candidates. Boards and pitches are not added together as eleven stories.",
+ "status": "Status: proposed concepts and unrendered storyboards. These are editorial recommendations, not measured audience results or claims of user acceptance. The earlier BOXED IN film's technical progress does not establish that its story worked. The next production should pass a story test before final animation.",
+ "recommendation": [
+  "Start with **The Decoy Job**. It has the clearest visual setup, a real conflict between two characters, a reversal planted in ordinary objects, and an ending that changes the protagonist's situation. **Inventory Space** is the most distinctive game-world idea, but its carry rule must survive a rough animatic test. **The Extra** has recognizable social pressure and a cooperative ending, but needs expressive acting and clear separation between the movie camera and our camera.",
+  "Editorial ranking considers opening clarity, causal escalation, character agency, earned surprise, visual comedy, and production risk. It does not predict views or retention."
+ ],
+ "boards": [
+  {
+   "number": 1,
+   "title": "The Decoy Job",
+   "anchor": "1-the-decoy-job",
+   "line": 157,
+   "board_type": "timed",
+   "format_text": "approximately 76 seconds; ten shots; a small gallery, two main characters, one guard and a visitor pair.",
+   "opening_image": "A masked thief tries to lift a gold statue. The statue's painted sneaker quietly braces against the pedestal.",
+   "dramatic_question": "Can the thief avoid being caught after choosing the worst possible thing to steal?",
+   "characters_and_goals": "The thief wants an effortless valuable score. The paid living-statue performer wants a break and refuses to be treated as an object. The approaching guard makes their disagreement urgent.",
+   "world_rule": "This gallery employs costumed living-statue performers. Someone doing the advertised act on the pedestal belongs there. No special alarm, unexplained recognition system, or invisibility rule is needed.",
+   "stakes": "The thief's attempted theft is about to be discovered. The performer can expose him, bargain with him, or let him embarrass himself.",
+   "escalation_chain_text": "Attempted theft reveals resistance → the thief doubles down → the statue reveals that it is a person → the guard's return makes bargaining necessary → the thief accepts the very labor he hoped to avoid → a genuine tip makes him choose to keep performing.",
+   "planted_details": "A gold-painted sneaker; a tip jar partly behind the pedestal; costume supplies below it; a small BREAK sign. Do not conceal these using impossible framing. The audience may realize the truth before the thief. Suspense then comes from anticipating his discovery and the guard's arrival.",
+   "midpoint_change": "At the bargain, the goal changes from “steal the statue” to “become the statue convincingly enough to survive this encounter.” The solution creates the second half's comic danger.",
+   "why_watch_next_beat": "We anticipate the statue revealing itself, then wonder what it will demand, whether the disguise will hold, and whether the thief will leave or accept the unexpected reward.",
+   "alternate_ending": "The original performer returns from his break to find the thief proudly posing beside a sign reading “ASSISTANT WANTED.” This is a more cynical punch line and needs a slightly longer time jump. Prefer the immediate, visual first-dollar ending for the first animatic.",
+   "obvious_weakness": "If the living-statue identity is too obvious, the reveal alone cannot carry the film. The bargain and role reversal must remain entertaining when the audience knows the truth early. The guard must visibly recognize a performance category, not implausibly overlook a known employee's different face.",
+   "kill_criteria": "Reject or rewrite if viewers cannot explain why the thief accepts the bargain; if changing into the costume takes longer than the interesting action; if the guard's reaction depends on a hidden rule; or if the ending only imprisons the thief rather than giving him a meaningful final choice.",
+   "field_labels": {
+    "format_text": "Format",
+    "opening_image": "Opening image",
+    "dramatic_question": "Dramatic question",
+    "characters_and_goals": "Characters and conflicting goals",
+    "world_rule": "World rule",
+    "stakes": "Stakes",
+    "escalation_chain_text": "Escalation chain",
+    "planted_details": "Planted details",
+    "midpoint_change": "Midpoint change",
+    "why_watch_next_beat": "Why watch the next beat",
+    "alternate_ending": "Alternate ending",
+    "obvious_weakness": "Obvious weakness to test",
+    "kill_criteria": "Kill criteria before rendering"
+   },
+   "approx_duration_s": 76,
+   "shot_count": 10,
+   "cast": "a small gallery, two main characters, one guard and a visitor pair",
+   "escalation_chain": [
+    "Attempted theft reveals resistance",
+    "the thief doubles down",
+    "the statue reveals that it is a person",
+    "the guard's return makes bargaining necessary",
+    "the thief accepts the very labor he hoped to avoid",
+    "a genuine tip makes him choose to keep performing"
+   ],
+   "shots": [
+    {
+     "index": 1,
+     "start_s": 0,
+     "end_s": 5,
+     "title": "The wrong target",
+     "action": "Medium-wide, slightly low: the thief hugs the gold figure around its waist and tries to lift it. One golden sneaker wedges against the pedestal. At the far side of the gallery, a guard's coffee cup and an empty chair imply a short absence. Sound: a tiny rubber-shoe squeak, strained breath. The thief squints at the stubborn statue. The resistance makes him try a different approach instead of leaving."
+    },
+    {
+     "index": 2,
+     "start_s": 5,
+     "end_s": 12,
+     "title": "It is resisting",
+     "action": "Side-on full-body composition: the thief leans backward with both arms around the statue; the performer leans imperceptibly forward. They form a ridiculous tug-of-war sculpture. The thief changes grip, and the performer smoothly changes pose to defeat it. A visitor passing the distant doorway briefly admires the tableau. Sound: one approving camera click. The thief freezes until the visitor passes, accidentally learning the value of looking like the exhibit."
+    },
+    {
+     "index": 3,
+     "start_s": 12,
+     "end_s": 19,
+     "title": "The clue becomes undeniable",
+     "action": "Tight on the thief's hands as he checks for a fastening. The statue's free hand slowly enters frame, holding the tip jar under his face. Pause for the thief to look from jar to face. The statue raises one painted eyebrow. No explanatory line is needed. The thief's plan to steal an object is now a negotiation with a person."
+    },
+    {
+     "index": 4,
+     "start_s": 19,
+     "end_s": 27,
+     "title": "Bargaining power changes",
+     "action": "Two-shot: the thief tries a tiny apologetic wave and edges away. Offscreen, the guard's keys and footsteps return. The performer lifts a hand to attract the guard, then pauses. The thief urgently signals, “Wait.” The performer points to his BREAK sign, then to the pedestal. The demand is visible: cover my break. The thief points at himself in offended disbelief."
+    },
+    {
+     "index": 5,
+     "start_s": 27,
+     "end_s": 35,
+     "title": "The expensive shortcut",
+     "action": "Hold the same geography. The performer gives the thief a choice with two gestures: pedestal, or call the guard. The thief looks toward the doorway, then accepts with a miserable handshake. The performer opens a shallow costume compartment already visible beneath the pedestal. Golden gloves and an oversized gold cape fall out. This transition follows the bargain; it is not a surprise new escape ability."
+    },
+    {
+     "index": 6,
+     "start_s": 35,
+     "end_s": 44,
+     "title": "A very bad promotion",
+     "action": "Brisk, readable medium shots within one beat: the thief pulls on gloves and cape; the performer dabs washable stage gold onto his cheeks; they exchange the statue's headpiece. Keep faces recognizable. The performer wipes his own face with a towel, revealing a plain staff shirt beneath the removable costume. The thief scrambles onto the pedestal and copies the pose. His discarded thief mask lands in the tip jar; the performer discreetly pockets it. Sound: costume rustle, approaching footsteps."
+    },
+    {
+     "index": 7,
+     "start_s": 44,
+     "end_s": 53,
+     "title": "The inspection",
+     "action": "Wide enough to show the guard, replacement performer, and original performer exiting in ordinary staff clothing. The guard nods to the departing worker, then looks at the replacement statue. The exhibit placard is now fully readable: “LIVING STATUE • TIPS WELCOME.” The guard sees an advertised performance, so his acceptance is legible. The thief's arm starts to shake. A huge painted grin does not conceal his panicked eyes."
+    },
+    {
+     "index": 8,
+     "start_s": 53,
+     "end_s": 62,
+     "title": "A professional hazard",
+     "action": "A small visitor points out a gold smear on the statue's cheek. The guard leans in; the thief must resist wiping his itchy nose. A drop of gold paint slowly creeps toward his nostril. He turns the impending sneeze into an exaggerated heroic pose at the last moment. The visitor laughs and applauds the apparent intentional movement. This is a new problem created by his disguise, not another attempt to solve the original theft."
+    },
+    {
+     "index": 9,
+     "start_s": 62,
+     "end_s": 70,
+     "title": "The first honest dollar",
+     "action": "The guard continues his rounds. The thief starts to step off the pedestal, relieved. Then the visitor drops a bill into the jar. The thief looks at it, then at the appreciative visitor. His greedy grin changes into a surprised, genuine one. He deliberately returns to the pedestal and invents an even sillier pose. He is now choosing the job, not merely being trapped in it."
+    },
+    {
+     "index": 10,
+     "start_s": 70,
+     "end_s": 76,
+     "title": "New business model",
+     "action": "Reverse wide: the original performer, now enjoying his break, sees the thief collect a second tip. The thief uses the gold cape for a comic flourish and has added a handwritten “PARTIES?” card beside the jar. The performer raises his coffee in amused approval; the thief returns a dignified gold salute. End on the thief trying to hold the grand pose while counting his tip with one furtive finger. One small coin sound is enough; no moral or explanatory narration."
+    }
+   ]
+  },
+  {
+   "number": 2,
+   "title": "Inventory Space",
+   "anchor": "2-inventory-space",
+   "line": 207,
+   "board_type": "timed",
+   "format_text": "approximately 88 seconds; ten shots; one compact game plaza, two NPCs and one player avatar.",
+   "opening_image": "A red deletion boundary eats the edge of a game plaza. At the center, a couple has just set out a tiny anniversary dinner. UI: “MAP REMOVAL 01:10.” A departing player's attached bundle of gear remains solid as a nearby abandoned prop disappears.",
+   "dramatic_question": "Can these two background characters make a speedrunner take them along before their whole map is removed?",
+   "characters_and_goals": "A repair-shop NPC wants to save his partner and their dinner. His partner, a cook, refuses to be abandoned. The player wants useful equipment without delays or dialogue. He is impatient, not deliberately cruel.",
+   "world_rule": "Physically attached assemblies carried through the exit are preserved; things left in the old map are removed. Demonstrate this rule before the protagonists exploit it. There is no arbitrary inventory-slot loophole, newly introduced shrinking power, or special exemption for romance.",
+   "stakes": "Their home and the selves they have built in it will be lost. The visual tone stays comic, but the film must treat their wish to stay together as real.",
+   "escalation_chain_text": "They try to attract the player with an item → he takes the item without them → the cook's genuine service draws him back → furniture is rejected as dead weight → the couple sacrifices their fixed shop to make one useful mobile assembly → the player tests it at the worst moment → the carry rule preserves them → they finally claim time for their dinner.",
+   "planted_details": "The player can carry a visibly attached rack as one physical load; his sword's repair indicator is low; a snack visibly restores his health; the shop's removable wooden counter, heavy stone base, and transport straps are already present. These details explain both the construction and why the player wants it.",
+   "midpoint_change": "They stop trying to persuade the player to preserve their old life unchanged. They combine their genuine abilities into a mobile arrangement he has reason to carry, then insist that usefulness does not eliminate their right to a moment together.",
+   "why_watch_next_beat": "Will he take them or only their possessions? Can they build an offer he values in time? Will the physical attachment hold? Once saved, will he treat them as people?",
+   "alternate_ending": "The player reaches a difficult fight and politely rings the little service bell. The couple's sign reads “ANNIVERSARY DINNER. PLEASE QUEUE.” He joins a tiny, newly formed queue of other players. Use only if the extra people can be introduced without an unexplained time jump; otherwise keep the quieter ending.",
+   "obvious_weakness": "The world rule and the construction can consume too much explanation. If the audience needs a paragraph about inventory systems, this is not ready. The initial deletion demonstration must also make the stakes emotionally intelligible without pretending to depict actual game software.",
+   "kill_criteria": "Reject or rewrite if any viewer reasonably asks, “Why didn't they just climb onto him immediately?” without seeing that he rejects unwanted weight; if an attached assembly is only declared legal at the climax; if the portable stall cannot be understood from its silhouette; or if the ending resets the pair again and cancels their success. Preserve both characters, their meal, and the earned change in the player's behavior.",
+   "field_labels": {
+    "format_text": "Format",
+    "opening_image": "Opening image",
+    "dramatic_question": "Dramatic question",
+    "characters_and_goals": "Characters and conflicting goals",
+    "world_rule": "One world rule",
+    "stakes": "Stakes",
+    "escalation_chain_text": "Escalation chain",
+    "planted_details": "Planted details",
+    "midpoint_change": "Midpoint change",
+    "why_watch_next_beat": "Why watch the next beat",
+    "alternate_ending": "Alternate ending",
+    "obvious_weakness": "Obvious weakness to test",
+    "kill_criteria": "Kill criteria before rendering"
+   },
+   "approx_duration_s": 88,
+   "shot_count": 10,
+   "cast": "one compact game plaza, two NPCs and one player avatar",
+   "escalation_chain": [
+    "They try to attract the player with an item",
+    "he takes the item without them",
+    "the cook's genuine service draws him back",
+    "furniture is rejected as dead weight",
+    "the couple sacrifices their fixed shop to make one useful mobile assembly",
+    "the player tests it at the worst moment",
+    "the carry rule preserves them",
+    "they finally claim time for their dinner"
+   ],
+   "shots": [
+    {
+     "index": 1,
+     "start_s": 0,
+     "end_s": 6,
+     "title": "The world is going away",
+     "action": "Wide overhead of a cozy square with a red deletion line eating its outer paving. A couple's candlelit table sits in the remaining center. UI clearly reads “MAP REMOVAL 01:10” and, briefly, “CARRIED LOADS TRANSFER.” A player picks up a rack with a small bucket physically attached; both move together and stay solid while an abandoned matching bucket beyond the boundary dissolves. The repair NPC sees this. The cook catches their wobbling anniversary candle."
+    },
+    {
+     "index": 2,
+     "start_s": 6,
+     "end_s": 14,
+     "title": "An obvious sales pitch",
+     "action": "Tracking medium: the repair NPC runs to the player, holding up a valuable sword and pointing back at both people. The player instantly takes the sword and skips the dialogue prompt. The repair NPC catches a shoulder strap to climb along, but the player gently unhooks him and sets him back on the ground. The NPC is left with his finger still indicating “us.” Sound: a cheerful loot chime cutting off his first syllable. The player has demonstrated his priority and created the next problem: their best bargaining chip is gone."
+    },
+    {
+     "index": 3,
+     "start_s": 14,
+     "end_s": 23,
+     "title": "Something the player actually needs",
+     "action": "The player tests the new sword against a practice target. Its low durability indicator flashes. A small hit from the target knocks a little health away. The cook holds up a snack; he stops immediately, eats, and visibly heals. The repair NPC understands the opening and fixes the blade with one quick, characteristic tap. The player pauses for the first time. This establishes actual useful skills, not just a fake rarity label."
+    },
+    {
+     "index": 4,
+     "start_s": 23,
+     "end_s": 31,
+     "title": "Useful people, inconvenient shop",
+     "action": "The pair gesture toward their dinner and shop. The player tries to move their heavy counter, gets a “TOO HEAVY” response, shrugs and turns toward the exit. The cook catches the table before it tips and saves the anniversary candle. The repair NPC looks from the attached rack on the player's back to his own removable counter top, its transport straps, and the heavy stone base that does not need to travel. Their location is the obstacle; their relationship and skills are not."
+    },
+    {
+     "index": 5,
+     "start_s": 31,
+     "end_s": 41,
+     "title": "The costly decision",
+     "action": "Medium two-shot: the repair NPC unbolts the beloved shop's light wooden counter top, leaving its heavy stone base and fixed oven behind. He starts to turn the portable wood into a carrying frame. The cook stops him for a beat, touching a little hand-painted shop sign. He offers the sign to her rather than discarding it. She nods and unhooks the dinner table. They work together, turning the usable lightweight parts of their permanent shop into a compact mobile stall. Show the substantial fixed masonry they leave behind; folding alone must not magically reduce its weight. The red boundary consumes the empty chairs behind them. They have actively given up their old arrangement to preserve what matters to them."
+    },
+    {
+     "index": 6,
+     "start_s": 41,
+     "end_s": 51,
+     "title": "Build an honest offer",
+     "action": "Side view, clear silhouette: hinged counter folds; straps tighten; tiny table locks into the frame. The two NPCs sit inside the physical assembly, with their hands and faces plainly visible. Their existing shop sign now hangs on its back. They roll into the player's path. UI describes its real functions: “REPAIR + SNACKS.” Avoid invented statistics or a fraudulent “legendary” sticker. The cook offers another snack; the repair NPC presents the repaired blade."
+    },
+    {
+     "index": 7,
+     "start_s": 51,
+     "end_s": 61,
+     "title": "The worst possible product test",
+     "action": "The player lifts the whole attached assembly. It contains them exactly as the earlier carried rack contained its attached bucket. He immediately performs a dodge roll. The couple braces, the candle falls, and the cook catches it while the repair NPC saves the soup. A strained look passes between them: being useful on the road has a cost. The player sees the frame survive the test and decides to keep it."
+    },
+    {
+     "index": 8,
+     "start_s": 61,
+     "end_s": 72,
+     "title": "Commit to the carry",
+     "action": "Low tracking shot toward the exit. The deletion boundary advances behind them. A loose strap starts slipping from the frame. The repair NPC must let go of a keepsake or risk the whole assembly detaching; the cook takes the keepsake, freeing him to secure the strap. They solve the danger together. The player crosses the transfer line with the complete load at approximately 69.5 seconds, leaving half a second on the original 70-second countdown. The empty shop square disappears at 70 seconds; the remaining two seconds of this shot establish the new map. Sound drops to near silence at the crossing, then returns in the new map."
+    },
+    {
+     "index": 9,
+     "start_s": 72,
+     "end_s": 81,
+     "title": "They actually made it",
+     "action": "Calm rear three-quarter shot in the new map. The pair unfold their little table inside the carried stall and set out the saved sign and candle. The player holds up his sword for service. The cook points to the anniversary meal, then hangs a small “BACK AFTER DESSERT” sign over the service hatch. The player's hand pauses. He looks at the two faces, finally registering people rather than equipment."
+    },
+    {
+     "index": 10,
+     "start_s": 81,
+     "end_s": 88,
+     "title": "The speedrunner waits",
+     "action": "Wide: the player sits on a rock, impatient foot tapping, while the couple enjoys one quiet toast. He reaches toward a new “SKIP” prompt out of habit; it is the card on their table, reading “NO SKIPPING DESSERT.” He lowers his hand and waits. The cook passes him a small piece of cake through the hatch. His foot stops tapping. End on three little chewing sounds in an unexpectedly peaceful game world."
+    }
+   ]
+  },
+  {
+   "number": 3,
+   "title": "The Extra",
+   "anchor": "3-the-extra",
+   "line": 257,
+   "board_type": "timed",
+   "format_text": "approximately 72 seconds; ten shots; a romantic movie set, the extra, a self-important lead, his scene partner and a director.",
+   "opening_image": "An extra in a waiter's uniform reaches for the crew bathroom while bouncing on his toes. An assistant places a tray in his hands and turns him toward the active set: “Rolling.”",
+   "dramatic_question": "Can a background actor get out of a one-take proposal scene before his private emergency becomes the performance?",
+   "characters_and_goals": "The extra needs the bathroom and wants to keep his job. The leading actor wants a magnificent, increasingly long proposal speech. The actress playing the bride wants to finish the scene and gets repeatedly denied her turn to answer. Their goals eventually align.",
+   "world_rule": "The movie scene is one continuous take that ends when the proposal is accepted. Our short may cut between the film camera, its monitor, and the off-camera crew; the movie-within-the-movie must remain continuous.",
+   "stakes": "Walking out ruins the take; staying makes his physical predicament worse. He must choose whether to stay deferential or intervene in a way that helps the scene.",
+   "escalation_chain_text": "His exit is interrupted by service → the lead hands him the ring and pulls him into the foreground → handing it back feeds another speech → the actress sees his problem and shares his wish to finish → the extra breaks the actor's control of the scene by offering the ring to her → her active acceptance completes the take → the extra finally leaves.",
+   "planted_details": "The bathroom sign and route; the scene's final storyboard panel showing the accepted ring; the ring on the tray; the actress's unused “Yes” line; the director's preference for a completed scene. The finish uses these exact things.",
+   "midpoint_change": "The extra stops trying to disappear alone. He recognizes that the actress is also being kept from completing her part and helps her take the scene back. The film's ending and his personal goal become the same action.",
+   "why_watch_next_beat": "Each apparently polite escape gives him more responsibility. Once he intervenes, the uncertainty is whether the lead or director will reject it before the scene reaches its ending.",
+   "alternate_ending": "After the cut, the director calls, “Get him a bigger part.” The actress points toward the bathroom: “Give him five minutes.” Keep the extra safely inside and relieved. Avoid “One more take!” as the ending; that would cancel the achievement and repeat the same joke.",
+   "obvious_weakness": "Without strong eye-lines and physical acting, this can become a verbal sketch. The actress must visibly have attempted to speak before the alliance, so her acceptance feels like taking action rather than something she could inexplicably have done at any previous moment. The lead should be vain and oblivious, not a cruel villain.",
+   "kill_criteria": "Reject or rewrite if the viewer cannot tell when the movie camera is rolling; if the extra can simply leave the tray without consequence; if the lead's speeches become padding; if the actress's final acceptance is not visually a completed scene; or if the payoff depends only on the final spoken joke. The intervention and sprint to the bathroom should remain understandable with sound off.",
+   "field_labels": {
+    "format_text": "Format",
+    "opening_image": "Opening image",
+    "dramatic_question": "Dramatic question",
+    "characters_and_goals": "Characters and conflicting goals",
+    "world_rule": "World rule",
+    "stakes": "Stakes",
+    "escalation_chain_text": "Escalation chain",
+    "planted_details": "Planted details",
+    "midpoint_change": "Midpoint change",
+    "why_watch_next_beat": "Why watch the next beat",
+    "alternate_ending": "Alternate ending",
+    "obvious_weakness": "Obvious weakness to test",
+    "kill_criteria": "Kill criteria before rendering"
+   },
+   "approx_duration_s": 72,
+   "shot_count": 10,
+   "cast": "a romantic movie set, the extra, a self-important lead, his scene partner and a director",
+   "escalation_chain": [
+    "His exit is interrupted by service",
+    "the lead hands him the ring and pulls him into the foreground",
+    "handing it back feeds another speech",
+    "the actress sees his problem and shares his wish to finish",
+    "the extra breaks the actor's control of the scene by offering the ring to her",
+    "her active acceptance completes the take",
+    "the extra finally leaves"
+   ],
+   "shots": [
+    {
+     "index": 1,
+     "start_s": 0,
+     "end_s": 5,
+     "title": "Too late to leave",
+     "action": "Medium profile: the extra almost reaches the clearly marked crew bathroom. His knees are pressed together. An assistant gently rotates him toward the set and loads a tray into his hands. Clapper: “PROPOSAL • FINAL TAKE.” In the background, the last storyboard panel shows a ring accepted and “END.” The extra gives the bathroom one anguished look as the film camera starts."
+    },
+    {
+     "index": 2,
+     "start_s": 5,
+     "end_s": 12,
+     "title": "Background becomes service",
+     "action": "Wide showing both the film frame and the safe off-camera exit. The leading actor begins an extravagantly heartfelt speech. The extra edges behind a plant toward the edge of frame. Without looking, the lead extends his glass: “Waiter.” The extra must return to pour. Sound: only a very short, overwrought phrase from the speech, not seven seconds of exposition. His attempt to leave has put him directly beside the couple."
+    },
+    {
+     "index": 3,
+     "start_s": 12,
+     "end_s": 20,
+     "title": "Service becomes responsibility",
+     "action": "Medium on the tray: the lead sets the ring box on it and places the extra exactly where the film camera can see him. “Keep that safe.” He moves away to deliver the next flourish. The extra cannot leave with the scene's essential prop. His trembling hands make the ring box inch toward the edge. The actress notices and steadies it with one finger."
+    },
+    {
+     "index": 4,
+     "start_s": 20,
+     "end_s": 27,
+     "title": "The helpful hint backfires",
+     "action": "The extra presents the ring box to the lead, hoping to accelerate the proposal. The lead picks it up, gazes into the distance, then absently returns it to the tray as he launches a new tangent: “My grandfather once said...” The actress starts to say “Yes”; the lead raises a finger for his dramatic pause and resumes speaking over her. She closes her mouth and exhales. The director starts to lean forward, then settles back. The extra's courteous solution has lengthened the scene."
+    },
+    {
+     "index": 5,
+     "start_s": 27,
+     "end_s": 35,
+     "title": "Find the person with the same problem",
+     "action": "Tight two-shot while the lead performs in soft focus behind them. The actress follows the extra's frantic glance to the bathroom sign. He gives a tiny, helpless nod. She glances at the final storyboard panel, then at the lead still talking. Her face says: I also need this to end. This is the alliance beat, played entirely in looks."
+    },
+    {
+     "index": 6,
+     "start_s": 35,
+     "end_s": 43,
+     "title": "A different recipient",
+     "action": "The extra starts to offer the ring back to the lead again, stops himself, and rotates the tray toward the actress instead. He takes one steadying breath and speaks in character: “I believe the lady has an answer.” This is his active, socially risky decision. The lead stops mid-flourish. The director lifts his head; the camera stays rolling."
+    },
+    {
+     "index": 7,
+     "start_s": 43,
+     "end_s": 51,
+     "title": "Let her finish it",
+     "action": "Medium close-up, ring and both faces in frame. The actress opens the box herself, holds it toward the lead and says a simple, emphatic “Yes.” When the lead inhales to resume his speech, she offers him her hand and a delighted, unmistakable look. He has to play the acceptance beat. The extra backs one careful step toward the exit while keeping the tray level."
+    },
+    {
+     "index": 8,
+     "start_s": 51,
+     "end_s": 59,
+     "title": "The longest last second",
+     "action": "The lead finally slides the ring onto her finger. The extra hears the tiny scrape as if it were an enormous mechanical lock. Cut to our view of the director's raised hand; he is enjoying the completed moment and has not called the cut yet. The extra freezes at the edge of frame, one foot poised outside it. The actress makes direct eye contact with the film camera's direction and gives the final happy beat. “Cut.” No new obstacle is added; this is the established acceptance finally landing."
+    },
+    {
+     "index": 9,
+     "start_s": 59,
+     "end_s": 66,
+     "title": "Exit achieved",
+     "action": "Wider off-camera view: the extra places the tray safely in the assistant's hands and disappears down the already-established bathroom route. The actress catches the ring box before the lead can begin an off-camera speech about his performance. She and the assistant exchange a relieved grin. The director checks the final frame and gives a satisfied wrap gesture. Both allies achieved their actual goal."
+    },
+    {
+     "index": 10,
+     "start_s": 66,
+     "end_s": 72,
+     "title": "The review",
+     "action": "Outside the now-occupied bathroom, the lead addresses the closed door with sincere professional admiration: “That desperation. How did you find it?” A brief beat, then the extra's dry voice from inside: “Preparation.” Cut before another speech. No bathroom sound effects, exposed body, or contraption reveal are needed."
+    }
+   ]
+  }
+ ],
+ "slate_intro": [
+  "These are pitches, not approved productions or timed boards. Together with the three fully boarded films above, they make eight topics. They should be developed only if their central visual test works; a striking premise is not yet a finished film."
+ ],
+ "pitches": [
+  {
+   "number": 4,
+   "title": "Front Legs, Back Legs",
+   "anchor": "4-front-legs-back-legs",
+   "line": 312,
+   "board_type": "pitch",
+   "opening_frame": "The front half of a pantomime horse kneels heroically while its back legs begin an unwanted tap solo.",
+   "question_and_goals": "Can two performers finish the children's show without exposing the people inside? The front performer wants to deliver his magnificent heroic scene; the rear performer wants the visiting talent scout to notice his dance skill. Their jobs depend on keeping the illusion through the final curtain.",
+   "rule": "The costume must remain intact during the show. Their disagreement has to happen through the horse's movements.",
+   "causal_escalation": "The front tries to plant all four feet for his dramatic speech; the rear keeps the body moving. The front counters with a gallop, accidentally giving the rear a faster dance rhythm. A planned rescue becomes a bucking, moonwalking duel, and both performers must cooperate to keep the child-sized actor playing the princess safely seated on the costume's padded back.",
+   "plant_and_payoff": "The talent scout's pencil follows the feet, not the speech. Once the curtain falls, the front performer rushes out to claim the applause. The audience calls for the dancing back legs instead. The rear performer gets his own bow, then invites the front performer to supply the back legs of his encore. Their hierarchy has literally reversed.",
+   "visual_test": "The front and rear must read as separate personalities without dialogue or a cutaway inside the costume. Keep the physical comedy grounded; do not escalate to an unexplained airborne battle.",
+   "field_labels": {
+    "opening_frame": "Opening frame",
+    "question_and_goals": "Question and conflicting goals",
+    "rule": "Rule",
+    "causal_escalation": "Causal escalation",
+    "plant_and_payoff": "Plant and payoff",
+    "visual_test": "Visual test"
+   }
+  },
+  {
+   "number": 5,
+   "title": "The Hiccup Concerto",
+   "anchor": "5-the-hiccup-concerto",
+   "line": 326,
+   "board_type": "pitch",
+   "opening_frame": "In the expectant silence, a conductor hiccups, jerks his baton and produces one enormous orchestral blast.",
+   "question_and_goals": "Can he finish the performance without being exposed as out of control? He wants dignified precision; the first violin sees that the audience loves the accidental rhythm and wants him to embrace it.",
+   "rule": "The orchestra follows the baton. The music is a visible result of his movement, rather than a magical response to any noise in the room.",
+   "causal_escalation": "He conceals a hiccup behind a sweeping gesture, which makes the brass swell. The violinist answers it as a phrase. His attempt to take water creates a tiny pause the percussionist fills. His effort to stop the emerging piece makes a dramatic silence, and the audience leans forward. At midpoint, he sees that the violinist is offering a repeatable pattern, not mocking him. He chooses to conduct the pattern deliberately.",
+   "plant_and_payoff": "A visiting composer's stern face stays fixed while one shoe starts tapping early. At the finish, that composer leads the applause and asks for an encore. The conductor no longer has hiccups. Rather than try to summon them, he confidently reproduces the once-accidental movements, with the violinist as his partner. Final visual joke: he carefully moves the fizzy water far beyond his reach before the downbeat.",
+   "visual_test": "The first blast must be funny with almost no setup, and the music must genuinely follow the movements. Reject an ending that depends on a scare conveniently causing a hiccup.",
+   "field_labels": {
+    "opening_frame": "Opening frame",
+    "question_and_goals": "Question and conflicting goals",
+    "rule": "Rule",
+    "causal_escalation": "Causal escalation",
+    "plant_and_payoff": "Plant and payoff",
+    "visual_test": "Visual test"
+   }
+  },
+  {
+   "number": 6,
+   "title": "A Very Long Sausage",
+   "anchor": "6-a-very-long-sausage",
+   "line": 340,
+   "board_type": "pitch",
+   "opening_frame": "Two rival dogs grip opposite ends of one enormous sausage. A pigeon eyes its undefended center.",
+   "question_and_goals": "Will either dog get lunch before the pigeon takes it? Each dog wants the entire sausage; their owner wants to continue walking; the pigeon wants the easiest possible bite.",
+   "rule": "Neither dog will voluntarily release its end. Every tactic therefore moves or stretches the same connected object and pulls on their leads.",
+   "causal_escalation": "One dog backs away to claim more; the other circles a bollard to gain leverage. Their owner gets caught between the crossed leads. The pigeon advances each time both dogs focus on each other. At midpoint, they see the common threat and stop pulling against one another. They stretch the elastic cartoon sausage across the already-established bollards, wait for the pigeon to land in the center, and release tension together. The pigeon lands safely on a nearby bench, indignant and empty-beaked.",
+   "plant_and_payoff": "The sausage's ridiculous stretch and the bollards must be shown before they become a slingshot. The dogs then choose to break and share the sausage. The owner gives a relieved smile, tries to step forward, and discovers that the newly cooperative dogs have left him neatly gift-wrapped in their leads. End there; no multiplying flock or repeat of the earlier dog-fetch film.",
+   "visual_test": "This is the smallest-stakes pitch, so it should be short and almost entirely physical. It fails if the dog behavior is merely three interchangeable tugs or the owner seems genuinely injured.",
+   "field_labels": {
+    "opening_frame": "Opening frame",
+    "question_and_goals": "Question and conflicting goals",
+    "rule": "Rule",
+    "causal_escalation": "Causal escalation",
+    "plant_and_payoff": "Plant and payoff",
+    "visual_test": "Visual test"
+   }
+  },
+  {
+   "number": 7,
+   "title": "Just Hold the Sun",
+   "anchor": "7-just-hold-the-sun",
+   "line": 354,
+   "board_type": "pitch",
+   "opening_frame": "A tourist pretends to pinch the setting sun for a photograph. The peculiar camera clicks, and the sun actually drops into his fingers. The beach goes dark.",
+   "question_and_goals": "Can the photographer restore daylight before an approaching tour group discovers what happened? The tourist wants increasingly impressive pictures and is reluctant to surrender his new souvenir.",
+   "rule": "A forced-perspective illusion photographed by this camera becomes physically real. All repairs must use that same rule or straightforward handling of the already-transformed objects.",
+   "causal_escalation": "The photographer tries to frame the tourist tossing the sun back, but the tourist insists on another impressive pose. Their disagreement leaves the tiny sun in the foreground just as a child holding an ice-cream cone photobombs them. The camera catches an apparent extra scoop. Now the sun is perched on the cone. At midpoint, the photographer must work with the child, who is much more interested in finishing the snack than posing correctly. The tourist finally gives up directing his own glamorous image and helps line up a return shot.",
+   "plant_and_payoff": "The child's cone and repeated attempts to enter the photo appear before the accident. For the final shot, the child holds the cone under the horizon as though putting the sun back into the sky. Click: daylight returns, with one bite missing from the sun. The tourist has his spectacular sunset picture and an unmistakable record of his vanity.",
+   "visual_test": "Diagram every forced-perspective composition before boarding. If a transformation cannot be explained by the actual photograph, reject it. This is the highest-risk extra concept because an arbitrary camera effect would destroy the fairness of the ending.",
+   "field_labels": {
+    "opening_frame": "Opening frame",
+    "question_and_goals": "Question and conflicting goals",
+    "rule": "Rule",
+    "causal_escalation": "Causal escalation",
+    "plant_and_payoff": "Plant and payoff",
+    "visual_test": "Visual test"
+   }
+  },
+  {
+   "number": 8,
+   "title": "Who Woke the Baby?",
+   "anchor": "8-who-woke-the-baby",
+   "line": 368,
+   "board_type": "pitch",
+   "opening_frame": "Two rival babysitters reach for the last slice of pizza beside a sleeping baby. One points to their handwritten agreement: “Wake the baby = diaper duty.”",
+   "question_and_goals": "Who can get the slice without taking responsibility for the impending diaper change? Each sitter wants the food and wants the other to make the noise.",
+   "rule": "Their own agreement assigns the chore to the person who wakes the baby. It is an agreement between these two characters, not a magical rule binding the returning parent.",
+   "causal_escalation": "One places a squeaky toy in the other's path; the other catches the first person's vibrating phone and holds it over the toy. A wobbling plate forces both to catch it. Each attempt to trap the rival leaves the pair sharing a more precarious, silent pose. At midpoint, neither can move without noise, so they must cooperate. They hear the parent's jingling keys, exchange a look and silently clear the noisy objects from the entrance, finally choosing to protect the baby's sleep together.",
+   "plant_and_payoff": "The keys are heard before the parent appears; the diaper bag has been visible throughout. The parent arrives, sees the unusually quiet teamwork, and whispers, “Great. You're both free.” The diaper bag lands between them. They exchange a defeated look, split the pizza and take the bag together. They got the food and ended the feud, but their clever private rule never excused them from the job.",
+   "visual_test": "Keep the baby safe and comfortable; the adults' ridiculous self-entanglement supplies the comedy. This needs distinct personalities and a clean final shared choice, otherwise it is only a string of hush gestures.",
+   "field_labels": {
+    "opening_frame": "Opening frame",
+    "question_and_goals": "Question and conflicting goals",
+    "rule": "Rule",
+    "causal_escalation": "Causal escalation",
+    "plant_and_payoff": "Plant and payoff",
+    "visual_test": "Visual test"
+   }
+  }
+ ],
+ "story_tests": {
+  "line": 382,
+  "anchor": "production-independent-story-tests",
+  "intro": [
+   "Before detailed rendering, test each board as a rough animatic with disposable poses and temp sound. Ask a few people unfamiliar with the pitch:"
+  ],
+  "questions": [
+   "What did the main character want by the first few seconds?",
+   "What would happen if they failed?",
+   "Which choice made the situation worse?",
+   "What changed halfway through?",
+   "What earlier detail made the ending possible?",
+   "Where did you first want the story to move faster?",
+   "What changed for the character by the final image?"
+  ],
+  "after": [
+   "Do not explain the intended answers before they respond. These are clarity tests, not statistically meaningful audience research. If the essential answers are missing, revise the story rather than polishing the same shots."
+  ],
+  "global_kill_criteria_text": "Global kill criteria: no concrete uncertainty in the opening; interchangeable failed attempts; a midpoint that only increases noise; an unplanted new rule solving the climax; an ending that is merely an object reveal; an achievement erased by an arbitrary reset; or a punch line requiring narration to explain why it is funny. A technically clean render does not rescue any of these.",
+  "global_kill_criteria": [
+   "no concrete uncertainty in the opening",
+   "interchangeable failed attempts",
+   "a midpoint that only increases noise",
+   "an unplanted new rule solving the climax",
+   "an ending that is merely an object reveal",
+   "an achievement erased by an arbitrary reset",
+   "a punch line requiring narration to explain why it is funny"
+  ]
+ }
+}

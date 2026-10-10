@@ -1,0 +1,10 @@
+title: First-frame title check
+summary: Finds the house-yellow (#FFD21F) hook title on a render's first frame with colour tolerance and checks it exists, sits in the upper 40% and is title-sized.
+subkind: qa-check
+domain: video
+tags: [video, qa, first-frame, title, house-rules, numpy]
+step_kinds: [verify]
+effects:
+  filesystem: read
+  side_effects: ["check_video runs ffprobe and ffmpeg to extract the first frame"]
+depends_on: [ffmpeg]

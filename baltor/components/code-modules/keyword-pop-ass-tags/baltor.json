@@ -1,0 +1,56 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "keyword_pop_ass_tags",
+  "title": "Keyword pop ASS tag builder",
+  "kind": "code-module",
+  "subkind": "text-animation",
+  "version": "1.0.0",
+  "summary": "Builds ASS caption text where the key word scales 1.0->1.12->1.0 over 180 ms when spoken and turns house yellow, with all other text escaped against tag injection.",
+  "domain": "captions",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "keyword_pop_ass_tags.py",
+  "tags": [
+    "captions",
+    "ass",
+    "keyword-pop",
+    "text-animation",
+    "libass"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "ffmpeg",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

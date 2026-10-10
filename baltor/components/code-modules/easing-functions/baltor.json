@@ -1,0 +1,54 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "easing_functions",
+  "title": "Easing functions (Penner set)",
+  "kind": "code-module",
+  "subkind": "easing",
+  "version": "1.0.0",
+  "summary": "All 31 standard easing curves (sine to bounce, in/out/in-out) with name aliases, clamped evaluation, sampling and tweening for keyframes and text motion.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "easing_functions.py",
+  "tags": [
+    "video",
+    "motion",
+    "easing",
+    "animation",
+    "keyframes"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "examples": [
+    "Ease a title slide-in with out_back",
+    "Sample in_out_sine for a 30-frame zoom"
+  ],
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

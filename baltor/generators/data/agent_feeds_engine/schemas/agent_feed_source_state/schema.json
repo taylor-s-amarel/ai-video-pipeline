@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/agent-feed-source-state",
+  "title": "Agent feed source state",
+  "description": "Polling state for one source: conditional-request validators, cursor, success and failure history, and backoff. Kept by agent_feeds_store and updated by agent_feeds_fetch.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "source_id",
+    "url",
+    "failures"
+  ],
+  "properties": {
+    "source_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "collection": {
+      "type": "string"
+    },
+    "feed_format": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "poll_interval_h": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0.25,
+      "maximum": 720
+    },
+    "cursor": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Newest item date or id seen"
+    },
+    "etag": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "last_modified": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Last-Modified header value, sent back as If-Modified-Since"
+    },
+    "last_attempt": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+    },
+    "last_success": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+    },
+    "last_status": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "failures": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "backoff_until": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+    },
+    "last_error": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 500
+    },
+    "items_seen": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "gone": {
+      "type": "boolean",
+      "description": "true after HTTP 410: stop polling until a person re-enables it"
+    },
+    "robots_blocked": {
+      "type": "boolean"
+    }
+  }
+}

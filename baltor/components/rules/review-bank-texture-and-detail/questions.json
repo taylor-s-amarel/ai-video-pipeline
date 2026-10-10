@@ -1,0 +1,713 @@
+[
+  {
+    "id": "AVQ-012-001",
+    "domain_id": "D012",
+    "area": "texture and detail",
+    "question": "Does texture obscure the smallest important feature?",
+    "failure_hypothesis": "Surface detail competes with evidence.",
+    "check_or_fix": "Inspect the feature after downsampling and encoding.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6830,
+    "passes": [
+      "default_32"
+    ]
+  },
+  {
+    "id": "AVQ-012-002",
+    "domain_id": "D012",
+    "area": "texture and detail",
+    "question": "Are texture seams visible during the actual camera move?",
+    "failure_hypothesis": "UV boundaries become exposed in motion.",
+    "check_or_fix": "Review all used angles and deformation states.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6832,
+    "passes": []
+  },
+  {
+    "id": "AVQ-012-003",
+    "domain_id": "D012",
+    "area": "texture and detail",
+    "question": "Does texture swim across moving geometry?",
+    "failure_hypothesis": "Coordinates are anchored to the wrong space.",
+    "check_or_fix": "Track a recognizable texel against the surface.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6834,
+    "passes": []
+  },
+  {
+    "id": "AVQ-012-004",
+    "domain_id": "D012",
+    "area": "texture and detail",
+    "question": "Are repeating patterns conspicuous enough to break scale?",
+    "failure_hypothesis": "Tiling reveals asset construction.",
+    "check_or_fix": "Vary placement or use a less periodic pattern.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6836,
+    "passes": [
+      "longer_cardboard_32"
+    ]
+  },
+  {
+    "id": "AVQ-012-005",
+    "domain_id": "D012",
+    "area": "texture and detail",
+    "question": "Does fine detail shimmer between frames?",
+    "failure_hypothesis": "Subpixel frequencies alias during movement.",
+    "check_or_fix": "Reduce frequency or improve filtering.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6838,
+    "passes": []
+  },
+  {
+    "id": "AVQ-012-006",
+    "domain_id": "D012",
+    "area": "texture and detail",
+    "question": "Are distant textures simplified appropriately?",
+    "failure_hypothesis": "High-frequency detail creates background noise.",
+    "check_or_fix": "Use distance-aware detail reduction.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6840,
+    "passes": []
+  },
+  {
+    "id": "AVQ-012-007",
+    "domain_id": "D012",
+    "area": "texture and detail",
+    "question": "Does grain belong to the image or incorrectly follow objects?",
+    "failure_hypothesis": "Noise behavior contradicts the intended medium.",
+    "check_or_fix": "Choose screen-space or surface-space grain deliberately.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6842,
+    "passes": []
+  },
+  {
+    "id": "AVQ-012-008",
+    "domain_id": "D012",
+    "area": "texture and detail",
+    "question": "Are texture features consistent with the claimed material?",
+    "failure_hypothesis": "Stone grain appears on paper or fabric.",
+    "check_or_fix": "Use material-specific reference logic.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6844,
+    "passes": []
+  },
+  {
+    "id": "AVQ-012-009",
+    "domain_id": "D012",
+    "area": "texture and detail",
+    "question": "Does procedural variation produce target-like false positives?",
+    "failure_hypothesis": "Random shapes resemble puzzle objects.",
+    "check_or_fix": "Inspect generated backgrounds before placing targets.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "puzzle",
+      "educational"
+    ],
+    "source_line": 6846,
+    "passes": []
+  },
+  {
+    "id": "AVQ-012-010",
+    "domain_id": "D012",
+    "area": "texture and detail",
+    "question": "Are scratches and wear located where use would cause them?",
+    "failure_hypothesis": "Random distressing feels decorative and implausible.",
+    "check_or_fix": "Place wear around contact and exposure areas.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6848,
+    "passes": []
+  },
+  {
+    "id": "AVQ-012-011",
+    "domain_id": "D012",
+    "area": "texture and detail",
+    "question": "Is outline detail stable at the output pixel grid?",
+    "failure_hypothesis": "Thin strokes flicker after rasterization.",
+    "check_or_fix": "Test minimum stroke thickness in the final encode.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6850,
+    "passes": []
+  },
+  {
+    "id": "AVQ-012-012",
+    "domain_id": "D012",
+    "area": "texture and detail",
+    "question": "Does detail density change abruptly between adjacent assets?",
+    "failure_hypothesis": "One object looks imported from another production.",
+    "check_or_fix": "Normalize detail scale and contrast.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6852,
+    "passes": []
+  },
+  {
+    "id": "AVQ-012-013",
+    "domain_id": "D012",
+    "area": "texture and detail",
+    "question": "Are facial textures preserving expression rather than masking it?",
+    "failure_hypothesis": "Patterning obscures eyes and mouth.",
+    "check_or_fix": "Quiet detail around expressive features.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6854,
+    "passes": []
+  },
+  {
+    "id": "AVQ-012-014",
+    "domain_id": "D012",
+    "area": "texture and detail",
+    "question": "Does motion blur turn detailed surfaces into distracting streaks?",
+    "failure_hypothesis": "Texture dominates blur direction.",
+    "check_or_fix": "Reduce detail or adjust blur for readability.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6856,
+    "passes": []
+  },
+  {
+    "id": "AVQ-012-015",
+    "domain_id": "D012",
+    "area": "texture and detail",
+    "question": "Are normal maps creating impossible bumps at silhouettes?",
+    "failure_hypothesis": "Shading suggests geometry the outline denies.",
+    "check_or_fix": "Check silhouette and bump scale together.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "3d",
+      "cutout",
+      "educational"
+    ],
+    "source_line": 6858,
+    "passes": []
+  },
+  {
+    "id": "AVQ-012-016",
+    "domain_id": "D012",
+    "area": "texture and detail",
+    "question": "Does texture remain aligned across a cut or replacement asset?",
+    "failure_hypothesis": "Surface identity changes between views.",
+    "check_or_fix": "Compare persistent landmarks on the material.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6860,
+    "passes": []
+  },
+  {
+    "id": "AVQ-012-017",
+    "domain_id": "D012",
+    "area": "texture and detail",
+    "question": "Is decorative text baked into a texture actually readable and correct?",
+    "failure_hypothesis": "Pseudo-lettering looks like misinformation.",
+    "check_or_fix": "Replace illegible text with verified lettering or remove it.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6862,
+    "passes": []
+  },
+  {
+    "id": "AVQ-012-018",
+    "domain_id": "D012",
+    "area": "texture and detail",
+    "question": "Are compression blocks strongest in the most important region?",
+    "failure_hypothesis": "Detail consumes bitrate needed for the subject.",
+    "check_or_fix": "Simplify noisy areas and test encoding allocation.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6864,
+    "passes": []
+  },
+  {
+    "id": "AVQ-012-019",
+    "domain_id": "D012",
+    "area": "texture and detail",
+    "question": "Does a handmade texture repeat too perfectly?",
+    "failure_hypothesis": "Mechanical repetition contradicts the intended craft feel.",
+    "check_or_fix": "Introduce bounded meaningful variation.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6866,
+    "passes": []
+  },
+  {
+    "id": "AVQ-012-020",
+    "domain_id": "D012",
+    "area": "texture and detail",
+    "question": "Are particles sized consistently with the scene scale?",
+    "failure_hypothesis": "Dust or fibers imply the wrong object size.",
+    "check_or_fix": "Compare particle dimensions with familiar references.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6868,
+    "passes": []
+  },
+  {
+    "id": "AVQ-012-021",
+    "domain_id": "D012",
+    "area": "texture and detail",
+    "question": "Does detail communicate function rather than merely busyness?",
+    "failure_hypothesis": "Surface complexity adds no useful information.",
+    "check_or_fix": "Remove details that neither explain nor characterize.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6870,
+    "passes": []
+  },
+  {
+    "id": "AVQ-012-022",
+    "domain_id": "D012",
+    "area": "texture and detail",
+    "question": "Are rough edges deliberate at all scales?",
+    "failure_hypothesis": "Accidental raster artifacts mimic a broken contour.",
+    "check_or_fix": "Inspect vector source and encoded edge behavior.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6872,
+    "passes": []
+  },
+  {
+    "id": "AVQ-012-023",
+    "domain_id": "D012",
+    "area": "texture and detail",
+    "question": "Does a texture atlas leak neighboring colors at borders?",
+    "failure_hypothesis": "Sampling creates unwanted edge stripes.",
+    "check_or_fix": "Check padding and filtering around UV islands.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6874,
+    "passes": []
+  },
+  {
+    "id": "AVQ-012-024",
+    "domain_id": "D012",
+    "area": "texture and detail",
+    "question": "Are surface markings distorted by deformation unintentionally?",
+    "failure_hypothesis": "Labels stretch until misleading.",
+    "check_or_fix": "Use appropriate attachment or limit deformation.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6876,
+    "passes": []
+  },
+  {
+    "id": "AVQ-012-025",
+    "domain_id": "D012",
+    "area": "texture and detail",
+    "question": "Does a small pattern create moire in the target viewing setup?",
+    "failure_hypothesis": "Repeated lines interfere with the display grid.",
+    "check_or_fix": "Preview the intended downscaled output.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6878,
+    "passes": []
+  },
+  {
+    "id": "AVQ-012-026",
+    "domain_id": "D012",
+    "area": "texture and detail",
+    "question": "Are texture transitions gradual enough across level-of-detail changes?",
+    "failure_hypothesis": "Visible popping interrupts motion.",
+    "check_or_fix": "Match transition frequency and blend behavior.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6880,
+    "passes": []
+  },
+  {
+    "id": "AVQ-012-027",
+    "domain_id": "D012",
+    "area": "texture and detail",
+    "question": "Does a procedural seed change between frames unexpectedly?",
+    "failure_hypothesis": "Random detail flickers without physical cause.",
+    "check_or_fix": "Fix seeds or evolve noise continuously.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6882,
+    "passes": []
+  },
+  {
+    "id": "AVQ-012-028",
+    "domain_id": "D012",
+    "area": "texture and detail",
+    "question": "Are environment textures richer than the hero for a reason?",
+    "failure_hypothesis": "Background detail steals attention.",
+    "check_or_fix": "Reduce environmental detail near the focal action.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6884,
+    "passes": []
+  },
+  {
+    "id": "AVQ-012-029",
+    "domain_id": "D012",
+    "area": "texture and detail",
+    "question": "Can the scene still be read when texture is temporarily removed?",
+    "failure_hypothesis": "Texture compensates for weak structure.",
+    "check_or_fix": "Review a flat-color structural pass.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6886,
+    "passes": []
+  },
+  {
+    "id": "AVQ-012-030",
+    "domain_id": "D012",
+    "area": "texture and detail",
+    "question": "Does an important printed mark stay legible on curved surfaces?",
+    "failure_hypothesis": "Curvature hides or distorts the identifier.",
+    "check_or_fix": "Place the mark on a readable region.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6888,
+    "passes": []
+  },
+  {
+    "id": "AVQ-012-031",
+    "domain_id": "D012",
+    "area": "texture and detail",
+    "question": "Are apparent dirt or damage marks consistent with the story state?",
+    "failure_hypothesis": "Wear changes without an event.",
+    "check_or_fix": "Track material-state continuity.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6890,
+    "passes": []
+  },
+  {
+    "id": "AVQ-012-032",
+    "domain_id": "D012",
+    "area": "texture and detail",
+    "question": "Would larger simpler texture features survive delivery better?",
+    "failure_hypothesis": "Microdetail vanishes while retaining visual noise.",
+    "check_or_fix": "Test a lower-frequency texture variant.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6892,
+    "passes": []
+  }
+]

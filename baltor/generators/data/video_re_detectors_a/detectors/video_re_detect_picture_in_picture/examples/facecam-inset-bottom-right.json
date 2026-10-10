@@ -1,0 +1,16 @@
+{
+  "insets": [
+    {
+      "bbox": [702, 1404, 324, 432],
+      "corner": "bottom-right",
+      "margin_px": { "left": 702, "top": 1404, "right": 54, "bottom": 84 },
+      "border": { "px": 9.0, "color": "#FFFFFF", "uniform": true },
+      "shadow": { "direction": "bottom-right", "darkening": 0.12, "offset_px": null },
+      "t_start_s": 3.0,
+      "t_end_s": 41.0,
+      "support": 0.91
+    }
+  ],
+  "frames_analysed": 240,
+  "window_s": 1.0
+}

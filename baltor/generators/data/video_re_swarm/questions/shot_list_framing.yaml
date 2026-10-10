@@ -41,7 +41,7 @@
   why: "Decides how assets of the wrong aspect are placed."
   how: "Inspect F1 frames per shot type; look for bars, margins or a blurred copy around the media."
   evidence: ["frames: F1 samples"]
-  ir_path: "/visual/layers/*/frame_coverage"
+  ir_path: "/generation_rules/-"
   type: enum
   challenge: "A blurred fill can look like a background video; check whether it mirrors the foreground."
 

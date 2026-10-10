@@ -1,0 +1,43 @@
+{
+  "guide": {
+    "file": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "sha256": "d5e454b50f6abccd69c44237038e00e78dd337491f8325447a2bc9d13d15ace9",
+    "bytes": 932421,
+    "lines": 8300
+  },
+  "section": "Appendix E All 1024 adversarial review questions",
+  "lines": [
+    6048,
+    8213
+  ],
+  "anchor": "appendix-e-all-1024-adversarial-review-questions",
+  "library_records": [
+    {
+      "artifact": "Adversarial Video Review Bank",
+      "library_identity": "libfile_40e3c6edac1c8191b3fe1ffed949ef9b",
+      "version": 0,
+      "bytes": 980912,
+      "sha256": "26efac36207d7969c53cf0fba2aca574b94ec368f273c93f40fcb65eb3548051",
+      "guide_line": 8276,
+      "guide_section": "Appendix G Source inventory and refresh conditions"
+    },
+    {
+      "artifact": "Adversarial Video Review Complete Bundle",
+      "library_identity": "libfile_ed6fddde16b4819186f88c9bf83bd532",
+      "version": 0,
+      "bytes": 3575144,
+      "sha256": "4eee2da7df526737cc3e24916cfd53bf0032da0b8e64f0775cc1808e4af2e597",
+      "guide_line": 8278,
+      "guide_section": "Appendix G Source inventory and refresh conditions"
+    }
+  ],
+  "extracted": "2026-10-10",
+  "earlier_related_artifact": {
+    "artifact": "Adversarial Review Configurations and Questions v1.0.0.zip",
+    "library_identity": "libfile_3c1d6989163c8191afaa24ad0c868808",
+    "version": 0,
+    "sha256": "e42106fc67003cf15217ad857e2acbeeec438d1a2478223ad3914eb40a868314",
+    "recorded_in": "docs/reference/Creative_Media_Game_Reference_2026-10-10.md",
+    "note": "Earlier (evidence AV-20261005-074) artifact; the guides do not state that it is the same as the 10 Oct 1,024-question bank."
+  }
+}

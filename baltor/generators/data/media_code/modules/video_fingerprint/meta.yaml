@@ -1,0 +1,10 @@
+title: Video fingerprint
+summary: Fingerprints a video with difference hashes of 16 frames sampled across its duration and compares fingerprints to catch an old render being delivered again as new work.
+subkind: qa-check
+domain: video
+tags: [video, fingerprint, duplicates, dhash, qa, delivery]
+step_kinds: [verify, publish]
+effects:
+  filesystem: read
+  side_effects: ["runs ffprobe and ffmpeg to sample frames"]
+depends_on: [ffmpeg]

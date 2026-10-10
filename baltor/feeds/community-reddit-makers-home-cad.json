@@ -1,0 +1,418 @@
+{
+  "spec": "baltor.feed-collection/v1",
+  "id": "community-reddit-makers-home-cad",
+  "title": "Subreddits: home automation, ESP32, CAD and 3D printing",
+  "description": "Communities for the home-automation and parametric-CAD domain packs: Home Assistant, ESPHome-class devices, open CAD tools and 3D printing practice.",
+  "updated": "2026-10-10",
+  "tags": [
+    "community-sources",
+    "home-automation",
+    "cad",
+    "3d-printing",
+    "maker"
+  ],
+  "items": [
+    {
+      "id": "r-homeassistant",
+      "title": "r/homeassistant",
+      "url": "https://www.reddit.com/r/homeassistant/.rss",
+      "summary": "Home Assistant users: DIY builds, dashboards, Zigbee and integrations. Home Assistant's own help page has long listed it as a community channel.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "home-automation",
+        "cad"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch and Hive Index profiles; Home Assistant docs reference /r/homeassistant. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-homeautomation",
+      "title": "r/homeautomation",
+      "url": "https://www.reddit.com/r/homeautomation/.rss",
+      "summary": "Very large general home automation community.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "home-automation",
+        "cad"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile (last updated 2026-06-03 per search result). reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-smarthome",
+      "title": "r/smarthome",
+      "url": "https://www.reddit.com/r/smarthome/.rss",
+      "summary": "Smart home devices and ecosystems.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "home-automation",
+        "cad"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-homebridge",
+      "title": "r/homebridge",
+      "url": "https://www.reddit.com/r/homebridge/.rss",
+      "summary": "Homebridge (HomeKit bridging) users.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "home-automation",
+        "cad"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile page in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-esp32",
+      "title": "r/esp32",
+      "url": "https://www.reddit.com/r/esp32/.rss",
+      "summary": "ESP32 boards: Wi-Fi, firmware and project help.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "home-automation",
+        "cad"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch and Hive Index profiles in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-arduino",
+      "title": "r/arduino",
+      "url": "https://www.reddit.com/r/arduino/.rss",
+      "summary": "Arduino projects and help.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "home-automation",
+        "cad"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-raspberry-pi",
+      "title": "r/raspberry_pi",
+      "url": "https://www.reddit.com/r/raspberry_pi/.rss",
+      "summary": "Raspberry Pi projects: cameras, displays, power supplies.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "home-automation",
+        "cad"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-selfhosted",
+      "title": "r/selfhosted",
+      "url": "https://www.reddit.com/r/selfhosted/.rss",
+      "summary": "Self-hosting software at home; useful for open tool discovery.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "home-automation",
+        "cad"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-3dprinting",
+      "title": "r/3Dprinting",
+      "url": "https://www.reddit.com/r/3Dprinting/.rss",
+      "summary": "Very large 3D printing community: print quality and printers.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "home-automation",
+        "cad"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-functionalprint",
+      "title": "r/functionalprint",
+      "url": "https://www.reddit.com/r/functionalprint/.rss",
+      "summary": "Prints with a practical function in everyday life.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "home-automation",
+        "cad"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch and Hive Index profiles in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Designs in posts keep their own licences; check before reusing a model.",
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-prusa3d",
+      "title": "r/prusa3d",
+      "url": "https://www.reddit.com/r/prusa3d/.rss",
+      "summary": "Prusa printers, Prusament and PrusaSlicer.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "home-automation",
+        "cad"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-bambulab",
+      "title": "r/BambuLab",
+      "url": "https://www.reddit.com/r/BambuLab/.rss",
+      "summary": "Bambu Lab printers; moderated by the company per its profile.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "home-automation",
+        "cad"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Company-moderated community.",
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-freecad",
+      "title": "r/FreeCAD",
+      "url": "https://www.reddit.com/r/FreeCAD/.rss",
+      "summary": "FreeCAD: open-source parametric 3D CAD/CAM/FEM modeller.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "home-automation",
+        "cad"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-fusion360",
+      "title": "r/Fusion360",
+      "url": "https://www.reddit.com/r/Fusion360/.rss",
+      "summary": "Autodesk Fusion users; good for CAD technique questions.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "home-automation",
+        "cad"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-cad",
+      "title": "r/cad",
+      "url": "https://www.reddit.com/r/cad/.rss",
+      "summary": "General CAD discussion.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "home-automation",
+        "cad"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile page in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    },
+    {
+      "id": "r-tinkercad",
+      "title": "r/tinkercad",
+      "url": "https://www.reddit.com/r/tinkercad/.rss",
+      "summary": "Tinkercad beginners' CAD.",
+      "kind": "service",
+      "licence": "Reddit User Agreement; posts and comments are copyright their authors",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "subreddit",
+        "reddit",
+        "community",
+        "rss",
+        "home-automation",
+        "cad"
+      ],
+      "notes": "Community confirmed in search results on 2026-10-10: GummySearch profile page in search results. reddit.com could not be fetched from the research network, so the feed itself was not fetched.",
+      "cautions": [
+        "Posts and comments belong to their authors: link and quote briefly with credit; never narrate, re-voice or republish a post in a video without the author's permission.",
+        "Automated access is governed by Reddit's User Agreement and Data API Terms; commercial reuse of Reddit data needs an agreement with Reddit. Treat RSS as low-volume personal monitoring.",
+        "Reddit blocks or throttles many datacenter IPs and generic user agents: send a descriptive User-Agent, poll at most hourly, cache, and back off on 429/403.",
+        "Private, quarantined or banned communities return no feed; a failing feed is a signal to re-check the community, not to scrape the HTML."
+      ]
+    }
+  ]
+}

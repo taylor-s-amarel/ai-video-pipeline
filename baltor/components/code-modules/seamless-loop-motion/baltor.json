@@ -1,0 +1,51 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "seamless_loop_motion",
+  "title": "Seamless loop motion",
+  "kind": "code-module",
+  "subkind": "motion-preset",
+  "version": "1.0.0",
+  "summary": "Exactly periodic motion functions (orbit, breathe, wrapping drift, circle-sampled noise) plus a loop checker, for background layers that loop without a seam.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "seamless_loop_motion.py",
+  "tags": [
+    "video",
+    "loop",
+    "background",
+    "motion",
+    "noise",
+    "seamless"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

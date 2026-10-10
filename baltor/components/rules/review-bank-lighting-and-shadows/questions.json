@@ -1,0 +1,709 @@
+[
+  {
+    "id": "AVQ-010-001",
+    "domain_id": "D010",
+    "area": "lighting and shadows",
+    "question": "Does the key light reveal the important form?",
+    "failure_hypothesis": "Lighting hides the feature being explained.",
+    "check_or_fix": "Inspect the focal object without decorative lights.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6698,
+    "passes": []
+  },
+  {
+    "id": "AVQ-010-002",
+    "domain_id": "D010",
+    "area": "lighting and shadows",
+    "question": "Are cast shadows consistent with the apparent light direction?",
+    "failure_hypothesis": "Objects seem lit by unrelated worlds.",
+    "check_or_fix": "Trace shadows back toward plausible sources.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6700,
+    "passes": []
+  },
+  {
+    "id": "AVQ-010-003",
+    "domain_id": "D010",
+    "area": "lighting and shadows",
+    "question": "Does the hero's face remain readable through the action?",
+    "failure_hypothesis": "Turning moves expression into unhelpful darkness.",
+    "check_or_fix": "Review face values at orientation extrema.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6702,
+    "passes": []
+  },
+  {
+    "id": "AVQ-010-004",
+    "domain_id": "D010",
+    "area": "lighting and shadows",
+    "question": "Are contact shadows close enough to ground objects?",
+    "failure_hypothesis": "Detached shadows create floating.",
+    "check_or_fix": "Inspect contact regions at native resolution.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6704,
+    "passes": [
+      "default_32",
+      "longer_cardboard_32"
+    ]
+  },
+  {
+    "id": "AVQ-010-005",
+    "domain_id": "D010",
+    "area": "lighting and shadows",
+    "question": "Does a moving light change all affected layers consistently?",
+    "failure_hypothesis": "Only some objects respond to illumination.",
+    "check_or_fix": "Audit shared light influence across the composite.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6706,
+    "passes": []
+  },
+  {
+    "id": "AVQ-010-006",
+    "domain_id": "D010",
+    "area": "lighting and shadows",
+    "question": "Are specular highlights clipping away important detail?",
+    "failure_hypothesis": "Bright reflections erase shape or labels.",
+    "check_or_fix": "Inspect highlight values and reduce intensity or roughness.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6708,
+    "passes": []
+  },
+  {
+    "id": "AVQ-010-007",
+    "domain_id": "D010",
+    "area": "lighting and shadows",
+    "question": "Does the background receive more dramatic lighting than the hero?",
+    "failure_hypothesis": "Scenery attracts attention at the wrong time.",
+    "check_or_fix": "Rebalance light contrast by narrative priority.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6710,
+    "passes": []
+  },
+  {
+    "id": "AVQ-010-008",
+    "domain_id": "D010",
+    "area": "lighting and shadows",
+    "question": "Are shadows soft at a scale consistent with the light source?",
+    "failure_hypothesis": "Tiny source produces implausibly broad penumbrae.",
+    "check_or_fix": "Match source size and shadow softness deliberately.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6712,
+    "passes": []
+  },
+  {
+    "id": "AVQ-010-009",
+    "domain_id": "D010",
+    "area": "lighting and shadows",
+    "question": "Does ambient fill flatten the scene beyond the intended style?",
+    "failure_hypothesis": "All surfaces have similar values.",
+    "check_or_fix": "Restore controlled directional contrast.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6714,
+    "passes": []
+  },
+  {
+    "id": "AVQ-010-010",
+    "domain_id": "D010",
+    "area": "lighting and shadows",
+    "question": "Is a rim light motivated or visibly decorative?",
+    "failure_hypothesis": "Artificial outline breaks the material illusion.",
+    "check_or_fix": "Reduce rim strength or establish its source.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6716,
+    "passes": []
+  },
+  {
+    "id": "AVQ-010-011",
+    "domain_id": "D010",
+    "area": "lighting and shadows",
+    "question": "Does lighting change continuity across an unbroken action?",
+    "failure_hypothesis": "Cut suggests time or location changed.",
+    "check_or_fix": "Compare light direction and exposure at the edit.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6718,
+    "passes": []
+  },
+  {
+    "id": "AVQ-010-012",
+    "domain_id": "D010",
+    "area": "lighting and shadows",
+    "question": "Are translucent materials transmitting plausible color and light?",
+    "failure_hypothesis": "Glass or wax behaves like opaque plastic.",
+    "check_or_fix": "Inspect transmission against the style's material rules.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6720,
+    "passes": []
+  },
+  {
+    "id": "AVQ-010-013",
+    "domain_id": "D010",
+    "area": "lighting and shadows",
+    "question": "Does the shadow show a different pose than the character?",
+    "failure_hypothesis": "Cached or mismatched shadow reveals inconsistency.",
+    "check_or_fix": "Compare pose silhouettes at key frames.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6722,
+    "passes": []
+  },
+  {
+    "id": "AVQ-010-014",
+    "domain_id": "D010",
+    "area": "lighting and shadows",
+    "question": "Are overhead objects casting shadows onto the right surfaces?",
+    "failure_hypothesis": "Projection ignores receiving geometry.",
+    "check_or_fix": "Review receiver masks or shadow geometry.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6724,
+    "passes": []
+  },
+  {
+    "id": "AVQ-010-015",
+    "domain_id": "D010",
+    "area": "lighting and shadows",
+    "question": "Does a dark scene preserve enough information for the task?",
+    "failure_hypothesis": "Atmosphere makes required evidence unreadable.",
+    "check_or_fix": "Raise selective fill rather than global brightness alone.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6726,
+    "passes": []
+  },
+  {
+    "id": "AVQ-010-016",
+    "domain_id": "D010",
+    "area": "lighting and shadows",
+    "question": "Is the lighting gradient stable during camera movement?",
+    "failure_hypothesis": "Screen-space shading slides over the world.",
+    "check_or_fix": "Anchor illumination to the intended coordinate space.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6728,
+    "passes": []
+  },
+  {
+    "id": "AVQ-010-017",
+    "domain_id": "D010",
+    "area": "lighting and shadows",
+    "question": "Are emissive objects visibly affecting nearby surfaces when needed?",
+    "failure_hypothesis": "Glow looks pasted on rather than luminous.",
+    "check_or_fix": "Add restrained local response or clarify graphic style.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6730,
+    "passes": []
+  },
+  {
+    "id": "AVQ-010-018",
+    "domain_id": "D010",
+    "area": "lighting and shadows",
+    "question": "Does bloom conceal small text or contact edges?",
+    "failure_hypothesis": "Glow spreads over evidence-bearing boundaries.",
+    "check_or_fix": "Limit bloom around required information.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6732,
+    "passes": []
+  },
+  {
+    "id": "AVQ-010-019",
+    "domain_id": "D010",
+    "area": "lighting and shadows",
+    "question": "Are transparent shadows appropriately different from opaque shadows?",
+    "failure_hypothesis": "Glass casts a solid cutout unexpectedly.",
+    "check_or_fix": "Adjust transmission or label the stylization.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6734,
+    "passes": []
+  },
+  {
+    "id": "AVQ-010-020",
+    "domain_id": "D010",
+    "area": "lighting and shadows",
+    "question": "Does ambient occlusion create dirty halos around moving parts?",
+    "failure_hypothesis": "AO exaggeration looks like grime or gaps.",
+    "check_or_fix": "Reduce radius or strength at joints.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6736,
+    "passes": []
+  },
+  {
+    "id": "AVQ-010-021",
+    "domain_id": "D010",
+    "area": "lighting and shadows",
+    "question": "Are shadow transitions temporally stable?",
+    "failure_hypothesis": "Sampling noise flickers as geometry moves.",
+    "check_or_fix": "Inspect consecutive encoded frames in shadow regions.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6738,
+    "passes": []
+  },
+  {
+    "id": "AVQ-010-022",
+    "domain_id": "D010",
+    "area": "lighting and shadows",
+    "question": "Does exposure adaptation pump during a small bright event?",
+    "failure_hypothesis": "Automatic exposure changes the whole scene distracting.",
+    "check_or_fix": "Lock or smooth exposure for the shot.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6740,
+    "passes": []
+  },
+  {
+    "id": "AVQ-010-023",
+    "domain_id": "D010",
+    "area": "lighting and shadows",
+    "question": "Is the eye highlight consistent enough to preserve gaze?",
+    "failure_hypothesis": "Highlights wander independently of head and light.",
+    "check_or_fix": "Track highlight placement across expressions.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6742,
+    "passes": []
+  },
+  {
+    "id": "AVQ-010-024",
+    "domain_id": "D010",
+    "area": "lighting and shadows",
+    "question": "Are light and shadow colors compatible with the palette?",
+    "failure_hypothesis": "Unrelated color temperatures fracture the image.",
+    "check_or_fix": "Choose a coherent warm-cool lighting relationship.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6744,
+    "passes": []
+  },
+  {
+    "id": "AVQ-010-025",
+    "domain_id": "D010",
+    "area": "lighting and shadows",
+    "question": "Does a shadow incorrectly imply a dangerous gap or obstacle?",
+    "failure_hypothesis": "Shadow geometry miscommunicates the route.",
+    "check_or_fix": "Inspect shadows separately from solid surfaces.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6746,
+    "passes": []
+  },
+  {
+    "id": "AVQ-010-026",
+    "domain_id": "D010",
+    "area": "lighting and shadows",
+    "question": "Can the important shape be read without its texture?",
+    "failure_hypothesis": "Lighting relies on painted detail to suggest volume.",
+    "check_or_fix": "Review a neutral-material lighting pass.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6748,
+    "passes": []
+  },
+  {
+    "id": "AVQ-010-027",
+    "domain_id": "D010",
+    "area": "lighting and shadows",
+    "question": "Does a backlit silhouette reveal the intended pose clearly?",
+    "failure_hypothesis": "Merged limbs make backlighting unreadable.",
+    "check_or_fix": "Adjust pose or local background light.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6750,
+    "passes": []
+  },
+  {
+    "id": "AVQ-010-028",
+    "domain_id": "D010",
+    "area": "lighting and shadows",
+    "question": "Are reflections of lights stable on deforming surfaces?",
+    "failure_hypothesis": "Highlight popping exposes normal errors.",
+    "check_or_fix": "Inspect normals and roughness through deformation.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6752,
+    "passes": []
+  },
+  {
+    "id": "AVQ-010-029",
+    "domain_id": "D010",
+    "area": "lighting and shadows",
+    "question": "Does the final grade preserve shadow detail after encoding?",
+    "failure_hypothesis": "Compression crushes subtle dark information.",
+    "check_or_fix": "Compare source and decoded shadow regions.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6754,
+    "passes": []
+  },
+  {
+    "id": "AVQ-010-030",
+    "domain_id": "D010",
+    "area": "lighting and shadows",
+    "question": "Is the time-of-day cue compatible with the story's timeline?",
+    "failure_hypothesis": "Lighting contradicts stated chronology.",
+    "check_or_fix": "Check sky, shadow direction and narrative timing.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6756,
+    "passes": []
+  },
+  {
+    "id": "AVQ-010-031",
+    "domain_id": "D010",
+    "area": "lighting and shadows",
+    "question": "Does lighting support the reveal by changing attention naturally?",
+    "failure_hypothesis": "Reveal arrives in an already cluttered light pattern.",
+    "check_or_fix": "Reserve contrast for the newly important element.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6758,
+    "passes": []
+  },
+  {
+    "id": "AVQ-010-032",
+    "domain_id": "D010",
+    "area": "lighting and shadows",
+    "question": "Would fewer light sources produce a more coherent image?",
+    "failure_hypothesis": "Complex lighting creates contradictory cues.",
+    "check_or_fix": "Test a simplified key-fill setup.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6760,
+    "passes": []
+  }
+]

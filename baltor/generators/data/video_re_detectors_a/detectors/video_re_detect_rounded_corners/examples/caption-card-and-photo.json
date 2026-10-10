@@ -1,0 +1,8 @@
+{
+  "elements": [
+    { "bbox": [108, 1310, 864, 220], "radius_px": 36.0, "corners": { "tl": 36.0, "tr": 35.44, "br": 36.56, "bl": 36.0 }, "fit_rmse_px": 0.62, "shape": "rounded", "source": "static-mask" },
+    { "bbox": [54, 420, 972, 760], "radius_px": 0.0, "corners": { "tl": 0.0, "tr": 0.0, "br": 0.0, "bl": 0.0 }, "fit_rmse_px": 0.0, "shape": "rect", "source": "static-mask" }
+  ],
+  "method": "static-mask",
+  "frames_analysed": 60
+}

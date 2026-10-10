@@ -1,0 +1,13 @@
+title: Detect frame-rate cadence and duplicate frames
+summary: Compares nominal and effective frame rate from repeated frames, names the cadence (on ones/twos/threes or a hold pattern such as 1-1-1-2 for 24-in-30) and flags variable frame rate from timestamps.
+description: >-
+  Decodes every frame of a window with timestamps, marks repeats where the frame difference falls far below its
+  local level, turns them into hold lengths and finds the cadence or repeating hold pattern; frame intervals give
+  variable-frame-rate evidence.
+tags: [frame-rate, cadence, animation, on-twos, pulldown, vfr]
+limits:
+  - Frame-blended conversions have no exact repeats and read as on ones.
+  - Still stretches carry no cadence information (active_share).
+contract:
+  title: Frame rate cadence payload
+  summary: JSON Schema for the cadence payload - nominal, average and effective fps, duplicate ratio, cadence name, hold pattern, VFR flag and interval statistics.

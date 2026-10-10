@@ -1,0 +1,59 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "adversarial_review_result",
+  "title": "Adversarial review result record",
+  "kind": "contract-schema",
+  "subkind": "evaluator",
+  "version": "1.0.0",
+  "summary": "JSON Schema for one review answer: target hash, status (untested/observed-pass/observed-fail/blocked/not-applicable), finding type, scope and hashed evidence with method, locator, coverage, limits.",
+  "description": "This is the owner's authoritative adversarial review bank: the 1,024 questions of Appendix E of the Animation and Video Production Master Guide (10 Oct 2026), transcribed with the owner's exact text, ids, filters and pass membership. Another builder in this catalogue (harness_kit) independently wrote a different 1,024-question bank; it is not this set and does not override it. The record shape is the guide's own example (included verbatim as an example); evidence items carry the fields the guide requires of real evidence.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#evidence-states"
+  },
+  "step_kinds": [
+    "review",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "schema.json",
+  "tags": [
+    "video",
+    "animation",
+    "adversarial-review",
+    "review-questions",
+    "schema",
+    "evidence",
+    "contract"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "adversarial_question"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/ref_review_templates.py",
+    "data": "generators/data/ref_review_templates"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "isolated-execution",
+  "evidence_notes": "Valid and invalid examples behave as labelled under jsonschema Draft 2020-12. The guide's own untested record is an example verbatim; the other valid examples are illustrative with synthetic hashes. Not yet used to record a review of a real film through this package."
+}

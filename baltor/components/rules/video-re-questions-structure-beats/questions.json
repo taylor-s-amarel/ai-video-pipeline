@@ -1,0 +1,600 @@
+{
+  "spec": "baltor.video-re-questions/v1",
+  "lens": "structure_beats",
+  "title": "Structure and beats",
+  "purpose": "Segments the video into beats (hook, setup, repeated items, payoff, outro), finds what repeats per item and what varies, and turns the timing into formulas so any number of items can be laid out.",
+  "boundary": "The swarm lifts technique and structure only. Never store, transcribe or reuse the source's footage, frames, music, voice or script text. Keyframes and spectrograms are temporary analysis files in a scratch directory and are never copied into the format IR or a variant. On-screen text may be quoted only as a locating note in evidence.note, at most 6 words, and narration is never quoted. Patterns replace content words with slots, e.g. 'FACT {n}' or '{number} {unit} {noun}'. Analysing a public video for technique is fine; republishing its content is not.",
+  "answer_contract": "video_re_analyst_answer",
+  "ir_contract": "video_re_format_ir",
+  "ir_focus": [
+    "/timeline/beats",
+    "/timeline/target_duration_s",
+    "/script/beat_patterns",
+    "/generation_rules",
+    "/parameters"
+  ],
+  "evidence": [
+    "shots[] (video_re_detect_shots)",
+    "captions[] (video_re_caption_track or video_re_transcribe_adapter)",
+    "audio.speech_segments (video_re_speech_segments)",
+    "text_regions[] (video_re_text_regions)",
+    "source.duration_s (video_re_probe_metadata)"
+  ],
+  "inspect": "Contact sheet (F4) for the whole video, then F1 frames at every candidate beat boundary and one burst (F2) inside each item beat.",
+  "pitfalls": [
+    "Calling a run of shots a beat without a boundary cue (label, cut, music change, pause)",
+    "Counting the hook or outro as an item",
+    "Writing a timing formula that does not reproduce the observed beat times",
+    "Generalising n_items limits from a single video without saying so"
+  ],
+  "parameter_hints": [
+    "n_items (integer, range justified by beat length limits)",
+    "item_beat_s (derived)",
+    "intro_s / outro_s",
+    "item_order (enum)",
+    "include_recap / include_cta (boolean)"
+  ],
+  "optional_detectors": [
+    "video_re_detect_beat_repetition",
+    "video_re_detect_intro_outro_bumpers",
+    "video_re_detect_cta_endcard",
+    "video_re_detect_label_patterns",
+    "video_re_classify_format_family",
+    "video_re_detect_silence_gaps",
+    "video_re_detect_loopability"
+  ],
+  "methods": {
+    "measured": "A measurement tool produced the value (an evidence.json field or an ffmpeg/ffprobe filter output). Name the tool and the field.",
+    "observed": "You looked at extracted frames, crops, scopes, spectrograms or waveforms and saw it. Give the timestamps you looked at.",
+    "inferred": "Reasoned from measured or observed facts, e.g. 'synthetic voice' from flat pitch on a spectrogram. State the reasoning in the note.",
+    "assumed": "No direct evidence; a default or convention. Use only for gaps the format needs filled, and keep confidence at 0.3 or lower."
+  },
+  "pointer_conventions": [
+    "ir_path is a JSON Pointer (RFC 6901) into the Video format IR (contract schema video_re_format_ir).",
+    "A final '/-' means 'append this answer to the array' (the RFC 6901 end-of-array token), e.g. /motion/transitions/- or /generation_rules/-.",
+    "A '*' segment means 'each array element the answer is about'; the answer must say which elements (for example beats with role 'item'). The lifter resolves '*' to concrete indexes.",
+    "Paths under free-form objects (typography.title, typography.captions, typography.labels, audio.narration, audio.music, render_binding.mapping) use the snake_case key named in the question."
+  ],
+  "answer_types": {
+    "number": "{\"value\": n, \"unit\": \"...\"} optionally with \"min\" and \"max\"; becomes an IR observed_number",
+    "integer": "{\"value\": n}",
+    "ratio": "{\"value\": r} with 0 <= r <= 1",
+    "seconds": "{\"value\": s, \"unit\": \"s\"} optionally with \"min\"/\"max\"",
+    "ms": "{\"value\": n, \"unit\": \"ms\"} optionally with \"min\"/\"max\"; signed when an offset (negative = earlier)",
+    "range": "{\"value\": typical, \"min\": a, \"max\": b, \"unit\": \"...\"}",
+    "distribution": "{\"median\": m, \"p10\": a, \"p90\": b, \"n\": count, \"unit\": \"...\"}",
+    "boolean": "true or false",
+    "enum": "exactly one of the question's choices (a string)",
+    "text": "one technique description, at most 300 characters, no copied content",
+    "pattern": "a template with {slots} in place of content words, e.g. 'FACT {n}: {number} {unit}'",
+    "list": "array of short strings (technique names or kinds)",
+    "timestamps": "array of seconds from the start of the source",
+    "segments": "[{\"start_s\": a, \"end_s\": b, \"label\": \"...\"}]",
+    "beats": "array of IR beat objects (role, start_ratio, end_ratio, optional repeat, label_pattern, content_slot)",
+    "parameter": "one IR parameter object (name, type, description, default, min/max or choices, derived_from)",
+    "rule": "one procedural generation rule string, at most 400 characters, written in terms of parameters",
+    "object": "a JSON object with the keys the question's how_to_answer names"
+  },
+  "recipes": {
+    "F1": "Single frame: ffmpeg -v error -ss T -i \"$SRC\" -frames:v 1 -q:v 2 \"$WORK/f_T.jpg\"",
+    "F3": "Full-resolution crop (add ,scale=iw*2:-1:flags=lanczos to enlarge): ffmpeg -v error -ss T -i \"$SRC\" -frames:v 1 -vf \"crop=W:H:X:Y\" \"$WORK/crop_T.png\"",
+    "F4": "Whole-video contact sheet, 1 frame per second: ffmpeg -v error -i \"$SRC\" -vf \"fps=1,scale=180:-2,tile=8x8\" -frames:v 1 \"$WORK/sheet.jpg\" (or use the keyframes and contact sheet from video_re_keyframes_contact_sheet)",
+    "F8": "Every frame in a short window (animation timing; frame k is at T + k/fps): ffmpeg -v error -ss T -t 0.5 -i \"$SRC\" -vf \"scale=540:-2\" \"$WORK/step_T_%03d.png\"",
+    "F10": "Similarity of two frames (SSIM, 1.0 = identical): ffmpeg -i a.jpg -i b.jpg -lavfi \"[0:v]scale=320:-2[a];[1:v]scale=320:-2[b];[a][b]ssim\" -f null - 2>&1 | grep -o \"All:[0-9.]*\"",
+    "F11": "Per-frame scene-change score (finds dissolves and missed cuts): ffmpeg -v error -i \"$SRC\" -vf \"select='gte(scene,0)',metadata=mode=print:key=lavfi.scene_score:file=$WORK/scene.txt\" -an -f null -",
+    "F12": "Black frames: ffmpeg -i \"$SRC\" -vf \"blackdetect=d=0.05:pix_th=0.10\" -an -f null - 2>&1 | grep black_",
+    "A1": "Spectrogram image (add highpass=f=3000, before showspectrumpic to isolate clicks and whooshes): ffmpeg -v error -ss T -t D -i \"$SRC\" -lavfi \"showspectrumpic=s=1200x600:legend=1\" \"$WORK/spec_T.png\"",
+    "A3": "Momentary loudness every 100 ms (LUFS): ffmpeg -v error -i \"$SRC\" -af \"ebur128=metadata=1,ametadata=mode=print:key=lavfi.r128.M:file=$WORK/lufs_m.txt\" -f null -",
+    "A4": "Silences: ffmpeg -i \"$SRC\" -af \"silencedetect=noise=-35dB:d=0.25\" -f null - 2>&1 | grep silence_",
+    "A7": "Stream facts: ffprobe -v error -show_streams -show_format -of json \"$SRC\""
+  },
+  "questions": [
+    {
+      "id": "structure_beats-001",
+      "question": "What are the beat boundaries of the whole video (start and end seconds) and the role of each beat (hook, title, setup, item, payoff, recap, cta, outro)?",
+      "why_it_matters": "Fills timeline.beats, the skeleton every other lens hangs its answers on.",
+      "how_to_answer": "Start from evidence.shots[] boundaries and evidence.captions[] gaps; mark a boundary where at least two cues coincide (new label in evidence.text_regions, a cut, a speech pause over 300 ms in audio.speech_segments, a loudness change from A3). Confirm each boundary on F1 frames 0.2 s before and after. Express start/end as ratios of source.duration_s.",
+      "evidence_required": [
+        "evidence.shots[].start_s",
+        "evidence.audio.speech_segments",
+        "evidence.text_regions[].t_s",
+        "frames: F1 either side of each boundary"
+      ],
+      "ir_path": "/timeline/beats",
+      "answer_type": "beats",
+      "challenge": "Pick two boundaries at random and check that at least two independent cues fall within 0.3 s of each; a boundary backed by one cue only must carry confidence below 0.5."
+    },
+    {
+      "id": "structure_beats-002",
+      "question": "How many repeated item beats (facts, tips, steps, ranks) does the video contain?",
+      "why_it_matters": "Becomes the n_items parameter and the repeat count in the beat list.",
+      "how_to_answer": "Count beats from structure_beats-001 whose role is item/fact/tip/step. Cross-check against distinct label numbers seen in evidence.text_regions (F3 crops of the label area) and against the number of times the per-item sub-pattern restarts.",
+      "evidence_required": [
+        "timeline beats from structure_beats-001",
+        "frames: F3 crop of each label"
+      ],
+      "ir_path": "/parameters/-",
+      "answer_type": "parameter",
+      "challenge": "Recount using only the label crops; if labels are absent, recount using the sub-pattern restarts. Disagreement between the two counts means the answer is inferred, not measured."
+    },
+    {
+      "id": "structure_beats-003",
+      "question": "How long is each item beat in seconds, and how uniform are they (median, min, max, coefficient of variation)?",
+      "why_it_matters": "Decides whether item length is a fixed formula or content-driven, and sets the item_beat_s range.",
+      "how_to_answer": "From the item beats in structure_beats-001 compute end_s - start_s for each; report median, min, max and stdev/mean. Use the shot boundaries from evidence.shots[] to snap beat edges to cuts when they are within 0.2 s.",
+      "evidence_required": [
+        "evidence.shots[].start_s",
+        "item beat boundaries"
+      ],
+      "ir_path": "/timeline/beats",
+      "answer_type": "distribution",
+      "challenge": "Recompute from the listed boundaries; check that the first and last items were not trimmed by the hook or outro. A CV above 0.35 contradicts any claim of fixed-length items."
+    },
+    {
+      "id": "structure_beats-004",
+      "question": "How many seconds of the runtime are NOT item beats (hook + intro + recap + outro), so that item length can be written as (duration - fixed) / n_items?",
+      "why_it_matters": "Gives the fixed overhead term in the item timing generation rule.",
+      "how_to_answer": "Sum durations of all non-item beats from structure_beats-001. Report the hook/intro part and the outro part separately in the note.",
+      "evidence_required": [
+        "timeline beats from structure_beats-001",
+        "evidence.source.duration_s"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "rule",
+      "challenge": "Plug the observed n_items and duration into the proposed rule; the predicted item length must be within 15% of the observed median item length, otherwise the rule is wrong."
+    },
+    {
+      "id": "structure_beats-005",
+      "question": "At what fraction of the runtime does the first item begin?",
+      "why_it_matters": "Sets the hook length as a ratio, which transfers to other target durations.",
+      "how_to_answer": "Take start_s of the first item beat divided by evidence.source.duration_s. Confirm with F1 frames that the first label or first item visual appears at that time.",
+      "evidence_required": [
+        "evidence.source.duration_s",
+        "frames: F1 at the first item start"
+      ],
+      "ir_path": "/timeline/beats/*/end_ratio",
+      "answer_type": "ratio",
+      "challenge": "Check whether a teaser or cold open before the title was mistaken for the first item."
+    },
+    {
+      "id": "structure_beats-006",
+      "question": "Is there a separate title beat (a held title card or title-over-photo moment) distinct from the spoken hook, and how long does it last?",
+      "why_it_matters": "Decides whether the format needs a title beat and its hold time.",
+      "how_to_answer": "Look for a text region with large area_ratio in evidence.text_regions during the first 5 s; measure from its first to last t_s. Inspect F1 frames at 0, 1, 2, 3 s.",
+      "evidence_required": [
+        "evidence.text_regions[] with t_s < 5",
+        "frames: F1 at 0-3 s"
+      ],
+      "ir_path": "/timeline/beats",
+      "answer_type": "seconds",
+      "challenge": "Confirm the text is a title and not the first caption: a title persists across at least one caption change or speech pause."
+    },
+    {
+      "id": "structure_beats-007",
+      "question": "In what order are the items arranged (countdown, count-up, chronological, ascending magnitude, descending magnitude, best saved for last, no visible rule)?",
+      "why_it_matters": "Becomes the item_order parameter and a generation rule for sorting new content.",
+      "how_to_answer": "Read label numbers from F3 crops (count direction), dates or key numbers per item from on-screen text, and note which item gets the longest beat or a special treatment.",
+      "evidence_required": [
+        "frames: F3 crops of labels and key numbers per item"
+      ],
+      "ir_path": "/script/beat_patterns/-",
+      "answer_type": "enum",
+      "choices": [
+        "countdown",
+        "count-up",
+        "chronological",
+        "ascending-magnitude",
+        "descending-magnitude",
+        "best-last",
+        "no-visible-rule"
+      ],
+      "challenge": "If the order is called 'ascending magnitude', list the magnitudes in order; a single inversion means 'no-visible-rule' or lower confidence."
+    },
+    {
+      "id": "structure_beats-008",
+      "question": "Is the final item structurally different from the others (longer beat, different transition, music change, extra effect)?",
+      "why_it_matters": "Tells the generator whether to give the last item special treatment.",
+      "how_to_answer": "Compare the last item beat's duration, number of shots (evidence.shots[]), transitions (F8 at its start) and momentary loudness (A3) with the median of the other items.",
+      "evidence_required": [
+        "evidence.shots[]",
+        "frames: F8 at item starts",
+        "A3 loudness"
+      ],
+      "ir_path": "/script/beat_patterns/-",
+      "answer_type": "text",
+      "challenge": "A difference below 20% in duration with no other change is noise, not a structural rule."
+    },
+    {
+      "id": "structure_beats-009",
+      "question": "Is there a recap beat that revisits earlier items before the end?",
+      "why_it_matters": "Becomes an optional include_recap parameter.",
+      "how_to_answer": "Look in the last 20% of runtime for on-screen repetition of earlier labels or visuals (F10 SSIM against earlier keyframes above 0.7) or a fast montage of earlier shots.",
+      "evidence_required": [
+        "evidence.shots[].keyframe",
+        "frames: F10 comparisons"
+      ],
+      "ir_path": "/parameters/-",
+      "answer_type": "boolean",
+      "challenge": "Check that matched frames are actually reused shots and not a shared background."
+    },
+    {
+      "id": "structure_beats-010",
+      "question": "How many seconds of the file come after the last meaningful content (end card, silence, black, logo)?",
+      "why_it_matters": "Sets the outro_s parameter and stops dead tails from being copied by accident.",
+      "how_to_answer": "Find the last speech segment end (audio.speech_segments) and the last text change; compare with source.duration_s. Use F12 for black frames and A4 for trailing silence.",
+      "evidence_required": [
+        "evidence.audio.speech_segments",
+        "evidence.source.duration_s",
+        "F12 black frames",
+        "A4 silences"
+      ],
+      "ir_path": "/timeline/beats",
+      "answer_type": "seconds",
+      "challenge": "Check that a silent visual payoff is not mistaken for a dead tail."
+    },
+    {
+      "id": "structure_beats-011",
+      "question": "How many shots does a typical item beat contain (median and range)?",
+      "why_it_matters": "Fills shots_per_beat and lets the renderer plan asset counts per item.",
+      "how_to_answer": "Count evidence.shots[] whose start_s falls inside each item beat; report median, min and max.",
+      "evidence_required": [
+        "evidence.shots[]",
+        "item beat boundaries"
+      ],
+      "ir_path": "/timeline/beats/*/shots_per_beat",
+      "answer_type": "range",
+      "challenge": "Spot-check one item with F11 scene scores for missed dissolves or false cuts that would change the count."
+    },
+    {
+      "id": "structure_beats-012",
+      "question": "What is the internal sub-structure of one item beat (for example label reveal, number reveal, explanation, visual proof, transition) with each step's offset from the beat start?",
+      "why_it_matters": "Becomes the per-item template the generator repeats.",
+      "how_to_answer": "For three different items, list events with offsets: label appearance (text_regions t_s), key-number appearance, first speech onset, cuts, last caption. Keep events that recur in all three with offsets within 0.3 s.",
+      "evidence_required": [
+        "evidence.text_regions[]",
+        "evidence.audio.speech_segments",
+        "evidence.shots[]",
+        "frames: F8 at each item start"
+      ],
+      "ir_path": "/script/beat_patterns/-",
+      "answer_type": "pattern",
+      "challenge": "Test the template on a fourth item not used to build it; any step missing there must be marked optional."
+    },
+    {
+      "id": "structure_beats-013",
+      "question": "Which elements repeat identically in every item beat and which vary from item to item?",
+      "why_it_matters": "Separates fixed format elements from content slots; the core of parameterisation.",
+      "how_to_answer": "Compare F1 frames at the same offset in three items: layout, label position and style, transition, sound cue (A1 at item starts) versus image, number and caption content. Answer as {repeats: [...], varies: [...]}.",
+      "evidence_required": [
+        "frames: F1 at equal offsets in 3 items",
+        "A1 spectrogram at item starts"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "object",
+      "challenge": "For each 'repeats' entry, find one item where it differs; if found, move it to 'varies' or mark it optional."
+    },
+    {
+      "id": "structure_beats-014",
+      "question": "What is the label pattern for item beats (for example 'FACT {n}', '#{n}', 'STEP {n} OF {total}') and does the number count up or down?",
+      "why_it_matters": "Fills label_pattern for repeated beats.",
+      "how_to_answer": "Crop the label region (F3, enlarged) at each item start and transcribe only the label form, replacing the number with {n}. Note where the label sits.",
+      "evidence_required": [
+        "frames: F3 crops of labels"
+      ],
+      "ir_path": "/timeline/beats/*/label_pattern",
+      "answer_type": "pattern",
+      "challenge": "Confirm the same form appears on every item; a label shown on only some items is optional, not the pattern."
+    },
+    {
+      "id": "structure_beats-015",
+      "question": "Do beat boundaries coincide with a cut, a music change, a text change, a speech pause, or several of these at once?",
+      "why_it_matters": "Becomes a boundary-alignment rule the renderer follows.",
+      "how_to_answer": "For each boundary, list which of these fall within 0.25 s: cut (shots[]), onset or loudness step (audio.onsets_s, A3), text change (text_regions), pause (speech_segments gap). Report the share of boundaries for each cue.",
+      "evidence_required": [
+        "evidence.shots[]",
+        "evidence.audio.onsets_s",
+        "evidence.text_regions[]",
+        "evidence.audio.speech_segments"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "object",
+      "challenge": "Recheck the tolerance: with cuts every 1-2 s, a 0.25 s window will often match by chance; report the chance rate (window x cuts per second) alongside."
+    },
+    {
+      "id": "structure_beats-016",
+      "question": "At what fraction of the runtime is the promise made in the hook paid off?",
+      "why_it_matters": "Places the payoff beat as a ratio for any target duration.",
+      "how_to_answer": "Identify the hook's promise type (what is withheld) from hook_first_seconds answers or captions, then find the beat where it is resolved. Divide its start_s by source.duration_s.",
+      "evidence_required": [
+        "timeline beats",
+        "captions timing (analysis only)"
+      ],
+      "ir_path": "/timeline/beats/*/start_ratio",
+      "answer_type": "ratio",
+      "challenge": "If the hook makes no explicit promise, the answer must be 'not determinable' rather than the last item."
+    },
+    {
+      "id": "structure_beats-017",
+      "question": "Are there transition beats or bumpers between items (a short stinger, a number card, a whoosh with no content) and how long are they?",
+      "why_it_matters": "Adds or removes a transition beat in the item loop.",
+      "how_to_answer": "Look for sub-1.5 s segments between items with no speech (speech_segments gap) and a distinctive graphic. Use F8 across each item boundary.",
+      "evidence_required": [
+        "evidence.audio.speech_segments",
+        "frames: F8 across item boundaries"
+      ],
+      "ir_path": "/timeline/beats",
+      "answer_type": "seconds",
+      "challenge": "Make sure the 'bumper' is not just the label-reveal step of the next item."
+    },
+    {
+      "id": "structure_beats-018",
+      "question": "What is the total duration in seconds, and which band does it fall in (under 30 s, 30-60 s, 60-90 s, 90-180 s, longer; band in the note)?",
+      "why_it_matters": "Sets target_duration_s and the default range for the duration parameter.",
+      "how_to_answer": "Read evidence.source.duration_s (video_re_probe_metadata). Subtract any dead tail from structure_beats-010 in the note.",
+      "evidence_required": [
+        "evidence.source.duration_s"
+      ],
+      "ir_path": "/timeline/target_duration_s",
+      "answer_type": "seconds",
+      "challenge": "Compare container duration with the last video frame time (A7 stream duration); a long audio tail can inflate it."
+    },
+    {
+      "id": "structure_beats-019",
+      "question": "Do item beats get shorter, longer or stay level as the video goes on (slope of item length against item index)?",
+      "why_it_matters": "Becomes an escalation rule (for example each item 10% shorter) or confirms flat pacing.",
+      "how_to_answer": "Fit a line to item beat durations against item index; report the slope in seconds per item and the first-to-last ratio.",
+      "evidence_required": [
+        "item beat durations"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "number",
+      "challenge": "With fewer than 5 items a slope is weak evidence; confidence must stay under 0.5."
+    },
+    {
+      "id": "structure_beats-020",
+      "question": "What share of each beat is covered by speech (talk density per beat role)?",
+      "why_it_matters": "Tells the script generator how much narration each beat role needs.",
+      "how_to_answer": "Intersect evidence.audio.speech_segments with each beat; report the median coverage for hook, item and outro beats.",
+      "evidence_required": [
+        "evidence.audio.speech_segments",
+        "timeline beats"
+      ],
+      "ir_path": "/script/beat_patterns/-",
+      "answer_type": "object",
+      "challenge": "Check speech segmentation on one beat with A4 silences; music-only passages are often detected as speech."
+    },
+    {
+      "id": "structure_beats-021",
+      "question": "Where are the stretches longer than 1.5 s with no speech, and what structural role do they play (reveal, breathing room, transition, ending)?",
+      "why_it_matters": "Becomes planned silence slots in the timeline.",
+      "how_to_answer": "List gaps between evidence.audio.speech_segments over 1.5 s with timestamps; inspect F1 frames inside each to classify.",
+      "evidence_required": [
+        "evidence.audio.speech_segments",
+        "frames: F1 inside each gap"
+      ],
+      "ir_path": "/timeline/beats",
+      "answer_type": "segments",
+      "challenge": "Confirm each gap with A4 silencedetect; a gap filled by a sound effect is still a 'no speech' slot but not silence."
+    },
+    {
+      "id": "structure_beats-022",
+      "question": "Does narration run across item boundaries (sentence started before the cut, L or J cut) or does each item start with a fresh sentence on the cut?",
+      "why_it_matters": "Becomes a boundary rule for the editor.",
+      "how_to_answer": "For each item boundary compare the cut time with the nearest speech segment start; voice-leads-cut when speech starts more than 150 ms before the cut, picture-leads when after.",
+      "evidence_required": [
+        "evidence.shots[]",
+        "evidence.audio.speech_segments"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "enum",
+      "choices": [
+        "fresh-sentence-on-cut",
+        "voice-leads-cut",
+        "picture-leads-voice",
+        "mixed"
+      ],
+      "challenge": "Speech-segment start times can be 100-200 ms late; recheck two boundaries on an A1 spectrogram."
+    },
+    {
+      "id": "structure_beats-023",
+      "question": "What range of n_items can this structure support while keeping each item beat at least as long as the shortest observed item?",
+      "why_it_matters": "Justifies the min and max of the n_items parameter instead of copying the single observed value.",
+      "how_to_answer": "Using the fixed overhead (structure_beats-004) and the shortest and longest observed item beats: max_items = floor((duration - fixed) / shortest_item_s), min_items = ceil((duration - fixed) / longest_item_s). Report both for the source duration and note they scale with target duration.",
+      "evidence_required": [
+        "item beat durations",
+        "fixed overhead"
+      ],
+      "ir_path": "/parameters/-",
+      "answer_type": "range",
+      "challenge": "Check the arithmetic and that the range is described as derived (inferred), not observed."
+    },
+    {
+      "id": "structure_beats-024",
+      "question": "Which beats could be removed without breaking the format (optional beats)?",
+      "why_it_matters": "Becomes boolean include_* parameters.",
+      "how_to_answer": "A beat is optional when nothing later refers to it: no callback in captions, no visual reuse (F10), and the structure still has hook, items and ending without it.",
+      "evidence_required": [
+        "timeline beats",
+        "frames: F10 comparisons"
+      ],
+      "ir_path": "/parameters/-",
+      "answer_type": "list",
+      "challenge": "Mark any beat that carries the payoff or the hook as required regardless of length."
+    },
+    {
+      "id": "structure_beats-025",
+      "question": "Which known structural archetype fits best (listicle, countdown, story arc, problem-solution, before-after, myth-vs-fact, tutorial steps, comparison, timeline-history)?",
+      "why_it_matters": "Names the format family so the library can group lifted formats.",
+      "how_to_answer": "Decide from the beat roles and label pattern: numbered repeated items suggest listicle or countdown; a single protagonist with escalation suggests story-arc; paired states suggest before-after.",
+      "evidence_required": [
+        "timeline beats",
+        "label pattern"
+      ],
+      "ir_path": "/script/beat_patterns/-",
+      "answer_type": "enum",
+      "choices": [
+        "listicle",
+        "countdown",
+        "story-arc",
+        "problem-solution",
+        "before-after",
+        "myth-vs-fact",
+        "tutorial-steps",
+        "comparison",
+        "timeline-history",
+        "other"
+      ],
+      "challenge": "Ask whether a second archetype fits as well; if so confidence must be below 0.6 and the note must name the alternative."
+    },
+    {
+      "id": "structure_beats-026",
+      "question": "How many seconds pass between the start of an item beat and the appearance of its label (label lead-in)?",
+      "why_it_matters": "Becomes a per-item timing constant in the generation rules.",
+      "how_to_answer": "For each item, subtract the beat start_s from the first evidence.text_regions[].t_s in the label area; confirm with F8 frame steps on two items.",
+      "evidence_required": [
+        "evidence.text_regions[]",
+        "frames: F8 at item starts"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "ms",
+      "challenge": "text_regions sampling interval limits precision; the answer's precision must not be finer than that interval unless F8 was used."
+    },
+    {
+      "id": "structure_beats-027",
+      "question": "Are any beats built as a side-by-side or before/after comparison (two panels, split screen, A then B)?",
+      "why_it_matters": "Adds a comparison beat type to the format.",
+      "how_to_answer": "Look for frames with two similar-size visual regions (F1) or paired consecutive shots with mirrored text; list timestamps.",
+      "evidence_required": [
+        "frames: F1 at suspected comparisons"
+      ],
+      "ir_path": "/script/beat_patterns/-",
+      "answer_type": "timestamps",
+      "challenge": "A 2x2 decorative grid is a background layer, not a comparison beat."
+    },
+    {
+      "id": "structure_beats-028",
+      "question": "Is there a regular interval at which something drastically different happens (layout change, colour flash, new scene type), and what is that interval?",
+      "why_it_matters": "Becomes a pattern-interrupt rule (for example 'change scene type every 8-12 s').",
+      "how_to_answer": "From the contact sheet (F4) mark layout changes; compute intervals between them; report median and range.",
+      "evidence_required": [
+        "frames: F4 contact sheet",
+        "evidence.shots[].palette"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "range",
+      "challenge": "Check the interval is not just the item beat length restated."
+    },
+    {
+      "id": "structure_beats-029",
+      "question": "What is the ratio of the longest to the shortest item beat, and where in the order is the longest one?",
+      "why_it_matters": "Shows whether one item is privileged (usually the payoff) and bounds per-item flexibility.",
+      "how_to_answer": "From item durations compute max/min and give the index of the longest.",
+      "evidence_required": [
+        "item beat durations"
+      ],
+      "ir_path": "/script/beat_patterns/-",
+      "answer_type": "object",
+      "challenge": "Make sure the longest item does not absorb an outro or CTA that should be its own beat."
+    },
+    {
+      "id": "structure_beats-030",
+      "question": "How many distinct scene layouts appear (for example full-bleed photo, photo plus label, grid, text-only card) and in what sequence do they occur?",
+      "why_it_matters": "Becomes the layout cycle the renderer follows (A B A B or A B C).",
+      "how_to_answer": "Classify each shot keyframe (F4 sheet or evidence.shots[].keyframe) by layout; write the sequence with letters and report the repeating unit.",
+      "evidence_required": [
+        "evidence.shots[].keyframe",
+        "frames: F4"
+      ],
+      "ir_path": "/script/beat_patterns/-",
+      "answer_type": "pattern",
+      "challenge": "Ask a second classification pass on 5 random shots; layout labels that flip were not distinct."
+    },
+    {
+      "id": "structure_beats-031",
+      "question": "How does the video end: hard cut at the last word, fade to black, end card, loop back to the opening frame, or logo sting?",
+      "why_it_matters": "Fills the outro beat role and its default length.",
+      "how_to_answer": "Inspect F8 frames over the last 1 s and F12 black frames; compare the last frame to the first with F10 for loop endings.",
+      "evidence_required": [
+        "frames: F8 last 1 s",
+        "F12",
+        "F10 first vs last frame"
+      ],
+      "ir_path": "/timeline/beats",
+      "answer_type": "enum",
+      "choices": [
+        "hard-cut",
+        "fade-to-black",
+        "end-card",
+        "loop-to-start",
+        "logo-sting",
+        "other"
+      ],
+      "challenge": "A fade that starts in the last 3 frames may be an encoder artefact; require at least 6 frames of fade."
+    },
+    {
+      "id": "structure_beats-032",
+      "question": "What does an author have to supply for each item (for example one hero image, one key number, one 12-20 word line, one source URL)?",
+      "why_it_matters": "Defines the content_slot schema of the repeated beat.",
+      "how_to_answer": "From structure_beats-012 and -013 list the varying elements per item with their observed size limits (words per caption, number of images per item from shots).",
+      "evidence_required": [
+        "per-item template",
+        "repeats/varies split"
+      ],
+      "ir_path": "/timeline/beats/*/content_slot",
+      "answer_type": "object",
+      "challenge": "Each slot must be backed by an element that varied in at least two items; slots that never vary are fixed elements."
+    },
+    {
+      "id": "structure_beats-033",
+      "question": "Do beat boundaries fall on musical phrase boundaries (multiples of 4 or 8 beats at the detected tempo)?",
+      "why_it_matters": "Becomes a rule to snap beat lengths to musical phrases.",
+      "how_to_answer": "Using evidence.audio.tempo_bpm, compute beat period; for each beat boundary compute the offset from the nearest 4-beat grid line. Report the share within 1/8 of a beat.",
+      "evidence_required": [
+        "evidence.audio.tempo_bpm",
+        "evidence.audio.onsets_s",
+        "timeline beats"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "ratio",
+      "challenge": "If tempo_bpm is null or the music is beatless, the answer is 'not determinable'; also compare against the chance rate for that tolerance."
+    },
+    {
+      "id": "structure_beats-034",
+      "question": "Does each item contain exactly one claim or idea, or several?",
+      "why_it_matters": "Sets the per-item content budget the script writer follows.",
+      "how_to_answer": "Count distinct sentences or caption cards per item (captions[], analysis only) and how many carry a separate number or fact; report median per item without copying any text.",
+      "evidence_required": [
+        "evidence.captions[] (analysis only)"
+      ],
+      "ir_path": "/script/beat_patterns/-",
+      "answer_type": "integer",
+      "challenge": "Check two items manually; restatements of the same idea count as one claim."
+    },
+    {
+      "id": "structure_beats-035",
+      "question": "Write the timing generation rule for the whole timeline in terms of parameters (target_duration_s, n_items, intro_s, outro_s).",
+      "why_it_matters": "Gives the compiler a procedural timeline instead of fixed timestamps.",
+      "how_to_answer": "Combine structure_beats-004, -005, -010 and -026, for example 'intro_s = 0.12 x duration; outro_s = 3; item_s = (duration - intro_s - outro_s) / n_items; label at item_start + 0.2 s'. Recompute the observed beat times from the rule and report the largest error.",
+      "evidence_required": [
+        "all structure answers"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "rule",
+      "challenge": "Re-derive every observed beat start from the rule; an error above 1 s on any beat means the rule needs another term."
+    },
+    {
+      "id": "structure_beats-036",
+      "question": "What is the shortest beat of any kind, and does it look deliberate (stinger, flash) or accidental (trim)?",
+      "why_it_matters": "Sets a lower bound for beat length in the compiler.",
+      "how_to_answer": "Find the minimum duration in the beat list; inspect it with F8 and note any sound cue (A1).",
+      "evidence_required": [
+        "timeline beats",
+        "frames: F8",
+        "A1"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "seconds",
+      "challenge": "If the shortest beat sits at the start or end of the file, check it against encoder padding."
+    }
+  ]
+}

@@ -1,0 +1,508 @@
+{
+  "spec": "baltor.video-re-questions/v1",
+  "lens": "color_grade",
+  "title": "Colour and grade",
+  "purpose": "Measures palette, luminance range, saturation, temperature and consistency, and turns them into a reproducible grade recipe.",
+  "boundary": "The swarm lifts technique and structure only. Never store, transcribe or reuse the source's footage, frames, music, voice or script text. Keyframes and spectrograms are temporary analysis files in a scratch directory and are never copied into the format IR or a variant. On-screen text may be quoted only as a locating note in evidence.note, at most 6 words, and narration is never quoted. Patterns replace content words with slots, e.g. 'FACT {n}' or '{number} {unit} {noun}'. Analysing a public video for technique is fine; republishing its content is not.",
+  "answer_contract": "video_re_analyst_answer",
+  "ir_contract": "video_re_format_ir",
+  "ir_focus": [
+    "/visual/palette",
+    "/visual/grade",
+    "/generation_rules",
+    "/parameters"
+  ],
+  "evidence": [
+    "shots[].palette (video_re_palette_per_shot)"
+  ],
+  "inspect": "F6 statistics per shot, F7 waveform and vectorscope on 3+ representative frames, F9 for accent colours.",
+  "pitfalls": [
+    "Reporting a palette dominated by a text panel as the grade",
+    "Comparing colours across differently compressed frames",
+    "Calling a look 'cinematic' instead of measuring it"
+  ],
+  "parameter_hints": [
+    "palette (list of colors)",
+    "accent_color (color)",
+    "saturation_level",
+    "grade_recipe (string)"
+  ],
+  "optional_detectors": [
+    "video_re_detect_color_temperature_tint",
+    "video_re_detect_saturation_contrast_profile",
+    "video_re_detect_grade_curve_estimate",
+    "video_re_detect_vignette",
+    "video_re_detect_duotone_monochrome",
+    "video_re_detect_palette_consistency",
+    "video_re_detect_exposure_clipping",
+    "video_re_detect_banding",
+    "video_re_detect_color_range_space"
+  ],
+  "methods": {
+    "measured": "A measurement tool produced the value (an evidence.json field or an ffmpeg/ffprobe filter output). Name the tool and the field.",
+    "observed": "You looked at extracted frames, crops, scopes, spectrograms or waveforms and saw it. Give the timestamps you looked at.",
+    "inferred": "Reasoned from measured or observed facts, e.g. 'synthetic voice' from flat pitch on a spectrogram. State the reasoning in the note.",
+    "assumed": "No direct evidence; a default or convention. Use only for gaps the format needs filled, and keep confidence at 0.3 or lower."
+  },
+  "pointer_conventions": [
+    "ir_path is a JSON Pointer (RFC 6901) into the Video format IR (contract schema video_re_format_ir).",
+    "A final '/-' means 'append this answer to the array' (the RFC 6901 end-of-array token), e.g. /motion/transitions/- or /generation_rules/-.",
+    "A '*' segment means 'each array element the answer is about'; the answer must say which elements (for example beats with role 'item'). The lifter resolves '*' to concrete indexes.",
+    "Paths under free-form objects (typography.title, typography.captions, typography.labels, audio.narration, audio.music, render_binding.mapping) use the snake_case key named in the question."
+  ],
+  "answer_types": {
+    "number": "{\"value\": n, \"unit\": \"...\"} optionally with \"min\" and \"max\"; becomes an IR observed_number",
+    "integer": "{\"value\": n}",
+    "ratio": "{\"value\": r} with 0 <= r <= 1",
+    "boolean": "true or false",
+    "enum": "exactly one of the question's choices (a string)",
+    "color": "\"#RRGGBB\"",
+    "palette": "[\"#RRGGBB\", ...] ordered by area, at most 8",
+    "text": "one technique description, at most 300 characters, no copied content",
+    "list": "array of short strings (technique names or kinds)",
+    "segments": "[{\"start_s\": a, \"end_s\": b, \"label\": \"...\"}]",
+    "rule": "one procedural generation rule string, at most 400 characters, written in terms of parameters",
+    "object": "a JSON object with the keys the question's how_to_answer names"
+  },
+  "recipes": {
+    "F1": "Single frame: ffmpeg -v error -ss T -i \"$SRC\" -frames:v 1 -q:v 2 \"$WORK/f_T.jpg\"",
+    "F3": "Full-resolution crop (add ,scale=iw*2:-1:flags=lanczos to enlarge): ffmpeg -v error -ss T -i \"$SRC\" -frames:v 1 -vf \"crop=W:H:X:Y\" \"$WORK/crop_T.png\"",
+    "F6": "Per-frame colour statistics (YMIN, YAVG, YMAX, SATAVG, HUEMED, UAVG, VAVG): ffmpeg -v error -ss T -t D -i \"$SRC\" -vf \"signalstats,metadata=mode=print:file=$WORK/stats.txt\" -an -f null -",
+    "F7": "Scopes: ffmpeg -v error -ss T -i \"$SRC\" -frames:v 1 -vf \"format=yuv444p,waveform=display=overlay\" \"$WORK/wave_T.png\"; vectorscope with -vf \"format=yuv444p,vectorscope=mode=color3\"",
+    "F9": "Average colour of a region: ffmpeg -v error -ss T -i \"$SRC\" -frames:v 1 -vf \"crop=W:H:X:Y,scale=1:1:flags=area,format=rgb24\" -f rawvideo - | od -An -tu1",
+    "A7": "Stream facts: ffprobe -v error -show_streams -show_format -of json \"$SRC\""
+  },
+  "questions": [
+    {
+      "id": "color_grade-001",
+      "question": "What are the video's dominant colours, ordered by area?",
+      "why_it_matters": "Fills visual.palette.",
+      "how_to_answer": "Merge evidence.shots[].palette weighted by shot duration (video_re_palette_per_shot); keep up to 8 colours, merging colours within about 20 RGB units.",
+      "evidence_required": [
+        "evidence.shots[].palette",
+        "evidence.shots[].duration_s"
+      ],
+      "ir_path": "/visual/palette",
+      "answer_type": "palette",
+      "challenge": "Check that a persistent panel or title colour is not reported as the scene grade; F9 on two shots should contain the top colours."
+    },
+    {
+      "id": "color_grade-002",
+      "question": "How would the grade be described in measurable terms (temperature, contrast, saturation, black and white points)?",
+      "why_it_matters": "Fills visual.grade as a short technique description.",
+      "how_to_answer": "Summarise 003-006 in one sentence with the numbers, for example 'warm (V-U +12), moderate contrast (Y 18-232), saturated (SATAVG 72)'.",
+      "evidence_required": [
+        "color_grade-003..006"
+      ],
+      "ir_path": "/visual/grade",
+      "answer_type": "text",
+      "challenge": "Words like 'cinematic' or 'moody' are taste; each adjective must carry a number."
+    },
+    {
+      "id": "color_grade-003",
+      "question": "What is the average saturation (signalstats SATAVG), median over shots?",
+      "why_it_matters": "Sets the saturation level parameter.",
+      "how_to_answer": "F6 on 1 s of each shot (or a sample of 10 shots); median of per-shot SATAVG means.",
+      "evidence_required": [
+        "F6 per shot"
+      ],
+      "ir_path": "/visual/grade",
+      "answer_type": "number",
+      "challenge": "Text panels and bright titles raise SATAVG; recompute on a crop without text for 3 shots."
+    },
+    {
+      "id": "color_grade-004",
+      "question": "What are the luma black and white points (median YMIN and YMAX per shot)?",
+      "why_it_matters": "Defines contrast range for the grade recipe.",
+      "how_to_answer": "F6 YMIN/YMAX per sampled shot; report medians.",
+      "evidence_required": [
+        "F6 per shot"
+      ],
+      "ir_path": "/visual/grade",
+      "answer_type": "object",
+      "challenge": "Tiny specular highlights set YMAX; also report the 1st/99th percentile from a histogram if available."
+    },
+    {
+      "id": "color_grade-005",
+      "question": "Are blacks crushed, natural, or lifted (faded look)?",
+      "why_it_matters": "Fills the contrast style.",
+      "how_to_answer": "From YMIN medians: lifted when the darkest areas stay above about 30 (8-bit, limited range 16-235); crushed when large areas sit at 16 on a waveform (F7).",
+      "evidence_required": [
+        "F6 YMIN",
+        "F7 waveform"
+      ],
+      "ir_path": "/visual/grade",
+      "answer_type": "enum",
+      "choices": [
+        "crushed",
+        "natural",
+        "lifted"
+      ],
+      "challenge": "Check the stream colour range in A7; full-range sources shift these values."
+    },
+    {
+      "id": "color_grade-006",
+      "question": "Is the colour temperature warm, neutral or cool on average?",
+      "why_it_matters": "Fills temperature in the grade.",
+      "how_to_answer": "F6 UAVG and VAVG medians (128 neutral in 8-bit): V above U by more than 4 suggests warm, U above V suggests cool; confirm on an F7 vectorscope.",
+      "evidence_required": [
+        "F6 UAVG/VAVG",
+        "F7 vectorscope"
+      ],
+      "ir_path": "/visual/grade",
+      "answer_type": "enum",
+      "choices": [
+        "warm",
+        "neutral",
+        "cool"
+      ],
+      "challenge": "Content colours (a blue ocean) shift averages without any grade; check neutral elements (white text) with F9."
+    },
+    {
+      "id": "color_grade-007",
+      "question": "How consistent is the grade across shots (standard deviation of per-shot SATAVG and HUEMED)?",
+      "why_it_matters": "Tells whether the format normalises sources to one look.",
+      "how_to_answer": "F6 per shot; report stdev of SATAVG and of HUEMED (circular).",
+      "evidence_required": [
+        "F6 per shot"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "object",
+      "challenge": "Different subjects vary naturally; compare against a deliberately mixed baseline is impossible, so mark the conclusion inferred."
+    },
+    {
+      "id": "color_grade-008",
+      "question": "Is there a teal-and-orange split (cool shadows, warm highlights)?",
+      "why_it_matters": "Adds a split-tone recipe.",
+      "how_to_answer": "F7 vectorscope: two lobes near orange and teal; F9 on shadow and highlight areas.",
+      "evidence_required": [
+        "F7",
+        "F9"
+      ],
+      "ir_path": "/visual/grade",
+      "answer_type": "boolean",
+      "challenge": "Skin tones and sky alone create both lobes; check a frame without people or sky."
+    },
+    {
+      "id": "color_grade-009",
+      "question": "What accent colour is used for emphasis (highlighted words, labels, arrows)?",
+      "why_it_matters": "Becomes the accent_color parameter.",
+      "how_to_answer": "F9 inside highlighted words and labels in 3 places.",
+      "evidence_required": [
+        "frames: F9"
+      ],
+      "ir_path": "/parameters/-",
+      "answer_type": "color",
+      "challenge": "Report the spread across samples."
+    },
+    {
+      "id": "color_grade-010",
+      "question": "Does each item get its own colour code (label colour, tint, background hue)?",
+      "why_it_matters": "Becomes a per-item colour rule.",
+      "how_to_answer": "F9 on labels and backgrounds per item.",
+      "evidence_required": [
+        "frames: F9 per item"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "boolean",
+      "challenge": "Hue differences under about 20 degrees are not distinct codes."
+    },
+    {
+      "id": "color_grade-011",
+      "question": "Is the title colour complementary to, analogous to, or independent of the scene palette?",
+      "why_it_matters": "Becomes a title colour selection rule.",
+      "how_to_answer": "Hue of the title colour (F9) versus dominant scene hues (001).",
+      "evidence_required": [
+        "frames: F9",
+        "palette"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "enum",
+      "choices": [
+        "complementary",
+        "analogous",
+        "independent"
+      ],
+      "challenge": "Report hue angles."
+    },
+    {
+      "id": "color_grade-012",
+      "question": "Do skin tones look natural, warmed, cooled or stylised?",
+      "why_it_matters": "Constrains the grade when people appear.",
+      "how_to_answer": "F7 vectorscope: skin falls near the skin-tone line; F9 on skin areas.",
+      "evidence_required": [
+        "F7",
+        "F9"
+      ],
+      "ir_path": "/visual/grade",
+      "answer_type": "enum",
+      "choices": [
+        "natural",
+        "warmed",
+        "cooled",
+        "stylised",
+        "no-skin"
+      ],
+      "challenge": "Do not describe the people; only the colour position."
+    },
+    {
+      "id": "color_grade-013",
+      "question": "Are shadows and highlights tinted differently (split toning), and with which hues?",
+      "why_it_matters": "Adds split-toning parameters.",
+      "how_to_answer": "F9 on dark and bright neutral regions; hue of each.",
+      "evidence_required": [
+        "F9"
+      ],
+      "ir_path": "/visual/grade",
+      "answer_type": "object",
+      "challenge": "Report the samples and their hues."
+    },
+    {
+      "id": "color_grade-014",
+      "question": "How strong is edge darkening (corner luma divided by centre luma)?",
+      "why_it_matters": "Fills vignette strength in the grade.",
+      "how_to_answer": "F9 luma of corner versus centre on 3 even frames.",
+      "evidence_required": [
+        "F9"
+      ],
+      "ir_path": "/visual/grade",
+      "answer_type": "number",
+      "challenge": "Pick frames where the content is even."
+    },
+    {
+      "id": "color_grade-015",
+      "question": "Does overall brightness change across the video (darker or brighter toward the end)?",
+      "why_it_matters": "Becomes a brightness arc rule or confirms a flat grade.",
+      "how_to_answer": "F6 YAVG per shot against time; slope.",
+      "evidence_required": [
+        "F6 per shot"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "object",
+      "challenge": "Content-driven changes (night scenes) do not imply a grade arc."
+    },
+    {
+      "id": "color_grade-016",
+      "question": "Is the hook graded differently from the body?",
+      "why_it_matters": "Becomes a hook grade option.",
+      "how_to_answer": "Compare F6 stats for hook shots against item shots.",
+      "evidence_required": [
+        "F6"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "boolean",
+      "challenge": "Require a difference beyond the between-item spread."
+    },
+    {
+      "id": "color_grade-017",
+      "question": "Is there film emulation (grain plus halation plus faded blacks)?",
+      "why_it_matters": "Adds a film-look recipe.",
+      "how_to_answer": "Combine grain (layers lens), lifted blacks (005) and red halos around highlights (F3).",
+      "evidence_required": [
+        "F3",
+        "F6"
+      ],
+      "ir_path": "/visual/grade",
+      "answer_type": "boolean",
+      "challenge": "All three cues must be present for 'true'."
+    },
+    {
+      "id": "color_grade-018",
+      "question": "Is the look high-key, mid-key or low-key (median YAVG)?",
+      "why_it_matters": "Fills key in the grade.",
+      "how_to_answer": "Median F6 YAVG: high-key above about 150, low-key below about 80 (8-bit limited range).",
+      "evidence_required": [
+        "F6"
+      ],
+      "ir_path": "/visual/grade",
+      "answer_type": "enum",
+      "choices": [
+        "high-key",
+        "mid-key",
+        "low-key"
+      ],
+      "challenge": "State the thresholds used and the value."
+    },
+    {
+      "id": "color_grade-019",
+      "question": "What share of pixels are clipped at the top of the range in typical frames?",
+      "why_it_matters": "Sets a highlight protection rule.",
+      "how_to_answer": "F7 waveform shows a flat line at the top; or count pixels with Y at max using a histogram on 3 frames.",
+      "evidence_required": [
+        "F7"
+      ],
+      "ir_path": "/visual/grade",
+      "answer_type": "ratio",
+      "challenge": "White text is intentionally at max; exclude text areas."
+    },
+    {
+      "id": "color_grade-020",
+      "question": "Is the palette tied to the topic (derived from the subject) or a fixed brand palette?",
+      "why_it_matters": "Becomes the palette_mode parameter.",
+      "how_to_answer": "Compare palettes across items: fixed colours present in all items suggest a brand palette.",
+      "evidence_required": [
+        "evidence.shots[].palette"
+      ],
+      "ir_path": "/parameters/-",
+      "answer_type": "enum",
+      "choices": [
+        "topic-derived",
+        "fixed-brand",
+        "mixed"
+      ],
+      "challenge": "A single-topic video cannot separate the two cleanly; mark inferred."
+    },
+    {
+      "id": "color_grade-021",
+      "question": "How many distinct dominant hues does the video use?",
+      "why_it_matters": "Bounds palette size.",
+      "how_to_answer": "Cluster palette colours by hue (30-degree bins); count bins holding at least 5% of area.",
+      "evidence_required": [
+        "evidence.shots[].palette"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "integer",
+      "challenge": "Greys have no hue; exclude low-saturation colours from the count."
+    },
+    {
+      "id": "color_grade-022",
+      "question": "Are there monochrome, duotone or desaturated sections, and when?",
+      "why_it_matters": "Adds a monochrome treatment option.",
+      "how_to_answer": "F6 SATAVG near zero over a shot.",
+      "evidence_required": [
+        "F6"
+      ],
+      "ir_path": "/visual/grade",
+      "answer_type": "segments",
+      "challenge": "Black-and-white archival photos are content, not grade; check whether colour graphics are also desaturated."
+    },
+    {
+      "id": "color_grade-023",
+      "question": "Are neon or glowing colours used (very high saturation with glow)?",
+      "why_it_matters": "Adds a neon accent style.",
+      "how_to_answer": "F9 samples with SAT near max and a glow halo on F3.",
+      "evidence_required": [
+        "F9",
+        "F3"
+      ],
+      "ir_path": "/visual/grade",
+      "answer_type": "boolean",
+      "challenge": "Report the saturation values."
+    },
+    {
+      "id": "color_grade-024",
+      "question": "What ffmpeg filter recipe approximates the observed grade (for example eq, colorbalance, curves, vignette)?",
+      "why_it_matters": "Gives a reproducible grade.",
+      "how_to_answer": "Choose filters and values to match 003-006; render 3 test frames from neutral test media and compare F6 statistics.",
+      "evidence_required": [
+        "grade measurements"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "rule",
+      "challenge": "Run the recipe on a test frame; stats must move in the stated direction."
+    },
+    {
+      "id": "color_grade-025",
+      "question": "Which colour parameters should a new video set (palette, accent, saturation, temperature)?",
+      "why_it_matters": "Feeds the parameteriser.",
+      "how_to_answer": "Collect 001, 003, 006 and 009 into parameters.",
+      "evidence_required": [
+        "grade answers"
+      ],
+      "ir_path": "/parameters/-",
+      "answer_type": "list",
+      "challenge": "Each parameter needs derived_from."
+    },
+    {
+      "id": "color_grade-026",
+      "question": "What colours do gradient overlays use, and in which direction do they run?",
+      "why_it_matters": "Adds gradient overlay parameters.",
+      "how_to_answer": "F9 at both ends of visible gradients.",
+      "evidence_required": [
+        "F9"
+      ],
+      "ir_path": "/visual/layers/-",
+      "answer_type": "object",
+      "challenge": "Give the two end colours and the direction."
+    },
+    {
+      "id": "color_grade-027",
+      "question": "How saturated are text colours compared with the scene (text SAT vs scene SATAVG)?",
+      "why_it_matters": "Becomes a text contrast rule.",
+      "how_to_answer": "F9 on text versus F6 scene averages.",
+      "evidence_required": [
+        "F9",
+        "F6"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "number",
+      "challenge": "Report both values."
+    },
+    {
+      "id": "color_grade-028",
+      "question": "Are archival or historical images given a special treatment (sepia, grain, frame)?",
+      "why_it_matters": "Adds a treatment for archival material.",
+      "how_to_answer": "Inspect shots with old photographs.",
+      "evidence_required": [
+        "frames: F1"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "object",
+      "challenge": "If no archival material exists, answer not determinable."
+    },
+    {
+      "id": "color_grade-029",
+      "question": "Are there colour flashes at beats or transitions, and which colour?",
+      "why_it_matters": "Adds flash colour to the transition recipe.",
+      "how_to_answer": "F6 YAVG spikes over one or two frames; F9 colour on the flash frame.",
+      "evidence_required": [
+        "F6",
+        "F9"
+      ],
+      "ir_path": "/motion/transitions/-",
+      "answer_type": "object",
+      "challenge": "Check against the transitions lens."
+    },
+    {
+      "id": "color_grade-030",
+      "question": "Is extra sharpening or clarity applied (halos at edges)?",
+      "why_it_matters": "Adds or rules out a sharpen step.",
+      "how_to_answer": "F3 enlarged crops at high-contrast edges; bright or dark halos 1-3 px wide indicate sharpening.",
+      "evidence_required": [
+        "F3"
+      ],
+      "ir_path": "/visual/grade",
+      "answer_type": "enum",
+      "choices": [
+        "heavy-sharpening",
+        "mild",
+        "none"
+      ],
+      "challenge": "Compression ringing looks similar; check a smooth gradient region too."
+    },
+    {
+      "id": "color_grade-031",
+      "question": "Are different source images colour-matched (white balance consistent across shots)?",
+      "why_it_matters": "Becomes a colour-matching step in the render plan.",
+      "how_to_answer": "F9 on neutral (white or grey) areas across 5 shots; compare U/V.",
+      "evidence_required": [
+        "F9"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "boolean",
+      "challenge": "Report the U/V values per shot."
+    },
+    {
+      "id": "color_grade-032",
+      "question": "Is there visible banding in gradients (8-bit steps), and should the rebuild add dither or grain?",
+      "why_it_matters": "A quality rule for generated gradients.",
+      "how_to_answer": "F3 enlarged crop of a smooth gradient; count visible steps.",
+      "evidence_required": [
+        "F3"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "boolean",
+      "challenge": "Banding from the platform's re-encode is not the creator's technique; note the uncertainty."
+    }
+  ]
+}

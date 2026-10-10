@@ -305,3 +305,15 @@ def test_caption_preview_draws_inside_frame():
     assert out.size == frame.size
     band = [out.getpixel((x, int(480 * 0.74))) for x in range(0, 270, 5)]
     assert min(p[0] for p in band) < 150
+
+
+@needs_ffmpeg
+def test_layer_stack_with_filter_labels(tmp_path):
+    layers = [{"label": "bgA", "opacity": 0.98, "blend": "normal"}, {"label": "bgB", "opacity": 0.4, "blend": "multiply"}]
+    g = ("color=c=0x808080:s=32x32:r=10:d=0.3[bgA];color=c=0x404040:s=32x32:r=10:d=0.3[bgB];"
+         + k.layer_stack_filter(layers, 32, 32, fps=10) + ";[v]format=rgb24[o]")
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-filter_complex", g, "-map", "[o]", "-frames:v", "1", "-f", "rawvideo", "-"],
+                         capture_output=True, check=True).stdout
+    base = 128 * 0.98
+    expected = base + (base * 64 / 255 - base) * 0.4
+    assert raw[0] == pytest.approx(expected, abs=3)

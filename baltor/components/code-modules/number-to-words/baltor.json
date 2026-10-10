@@ -1,0 +1,50 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "number_to_words",
+  "title": "Number to words for TTS",
+  "kind": "code-module",
+  "subkind": "voice-preset",
+  "version": "1.0.0",
+  "summary": "Spells cardinals, negatives, decimals, ordinals and years the way they are spoken (\"nineteen seventy\", \"twenty-first\", \"three point one four\") for text-to-speech input.",
+  "domain": "audio",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "write",
+    "build"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "number_to_words.py",
+  "tags": [
+    "audio",
+    "tts",
+    "numbers",
+    "text-normalisation",
+    "narration"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

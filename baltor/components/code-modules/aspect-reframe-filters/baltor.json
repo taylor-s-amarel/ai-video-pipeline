@@ -1,0 +1,57 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "aspect_reframe_filters",
+  "title": "Aspect-ratio reframe filters",
+  "kind": "code-module",
+  "subkind": "aspect-format",
+  "version": "1.0.0",
+  "summary": "ffmpeg filter builders that reframe to any aspect ratio by cover-crop (with focus point), contain-pad, or blur-pad (sharp foreground over a blurred, darkened fill) with even sizes.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "aspect_reframe_filters.py",
+  "tags": [
+    "video",
+    "ffmpeg",
+    "aspect-ratio",
+    "reframe",
+    "9x16",
+    "blur-pad"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "ffmpeg",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

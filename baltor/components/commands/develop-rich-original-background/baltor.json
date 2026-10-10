@@ -1,0 +1,50 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "develop_rich_original_background",
+  "title": "/develop-rich-original-background",
+  "kind": "command",
+  "subkind": "prompt-template",
+  "version": "1.0.0",
+  "summary": "Owner's copy-ready task template, verbatim: Create or source an original or rights-cleared background for the specified episode.",
+  "description": "The owner's copy-ready task template \"Develop a rich original background\" (Animation and Video Production Master Guide (10 Oct 2026)), with the template text unchanged and its inputs passed as $ARGUMENTS. Instructions for bounded work, not a guarantee: missing inputs are marked unresolved, never invented.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#develop-a-rich-original-background"
+  },
+  "step_kinds": [
+    "design",
+    "build"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "opencode",
+    "baltor-harness"
+  ],
+  "entry": "command.md",
+  "tags": [
+    "video",
+    "animation",
+    "task-template",
+    "background",
+    "rights"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/ref_review_templates.py",
+    "data": "generators/data/ref_review_templates"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "considered",
+  "evidence_notes": "Prompt template from the guide. The guide calls the templates instructions for bounded work, not magic guarantees, and records no run of this template; a successful output cannot be assumed reproducible from the prompt alone."
+}

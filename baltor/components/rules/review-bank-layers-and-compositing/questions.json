@@ -1,0 +1,731 @@
+[
+  {
+    "id": "AVQ-015-001",
+    "domain_id": "D015",
+    "area": "layers and compositing",
+    "question": "Are all layers transformed by the intended shared camera?",
+    "failure_hypothesis": "Foreground and background drift independently.",
+    "check_or_fix": "Compare common landmarks across layer transforms.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7028,
+    "passes": [
+      "default_32",
+      "visual_depth_contact",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-015-002",
+    "domain_id": "D015",
+    "area": "layers and compositing",
+    "question": "Do mattes preserve fine features without fringing?",
+    "failure_hypothesis": "Hair or thin limbs are eroded or haloed.",
+    "check_or_fix": "Inspect alpha edges against light and dark backgrounds.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7030,
+    "passes": [
+      "visual_depth_contact",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-015-003",
+    "domain_id": "D015",
+    "area": "layers and compositing",
+    "question": "Is premultiplied alpha handled consistently?",
+    "failure_hypothesis": "Dark or bright fringes appear at transparency edges.",
+    "check_or_fix": "Verify alpha convention at each compositing boundary.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7032,
+    "passes": [
+      "visual_depth_contact",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-015-004",
+    "domain_id": "D015",
+    "area": "layers and compositing",
+    "question": "Are blend modes appropriate for the intended physical effect?",
+    "failure_hypothesis": "Additive or multiply treatment distorts object identity.",
+    "check_or_fix": "Compare isolated and composite layer appearance.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7034,
+    "passes": [
+      "visual_depth_contact",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-015-005",
+    "domain_id": "D015",
+    "area": "layers and compositing",
+    "question": "Does the layer stack reflect causal depth rather than file order?",
+    "failure_hypothesis": "New assets appear above everything accidentally.",
+    "check_or_fix": "Use explicit semantic depth ordering.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7036,
+    "passes": [
+      "visual_depth_contact",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-015-006",
+    "domain_id": "D015",
+    "area": "layers and compositing",
+    "question": "Are shadows composited once rather than duplicated?",
+    "failure_hypothesis": "Repeated shadow layers overdarken contact regions.",
+    "check_or_fix": "Audit shadow contribution per object.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7038,
+    "passes": [
+      "visual_depth_contact",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-015-007",
+    "domain_id": "D015",
+    "area": "layers and compositing",
+    "question": "Does global grading apply consistently to all intended layers?",
+    "failure_hypothesis": "Overlays and scene assets have mismatched treatment.",
+    "check_or_fix": "Document which layers bypass the grade and why.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7040,
+    "passes": [
+      "visual_depth_contact",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-015-008",
+    "domain_id": "D015",
+    "area": "layers and compositing",
+    "question": "Are masks animated in the same coordinate space as their targets?",
+    "failure_hypothesis": "Mask lag exposes hidden content.",
+    "check_or_fix": "Track mask-target alignment through the move.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7042,
+    "passes": [
+      "visual_depth_contact",
+      "final_delivery"
+    ]
+  },
+  {
+    "id": "AVQ-015-009",
+    "domain_id": "D015",
+    "area": "layers and compositing",
+    "question": "Does a replacement background preserve existing light and perspective cues?",
+    "failure_hypothesis": "Swap breaks integration while retaining old foreground.",
+    "check_or_fix": "Recheck projection, exposure and shadow compatibility.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7044,
+    "passes": []
+  },
+  {
+    "id": "AVQ-015-010",
+    "domain_id": "D015",
+    "area": "layers and compositing",
+    "question": "Are motion-blurred edges compatible across adjacent layers?",
+    "failure_hypothesis": "Sharp cutouts sit against smeared scenery.",
+    "check_or_fix": "Match shutter assumptions or use deliberate graphic separation.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7046,
+    "passes": []
+  },
+  {
+    "id": "AVQ-015-011",
+    "domain_id": "D015",
+    "area": "layers and compositing",
+    "question": "Do overlays remain crisp without overpowering the scene?",
+    "failure_hypothesis": "UI sharpness makes the world look accidentally soft.",
+    "check_or_fix": "Balance overlay contrast and scene detail.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7048,
+    "passes": []
+  },
+  {
+    "id": "AVQ-015-012",
+    "domain_id": "D015",
+    "area": "layers and compositing",
+    "question": "Are cached layers invalidated after dependent changes?",
+    "failure_hypothesis": "Final composite includes stale animation or lighting.",
+    "check_or_fix": "Record dependency hashes and refresh affected caches.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7050,
+    "passes": []
+  },
+  {
+    "id": "AVQ-015-013",
+    "domain_id": "D015",
+    "area": "layers and compositing",
+    "question": "Does a hidden layer still cast an unintended effect?",
+    "failure_hypothesis": "Invisible object leaves a shadow, glow or reflection.",
+    "check_or_fix": "Audit secondary contributions of disabled elements.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7052,
+    "passes": []
+  },
+  {
+    "id": "AVQ-015-014",
+    "domain_id": "D015",
+    "area": "layers and compositing",
+    "question": "Are nested transforms applied exactly once?",
+    "failure_hypothesis": "Parent and child scaling double the movement.",
+    "check_or_fix": "Test a known anchor through the transform chain.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7054,
+    "passes": []
+  },
+  {
+    "id": "AVQ-015-015",
+    "domain_id": "D015",
+    "area": "layers and compositing",
+    "question": "Does a screen-space effect remain confined to its intended region?",
+    "failure_hypothesis": "Glow, blur or displacement leaks into captions.",
+    "check_or_fix": "Inspect effect masks around protected areas.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7056,
+    "passes": []
+  },
+  {
+    "id": "AVQ-015-016",
+    "domain_id": "D015",
+    "area": "layers and compositing",
+    "question": "Are depth mattes temporally aligned with color frames?",
+    "failure_hypothesis": "One-frame offset creates edge tearing.",
+    "check_or_fix": "Compare frame indices across render passes.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7058,
+    "passes": []
+  },
+  {
+    "id": "AVQ-015-017",
+    "domain_id": "D015",
+    "area": "layers and compositing",
+    "question": "Does a color key remove similarly colored subject details?",
+    "failure_hypothesis": "Keying erases clothing or props.",
+    "check_or_fix": "Review retained subject pixels against the key range.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7060,
+    "passes": []
+  },
+  {
+    "id": "AVQ-015-018",
+    "domain_id": "D015",
+    "area": "layers and compositing",
+    "question": "Are transparent assets stored with enough edge color information?",
+    "failure_hypothesis": "Resampling reveals contaminated matte colors.",
+    "check_or_fix": "Inspect edge pixels before and after scaling.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7062,
+    "passes": []
+  },
+  {
+    "id": "AVQ-015-019",
+    "domain_id": "D015",
+    "area": "layers and compositing",
+    "question": "Does compositing preserve the intended color space?",
+    "failure_hypothesis": "Linear and display-referred operations are mixed.",
+    "check_or_fix": "Document conversions around blends and grading.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7064,
+    "passes": []
+  },
+  {
+    "id": "AVQ-015-020",
+    "domain_id": "D015",
+    "area": "layers and compositing",
+    "question": "Are repeated elements independently addressable when the story requires it?",
+    "failure_hypothesis": "One baked layer prevents necessary repairs.",
+    "check_or_fix": "Separate only the elements needing distinct control.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7066,
+    "passes": []
+  },
+  {
+    "id": "AVQ-015-021",
+    "domain_id": "D015",
+    "area": "layers and compositing",
+    "question": "Does a foreground wipe reveal the correct underlying shot at every frame?",
+    "failure_hypothesis": "Transition matte exposes stale or wrong content.",
+    "check_or_fix": "Inspect the wipe boundary across its full duration.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7068,
+    "passes": []
+  },
+  {
+    "id": "AVQ-015-022",
+    "domain_id": "D015",
+    "area": "layers and compositing",
+    "question": "Are adjustment layers scoped to the correct shot range?",
+    "failure_hypothesis": "Grade or blur leaks into neighboring scenes.",
+    "check_or_fix": "Check in/out boundaries and nested compositions.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7070,
+    "passes": []
+  },
+  {
+    "id": "AVQ-015-023",
+    "domain_id": "D015",
+    "area": "layers and compositing",
+    "question": "Does a drop shadow imply inappropriate physical depth for text?",
+    "failure_hypothesis": "Labels look like floating solid objects.",
+    "check_or_fix": "Use annotation-specific shadow restraint.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7072,
+    "passes": []
+  },
+  {
+    "id": "AVQ-015-024",
+    "domain_id": "D015",
+    "area": "layers and compositing",
+    "question": "Are compound masks preserving holes and internal contours?",
+    "failure_hypothesis": "Fill rules close intended openings.",
+    "check_or_fix": "Inspect even-odd and winding behavior on key shapes.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7074,
+    "passes": []
+  },
+  {
+    "id": "AVQ-015-025",
+    "domain_id": "D015",
+    "area": "layers and compositing",
+    "question": "Does resampling order unnecessarily soften the subject?",
+    "failure_hypothesis": "Repeated scale operations degrade edges.",
+    "check_or_fix": "Composite at an appropriate master scale once.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7076,
+    "passes": []
+  },
+  {
+    "id": "AVQ-015-026",
+    "domain_id": "D015",
+    "area": "layers and compositing",
+    "question": "Are layer names and IDs sufficient to locate the visible defect?",
+    "failure_hypothesis": "Opaque naming makes targeted repair expensive.",
+    "check_or_fix": "Map visible elements to stable source identifiers.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7078,
+    "passes": []
+  },
+  {
+    "id": "AVQ-015-027",
+    "domain_id": "D015",
+    "area": "layers and compositing",
+    "question": "Does the composite include unintended guide or debug layers?",
+    "failure_hypothesis": "Production scaffolding appears in the final movie.",
+    "check_or_fix": "Scan final frames for guides, handles and diagnostics.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7080,
+    "passes": []
+  },
+  {
+    "id": "AVQ-015-028",
+    "domain_id": "D015",
+    "area": "layers and compositing",
+    "question": "Are reflections derived from the same current scene state?",
+    "failure_hypothesis": "Reflection layer contains outdated poses.",
+    "check_or_fix": "Link reflection generation to the shared state.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7082,
+    "passes": []
+  },
+  {
+    "id": "AVQ-015-029",
+    "domain_id": "D015",
+    "area": "layers and compositing",
+    "question": "Does an effect respect occlusion by nearer objects?",
+    "failure_hypothesis": "Glow or particles appear through solid foregrounds.",
+    "check_or_fix": "Apply appropriate depth-aware masks.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7084,
+    "passes": []
+  },
+  {
+    "id": "AVQ-015-030",
+    "domain_id": "D015",
+    "area": "layers and compositing",
+    "question": "Are per-layer frame rates reconciled explicitly?",
+    "failure_hypothesis": "Different rates create stutter or duplicated motion.",
+    "check_or_fix": "Normalize timing while preserving source intent.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7086,
+    "passes": []
+  },
+  {
+    "id": "AVQ-015-031",
+    "domain_id": "D015",
+    "area": "layers and compositing",
+    "question": "Does a compositing shortcut remain valid at the largest planned camera move?",
+    "failure_hypothesis": "Patch works only in the preview framing.",
+    "check_or_fix": "Stress-test the actual camera envelope.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7088,
+    "passes": []
+  },
+  {
+    "id": "AVQ-015-032",
+    "domain_id": "D015",
+    "area": "layers and compositing",
+    "question": "Would separating one problematic layer enable a much cleaner fix?",
+    "failure_hypothesis": "Baked composite prevents precise correction.",
+    "check_or_fix": "Isolate the smallest repairable element.",
+    "severity": "medium",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "production",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7090,
+    "passes": []
+  }
+]

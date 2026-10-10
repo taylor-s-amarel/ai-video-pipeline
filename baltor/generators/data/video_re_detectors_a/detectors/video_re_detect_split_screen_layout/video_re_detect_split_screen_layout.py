@@ -32,20 +32,7 @@ DEFAULTS = {"ratio_thr": 2.0, "abs_min": 3.0, "span_thr": 0.8, "max_gutter_frac"
 DECODE = {"width": 320, "fps": 2.0, "max_frames": 60}
 
 
-def seam_maps(gray_frames, ratio_thr: float, abs_min: float) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
-    """Boolean seam maps for column boundaries (H, W-1) and row boundaries (H-1, W), plus the raw differences."""
-    g = np.asarray(gray_frames, dtype=np.float32)
-    dx = np.abs(np.diff(g, axis=2)).mean(axis=0)  # (H, W-1): boundary between x and x+1
-    dy = np.abs(np.diff(g, axis=1)).mean(axis=0)  # (H-1, W)
-
-    def ratio(d, axis):
-        pad = np.pad(d, [(0, 0), (4, 4)] if axis == 1 else [(4, 4), (0, 0)], mode="edge")
-        n = d.shape[axis]
-        sl = (lambda k: pad[:, 4 + k:4 + k + n]) if axis == 1 else (lambda k: pad[4 + k:4 + k + n, :])
-        ref = (sl(-4) + sl(-3) + sl(-2) + sl(2) + sl(3) + sl(4)) / 6.0
-        return (d >= ratio_thr * (ref + 0.5)) & (d >= abs_min)
-
-    return ratio(dx, 1), ratio(dy, 0), dx, dy
+seam_maps = core.seam_maps
 
 
 def split_region(sx, sy, region, depth, p, frame_w, frame_h, top=False):

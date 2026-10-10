@@ -1,0 +1,6 @@
+title: Sprite sheet packer
+summary: Shelf-packs animation frames into a sprite sheet with optional transparent-border trimming and power-of-two size, plus a JSON atlas and an unpacker that rebuilds original frames.
+subkind: asset-pipeline
+domain: video
+tags: [video, sprites, animation, atlas, pillow, game-art]
+step_kinds: [build, render]

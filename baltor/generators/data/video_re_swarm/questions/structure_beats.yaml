@@ -153,13 +153,12 @@
   challenge: "Make sure the 'bumper' is not just the label-reveal step of the next item."
 
 - id: structure_beats-018
-  question: "What is the total duration, and which duration band does it sit in (under 30 s, 30-60 s, 60-90 s, 90-180 s, longer)?"
-  choices: [under-30s, 30-60s, 60-90s, 90-180s, over-180s]
+  question: "What is the total duration in seconds, and which band does it fall in (under 30 s, 30-60 s, 60-90 s, 90-180 s, longer; band in the note)?"
   why: "Sets target_duration_s and the default range for the duration parameter."
   how: "Read evidence.source.duration_s (video_re_probe_metadata). Subtract any dead tail from structure_beats-010 in the note."
   evidence: ["evidence.source.duration_s"]
   ir_path: "/timeline/target_duration_s"
-  type: enum
+  type: seconds
   challenge: "Compare container duration with the last video frame time (A7 stream duration); a long audio tail can inflate it."
 
 - id: structure_beats-019

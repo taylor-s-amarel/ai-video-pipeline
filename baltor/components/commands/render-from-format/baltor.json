@@ -1,0 +1,66 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "render_from_format",
+  "title": "/render-from-format",
+  "kind": "command",
+  "subkind": "workflow",
+  "version": "1.0.0",
+  "summary": "Slash command that compiles a format IR plus new content into a short_video_spec render plan, renders it with new or licensed assets and runs QA.",
+  "description": "Render a new video from a lifted format IR and new content. Captures technique and structure only; never stores or reuses the source's footage, frames, music, voice or script text.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "plan",
+    "render",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "shell",
+    "secrets": [],
+    "side_effects": [
+      "runs ffmpeg/ffprobe and Python modules; writes evidence, answers, IR and reports under the chosen output directory"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "opencode",
+    "baltor-harness"
+  ],
+  "entry": "command.md",
+  "tags": [
+    "video",
+    "reverse-engineering",
+    "video-re",
+    "swarm",
+    "command",
+    "workflow"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "video_re_ir_compile_render_plan"
+    },
+    {
+      "identity": "short_video_spec"
+    },
+    {
+      "identity": "mp4_qa_probe"
+    },
+    {
+      "identity": "video_re_format_ir"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_re_swarm.py",
+    "data": "generators/data/video_re_swarm"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

@@ -1,0 +1,552 @@
+{
+  "total_questions": 1024,
+  "areas": [
+    {
+      "domain_id": "D001",
+      "area": "concept and design",
+      "questions": 32,
+      "first_id": "AVQ-001-001",
+      "last_id": "AVQ-001-032",
+      "rules_package": "review_bank_concept_and_design",
+      "lens_subagent": "review_lens_concept_and_design",
+      "anchor": "d001-concept-and-design",
+      "severity": {
+        "medium": 32
+      },
+      "needs_listening": 0,
+      "needs_human_audience": 1
+    },
+    {
+      "domain_id": "D002",
+      "area": "composition and hierarchy",
+      "questions": 32,
+      "first_id": "AVQ-002-001",
+      "last_id": "AVQ-002-032",
+      "rules_package": "review_bank_composition_and_hierarchy",
+      "lens_subagent": "review_lens_composition_and_hierarchy",
+      "anchor": "d002-composition-and-hierarchy",
+      "severity": {
+        "medium": 32
+      },
+      "needs_listening": 0,
+      "needs_human_audience": 0
+    },
+    {
+      "domain_id": "D003",
+      "area": "foreground background separation",
+      "questions": 32,
+      "first_id": "AVQ-003-001",
+      "last_id": "AVQ-003-032",
+      "rules_package": "review_bank_foreground_background_separation",
+      "lens_subagent": "review_lens_foreground_background_separation",
+      "anchor": "d003-foreground-background-separation",
+      "severity": {
+        "medium": 32
+      },
+      "needs_listening": 0,
+      "needs_human_audience": 0
+    },
+    {
+      "domain_id": "D004",
+      "area": "depth and occlusion",
+      "questions": 32,
+      "first_id": "AVQ-004-001",
+      "last_id": "AVQ-004-032",
+      "rules_package": "review_bank_depth_and_occlusion",
+      "lens_subagent": "review_lens_depth_and_occlusion",
+      "anchor": "d004-depth-and-occlusion",
+      "severity": {
+        "medium": 32
+      },
+      "needs_listening": 0,
+      "needs_human_audience": 0
+    },
+    {
+      "domain_id": "D005",
+      "area": "staging and blocking",
+      "questions": 32,
+      "first_id": "AVQ-005-001",
+      "last_id": "AVQ-005-032",
+      "rules_package": "review_bank_staging_and_blocking",
+      "lens_subagent": "review_lens_staging_and_blocking",
+      "anchor": "d005-staging-and-blocking",
+      "severity": {
+        "medium": 32
+      },
+      "needs_listening": 0,
+      "needs_human_audience": 0
+    },
+    {
+      "domain_id": "D006",
+      "area": "contact and props",
+      "questions": 32,
+      "first_id": "AVQ-006-001",
+      "last_id": "AVQ-006-032",
+      "rules_package": "review_bank_contact_and_props",
+      "lens_subagent": "review_lens_contact_and_props",
+      "anchor": "d006-contact-and-props",
+      "severity": {
+        "high": 32
+      },
+      "needs_listening": 0,
+      "needs_human_audience": 0
+    },
+    {
+      "domain_id": "D007",
+      "area": "silhouette and anatomy",
+      "questions": 32,
+      "first_id": "AVQ-007-001",
+      "last_id": "AVQ-007-032",
+      "rules_package": "review_bank_silhouette_and_anatomy",
+      "lens_subagent": "review_lens_silhouette_and_anatomy",
+      "anchor": "d007-silhouette-and-anatomy",
+      "severity": {
+        "high": 32
+      },
+      "needs_listening": 0,
+      "needs_human_audience": 0
+    },
+    {
+      "domain_id": "D008",
+      "area": "acting and expression",
+      "questions": 32,
+      "first_id": "AVQ-008-001",
+      "last_id": "AVQ-008-032",
+      "rules_package": "review_bank_acting_and_expression",
+      "lens_subagent": "review_lens_acting_and_expression",
+      "anchor": "d008-acting-and-expression",
+      "severity": {
+        "medium": 32
+      },
+      "needs_listening": 0,
+      "needs_human_audience": 1
+    },
+    {
+      "domain_id": "D009",
+      "area": "camera and projection",
+      "questions": 32,
+      "first_id": "AVQ-009-001",
+      "last_id": "AVQ-009-032",
+      "rules_package": "review_bank_camera_and_projection",
+      "lens_subagent": "review_lens_camera_and_projection",
+      "anchor": "d009-camera-and-projection",
+      "severity": {
+        "medium": 32
+      },
+      "needs_listening": 0,
+      "needs_human_audience": 0
+    },
+    {
+      "domain_id": "D010",
+      "area": "lighting and shadows",
+      "questions": 32,
+      "first_id": "AVQ-010-001",
+      "last_id": "AVQ-010-032",
+      "rules_package": "review_bank_lighting_and_shadows",
+      "lens_subagent": "review_lens_lighting_and_shadows",
+      "anchor": "d010-lighting-and-shadows",
+      "severity": {
+        "medium": 32
+      },
+      "needs_listening": 0,
+      "needs_human_audience": 0
+    },
+    {
+      "domain_id": "D011",
+      "area": "color and materials",
+      "questions": 32,
+      "first_id": "AVQ-011-001",
+      "last_id": "AVQ-011-032",
+      "rules_package": "review_bank_color_and_materials",
+      "lens_subagent": "review_lens_color_and_materials",
+      "anchor": "d011-color-and-materials",
+      "severity": {
+        "medium": 32
+      },
+      "needs_listening": 0,
+      "needs_human_audience": 2
+    },
+    {
+      "domain_id": "D012",
+      "area": "texture and detail",
+      "questions": 32,
+      "first_id": "AVQ-012-001",
+      "last_id": "AVQ-012-032",
+      "rules_package": "review_bank_texture_and_detail",
+      "lens_subagent": "review_lens_texture_and_detail",
+      "anchor": "d012-texture-and-detail",
+      "severity": {
+        "medium": 32
+      },
+      "needs_listening": 0,
+      "needs_human_audience": 0
+    },
+    {
+      "domain_id": "D013",
+      "area": "motion and easing",
+      "questions": 32,
+      "first_id": "AVQ-013-001",
+      "last_id": "AVQ-013-032",
+      "rules_package": "review_bank_motion_and_easing",
+      "lens_subagent": "review_lens_motion_and_easing",
+      "anchor": "d013-motion-and-easing",
+      "severity": {
+        "medium": 32
+      },
+      "needs_listening": 0,
+      "needs_human_audience": 0
+    },
+    {
+      "domain_id": "D014",
+      "area": "physics and weight",
+      "questions": 32,
+      "first_id": "AVQ-014-001",
+      "last_id": "AVQ-014-032",
+      "rules_package": "review_bank_physics_and_weight",
+      "lens_subagent": "review_lens_physics_and_weight",
+      "anchor": "d014-physics-and-weight",
+      "severity": {
+        "medium": 32
+      },
+      "needs_listening": 0,
+      "needs_human_audience": 0
+    },
+    {
+      "domain_id": "D015",
+      "area": "layers and compositing",
+      "questions": 32,
+      "first_id": "AVQ-015-001",
+      "last_id": "AVQ-015-032",
+      "rules_package": "review_bank_layers_and_compositing",
+      "lens_subagent": "review_lens_layers_and_compositing",
+      "anchor": "d015-layers-and-compositing",
+      "severity": {
+        "medium": 32
+      },
+      "needs_listening": 0,
+      "needs_human_audience": 0
+    },
+    {
+      "domain_id": "D016",
+      "area": "continuity and state",
+      "questions": 32,
+      "first_id": "AVQ-016-001",
+      "last_id": "AVQ-016-032",
+      "rules_package": "review_bank_continuity_and_state",
+      "lens_subagent": "review_lens_continuity_and_state",
+      "anchor": "d016-continuity-and-state",
+      "severity": {
+        "medium": 32
+      },
+      "needs_listening": 0,
+      "needs_human_audience": 0
+    },
+    {
+      "domain_id": "D017",
+      "area": "pacing and holds",
+      "questions": 32,
+      "first_id": "AVQ-017-001",
+      "last_id": "AVQ-017-032",
+      "rules_package": "review_bank_pacing_and_holds",
+      "lens_subagent": "review_lens_pacing_and_holds",
+      "anchor": "d017-pacing-and-holds",
+      "severity": {
+        "high": 19,
+        "medium": 12,
+        "low": 1
+      },
+      "needs_listening": 2,
+      "needs_human_audience": 31
+    },
+    {
+      "domain_id": "D018",
+      "area": "story setup payoff",
+      "questions": 32,
+      "first_id": "AVQ-018-001",
+      "last_id": "AVQ-018-032",
+      "rules_package": "review_bank_story_setup_payoff",
+      "lens_subagent": "review_lens_story_setup_payoff",
+      "anchor": "d018-story-setup-payoff",
+      "severity": {
+        "high": 21,
+        "medium": 11
+      },
+      "needs_listening": 2,
+      "needs_human_audience": 32
+    },
+    {
+      "domain_id": "D019",
+      "area": "transitions and editing",
+      "questions": 32,
+      "first_id": "AVQ-019-001",
+      "last_id": "AVQ-019-032",
+      "rules_package": "review_bank_transitions_and_editing",
+      "lens_subagent": "review_lens_transitions_and_editing",
+      "anchor": "d019-transitions-and-editing",
+      "severity": {
+        "high": 21,
+        "medium": 10,
+        "low": 1
+      },
+      "needs_listening": 3,
+      "needs_human_audience": 21
+    },
+    {
+      "domain_id": "D020",
+      "area": "text typography",
+      "questions": 32,
+      "first_id": "AVQ-020-001",
+      "last_id": "AVQ-020-032",
+      "rules_package": "review_bank_text_typography",
+      "lens_subagent": "review_lens_text_typography",
+      "anchor": "d020-text-typography",
+      "severity": {
+        "high": 22,
+        "medium": 10
+      },
+      "needs_listening": 1,
+      "needs_human_audience": 21
+    },
+    {
+      "domain_id": "D021",
+      "area": "captions and accessibility",
+      "questions": 32,
+      "first_id": "AVQ-021-001",
+      "last_id": "AVQ-021-032",
+      "rules_package": "review_bank_captions_and_accessibility",
+      "lens_subagent": "review_lens_captions_and_accessibility",
+      "anchor": "d021-captions-and-accessibility",
+      "severity": {
+        "critical": 2,
+        "high": 20,
+        "medium": 10
+      },
+      "needs_listening": 13,
+      "needs_human_audience": 26
+    },
+    {
+      "domain_id": "D022",
+      "area": "music composition",
+      "questions": 32,
+      "first_id": "AVQ-022-001",
+      "last_id": "AVQ-022-032",
+      "rules_package": "review_bank_music_composition",
+      "lens_subagent": "review_lens_music_composition",
+      "anchor": "d022-music-composition",
+      "severity": {
+        "high": 9,
+        "medium": 22,
+        "low": 1
+      },
+      "needs_listening": 32,
+      "needs_human_audience": 25
+    },
+    {
+      "domain_id": "D023",
+      "area": "voice and dialogue",
+      "questions": 32,
+      "first_id": "AVQ-023-001",
+      "last_id": "AVQ-023-032",
+      "rules_package": "review_bank_voice_and_dialogue",
+      "lens_subagent": "review_lens_voice_and_dialogue",
+      "anchor": "d023-voice-and-dialogue",
+      "severity": {
+        "high": 18,
+        "medium": 14
+      },
+      "needs_listening": 32,
+      "needs_human_audience": 23
+    },
+    {
+      "domain_id": "D024",
+      "area": "sfx and mix",
+      "questions": 32,
+      "first_id": "AVQ-024-001",
+      "last_id": "AVQ-024-032",
+      "rules_package": "review_bank_sfx_and_mix",
+      "lens_subagent": "review_lens_sfx_and_mix",
+      "anchor": "d024-sfx-and-mix",
+      "severity": {
+        "high": 15,
+        "medium": 17
+      },
+      "needs_listening": 32,
+      "needs_human_audience": 12
+    },
+    {
+      "domain_id": "D025",
+      "area": "audio visual timing",
+      "questions": 32,
+      "first_id": "AVQ-025-001",
+      "last_id": "AVQ-025-032",
+      "rules_package": "review_bank_audio_visual_timing",
+      "lens_subagent": "review_lens_audio_visual_timing",
+      "anchor": "d025-audio-visual-timing",
+      "severity": {
+        "high": 21,
+        "medium": 11
+      },
+      "needs_listening": 32,
+      "needs_human_audience": 14
+    },
+    {
+      "domain_id": "D026",
+      "area": "rights and asset provenance",
+      "questions": 32,
+      "first_id": "AVQ-026-001",
+      "last_id": "AVQ-026-032",
+      "rules_package": "review_bank_rights_and_asset_provenance",
+      "lens_subagent": "review_lens_rights_and_asset_provenance",
+      "anchor": "d026-rights-and-asset-provenance",
+      "severity": {
+        "critical": 2,
+        "high": 29,
+        "medium": 1
+      },
+      "needs_listening": 0,
+      "needs_human_audience": 15
+    },
+    {
+      "domain_id": "D027",
+      "area": "factual and algorithmic integrity",
+      "questions": 32,
+      "first_id": "AVQ-027-001",
+      "last_id": "AVQ-027-032",
+      "rules_package": "review_bank_factual_and_algorithmic_integrity",
+      "lens_subagent": "review_lens_factual_and_algorithmic_integrity",
+      "anchor": "d027-factual-and-algorithmic-integrity",
+      "severity": {
+        "critical": 1,
+        "high": 31
+      },
+      "needs_listening": 2,
+      "needs_human_audience": 15
+    },
+    {
+      "domain_id": "D028",
+      "area": "rendering and export",
+      "questions": 32,
+      "first_id": "AVQ-028-001",
+      "last_id": "AVQ-028-032",
+      "rules_package": "review_bank_rendering_and_export",
+      "lens_subagent": "review_lens_rendering_and_export",
+      "anchor": "d028-rendering-and-export",
+      "severity": {
+        "high": 30,
+        "medium": 2
+      },
+      "needs_listening": 2,
+      "needs_human_audience": 6
+    },
+    {
+      "domain_id": "D029",
+      "area": "decoding and delivery",
+      "questions": 32,
+      "first_id": "AVQ-029-001",
+      "last_id": "AVQ-029-032",
+      "rules_package": "review_bank_decoding_and_delivery",
+      "lens_subagent": "review_lens_decoding_and_delivery",
+      "anchor": "d029-decoding-and-delivery",
+      "severity": {
+        "critical": 1,
+        "high": 23,
+        "medium": 8
+      },
+      "needs_listening": 3,
+      "needs_human_audience": 9
+    },
+    {
+      "domain_id": "D030",
+      "area": "audience value",
+      "questions": 32,
+      "first_id": "AVQ-030-001",
+      "last_id": "AVQ-030-032",
+      "rules_package": "review_bank_audience_value",
+      "lens_subagent": "review_lens_audience_value",
+      "anchor": "d030-audience-value",
+      "severity": {
+        "high": 21,
+        "medium": 11
+      },
+      "needs_listening": 0,
+      "needs_human_audience": 31
+    },
+    {
+      "domain_id": "D031",
+      "area": "puzzles and fairness",
+      "questions": 32,
+      "first_id": "AVQ-031-001",
+      "last_id": "AVQ-031-032",
+      "rules_package": "review_bank_puzzles_and_fairness",
+      "lens_subagent": "review_lens_puzzles_and_fairness",
+      "anchor": "d031-puzzles-and-fairness",
+      "severity": {
+        "high": 28,
+        "medium": 4
+      },
+      "needs_listening": 1,
+      "needs_human_audience": 28
+    },
+    {
+      "domain_id": "D032",
+      "area": "reproducibility and maintenance",
+      "questions": 32,
+      "first_id": "AVQ-032-001",
+      "last_id": "AVQ-032-032",
+      "rules_package": "review_bank_reproducibility_and_maintenance",
+      "lens_subagent": "review_lens_reproducibility_and_maintenance",
+      "anchor": "d032-reproducibility-and-maintenance",
+      "severity": {
+        "critical": 1,
+        "high": 22,
+        "medium": 9
+      },
+      "needs_listening": 2,
+      "needs_human_audience": 2
+    }
+  ],
+  "severity": {
+    "medium": 600,
+    "high": 414,
+    "low": 3,
+    "critical": 7
+  },
+  "passes": {
+    "default_32": {
+      "purpose": "General triage",
+      "questions": 32
+    },
+    "visual_depth_contact": {
+      "purpose": "Visual depth and contact",
+      "questions": 64
+    },
+    "performance_motion": {
+      "purpose": "Acting, motion and weight",
+      "questions": 64
+    },
+    "story_edit": {
+      "purpose": "Story, pacing and transitions",
+      "questions": 64
+    },
+    "sound": {
+      "purpose": "Music, voice, effects and synchronization",
+      "questions": 64
+    },
+    "accessible_text": {
+      "purpose": "Text and accessible delivery",
+      "questions": 50
+    },
+    "factual_puzzle": {
+      "purpose": "Facts, algorithms and fair puzzles",
+      "questions": 60
+    },
+    "final_delivery": {
+      "purpose": "Rights, encode, delivery and reopening",
+      "questions": 56
+    },
+    "longer_cardboard_32": {
+      "purpose": "Longer cardboard comedy",
+      "questions": 32
+    }
+  }
+}

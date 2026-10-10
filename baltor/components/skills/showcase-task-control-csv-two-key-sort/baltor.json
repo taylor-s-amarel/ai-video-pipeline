@@ -6,8 +6,8 @@
   "subkind": "evaluator",
   "version": "1.0.0",
   "summary": "Negative control. Sort people.csv by last name, then age descending, then first name.",
-  "description": "Pre-registered 2026-10-10, spec hash a75a936b115c54769d181dabc452d668d9863b6fab65fd7f27f7f4ee908af1b6. 5 paired trials per arm. A capable model solves this without outside help, and no catalogue component targets it. Any treatment advantage beyond noise points to a placebo or prompt effect; extra treatment-arm tokens or tool calls measure the overhead of searching when nothing useful exists.",
-  "domain": "negative-control",
+  "description": "Pre-registered 2026-10-10 (revision 1), spec_sha256 137c3c0c6bc3d1c5ae782af27a219289102ed24918d6ebc851fd4658cb159f2c. 5 paired trials per arm. A capable model solves this without outside help, and no catalogue component targets it. Any treatment advantage beyond noise points to a placebo or prompt effect; extra treatment-arm tokens or tool calls measure the overhead of searching when nothing useful exists.",
+  "domain": "data-cleaning",
   "licence": "MIT",
   "source": {
     "type": "original",
@@ -24,7 +24,7 @@
     "executes": "python",
     "secrets": [],
     "side_effects": [
-      "setup writes a fresh workspace and a hidden ground-truth directory"
+      "setup writes a fresh workspace and a private ground-truth directory"
     ]
   },
   "harnesses": [
@@ -40,8 +40,9 @@
     "showcase-task",
     "preregistered",
     "evaluator",
-    "negative-control",
+    "data-cleaning",
     "control-data",
+    "negative-control",
     "placebo"
   ],
   "collection": "public-good",
@@ -50,17 +51,17 @@
     "data": "generators/data/showcase_tasks",
     "parameters": {
       "family": "controls",
-      "spec_hash": "a75a936b115c54769d181dabc452d668d9863b6fab65fd7f27f7f4ee908af1b6",
+      "spec_sha256": "137c3c0c6bc3d1c5ae782af27a219289102ed24918d6ebc851fd4658cb159f2c",
       "source": "negative_controls.yaml"
     }
   },
   "examples": [
-    "Set up trial 1 of showcase_task_control_csv_two_key_sort and score the agent's workspace",
+    "Set up a trial of showcase_task_control_csv_two_key_sort and score the agent's workspace",
     "Print the run plan for this task: python3 showcase_eval.py ."
   ],
   "review": {
     "status": "automated-passed",
     "checked": "2026-10-10",
-    "notes": "Evaluator self-test proves a known-good output passes and a known-bad output fails."
+    "notes": "The evaluator self-test proves a known-good output passes and a known-bad output fails."
   }
 }

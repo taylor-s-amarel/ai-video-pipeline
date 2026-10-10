@@ -1,0 +1,6 @@
+title: Exposure and clipping check
+summary: Measures highlight clipping, crushed shadows, mean/median luma and percentile spread of frames or photos and flags too dark, too bright, clipped or low-contrast images.
+subkind: qa-check
+domain: video
+tags: [video, exposure, clipping, photo, qa, numpy]
+step_kinds: [verify]

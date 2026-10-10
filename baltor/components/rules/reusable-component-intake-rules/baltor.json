@@ -1,0 +1,52 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "reusable_component_intake_rules",
+  "title": "Reusable component intake rules",
+  "kind": "rules",
+  "subkind": "rule-set",
+  "version": "1.0.0",
+  "summary": "Extract the smallest effort-saving task, declare inputs/outputs/errors/limits/effects, test boundaries and known-wrong consumers, and keep authored, tested, intake-qualified, admitted and published apart.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#reusable-components-and-actual-intake"
+  },
+  "step_kinds": [
+    "build",
+    "test",
+    "review"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "RULES.md",
+  "tags": [
+    "components",
+    "intake",
+    "testing",
+    "provenance",
+    "rules"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/ref_review_templates.py",
+    "data": "generators/data/ref_review_templates"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "source-inspected",
+  "evidence_notes": "Rules transcribed from the guide. Recorded examples keep their stated limits: motion_helpers (libfile_9da84ebd1d808191ae0300c7c98199bb) reports 48 tests but not native intake, adoption of every helper or universal compatibility; the Pymunk recovery package (libfile_98caae390d188191a2e432cf29728cff v0) has a props-only trace scope."
+}

@@ -1,0 +1,49 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "word_time_estimator",
+  "title": "Word timing estimator",
+  "kind": "code-module",
+  "version": "1.0.0",
+  "summary": "Estimates per-word times inside a timed segment from English syllable counts, number readings and punctuation pauses when no forced aligner is available.",
+  "domain": "captions",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "word_time_estimator.py",
+  "tags": [
+    "captions",
+    "timing",
+    "syllables",
+    "alignment",
+    "estimation"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

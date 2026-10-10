@@ -1,0 +1,445 @@
+{
+  "spec": "baltor.video-re-questions/v1",
+  "lens": "rights_originality_boundary",
+  "title": "Rights and originality boundary",
+  "purpose": "Separates reusable technique from protected content, lists the asset slots that need new licensed material, and blocks anything that should not be lifted.",
+  "boundary": "The swarm lifts technique and structure only. Never store, transcribe or reuse the source's footage, frames, music, voice or script text. Keyframes and spectrograms are temporary analysis files in a scratch directory and are never copied into the format IR or a variant. On-screen text may be quoted only as a locating note in evidence.note, at most 6 words, and narration is never quoted. Patterns replace content words with slots, e.g. 'FACT {n}' or '{number} {unit} {noun}'. Analysing a public video for technique is fine; republishing its content is not.",
+  "answer_contract": "video_re_analyst_answer",
+  "ir_contract": "video_re_format_ir",
+  "ir_focus": [
+    "/source/rights_note",
+    "/source/reference",
+    "/script/claims_need_sources",
+    "/open_questions",
+    "/parameters",
+    "/generation_rules"
+  ],
+  "evidence": [
+    "source.reference",
+    "text_regions[] (watermarks, logos)",
+    "captions[] (analysis only)",
+    "all other analysts' answers"
+  ],
+  "inspect": "F1 frames at corners for watermarks and broadcaster marks; F4 sheet for logos, faces and characters; read the other lenses' answers for copied text.",
+  "pitfalls": [
+    "Giving legal conclusions; flag risks and say what needs a human or licence check",
+    "Identifying people or tracks by name",
+    "Letting a distinctive series name or character into the reusable format"
+  ],
+  "parameter_hints": [
+    "asset slots with licence fields",
+    "series_name (string, must be new)",
+    "music_track (asset)",
+    "voice (licensed or synthetic, never cloned)"
+  ],
+  "optional_detectors": [
+    "video_re_detect_static_overlay_regions",
+    "video_re_classify_face_presence",
+    "video_re_similarity_reuse_risk",
+    "video_re_similarity_perceptual_hash",
+    "video_re_similarity_audio_fingerprint"
+  ],
+  "methods": {
+    "measured": "A measurement tool produced the value (an evidence.json field or an ffmpeg/ffprobe filter output). Name the tool and the field.",
+    "observed": "You looked at extracted frames, crops, scopes, spectrograms or waveforms and saw it. Give the timestamps you looked at.",
+    "inferred": "Reasoned from measured or observed facts, e.g. 'synthetic voice' from flat pitch on a spectrogram. State the reasoning in the note.",
+    "assumed": "No direct evidence; a default or convention. Use only for gaps the format needs filled, and keep confidence at 0.3 or lower."
+  },
+  "pointer_conventions": [
+    "ir_path is a JSON Pointer (RFC 6901) into the Video format IR (contract schema video_re_format_ir).",
+    "A final '/-' means 'append this answer to the array' (the RFC 6901 end-of-array token), e.g. /motion/transitions/- or /generation_rules/-.",
+    "A '*' segment means 'each array element the answer is about'; the answer must say which elements (for example beats with role 'item'). The lifter resolves '*' to concrete indexes.",
+    "Paths under free-form objects (typography.title, typography.captions, typography.labels, audio.narration, audio.music, render_binding.mapping) use the snake_case key named in the question."
+  ],
+  "answer_types": {
+    "integer": "{\"value\": n}",
+    "boolean": "true or false",
+    "enum": "exactly one of the question's choices (a string)",
+    "text": "one technique description, at most 300 characters, no copied content",
+    "list": "array of short strings (technique names or kinds)",
+    "timestamps": "array of seconds from the start of the source",
+    "rule": "one procedural generation rule string, at most 400 characters, written in terms of parameters",
+    "object": "a JSON object with the keys the question's how_to_answer names"
+  },
+  "recipes": {
+    "F1": "Single frame: ffmpeg -v error -ss T -i \"$SRC\" -frames:v 1 -q:v 2 \"$WORK/f_T.jpg\"",
+    "F3": "Full-resolution crop (add ,scale=iw*2:-1:flags=lanczos to enlarge): ffmpeg -v error -ss T -i \"$SRC\" -frames:v 1 -vf \"crop=W:H:X:Y\" \"$WORK/crop_T.png\"",
+    "F4": "Whole-video contact sheet, 1 frame per second: ffmpeg -v error -i \"$SRC\" -vf \"fps=1,scale=180:-2,tile=8x8\" -frames:v 1 \"$WORK/sheet.jpg\" (or use the keyframes and contact sheet from video_re_keyframes_contact_sheet)"
+  },
+  "questions": [
+    {
+      "id": "rights_originality_boundary-001",
+      "question": "What exactly may be reused from this video (techniques and structure) and what must not be (footage, frames, music, voice, script text, characters, series identity)?",
+      "why_it_matters": "Fills source.rights_note, which every downstream step reads.",
+      "how_to_answer": "Write one note listing reusable technique categories found by the other lenses and the excluded content categories present in this video.",
+      "evidence_required": [
+        "all lens answers",
+        "frames: F4"
+      ],
+      "ir_path": "/source/rights_note",
+      "answer_type": "text",
+      "challenge": "The note must exclude every content category actually present; check against the contact sheet."
+    },
+    {
+      "id": "rights_originality_boundary-002",
+      "question": "Does the video contain third-party footage or images (stock, film or TV clips, news footage, other creators' clips), judging by visible cues?",
+      "why_it_matters": "Flags content that a variant must replace with its own licensed assets.",
+      "how_to_answer": "Look for broadcaster bugs, stock watermarks, different creators' overlays, letterboxed film frames on F1 and F3 crops; list timestamps. Method observed or inferred, never a legal conclusion.",
+      "evidence_required": [
+        "frames: F1",
+        "frames: F3 corners"
+      ],
+      "ir_path": "/open_questions/-",
+      "answer_type": "timestamps",
+      "challenge": "Reject any answer that asserts infringement; it may only flag cues for a human."
+    },
+    {
+      "id": "rights_originality_boundary-003",
+      "question": "What must the music slot require in any variant (new original or licensed music, licence field, attribution when the licence needs it, never the source track)?",
+      "why_it_matters": "Locks the music slot to new licensed or original music regardless of the source.",
+      "how_to_answer": "Write {source_music_reusable: false, licence_required: true, attribution_when_cc_by: true, cues: [...]} where cues lists observations from music_sfx_mix-030 (lyrics, production cues) without naming any track.",
+      "evidence_required": [
+        "music lens answers"
+      ],
+      "ir_path": "/audio/music/slot_requirements",
+      "answer_type": "object",
+      "challenge": "Any suggestion to reuse, sample or remix the source music is rejected."
+    },
+    {
+      "id": "rights_originality_boundary-004",
+      "question": "Is the voice a real, identifiable person's voice that must not be cloned or imitated?",
+      "why_it_matters": "Locks the voice slot to licensed or synthetic voices that do not imitate the source speaker.",
+      "how_to_answer": "If narration_voice-002 says human or mixed, set true. Never describe who it is.",
+      "evidence_required": [
+        "narration lens answers"
+      ],
+      "ir_path": "/audio/narration/clone_forbidden",
+      "answer_type": "boolean",
+      "challenge": "Even if the voice sounds synthetic, cloning or imitating it is not allowed; the answer should still forbid imitation."
+    },
+    {
+      "id": "rights_originality_boundary-005",
+      "question": "Are identifiable people shown (faces, names on screen)?",
+      "why_it_matters": "Flags that people imagery must not be reused and that variants need their own releases or licences.",
+      "how_to_answer": "Count shots with clearly visible faces or name captions (F4); do not identify anyone.",
+      "evidence_required": [
+        "frames: F4"
+      ],
+      "ir_path": "/open_questions/-",
+      "answer_type": "integer",
+      "challenge": "Any identification of a person is rejected."
+    },
+    {
+      "id": "rights_originality_boundary-006",
+      "question": "Are logos, brand marks or trademarks visible?",
+      "why_it_matters": "Flags marks that must not appear in variants unless the new content has rights to them.",
+      "how_to_answer": "F3 crops where logos appear; record position and timestamp, not the brand name unless needed to describe the risk.",
+      "evidence_required": [
+        "frames: F3"
+      ],
+      "ir_path": "/open_questions/-",
+      "answer_type": "timestamps",
+      "challenge": "Product shots incidental to a fact are still flagged."
+    },
+    {
+      "id": "rights_originality_boundary-007",
+      "question": "Does the on-screen text contain distinctive catchphrases or slogans that must not be copied?",
+      "why_it_matters": "Prevents distinctive phrasing from leaking into templates.",
+      "how_to_answer": "Review text crops and the pattern answers from other lenses; flag any pattern that preserves distinctive words.",
+      "evidence_required": [
+        "frames: F3",
+        "pattern answers from other lenses"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "list",
+      "challenge": "Check every 'pattern' answer in the swarm output for surviving content words."
+    },
+    {
+      "id": "rights_originality_boundary-008",
+      "question": "Are there distinctive characters or mascots whose design is the creator's own?",
+      "why_it_matters": "Prevents character designs from being copied; the format keeps only the rig type.",
+      "how_to_answer": "From characters_animation_style answers and F4.",
+      "evidence_required": [
+        "frames: F4",
+        "character answers"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "boolean",
+      "challenge": "A generic stick figure is a technique; a named mascot with a recognisable design is not reusable."
+    },
+    {
+      "id": "rights_originality_boundary-009",
+      "question": "Are watermarks or creator credits burned into the video?",
+      "why_it_matters": "Records marks to exclude and helps attribute the analysis.",
+      "how_to_answer": "F3 corner crops at 3 times.",
+      "evidence_required": [
+        "frames: F3"
+      ],
+      "ir_path": "/source/platform",
+      "answer_type": "object",
+      "challenge": "Record position and kind only."
+    },
+    {
+      "id": "rights_originality_boundary-010",
+      "question": "Which elements together form the source's distinctive identity (series name, signature colour plus layout plus label, recurring character) and should be varied by default in new videos?",
+      "why_it_matters": "Becomes a rule that variants change at least some identity elements so they are not confusable with the source.",
+      "how_to_answer": "List combinations of title colour, layout, label pattern and naming that together identify the source; propose which parameter defaults must differ.",
+      "evidence_required": [
+        "typography, hook and structure answers"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "rule",
+      "challenge": "The rule must name parameters, and the IR defaults must actually differ from the source where the rule says so."
+    },
+    {
+      "id": "rights_originality_boundary-011",
+      "question": "Which kinds of factual claims in the source must be re-researched (not copied) for a variant?",
+      "why_it_matters": "Sets claims_need_sources and stops facts being copied without checking.",
+      "how_to_answer": "From script_rhetoric-029, list claim types; facts in the source are never treated as verified.",
+      "evidence_required": [
+        "script answers"
+      ],
+      "ir_path": "/script/claims_need_sources",
+      "answer_type": "boolean",
+      "challenge": "For any factual format, false is rejected."
+    },
+    {
+      "id": "rights_originality_boundary-012",
+      "question": "Does the topic involve health, finance, legal or safety advice that needs a higher verification bar?",
+      "why_it_matters": "Adds a verification requirement to the format.",
+      "how_to_answer": "Classify the topic from captions (analysis only).",
+      "evidence_required": [
+        "evidence.captions[] (analysis only)"
+      ],
+      "ir_path": "/open_questions/-",
+      "answer_type": "list",
+      "challenge": "If present even once, it must be listed."
+    },
+    {
+      "id": "rights_originality_boundary-013",
+      "question": "Does the video show minors?",
+      "why_it_matters": "Flags heightened care; minors' images are never reused and variants should avoid depicting identifiable minors without consent.",
+      "how_to_answer": "F4 contact sheet; count only, no descriptions.",
+      "evidence_required": [
+        "frames: F4"
+      ],
+      "ir_path": "/open_questions/-",
+      "answer_type": "boolean",
+      "challenge": "No descriptions of the people are allowed."
+    },
+    {
+      "id": "rights_originality_boundary-014",
+      "question": "Does the video depict dangerous activities that a variant could encourage?",
+      "why_it_matters": "Adds a safety review requirement.",
+      "how_to_answer": "F4 and captions.",
+      "evidence_required": [
+        "frames: F4",
+        "evidence.captions[] (analysis only)"
+      ],
+      "ir_path": "/open_questions/-",
+      "answer_type": "boolean",
+      "challenge": "Give timestamps if true."
+    },
+    {
+      "id": "rights_originality_boundary-015",
+      "question": "Will variants built from this format need an AI-content disclosure (synthetic voices, generated people or realistic generated scenes)?",
+      "why_it_matters": "Adds a disclosure check; platform rules change, so the answer points to the current policy.",
+      "how_to_answer": "Based on the format's slots (voice, imagery) say which would be synthetic; mark 'check the platform's current policy' rather than stating it.",
+      "evidence_required": [
+        "parameter list"
+      ],
+      "ir_path": "/open_questions/-",
+      "answer_type": "list",
+      "challenge": "Any policy statement without a dated source is rejected."
+    },
+    {
+      "id": "rights_originality_boundary-016",
+      "question": "Which IR parameters are asset slots that need a licence field (images, footage, music, voice, fonts)?",
+      "why_it_matters": "Makes the render step demand licences for every asset.",
+      "how_to_answer": "Scan the proposed parameters for asset types.",
+      "evidence_required": [
+        "parameter proposals"
+      ],
+      "ir_path": "/parameters/-",
+      "answer_type": "list",
+      "challenge": "Every asset parameter must be listed."
+    },
+    {
+      "id": "rights_originality_boundary-017",
+      "question": "Do any swarm answers quote more than 6 words of source text or quote narration at all?",
+      "why_it_matters": "Self-check that the IR stays free of source script text.",
+      "how_to_answer": "Scan all answer values and notes for quoted strings; count words; report offending answer ids.",
+      "evidence_required": [
+        "all answers"
+      ],
+      "ir_path": "/open_questions/-",
+      "answer_type": "list",
+      "challenge": "Run the scan again on the merged IR; any hit blocks the lift."
+    },
+    {
+      "id": "rights_originality_boundary-018",
+      "question": "Do any answers or IR fields reference source frames, clips or audio files as assets for reuse?",
+      "why_it_matters": "Ensures keyframes stay analysis-only.",
+      "how_to_answer": "Scan for file paths or URLs pointing at extracted frames or source media in parameter defaults and source_slot fields.",
+      "evidence_required": [
+        "all answers"
+      ],
+      "ir_path": "/open_questions/-",
+      "answer_type": "list",
+      "challenge": "Any hit blocks the lift until replaced with an empty asset slot."
+    },
+    {
+      "id": "rights_originality_boundary-019",
+      "question": "How was the source obtained (user-supplied file, user's own upload, public URL), and does the user confirm they may analyse it locally?",
+      "why_it_matters": "Records provenance; the swarm analyses but never republishes.",
+      "how_to_answer": "Read the run inputs; if unknown, add an open question for the user.",
+      "evidence_required": [
+        "run inputs",
+        "evidence.source.reference"
+      ],
+      "ir_path": "/open_questions/-",
+      "answer_type": "text",
+      "challenge": "Do not assume permission; if unknown, keep the open question."
+    },
+    {
+      "id": "rights_originality_boundary-020",
+      "question": "Is the source reference (URL or file name and analysis date) recorded?",
+      "why_it_matters": "Fills source.reference for traceability.",
+      "how_to_answer": "Copy evidence.source.reference and the run date.",
+      "evidence_required": [
+        "evidence.source.reference"
+      ],
+      "ir_path": "/source/reference",
+      "answer_type": "text",
+      "challenge": "Must match the evidence bundle exactly."
+    },
+    {
+      "id": "rights_originality_boundary-021",
+      "question": "Does the format depend on other people's content (reactions, compilations, duets), so variants would need licensed sources?",
+      "why_it_matters": "Flags formats that cannot be rebuilt from original or licensed assets alone.",
+      "how_to_answer": "From shot_list_framing-007 and 002 above.",
+      "evidence_required": [
+        "shot list answers"
+      ],
+      "ir_path": "/open_questions/-",
+      "answer_type": "enum",
+      "choices": [
+        "original-content-format",
+        "depends-on-third-party-content",
+        "mixed"
+      ],
+      "challenge": "Compilation formats must be flagged even if every clip looks freely available."
+    },
+    {
+      "id": "rights_originality_boundary-022",
+      "question": "Are there quotes from people shown or read in the video?",
+      "why_it_matters": "Quotes need their own sourcing in variants and are never copied.",
+      "how_to_answer": "Captions and text crops with quotation marks or attribution (analysis only).",
+      "evidence_required": [
+        "evidence.captions[] (analysis only)",
+        "frames: F3"
+      ],
+      "ir_path": "/open_questions/-",
+      "answer_type": "timestamps",
+      "challenge": "Never reproduce the quote."
+    },
+    {
+      "id": "rights_originality_boundary-023",
+      "question": "Is sensitive personal information visible (addresses, licence plates, phone numbers, private screens)?",
+      "why_it_matters": "Prevents carrying such content into notes or the IR.",
+      "how_to_answer": "F3 crops at suspicious frames; report only timestamps and kind.",
+      "evidence_required": [
+        "frames: F3"
+      ],
+      "ir_path": "/open_questions/-",
+      "answer_type": "timestamps",
+      "challenge": "The information itself must never be written down."
+    },
+    {
+      "id": "rights_originality_boundary-024",
+      "question": "Could numbers or facts in the source be wrong or outdated?",
+      "why_it_matters": "Reinforces that variants re-research facts.",
+      "how_to_answer": "Flag claim types with dates or fast-changing values; method inferred.",
+      "evidence_required": [
+        "script answers"
+      ],
+      "ir_path": "/open_questions/-",
+      "answer_type": "list",
+      "challenge": "This lens does not fact-check; it only flags."
+    },
+    {
+      "id": "rights_originality_boundary-025",
+      "question": "What brief should replacement music follow (tempo, instrumentation, mood, length) so it fits without copying?",
+      "why_it_matters": "Fills the music replacement brief.",
+      "how_to_answer": "From music lens answers; never name or describe a melody that could be reproduced.",
+      "evidence_required": [
+        "music answers"
+      ],
+      "ir_path": "/audio/music/replacement_brief",
+      "answer_type": "object",
+      "challenge": "Reject descriptions specific enough to recreate the source melody."
+    },
+    {
+      "id": "rights_originality_boundary-026",
+      "question": "Is the title or caption font likely a commercial font, and what open-licence font class should replace it?",
+      "why_it_matters": "Prevents unlicensed font use in renders.",
+      "how_to_answer": "From typography answers; propose an open font class (for example a geometric sans under the SIL Open Font License) and mark the source font as unknown.",
+      "evidence_required": [
+        "typography answers"
+      ],
+      "ir_path": "/typography/title/font_licence_check",
+      "answer_type": "text",
+      "challenge": "Do not claim to identify the source font."
+    },
+    {
+      "id": "rights_originality_boundary-027",
+      "question": "Is there any reason this video should not be lifted at all (hateful, deceptive, harassing, or targeting a private person)?",
+      "why_it_matters": "A stop gate before lifting.",
+      "how_to_answer": "Review the contact sheet and captions (analysis only).",
+      "evidence_required": [
+        "frames: F4",
+        "evidence.captions[] (analysis only)"
+      ],
+      "ir_path": "/open_questions/-",
+      "answer_type": "boolean",
+      "challenge": "If true, the lift must stop and the reason must be reported."
+    },
+    {
+      "id": "rights_originality_boundary-028",
+      "question": "Are there archival or news images with visible rights notices or agency credits?",
+      "why_it_matters": "Flags images that need licences in variants.",
+      "how_to_answer": "F3 crops near image edges.",
+      "evidence_required": [
+        "frames: F3"
+      ],
+      "ir_path": "/open_questions/-",
+      "answer_type": "timestamps",
+      "challenge": "Record the kind of credit only."
+    },
+    {
+      "id": "rights_originality_boundary-029",
+      "question": "Does the parameterised format still contain any source-specific value (exact title text, exact colour plus layout combination, series name) as a default?",
+      "why_it_matters": "Final check before the format is saved to the library.",
+      "how_to_answer": "Compare parameter defaults with observed source values flagged in 010.",
+      "evidence_required": [
+        "parameter defaults",
+        "identity elements"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "list",
+      "challenge": "Any default equal to a source identity element must change or be justified as generic."
+    },
+    {
+      "id": "rights_originality_boundary-030",
+      "question": "Which open questions about rights must a human answer before a variant is published?",
+      "why_it_matters": "Collects the human review list.",
+      "how_to_answer": "Gather all open_questions from this lens into a short checklist.",
+      "evidence_required": [
+        "rights answers"
+      ],
+      "ir_path": "/open_questions/-",
+      "answer_type": "list",
+      "challenge": "Every flagged item above must appear."
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+title: B-roll keyword matcher
+summary: Matches narration sentences to B-roll clips by TF-IDF keyword similarity, avoids reusing a clip back to back and reports sentences with no good footage instead of forcing a match.
+subkind: asset-pipeline
+domain: video
+tags: [video, b-roll, matching, tf-idf, assets, planning]
+step_kinds: [plan, build]

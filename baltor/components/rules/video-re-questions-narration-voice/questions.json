@@ -1,0 +1,522 @@
+{
+  "spec": "baltor.video-re-questions/v1",
+  "lens": "narration_voice",
+  "title": "Narration and voice",
+  "purpose": "Measures the delivery (coverage, words per minute, pauses, emphasis, processing) so a licensed or synthetic voice can reproduce it, without cloning or keeping the source voice.",
+  "boundary": "The swarm lifts technique and structure only. Never store, transcribe or reuse the source's footage, frames, music, voice or script text. Keyframes and spectrograms are temporary analysis files in a scratch directory and are never copied into the format IR or a variant. On-screen text may be quoted only as a locating note in evidence.note, at most 6 words, and narration is never quoted. Patterns replace content words with slots, e.g. 'FACT {n}' or '{number} {unit} {noun}'. Analysing a public video for technique is fine; republishing its content is not.",
+  "answer_contract": "video_re_analyst_answer",
+  "ir_contract": "video_re_format_ir",
+  "ir_focus": [
+    "/audio/narration",
+    "/audio/words_per_minute",
+    "/render_binding/mapping",
+    "/parameters",
+    "/generation_rules"
+  ],
+  "evidence": [
+    "audio.speech_segments (video_re_speech_segments)",
+    "audio.speech_wpm (video_re_speech_rate)",
+    "captions[] timing",
+    "audio.integrated_lufs"
+  ],
+  "inspect": "A1 spectrograms of 2-3 sentences, A4 silences, A6 RMS for emphasis; never save or splice the voice.",
+  "pitfalls": [
+    "Guessing speaker identity, age or ethnicity; describe pitch register and delivery only",
+    "Calling a voice synthetic from quality alone",
+    "Computing wpm over the whole runtime instead of speech time"
+  ],
+  "parameter_hints": [
+    "voice_engine (string)",
+    "voice_id (string)",
+    "words_per_minute (range)",
+    "pause_ms (range)",
+    "delivery (enum)"
+  ],
+  "optional_detectors": [
+    "video_re_detect_voice_pitch_pace",
+    "video_re_detect_silence_gaps",
+    "video_re_detect_reverb_room",
+    "video_re_detect_dynamics_compression",
+    "video_re_detect_stereo_width",
+    "video_re_detect_music_presence"
+  ],
+  "methods": {
+    "measured": "A measurement tool produced the value (an evidence.json field or an ffmpeg/ffprobe filter output). Name the tool and the field.",
+    "observed": "You looked at extracted frames, crops, scopes, spectrograms or waveforms and saw it. Give the timestamps you looked at.",
+    "inferred": "Reasoned from measured or observed facts, e.g. 'synthetic voice' from flat pitch on a spectrogram. State the reasoning in the note.",
+    "assumed": "No direct evidence; a default or convention. Use only for gaps the format needs filled, and keep confidence at 0.3 or lower."
+  },
+  "pointer_conventions": [
+    "ir_path is a JSON Pointer (RFC 6901) into the Video format IR (contract schema video_re_format_ir).",
+    "A final '/-' means 'append this answer to the array' (the RFC 6901 end-of-array token), e.g. /motion/transitions/- or /generation_rules/-.",
+    "A '*' segment means 'each array element the answer is about'; the answer must say which elements (for example beats with role 'item'). The lifter resolves '*' to concrete indexes.",
+    "Paths under free-form objects (typography.title, typography.captions, typography.labels, audio.narration, audio.music, render_binding.mapping) use the snake_case key named in the question."
+  ],
+  "answer_types": {
+    "number": "{\"value\": n, \"unit\": \"...\"} optionally with \"min\" and \"max\"; becomes an IR observed_number",
+    "integer": "{\"value\": n}",
+    "ratio": "{\"value\": r} with 0 <= r <= 1",
+    "seconds": "{\"value\": s, \"unit\": \"s\"} optionally with \"min\"/\"max\"",
+    "ms": "{\"value\": n, \"unit\": \"ms\"} optionally with \"min\"/\"max\"; signed when an offset (negative = earlier)",
+    "boolean": "true or false",
+    "enum": "exactly one of the question's choices (a string)",
+    "text": "one technique description, at most 300 characters, no copied content",
+    "list": "array of short strings (technique names or kinds)",
+    "timestamps": "array of seconds from the start of the source",
+    "rule": "one procedural generation rule string, at most 400 characters, written in terms of parameters",
+    "object": "a JSON object with the keys the question's how_to_answer names"
+  },
+  "recipes": {
+    "F1": "Single frame: ffmpeg -v error -ss T -i \"$SRC\" -frames:v 1 -q:v 2 \"$WORK/f_T.jpg\"",
+    "F2": "Burst sheet, 10 frames over 1 s: ffmpeg -v error -ss T -t 1 -i \"$SRC\" -vf \"fps=10,scale=270:-2,tile=5x2\" -frames:v 1 \"$WORK/burst_T.jpg\"",
+    "F3": "Full-resolution crop (add ,scale=iw*2:-1:flags=lanczos to enlarge): ffmpeg -v error -ss T -i \"$SRC\" -frames:v 1 -vf \"crop=W:H:X:Y\" \"$WORK/crop_T.png\"",
+    "A1": "Spectrogram image (add highpass=f=3000, before showspectrumpic to isolate clicks and whooshes): ffmpeg -v error -ss T -t D -i \"$SRC\" -lavfi \"showspectrumpic=s=1200x600:legend=1\" \"$WORK/spec_T.png\"",
+    "A3": "Momentary loudness every 100 ms (LUFS): ffmpeg -v error -i \"$SRC\" -af \"ebur128=metadata=1,ametadata=mode=print:key=lavfi.r128.M:file=$WORK/lufs_m.txt\" -f null -",
+    "A4": "Silences: ffmpeg -i \"$SRC\" -af \"silencedetect=noise=-35dB:d=0.25\" -f null - 2>&1 | grep silence_",
+    "A5": "Side (L-R) channel loudness, which removes centre-panned voice and leaves most stereo music: replace the A3 filter with \"pan=mono|c0=0.5*c0-0.5*c1,ebur128=metadata=1,ametadata=mode=print:key=lavfi.r128.M:file=$WORK/side_m.txt\"; mid channel uses 0.5*c0+0.5*c1. Only meaningful for stereo sources.",
+    "A6": "RMS level per 100 ms at 48 kHz: ffmpeg -v error -i \"$SRC\" -af \"aresample=48000,asetnsamples=n=4800,astats=metadata=1:reset=1,ametadata=mode=print:key=lavfi.astats.Overall.RMS_level:file=$WORK/rms.txt\" -f null -",
+    "A7": "Stream facts: ffprobe -v error -show_streams -show_format -of json \"$SRC\""
+  },
+  "questions": [
+    {
+      "id": "narration_voice-001",
+      "question": "Is there narration, and what share of the runtime is covered by speech?",
+      "why_it_matters": "Fills narration coverage; drives how much script is needed.",
+      "how_to_answer": "Sum of evidence.audio.speech_segments durations / source.duration_s (video_re_speech_segments).",
+      "evidence_required": [
+        "evidence.audio.speech_segments",
+        "evidence.source.duration_s"
+      ],
+      "ir_path": "/audio/narration/coverage_ratio",
+      "answer_type": "ratio",
+      "challenge": "Voice activity detectors flag sung vocals and dense music; check two segments on an A1 spectrogram."
+    },
+    {
+      "id": "narration_voice-002",
+      "question": "Does the voice sound synthetic (text-to-speech) or recorded human speech?",
+      "why_it_matters": "Tells the pipeline whether a TTS engine can match the delivery.",
+      "how_to_answer": "Inspect A1 spectrograms of 3 sentences: very regular pitch contours, identical prosody on repeated phrases and absent breaths suggest TTS. Method is always inferred.",
+      "evidence_required": [
+        "A1 on 3 sentences"
+      ],
+      "ir_path": "/audio/narration/source_kind",
+      "answer_type": "enum",
+      "choices": [
+        "synthetic",
+        "human",
+        "mixed",
+        "not-determinable"
+      ],
+      "challenge": "Modern TTS can be indistinguishable; confidence above 0.6 needs at least two independent cues."
+    },
+    {
+      "id": "narration_voice-003",
+      "question": "What is the pitch register of the voice (low, mid, high) and the approximate fundamental frequency range?",
+      "why_it_matters": "Guides voice selection without identifying anyone.",
+      "how_to_answer": "Read the lowest harmonic band on A1 spectrograms (or use librosa.pyin if installed, marked measured). Report Hz range.",
+      "evidence_required": [
+        "A1 spectrograms"
+      ],
+      "ir_path": "/audio/narration/pitch_register",
+      "answer_type": "object",
+      "challenge": "Answers that infer gender, age or ethnicity are rejected; only pitch and delivery are allowed."
+    },
+    {
+      "id": "narration_voice-004",
+      "question": "What is the speaking rate in words per minute of speech time?",
+      "why_it_matters": "Fills audio.words_per_minute.",
+      "how_to_answer": "Read evidence.audio.speech_wpm (video_re_speech_rate); state whether it divides by speech time or by runtime.",
+      "evidence_required": [
+        "evidence.audio.speech_wpm"
+      ],
+      "ir_path": "/audio/words_per_minute",
+      "answer_type": "number",
+      "challenge": "Recompute from caption word count / total speech segment minutes; a mismatch above 10% needs an explanation."
+    },
+    {
+      "id": "narration_voice-005",
+      "question": "How much does speaking rate vary across beats (wpm per beat role)?",
+      "why_it_matters": "Becomes per-beat rate targets.",
+      "how_to_answer": "Words per beat (captions) / speech time per beat.",
+      "evidence_required": [
+        "evidence.captions[]",
+        "evidence.audio.speech_segments",
+        "timeline beats"
+      ],
+      "ir_path": "/audio/narration/wpm_by_beat",
+      "answer_type": "object",
+      "challenge": "Beats with under 10 words give unstable rates; mark them."
+    },
+    {
+      "id": "narration_voice-006",
+      "question": "How long are pauses between sentences and between items (median ms each)?",
+      "why_it_matters": "Sets pause lengths for the TTS plan.",
+      "how_to_answer": "Gaps between speech segments, split into within-item and at item boundaries.",
+      "evidence_required": [
+        "evidence.audio.speech_segments",
+        "timeline beats"
+      ],
+      "ir_path": "/audio/narration/pause_ms",
+      "answer_type": "object",
+      "challenge": "Confirm two gaps with A4 silencedetect."
+    },
+    {
+      "id": "narration_voice-007",
+      "question": "What is the dynamic range of the voice (momentary loudness spread during speech)?",
+      "why_it_matters": "Sets compression targets for the narration chain.",
+      "how_to_answer": "A3 momentary loudness restricted to speech segments; report p10 and p90.",
+      "evidence_required": [
+        "A3",
+        "evidence.audio.speech_segments"
+      ],
+      "ir_path": "/audio/narration/loudness_spread_db",
+      "answer_type": "object",
+      "challenge": "Music under voice raises the floor; note the music level estimate."
+    },
+    {
+      "id": "narration_voice-008",
+      "question": "How are key words emphasised (louder, slower, higher pitch, pause before)?",
+      "why_it_matters": "Becomes emphasis markup rules for TTS (SSML-like or engine-specific).",
+      "how_to_answer": "Around 4 key numbers or words, compare A6 RMS, local rate and pitch (A1) with neighbouring words.",
+      "evidence_required": [
+        "A6",
+        "A1"
+      ],
+      "ir_path": "/audio/narration/emphasis",
+      "answer_type": "list",
+      "challenge": "Report the measurement per instance."
+    },
+    {
+      "id": "narration_voice-009",
+      "question": "What is the delivery style (conversational, announcer, documentary, energetic hype, calm explainer, whisper)?",
+      "why_it_matters": "Fills delivery for voice selection.",
+      "how_to_answer": "Combine rate (004), pitch variation (A1), loudness spread (007) and pause pattern (006); method inferred.",
+      "evidence_required": [
+        "narration measurements"
+      ],
+      "ir_path": "/audio/narration/delivery",
+      "answer_type": "enum",
+      "choices": [
+        "conversational",
+        "announcer",
+        "documentary",
+        "hype",
+        "calm-explainer",
+        "whisper",
+        "other"
+      ],
+      "challenge": "Each style claim must cite at least two measurements."
+    },
+    {
+      "id": "narration_voice-010",
+      "question": "Are breaths audible between phrases or edited out?",
+      "why_it_matters": "Becomes an editing rule for the narration track.",
+      "how_to_answer": "A1 spectrograms of pauses: broadband soft noise bursts before phrases are breaths.",
+      "evidence_required": [
+        "A1 on pauses"
+      ],
+      "ir_path": "/audio/narration/breaths",
+      "answer_type": "enum",
+      "choices": [
+        "audible",
+        "removed",
+        "mixed"
+      ],
+      "challenge": "Check 4 pauses."
+    },
+    {
+      "id": "narration_voice-011",
+      "question": "How is the voice processed (dry or with room reverb; heavy or light compression; de-essing)?",
+      "why_it_matters": "Fills the voice processing chain.",
+      "how_to_answer": "A1: reverb tails extend energy after words end; compression shows narrow loudness spread (007); sibilance bands near 5-9 kHz.",
+      "evidence_required": [
+        "A1",
+        "loudness spread"
+      ],
+      "ir_path": "/audio/narration/processing",
+      "answer_type": "object",
+      "challenge": "Each processing claim needs its cue."
+    },
+    {
+      "id": "narration_voice-012",
+      "question": "Is the voice bright or warm (where is most energy, above or below about 1 kHz)?",
+      "why_it_matters": "Fills EQ guidance.",
+      "how_to_answer": "A1 spectrogram energy distribution during speech; compare with A6 RMS after highpass=f=2000 versus lowpass=f=500.",
+      "evidence_required": [
+        "A1",
+        "A6 filtered"
+      ],
+      "ir_path": "/audio/narration/tone",
+      "answer_type": "enum",
+      "choices": [
+        "bright",
+        "neutral",
+        "warm"
+      ],
+      "challenge": "Report the two filtered RMS values."
+    },
+    {
+      "id": "narration_voice-013",
+      "question": "Is the voice clearly dominant over music during speech (approximate level difference in dB)?",
+      "why_it_matters": "Sets voice-to-music balance.",
+      "how_to_answer": "A5 mid versus side loudness during speech (stereo only), or A6 RMS during speech versus in speech gaps with music only.",
+      "evidence_required": [
+        "A5",
+        "A6"
+      ],
+      "ir_path": "/audio/music_under_voice_db",
+      "answer_type": "number",
+      "challenge": "Side-channel estimates fail when music is near mono; check A7 channels and say which method was used."
+    },
+    {
+      "id": "narration_voice-014",
+      "question": "How soon after a cut does speech start, when a sentence starts at a cut?",
+      "why_it_matters": "Sets cut-to-voice latency.",
+      "how_to_answer": "For cuts followed by a speech segment start within 1 s, compute the delay; median.",
+      "evidence_required": [
+        "evidence.shots[]",
+        "evidence.audio.speech_segments"
+      ],
+      "ir_path": "/audio/narration/cut_to_voice_ms",
+      "answer_type": "ms",
+      "challenge": "Report n."
+    },
+    {
+      "id": "narration_voice-015",
+      "question": "How many distinct voices speak (narrator, characters, quoted speakers)?",
+      "why_it_matters": "Decides how many voice slots the format needs.",
+      "how_to_answer": "A1 spectrograms: distinct pitch ranges and timbres; F1 frames for on-screen speakers.",
+      "evidence_required": [
+        "A1",
+        "frames: F1"
+      ],
+      "ir_path": "/audio/narration/voice_count",
+      "answer_type": "integer",
+      "challenge": "One narrator changing tone is one voice."
+    },
+    {
+      "id": "narration_voice-016",
+      "question": "Are pitch or character effects applied to voices (sped-up, robotic, telephone filter)?",
+      "why_it_matters": "Adds voice effects.",
+      "how_to_answer": "A1 for formant shifts and band-limiting.",
+      "evidence_required": [
+        "A1"
+      ],
+      "ir_path": "/audio/narration/effects",
+      "answer_type": "list",
+      "challenge": "Timestamp each effect."
+    },
+    {
+      "id": "narration_voice-017",
+      "question": "What is the noise floor in speech gaps without music (dBFS)?",
+      "why_it_matters": "Sets the cleanliness target for narration.",
+      "how_to_answer": "A6 RMS in gaps where A1 shows no music.",
+      "evidence_required": [
+        "A6",
+        "A1"
+      ],
+      "ir_path": "/audio/narration/noise_floor_db",
+      "answer_type": "number",
+      "challenge": "If music fills every gap, answer not determinable."
+    },
+    {
+      "id": "narration_voice-018",
+      "question": "Do sentences end with falling intonation, rising intonation (upspeak), or flat?",
+      "why_it_matters": "Guides prosody settings.",
+      "how_to_answer": "A1: track the lowest harmonic in the last word of 6 sentences.",
+      "evidence_required": [
+        "A1"
+      ],
+      "ir_path": "/audio/narration/sentence_end_contour",
+      "answer_type": "enum",
+      "choices": [
+        "falling",
+        "rising",
+        "flat",
+        "mixed"
+      ],
+      "challenge": "Questions naturally rise; exclude them."
+    },
+    {
+      "id": "narration_voice-019",
+      "question": "Is there evidence that speech was time-stretched to fit picture (unnatural rate shifts, smeared consonants, pitch artefacts)?",
+      "why_it_matters": "A quality rule: this project forbids time-stretching speech to fit.",
+      "how_to_answer": "Compare local wpm across sentences and inspect A1 for phase smearing on fast passages.",
+      "evidence_required": [
+        "local wpm",
+        "A1"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "boolean",
+      "challenge": "Natural rate changes are common; require an artefact, not just a rate change."
+    },
+    {
+      "id": "narration_voice-020",
+      "question": "Is each item's narration contained within its beat, or does speech spill over beat boundaries?",
+      "why_it_matters": "Becomes a narration-to-beat alignment rule.",
+      "how_to_answer": "Check whether speech segments cross item boundaries by more than 300 ms.",
+      "evidence_required": [
+        "evidence.audio.speech_segments",
+        "timeline beats"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "ratio",
+      "challenge": "Report the share and the crossings."
+    },
+    {
+      "id": "narration_voice-021",
+      "question": "What language is the narration in, and is it consistent?",
+      "why_it_matters": "Fills narration language for TTS and caption tools.",
+      "how_to_answer": "From captions or transcription output language tag (evidence.tools or adapter output); confirm by reading two caption cards (analysis only).",
+      "evidence_required": [
+        "evidence.captions[] (analysis only)",
+        "evidence.tools"
+      ],
+      "ir_path": "/audio/narration/language",
+      "answer_type": "text",
+      "challenge": "Do not infer nationality or accent origin of the speaker."
+    },
+    {
+      "id": "narration_voice-022",
+      "question": "Which narration parameters should a new video set (voice engine, voice id, wpm range, pause lengths, delivery)?",
+      "why_it_matters": "Feeds the parameteriser.",
+      "how_to_answer": "Collect 004, 006, 009 and 012 into parameters; engine and voice are open slots (licensed or local TTS).",
+      "evidence_required": [
+        "narration answers"
+      ],
+      "ir_path": "/parameters/-",
+      "answer_type": "list",
+      "challenge": "No parameter may reference cloning the source voice."
+    },
+    {
+      "id": "narration_voice-023",
+      "question": "Write the narration budget rule (words per beat = beat_s x wpm / 60 x speech share).",
+      "why_it_matters": "Lets the script writer hit beat lengths without stretching speech.",
+      "how_to_answer": "Use 001, 004 and per-beat coverage; test on 3 beats.",
+      "evidence_required": [
+        "narration answers",
+        "timeline beats"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "rule",
+      "challenge": "Predict words for 3 observed beats; errors over 20% reject the rule."
+    },
+    {
+      "id": "narration_voice-024",
+      "question": "Are numbers spoken digit by digit, as full words, or abbreviated (for example 'three point two million')?",
+      "why_it_matters": "Becomes a text normalisation rule before TTS.",
+      "how_to_answer": "Compare spoken numbers (A1 timing and captions) with on-screen digits.",
+      "evidence_required": [
+        "evidence.captions[] (analysis only)",
+        "frames: F3 numbers"
+      ],
+      "ir_path": "/generation_rules/-",
+      "answer_type": "enum",
+      "choices": [
+        "full-words",
+        "digit-by-digit",
+        "abbreviated",
+        "mixed"
+      ],
+      "challenge": "Check 3 numbers."
+    },
+    {
+      "id": "narration_voice-025",
+      "question": "Is the voice centred in the stereo image (mono-compatible)?",
+      "why_it_matters": "Fills voice panning.",
+      "how_to_answer": "Compare A5 side loudness during speech with mid loudness: near-silent side during speech-only passages means centred.",
+      "evidence_required": [
+        "A5"
+      ],
+      "ir_path": "/audio/narration/panning",
+      "answer_type": "boolean",
+      "challenge": "Mono files make this trivially true; check A7 channels first."
+    },
+    {
+      "id": "narration_voice-026",
+      "question": "Is the narrator seen on screen (lip-synced presenter) or off-screen (voiceover)?",
+      "why_it_matters": "Decides whether a presenter shot is part of the format.",
+      "how_to_answer": "F2 bursts during speech: visible mouth movement matching speech.",
+      "evidence_required": [
+        "frames: F2",
+        "evidence.audio.speech_segments"
+      ],
+      "ir_path": "/audio/narration/presence",
+      "answer_type": "enum",
+      "choices": [
+        "on-screen",
+        "off-screen",
+        "both"
+      ],
+      "challenge": "Do not identify the presenter."
+    },
+    {
+      "id": "narration_voice-027",
+      "question": "Does music with sung vocals overlap the narration?",
+      "why_it_matters": "Becomes a mix rule (instrumental under narration).",
+      "how_to_answer": "A1 during speech: a second harmonic series with sustained notes.",
+      "evidence_required": [
+        "A1"
+      ],
+      "ir_path": "/audio/music/vocals_under_narration",
+      "answer_type": "boolean",
+      "challenge": "Give a timestamp."
+    },
+    {
+      "id": "narration_voice-028",
+      "question": "How many seconds before the end does narration stop?",
+      "why_it_matters": "Sets the narration end offset.",
+      "how_to_answer": "source.duration_s - last speech_segments end_s.",
+      "evidence_required": [
+        "evidence.audio.speech_segments",
+        "evidence.source.duration_s"
+      ],
+      "ir_path": "/audio/narration/end_offset_s",
+      "answer_type": "seconds",
+      "challenge": "Recompute."
+    },
+    {
+      "id": "narration_voice-029",
+      "question": "Does narration deliberately stop for music or sound moments (planned silences), and how many?",
+      "why_it_matters": "Adds planned narration gaps.",
+      "how_to_answer": "Speech gaps over 1 s where music or sfx rises (A3).",
+      "evidence_required": [
+        "evidence.audio.speech_segments",
+        "A3"
+      ],
+      "ir_path": "/audio/narration/planned_gaps",
+      "answer_type": "timestamps",
+      "challenge": "List each gap."
+    },
+    {
+      "id": "narration_voice-030",
+      "question": "Is the recording tone consistent throughout (same mic, room and level), or patched from sessions?",
+      "why_it_matters": "A quality rule for TTS or recorded narration (render in one pass or match levels).",
+      "how_to_answer": "Compare A1 spectral shape and noise floor across the beginning, middle and end.",
+      "evidence_required": [
+        "A1",
+        "A6"
+      ],
+      "ir_path": "/audio/narration/consistency",
+      "answer_type": "enum",
+      "choices": [
+        "consistent",
+        "patched",
+        "not-determinable"
+      ],
+      "challenge": "Name the segments compared."
+    },
+    {
+      "id": "narration_voice-031",
+      "question": "Which open-source TTS engines could approximate this delivery (for example Kokoro, Piper, Pocket TTS), and which settings matter (rate, voice, pauses)?",
+      "why_it_matters": "Gives the render binding a TTS hint; always inferred.",
+      "how_to_answer": "Match measured rate, register and delivery to engines available locally; never propose cloning the source voice.",
+      "evidence_required": [
+        "narration answers"
+      ],
+      "ir_path": "/render_binding/mapping/tts_hint",
+      "answer_type": "list",
+      "challenge": "Reject any hint that involves voice cloning of the source speaker."
+    }
+  ]
+}

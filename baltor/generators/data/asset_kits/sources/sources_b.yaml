@@ -1,0 +1,870 @@
+# Source skills, part B: characters, animation, motion, 2D, fonts, icons, audio and Godot sources.
+# Every URL below was verified on 2026-10-10 (fetched on GitHub or confirmed in search results).
+- id: mixamo_characters_and_animations
+  name: Mixamo characters and animations (use in work, never redistribute raw files)
+  description: >-
+    Use when a humanoid needs quick rigging or mocap-style animations from Adobe Mixamo. Mixamo content
+    is royalty free inside your projects, but raw character/animation files may not be redistributed or
+    used to train ML models. Covers keeping files out of repos and packages, Godot retargeting and Blender.
+  summary: Use Mixamo rigs and animations inside renders and games while keeping raw files out of repos, packages and training data.
+  tags: [mixamo, animation, rigging, licensing, godot, blender]
+  homepage: https://helpx.adobe.com/creative-cloud/faq/mixamo-faq.html
+  licence_summary: "Adobe's FAQ: Mixamo characters and animations are royalty free for personal, commercial and non-profit projects. The fuller licensing FAQ (reposted on Adobe's forum) says the raw files may not be distributed, including in asset packs or engine templates, and may not be used to train machine-learning models."
+  licences:
+    - {id: Adobe-Mixamo-terms, url: "https://helpx.adobe.com/creative-cloud/faq/mixamo-faq.html", applies_to: "all Mixamo characters and animations"}
+  attribution: {required: never, credit_template: "Animation: Adobe Mixamo"}
+  redistribution: forbidden
+  commercial_use: allowed
+  ai_training: forbidden
+  automated_download: forbidden
+  formats: [fbx, dae]
+  search:
+    - {label: "Mixamo", url: "https://www.mixamo.com/"}
+    - {label: "Animate characters (Adobe Help)", url: "https://helpx.adobe.com/creative-cloud/help/animate-characters-mixamo.html"}
+    - {label: "Licensing FAQ repost", url: "https://community.adobe.com/questions-696/mixamo-faq-licensing-royalties-ownership-eula-and-tos-589400"}
+  cautions:
+    - "Never commit Mixamo FBX/DAE files to a public repository, a template or a Baltor package; record them with redistribution: forbidden."
+    - "Do not use Mixamo files as machine-learning training data."
+    - "Bipedal humanoids only; the site keeps only the last uploaded character."
+  search_howto: |
+    Sign in with an Adobe ID, upload or pick a character, search animations, set In Place for loops, and download FBX
+    (With Skin for the first clip, Without Skin for the rest). Store the files in a git-ignored folder and list each
+    clip in the media pack manifest with fetch.method manual-page. For redistributable projects use the CC0
+    Quaternius Universal Animation Library instead.
+  godot: |
+    - Import the FBX (ufbx in Godot 4.3+). In Advanced Import Settings add a BoneMap with SkeletonProfileHumanoid so
+      Mixamo bone names map and clips retarget; enable Fix Silhouette for A-pose rigs.
+    - Save clips into an AnimationLibrary resource that stays in the ignored folder.
+  blender: |
+    - `bpy.ops.import_scene.fbx(filepath="Running.fbx")`; check the armature's scale after import (FBX files often
+      arrive scaled for centimetre units) and apply scale before mixing with other rigs.
+  pitfalls:
+    - "A Godot or Blender project that embeds the raw Mixamo clips is a redistribution if you publish the project."
+  example_asset:
+    id: mixamo-run-cycle
+    title: Running (Mixamo)
+    creator: Adobe Mixamo
+    source_url: https://www.mixamo.com/
+    licence: "Adobe Mixamo terms"
+    licence_url: https://helpx.adobe.com/creative-cloud/faq/mixamo-faq.html
+    attribution: ""
+    attribution_required: false
+    redistribution: forbidden
+    ai_training: forbidden
+    format: fbx
+    intended_use: [character run cycle in a rendered short]
+    restrictions: ["Keep the FBX out of repositories and packages.", "Not for ML training."]
+    fetch: {method: manual-page, status: manual}
+    import_hints: {godot: {importer: scene, notes: "BoneMap + SkeletonProfileHumanoid"}, blender: {operator: bpy.ops.import_scene.fbx}}
+
+- id: universal_lpc_spritesheets
+  name: Universal LPC sprite sheets (CC0 / CC-BY / CC-BY-SA / OGA-BY / GPL per layer)
+  description: >-
+    Use when a top-down RPG or explainer needs layered 2D characters with walk, slash, cast and shoot
+    animations from the Universal LPC Spritesheet Character Generator. Every layer has its own licence;
+    this skill shows how to export the credits, meet share-alike/GPL duties and import into Godot.
+  summary: Build LPC characters, export the per-layer credits file, meet CC-BY-SA/GPL duties, and import the sheet into Godot 4.
+  tags: [lpc, sprites, 2d, characters, cc-by-sa, gpl]
+  homepage: https://github.com/LiberatedPixelCup/Universal-LPC-Spritesheet-Character-Generator
+  licence_summary: "Each image is available under one or more of CC0, CC-BY, CC-BY-SA, OGA-BY or GPL. Credit all authors except for CC0 art; CC-BY-SA derivatives must be CC-BY-SA 4.0+, GPL derivatives GPL 3.0+; CC-BY/CC-BY-SA may not be DRM-protected, OGA-BY may."
+  licences:
+    - {id: per-asset, url: "https://github.com/LiberatedPixelCup/Universal-LPC-Spritesheet-Character-Generator", applies_to: "every layer, listed in CREDITS.csv"}
+  attribution: {required: required, credit_template: "Sprites contributed as part of the Liberated Pixel Cup project from OpenGameArt.org; authors: {authors from the exported credits}"}
+  redistribution: allowed-with-licence
+  commercial_use: allowed
+  ai_training: per-asset
+  automated_download: allowed
+  formats: [png, csv, txt]
+  search:
+    - {label: "Generator repository (README, CREDITS.csv)", url: "https://github.com/LiberatedPixelCup/Universal-LPC-Spritesheet-Character-Generator"}
+    - {label: "LPC collection on OpenGameArt", url: "https://opengameart.org/content/liberated-pixel-cup-0"}
+    - {label: "LPC style guide", url: "https://lpc.opengameart.org/static/LPC-Style-Guide/build/styleguide.html"}
+  cautions:
+    - "Ship the exported credits (or CREDITS.csv) where users can find them, e.g. a credits screen or the video description link."
+    - "Share-alike layers make derived sprites share-alike too; keep them out of packages with other licences."
+  search_howto: |
+    Build the character in the generator (hosted from the repository's GitHub Pages), export the sprite sheet and the
+    licence/credits file for exactly the layers you used, and paste the authors into the manifest's attribution.
+  godot: |
+    - Import with `pixel-art-2d`; LPC frames are 64x64 on a grid: `sprite_sheet_slicer grid sheet.png --size 64x64`
+      then build one SpriteFrames animation per row (walk up/left/down/right ...).
+  blender: |
+    - Use Images as Planes with Closest interpolation for 2.5D scenes.
+  pitfalls:
+    - "Older forks state different licences (GPL 3.0 and CC-BY-SA 3.0 only); use the upstream credits for the copy you used."
+  example_asset:
+    id: lpc-hero
+    title: LPC hero sprite sheet
+    creator: Liberated Pixel Cup contributors (see credits)
+    source_url: https://github.com/LiberatedPixelCup/Universal-LPC-Spritesheet-Character-Generator
+    licence: "CC-BY-SA-4.0 / GPL-3.0 (per exported credits)"
+    licence_url: https://github.com/LiberatedPixelCup/Universal-LPC-Spritesheet-Character-Generator
+    attribution: "Sprites contributed as part of the Liberated Pixel Cup project from OpenGameArt.org; authors listed in CREDITS-lpc.txt"
+    attribution_required: true
+    redistribution: allowed-with-licence
+    format: png
+    intended_use: [top-down narrator character]
+    fetch: {method: manual-page, status: to-fetch}
+    import_hints: {godot: {importer: texture, preset: pixel-art-2d}}
+
+- id: makehuman_characters
+  name: MakeHuman characters (CC0 exports)
+  description: >-
+    Use when a realistic or semi-realistic human base mesh is needed. MakeHuman's code is AGPL but its
+    bundled assets and exports from official builds (1.2.0+) are CC0; third-party community assets keep
+    their own licences. Covers export settings, Blender and Godot import, and licence evidence.
+  summary: Generate CC0 human base meshes with MakeHuman, track any third-party clothes/hair licences, and import into Blender and Godot 4.
+  tags: [makehuman, characters, cc0, humans, blender]
+  homepage: https://static.makehumancommunity.org/about/license.html
+  licence_summary: "MakeHuman source is AGPL; the bundled assets (base mesh, targets, textures, clothes, poses, expressions) are CC0, and since 1.2.0 exports from official, unmodified builds are CC0. Third-party assets keep their own licences."
+  licences:
+    - {id: CC0-1.0, url: "https://static.makehumancommunity.org/about/license.html", applies_to: "bundled assets and exports"}
+    - {id: AGPL-3.0, url: "https://github.com/makehumancommunity/makehuman/blob/master/LICENSE.md", applies_to: "MakeHuman code"}
+  attribution: {required: optional, credit_template: "Character base mesh made with MakeHuman (CC0)"}
+  redistribution: allowed
+  commercial_use: allowed
+  ai_training: unspecified
+  automated_download: unspecified
+  formats: [fbx, obj, dae, mhx2]
+  search:
+    - {label: "Licence", url: "https://static.makehumancommunity.org/about/license.html"}
+    - {label: "Asset packs", url: "https://static.makehumancommunity.org/assets/assetpacks.html"}
+    - {label: "FAQ: are MakeHuman files free?", url: "https://static.makehumancommunity.org/makehuman/faq/are_makehuman_files_free.html"}
+  cautions:
+    - "Community clothes/hair packs can be CC-BY; record each one."
+    - "Exports made with versions before 1.2.0 were under AGPL terms."
+  search_howto: |
+    Use an official 1.2.x build, apply only bundled or CC0 assets, export FBX or Collada with a game-ready skeleton,
+    and keep a note of every third-party asset in the manifest.
+  godot: |
+    - Import the FBX; map the skeleton with BoneMap + SkeletonProfileHumanoid to reuse humanoid animations.
+  blender: |
+    - `bpy.ops.import_scene.fbx(filepath=...)`; apply scale and rotation before rigging tweaks.
+  pitfalls:
+    - "Photoreal humans in faceless videos can read as real people; avoid implying they are real individuals."
+  example_asset:
+    id: makehuman-narrator
+    title: Narrator base mesh
+    creator: Made with MakeHuman
+    source_url: https://static.makehumancommunity.org/about/license.html
+    licence: CC0-1.0
+    licence_url: https://static.makehumancommunity.org/about/license.html
+    attribution: "Character made with MakeHuman (CC0)"
+    attribution_required: false
+    redistribution: allowed
+    format: fbx
+    intended_use: [3D narrator stand-in]
+    fetch: {method: manual-page, status: manual}
+
+- id: mocap_dataset_licences
+  name: Motion-capture datasets and their licences (CC0 alternatives first)
+  description: >-
+    Use before pulling motion capture into a short or a game. Many free mocap sets are research or
+    non-commercial (Bandai Namco: CC BY-NC; a CMU FBX conversion: CC BY-NC), Mixamo forbids
+    redistribution, and Quaternius offers CC0 humanoid clips. Explains choosing and recording them.
+  summary: "Choose motion data whose licence fits the use: CC0 Quaternius clips first, research mocap only for non-commercial work."
+  tags: [mocap, bvh, animation, non-commercial, licensing]
+  homepage: https://github.com/BandaiNamcoResearchInc/Bandai-Namco-Research-Motiondataset
+  licence_summary: "Bandai Namco Research Motion Dataset: CC BY-NC 4.0 per its README (press reports say BY-NC-ND). The 4TU FBX conversion of CMU mocap is labelled CC BY-NC 4.0. Quaternius Universal Animation Library is CC0."
+  licences:
+    - {id: CC-BY-NC-4.0, url: "https://github.com/BandaiNamcoResearchInc/Bandai-Namco-Research-Motiondataset", applies_to: "Bandai Namco BVH datasets"}
+    - {id: CC-BY-NC-4.0, url: "https://data.4tu.nl/datasets/0448aab2-3332-449f-a8e2-d208cb58c7df", applies_to: "4TU FBX conversion of CMU mocap"}
+    - {id: CC0-1.0, url: "https://quaternius.com/packs/universalanimationlibrary.html", applies_to: "Quaternius Universal Animation Library"}
+  attribution: {required: per-asset, credit_template: "Motion data: {dataset} ({licence})"}
+  redistribution: per-asset
+  commercial_use: per-asset
+  ai_training: per-asset
+  automated_download: allowed
+  formats: [bvh, fbx, glb]
+  search:
+    - {label: "Bandai Namco motion dataset", url: "https://github.com/BandaiNamcoResearchInc/Bandai-Namco-Research-Motiondataset"}
+    - {label: "CMU mocap FBX conversion (4TU)", url: "https://data.4tu.nl/datasets/0448aab2-3332-449f-a8e2-d208cb58c7df"}
+    - {label: "Quaternius Universal Animation Library (CC0)", url: "https://quaternius.com/packs/universalanimationlibrary.html"}
+  cautions:
+    - "Non-commercial datasets cannot appear in monetised shorts."
+    - "Read each dataset's LICENSE file; converters can add their own terms."
+  search_howto: |
+    Decide the use first (monetised video, open-source game, research). For monetised or redistributed work use CC0
+    clips; record research datasets with commercial_use non-commercial-only so the licence checker blocks misuse.
+  godot: |
+    - Import BVH via Blender (Godot does not import BVH directly), export GLB, then retarget with SkeletonProfileHumanoid.
+  blender: |
+    - File > Import > Motion Capture (.bvh); retarget onto your rig, then export GLB.
+  pitfalls:
+    - "A non-commercial clip baked into a commercial video is still a licence breach."
+  example_asset:
+    id: bandai-dataset-1
+    title: Bandai Namco Research Motion Dataset 1
+    creator: Bandai Namco Research Inc.
+    source_url: https://github.com/BandaiNamcoResearchInc/Bandai-Namco-Research-Motiondataset
+    licence: CC-BY-NC-4.0
+    licence_url: https://github.com/BandaiNamcoResearchInc/Bandai-Namco-Research-Motiondataset
+    attribution: "Motion: Bandai Namco Research Motion Dataset (CC BY-NC 4.0)"
+    attribution_required: true
+    redistribution: allowed-with-licence
+    commercial_use: non-commercial-only
+    format: bvh
+    intended_use: [non-commercial motion study]
+    fetch: {method: git, status: to-fetch}
+
+- id: game_icons_net
+  name: game-icons.net SVG icons (CC BY 3.0)
+  description: >-
+    Use when a thumbnail, caption, 'this vs that' board or game UI needs crisp single-colour SVG icons.
+    game-icons.net icons are CC BY 3.0 per author; this skill gives the exact credit line, scripted
+    download from GitHub, recolouring, and Godot/Blender import.
+  summary: Fetch game-icons.net SVGs from GitHub, recolour them, and credit each icon's author under CC BY 3.0.
+  tags: [icons, svg, cc-by, game-icons, thumbnails]
+  homepage: https://game-icons.net/about.html
+  licence_summary: "Icons are provided under Creative Commons BY 3.0; credit the original author, e.g. 'Icons made by {author}. Available on https://game-icons.net'."
+  licences:
+    - {id: CC-BY-3.0, url: "https://game-icons.net/about.html", applies_to: "all icons"}
+  attribution: {required: required, credit_template: "Icons made by {author}. Available on https://game-icons.net (CC BY 3.0)"}
+  redistribution: allowed-with-licence
+  commercial_use: allowed
+  ai_training: unspecified
+  automated_download: allowed
+  formats: [svg, png]
+  search:
+    - {label: "About and licence", url: "https://game-icons.net/about.html"}
+    - {label: "Source SVGs by author", url: "https://github.com/game-icons/icons"}
+    - {label: "Iconify browser for the set", url: "https://icon-sets.iconify.design/game-icons/"}
+  cautions:
+    - "Credit per author (the GitHub folder name), not just the site."
+    - "CC BY 3.0 forbids adding DRM that restricts the licence; fine for videos, check for locked platforms."
+  search_howto: |
+    Search on Iconify or the site, note the author, then download `https://raw.githubusercontent.com/game-icons/icons/master/<author>/<icon>.svg`
+    with the `media_pack_fetcher` module. Recolour by editing the SVG fill; keep the credit line.
+  godot: |
+    - SVGs import as textures (rasterised at import; set svg/scale for crisp large icons) with the `ui-lossless` preset.
+  blender: |
+    - File > Import > Scalable Vector Graphics, or render the PNG and use Images as Planes.
+  pitfalls:
+    - "A 'free icons' compilation that re-hosts game-icons without credit does not remove your duty to credit."
+  example_asset:
+    id: crossed-swords
+    title: Crossed swords icon
+    creator: Lorc
+    source_url: https://game-icons.net/about.html
+    download_url: https://raw.githubusercontent.com/game-icons/icons/master/lorc/crossed-swords.svg
+    licence: CC-BY-3.0
+    licence_url: https://creativecommons.org/licenses/by/3.0/deed.en
+    attribution: "Icon by Lorc. Available on https://game-icons.net (CC BY 3.0)"
+    attribution_required: true
+    redistribution: allowed-with-licence
+    format: svg
+    file_name: crossed-swords.svg
+    intended_use: [versus divider icon]
+    fetch: {method: direct, status: to-fetch}
+    import_hints: {godot: {importer: texture, preset: ui-lossless}, video: {role: icon}}
+
+- id: open_icon_sets_for_ui
+  name: Open UI icon sets (Lucide, Tabler, Phosphor, Material Symbols, Font Awesome Free)
+  description: >-
+    Use when captions, lower thirds, explainer diagrams or Godot UI need clean interface icons. Lucide
+    (ISC), Tabler (MIT), Phosphor (MIT) and Material Symbols (Apache-2.0) need no on-screen credit;
+    Font Awesome Free icons are CC BY 4.0. Covers choosing a set, fetching SVGs and keeping notices.
+  summary: Pick an open UI icon set by licence, fetch SVGs, and keep the right notices (none on screen for ISC/MIT/Apache, credit for Font Awesome).
+  tags: [icons, svg, ui, mit, isc, apache]
+  homepage: https://github.com/iconify/icon-sets
+  licence_summary: "Lucide ISC; Tabler Icons MIT; Phosphor MIT; Material Symbols/Icons Apache-2.0 (attribution appreciated, not required); Font Awesome Free icons CC BY 4.0, fonts OFL 1.1, code MIT. Iconify lists each set's licence."
+  licences:
+    - {id: ISC, url: "https://github.com/lucide-icons/lucide", applies_to: "Lucide"}
+    - {id: MIT, url: "https://github.com/tabler/tabler-icons", applies_to: "Tabler Icons"}
+    - {id: MIT, url: "https://github.com/phosphor-icons/core", applies_to: "Phosphor"}
+    - {id: Apache-2.0, url: "https://github.com/google/material-design-icons", applies_to: "Material Symbols and Icons"}
+    - {id: CC-BY-4.0, url: "https://fontawesome.com/license/free", applies_to: "Font Awesome Free icons"}
+  attribution: {required: per-asset, credit_template: "Icons: {set} ({licence})"}
+  redistribution: allowed-with-licence
+  commercial_use: allowed
+  ai_training: unspecified
+  automated_download: allowed
+  formats: [svg, png, woff2]
+  search:
+    - {label: "Iconify icon sets and licences", url: "https://github.com/iconify/icon-sets"}
+    - {label: "Lucide", url: "https://github.com/lucide-icons/lucide"}
+    - {label: "Tabler Icons", url: "https://github.com/tabler/tabler-icons"}
+    - {label: "Font Awesome Free licence", url: "https://fontawesome.com/license/free"}
+  cautions:
+    - "Keep the licence notice file when you redistribute icon files (MIT/ISC/Apache)."
+    - "Font Awesome Pro icons are not free; an SVG copied from the website may carry a Pro header."
+  search_howto: |
+    Choose one set per video for a consistent stroke width. Fetch SVGs from the set's GitHub repository (raw URLs) and
+    record the set and licence in the manifest; no on-screen credit is needed for ISC/MIT/Apache sets.
+  godot: |
+    - Import SVG with `ui-lossless` and a higher svg/scale for 4K-safe icons, or use Material Symbols as a font.
+  blender: |
+    - Import SVG as curves for extruded 3D icons (File > Import > Scalable Vector Graphics).
+  pitfalls:
+    - "Mixing outline and filled sets in one frame looks noisy; stay in one family."
+  example_asset:
+    id: tabler-check
+    title: Tabler check icon
+    creator: Tabler Icons
+    source_url: https://github.com/tabler/tabler-icons
+    licence: MIT
+    licence_url: https://github.com/tabler/tabler-icons
+    attribution: "Icons: Tabler Icons (MIT)"
+    attribution_required: false
+    redistribution: allowed-with-licence
+    format: svg
+    intended_use: [winner tick on a comparison board]
+    fetch: {method: manual-page, status: to-fetch}
+
+- id: open_emoji_sets
+  name: Open emoji artwork (Twemoji, Noto, OpenMoji, Fluent)
+  description: >-
+    Use when a caption or reaction overlay needs emoji drawn consistently on every platform. Twemoji
+    graphics are CC-BY 4.0, Noto Emoji images Apache-2.0 (fonts OFL), OpenMoji CC BY-SA 4.0 and
+    Microsoft Fluent Emoji MIT. Explains credits, share-alike and trademark limits.
+  summary: Choose an emoji artwork set by licence (Twemoji CC-BY, Noto Apache/OFL, OpenMoji BY-SA, Fluent MIT) and credit it correctly.
+  tags: [emoji, captions, cc-by, apache, overlays]
+  homepage: https://github.com/jdecked/twemoji
+  licence_summary: "Twemoji (jdecked fork): graphics CC-BY 4.0, code MIT. Noto Emoji: fonts OFL 1.1, images and tools Apache 2.0, flags public domain. OpenMoji: graphics CC BY-SA 4.0. Fluent UI Emoji: repository MIT."
+  licences:
+    - {id: CC-BY-4.0, url: "https://github.com/jdecked/twemoji", applies_to: "Twemoji graphics"}
+    - {id: Apache-2.0, url: "https://github.com/googlefonts/noto-emoji", applies_to: "Noto Emoji images"}
+    - {id: CC-BY-SA-4.0, url: "https://github.com/hfg-gmuend/openmoji", applies_to: "OpenMoji graphics"}
+    - {id: MIT, url: "https://github.com/microsoft/fluentui-emoji", applies_to: "Fluent UI Emoji"}
+  attribution: {required: per-asset, credit_template: "Emoji: {set} ({licence})"}
+  redistribution: allowed-with-licence
+  commercial_use: allowed
+  ai_training: unspecified
+  automated_download: allowed
+  formats: [svg, png]
+  search:
+    - {label: "Twemoji", url: "https://github.com/jdecked/twemoji"}
+    - {label: "Noto Emoji", url: "https://github.com/googlefonts/noto-emoji"}
+    - {label: "OpenMoji", url: "https://github.com/hfg-gmuend/openmoji"}
+    - {label: "Fluent UI Emoji", url: "https://github.com/microsoft/fluentui-emoji"}
+  cautions:
+    - "Emoji depicting brands or flags carry trademark/flag-use limits beyond the artwork licence."
+    - "OpenMoji is share-alike: modified emoji must stay CC BY-SA 4.0."
+  search_howto: |
+    Pick one set per channel for a consistent look; Twemoji credit can go in the description; Noto images need only the
+    Apache notice if you redistribute files.
+  godot: |
+    - Import SVG/PNG with `ui-lossless`; for text with emoji, use a colour emoji font as a fallback in the Theme.
+  blender: |
+    - Use PNG renders as Images as Planes for floating reaction stickers.
+  pitfalls:
+    - "Platform emoji (Apple, Samsung) are not openly licensed; never screenshot them for overlays."
+  example_asset:
+    id: twemoji-fire
+    title: Fire emoji (Twemoji)
+    creator: Twemoji contributors
+    source_url: https://github.com/jdecked/twemoji
+    licence: CC-BY-4.0
+    licence_url: https://creativecommons.org/licenses/by/4.0/deed.en
+    attribution: "Emoji graphics: Twemoji, CC-BY 4.0"
+    attribution_required: true
+    redistribution: allowed-with-licence
+    format: svg
+    intended_use: [reaction sticker overlay]
+    fetch: {method: manual-page, status: to-fetch}
+
+- id: google_fonts_for_video
+  name: Google Fonts and Kenney fonts for captions and titles (OFL, Apache, CC0)
+  description: >-
+    Use when picking caption, hook-title or pixel fonts for shorts and Godot UI. Most Google Fonts are
+    SIL OFL 1.1 (a few Apache-2.0), Kenney Fonts are CC0. Covers verifying a family's licence in the
+    google/fonts repo, what OFL allows in videos, and Godot/Blender font import.
+  summary: Choose OFL/Apache/CC0 caption and title fonts, verify each family's licence folder, and load them in Godot 4, Blender and FFmpeg.
+  tags: [fonts, ofl, captions, titles, pixel-fonts]
+  homepage: https://github.com/google/fonts
+  licence_summary: "google/fonts groups files by licence folder (ofl/, apache/, ufl/); most families are SIL OFL 1.1. OFL fonts may be embedded and redistributed with software but not sold alone; documents (and renders) made with them are not bound by the licence. Kenney Fonts are CC0."
+  licences:
+    - {id: OFL-1.1, url: "https://openfontlicense.org/open-font-license-official-text/", applies_to: "families in ofl/"}
+    - {id: Apache-2.0, url: "https://github.com/google/fonts/tree/main/apache", applies_to: "families in apache/ (e.g. Luckiest Guy)"}
+    - {id: CC0-1.0, url: "https://kenney.nl/assets/kenney-fonts", applies_to: "Kenney Fonts"}
+  attribution: {required: never, credit_template: "Font: {family} ({licence})"}
+  redistribution: allowed-with-licence
+  commercial_use: allowed
+  ai_training: unspecified
+  automated_download: allowed
+  formats: [ttf, otf, woff2]
+  search:
+    - {label: "google/fonts repository", url: "https://github.com/google/fonts"}
+    - {label: "Google Fonts FAQ", url: "https://developers.google.com/fonts/faq?tid=311165647"}
+    - {label: "Bebas Neue", url: "https://fonts.google.com/specimen/Bebas%2BNeue"}
+    - {label: "Montserrat licence tab", url: "https://fonts.google.com/specimen/Montserrat/license"}
+    - {label: "Press Start 2P", url: "https://fonts.google.com/specimen/Press+Start+2P"}
+    - {label: "Kenney Fonts", url: "https://kenney.nl/assets/kenney-fonts"}
+  cautions:
+    - "Never sell or bundle a font file alone; keep OFL.txt next to any redistributed font."
+    - "Check the folder: a family under apache/ is Apache-2.0, not OFL."
+  search_howto: |
+    Pick on fonts.google.com, then confirm the licence by finding the family folder in google/fonts (ofl/<family> with
+    OFL.txt, or apache/<family>). Bold condensed faces (Bebas Neue, Anton) suit hook titles; Montserrat, Poppins and
+    Inter suit one-line captions; Press Start 2P, Pixelify Sans, Silkscreen and VT323 suit pixel scenes.
+  godot: |
+    - Drop the TTF/OTF into the project; it imports as FontFile. For pixel fonts disable antialiasing and use
+      integer sizes (Press Start 2P works best at multiples of 8 px).
+  blender: |
+    - `bpy.data.fonts.load("/path/BebasNeue-Regular.ttf")`, then assign to a text object's data.font.
+  pitfalls:
+    - "Video tools that burn subtitles need the font installed or passed explicitly (FFmpeg subtitles filter fontsdir)."
+  example_asset:
+    id: bebas-neue
+    title: Bebas Neue Regular
+    creator: Ryoichi Tsunekawa
+    source_url: https://fonts.google.com/specimen/Bebas%2BNeue
+    licence: OFL-1.1
+    licence_url: https://github.com/google/fonts/tree/main/ofl/bebasneue
+    attribution: "Font: Bebas Neue by Ryoichi Tsunekawa (SIL OFL 1.1)"
+    attribution_required: false
+    redistribution: allowed-with-licence
+    format: ttf
+    intended_use: [bold hook title]
+    fetch: {method: manual-page, status: to-fetch}
+    import_hints: {godot: {importer: font}, video: {role: font}}
+
+- id: lospec_palettes
+  name: Lospec pixel-art palettes
+  description: >-
+    Use when a pixel-art scene, thumbnail or mixed asset kit needs one coherent palette. Lospec hosts
+    2,500+ palettes downloadable as HEX, GPL, PAL, ASE, TXT and PNG; pages credit an author but state no
+    licence. Covers choosing a palette, crediting its author and enforcing it with the quantiser module.
+  summary: Pick a Lospec palette, credit its author, and enforce it on mixed packs with the palette quantiser module.
+  tags: [palettes, pixel-art, lospec, style]
+  homepage: https://lospec.com/palette-list
+  licence_summary: "Palette pages name an author and offer downloads but state no licence. Credit the palette author by convention; the palette is a list of colours, the artwork you make with it is yours."
+  licences:
+    - {id: "No licence stated", url: "https://lospec.com/palette-list", applies_to: "palette pages"}
+  attribution: {required: optional, credit_template: "Palette: {palette} by {author} (lospec.com)"}
+  redistribution: per-asset
+  commercial_use: allowed
+  ai_training: unspecified
+  automated_download: unspecified
+  formats: [hex, gpl, pal, png, txt]
+  search:
+    - {label: "Palette list", url: "https://lospec.com/palette-list"}
+    - {label: "Endesga 32", url: "https://lospec.com/palette-list/endesga-32"}
+    - {label: "Resurrect 64", url: "https://lospec.com/palette-list/resurrect-64"}
+    - {label: "Sweetie 16", url: "https://lospec.com/palette-list/sweetie-16"}
+    - {label: "Lospec GB (4 colours)", url: "https://lospec.com/palette-list/lospec-gb"}
+  cautions:
+    - "No licence is stated: do not redistribute palette files as your own product; credit the author."
+  search_howto: |
+    Filter by colour count (4 for a handheld look, 16 or 32 for most kits). Download the .hex file and run
+    `lospec_palette_quantiser quantise art.png --palette endesga-32.hex --out art_e32.png`, then `check` every
+    exported frame so off-palette pixels from mixed packs are caught.
+  godot: |
+    - Keep palette-quantised textures lossless (`pixel-art-2d`); VRAM compression shifts colours off-palette.
+  blender: |
+    - Use the palette PNG as a 1-pixel-high gradient texture for flat-shaded low-poly materials.
+  pitfalls:
+    - "Dithering looks noisy when scaled for video; prefer no dither or Bayer 4x4 at low strength."
+  example_asset:
+    id: endesga-32
+    title: Endesga 32 palette
+    creator: ENDESGA
+    source_url: https://lospec.com/palette-list/endesga-32
+    licence: "No licence stated (credit author)"
+    licence_url: https://lospec.com/palette-list/endesga-32
+    attribution: "Palette: Endesga 32 by ENDESGA (lospec.com)"
+    attribution_required: false
+    redistribution: project-only
+    format: hex
+    intended_use: [palette for the whole pixel kit]
+    fetch: {method: manual-page, status: to-fetch}
+
+- id: lottiefiles_animations
+  name: LottieFiles free animations (Lottie Simple License)
+  description: >-
+    Use when a short needs vector motion overlays (confetti, arrows, icons, loaders) from LottieFiles.
+    Free animations use the Lottie Simple License: commercial use allowed, modifications stay under the
+    same licence, no compiling a competing library. Covers checks with the Lottie inspector and rendering.
+  summary: Use LottieFiles free animations under the Lottie Simple License, inspect them, and render them as video overlays.
+  tags: [lottie, motion, overlays, licensing]
+  homepage: https://lottiefiles.com/page/license
+  licence_summary: "Lottie Simple License: download, modify, publish and distribute public files including commercially; derivatives stay under the same licence; no collecting files to build a similar or competing service; attribution encouraged, not required. The help centre adds: do not resell or redistribute originals as standalone files."
+  licences:
+    - {id: Lottie-Simple-License, url: "https://lottiefiles.com/page/license", applies_to: "free public animations"}
+  attribution: {required: optional, credit_template: "Animation: \"{title}\" by {creator} on LottieFiles (Lottie Simple License)"}
+  redistribution: project-only
+  commercial_use: allowed
+  ai_training: unspecified
+  automated_download: forbidden
+  formats: [json-lottie, dotlottie]
+  search:
+    - {label: "Lottie Simple License", url: "https://lottiefiles.com/page/license"}
+    - {label: "Commercial use (help)", url: "https://help.lottiefiles.com/hc/en-us/articles/900002438343-Can-I-use-a-free-animation-on-Lottiefiles-for-commercial-business-use"}
+    - {label: "lottie-web player", url: "https://github.com/airbnb/lottie-web"}
+    - {label: "dotlottie-web player", url: "https://github.com/LottieFiles/dotlottie-web"}
+  cautions:
+    - "Do not bulk-collect LottieFiles animations into a library, package or service."
+    - "Creators can add restrictions on individual animations; read each page."
+  search_howto: |
+    Download the Lottie JSON or .lottie by hand, run `lottie_json_inspector anim.json --target 1080x1920`, and fix
+    anything it flags (external images, fonts, expressions) before rendering.
+  godot: |
+    - Godot's built-in vector support uses ThorVG for SVG; for Lottie, render frames to PNG (lottie-web in a headless
+      browser) and play them as a SpriteFrames animation, or use a maintained addon after checking its licence.
+  blender: |
+    - Render the Lottie to a PNG sequence and load it as an image sequence on a plane.
+  pitfalls:
+    - "Expressions and text layers often render differently across players; prefer shape-only animations."
+  example_asset:
+    id: lottie-confetti
+    title: Confetti burst (fill in)
+    creator: LottieFiles creator (fill in)
+    source_url: https://lottiefiles.com/page/license
+    licence: "Lottie Simple License"
+    licence_url: https://lottiefiles.com/page/license
+    attribution: "Animation by Creator on LottieFiles"
+    attribution_required: false
+    redistribution: project-only
+    format: json-lottie
+    intended_use: [celebration overlay at the reveal]
+    fetch: {method: manual-page, status: manual}
+    import_hints: {video: {role: overlay}}
+
+- id: rive_community_files
+  name: Rive community and marketplace files (CC BY)
+  description: >-
+    Use when an interactive or state-machine animation from the Rive community would fit a scene or UI.
+    Community and Marketplace files are shared under CC BY, so they need credit; runtimes are MIT.
+    Covers remixing, credit, exporting .riv and playing it on the web or rendering to video.
+  summary: Remix Rive community files under CC BY with credit, export .riv, and play or render them with the MIT runtimes.
+  tags: [rive, motion, cc-by, runtime]
+  homepage: https://rive.app/docs/community/community-overview
+  licence_summary: "Rive docs: community files and marketplace files are shared under a CC BY licence (record the version shown on the file page). The Rive runtimes (rive-runtime, rive-wasm) are MIT."
+  licences:
+    - {id: CC-BY, url: "https://rive.app/docs/community/community-overview", applies_to: "community files"}
+    - {id: MIT, url: "https://github.com/rive-app/rive-wasm", applies_to: "web runtime"}
+  attribution: {required: required, credit_template: "Animation: \"{title}\" by {creator}, Rive community (CC BY)"}
+  redistribution: allowed-with-licence
+  commercial_use: allowed
+  ai_training: unspecified
+  automated_download: unspecified
+  formats: [riv]
+  search:
+    - {label: "Community overview", url: "https://rive.app/docs/community/community-overview"}
+    - {label: "Marketplace overview", url: "https://www.rive.app/docs/community/marketplace-overview"}
+    - {label: "rive-wasm runtime", url: "https://github.com/rive-app/rive-wasm"}
+  cautions:
+    - "Credit the original author of every remixed file."
+  search_howto: |
+    Remix a community file into your account, adjust it, export .riv, and record the original author and URL in the manifest.
+  godot: |
+    - Render to a PNG sequence through the web runtime for video, or evaluate a maintained Godot Rive integration
+      (check its licence) for interactive use.
+  blender: |
+    - Use a rendered PNG sequence on a plane.
+  pitfalls:
+    - "The overview pages say 'CC BY' without a version; record what the file page states."
+  example_asset:
+    id: rive-button
+    title: Animated button (fill in)
+    creator: Rive community author (fill in)
+    source_url: https://rive.app/docs/community/community-overview
+    licence: "CC BY (version as shown on the file page)"
+    licence_url: https://rive.app/docs/community/community-overview
+    attribution: "Animation by Author, Rive community (CC BY)"
+    attribution_required: true
+    redistribution: allowed-with-licence
+    format: riv
+    intended_use: [animated call-to-action]
+    fetch: {method: manual-page, status: manual}
+
+- id: spine_and_dragonbones_runtimes
+  name: Skeletal 2D animation runtimes (Spine licence vs DragonBones MIT)
+  description: >-
+    Use before choosing a 2D skeletal animation format. Spine runtimes (including spine-godot) are
+    source-available but need a Spine Editor licence; DragonBones runtimes are MIT; Godot's own
+    Skeleton2D needs no runtime. Explains which to pick for redistributable projects and videos.
+  summary: Choose between Spine (licensed runtimes), DragonBones (MIT) and Godot Skeleton2D for 2D character animation.
+  tags: [spine, dragonbones, skeletal, 2d-animation, godot]
+  homepage: https://github.com/EsotericSoftware/spine-runtimes
+  licence_summary: "Spine Runtimes License: integrating the runtimes requires a valid Spine Editor licence (or every user needs one); the trial grants no runtime rights. DragonBonesJS is MIT."
+  licences:
+    - {id: Spine-Runtimes-License, url: "https://eu.esotericsoftware.com/spine-runtimes-license", applies_to: "Spine runtimes incl. spine-godot"}
+    - {id: MIT, url: "https://github.com/DragonBones/DragonBonesJS", applies_to: "DragonBones JS runtime"}
+  attribution: {required: never, credit_template: ""}
+  redistribution: per-asset
+  commercial_use: check-terms
+  ai_training: unspecified
+  automated_download: allowed
+  formats: [json, png]
+  search:
+    - {label: "Spine runtimes", url: "https://github.com/EsotericSoftware/spine-runtimes"}
+    - {label: "Spine Editor licence", url: "https://en.esotericsoftware.com/spine-editor-license"}
+    - {label: "DragonBonesJS", url: "https://github.com/DragonBones/DragonBonesJS"}
+  cautions:
+    - "Do not ship spine-godot in a public template unless you hold a Spine Editor licence and follow its terms."
+  search_howto: |
+    For agent-built shorts, prefer Godot Skeleton2D/Polygon2D rigs (no runtime licence) or pre-rendered frames.
+    Use Spine only when the team already owns Spine Editor licences.
+  godot: |
+    - Skeleton2D + Bone2D + Polygon2D with AnimationPlayer covers most cut-out characters without third-party runtimes.
+  blender: |
+    - Grease Pencil or cut-out rigs rendered to PNG sequences avoid runtime licensing entirely.
+  pitfalls:
+    - "Exported Spine JSON is your art, but the runtime that plays it is licensed separately."
+  example_asset:
+    id: cutout-rig
+    title: Cut-out character rig (original)
+    creator: Your team
+    source_url: https://github.com/DragonBones/DragonBonesJS
+    licence: "Original work"
+    licence_url: https://github.com/DragonBones/DragonBonesJS
+    attribution: ""
+    attribution_required: false
+    redistribution: allowed
+    format: png
+    intended_use: [Skeleton2D narrator]
+    fetch: {method: manual-page, status: manual}
+
+- id: godot_asset_store_and_library
+  name: Godot Asset Store and legacy Asset Library
+  description: >-
+    Use when a Godot 4 project needs an addon or a template project. The Asset Store (store.godotengine.org)
+    replaces the legacy Asset Library, which is being deprecated; each listing carries its own licence.
+    Covers searching, licence checks, the legacy REST API and installing safely.
+  summary: Find Godot addons and templates on the Asset Store or legacy Asset Library API, check each licence, and install safely.
+  tags: [godot, addons, templates, asset-store, api]
+  homepage: https://store.godotengine.org/
+  licence_summary: "Each asset declares its own licence (MIT is common). The Asset Store is the successor to the Asset Library; assets were not migrated automatically."
+  licences:
+    - {id: per-asset, url: "https://docs.godotengine.org/en/stable/community/asset_store/what_is_asset_store.html", applies_to: "each listing"}
+  attribution: {required: per-asset, credit_template: "{addon} by {author} ({licence})"}
+  redistribution: per-asset
+  commercial_use: per-asset
+  ai_training: per-asset
+  automated_download: allowed
+  formats: [zip]
+  search:
+    - {label: "Godot Asset Store", url: "https://store.godotengine.org/"}
+    - {label: "About the Asset Store (docs)", url: "https://docs.godotengine.org/en/stable/community/asset_store/what_is_asset_store.html"}
+    - {label: "Legacy Asset Library", url: "https://godotengine.org/asset-library/asset"}
+    - {label: "Legacy API reference (API.md)", url: "https://raw.githubusercontent.com/godotengine/godot-asset-library/master/API.md"}
+  api: {url: "https://raw.githubusercontent.com/godotengine/godot-asset-library/master/API.md", auth: none, notes: "GET /asset?type=any&godot_version=4.x&filter=...&max_results=50 ; GET /asset/{id}. Omitting godot_version lists only 2.1 assets."}
+  cautions:
+    - "Read an addon's code before enabling it: plugins run in the editor with full project access."
+    - "Templates are standalone projects; addons go into res://addons/."
+  search_howto: |
+    Search the store first; fall back to the legacy library API for older addons. Record the addon's repository URL,
+    licence and version in the manifest, and pin the version.
+  godot: |
+    - Install from the editor's Asset Store tab (Godot 4.7+) or unzip into `res://addons/<name>/` and enable in
+      Project Settings > Plugins.
+  blender: |
+    - Not applicable; for Blender add-ons use extensions.blender.org (not covered here).
+  pitfalls:
+    - "Addon licences differ from the assets they bundle; demo art inside an addon can be NC."
+  example_asset:
+    id: terrain3d
+    title: Terrain3D
+    creator: TokisanGames
+    source_url: https://github.com/TokisanGames/Terrain3D
+    licence: MIT
+    licence_url: https://github.com/TokisanGames/Terrain3D
+    attribution: "Terrain3D by TokisanGames (MIT)"
+    attribution_required: false
+    redistribution: allowed-with-licence
+    format: zip
+    intended_use: [editable farm terrain]
+    fetch: {method: manual-page, status: to-fetch}
+
+- id: godot_official_demos
+  name: Godot official demo projects and TPS demo
+  description: >-
+    Use when you need a working Godot 4 reference for a mechanic (2D/3D platformer, isometric sorting,
+    AStarGrid2D navigation, voxel terrain, RPG dialogue) to copy into a short's scene. Demo code is MIT;
+    some demos bundle CC-BY/CC-BY-SA art and music credited in their READMEs.
+  summary: Reuse Godot's MIT demo projects for mechanics while keeping each demo's bundled art and music credits.
+  tags: [godot, demos, mit, templates, reference]
+  homepage: https://github.com/godotengine/godot-demo-projects
+  licence_summary: "godot-demo-projects is MIT. Bundled third-party textures, fonts and music keep their own licences (e.g. the voxel demo's Minetest textures are CC BY-SA 3.0/CC0). The TPS demo's code is MIT and its assets and music CC-BY 3.0."
+  licences:
+    - {id: MIT, url: "https://github.com/godotengine/godot-demo-projects/blob/master/LICENSE.md", applies_to: "demo code"}
+    - {id: CC-BY-3.0, url: "https://raw.githubusercontent.com/godotengine/tps-demo/master/LICENSE.md", applies_to: "TPS demo assets and music"}
+  attribution: {required: per-asset, credit_template: "Based on Godot demo projects (MIT); assets per demo README"}
+  redistribution: allowed-with-licence
+  commercial_use: allowed
+  ai_training: unspecified
+  automated_download: allowed
+  formats: [tscn, gd, png, glb]
+  search:
+    - {label: "Demo repository", url: "https://github.com/godotengine/godot-demo-projects"}
+    - {label: "2D platformer", url: "https://github.com/godotengine/godot-demo-projects/tree/master/2d/platformer"}
+    - {label: "Isometric", url: "https://github.com/godotengine/godot-demo-projects/tree/master/2d/isometric"}
+    - {label: "AStarGrid2D navigation", url: "https://github.com/godotengine/godot-demo-projects/tree/master/2d/navigation_astar"}
+    - {label: "TPS demo", url: "https://github.com/godotengine/tps-demo"}
+  cautions:
+    - "Read each demo's README credits before reusing its art or music."
+  search_howto: |
+    Clone the repo (or sparse-checkout one folder), open the demo in the matching Godot version, and copy only the
+    scripts you need. Replace bundled art with CC0 kit art when the demo's art licence does not fit.
+  godot: |
+    - The 2D platformer demo's project settings (default_texture_filter=0, integer stretch scale) are the reference
+      pixel-art setup that the `godot_texture_import_presets` module writes.
+  blender: |
+    - Not applicable.
+  pitfalls:
+    - "Demos track the current stable Godot; older engine versions need the matching branch."
+  example_asset:
+    id: godot-navigation-astar
+    title: AStarGrid2D navigation demo
+    creator: Godot Engine contributors
+    source_url: https://github.com/godotengine/godot-demo-projects/tree/master/2d/navigation_astar
+    licence: MIT
+    licence_url: https://github.com/godotengine/godot-demo-projects/blob/master/LICENSE.md
+    attribution: "Based on the Godot AStarGrid2D demo (MIT)"
+    attribution_required: false
+    redistribution: allowed-with-licence
+    format: zip
+    intended_use: [maze pathfinding for the top-down maze kit]
+    fetch: {method: git, status: to-fetch}
+
+- id: gdquest_open_source_demos
+  name: GDQuest open-source Godot demos (MIT code, some NC art)
+  description: >-
+    Use when borrowing GDQuest's Godot 4 controllers, shaders or premade characters. Code is MIT, but
+    several art sets (godot-4-3D-Characters, third-person controller models) are CC-BY-NC-SA 4.0 and
+    cannot appear in monetised work. Explains reusing code while swapping art.
+  summary: Reuse GDQuest's MIT Godot code while treating its CC-BY-NC-SA 4.0 character art as non-commercial only.
+  tags: [godot, gdquest, mit, non-commercial, characters]
+  homepage: https://github.com/gdquest-demos
+  licence_summary: "GDQuest demo code is MIT. Art in godot-4-3D-Characters and godot-4-3d-third-person-controller is CC-BY-NC-SA 4.0 (non-commercial, share-alike, credit GDQuest)."
+  licences:
+    - {id: MIT, url: "https://github.com/gdquest-demos/godot-4-3d-third-person-controller", applies_to: "code"}
+    - {id: CC-BY-NC-SA-4.0, url: "https://raw.githubusercontent.com/gdquest-demos/godot-4-3D-Characters/main/LICENSE", applies_to: "3D character art"}
+  attribution: {required: per-asset, credit_template: "Character art by GDQuest (CC BY-NC-SA 4.0)"}
+  redistribution: per-asset
+  commercial_use: per-asset
+  ai_training: unspecified
+  automated_download: allowed
+  formats: [glb, gd, tscn]
+  search:
+    - {label: "GDQuest demos", url: "https://github.com/gdquest-demos"}
+    - {label: "Premade 3D characters", url: "https://github.com/gdquest-demos/godot-4-3D-Characters"}
+    - {label: "Third-person controller", url: "https://github.com/gdquest-demos/godot-4-3d-third-person-controller"}
+  cautions:
+    - "Do not use the GDQuest characters (Sophia, Gobot, GDbot ...) in monetised videos or commercial games."
+  search_howto: |
+    Copy controllers and scripts (MIT) into your project and swap the characters for CC0 Quaternius or KayKit models.
+  godot: |
+    - Retarget CC0 characters onto the controller's AnimationTree by matching animation names.
+  blender: |
+    - Not needed unless you rebuild characters.
+  pitfalls:
+    - "Third parties have asked about the art licence changing over time; read the LICENSE at the commit you use."
+  example_asset:
+    id: gdquest-controller-code
+    title: Third-person controller code
+    creator: GDQuest
+    source_url: https://github.com/gdquest-demos/godot-4-3d-third-person-controller
+    licence: MIT
+    licence_url: https://github.com/gdquest-demos/godot-4-3d-third-person-controller
+    attribution: "Controller code by GDQuest (MIT)"
+    attribution_required: false
+    redistribution: allowed-with-licence
+    format: zip
+    intended_use: [controller logic only, art replaced]
+    fetch: {method: git, status: to-fetch}
+
+- id: procedural_sfx_and_kenney_audio
+  name: Sound effects - Kenney CC0 audio and procedural generators (ZzFX, jsfxr, rFXGen)
+  description: >-
+    Use when a short or Godot scene needs clicks, pops, whooshes, coins or impacts. Start with Kenney's
+    CC0 audio packs, or synthesise original effects with ZzFX (MIT), jsfxr (Unlicense) or rFXGen (zlib)
+    so no third-party sample is involved. Covers recording parameters as provenance and import.
+  summary: Get UI and game sound effects from Kenney's CC0 packs or synthesise originals with ZzFX, jsfxr and rFXGen, recording provenance.
+  tags: [audio, sfx, cc0, procedural, kenney]
+  homepage: https://kenney.nl/assets/category:Audio
+  licence_summary: "Kenney audio packs are CC0. ZzFX is MIT, jsfxr Unlicense, rFXGen zlib/libpng, Bfxr Apache-2.0; those licences cover the tools, and the sounds you synthesise from your own parameters are your own work (record the parameters)."
+  licences:
+    - {id: CC0-1.0, url: "https://kenney.nl/support", applies_to: "Kenney audio packs"}
+    - {id: MIT, url: "https://github.com/KilledByAPixel/ZzFX", applies_to: "ZzFX"}
+    - {id: Unlicense, url: "https://github.com/chr15m/jsfxr", applies_to: "jsfxr"}
+    - {id: Zlib, url: "https://github.com/raysan5/rfxgen", applies_to: "rFXGen"}
+  attribution: {required: optional, credit_template: "Sound effects: Kenney (CC0) / generated with ZzFX"}
+  redistribution: allowed
+  commercial_use: allowed
+  ai_training: unspecified
+  automated_download: allowed
+  formats: [ogg, wav]
+  search:
+    - {label: "Kenney audio packs", url: "https://kenney.nl/assets/category:Audio"}
+    - {label: "Kenney Interface Sounds", url: "https://kenney.nl/assets/interface-sounds"}
+    - {label: "ZzFX", url: "https://github.com/KilledByAPixel/ZzFX"}
+    - {label: "rFXGen", url: "https://github.com/raysan5/rfxgen"}
+  cautions:
+    - "Keep the generator name and parameter array in the manifest so the effect can be regenerated."
+  search_howto: |
+    Use Kenney Interface Sounds for caption pops and UI clicks, RPG Audio for foley, Casino Audio for reveals.
+    For a unique sound, generate it (rFXGen CLI presets: coin, laser, explosion, powerup, hit, jump, blip) and save
+    the .rfx/parameter file next to the WAV.
+  godot: |
+    - WAV for short effects (import as AudioStreamWAV), OGG for loops (enable Loop); play via AudioStreamPlayer.
+  blender: |
+    - Add sounds as Sound strips in the Video Sequencer for animatics.
+  pitfalls:
+    - "Keep effects about 6-10 dB under narration peaks so captions stay audible."
+  example_asset:
+    id: kenney-interface-sounds
+    title: Interface Sounds
+    creator: Kenney
+    source_url: https://kenney.nl/assets/interface-sounds
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    attribution: "Interface Sounds by Kenney (kenney.nl), CC0"
+    attribution_required: false
+    redistribution: allowed
+    format: zip
+    intended_use: [caption pop and click sounds]
+    fetch: {method: manual-page, status: to-fetch}
+    import_hints: {video: {role: sfx}}
+
+- id: avatar_generators_for_faceless_video
+  name: Avatar generators for faceless narrators (DiceBear, Boring Avatars, Notion Avatar)
+  description: >-
+    Use when a faceless channel needs a consistent narrator or 'commenter' avatars without photos of real
+    people. DiceBear (MIT code, per-style artwork licences), Boring Avatars (MIT, abstract), and Notion
+    Avatar (MIT code, CC0 assets) generate SVG avatars deterministically. Warns about the NC xkcd font.
+  summary: Generate consistent SVG narrator avatars with DiceBear, Boring Avatars or Notion Avatar while respecting per-style licences.
+  tags: [avatars, faceless, svg, characters, cc0]
+  homepage: https://github.com/dicebear/dicebear
+  licence_summary: "DiceBear code is MIT and each avatar style keeps its creator's licence (many need attribution). Boring Avatars is MIT. Notion Avatar code is MIT and its assets CC0. The xkcd font (ipython/xkcd-font) is CC BY-NC 3.0 and not for monetised work."
+  licences:
+    - {id: MIT, url: "https://github.com/dicebear/dicebear", applies_to: "DiceBear code"}
+    - {id: MIT, url: "https://github.com/boringdesigners/boring-avatars", applies_to: "Boring Avatars"}
+    - {id: CC0-1.0, url: "https://github.com/Mayandev/notion-avatar", applies_to: "Notion Avatar assets"}
+  attribution: {required: per-asset, credit_template: "Avatar style \"{style}\" by {artist} via DiceBear ({licence})"}
+  redistribution: per-asset
+  commercial_use: per-asset
+  ai_training: unspecified
+  automated_download: allowed
+  formats: [svg, png]
+  search:
+    - {label: "DiceBear", url: "https://github.com/dicebear/dicebear"}
+    - {label: "Boring Avatars", url: "https://github.com/boringdesigners/boring-avatars"}
+    - {label: "Notion Avatar", url: "https://github.com/Mayandev/notion-avatar"}
+  cautions:
+    - "Check the licence of the specific DiceBear style before using it on screen."
+    - "Avoid the xkcd font for monetised stick-figure videos (CC BY-NC 3.0)."
+  search_howto: |
+    Seed avatars with a stable string (channel or character name) so they stay identical across videos; export SVG
+    and render to PNG at 4x for crisp scaling.
+  godot: |
+    - Import SVG with `ui-lossless` and a high svg/scale; animate with Tween (bob, blink by swapping frames).
+  blender: |
+    - Import SVG as curves for a 2.5D narrator card.
+  pitfalls:
+    - "Do not generate avatars that resemble real, identifiable people."
+  example_asset:
+    id: notion-narrator
+    title: Narrator avatar (Notion Avatar)
+    creator: Notion Avatar assets
+    source_url: https://github.com/Mayandev/notion-avatar
+    licence: CC0-1.0
+    licence_url: https://github.com/Mayandev/notion-avatar
+    attribution: "Narrator avatar made with Notion Avatar (assets CC0)"
+    attribution_required: false
+    redistribution: allowed
+    format: svg
+    intended_use: [faceless narrator portrait]
+    fetch: {method: manual-page, status: to-fetch}
+    import_hints: {godot: {importer: texture, preset: ui-lossless}, video: {role: character}}

@@ -1,0 +1,70 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "video_re_parameteriser",
+  "title": "Video RE parameteriser",
+  "kind": "subagent",
+  "subkind": "series-format",
+  "version": "1.0.0",
+  "summary": "Subagent that turns a lifted IR into a reusable format: typed parameters with evidence-justified ranges, procedural generation rules, a reproduction check and a short_video_spec render binding.",
+  "description": "Generalises concrete observations (for example 4 items of about 12 s) into parameters (n_items with a derived range) and rules (item_s = (target_duration_s - intro_s - outro_s) / n_items), checks that the rules reproduce the source when parameters take observed values, and marks every range wider than the evidence as assumed. Captures technique and structure only; never stores or reuses the source's footage, frames, music, voice or script text.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "design",
+    "build"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "rewrites format_ir.json and writes parameterise_report.json in the output directory"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "opencode",
+    "baltor-harness"
+  ],
+  "entry": "agent.md",
+  "tags": [
+    "video",
+    "reverse-engineering",
+    "video-re",
+    "swarm",
+    "parameteriser",
+    "procedural",
+    "format-ir",
+    "subagent"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "video_re_ir_parameterise"
+    },
+    {
+      "identity": "video_re_ir_validate"
+    },
+    {
+      "identity": "video_re_format_ir"
+    },
+    {
+      "identity": "short_video_spec"
+    },
+    {
+      "identity": "video_re_lifter"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_re_swarm.py",
+    "data": "generators/data/video_re_swarm"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

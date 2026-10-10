@@ -1,0 +1,12 @@
+{
+  "identity_inference": "none",
+  "samples": [
+    { "t_s": 0.0, "shot_index": 0, "present": true, "bbox": [150, 40, 82, 96], "area_ratio": 0.2135, "center_ratio": [0.7461, 0.6111], "delta_e": 41.2, "separation_z": 7.9 },
+    { "t_s": 0.5, "shot_index": 0, "present": true, "bbox": [148, 42, 84, 94], "area_ratio": 0.2142, "center_ratio": [0.7422, 0.6181], "delta_e": 40.6, "separation_z": 7.6 },
+    { "t_s": 1.0, "shot_index": 1, "present": false, "bbox": null, "area_ratio": null, "center_ratio": null, "delta_e": 9.1, "separation_z": 2.3 }
+  ],
+  "shots": [
+    { "shot_index": 0, "t_start_s": 0.0, "t_end_s": 1.0, "present_share": 1.0, "bbox": [149, 41, 83, 95], "bbox_ratio": [0.582, 0.2847, 0.3242, 0.6597], "area_ratio": 0.2139, "center_ratio": [0.7441, 0.6146], "framing": "right-third", "size_class": "medium", "separation_z": 7.75 },
+    { "shot_index": 1, "t_start_s": 1.0, "t_end_s": 1.5, "present_share": 0.0, "bbox": null, "bbox_ratio": null, "area_ratio": null, "center_ratio": null, "framing": null, "size_class": null, "separation_z": null }
+  ]
+}

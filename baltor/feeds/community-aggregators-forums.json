@@ -1,0 +1,567 @@
+{
+  "spec": "baltor.feed-collection/v1",
+  "id": "community-aggregators-forums",
+  "title": "Aggregators, research listings and official forums",
+  "description": "Hacker News, arXiv category listings, Discourse forums for Godot, Blender, Hugging Face and others, and the Kagi Small Web feed. Patterns (arXiv, Discourse, hnrss) come from each platform's documentation found in search results.",
+  "updated": "2026-10-10",
+  "tags": [
+    "community-sources",
+    "aggregators",
+    "forums",
+    "research",
+    "arxiv",
+    "hacker-news"
+  ],
+  "items": [
+    {
+      "id": "hacker-news-front-page",
+      "title": "Hacker News front page (official RSS)",
+      "url": "https://news.ycombinator.com/rss",
+      "kind": "service",
+      "summary": "Official RSS of the Hacker News front page.",
+      "verification": "search-result",
+      "licence": "Y Combinator / submitters' terms; linked articles keep their own rights",
+      "notes": "Consistently reported as the official front-page feed in search results.",
+      "tags": [
+        "hacker-news"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "hnrss-frontpage",
+      "title": "hnrss.org front page",
+      "url": "https://hnrss.org/frontpage",
+      "kind": "service",
+      "summary": "Community-run Hacker News feed service: front page with points and comment links.",
+      "verification": "search-result",
+      "licence": "Third-party service; HN content terms apply",
+      "notes": "hnrss.org is community-maintained, not run by Y Combinator.",
+      "tags": [
+        "hacker-news",
+        "third-party"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "hnrss-show",
+      "title": "hnrss.org Show HN",
+      "url": "https://hnrss.org/show",
+      "kind": "service",
+      "summary": "Show HN launches: new tools and projects, often agent and media tools.",
+      "verification": "search-result",
+      "licence": "Third-party service; HN content terms apply",
+      "tags": [
+        "hacker-news",
+        "launches",
+        "third-party"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "hnrss-newest-godot-blender",
+      "title": "hnrss.org keyword feed: Godot OR Blender",
+      "url": "https://hnrss.org/newest?q=godot+OR+blender",
+      "kind": "service",
+      "summary": "Newest HN submissions matching Godot or Blender; the q parameter takes OR-joined keywords, so the same pattern works for any watchlist topic.",
+      "verification": "search-result",
+      "licence": "Third-party service; HN content terms apply",
+      "notes": "Keyword pattern newest?q=KEYWORD1+OR+KEYWORD2 documented in search results.",
+      "tags": [
+        "hacker-news",
+        "keyword-feed",
+        "godot",
+        "blender"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "kagi-small-web-feed",
+      "title": "Kagi Small Web feed",
+      "url": "https://kagi.com/api/v1/smallweb/feed",
+      "kind": "service",
+      "summary": "Recent posts from personal blogs in the Kagi Small Web index.",
+      "verification": "search-result",
+      "licence": "Posts belong to their authors",
+      "notes": "URL published in the kagisearch/smallweb README (fetched from GitHub 2026-10-10).",
+      "tags": [
+        "blogs",
+        "discovery"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "kagi-small-web-opml",
+      "title": "Kagi Small Web OPML",
+      "url": "https://kagi.com/smallweb/opml",
+      "kind": "dataset",
+      "summary": "OPML of the sites behind the Kagi Small Web feed; import into a reader or filter by keyword.",
+      "verification": "search-result",
+      "licence": "Index list is MIT (kagisearch/smallweb); posts belong to their authors",
+      "notes": "URL published in the kagisearch/smallweb README (fetched from GitHub 2026-10-10).",
+      "tags": [
+        "blogs",
+        "opml",
+        "discovery"
+      ],
+      "verified_on": "2026-10-10"
+    },
+    {
+      "id": "arxiv-cs-ai",
+      "title": "arXiv cs.AI: Artificial Intelligence (daily listing)",
+      "url": "https://rss.arxiv.org/rss/cs.AI",
+      "summary": "New AI papers: agents, planning, reasoning.",
+      "kind": "paper",
+      "licence": "arXiv metadata; each paper has its own licence",
+      "licence_url": "https://info.arxiv.org/help/rss.html",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "arxiv",
+        "research",
+        "rss",
+        "ai",
+        "agents"
+      ],
+      "notes": "URL pattern from arXiv's official RSS help page (info.arxiv.org/help/rss.html), found in search results: append the category to https://rss.arxiv.org/rss/ (or /atom/); combine categories with '+'. Feeds update daily around midnight US Eastern, with no weekend announcements.",
+      "cautions": [
+        "Review arXiv's Terms of Use for APIs before automated use; poll once a day after the announcement, not more.",
+        "Listings are preprints, not peer-reviewed; check versions and licences (many are arXiv's non-exclusive licence, not CC) before reusing figures."
+      ]
+    },
+    {
+      "id": "arxiv-cs-cl",
+      "title": "arXiv cs.CL: Computation and Language (daily listing)",
+      "url": "https://rss.arxiv.org/rss/cs.CL",
+      "summary": "Language-model and NLP papers.",
+      "kind": "paper",
+      "licence": "arXiv metadata; each paper has its own licence",
+      "licence_url": "https://info.arxiv.org/help/rss.html",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "arxiv",
+        "research",
+        "rss",
+        "llm",
+        "nlp"
+      ],
+      "notes": "URL pattern from arXiv's official RSS help page (info.arxiv.org/help/rss.html), found in search results: append the category to https://rss.arxiv.org/rss/ (or /atom/); combine categories with '+'. Feeds update daily around midnight US Eastern, with no weekend announcements.",
+      "cautions": [
+        "Review arXiv's Terms of Use for APIs before automated use; poll once a day after the announcement, not more.",
+        "Listings are preprints, not peer-reviewed; check versions and licences (many are arXiv's non-exclusive licence, not CC) before reusing figures."
+      ]
+    },
+    {
+      "id": "arxiv-cs-lg",
+      "title": "arXiv cs.LG: Machine Learning (daily listing)",
+      "url": "https://rss.arxiv.org/rss/cs.LG",
+      "summary": "Machine-learning methods; very high volume.",
+      "kind": "paper",
+      "licence": "arXiv metadata; each paper has its own licence",
+      "licence_url": "https://info.arxiv.org/help/rss.html",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "arxiv",
+        "research",
+        "rss",
+        "ml"
+      ],
+      "notes": "URL pattern from arXiv's official RSS help page (info.arxiv.org/help/rss.html), found in search results: append the category to https://rss.arxiv.org/rss/ (or /atom/); combine categories with '+'. Feeds update daily around midnight US Eastern, with no weekend announcements.",
+      "cautions": [
+        "Review arXiv's Terms of Use for APIs before automated use; poll once a day after the announcement, not more.",
+        "Listings are preprints, not peer-reviewed; check versions and licences (many are arXiv's non-exclusive licence, not CC) before reusing figures."
+      ]
+    },
+    {
+      "id": "arxiv-cs-se",
+      "title": "arXiv cs.SE: Software Engineering (daily listing)",
+      "url": "https://rss.arxiv.org/rss/cs.SE",
+      "summary": "Papers on coding agents, program repair and code generation benchmarks.",
+      "kind": "paper",
+      "licence": "arXiv metadata; each paper has its own licence",
+      "licence_url": "https://info.arxiv.org/help/rss.html",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "arxiv",
+        "research",
+        "rss",
+        "coding-agents",
+        "software-engineering"
+      ],
+      "notes": "URL pattern from arXiv's official RSS help page (info.arxiv.org/help/rss.html), found in search results: append the category to https://rss.arxiv.org/rss/ (or /atom/); combine categories with '+'. Feeds update daily around midnight US Eastern, with no weekend announcements.",
+      "cautions": [
+        "Review arXiv's Terms of Use for APIs before automated use; poll once a day after the announcement, not more.",
+        "Listings are preprints, not peer-reviewed; check versions and licences (many are arXiv's non-exclusive licence, not CC) before reusing figures."
+      ]
+    },
+    {
+      "id": "arxiv-cs-ma",
+      "title": "arXiv cs.MA: Multiagent Systems (daily listing)",
+      "url": "https://rss.arxiv.org/rss/cs.MA",
+      "summary": "Multi-agent coordination and agent-system papers.",
+      "kind": "paper",
+      "licence": "arXiv metadata; each paper has its own licence",
+      "licence_url": "https://info.arxiv.org/help/rss.html",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "arxiv",
+        "research",
+        "rss",
+        "agents",
+        "multi-agent"
+      ],
+      "notes": "URL pattern from arXiv's official RSS help page (info.arxiv.org/help/rss.html), found in search results: append the category to https://rss.arxiv.org/rss/ (or /atom/); combine categories with '+'. Feeds update daily around midnight US Eastern, with no weekend announcements.",
+      "cautions": [
+        "Review arXiv's Terms of Use for APIs before automated use; poll once a day after the announcement, not more.",
+        "Listings are preprints, not peer-reviewed; check versions and licences (many are arXiv's non-exclusive licence, not CC) before reusing figures."
+      ]
+    },
+    {
+      "id": "arxiv-cs-cr",
+      "title": "arXiv cs.CR: Cryptography and Security (daily listing)",
+      "url": "https://rss.arxiv.org/rss/cs.CR",
+      "summary": "Security papers, including prompt injection and LLM security.",
+      "kind": "paper",
+      "licence": "arXiv metadata; each paper has its own licence",
+      "licence_url": "https://info.arxiv.org/help/rss.html",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "arxiv",
+        "research",
+        "rss",
+        "security"
+      ],
+      "notes": "URL pattern from arXiv's official RSS help page (info.arxiv.org/help/rss.html), found in search results: append the category to https://rss.arxiv.org/rss/ (or /atom/); combine categories with '+'. Feeds update daily around midnight US Eastern, with no weekend announcements.",
+      "cautions": [
+        "Review arXiv's Terms of Use for APIs before automated use; poll once a day after the announcement, not more.",
+        "Listings are preprints, not peer-reviewed; check versions and licences (many are arXiv's non-exclusive licence, not CC) before reusing figures."
+      ]
+    },
+    {
+      "id": "arxiv-cs-gr",
+      "title": "arXiv cs.GR: Graphics (daily listing)",
+      "url": "https://rss.arxiv.org/rss/cs.GR",
+      "summary": "Computer graphics: rendering, geometry, animation and 3D generation.",
+      "kind": "paper",
+      "licence": "arXiv metadata; each paper has its own licence",
+      "licence_url": "https://info.arxiv.org/help/rss.html",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "arxiv",
+        "research",
+        "rss",
+        "graphics",
+        "3d",
+        "animation"
+      ],
+      "notes": "URL pattern from arXiv's official RSS help page (info.arxiv.org/help/rss.html), found in search results: append the category to https://rss.arxiv.org/rss/ (or /atom/); combine categories with '+'. Feeds update daily around midnight US Eastern, with no weekend announcements.",
+      "cautions": [
+        "Review arXiv's Terms of Use for APIs before automated use; poll once a day after the announcement, not more.",
+        "Listings are preprints, not peer-reviewed; check versions and licences (many are arXiv's non-exclusive licence, not CC) before reusing figures."
+      ]
+    },
+    {
+      "id": "arxiv-cs-cv",
+      "title": "arXiv cs.CV: Computer Vision and Pattern Recognition (daily listing)",
+      "url": "https://rss.arxiv.org/rss/cs.CV",
+      "summary": "Vision papers including video and 3D generation; very high volume.",
+      "kind": "paper",
+      "licence": "arXiv metadata; each paper has its own licence",
+      "licence_url": "https://info.arxiv.org/help/rss.html",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "arxiv",
+        "research",
+        "rss",
+        "vision",
+        "video-generation"
+      ],
+      "notes": "URL pattern from arXiv's official RSS help page (info.arxiv.org/help/rss.html), found in search results: append the category to https://rss.arxiv.org/rss/ (or /atom/); combine categories with '+'. Feeds update daily around midnight US Eastern, with no weekend announcements.",
+      "cautions": [
+        "Review arXiv's Terms of Use for APIs before automated use; poll once a day after the announcement, not more.",
+        "Listings are preprints, not peer-reviewed; check versions and licences (many are arXiv's non-exclusive licence, not CC) before reusing figures."
+      ]
+    },
+    {
+      "id": "arxiv-cs-sd",
+      "title": "arXiv cs.SD: Sound (daily listing)",
+      "url": "https://rss.arxiv.org/rss/cs.SD",
+      "summary": "Sound and music computing, including TTS and music generation.",
+      "kind": "paper",
+      "licence": "arXiv metadata; each paper has its own licence",
+      "licence_url": "https://info.arxiv.org/help/rss.html",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "arxiv",
+        "research",
+        "rss",
+        "audio",
+        "tts",
+        "music"
+      ],
+      "notes": "URL pattern from arXiv's official RSS help page (info.arxiv.org/help/rss.html), found in search results: append the category to https://rss.arxiv.org/rss/ (or /atom/); combine categories with '+'. Feeds update daily around midnight US Eastern, with no weekend announcements.",
+      "cautions": [
+        "Review arXiv's Terms of Use for APIs before automated use; poll once a day after the announcement, not more.",
+        "Listings are preprints, not peer-reviewed; check versions and licences (many are arXiv's non-exclusive licence, not CC) before reusing figures."
+      ]
+    },
+    {
+      "id": "arxiv-eess-as",
+      "title": "arXiv eess.AS: Audio and Speech Processing (daily listing)",
+      "url": "https://rss.arxiv.org/rss/eess.AS",
+      "summary": "Speech synthesis, recognition and audio processing.",
+      "kind": "paper",
+      "licence": "arXiv metadata; each paper has its own licence",
+      "licence_url": "https://info.arxiv.org/help/rss.html",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "arxiv",
+        "research",
+        "rss",
+        "audio",
+        "speech",
+        "tts"
+      ],
+      "notes": "URL pattern from arXiv's official RSS help page (info.arxiv.org/help/rss.html), found in search results: append the category to https://rss.arxiv.org/rss/ (or /atom/); combine categories with '+'. Feeds update daily around midnight US Eastern, with no weekend announcements.",
+      "cautions": [
+        "Review arXiv's Terms of Use for APIs before automated use; poll once a day after the announcement, not more.",
+        "Listings are preprints, not peer-reviewed; check versions and licences (many are arXiv's non-exclusive licence, not CC) before reusing figures."
+      ]
+    },
+    {
+      "id": "arxiv-cs-mm",
+      "title": "arXiv cs.MM: Multimedia (daily listing)",
+      "url": "https://rss.arxiv.org/rss/cs.MM",
+      "summary": "Multimedia systems and video understanding.",
+      "kind": "paper",
+      "licence": "arXiv metadata; each paper has its own licence",
+      "licence_url": "https://info.arxiv.org/help/rss.html",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "arxiv",
+        "research",
+        "rss",
+        "multimedia",
+        "video"
+      ],
+      "notes": "URL pattern from arXiv's official RSS help page (info.arxiv.org/help/rss.html), found in search results: append the category to https://rss.arxiv.org/rss/ (or /atom/); combine categories with '+'. Feeds update daily around midnight US Eastern, with no weekend announcements.",
+      "cautions": [
+        "Review arXiv's Terms of Use for APIs before automated use; poll once a day after the announcement, not more.",
+        "Listings are preprints, not peer-reviewed; check versions and licences (many are arXiv's non-exclusive licence, not CC) before reusing figures."
+      ]
+    },
+    {
+      "id": "arxiv-cs-hc",
+      "title": "arXiv cs.HC: Human-Computer Interaction (daily listing)",
+      "url": "https://rss.arxiv.org/rss/cs.HC",
+      "summary": "HCI papers on interfaces, creators and human-AI interaction.",
+      "kind": "paper",
+      "licence": "arXiv metadata; each paper has its own licence",
+      "licence_url": "https://info.arxiv.org/help/rss.html",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "arxiv",
+        "research",
+        "rss",
+        "hci"
+      ],
+      "notes": "URL pattern from arXiv's official RSS help page (info.arxiv.org/help/rss.html), found in search results: append the category to https://rss.arxiv.org/rss/ (or /atom/); combine categories with '+'. Feeds update daily around midnight US Eastern, with no weekend announcements.",
+      "cautions": [
+        "Review arXiv's Terms of Use for APIs before automated use; poll once a day after the announcement, not more.",
+        "Listings are preprints, not peer-reviewed; check versions and licences (many are arXiv's non-exclusive licence, not CC) before reusing figures."
+      ]
+    },
+    {
+      "id": "forum-forum-godotengine-org",
+      "title": "Godot Forum: latest topics",
+      "url": "https://forum.godotengine.org/latest.rss",
+      "summary": "Official Godot community forum: help threads, add-on announcements and engine discussion.",
+      "kind": "service",
+      "licence": "Posts belong to their authors; forum terms apply",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "forum",
+        "discourse",
+        "rss",
+        "godot"
+      ],
+      "notes": "Host runs Discourse (topic URLs of the form /t/<slug>/<id> appeared in search results). /latest.rss lists topics by latest reply; /top.rss, /hot.rss and /c/<slug>/<id>.rss also exist, per Discourse's 'Finding Discourse RSS feeds' guide on meta.discourse.org.",
+      "cautions": [
+        "Forum posts belong to their authors; link and summarise, do not republish."
+      ]
+    },
+    {
+      "id": "forum-blenderartists-org",
+      "title": "Blender Artists: latest topics",
+      "url": "https://blenderartists.org/latest.rss",
+      "summary": "Long-running Blender community forum: add-ons, artwork and help.",
+      "kind": "service",
+      "licence": "Posts belong to their authors; forum terms apply",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "forum",
+        "discourse",
+        "rss",
+        "blender"
+      ],
+      "notes": "Host runs Discourse (topic URLs of the form /t/<slug>/<id> appeared in search results). /latest.rss lists topics by latest reply; /top.rss, /hot.rss and /c/<slug>/<id>.rss also exist, per Discourse's 'Finding Discourse RSS feeds' guide on meta.discourse.org.",
+      "cautions": [
+        "Forum posts belong to their authors; link and summarise, do not republish."
+      ]
+    },
+    {
+      "id": "forum-devtalk-blender-org",
+      "title": "Blender Developer Talk: latest topics",
+      "url": "https://devtalk.blender.org/latest.rss",
+      "summary": "Blender developers' forum: feature design, module meetings and add-on API changes.",
+      "kind": "service",
+      "licence": "Posts belong to their authors; forum terms apply",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "forum",
+        "discourse",
+        "rss",
+        "blender",
+        "development"
+      ],
+      "notes": "Host runs Discourse (topic URLs of the form /t/<slug>/<id> appeared in search results). /latest.rss lists topics by latest reply; /top.rss, /hot.rss and /c/<slug>/<id>.rss also exist, per Discourse's 'Finding Discourse RSS feeds' guide on meta.discourse.org.",
+      "cautions": [
+        "Forum posts belong to their authors; link and summarise, do not republish."
+      ]
+    },
+    {
+      "id": "forum-discuss-huggingface-co",
+      "title": "Hugging Face Forums: latest topics",
+      "url": "https://discuss.huggingface.co/latest.rss",
+      "summary": "Hugging Face community forum: models, datasets, Spaces and libraries.",
+      "kind": "service",
+      "licence": "Posts belong to their authors; forum terms apply",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "forum",
+        "discourse",
+        "rss",
+        "huggingface"
+      ],
+      "notes": "Host runs Discourse (topic URLs of the form /t/<slug>/<id> appeared in search results). /latest.rss lists topics by latest reply; /top.rss, /hot.rss and /c/<slug>/<id>.rss also exist, per Discourse's 'Finding Discourse RSS feeds' guide on meta.discourse.org.",
+      "cautions": [
+        "Forum posts belong to their authors; link and summarise, do not republish."
+      ]
+    },
+    {
+      "id": "forum-community-openhab-org",
+      "title": "openHAB Community: latest topics",
+      "url": "https://community.openhab.org/latest.rss",
+      "summary": "openHAB home-automation forum.",
+      "kind": "service",
+      "licence": "Posts belong to their authors; forum terms apply",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "forum",
+        "discourse",
+        "rss",
+        "home-automation"
+      ],
+      "notes": "Host runs Discourse (topic URLs of the form /t/<slug>/<id> appeared in search results). /latest.rss lists topics by latest reply; /top.rss, /hot.rss and /c/<slug>/<id>.rss also exist, per Discourse's 'Finding Discourse RSS feeds' guide on meta.discourse.org.",
+      "cautions": [
+        "Forum posts belong to their authors; link and summarise, do not republish."
+      ]
+    },
+    {
+      "id": "forum-discourse-threejs-org",
+      "title": "three.js Forum: latest topics",
+      "url": "https://discourse.threejs.org/latest.rss",
+      "summary": "three.js community forum: web 3D questions and showcases.",
+      "kind": "service",
+      "licence": "Posts belong to their authors; forum terms apply",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "forum",
+        "discourse",
+        "rss",
+        "3d",
+        "web"
+      ],
+      "notes": "Host runs Discourse (topic URLs of the form /t/<slug>/<id> appeared in search results). /latest.rss lists topics by latest reply; /top.rss, /hot.rss and /c/<slug>/<id>.rss also exist, per Discourse's 'Finding Discourse RSS feeds' guide on meta.discourse.org.",
+      "cautions": [
+        "Forum posts belong to their authors; link and summarise, do not republish."
+      ]
+    },
+    {
+      "id": "forum-forum-gdevelop-io",
+      "title": "GDevelop Forum: latest topics",
+      "url": "https://forum.gdevelop.io/latest.rss",
+      "summary": "GDevelop no-code game engine forum.",
+      "kind": "service",
+      "licence": "Posts belong to their authors; forum terms apply",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "forum",
+        "discourse",
+        "rss",
+        "gamedev"
+      ],
+      "notes": "Host runs Discourse (topic URLs of the form /t/<slug>/<id> appeared in search results). /latest.rss lists topics by latest reply; /top.rss, /hot.rss and /c/<slug>/<id>.rss also exist, per Discourse's 'Finding Discourse RSS feeds' guide on meta.discourse.org.",
+      "cautions": [
+        "Forum posts belong to their authors; link and summarise, do not republish."
+      ]
+    },
+    {
+      "id": "forum-discourse-processing-org",
+      "title": "Processing Forum: latest topics",
+      "url": "https://discourse.processing.org/latest.rss",
+      "summary": "Processing and p5.js creative-coding forum.",
+      "kind": "service",
+      "licence": "Posts belong to their authors; forum terms apply",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "forum",
+        "discourse",
+        "rss",
+        "creative-coding"
+      ],
+      "notes": "Host runs Discourse (topic URLs of the form /t/<slug>/<id> appeared in search results). /latest.rss lists topics by latest reply; /top.rss, /hot.rss and /c/<slug>/<id>.rss also exist, per Discourse's 'Finding Discourse RSS feeds' guide on meta.discourse.org.",
+      "cautions": [
+        "Forum posts belong to their authors; link and summarise, do not republish."
+      ]
+    },
+    {
+      "id": "forum-meta-discourse-org",
+      "title": "Discourse Meta: latest topics",
+      "url": "https://meta.discourse.org/latest.rss",
+      "summary": "Discourse's own community: platform changes that affect every forum feed above.",
+      "kind": "service",
+      "licence": "Posts belong to their authors; forum terms apply",
+      "verified_on": "2026-10-10",
+      "verification": "search-result",
+      "tags": [
+        "forum",
+        "discourse",
+        "rss",
+        "platform"
+      ],
+      "notes": "Host runs Discourse (topic URLs of the form /t/<slug>/<id> appeared in search results). /latest.rss lists topics by latest reply; /top.rss, /hot.rss and /c/<slug>/<id>.rss also exist, per Discourse's 'Finding Discourse RSS feeds' guide on meta.discourse.org.",
+      "cautions": [
+        "Forum posts belong to their authors; link and summarise, do not republish."
+      ]
+    }
+  ]
+}

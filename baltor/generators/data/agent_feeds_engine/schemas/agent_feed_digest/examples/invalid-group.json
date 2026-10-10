@@ -1,0 +1,83 @@
+{
+  "spec": "baltor.agent-feed-digest/v1",
+  "project": "ai-video-pipeline",
+  "generated": "2026-10-10T12:00:00Z",
+  "since_cursor": "seq:120",
+  "next_cursor": "seq:164",
+  "watchlist": ".baltor/feeds/watchlist.json",
+  "min_score": 30,
+  "counts": {
+    "breaking": 1,
+    "deprecation": 0,
+    "security": 1,
+    "new_capability": 0,
+    "total": 2,
+    "considered": 44
+  },
+  "groups": {
+    "breaking": [
+      {
+        "item_id": "afi_aa11bb22cc33dd44ee55",
+        "title": "example-cli v3.0.0",
+        "url": "https://github.com/example-org/example-cli/releases/tag/v3.0.0",
+        "group": "breaking",
+        "published": "2026-10-09T19:28:59Z",
+        "source_id": "github-example-cli",
+        "vendor": "example-org",
+        "products": [
+          "example-cli"
+        ],
+        "versions": [
+          "3.0.0"
+        ],
+        "change_types": [
+          "release",
+          "breaking-change"
+        ],
+        "severity": null,
+        "cve_ids": [],
+        "score": 70,
+        "reasons": [
+          "product example-cli is on the watchlist",
+          "marked breaking-change"
+        ],
+        "affected": "unknown",
+        "suggested_action": "Read the migration notes before upgrading example-cli to 3.0.0; pin the current major until then."
+      }
+    ],
+    "deprecation": [],
+    "security": [
+      {
+        "item_id": "afi_0f1e2d3c4b5a69788796",
+        "title": "GHSA-aaaa-bbbb-cccc: examplelib leaks Proxy-Authorization headers on redirect",
+        "url": "https://osv.dev/vulnerability/GHSA-aaaa-bbbb-cccc",
+        "group": "urgent",
+        "published": "2026-10-08T18:00:00Z",
+        "source_id": "osv-pypi",
+        "vendor": null,
+        "products": [
+          "examplelib"
+        ],
+        "versions": [],
+        "change_types": [
+          "security"
+        ],
+        "severity": "medium",
+        "cve_ids": [
+          "CVE-2099-0100"
+        ],
+        "score": 95,
+        "reasons": [
+          "examplelib==2.30.0 (requirements.txt) is inside the affected range >=2.3.0,<2.31.0; fixed in 2.31.0"
+        ],
+        "affected": "yes",
+        "suggested_action": "Upgrade examplelib to 2.31.0 or later (requirements.txt pins 2.30.0).",
+        "also_reported_by": [
+          "pypi-examplelib"
+        ]
+      }
+    ],
+    "new_capability": [],
+    "fyi": []
+  }
+}

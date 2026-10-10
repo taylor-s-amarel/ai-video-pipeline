@@ -1,0 +1,175 @@
+{
+ "heading": "Story quality comes before production scale",
+ "anchor": "story-quality-comes-before-production-scale",
+ "line": 77,
+ "boxed_in_lesson": {
+  "line": 79,
+  "anchor": "the-lesson-from-boxed-in",
+  "paragraphs": [
+   "A modest task can support excellent comedy, but it needs character behavior, surprising decisions, escalating consequences, and a satisfying reversal. Repeated unsuccessful attempts are not automatically an arc. Extending one small joke with polished textures and technically correct falls can make its thinness more obvious. The latest correction therefore changes the admission gate for a new film: evaluate the topic and storyboard before spending time on a full render.",
+   "The rejected film still demonstrates a complete 108-second pipeline, cardboard cutaway design, an authored character, narration and score, and a tested three-prop physics sequence. Preserve those reusable techniques without inheriting its premise as the standard for future stories. Do not rename a revised obstacle, swap the prop, and call the same repetition a new story."
+  ]
+ },
+ "story_contract": {
+  "line": 85,
+  "anchor": "a-useful-story-contract",
+  "intro": "Write these sentences before drawing shots:",
+  "sentences": [
+   {
+    "key": "want",
+    "label": "Want",
+    "question": "What does the protagonist actively want before the film ends?"
+   },
+   {
+    "key": "stakes",
+    "label": "Stakes",
+    "question": "What visibly changes if they fail, and why should this particular character care?"
+   },
+   {
+    "key": "constraint",
+    "label": "Constraint",
+    "question": "What prevents the obvious solution? Establish it early enough to feel fair."
+   },
+   {
+    "key": "choice",
+    "label": "Choice",
+    "question": "What does the character do that causes the next complication?"
+   },
+   {
+    "key": "escalation",
+    "label": "Escalation",
+    "question": "How does each attempt change the situation rather than reset it?"
+   },
+   {
+    "key": "knowledge",
+    "label": "Knowledge",
+    "question": "What does the viewer know, what does the character know, and what is still uncertain?"
+   },
+   {
+    "key": "plant",
+    "label": "Plant",
+    "question": "Which visible detail will matter later? The viewer must have a fair chance to notice it."
+   },
+   {
+    "key": "reversal",
+    "label": "Reversal",
+    "question": "How does the final action use established information in a surprising way?"
+   },
+   {
+    "key": "consequence",
+    "label": "Consequence",
+    "question": "What final image shows that the character or situation has changed?"
+   }
+  ],
+  "after": [
+   "Not every story needs a moral, a villain, dialogue, or a countdown. Small personal stakes can work if the want and cost are clear. A lesson tacked onto the ending cannot replace causality. Suspense comes from uncertainty with understandable consequences, not merely dark music or a slowly opening door."
+  ]
+ },
+ "comedy_mechanisms": {
+  "heading": "Comedy mechanisms to develop",
+  "anchor": "comedy-mechanisms-to-develop",
+  "line": 101,
+  "columns": [
+   "Mechanism",
+   "How to make it playable",
+   "Failure to reject"
+  ],
+  "keys": [
+   "mechanism",
+   "how_to_make_it_playable",
+   "failure_to_reject"
+  ],
+  "intro": [],
+  "after": [],
+  "records": [
+   {
+    "mechanism": "Status reversal",
+    "how_to_make_it_playable": "Establish who seems in control, then let their own choice reverse it",
+    "failure_to_reject": "An unexplained stronger character solves everything"
+   },
+   {
+    "mechanism": "Dramatic irony",
+    "how_to_make_it_playable": "Show the audience a clue the character misses; let behavior build the gap",
+    "failure_to_reject": "Concealing the only useful clue until the last frame"
+   },
+   {
+    "mechanism": "Overcomplicated solution",
+    "how_to_make_it_playable": "Each unnecessary improvement creates a new cost with visual consequences",
+    "failure_to_reject": "Three versions of the same failed push"
+   },
+   {
+    "mechanism": "Literal interpretation",
+    "how_to_make_it_playable": "Define an instruction clearly, then exploit a coherent second meaning",
+    "failure_to_reject": "Wordplay that the image cannot support"
+   },
+   {
+    "mechanism": "Opposed goals",
+    "how_to_make_it_playable": "Two characters pursue understandable incompatible goals in one space",
+    "failure_to_reject": "One character exists only to be arbitrarily foolish"
+   },
+   {
+    "mechanism": "Contagious solution",
+    "how_to_make_it_playable": "A local fix spreads into a larger problem",
+    "failure_to_reject": "Random chaos without object or causal continuity"
+   },
+   {
+    "mechanism": "Competent improvisation",
+    "how_to_make_it_playable": "A resourceful solution works, but changes the original objective",
+    "failure_to_reject": "Failure after failure with no learning or agency"
+   },
+   {
+    "mechanism": "Delayed consequence",
+    "how_to_make_it_playable": "A seemingly minor early action returns at the worst possible moment",
+    "failure_to_reject": "A new hazard appears with no plant"
+   },
+   {
+    "mechanism": "Scale mismatch",
+    "how_to_make_it_playable": "Ordinary objects become meaningful obstacles at a miniature scale",
+    "failure_to_reject": "Size changes between shots to force a gag"
+   },
+   {
+    "mechanism": "Quiet button",
+    "how_to_make_it_playable": "After a decisive climax, a short secondary beat reframes the result",
+    "failure_to_reject": "A long explanation after the joke already landed"
+   }
+  ]
+ },
+ "suspense": {
+  "line": 116,
+  "anchor": "suspense-without-empty-delay",
+  "paragraphs": [
+   "Give the viewer a concrete question: whether a delivery will arrive before the bridge folds, whether a decoy will fool the wrong pursuer, or whether two characters realize they are solving opposite halves of the same problem. Show what success and failure look like. Alternate action with short opportunities to understand new information. Narrow the available choices as the film proceeds.",
+   "A time limit should change decisions. A clock that never affects behavior is decoration. An apparent escape should expose a meaningful cost or reveal a new relationship. Keep geography legible; uncertainty about what happens next is useful, confusion about where everyone stands usually is not. Let sound anticipate a threat only when the source and payoff make sense."
+  ]
+ },
+ "storyboard_gate": {
+  "line": 122,
+  "anchor": "storyboard-gate-before-a-full-render",
+  "intro": [
+   "Create a compact board with a shot image or clear composition description, duration estimate, action, new information, character decision, dialogue or sound, and the story reason for the cut. Then challenge it:"
+  ],
+  "questions": [
+   "Can the opening promise be understood without an explanatory paragraph?",
+   "Does something consequential happen before the viewer has merely watched a character travel?",
+   "Can every middle beat be connected by “because” or “therefore,” rather than only “and then”?",
+   "Does each attempt change the options, risk, relationship, or knowledge?",
+   "Is there a fair plant for the solution and a reason the character did not use it immediately?",
+   "Does the ending resolve the question raised at the beginning?",
+   "Is at least one surprise specific to this premise rather than a generic stumble or shrug?",
+   "Would removing a shot improve the film? Remove or rewrite shots with no new action, information, emotion, or rhythm.",
+   "Does the premise sustain the intended duration? Shorten it or deepen the conflict rather than adding filler.",
+   "Is the intended reaction evidenced by review, or merely hoped for? Keep that distinction visible."
+  ],
+  "after": [
+   "A table read, silent animatic, or owner storyboard choice can prevent a wasted full render. These are proposed review methods, not proof that a fresh audience has approved a premise. For the current direction, a stronger storyboard should be evaluated before another substantial film render."
+  ]
+ },
+ "longer_film_structure": {
+  "line": 139,
+  "anchor": "a-flexible-longer-film-structure",
+  "paragraphs": [
+   "For a proposed 90–120-second film, start with a strong event in the opening seconds, establish the want and constraint, give the protagonist a plausible first choice, let that choice worsen or transform the situation, introduce a reversal, and leave enough time for a legible climax and a concise aftermath. Do not treat these as mandatory equal-length segments.",
+   "An illustrative 108-second allocation is 0–5 seconds for the hook, 5–15 for the stakes and geography, 15–35 for the first consequential attempt, 35–60 for escalation and new information, 60–82 for reversal and commitment, 82–102 for the decisive action, and 102–108 for the final button. This is a writing scaffold, not an empirically optimized retention formula. A factual reconstruction may use different timings because evidence and explanation determine its structure."
+  ]
+ }
+}

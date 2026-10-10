@@ -1,0 +1,769 @@
+[
+  {
+    "id": "AVQ-017-001",
+    "domain_id": "D017",
+    "area": "pacing and holds",
+    "question": "Does the opening hold let a first-time viewer locate the subject before the first important action begins?",
+    "failure_hypothesis": "Action starts before visual orientation completes.",
+    "check_or_fix": "Test an unbriefed first viewing and move the action after orientation.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "storyboard",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7160,
+    "passes": [
+      "default_32",
+      "performance_motion",
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-017-002",
+    "domain_id": "D017",
+    "area": "pacing and holds",
+    "question": "Is the last readable frame of the problem held long enough to inspect every required condition?",
+    "failure_hypothesis": "The question disappears before its constraints can be read.",
+    "check_or_fix": "Measure actual reading completion and extend the fully resolved problem frame.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "puzzle",
+      "educational"
+    ],
+    "source_line": 7162,
+    "passes": [
+      "performance_motion",
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-017-003",
+    "domain_id": "D017",
+    "area": "pacing and holds",
+    "question": "Does the pause before a character's choice occur after the audience has seen what each option costs?",
+    "failure_hypothesis": "Suspense precedes information needed to care about the choice.",
+    "check_or_fix": "Move the pause after the cost-establishing shots.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7164,
+    "passes": [
+      "performance_motion",
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-017-004",
+    "domain_id": "D017",
+    "area": "pacing and holds",
+    "question": "Does a reveal remain visible long enough for viewers to connect it back to the earlier clue?",
+    "failure_hypothesis": "The edit leaves before recognition catches up.",
+    "check_or_fix": "Compare immediate and slightly longer reveal holds with new viewers.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "puzzle",
+      "fiction"
+    ],
+    "source_line": 7166,
+    "passes": [
+      "performance_motion",
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-017-005",
+    "domain_id": "D017",
+    "area": "pacing and holds",
+    "question": "Are repeated demonstration cycles still adding information after the audience understands the pattern?",
+    "failure_hypothesis": "Identical cycles consume runtime without advancing understanding.",
+    "check_or_fix": "Remove one repetition and test whether the inference still holds.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7168,
+    "passes": [
+      "performance_motion",
+      "story_edit",
+      "longer_cardboard_32"
+    ]
+  },
+  {
+    "id": "AVQ-017-006",
+    "domain_id": "D017",
+    "area": "pacing and holds",
+    "question": "Does the montage accelerate before any individual example becomes too brief to identify?",
+    "failure_hypothesis": "Escalating shot speed erases the examples it is meant to summarize.",
+    "check_or_fix": "Find the shortest reliably identified shot and retime the montage around it.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7170,
+    "passes": [
+      "performance_motion",
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-017-007",
+    "domain_id": "D017",
+    "area": "pacing and holds",
+    "question": "Can viewers finish looking from a label to the object it names before the label changes?",
+    "failure_hypothesis": "Label turnover is faster than the required eye movement.",
+    "check_or_fix": "Hold each label across a complete label-to-object inspection.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "educational",
+      "typographic"
+    ],
+    "source_line": 7172,
+    "passes": [
+      "performance_motion",
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-017-008",
+    "domain_id": "D017",
+    "area": "pacing and holds",
+    "question": "Does a quiet reaction beat expose a new emotion rather than merely freezing the same pose?",
+    "failure_hypothesis": "A nominal pause provides no evolving performance to watch.",
+    "check_or_fix": "Add a motivated reaction change or shorten the hold.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "storyboard",
+      "animatic",
+      "production",
+      "edit"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7174,
+    "passes": [
+      "performance_motion",
+      "story_edit"
+    ]
+  },
+  {
+    "id": "AVQ-017-009",
+    "domain_id": "D017",
+    "area": "pacing and holds",
+    "question": "Is the explanation allowed a processing pause after its hardest inference rather than only between sentences?",
+    "failure_hypothesis": "Evenly spaced pauses ignore where cognitive effort peaks.",
+    "check_or_fix": "Ask viewers to explain each inference and insert space at the bottleneck.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7176,
+    "passes": []
+  },
+  {
+    "id": "AVQ-017-010",
+    "domain_id": "D017",
+    "area": "pacing and holds",
+    "question": "Does the countdown begin only when the complete puzzle is available for inspection?",
+    "failure_hypothesis": "Intro animation silently consumes the promised solving time.",
+    "check_or_fix": "Start the timer at the first fully inspectable puzzle frame.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "puzzle"
+    ],
+    "source_line": 7178,
+    "passes": []
+  },
+  {
+    "id": "AVQ-017-011",
+    "domain_id": "D017",
+    "area": "pacing and holds",
+    "question": "Is the apparent urgency appropriate to the task, especially when correct action requires careful checking?",
+    "failure_hypothesis": "Fast cutting rewards hurried decisions in a deliberate procedure.",
+    "check_or_fix": "Repace the sequence around the actual checking steps.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7180,
+    "passes": []
+  },
+  {
+    "id": "AVQ-017-012",
+    "domain_id": "D017",
+    "area": "pacing and holds",
+    "question": "Does slowing a shot preserve readable movement rather than expose an unintentional freeze or cadence break?",
+    "failure_hypothesis": "Excessive retiming makes the intended continuous action look stalled.",
+    "check_or_fix": "Inspect frame progression and choose an intentional slow-motion treatment.",
+    "severity": "medium",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7182,
+    "passes": []
+  },
+  {
+    "id": "AVQ-017-013",
+    "domain_id": "D017",
+    "area": "pacing and holds",
+    "question": "Can the audience predict the destination before a long camera move finishes, making its remaining travel expendable?",
+    "failure_hypothesis": "Camera transit continues after its information has been delivered.",
+    "check_or_fix": "Trim redundant travel while retaining spatial orientation.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7184,
+    "passes": []
+  },
+  {
+    "id": "AVQ-017-014",
+    "domain_id": "D017",
+    "area": "pacing and holds",
+    "question": "Does each new section begin before the previous conclusion has had time to register?",
+    "failure_hypothesis": "Back-to-back chapter changes overwrite the preceding takeaway.",
+    "check_or_fix": "Add a short resolved beat or simplify the next opening.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7186,
+    "passes": []
+  },
+  {
+    "id": "AVQ-017-015",
+    "domain_id": "D017",
+    "area": "pacing and holds",
+    "question": "Does the final message survive a platform loop without being interrupted by the opening?",
+    "failure_hypothesis": "Loop restart truncates the audience's last reading or emotional beat.",
+    "check_or_fix": "Watch repeated playback and extend or restructure the endpoint.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "edit",
+      "final-encode",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7188,
+    "passes": []
+  },
+  {
+    "id": "AVQ-017-016",
+    "domain_id": "D017",
+    "area": "pacing and holds",
+    "question": "Is the longest static hold placed where viewers have something meaningful to examine?",
+    "failure_hypothesis": "Runtime is allocated to an already exhausted image.",
+    "check_or_fix": "Reassign hold time to a denser evidence or reaction shot.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "storyboard",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7190,
+    "passes": [
+      "longer_cardboard_32"
+    ]
+  },
+  {
+    "id": "AVQ-017-017",
+    "domain_id": "D017",
+    "area": "pacing and holds",
+    "question": "When two facts arrive together, is there enough time to compare them rather than merely notice both?",
+    "failure_hypothesis": "Side-by-side evidence is displayed for recognition time, not comparison time.",
+    "check_or_fix": "Test the stated comparison question and extend the shared interval.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7192,
+    "passes": []
+  },
+  {
+    "id": "AVQ-017-018",
+    "domain_id": "D017",
+    "area": "pacing and holds",
+    "question": "Does a joke leave space for the audience's laugh without hiding the next essential line?",
+    "failure_hypothesis": "The next information beat lands during the likely reaction.",
+    "check_or_fix": "Listen with viewers and delay or simplify the following line.",
+    "severity": "medium",
+    "modes": [
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7194,
+    "passes": []
+  },
+  {
+    "id": "AVQ-017-019",
+    "domain_id": "D017",
+    "area": "pacing and holds",
+    "question": "Is the pacing difference between anticipation, impact, and recovery perceptible at ordinary playback speed?",
+    "failure_hypothesis": "Uniform timing flattens the action into a mechanical sequence.",
+    "check_or_fix": "Contrast the three phases in the animatic and retime selectively.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "production",
+      "edit"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7196,
+    "passes": []
+  },
+  {
+    "id": "AVQ-017-020",
+    "domain_id": "D017",
+    "area": "pacing and holds",
+    "question": "Does a duration target force deletion of the only shot that explains a causal step?",
+    "failure_hypothesis": "Runtime compliance is achieved by removing necessary reasoning.",
+    "check_or_fix": "Preserve the causal shot and cut lower-value repetition instead.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "educational",
+      "fiction"
+    ],
+    "source_line": 7198,
+    "passes": []
+  },
+  {
+    "id": "AVQ-017-021",
+    "domain_id": "D017",
+    "area": "pacing and holds",
+    "question": "Do viewers mistake an intentional contemplative hold for a stalled player?",
+    "failure_hypothesis": "The held image provides no cue that the film is still progressing.",
+    "check_or_fix": "Test the hold cold and add subtle meaningful progression if needed.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7200,
+    "passes": []
+  },
+  {
+    "id": "AVQ-017-022",
+    "domain_id": "D017",
+    "area": "pacing and holds",
+    "question": "Does narration continue asking viewers to absorb facts while the image demands intensive visual search?",
+    "failure_hypothesis": "Reading, listening, and searching compete for the same interval.",
+    "check_or_fix": "Separate the search window from new spoken instruction.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "auditory",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "puzzle",
+      "educational"
+    ],
+    "source_line": 7202,
+    "passes": []
+  },
+  {
+    "id": "AVQ-017-023",
+    "domain_id": "D017",
+    "area": "pacing and holds",
+    "question": "Are crossfades stealing useful exposure from shots already near the minimum readable duration?",
+    "failure_hypothesis": "Most of a short shot is spent in a blended, ambiguous state.",
+    "check_or_fix": "Measure fully settled exposure and shorten dissolves or extend shots.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7204,
+    "passes": []
+  },
+  {
+    "id": "AVQ-017-024",
+    "domain_id": "D017",
+    "area": "pacing and holds",
+    "question": "Does a build-up repeat the same emotional intensity until the climax has nowhere to go?",
+    "failure_hypothesis": "Constant maximum energy removes escalation and contrast.",
+    "check_or_fix": "Chart perceived intensity and create a lower-energy baseline.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "fiction"
+    ],
+    "source_line": 7206,
+    "passes": []
+  },
+  {
+    "id": "AVQ-017-025",
+    "domain_id": "D017",
+    "area": "pacing and holds",
+    "question": "Is the live demonstration's waiting time honestly represented when it is compressed?",
+    "failure_hypothesis": "A brisk cut makes a slow real-world step look instantaneous.",
+    "check_or_fix": "Mark elapsed time or retain a representative waiting cue.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "edit"
+    ],
+    "style_filters": [
+      "educational",
+      "live-action",
+      "screen-recording"
+    ],
+    "source_line": 7208,
+    "passes": []
+  },
+  {
+    "id": "AVQ-017-026",
+    "domain_id": "D017",
+    "area": "pacing and holds",
+    "question": "Does the video give the viewer a moment to answer a direct question before answering it itself?",
+    "failure_hypothesis": "A rhetorical prompt masquerades as a genuine participation opportunity.",
+    "check_or_fix": "Time an unbriefed response and delay the answer accordingly.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "educational",
+      "puzzle"
+    ],
+    "source_line": 7210,
+    "passes": []
+  },
+  {
+    "id": "AVQ-017-027",
+    "domain_id": "D017",
+    "area": "pacing and holds",
+    "question": "Does the hold on an error last so long that viewers encode it as the recommended behavior?",
+    "failure_hypothesis": "Incorrect content receives more emphasis than its correction.",
+    "check_or_fix": "Label the error immediately and give the correction a clear settled beat.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7212,
+    "passes": []
+  },
+  {
+    "id": "AVQ-017-028",
+    "domain_id": "D017",
+    "area": "pacing and holds",
+    "question": "Is a fast action replayed only after viewers understand why they are watching it again?",
+    "failure_hypothesis": "Repetition arrives without a new observation goal.",
+    "check_or_fix": "Introduce the detail to watch before the replay.",
+    "severity": "medium",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7214,
+    "passes": []
+  },
+  {
+    "id": "AVQ-017-029",
+    "domain_id": "D017",
+    "area": "pacing and holds",
+    "question": "Can a viewer who blinks during the decisive event recover its meaning from the surrounding shots?",
+    "failure_hypothesis": "Essential information exists in a single unreinforced instant.",
+    "check_or_fix": "Preserve consequence or add a motivated replay without spoiling surprise.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7216,
+    "passes": []
+  },
+  {
+    "id": "AVQ-017-030",
+    "domain_id": "D017",
+    "area": "pacing and holds",
+    "question": "Does the closing credit or logo hold disproportionately dilute a very short film's useful runtime?",
+    "failure_hypothesis": "Branding consumes the resolution interval and weakens the ending.",
+    "check_or_fix": "Compare completion and recall with a shorter credit treatment.",
+    "severity": "low",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "edit",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7218,
+    "passes": []
+  },
+  {
+    "id": "AVQ-017-031",
+    "domain_id": "D017",
+    "area": "pacing and holds",
+    "question": "Are beat lengths varied because of content, rather than because every scene was generated from one duration template?",
+    "failure_hypothesis": "Template timing forces different cognitive tasks into identical slots.",
+    "check_or_fix": "Assign duration from each shot's action and reading demand.",
+    "severity": "medium",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "storyboard",
+      "animatic",
+      "edit"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7220,
+    "passes": []
+  },
+  {
+    "id": "AVQ-017-032",
+    "domain_id": "D017",
+    "area": "pacing and holds",
+    "question": "Does the final export preserve the approved pause lengths after frame-rate conversion or speed conforming?",
+    "failure_hypothesis": "A technical conform changes the timing decisions already reviewed.",
+    "check_or_fix": "Compare landmark timestamps between approved reference and delivered encode.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "final-encode",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7222,
+    "passes": []
+  }
+]

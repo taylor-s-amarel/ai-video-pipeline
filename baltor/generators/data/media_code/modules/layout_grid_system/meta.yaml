@@ -1,0 +1,6 @@
+title: Layout grid system
+summary: Column and baseline grid for video frames (margins, gutters, baseline unit) that places titles, photos and captions by column span and rows, with snapping and guide output.
+subkind: grid-system
+domain: video
+tags: [video, layout, grid, typography, design]
+step_kinds: [design, build]

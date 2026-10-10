@@ -1,0 +1,6 @@
+title: CMX3600 EDL writer
+summary: Writes and reads CMX3600 edit decision lists (reels, tracks, cuts and dissolves, source and record timecodes, drop-frame aware, clip-name comments) for handing cuts to editors.
+subkind: render-recipe
+domain: video
+tags: [video, edl, cmx3600, editing, timecode, interchange]
+step_kinds: [render, publish]

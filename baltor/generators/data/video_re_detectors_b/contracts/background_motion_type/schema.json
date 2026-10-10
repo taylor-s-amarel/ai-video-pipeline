@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/video-re-contract-background-motion-type",
+  "title": "Background motion type payload",
+  "description": "Payload of video_re_detect_background_motion_type: per shot, whether the picture is static, a still moved by pan/zoom (Ken Burns), rendered procedural motion, camera footage, or footage that loops, with the measurements behind the call.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["shots", "type_counts"],
+  "$defs": {
+    "num": { "type": ["number", "null"] },
+    "unit": { "type": ["number", "null"], "minimum": 0, "maximum": 1 }
+  },
+  "properties": {
+    "shots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["shot_index", "t_start_s", "t_end_s", "type", "confidence", "raw_frame_diff", "residual_after_compensation", "rigid_share", "pan_fw_per_s", "zoom_per_s", "hf_energy_fraction", "palette_concentration", "loops", "loop_period_s", "pairs_used"],
+        "properties": {
+          "shot_index": { "type": "integer", "minimum": 0 },
+          "t_start_s": { "type": "number", "minimum": 0 },
+          "t_end_s": { "type": "number", "minimum": 0 },
+          "type": { "enum": ["static", "still_pan_zoom", "procedural", "video", "video_loop", "unknown"] },
+          "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+          "raw_frame_diff": { "$ref": "#/$defs/num", "description": "median mean abs grey difference between consecutive frames (0-255)" },
+          "residual_after_compensation": { "$ref": "#/$defs/num", "description": "same after warping by the fitted pan/zoom" },
+          "rigid_share": { "$ref": "#/$defs/unit", "description": "share of textured blocks that follow one similarity motion" },
+          "pan_fw_per_s": { "type": ["array", "null"], "items": { "type": "number" }, "minItems": 2, "maxItems": 2, "description": "content motion in frame widths/heights per second" },
+          "zoom_per_s": { "$ref": "#/$defs/num", "description": "natural-log scale change per second, positive = zoom in" },
+          "hf_energy_fraction": { "$ref": "#/$defs/unit", "description": "share of spatial power above 0.03 cycles/px in a middle frame" },
+          "palette_concentration": { "$ref": "#/$defs/unit", "description": "share of pixels in the 8 most common 4-bit colours" },
+          "loops": { "type": "boolean" },
+          "loop_period_s": { "type": ["number", "null"], "exclusiveMinimum": 0 },
+          "pairs_used": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "type_counts": {
+      "type": "object",
+      "propertyNames": { "enum": ["static", "still_pan_zoom", "procedural", "video", "video_loop", "unknown"] },
+      "additionalProperties": { "type": "integer", "minimum": 0 }
+    }
+  }
+}

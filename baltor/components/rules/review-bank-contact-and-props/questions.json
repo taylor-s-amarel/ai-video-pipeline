@@ -1,0 +1,737 @@
+[
+  {
+    "id": "AVQ-006-001",
+    "domain_id": "D006",
+    "area": "contact and props",
+    "question": "Do planted feet remain fixed against the ground during a hold?",
+    "failure_hypothesis": "Root movement causes visible foot sliding.",
+    "check_or_fix": "Track sole contact points across the hold.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6434,
+    "passes": [
+      "visual_depth_contact",
+      "performance_motion"
+    ]
+  },
+  {
+    "id": "AVQ-006-002",
+    "domain_id": "D006",
+    "area": "contact and props",
+    "question": "Does the hand meet the prop before the prop moves?",
+    "failure_hypothesis": "The object responds before physical contact.",
+    "check_or_fix": "Inspect approach and first-motion frames.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6436,
+    "passes": [
+      "default_32",
+      "visual_depth_contact",
+      "performance_motion",
+      "longer_cardboard_32"
+    ]
+  },
+  {
+    "id": "AVQ-006-003",
+    "domain_id": "D006",
+    "area": "contact and props",
+    "question": "Does the grip maintain a consistent attachment point?",
+    "failure_hypothesis": "Held prop drifts through the palm.",
+    "check_or_fix": "Track local hand-prop offsets through motion.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6438,
+    "passes": [
+      "visual_depth_contact",
+      "performance_motion",
+      "longer_cardboard_32"
+    ]
+  },
+  {
+    "id": "AVQ-006-004",
+    "domain_id": "D006",
+    "area": "contact and props",
+    "question": "Is the prop released before its independent trajectory begins?",
+    "failure_hypothesis": "Constraint persists into the throw.",
+    "check_or_fix": "Inspect release frame and neighboring transforms.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6440,
+    "passes": [
+      "visual_depth_contact",
+      "performance_motion",
+      "longer_cardboard_32"
+    ]
+  },
+  {
+    "id": "AVQ-006-005",
+    "domain_id": "D006",
+    "area": "contact and props",
+    "question": "Does a receiving hand close around the arriving object?",
+    "failure_hypothesis": "Handoff looks like a teleport between owners.",
+    "check_or_fix": "Animate contact, grip and release in order.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6442,
+    "passes": [
+      "visual_depth_contact",
+      "performance_motion",
+      "longer_cardboard_32"
+    ]
+  },
+  {
+    "id": "AVQ-006-006",
+    "domain_id": "D006",
+    "area": "contact and props",
+    "question": "Are fingertips penetrating rigid surfaces visibly?",
+    "failure_hypothesis": "Contact solver places anatomy inside the prop.",
+    "check_or_fix": "Inspect close contact frames and adjust offsets.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6444,
+    "passes": [
+      "visual_depth_contact",
+      "performance_motion"
+    ]
+  },
+  {
+    "id": "AVQ-006-007",
+    "domain_id": "D006",
+    "area": "contact and props",
+    "question": "Does a carried object rotate plausibly with the wrist?",
+    "failure_hypothesis": "Prop orientation is detached from the grip.",
+    "check_or_fix": "Compare wrist and object rotations across the carry.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6446,
+    "passes": [
+      "visual_depth_contact",
+      "performance_motion"
+    ]
+  },
+  {
+    "id": "AVQ-006-008",
+    "domain_id": "D006",
+    "area": "contact and props",
+    "question": "Is the object's center of mass supported by the grasp?",
+    "failure_hypothesis": "Heavy prop hangs from an implausible pinch.",
+    "check_or_fix": "Change grip, support or stylized weight cues.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6448,
+    "passes": [
+      "visual_depth_contact",
+      "performance_motion"
+    ]
+  },
+  {
+    "id": "AVQ-006-009",
+    "domain_id": "D006",
+    "area": "contact and props",
+    "question": "Does the character react to the load being picked up?",
+    "failure_hypothesis": "Object weight has no effect on posture.",
+    "check_or_fix": "Add anticipatory brace and weight transfer.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6450,
+    "passes": []
+  },
+  {
+    "id": "AVQ-006-010",
+    "domain_id": "D006",
+    "area": "contact and props",
+    "question": "Are both feet actually supported on a narrow platform?",
+    "failure_hypothesis": "Pose places a sole beyond the supporting edge.",
+    "check_or_fix": "Check contact regions from the final camera and geometry.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6452,
+    "passes": []
+  },
+  {
+    "id": "AVQ-006-011",
+    "domain_id": "D006",
+    "area": "contact and props",
+    "question": "Does a prop preserve its dimensions while changing owners?",
+    "failure_hypothesis": "Scaling hides an awkward handoff.",
+    "check_or_fix": "Compare object bounds before and after transfer.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6454,
+    "passes": []
+  },
+  {
+    "id": "AVQ-006-012",
+    "domain_id": "D006",
+    "area": "contact and props",
+    "question": "Is a resting object tangent to rather than floating above its surface?",
+    "failure_hypothesis": "Grounding gap makes the prop hover.",
+    "check_or_fix": "Inspect contact shadow and geometric gap.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6456,
+    "passes": []
+  },
+  {
+    "id": "AVQ-006-013",
+    "domain_id": "D006",
+    "area": "contact and props",
+    "question": "Does a rolling object rotate at a plausible travel rate?",
+    "failure_hypothesis": "Translation and rotation contradict contact.",
+    "check_or_fix": "Compare circumference travel with angular rotation.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6458,
+    "passes": []
+  },
+  {
+    "id": "AVQ-006-014",
+    "domain_id": "D006",
+    "area": "contact and props",
+    "question": "Do dragged objects leave their contact point on the surface?",
+    "failure_hypothesis": "Drag path passes through or above the floor.",
+    "check_or_fix": "Project the path onto the intended support plane.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6460,
+    "passes": []
+  },
+  {
+    "id": "AVQ-006-015",
+    "domain_id": "D006",
+    "area": "contact and props",
+    "question": "Does a hinged prop rotate around its visible hinge?",
+    "failure_hypothesis": "Door or sign pivots around an arbitrary center.",
+    "check_or_fix": "Mark hinge position and inspect rotation arcs.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6462,
+    "passes": []
+  },
+  {
+    "id": "AVQ-006-016",
+    "domain_id": "D006",
+    "area": "contact and props",
+    "question": "Does a mouth-held object align with the actual mouth?",
+    "failure_hypothesis": "Prop floats beside the face.",
+    "check_or_fix": "Track mouth anchor and occlusion ordering.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6464,
+    "passes": []
+  },
+  {
+    "id": "AVQ-006-017",
+    "domain_id": "D006",
+    "area": "contact and props",
+    "question": "Are duplicated props tracked as distinct persistent objects?",
+    "failure_hypothesis": "A single item becomes several during crowd action.",
+    "check_or_fix": "Audit ownership and object-ID transitions.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6466,
+    "passes": []
+  },
+  {
+    "id": "AVQ-006-018",
+    "domain_id": "D006",
+    "area": "contact and props",
+    "question": "Does the original important prop remain identifiable among copies?",
+    "failure_hypothesis": "Payoff loses the object it was built around.",
+    "check_or_fix": "Preserve a distinctive feature and ownership trace.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6468,
+    "passes": []
+  },
+  {
+    "id": "AVQ-006-019",
+    "domain_id": "D006",
+    "area": "contact and props",
+    "question": "Is a pocketed object visibly stowed rather than simply removed?",
+    "failure_hypothesis": "Disappearance breaks continuity.",
+    "check_or_fix": "Stage the insertion or show an unambiguous occlusion.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6470,
+    "passes": []
+  },
+  {
+    "id": "AVQ-006-020",
+    "domain_id": "D006",
+    "area": "contact and props",
+    "question": "Does a prop's shadow move with its actual position?",
+    "failure_hypothesis": "Shadow remains behind after pickup.",
+    "check_or_fix": "Bind shadow behavior to the same object state.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6472,
+    "passes": []
+  },
+  {
+    "id": "AVQ-006-021",
+    "domain_id": "D006",
+    "area": "contact and props",
+    "question": "Are handles and grip surfaces facing the usable direction?",
+    "failure_hypothesis": "Characters hold inaccessible parts of tools.",
+    "check_or_fix": "Check affordances against the intended use.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6474,
+    "passes": [
+      "longer_cardboard_32"
+    ]
+  },
+  {
+    "id": "AVQ-006-022",
+    "domain_id": "D006",
+    "area": "contact and props",
+    "question": "Does a flexible prop bend where force is applied?",
+    "failure_hypothesis": "Deformation originates away from the contact.",
+    "check_or_fix": "Align bend region with grip and resistance.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6476,
+    "passes": []
+  },
+  {
+    "id": "AVQ-006-023",
+    "domain_id": "D006",
+    "area": "contact and props",
+    "question": "Are surface contacts maintained during camera movement?",
+    "failure_hypothesis": "Screen-space fixes fail when the view changes.",
+    "check_or_fix": "Recheck contacts from all used cameras.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6478,
+    "passes": []
+  },
+  {
+    "id": "AVQ-006-024",
+    "domain_id": "D006",
+    "area": "contact and props",
+    "question": "Does a stack of props have believable support relationships?",
+    "failure_hypothesis": "Upper items balance on empty space.",
+    "check_or_fix": "Audit support polygons and overlap.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6480,
+    "passes": []
+  },
+  {
+    "id": "AVQ-006-025",
+    "domain_id": "D006",
+    "area": "contact and props",
+    "question": "Does collision response occur at the visible impact moment?",
+    "failure_hypothesis": "Reaction begins before or after contact.",
+    "check_or_fix": "Compare impact frame to motion and sound onset.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6482,
+    "passes": []
+  },
+  {
+    "id": "AVQ-006-026",
+    "domain_id": "D006",
+    "area": "contact and props",
+    "question": "Can viewers see that the character still owns the key item?",
+    "failure_hypothesis": "Important possession is hidden for too long.",
+    "check_or_fix": "Show a clear possession cue before the payoff.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6484,
+    "passes": []
+  },
+  {
+    "id": "AVQ-006-027",
+    "domain_id": "D006",
+    "area": "contact and props",
+    "question": "Does the prop intersect costume or anatomy during turns?",
+    "failure_hypothesis": "Attachment works only in the front view.",
+    "check_or_fix": "Inspect full turn silhouettes and internal overlaps.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6486,
+    "passes": []
+  },
+  {
+    "id": "AVQ-006-028",
+    "domain_id": "D006",
+    "area": "contact and props",
+    "question": "Are props placed consistently relative to persistent landmarks?",
+    "failure_hypothesis": "Set dressing drifts between shots.",
+    "check_or_fix": "Compare landmark-relative coordinates and encoded frames.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6488,
+    "passes": []
+  },
+  {
+    "id": "AVQ-006-029",
+    "domain_id": "D006",
+    "area": "contact and props",
+    "question": "Does the pickup path avoid passing through another object?",
+    "failure_hypothesis": "Hand or prop clips through nearby scenery.",
+    "check_or_fix": "Check the swept motion envelope.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6490,
+    "passes": []
+  },
+  {
+    "id": "AVQ-006-030",
+    "domain_id": "D006",
+    "area": "contact and props",
+    "question": "Are contact shadows appropriate after an object becomes airborne?",
+    "failure_hypothesis": "Grounded shadow remains glued beneath flight.",
+    "check_or_fix": "Adjust shadow offset and softness with height.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6492,
+    "passes": []
+  },
+  {
+    "id": "AVQ-006-031",
+    "domain_id": "D006",
+    "area": "contact and props",
+    "question": "Does a tool's output begin at its visible working end?",
+    "failure_hypothesis": "Effect originates from an unrelated point.",
+    "check_or_fix": "Anchor output to the active tip or nozzle.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6494,
+    "passes": []
+  },
+  {
+    "id": "AVQ-006-032",
+    "domain_id": "D006",
+    "area": "contact and props",
+    "question": "Would a close contact insert clarify the action better than more labels?",
+    "failure_hypothesis": "Tiny interaction carries too much narrative burden.",
+    "check_or_fix": "Test a brief readable contact shot.",
+    "severity": "high",
+    "modes": [
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 6496,
+    "passes": []
+  }
+]

@@ -1,0 +1,57 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "overlay_timeline_filter",
+  "title": "Overlay timeline filter",
+  "kind": "code-module",
+  "subkind": "overlay",
+  "version": "1.0.0",
+  "summary": "Schedules image/video overlays with time windows, alpha fade in/out shifted to each slot, opacity capped at 0.98 and a check for overlays that collide in space and time.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "overlay_timeline_filter.py",
+  "tags": [
+    "video",
+    "ffmpeg",
+    "overlay",
+    "timeline",
+    "labels",
+    "compositing"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "ffmpeg",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

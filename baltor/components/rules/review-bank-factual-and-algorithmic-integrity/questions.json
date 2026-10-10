@@ -1,0 +1,751 @@
+[
+  {
+    "id": "AVQ-027-001",
+    "domain_id": "D027",
+    "area": "factual and algorithmic integrity",
+    "question": "Can each factual sentence be matched to a source that supports its exact scope rather than merely the general topic?",
+    "failure_hypothesis": "Broad source relevance is mistaken for support of a specific claim.",
+    "check_or_fix": "Build a claim-to-source ledger with exact supporting passages.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "script"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7820,
+    "passes": [
+      "default_32",
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-027-002",
+    "domain_id": "D027",
+    "area": "factual and algorithmic integrity",
+    "question": "Are time-sensitive facts still valid at the date the video will be delivered?",
+    "failure_hypothesis": "A formerly accurate script becomes misleading through age.",
+    "check_or_fix": "Recheck unstable claims against current authoritative sources before release.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "script",
+      "final-encode",
+      "delivery"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7822,
+    "passes": [
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-027-003",
+    "domain_id": "D027",
+    "area": "factual and algorithmic integrity",
+    "question": "Does a historical claim match the exact locality, period, and object depicted?",
+    "failure_hypothesis": "A generally plausible prop is used as evidence for an overly specific claim.",
+    "check_or_fix": "Verify the depicted variant and narrow unsupported specificity.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "production"
+    ],
+    "style_filters": [
+      "educational",
+      "live-action"
+    ],
+    "source_line": 7824,
+    "passes": [
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-027-004",
+    "domain_id": "D027",
+    "area": "factual and algorithmic integrity",
+    "question": "Are measurements and labels using consistent units and conversion assumptions throughout the film?",
+    "failure_hypothesis": "Numerically plausible values mix incompatible units.",
+    "check_or_fix": "Independently recompute conversions and audit visible and spoken units.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "auditory"
+    ],
+    "stages": [
+      "script",
+      "production",
+      "edit"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7826,
+    "passes": [
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-027-005",
+    "domain_id": "D027",
+    "area": "factual and algorithmic integrity",
+    "question": "Does a percentage state its denominator and comparison baseline clearly enough to reproduce it?",
+    "failure_hypothesis": "A favorable percentage hides a changed denominator or base period.",
+    "check_or_fix": "Show the relevant counts and recompute the displayed percentage.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "production"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7828,
+    "passes": [
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-027-006",
+    "domain_id": "D027",
+    "area": "factual and algorithmic integrity",
+    "question": "Are averages concealing variation that materially changes the lesson?",
+    "failure_hypothesis": "A central value is presented as typical despite a wide or skewed distribution.",
+    "check_or_fix": "Inspect the distribution and add a relevant range or counterexample.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7830,
+    "passes": [
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-027-007",
+    "domain_id": "D027",
+    "area": "factual and algorithmic integrity",
+    "question": "Does the edit distinguish correlation from a demonstrated causal mechanism?",
+    "failure_hypothesis": "Associated events are narrated as cause and effect.",
+    "check_or_fix": "Audit causal wording against the study or demonstration design.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "storyboard",
+      "edit"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7832,
+    "passes": [
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-027-008",
+    "domain_id": "D027",
+    "area": "factual and algorithmic integrity",
+    "question": "Is a counterfactual comparison supported by a valid method rather than an invented alternate outcome?",
+    "failure_hypothesis": "The film fabricates what would have happened without the intervention.",
+    "check_or_fix": "State the method and assumptions or replace it with a verified worked case.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "script"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7834,
+    "passes": [
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-027-009",
+    "domain_id": "D027",
+    "area": "factual and algorithmic integrity",
+    "question": "Are uncertainty and limitations visible at the point where the audience forms the conclusion?",
+    "failure_hypothesis": "Caveats arrive too late to constrain an authoritative impression.",
+    "check_or_fix": "Place material uncertainty beside the claim and test interpretation.",
+    "severity": "high",
+    "modes": [
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "edit"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7836,
+    "passes": [
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-027-010",
+    "domain_id": "D027",
+    "area": "factual and algorithmic integrity",
+    "question": "Are a diagram's idealizations clearly distinguished from measured or physically exact behavior?",
+    "failure_hypothesis": "Clean animation is mistaken for observational evidence.",
+    "check_or_fix": "Label the model assumptions and identify where realism is intentionally omitted.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "production"
+    ],
+    "style_filters": [
+      "educational",
+      "3d",
+      "vector"
+    ],
+    "source_line": 7838,
+    "passes": [
+      "factual_puzzle"
+    ]
+  },
+  {
+    "id": "AVQ-027-011",
+    "domain_id": "D027",
+    "area": "factual and algorithmic integrity",
+    "question": "Does a conserved quantity remain consistent across every displayed step when the lesson depends on conservation?",
+    "failure_hypothesis": "Attractive animation creates or destroys the quantity it claims to track.",
+    "check_or_fix": "Reconcile a stepwise ledger with every relevant frame state.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "storyboard",
+      "production"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7840,
+    "passes": []
+  },
+  {
+    "id": "AVQ-027-012",
+    "domain_id": "D027",
+    "area": "factual and algorithmic integrity",
+    "question": "Are interpolation and extrapolation visually distinguishable from actual observed data?",
+    "failure_hypothesis": "Smooth curves imply measurements or predictions beyond the evidence.",
+    "check_or_fix": "Mark observed points and clearly identify modeled extensions.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "production"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7842,
+    "passes": []
+  },
+  {
+    "id": "AVQ-027-013",
+    "domain_id": "D027",
+    "area": "factual and algorithmic integrity",
+    "question": "Does the graph's axis choice preserve the comparison the narration claims?",
+    "failure_hypothesis": "Truncation or nonlinear scaling exaggerates the apparent effect.",
+    "check_or_fix": "Replot with disclosed alternatives and review the claimed interpretation.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "production"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7844,
+    "passes": []
+  },
+  {
+    "id": "AVQ-027-014",
+    "domain_id": "D027",
+    "area": "factual and algorithmic integrity",
+    "question": "Is any simulated motion being described as a validated physical result without a suitable model check?",
+    "failure_hypothesis": "Visual plausibility is treated as evidence of physical accuracy.",
+    "check_or_fix": "Separate illustrative animation from validated simulation claims.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "production"
+    ],
+    "style_filters": [
+      "educational",
+      "3d"
+    ],
+    "source_line": 7846,
+    "passes": []
+  },
+  {
+    "id": "AVQ-027-015",
+    "domain_id": "D027",
+    "area": "factual and algorithmic integrity",
+    "question": "Does a mathematically correct example rely on assumptions absent from the on-screen problem?",
+    "failure_hypothesis": "The calculation solves a different problem than the viewer is given.",
+    "check_or_fix": "List assumptions and reconcile them with the stated setup.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "production"
+    ],
+    "style_filters": [
+      "educational",
+      "puzzle"
+    ],
+    "source_line": 7848,
+    "passes": []
+  },
+  {
+    "id": "AVQ-027-016",
+    "domain_id": "D027",
+    "area": "factual and algorithmic integrity",
+    "question": "Do all displayed algorithm outputs come from the exact algorithm version being described?",
+    "failure_hypothesis": "Explanatory graphics show hand-edited or stale results.",
+    "check_or_fix": "Regenerate outputs from the pinned implementation and compare them.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "production",
+      "final-encode"
+    ],
+    "style_filters": [
+      "educational",
+      "screen-recording"
+    ],
+    "source_line": 7850,
+    "passes": []
+  },
+  {
+    "id": "AVQ-027-017",
+    "domain_id": "D027",
+    "area": "factual and algorithmic integrity",
+    "question": "Has the algorithm been checked on boundary inputs rather than only the attractive demonstration case?",
+    "failure_hypothesis": "Empty, singleton, extreme, or invalid inputs expose unmentioned failure behavior.",
+    "check_or_fix": "Define the valid domain and test its meaningful boundaries.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "concept",
+      "production"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7852,
+    "passes": []
+  },
+  {
+    "id": "AVQ-027-018",
+    "domain_id": "D027",
+    "area": "factual and algorithmic integrity",
+    "question": "Are tie-breaking and ordering rules explicit when they can change the visible result?",
+    "failure_hypothesis": "An apparently unique answer depends on an unstated arbitrary order.",
+    "check_or_fix": "Declare the rule and test tied or permuted inputs.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "production"
+    ],
+    "style_filters": [
+      "educational",
+      "puzzle"
+    ],
+    "source_line": 7854,
+    "passes": []
+  },
+  {
+    "id": "AVQ-027-019",
+    "domain_id": "D027",
+    "area": "factual and algorithmic integrity",
+    "question": "Can numerical rounding or tolerance choices flip a displayed classification or comparison?",
+    "failure_hypothesis": "Near-boundary values produce unstable or misleading decisions.",
+    "check_or_fix": "Test values around thresholds and expose relevant tolerance rules.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "production"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7856,
+    "passes": []
+  },
+  {
+    "id": "AVQ-027-020",
+    "domain_id": "D027",
+    "area": "factual and algorithmic integrity",
+    "question": "Does random generation enforce the promised constraints for every output rather than merely most seeds?",
+    "failure_hypothesis": "A successful sample is treated as proof of a universal invariant.",
+    "check_or_fix": "Test and validate each generated instance against the explicit constraints.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "production"
+    ],
+    "style_filters": [
+      "educational",
+      "puzzle"
+    ],
+    "source_line": 7858,
+    "passes": []
+  },
+  {
+    "id": "AVQ-027-021",
+    "domain_id": "D027",
+    "area": "factual and algorithmic integrity",
+    "question": "Is the chosen demonstration seed representative rather than selected to hide common failures?",
+    "failure_hypothesis": "Cherry-picked outputs exaggerate reliability or quality.",
+    "check_or_fix": "Inspect a declared sample set and report failures alongside the selected case.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "production"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7860,
+    "passes": []
+  },
+  {
+    "id": "AVQ-027-022",
+    "domain_id": "D027",
+    "area": "factual and algorithmic integrity",
+    "question": "Does the on-screen algorithm explanation account for failure or nontermination conditions that matter in use?",
+    "failure_hypothesis": "A happy-path animation conceals an unsafe or unusable edge behavior.",
+    "check_or_fix": "Identify relevant failure states and demonstrate or disclose them.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "concept",
+      "script",
+      "production"
+    ],
+    "style_filters": [
+      "educational",
+      "screen-recording"
+    ],
+    "source_line": 7862,
+    "passes": []
+  },
+  {
+    "id": "AVQ-027-023",
+    "domain_id": "D027",
+    "area": "factual and algorithmic integrity",
+    "question": "Are test results described only as evidence for the specific assertions the tests actually evaluate?",
+    "failure_hypothesis": "Unit-test success is inflated into factual or production approval.",
+    "check_or_fix": "Map every success claim to test scope and untested dimensions.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "production",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7864,
+    "passes": []
+  },
+  {
+    "id": "AVQ-027-024",
+    "domain_id": "D027",
+    "area": "factual and algorithmic integrity",
+    "question": "Are proposed capabilities clearly separated from capabilities demonstrated by a retained output?",
+    "failure_hypothesis": "Plans and documentation are reported as completed functionality.",
+    "check_or_fix": "Require a concrete artifact and check record for each demonstrated claim.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "concept",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7866,
+    "passes": []
+  },
+  {
+    "id": "AVQ-027-025",
+    "domain_id": "D027",
+    "area": "factual and algorithmic integrity",
+    "question": "Are counts of recipes, styles, stories, and tested videos using distinct definitions?",
+    "failure_hypothesis": "Combinatorial variants are presented as independent authored or tested works.",
+    "check_or_fix": "Publish separate counts with explicit counting units.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "concept",
+      "delivery"
+    ],
+    "style_filters": [
+      "any"
+    ],
+    "source_line": 7868,
+    "passes": []
+  },
+  {
+    "id": "AVQ-027-026",
+    "domain_id": "D027",
+    "area": "factual and algorithmic integrity",
+    "question": "Does a performance claim include the actual environment, input size, and end-to-end work measured?",
+    "failure_hypothesis": "Selective timing omits setup, review, retries, or costly stages.",
+    "check_or_fix": "Record the complete measured workflow under stated conditions.",
+    "severity": "high",
+    "modes": [
+      "machine"
+    ],
+    "stages": [
+      "production",
+      "delivery"
+    ],
+    "style_filters": [
+      "educational",
+      "screen-recording"
+    ],
+    "source_line": 7870,
+    "passes": []
+  },
+  {
+    "id": "AVQ-027-027",
+    "domain_id": "D027",
+    "area": "factual and algorithmic integrity",
+    "question": "Is a cost-saving claim based on actual charges and a comparable baseline?",
+    "failure_hypothesis": "Estimates or omitted cloud costs are presented as demonstrated savings.",
+    "check_or_fix": "Reconcile invoices and measured effort with the comparison workflow.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "delivery"
+    ],
+    "style_filters": [
+      "educational",
+      "screen-recording"
+    ],
+    "source_line": 7872,
+    "passes": []
+  },
+  {
+    "id": "AVQ-027-028",
+    "domain_id": "D027",
+    "area": "factual and algorithmic integrity",
+    "question": "Are safety-critical instructions blocked from authoritative presentation until appropriate current sources resolve them?",
+    "failure_hypothesis": "Plausible but unchecked advice could cause real harm.",
+    "check_or_fix": "Obtain suitable current primary-source review and hold unresolved instructions.",
+    "severity": "critical",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "script"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7874,
+    "passes": []
+  },
+  {
+    "id": "AVQ-027-029",
+    "domain_id": "D027",
+    "area": "factual and algorithmic integrity",
+    "question": "Do conflicting reliable sources remain visible as an unresolved issue rather than being silently averaged into a claim?",
+    "failure_hypothesis": "Source disagreement is hidden behind false certainty.",
+    "check_or_fix": "Record the conflict, scope, and dates and narrow the claim if possible.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "script"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7876,
+    "passes": []
+  },
+  {
+    "id": "AVQ-027-030",
+    "domain_id": "D027",
+    "area": "factual and algorithmic integrity",
+    "question": "Does the final voice, caption, and graphic all state the same corrected fact after a script revision?",
+    "failure_hypothesis": "A correction updates one channel while stale variants survive elsewhere.",
+    "check_or_fix": "Reconcile all delivered channels against the corrected claim ledger.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "auditory"
+    ],
+    "stages": [
+      "edit",
+      "final-encode"
+    ],
+    "style_filters": [
+      "educational"
+    ],
+    "source_line": 7878,
+    "passes": []
+  },
+  {
+    "id": "AVQ-027-031",
+    "domain_id": "D027",
+    "area": "factual and algorithmic integrity",
+    "question": "Is a reconstructed, generated, or illustrative scene clearly distinguished from documentary evidence?",
+    "failure_hypothesis": "Synthetic imagery appears to prove an event or observation.",
+    "check_or_fix": "Label the representation and cite the actual evidence separately.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "visual",
+      "human-audience"
+    ],
+    "stages": [
+      "script",
+      "storyboard",
+      "production",
+      "delivery"
+    ],
+    "style_filters": [
+      "educational",
+      "live-action",
+      "3d"
+    ],
+    "source_line": 7880,
+    "passes": []
+  },
+  {
+    "id": "AVQ-027-032",
+    "domain_id": "D027",
+    "area": "factual and algorithmic integrity",
+    "question": "Does the claim of interactivity correspond to actual user-controllable behavior rather than a prerecorded question?",
+    "failure_hypothesis": "A passive video is marketed as interactive software.",
+    "check_or_fix": "Demonstrate the claimed input-response path or describe the work accurately.",
+    "severity": "high",
+    "modes": [
+      "machine",
+      "human-audience"
+    ],
+    "stages": [
+      "concept",
+      "delivery"
+    ],
+    "style_filters": [
+      "puzzle",
+      "screen-recording"
+    ],
+    "source_line": 7882,
+    "passes": []
+  }
+]

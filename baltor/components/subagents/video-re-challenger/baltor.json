@@ -1,0 +1,121 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "video_re_challenger",
+  "title": "Video RE challenger",
+  "kind": "subagent",
+  "subkind": "evaluator",
+  "version": "1.0.0",
+  "summary": "Adversarial subagent that tries to refute each analyst answer: checks timestamps against evidence, re-measures, relabels methods, flags taste-as-fact and over-generalisation, then upholds, lowers or rejects.",
+  "description": "Runs a bundled standard-library pre-pass (fields, confidence bands, timestamp range, answer shape against the bank, quotes over 6 words, overlaps with source captions, taste and identity words), then each question's own challenge prompt and 19 cross-lens consistency checks. Output keeps the video_re_analyst_answer shape so the lifter can merge it. Captures technique and structure only; never stores or reuses the source's footage, frames, music, voice or script text.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "review",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "read",
+    "network": "none",
+    "executes": "shell",
+    "secrets": [],
+    "side_effects": [
+      "runs ffmpeg/ffprobe and the bundled pre-pass script; writes only its scratch directory and its report"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "opencode",
+    "baltor-harness"
+  ],
+  "entry": "agent.md",
+  "tags": [
+    "video",
+    "reverse-engineering",
+    "video-re",
+    "swarm",
+    "challenger",
+    "adversarial-review",
+    "subagent"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "video_re_analyst_answer"
+    },
+    {
+      "identity": "video_re_evidence"
+    },
+    {
+      "identity": "video_re_evidence_bundle"
+    },
+    {
+      "identity": "ffmpeg",
+      "external": true
+    },
+    {
+      "identity": "video_re_questions_structure_beats"
+    },
+    {
+      "identity": "video_re_questions_hook_first_seconds"
+    },
+    {
+      "identity": "video_re_questions_script_rhetoric"
+    },
+    {
+      "identity": "video_re_questions_pacing_cut_rhythm"
+    },
+    {
+      "identity": "video_re_questions_shot_list_framing"
+    },
+    {
+      "identity": "video_re_questions_camera_motion"
+    },
+    {
+      "identity": "video_re_questions_layers_compositing"
+    },
+    {
+      "identity": "video_re_questions_background_system"
+    },
+    {
+      "identity": "video_re_questions_typography_captions"
+    },
+    {
+      "identity": "video_re_questions_text_animation"
+    },
+    {
+      "identity": "video_re_questions_color_grade"
+    },
+    {
+      "identity": "video_re_questions_characters_animation_style"
+    },
+    {
+      "identity": "video_re_questions_transitions_effects"
+    },
+    {
+      "identity": "video_re_questions_narration_voice"
+    },
+    {
+      "identity": "video_re_questions_music_sfx_mix"
+    },
+    {
+      "identity": "video_re_questions_retention_cta"
+    },
+    {
+      "identity": "video_re_questions_platform_fit_safe_areas"
+    },
+    {
+      "identity": "video_re_questions_rights_originality_boundary"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_re_swarm.py",
+    "data": "generators/data/video_re_swarm"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

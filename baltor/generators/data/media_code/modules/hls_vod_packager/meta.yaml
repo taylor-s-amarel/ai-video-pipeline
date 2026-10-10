@@ -1,0 +1,7 @@
+title: HLS VOD packager
+summary: Builds ffmpeg HLS VOD commands with keyframes aligned to segments, writes multivariant master playlists and parses media playlists to check segment durations.
+subkind: render-recipe
+domain: video
+tags: [video, hls, streaming, ffmpeg, m3u8, delivery]
+step_kinds: [render, publish]
+depends_on: [ffmpeg]

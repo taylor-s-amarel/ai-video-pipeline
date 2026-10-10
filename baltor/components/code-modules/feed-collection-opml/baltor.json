@@ -1,0 +1,54 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "feed_collection_opml",
+  "title": "Baltor feed collection to OPML",
+  "kind": "code-module",
+  "subkind": "feed-builder",
+  "version": "1.0.0",
+  "summary": "Converts Baltor feed collections (feeds/<id>.json) into OPML 2.0 for any feed reader, skipping or keeping non-feed pages, grouping by kind or tag, and reads OPML back.",
+  "description": "Standard library only. is_feed_url recognises feed URL shapes (Reddit .rss, GitHub .atom, YouTube channel feeds, arXiv, Discourse, hnrss, Wikipedia featured feeds); html_url_for adds the human page. Escapes text safely and refuses OPML with entity declarations. 20 tests.",
+  "domain": "source-monitoring",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "research"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "CLI writes the OPML file given with -o"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "feed_collection_opml.py",
+  "tags": [
+    "opml",
+    "feeds",
+    "export",
+    "python"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/community_sources.py",
+    "data": "generators/data/community_sources"
+  },
+  "examples": [
+    "python3 feed_collection_opml.py baltor/feeds/community-*.json -o community.opml"
+  ],
+  "review": {
+    "status": "unreviewed"
+  }
+}

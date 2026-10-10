@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 .baltor/lib/rss-atom-jsonfeed-reader/rss_atom_jsonfeed_reader.py:*)",
+      "Bash(python3 .baltor/lib/source-digest-builder/source_digest_builder.py:*)",
+      "Bash(python3 .baltor/lib/feed-collection-opml/feed_collection_opml.py:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:rss.arxiv.org)",
+      "WebFetch(domain:hnrss.org)",
+      "WebFetch(domain:news.ycombinator.com)",
+      "WebFetch(domain:en.wikipedia.org)",
+      "WebFetch(domain:www.youtube.com)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./.feed-cache.json.bak)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 .baltor/hooks/require-digest-citations/hook.py",
+            "timeout": 20
+          }
+        ]
+      }
+    ]
+  }
+}

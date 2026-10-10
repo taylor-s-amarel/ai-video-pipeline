@@ -1,0 +1,51 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "qa_report_writer",
+  "title": "QA report writer",
+  "kind": "code-module",
+  "subkind": "qa-check",
+  "version": "1.0.0",
+  "summary": "Collects pass/fail/not-checked QA results and writes them as a Markdown table, JSON with totals and JUnit XML, never counting unchecked items as passes.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "verify",
+    "review"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "qa_report_writer.py",
+  "tags": [
+    "video",
+    "qa",
+    "report",
+    "junit",
+    "markdown",
+    "ci"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

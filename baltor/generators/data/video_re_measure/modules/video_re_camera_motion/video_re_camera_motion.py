@@ -3,12 +3,15 @@
 Usage:
     python video_re_camera_motion.py video.mp4 [--shots shots.json] [--stride 0.2] [--out camera.json]
 
-Method: frames are decoded grey at 128 px wide. Inside each shot, frames ``stride_s`` apart (default
-0.2 s) are compared. For each pair (A earlier, B later) a scale search runs over
-s = exp(-0.08 .. +0.08) (coarse, then fine, then a parabola through the best three): B is resampled
-about the frame centre by s and phase-correlated with A (Hann window, normalised cross-power
-spectrum) over the central 80% of the frame. The scale with the highest correlation peak is the zoom,
-and that peak's position is the translation. Off-centre zooms show up as zoom plus a small pan.
+Method: frames are decoded grey at 192 px wide and sampled every ``stride_s``/2 (default 0.1 s).
+Inside each shot, frames ``stride_s`` apart (default 0.2 s; half that when the longer pair fails)
+are compared block by block: every textured 64x64 block (step 32) is phase-correlated (Hann
+window, normalised cross-power spectrum, parabolic sub-pixel peak). The block displacements are
+fitted with a RANSAC-seeded least-squares model d = t + k x p (translation t, zoom k about the
+frame centre): the motion most blocks agree with most closely (MSAC, 0.75 px) wins, and blocks that disagree - static titles, captions, logos, panel edges, moving subjects - are
+dropped as outliers, so overlays do not pin the estimate to zero. Frames with too few textured
+blocks fall back to a whole-frame estimate (phase correlation plus a scale search). Off-centre zooms
+show up as zoom plus a small pan.
 
 Conventions (per second, robust median over the shot's pairs):
 
@@ -16,13 +19,16 @@ Conventions (per second, robust median over the shot's pairs):
 * pan_y: frame heights per second, positive = camera moves down (content travels up)
 * zoom: natural log of the scale change per second, positive = zoom in (content grows);
   0.0953 per second means 10% bigger every second
-* jitter: mean absolute deviation of per-pair translation from the shot median (frame widths per
-  pair); high values mean handheld shake or noisy estimates
+* jitter: mean absolute deviation of per-pair translation rate from the shot median (frame widths
+  per second); high values mean handheld shake or noisy estimates
 * label: static / pan-left / pan-right / tilt-up / tilt-down / zoom-in / zoom-out (joined with '+'),
   using |rate| >= 0.02 as the threshold
 
-Pairs on flat frames (grey std < 2) or with a correlation peak under ``min_peak`` (default 0.08) are
-skipped; a shot with no reliable pair gets nulls. Rotation, parallax and independently moving
+Pairs on flat frames (grey std < 2), with fewer than 40% inlier blocks or a correlation peak under
+``min_peak`` (default 0.08) are skipped; a shot with no reliable pair gets nulls. ``mean_inliers``
+is the share of textured blocks that agreed with the fitted motion. Block matching covers shifts up
+to a quarter block (16 px at 192 px wide) per pair: about 0.4 frame widths per second at the
+default stride, 0.8 with the short pair; faster whip pans read as unknown or wrong. Rotation, parallax and independently moving
 subjects are not modelled: a large moving subject can be reported as camera motion.
 """
 
@@ -150,54 +156,155 @@ def label_for(pan_x, pan_y, zoom, thr: float = LABEL_THRESHOLD) -> str:
     return "+".join(parts) or "static"
 
 
-def analyse(video: str, shots: list[dict], width: int = 128, stride_s: float = 0.2, max_fps: float = 30.0,
+def block_vectors(a: np.ndarray, b: np.ndarray, block: int = 64, step: int = 32, min_std: float = 4.0,
+                  min_peak: float = 0.1) -> np.ndarray:
+    """Phase-correlation displacement of every textured block: rows (x_off, y_off, dx, dy, peak) with
+    x_off/y_off the block centre relative to the frame centre."""
+    h, w = a.shape
+    block = min(block, h, w) // 2 * 2
+    win = np.outer(np.hanning(block), np.hanning(block))
+    cy, cx = (h - 1) / 2.0, (w - 1) / 2.0
+    ys = list(range(0, h - block + 1, step)) or [0]
+    xs = list(range(0, w - block + 1, step)) or [0]
+    out = []
+    for y in ys:
+        for x in xs:
+            pa = a[y:y + block, x:x + block]
+            pb = b[y:y + block, x:x + block]
+            if pa.std() < min_std or pb.std() < min_std:
+                continue
+            dx, dy, peak = phase_correlate(pa, pb, win)
+            if peak < min_peak or abs(dx) > block / 4 or abs(dy) > block / 4:
+                continue
+            out.append((x + block / 2 - cx, y + block / 2 - cy, dx, dy, peak))
+    return np.asarray(out, dtype=np.float64).reshape(-1, 5)
+
+
+def _solve(px, py, dx, dy, w):
+    n = len(px)
+    A = np.zeros((2 * n, 3))
+    A[:n, 0], A[:n, 2] = 1.0, px
+    A[n:, 1], A[n:, 2] = 1.0, py
+    ww = np.r_[w, w]
+    sol, *_ = np.linalg.lstsq(A * ww[:, None], np.r_[dx, dy] * ww, rcond=None)
+    return sol
+
+
+def fit_motion(vecs: np.ndarray, tol: float = 0.75, max_hypotheses: int = 1500, seed: int = 0) -> dict | None:
+    """Robust fit of d = t + k * p (translation t, zoom k = scale - 1 about the centre) to block vectors.
+
+    RANSAC over pairs of blocks (each pair fixes t and k exactly), scored MSAC-style (each block
+    within ``tol`` px adds peak x (1 - (residual/tol)^2)); the best hypothesis seeds a weighted
+    least-squares fit, refined twice on its inliers. Blocks that disagree - static titles, captions, logos, panel edges, moving subjects -
+    end up as outliers."""
+    if len(vecs) < 4:
+        return None
+    px, py, dx, dy, wgt = vecs.T
+    n = len(vecs)
+    ii, jj = np.triu_indices(n, 1)
+    if len(ii) > max_hypotheses:
+        pick = np.random.default_rng(seed).choice(len(ii), max_hypotheses, replace=False)
+        ii, jj = ii[pick], jj[pick]
+    # minimal solution from two blocks: k from their relative displacement, t from their mean
+    qx, qy = px[ii] - px[jj], py[ii] - py[jj]
+    den = qx * qx + qy * qy
+    ok = den > 1e-9
+    ii, jj, qx, qy, den = ii[ok], jj[ok], qx[ok], qy[ok], den[ok]
+    k = ((dx[ii] - dx[jj]) * qx + (dy[ii] - dy[jj]) * qy) / den
+    tx = 0.5 * (dx[ii] + dx[jj] - k * (px[ii] + px[jj]))
+    ty = 0.5 * (dy[ii] + dy[jj] - k * (py[ii] + py[jj]))
+    res = np.hypot(dx[None, :] - (tx[:, None] + k[:, None] * px[None, :]),
+                   dy[None, :] - (ty[:, None] + k[:, None] * py[None, :]))
+    # MSAC score: closer agreement counts more, so a compromise between two motions loses
+    support = (np.clip(1.0 - (res / tol) ** 2, 0.0, None) * wgt[None, :]).sum(axis=1)
+    best_keep = res[int(np.argmax(support))] <= tol if len(support) else None
+    keep = best_keep
+    sol = None
+    for _ in range(3):
+        if keep is None or keep.sum() < 3:
+            return None
+        sol = _solve(px[keep], py[keep], dx[keep], dy[keep], wgt[keep])
+        res = np.hypot(dx - (sol[0] + sol[2] * px), dy - (sol[1] + sol[2] * py))
+        keep = res <= tol
+    if keep.sum() < 3:
+        return None
+    return {"dx": float(sol[0]), "dy": float(sol[1]), "log_s": float(np.log1p(sol[2])),
+            "inliers": float(keep.mean()), "blocks": int(n), "rms": float(np.sqrt(np.mean(res[keep] ** 2))),
+            "peak": float(np.mean(wgt[keep]))}
+
+
+def estimate_pair(a: np.ndarray, b: np.ndarray, global_est: "PairEstimator", min_inliers: float = 0.4) -> dict | None:
+    a = a.astype(np.float64)
+    b = b.astype(np.float64)
+    fit = fit_motion(block_vectors(a, b))
+    if fit is not None and fit["inliers"] >= min_inliers:
+        fit["method"] = "blocks"
+        return fit
+    if fit is None:  # too few textured blocks (small or plain frames): whole-frame estimate
+        r = global_est.estimate(a, b)
+        r["method"] = "global"
+        return r
+    return None
+
+
+def analyse(video: str, shots: list[dict], width: int = 192, stride_s: float = 0.2, max_fps: float = 30.0,
             min_peak: float = 0.08, info: dict | None = None) -> dict:
     info = info or media_info(video)
     src_fps = info.get("fps") or 25.0
     fps = min(src_fps, max_fps)
-    stride = max(1, int(round(stride_s * fps)))
-    est = None
-    pairs = []
-    anchor = None
+    half = max(1, int(round(stride_s * fps / 2)))
+    bounds = sorted((float(s["start_s"]), float(s["end_s"]), s["index"]) for s in shots)
+
+    def shot_of(t):
+        for a, b, i in bounds:
+            if a - 1e-6 <= t < b - 1e-6:
+                return i
+        return None
+
+    est, recent, pairs = None, [], []
     for i, (t, f) in enumerate(iter_frames(video, width=width, pix_fmt="gray",
                                           fps=fps if src_fps > max_fps else None, info=info)):
+        if i % half:
+            continue
         if est is None:
             est = PairEstimator(*f.shape)
-        if i % stride:
+        recent = (recent + [(t, f, shot_of(t))])[-3:]
+        if len(recent) < 2:
             continue
-        if anchor is not None:
-            ta, fa = anchor
-            if fa.std() >= 2 and f.std() >= 2:
-                r = est.estimate(fa, f)
-                r.update({"t0": ta, "t1": t})
+        cands = [recent[0], recent[1]] if len(recent) == 3 else [recent[0]]
+        t1, f1, s1 = recent[-1]
+        for t0, f0, s0 in cands:  # long pair first (better zoom precision), short pair if it fails
+            if s0 is None or s0 != s1 or f0.std() < 2 or f1.std() < 2:
+                continue
+            r = estimate_pair(f0, f1, est)
+            if r is not None and r.get("peak", 0) >= min_peak:
+                r.update({"t0": t0, "t1": t1, "shot": s1})
                 pairs.append(r)
-            else:
-                pairs.append({"t0": ta, "t1": t, "peak": 0.0, "flat": True})
-        anchor = (t, f)
+                break
     h, w = (est.h, est.w) if est else (1, 1)
     per_shot = []
     for s in shots:
-        a, b = float(s["start_s"]), float(s["end_s"])
-        sel = [p for p in pairs if p["t0"] >= a - 1e-6 and p["t1"] < b - 1e-6 and p.get("peak", 0) >= min_peak
-               and not p.get("flat")]
+        sel = [p for p in pairs if p["shot"] == s["index"]]
         if not sel:
             per_shot.append({"index": s["index"], "pan_x": None, "pan_y": None, "zoom": None, "jitter": None,
                              "label": "unknown", "pairs": 0})
             continue
         dt = np.array([p["t1"] - p["t0"] for p in sel])
-        dxs = np.array([p["dx"] for p in sel])
-        dys = np.array([p["dy"] for p in sel])
-        pan_x = float(np.median(-dxs / w / dt))
-        pan_y = float(np.median(-dys / h / dt))
+        dxs = np.array([p["dx"] for p in sel]) / dt
+        dys = np.array([p["dy"] for p in sel]) / dt
+        pan_x = float(np.median(-dxs / w))
+        pan_y = float(np.median(-dys / h))
         zoom = float(np.median(np.array([p["log_s"] for p in sel]) / dt))
         jitter = float(np.mean(np.hypot(dxs - np.median(dxs), dys - np.median(dys))) / w)
+        inl = [p["inliers"] for p in sel if "inliers" in p]
         per_shot.append({"index": s["index"], "pan_x": pan_x, "pan_y": pan_y, "zoom": zoom, "jitter": jitter,
                          "label": label_for(pan_x, pan_y, zoom), "pairs": len(sel),
+                         "mean_inliers": float(np.mean(inl)) if inl else None,
                          "mean_peak": float(np.mean([p["peak"] for p in sel]))})
     path = [{"t_s": p["t0"], "pan_x": -p["dx"] / w / (p["t1"] - p["t0"]), "pan_y": -p["dy"] / h / (p["t1"] - p["t0"]),
-             "zoom": p["log_s"] / (p["t1"] - p["t0"]), "peak": p["peak"]} for p in pairs if not p.get("flat")]
+             "zoom": p["log_s"] / (p["t1"] - p["t0"]), "peak": p["peak"], "method": p["method"]} for p in pairs]
     return {"shots": per_shot, "path": path,
-            "params": {"width": width, "stride_s": stride / fps, "fps": fps, "min_peak": min_peak}}
+            "params": {"width": width, "stride_s": 2 * half / fps, "fps": fps, "min_peak": min_peak}}
 
 
 def run(video: str, shots: list[dict] | None = None, **kw) -> dict:

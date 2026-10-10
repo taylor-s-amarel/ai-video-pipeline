@@ -1,0 +1,60 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "kokoro_onnx_tts_adapter",
+  "title": "Kokoro ONNX TTS adapter",
+  "kind": "code-module",
+  "subkind": "tts-engine",
+  "version": "1.0.0",
+  "summary": "Adapter for Kokoro-82M speech through kokoro-onnx (lazy import, model loaded once, clear errors for missing model files) returning mono float32 samples for the TTS interface.",
+  "description": "kokoro-onnx is MIT licensed and the Kokoro model is Apache-2.0 (per the kokoro-onnx README, checked 2026-10-10). The model files are not shipped here; download them from the kokoro-onnx releases page.",
+  "domain": "audio",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "render"
+  ],
+  "effects": {
+    "filesystem": "read",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "loads ONNX model and voices files from local disk"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "kokoro_onnx_tts_adapter.py",
+  "tags": [
+    "audio",
+    "tts",
+    "kokoro",
+    "onnx",
+    "narration",
+    "local"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "kokoro_onnx",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/media_code.py",
+    "data": "generators/data/media_code"
+  },
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Unit tests pass with pytest on Python 3.13 (numpy, Pillow); ffmpeg integration tests ran with ffmpeg present."
+  }
+}

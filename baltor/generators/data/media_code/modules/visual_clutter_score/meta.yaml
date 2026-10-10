@@ -1,0 +1,6 @@
+title: Visual clutter score
+summary: Scores how busy a frame looks (edge density plus tile contrast, 0-100), compares a frame with and without overlays and calibrates a too-busy limit from approved frames.
+subkind: qa-check
+domain: video
+tags: [video, qa, clutter, readability, numpy, review]
+step_kinds: [verify, review]

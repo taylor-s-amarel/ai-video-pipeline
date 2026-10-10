@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/video-re-contract-blend-mode-hint",
+  "title": "Blend mode hint payload",
+  "description": "Payload of video_re_detect_blend_mode_hint: the blend mode that best explains a static overlay over moving content, from the per-cell affine map C = g*B + c and each mode's constraint (normal: constant g, 0 <= c <= 1-g; screen: g + c = 1; multiply: c = 0; add: g = 1). Modes that fit equally well are listed under candidates with mode 'ambiguous'.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["mode", "candidates", "confidence", "region", "scores", "fit", "frames_used"],
+  "$defs": {
+    "rgb3": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 },
+    "mode": { "enum": ["normal", "screen", "multiply", "add"] }
+  },
+  "properties": {
+    "mode": { "enum": ["normal", "screen", "multiply", "add", "ambiguous", "unknown", "none"], "description": "none = no overlay found; unknown = an overlay no linear mode explains (e.g. soft-light)" },
+    "candidates": { "type": "array", "items": { "$ref": "#/$defs/mode" }, "uniqueItems": true },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "region": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["bbox", "bbox_ratio", "cells"],
+      "properties": {
+        "bbox": { "type": "array", "items": { "type": "number", "minimum": 0 }, "minItems": 4, "maxItems": 4 },
+        "bbox_ratio": { "type": "array", "items": { "type": "number", "minimum": 0, "maximum": 1 }, "minItems": 4, "maxItems": 4 },
+        "cells": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "scores": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["normal", "screen", "multiply", "add"],
+      "description": "constraint residual / distance from 'no overlay'; lower fits better",
+      "properties": {
+        "normal": { "type": "number", "minimum": 0 },
+        "screen": { "type": "number", "minimum": 0 },
+        "multiply": { "type": "number", "minimum": 0 },
+        "add": { "type": "number", "minimum": 0 }
+      }
+    },
+    "fit": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["gain_median", "offset_median", "gain_spread", "offset_spread"],
+      "properties": {
+        "gain_median": { "$ref": "#/$defs/rgb3" },
+        "offset_median": { "$ref": "#/$defs/rgb3", "description": "0-1 units per channel" },
+        "gain_spread": { "type": "number", "minimum": 0 },
+        "offset_spread": { "type": "number", "minimum": 0 }
+      }
+    },
+    "frames_used": { "type": "integer", "minimum": 0 }
+  }
+}

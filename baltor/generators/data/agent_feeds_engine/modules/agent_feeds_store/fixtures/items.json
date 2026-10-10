@@ -1,0 +1,100 @@
+[
+  {
+    "id": "afi_dd8e82eedb1c12ac5d2e",
+    "source_id": "pypi-examplelib",
+    "collection": "",
+    "title": "Old release 1.0.0",
+    "url": "https://pypi.org/project/examplelib/1.0.0/",
+    "published": "2026-01-01T00:00:00Z",
+    "updated": "2026-01-01T00:00:00Z",
+    "summary": "",
+    "vendor": null,
+    "products": [
+      "examplelib"
+    ],
+    "versions": [
+      "1.0.0"
+    ],
+    "change_types": [
+      "release"
+    ],
+    "severity": null,
+    "affected_packages": [],
+    "cve_ids": [],
+    "entities": [],
+    "dedupe_key": "8284dce5759e93ae1af4599f",
+    "cluster_id": null,
+    "relevance": null
+  },
+  {
+    "id": "afi_38f8b2832714227ef7f6",
+    "source_id": "example-changelog",
+    "collection": "",
+    "title": "Messages API: legacy completions endpoint will be removed on 2027-01-15",
+    "url": "https://example.com/changelog/legacy-completions",
+    "published": "2026-10-08T16:00:00Z",
+    "updated": "2026-10-08T16:00:00Z",
+    "summary": "The legacy completions endpoint is deprecated.",
+    "vendor": "Example AI",
+    "products": [
+      "messages-api"
+    ],
+    "versions": [],
+    "change_types": [
+      "deprecation"
+    ],
+    "severity": null,
+    "affected_packages": [],
+    "cve_ids": [],
+    "entities": [],
+    "dedupe_key": "5734e10d561e525f7f838e20",
+    "cluster_id": null,
+    "relevance": null
+  },
+  {
+    "id": "afi_966fa83c42cb46caec04",
+    "source_id": "example-status",
+    "collection": "",
+    "title": "Example AI: Elevated errors on the Messages API",
+    "url": "https://stspg.io/example1",
+    "published": "2026-10-10T07:45:00Z",
+    "updated": "2026-10-10T07:45:00Z",
+    "summary": "",
+    "vendor": "Example AI",
+    "products": [],
+    "versions": [],
+    "change_types": [
+      "incident"
+    ],
+    "severity": "high",
+    "affected_packages": [],
+    "cve_ids": [],
+    "entities": [],
+    "dedupe_key": "76f309acc302edc4443f1e0c",
+    "cluster_id": null,
+    "relevance": null
+  },
+  {
+    "id": "afi_b375786bf5f58c8cb984",
+    "source_id": "arxiv-cs-ai",
+    "collection": "",
+    "title": "Tool-Use Agents That Read Their Own Changelogs",
+    "url": "http://arxiv.org/abs/2610.01234v1",
+    "published": "2026-10-09T17:59:59Z",
+    "updated": "2026-10-09T17:59:59Z",
+    "summary": "",
+    "vendor": null,
+    "products": [],
+    "versions": [],
+    "change_types": [
+      "research"
+    ],
+    "severity": null,
+    "affected_packages": [],
+    "cve_ids": [],
+    "entities": [],
+    "dedupe_key": "6eeea90ee3127845297f2be5",
+    "cluster_id": null,
+    "relevance": null
+  }
+]

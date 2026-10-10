@@ -1,0 +1,16 @@
+title: Measure how close overlays get to the frame edges
+summary: Measures the closest approach of captions, titles, logos and other static overlays to each frame edge (px, share of frame, time), from static-detail masks or text boxes from evidence.json.
+description: >-
+  Overlays are detailed pixels that hold still while the picture under them changes. Per 2-second window the
+  overlay mask's extreme pixels give distances to each edge; the payload keeps the minimum, a 10th percentile and
+  the time of the closest approach. No platform UI zone is assumed; compare with a zone map.
+tags: [safe-area, margins, captions, overlays, platform-ui]
+depends_on:
+  - identity: video_re_text_regions
+  - identity: video_re_safe_area_probe
+limits:
+  - Moving overlays are missed unless text boxes are given.
+  - A static detailed background (screen recording, still photo) is flagged and not measured.
+contract:
+  title: Safe margin usage payload
+  summary: JSON Schema for the safe-margin payload - minimum and 10th-percentile overlay margins per side in source px, as share of frame, and when the closest approach happened.
