@@ -1,0 +1,15 @@
+title: Cloud cost anomaly detector
+summary: Flags daily cost spikes per service or account from a billing CSV (including FOCUS exports) using a trailing median/MAD baseline plus absolute and ratio floors; optional same-weekday comparison.
+subkind: finops
+tags: [finops, cost, anomaly-detection, billing, focus, cloud]
+step_kinds: [measure, operate, review]
+effects: {filesystem: read, executes: python}
+description: >-
+  Fills missing days with zero, compares each day with the trailing window (default 14 days) and reports it when the
+  robust z-score (1.4826 x MAD) is at least 4, the increase is at least 25 currency units and at least 1.3x the
+  median; all thresholds are flags. --weekday compares Mondays with Mondays for weekly batch patterns. Column names
+  are configurable, so it reads FOCUS (ChargePeriodStart/ServiceName/EffectiveCost) as well as simple exports.
+  Detects spikes, not slow drift; pair with budgets and provider anomaly detection services.
+examples:
+  - "python cost_anomaly_detector.py focus.csv --date-col ChargePeriodStart --group-col ServiceName --cost-col EffectiveCost"
+evidence_notes: pytest suite passes on synthetic series with noise, gaps and weekly seasonality; not tuned on real bills.

@@ -125,7 +125,9 @@ def test_compare_task_end_to_end():
     assert out["runs_excluded"] == [{"run_id": "t/baseline/6", "reason": "contaminated"}]
     f1 = out["metrics"][0]
     assert f1["baseline"]["n"] == 5 and 0.0 in f1["baseline"]["samples"]
-    assert f1["p_holm"] >= f1["p_value"]
+    assert f1["p_holm"] == f1["p_value"]  # primary metric: not adjusted
+    tests = out["metrics"][1]
+    assert out["multiple_comparisons"]["family"] == ["tests_passed"] and tests["p_holm"] == tests["p_value"]
     assert out["success"]["baltor"]["successes"] == 5 and out["success"]["baseline"]["successes"] == 0
     wall = next(c for c in out["cost"] if c["name"] == "wall_s")
     assert wall["difference"]["estimate"] == pytest.approx(20.0)

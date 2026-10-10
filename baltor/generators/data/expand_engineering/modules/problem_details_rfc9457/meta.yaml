@@ -1,0 +1,10 @@
+title: RFC 9457 problem details helper
+summary: Builds and validates RFC 9457 problem+json error bodies (type, title, status, detail, instance, extensions), lists field errors with JSON Pointers, maps exceptions without leaking internals and returns framework-neutral responses.
+subkind: api-design
+tags: [rfc9457, problem-details, http-api, errors, rest]
+step_kinds: [build, verify, design]
+effects: {filesystem: none, executes: python}
+examples:
+  - "problem(404, detail='Order 42 does not exist', instance='/orders/42')"
+references:
+  - https://www.rfc-editor.org/rfc/rfc9457

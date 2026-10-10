@@ -6,7 +6,8 @@ Everything is standard library and deterministic for a fixed seed:
 * percentile bootstrap confidence interval for the difference in means
   (Baltor minus baseline), unpaired or paired;
 * exact permutation test (Monte Carlo above a size limit) for the same
-  difference, with Holm adjustment across the quality metrics of one task;
+  difference; the one pre-registered primary metric is tested at alpha, the
+  secondary quality metrics are Holm-adjusted as a family;
 * win rate (probability that a Baltor run beats a baseline run, ties count half);
 * Cliff's delta with Romano et al. (2006) magnitude labels;
 * success rates against the pre-registered threshold, and cost deltas.
@@ -61,8 +62,9 @@ DEFAULT_RULES = {
 }
 VERDICT_RULES = [
     "A metric is 'baltor-better' only when (1) the bootstrap CI of the difference excludes zero in the favourable "
-    "direction, (2) the Holm-adjusted permutation p-value is below alpha, (3) |Cliff's delta| is at least the "
-    "'negligible' threshold, and (4) the point estimate reaches the pre-registered minimum_effect when one is set.",
+    "direction, (2) its permutation p-value is below alpha (the single pre-registered primary metric is tested on "
+    "its own; secondary metrics are Holm-adjusted as one family), (3) |Cliff's delta| is at least the 'negligible' "
+    "threshold, and (4) the point estimate reaches the pre-registered minimum_effect when one is set.",
     "'baseline-better' is the mirror image. Anything else is 'no-clear-difference'.",
     "'insufficient-data' when either arm has fewer included runs than the minimum, or when the smallest p-value the "
     "permutation test can produce with these sample sizes is above alpha.",
@@ -406,13 +408,20 @@ def compare_task(spec: dict, runs: list[dict], *, rules: dict | None = None, now
         entry = {"name": m["name"], "kind": m.get("kind", "deterministic"), "direction": m["direction"],
                  "weight": m.get("weight", 1), "primary": bool(m.get("primary")), "derived": bool(m.get("derived")),
                  "minimum_effect": m.get("minimum_effect"), **cmp}
-        if not entry["derived"] and cmp["p_value"] is not None:
+        if not entry["derived"] and not entry["primary"] and cmp["p_value"] is not None:
             raw_p[m["name"]] = cmp["p_value"]
         metrics_out.append(entry)
     adjusted = holm(raw_p) if raw_p else {}
     for entry in metrics_out:
-        p_adj = adjusted.get(entry["name"]) if not entry["derived"] else entry["p_value"]
-        entry["p_holm"] = _r(p_adj) if not entry["derived"] else None
+        if entry["derived"]:
+            p_adj = entry["p_value"]
+            entry["p_holm"] = None
+        elif entry["primary"]:
+            p_adj = entry["p_value"]
+            entry["p_holm"] = _r(p_adj)
+        else:
+            p_adj = adjusted.get(entry["name"])
+            entry["p_holm"] = _r(p_adj)
         entry["verdict"] = verdict(entry, direction=entry["direction"], p_adjusted=p_adj, rules=rules,
                                    paired=paired, minimum_effect=entry.get("minimum_effect"))
         entry["evidence"] = {"deterministic": "deterministic", "llm-judge": "llm-judge (weaker evidence)",
@@ -521,7 +530,8 @@ def compare_task(spec: dict, runs: list[dict], *, rules: dict | None = None, now
         "catalogue_use": catalogue_use,
         "multiple_comparisons": {
             "method": "holm", "family": sorted(raw_p),
-            "note": (f"Holm adjustment across the {len(raw_p)} quality metric(s) of this task. Tasks in one report "
+            "note": ("The pre-registered primary metric is tested at alpha on its own (its p_holm equals its p); "
+                     f"Holm adjustment covers the {len(raw_p)} secondary quality metric(s). Tasks in one report "
                      "are not jointly corrected: with m tasks and no true effect, about m x alpha directional "
                      "verdicts are expected by chance."),
         },
