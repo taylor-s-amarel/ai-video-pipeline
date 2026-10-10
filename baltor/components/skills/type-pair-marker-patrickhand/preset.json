@@ -1,0 +1,62 @@
+{
+  "type": "typography",
+  "id": "type_pair_marker_patrickhand",
+  "name": "Permanent Marker + Patrick Hand",
+  "version": 1,
+  "display": {
+    "family": "Permanent Marker",
+    "weight": 400,
+    "licence": "Apache-2.0",
+    "file": "PermanentMarker-Regular.ttf",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/apache/permanentmarker/PermanentMarker-Regular.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/apache/permanentmarker/LICENSE.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Permanent+Marker",
+    "category": "handwriting",
+    "case": "as-written",
+    "avg_char_em": 0.494
+  },
+  "text": {
+    "family": "Patrick Hand",
+    "weight": 400,
+    "licence": "OFL-1.1",
+    "file": "PatrickHand-Regular.ttf",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/patrickhand/PatrickHand-Regular.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/patrickhand/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Patrick+Hand",
+    "category": "handwriting",
+    "case": "as-written",
+    "avg_char_em": 0.35
+  },
+  "sizes": {
+    "title_px": 84,
+    "caption_px": 64,
+    "min_caption_px": 52,
+    "label_px": 56,
+    "number_px": 110
+  },
+  "chars_per_line": {
+    "title": 20,
+    "caption": 39
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "mood": [
+    "comic",
+    "education",
+    "relationships"
+  ],
+  "why": "Hand-made look for stick-figure, doodle and whiteboard stories."
+}

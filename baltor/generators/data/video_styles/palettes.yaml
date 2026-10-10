@@ -154,7 +154,7 @@ comic_primary:
   mode: light
   mood: [comic, energetic, animals]
   panel_opacity: 0.86
-  colors: {background: "#FFF4D6", surface: "#FFFFFF", panel_tint: "#FFFFFF", text: "#111111", title: "#B3121F",
+  colors: {background: "#FFF4D6", surface: "#FFFFFF", panel_tint: "#FFFFFF", text: "#111111", title: "#8E0B16",
            keyword: "#1D4ED8", accent: "#E63946", accent_2: "#FFD21F", stroke: "#111111", light: "#FFFFFF", particle: "#FFFFFF"}
   gradient: ["#FFE9A8", "#FFF4D6"]
   ramp: ["#111111", "#E63946", "#FF9F1C", "#FFD21F", "#FFF4D6"]

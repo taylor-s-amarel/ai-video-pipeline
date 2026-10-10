@@ -1,0 +1,5 @@
+{
+  "rows": 27,
+  "clusters": 14,
+  "method": "union-find over blocking keys: email, phone"
+}

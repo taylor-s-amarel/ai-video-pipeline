@@ -137,7 +137,7 @@ ai_explainer_neon:
   pacing: {shot_s: [1.5, 3.5], words_per_minute: [150, 170], cut_on: beats}
 ridiculous_story_comic:
   name: Ridiculous story (comic)
-  use_for: [Absurd premises (stuck in a box, 1,000 dogs), Cartoon shorts]
+  use_for: ["Absurd premises: stuck in a box, 1,000 dogs", Cartoon shorts]
   avoid: [Real people in embarrassing situations]
   palette: comic_primary
   typography: type_pair_bangers_nunito

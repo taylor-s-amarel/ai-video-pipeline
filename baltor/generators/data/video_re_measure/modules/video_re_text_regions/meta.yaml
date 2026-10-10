@@ -1,0 +1,20 @@
+title: 'Video RE: text-like regions without OCR'
+summary: Finds titles, captions and labels by stroke-edge density, line grouping and stroke-spacing checks, then links them
+  into on-screen tracks with position and duration.
+subkind: evaluator
+tags:
+- video
+- reverse-engineering
+- text-detection
+- captions
+- typography
+- evidence
+step_kinds:
+- measure
+- research
+deps:
+- ffmpeg
+- ffprobe
+- numpy
+examples:
+- python video_re_text_regions.py clip.mp4 --fps 2 --out text_regions.json

@@ -1,0 +1,104 @@
+{
+  "type": "caption-style",
+  "id": "caption_solid_band_lower",
+  "name": "Solid lower band (two lines)",
+  "version": 1,
+  "house": false,
+  "font": {
+    "family": "Roboto",
+    "weight": 700,
+    "licence": "OFL-1.1",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/roboto/Roboto%5Bwdth%2Cwght%5D.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/roboto/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Roboto",
+    "size_px": 50,
+    "min_size_px": 42,
+    "case": "as-written",
+    "avg_char_em": 0.444,
+    "variable_axes": {
+      "wdth": [
+        75.0,
+        100.0
+      ],
+      "wght": [
+        100.0,
+        900.0
+      ]
+    }
+  },
+  "fill": "#FFFFFF",
+  "stroke": {
+    "color": "#000000",
+    "width_px": 0
+  },
+  "backing": {
+    "type": "solid",
+    "tint": "#000000",
+    "opacity": 0.74,
+    "blur_px": 0,
+    "radius_px": 0,
+    "padding_px": [
+      18,
+      30
+    ],
+    "feather_px": 0,
+    "full_width": true
+  },
+  "layout": {
+    "center_y_fraction": 0.748,
+    "max_width_fraction": 1.0,
+    "max_lines": 2,
+    "max_words": 14,
+    "max_chars": 45,
+    "align": "center"
+  },
+  "emphasis": {
+    "mode": "none"
+  },
+  "timing": {
+    "sync_tolerance_ms": 150,
+    "min_on_screen_ms": 1200,
+    "max_on_screen_ms": 6000
+  },
+  "animation_in": "text_anim_fade_up_soft",
+  "palette": "palette_news_contrast",
+  "contrast": {
+    "text": {
+      "basis": "panel-worst-case",
+      "fg": "#FFFFFF",
+      "bg": "#000000",
+      "opacity": 0.74,
+      "ratio": 10.0,
+      "required": 3.0,
+      "size_px": 42,
+      "weight": 700,
+      "level": "AAA"
+    }
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "reference_size": [
+    1080,
+    1920
+  ],
+  "use_when": [
+    "Landscape (16:9) explainers",
+    "Interviews and quotes where full sentences matter"
+  ],
+  "avoid_when": [
+    "House-style shorts (one line rule)"
+  ]
+}

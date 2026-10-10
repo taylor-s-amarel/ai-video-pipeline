@@ -1,0 +1,21 @@
+title: 'Video RE: cut-to-beat alignment with a chance baseline'
+summary: 'Share of cuts within 70 ms of a beat (or onset), the share expected by chance, lift, lead/lag offset and beats per
+  shot: did the editor cut to the music?'
+subkind: evaluator
+tags:
+- video
+- audio
+- reverse-engineering
+- pacing
+- beats
+- evidence
+step_kinds:
+- measure
+- research
+deps:
+- numpy
+internal:
+- identity: video_re_detect_shots
+- identity: video_re_onsets_beats
+examples:
+- python video_re_cut_beat_alignment.py --shots shots.json --beats beats.json --tolerance 0.07

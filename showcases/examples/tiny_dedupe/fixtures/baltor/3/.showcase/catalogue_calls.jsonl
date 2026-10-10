@@ -1,0 +1,2 @@
+{"op": "search", "query": "deduplicate contacts by phone and email", "ok": true, "results": ["example_fixture_dedupe_skill@1.0.0"]}
+{"op": "read", "identity": "example_fixture_dedupe_skill", "version": "1.0.0", "digest": "f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1", "ok": true}

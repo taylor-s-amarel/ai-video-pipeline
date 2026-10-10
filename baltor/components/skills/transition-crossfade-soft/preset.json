@@ -1,0 +1,20 @@
+{
+  "type": "transition",
+  "id": "transition_crossfade_soft",
+  "name": "Soft crossfade",
+  "version": 1,
+  "method": "xfade",
+  "duration_ms": 400,
+  "tempo": "standard",
+  "use_when": [
+    "Calm narration",
+    "Changing topic within a story"
+  ],
+  "avoid_when": [
+    "Fast edits (blurs the rhythm)"
+  ],
+  "xfade": "fade",
+  "ffmpeg": {
+    "filter": "[a][b]xfade=transition=fade:duration=0.4:offset=<A_DURATION-0.4>[v]"
+  }
+}

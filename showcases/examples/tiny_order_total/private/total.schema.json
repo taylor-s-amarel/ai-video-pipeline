@@ -1,0 +1,1 @@
+{"type": "object", "required": ["total"], "additionalProperties": false, "properties": {"total": {"type": "number"}}}

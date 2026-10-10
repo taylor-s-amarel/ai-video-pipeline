@@ -1,0 +1,78 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "video_re_detect_shots",
+  "title": "Video RE: detect shots, cuts and dissolves",
+  "kind": "code-module",
+  "subkind": "evaluator",
+  "version": "1.0.0",
+  "summary": "Frame-exact hard cuts plus gradual transitions from soft colour histograms, grey differences and motion-robust thumbnails with an adaptive threshold; ffmpeg scdet cross-check.",
+  "description": "Method 'frames' (default) decodes every frame at a small size (96 px wide) and scores each frame\nagainst the previous one:\n\n    score = 0.4 * colour-histogram distance (soft 16-bin Y, Cb, Cr histograms, mean L1/2, 0..1)\n          + 0.3 * min(1, 2 * mean absolute grey difference / 255)\n          + 0.3 * min(1, 3 * mean absolute difference of 16-column block-mean thumbnails / 255)\n\nThe thumbnail term barely moves under pans and zooms but changes when the picture changes, which\ncatches cuts between two shots with similar colours.\n\nA frame starts a new shot (hard cut) when its score is a local maximum, is at least ``min_score``\nand is at least ``adaptive_ratio`` times the median score of the surrounding ``window_s`` seconds,\nand the previous shot is at least ``min_shot_s`` long. Cut times are frame-exact: the new shot\nstarts at frame_index / fps.\n\nGradual transitions are found with a long-range difference: frame t against frame t-k\n(k = ``gradual_window_s``). A bump in that curve that is not explained by a hard cut, builds up over\nseveral frames and lasts less than ``max_gradual_s`` + k is a dissolve or fade; its centre is the\nboundary. Continuous camera motion produces a long plateau instead and is rejected.\n\nMethod 'scdet' runs ffmpeg's scdet filter instead (hard cuts only); useful as a cross-check.\n\nKnown limits: whip pans, strobe/flash frames and very fast motion can create false cuts; cuts between\ntwo near-identical framings can be missed; gradual-transition boundaries are approximate (a few\nframes) and marked ``type: gradual``.\n\nAnalysis boundary: this module measures technique and structure (timing, layout, motion, colour, loudness, rhythm). Analysing a public video for technique is fine; republishing its content is not. Its outputs are local working evidence: keyframes, OCR text, captions and transcripts of the analysed video stay out of anything published and out of a format IR, which keeps only technique, structure and parameters - never the source's footage, frames, music, voice or script text (at most a short on-screen label quoted as an evidence note, no transcripts).",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "measure",
+    "research"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "runs ffmpeg/ffprobe as subprocesses",
+      "writes only where --out / --out-dir point (stdout otherwise)"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "video_re_detect_shots.py",
+  "tags": [
+    "video",
+    "reverse-engineering",
+    "shot-detection",
+    "cuts",
+    "scdet",
+    "evidence"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "ffmpeg",
+      "external": true
+    },
+    {
+      "identity": "ffprobe",
+      "external": true
+    },
+    {
+      "identity": "numpy",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_re_measure.py",
+    "data": "generators/data/video_re_measure",
+    "parameters": {
+      "swarm_stage": "load-disassemble",
+      "evidence_spec": "baltor.video-evidence/v1"
+    }
+  },
+  "examples": [
+    "python video_re_detect_shots.py clip.mp4 --out shots.json",
+    "python video_re_detect_shots.py clip.mp4 --method scdet"
+  ],
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "pytest passes with Python 3.13, numpy 2.5, Pillow 12 and ffmpeg 6.1 on synthetic media with known ground truth; optional OCR/ASR engines were not installed, so their adapters were tested through fakes and parsers only."
+  }
+}

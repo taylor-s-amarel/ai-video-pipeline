@@ -1,0 +1,128 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "layer_stack_house_30_reference",
+  "title": "House 30-layer reference stack",
+  "kind": "skill",
+  "subkind": "layer-stack",
+  "version": "1.0.0",
+  "summary": "30-layer stack, theme ocean, 1080x1920; all layers <= 98% opacity with a moving background.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "render",
+    "design"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "runs ffmpeg/ffprobe commands from SKILL.md that write render files into the working directory",
+      "scripts/check_preset.py reads preset.json and schema.json"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "video",
+    "shorts",
+    "layers",
+    "compositing",
+    "ffmpeg",
+    "house-30-reference",
+    "30-layers",
+    "house-style"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "layer_stack_preset_schema"
+    },
+    {
+      "identity": "short_style_preset_kit"
+    },
+    {
+      "identity": "palette_ocean_deep"
+    },
+    {
+      "identity": "bg_layer_gradient_drift"
+    },
+    {
+      "identity": "bg_layer_ocean_waves"
+    },
+    {
+      "identity": "bg_layer_sunlit_water"
+    },
+    {
+      "identity": "grid_2x2_even_feathered"
+    },
+    {
+      "identity": "bg_layer_atmospheric_haze"
+    },
+    {
+      "identity": "bg_layer_light_leaks"
+    },
+    {
+      "identity": "bg_layer_bokeh_drift"
+    },
+    {
+      "identity": "bg_layer_dust_particles"
+    },
+    {
+      "identity": "bg_layer_underwater_rays"
+    },
+    {
+      "identity": "bg_layer_vignette_breathe"
+    },
+    {
+      "identity": "bg_layer_film_grain"
+    },
+    {
+      "identity": "title_house_yellow_hook"
+    },
+    {
+      "identity": "title_fact_number_label"
+    },
+    {
+      "identity": "text_anim_count_up_number"
+    },
+    {
+      "identity": "caption_frosted_keyword_pop"
+    },
+    {
+      "identity": "text_anim_keyword_pop_house"
+    },
+    {
+      "identity": "camera_ken_burns_in_upper_third"
+    },
+    {
+      "identity": "text_anim_settle_in"
+    },
+    {
+      "identity": "text_anim_springy_pop_overshoot"
+    },
+    {
+      "identity": "text_anim_fade_up_soft"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_styles.py",
+    "data": "generators/data/video_styles"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "headless-tested",
+  "evidence_notes": "Preset validated against its schema by the generator; contrast and opacity rules computed. No render recorded for this exact preset."
+}

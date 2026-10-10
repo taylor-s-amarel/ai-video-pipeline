@@ -1,0 +1,205 @@
+{
+  "type": "palette",
+  "id": "palette_desert_dune",
+  "name": "Desert dune",
+  "version": 1,
+  "mode": "dark",
+  "colors": {
+    "background": "#3B2414",
+    "surface": "#5A3820",
+    "panel_tint": "#2A190D",
+    "text": "#FFF4E6",
+    "title": "#FFD08A",
+    "keyword": "#FFC27F",
+    "accent": "#D9822B",
+    "accent_2": "#7FB7BE",
+    "stroke": "#1C1007",
+    "light": "#FFC97A",
+    "particle": "#FFE9C7"
+  },
+  "panel_opacity": 0.7,
+  "gradient": [
+    "#3B2414",
+    "#8A5A2B"
+  ],
+  "ramp": [
+    "#1C1007",
+    "#3B2414",
+    "#8A5A2B",
+    "#D9A15E",
+    "#FFF1DC"
+  ],
+  "pairs": [
+    {
+      "fg_role": "text",
+      "bg_role": "panel_tint@panel",
+      "fg": "#FFF4E6",
+      "bg": "#2A190D",
+      "basis": "panel-worst-case",
+      "opacity": 0.7,
+      "ratio": 5.77,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "panel_tint@panel",
+      "fg": "#FFD08A",
+      "bg": "#2A190D",
+      "basis": "panel-worst-case",
+      "opacity": 0.7,
+      "ratio": 4.37,
+      "required": 3.0,
+      "use": "large-bold-only",
+      "min_size_px": 24,
+      "min_weight": 700,
+      "level": "AA-large"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "panel_tint@panel",
+      "fg": "#FFC27F",
+      "bg": "#2A190D",
+      "basis": "panel-worst-case",
+      "opacity": 0.7,
+      "ratio": 3.96,
+      "required": 3.0,
+      "use": "large-bold-only",
+      "min_size_px": 24,
+      "min_weight": 700,
+      "level": "AA-large"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "background",
+      "fg": "#FFF4E6",
+      "bg": "#3B2414",
+      "basis": "solid",
+      "ratio": 13.34,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "background",
+      "fg": "#FFD08A",
+      "bg": "#3B2414",
+      "basis": "solid",
+      "ratio": 10.1,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "background",
+      "fg": "#FFC27F",
+      "bg": "#3B2414",
+      "basis": "solid",
+      "ratio": 9.16,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "accent",
+      "bg_role": "background",
+      "fg": "#D9822B",
+      "bg": "#3B2414",
+      "basis": "solid",
+      "ratio": 4.95,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "surface",
+      "fg": "#FFF4E6",
+      "bg": "#5A3820",
+      "basis": "solid",
+      "ratio": 9.56,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "surface",
+      "fg": "#FFC27F",
+      "bg": "#5A3820",
+      "basis": "solid",
+      "ratio": 6.56,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "stroke",
+      "fg": "#FFF4E6",
+      "bg": "#1C1007",
+      "basis": "solid",
+      "ratio": 17.16,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "stroke",
+      "fg": "#FFD08A",
+      "bg": "#1C1007",
+      "basis": "solid",
+      "ratio": 12.99,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "keyword@card95",
+      "fg": "#3B2414",
+      "bg": "#FFC27F",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 8.24,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "title@card95",
+      "fg": "#3B2414",
+      "bg": "#FFD08A",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 9.08,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "accent@card95",
+      "fg": "#3B2414",
+      "bg": "#D9822B",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 4.5,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    }
+  ],
+  "failed_pair_count": 0,
+  "mood": [
+    "history",
+    "nature",
+    "documentary"
+  ],
+  "notes": "Ancient history, deserts, exploration."
+}

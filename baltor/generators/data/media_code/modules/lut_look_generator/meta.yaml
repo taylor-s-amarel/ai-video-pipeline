@@ -1,0 +1,7 @@
+title: LUT look generator
+summary: Bakes seven documented grade recipes (warm, cool, teal-orange, bleach bypass, matte, mono contrast, vintage fade) into 3D LUTs with adjustable strength and writes .cube files for ffmpeg lut3d.
+subkind: lut
+domain: video
+tags: [video, lut, colour-grading, looks, cube, ffmpeg]
+step_kinds: [build, render]
+depends_on: [ffmpeg]

@@ -1,0 +1,77 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "video_re_speech_segments",
+  "title": "Video RE: speech segments (transparent VAD heuristic)",
+  "kind": "code-module",
+  "subkind": "audio-analysis",
+  "version": "1.0.0",
+  "summary": "Where narration probably is: energy, voice-band share and flatness gating with hangover smoothing, plus a syllable-rate modulation depth per segment; silencedetect fallback.",
+  "description": "Method 'energy' (default, numpy only), on mono 16 kHz audio in 25 ms frames every 10 ms:\n\n1. frame level in dBFS, the share of energy in the 100-4000 Hz voice band, and spectral flatness\n   inside that band (voiced speech is harmonic, so its flatness is low);\n2. the noise floor is the 10th percentile of frame levels; a frame is active when it is at least\n   ``margin_db`` (10 dB) above the floor and above ``abs_floor_db`` (-55 dBFS), with at least 50% of\n   its energy in the voice band and band flatness under 0.6;\n3. gaps shorter than ``merge_gap_s`` (0.3 s) are bridged, segments shorter than ``min_segment_s``\n   (0.2 s) dropped, and each segment padded by 50 ms.\n\nEach segment also gets ``syllabic_modulation`` (dB): how much its voice-band energy rises and falls\nat 2-8 Hz, the syllable rate of speech (measured without the segment's first and last 100 ms).\nSpeech is typically well above 3 dB; a sustained sound (a held music note) stays near 1 dB or less.\nIt is reported, not used to filter, because sung vocals and rhythmic music also modulate.\n\nMethod 'silencedetect' inverts ffmpeg's silencedetect (``-45 dB``, 0.3 s), which only says \"not\nsilent\".\n\nLimits: music beds under narration usually merge into one long active region; whispering and\ndistant speech can be missed. A neural VAD (e.g. Silero) is more accurate when available; this\nmodule keeps the evidence pipeline dependency-free.\n\nAnalysis boundary: this module measures technique and structure (timing, layout, motion, colour, loudness, rhythm). Analysing a public video for technique is fine; republishing its content is not. Its outputs are local working evidence: keyframes, OCR text, captions and transcripts of the analysed video stay out of anything published and out of a format IR, which keeps only technique, structure and parameters - never the source's footage, frames, music, voice or script text (at most a short on-screen label quoted as an evidence note, no transcripts).",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "measure",
+    "research"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "runs ffmpeg/ffprobe as subprocesses",
+      "writes only where --out / --out-dir point (stdout otherwise)"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "video_re_speech_segments.py",
+  "tags": [
+    "audio",
+    "reverse-engineering",
+    "vad",
+    "speech",
+    "narration",
+    "evidence"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "ffmpeg",
+      "external": true
+    },
+    {
+      "identity": "ffprobe",
+      "external": true
+    },
+    {
+      "identity": "numpy",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_re_measure.py",
+    "data": "generators/data/video_re_measure",
+    "parameters": {
+      "swarm_stage": "load-disassemble",
+      "evidence_spec": "baltor.video-evidence/v1"
+    }
+  },
+  "examples": [
+    "python video_re_speech_segments.py clip.mp4 --out speech.json"
+  ],
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "pytest passes with Python 3.13, numpy 2.5, Pillow 12 and ffmpeg 6.1 on synthetic media with known ground truth; optional OCR/ASR engines were not installed, so their adapters were tested through fakes and parsers only."
+  }
+}

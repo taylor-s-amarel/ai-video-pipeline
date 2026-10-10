@@ -1,0 +1,11 @@
+{
+  "noise_sigma": 4.812,
+  "residual_sigma": 6.033,
+  "grain_size_px": 2.41,
+  "signal_dependence_ratio": 1.06,
+  "chroma_luma_ratio": 0.12,
+  "temporal_correlation": 0.03,
+  "hint": "synthetic-grain-like",
+  "native_pixels": true,
+  "frames_analysed": 12
+}

@@ -1,0 +1,1 @@
+Blocking keys: phone digits without the +1 country code, and email lower-cased with Gmail dots and +tags removed. Any shared key links two rows; union-find merges the links. I did not match on names because the file has two different Alex Kims.

@@ -1,0 +1,26 @@
+title: 'Video RE: detect shots, cuts and dissolves'
+summary: Frame-exact hard cuts plus gradual transitions from soft colour histograms, grey differences and motion-robust thumbnails
+  with an adaptive threshold; ffmpeg scdet cross-check.
+subkind: evaluator
+tags:
+- video
+- reverse-engineering
+- shot-detection
+- cuts
+- scdet
+- evidence
+step_kinds:
+- measure
+- research
+deps:
+- ffmpeg
+- ffprobe
+- numpy
+examples:
+- python video_re_detect_shots.py clip.mp4 --out shots.json
+- python video_re_detect_shots.py clip.mp4 --method scdet
+refs:
+- https://ffmpeg.org/ffmpeg-filters.html#scdet
+- https://github.com/Breakthrough/PySceneDetect (adaptive-threshold idea)
+- H. J. Zhang, A. Kankanhalli, S. W. Smoliar, Automatic partitioning of full-motion video, Multimedia Systems 1(1), 1993 (twin-comparison
+  gradual transitions)

@@ -1,0 +1,69 @@
+{
+  "type": "background-layer",
+  "id": "bg_layer_pixel_sky_parallax",
+  "name": "Pixel sky parallax",
+  "version": 1,
+  "category": "procedural-scene",
+  "role": "background-video",
+  "look": "Blocky clouds and two layers of hills scrolling at different speeds, scaled with nearest-neighbour.",
+  "render": {
+    "method": "ffmpeg-lavfi",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "loop_period_s": 8,
+    "filtergraph_file": "filtergraph.txt",
+    "tested_with": "FFmpeg 6.1.1",
+    "colour_stops": [
+      [
+        0,
+        "#2E1F14"
+      ],
+      [
+        70,
+        "#2F6B2F"
+      ],
+      [
+        120,
+        "#5FA052"
+      ],
+      [
+        200,
+        "#6EC6F0"
+      ],
+      [
+        230,
+        "#9ADCF7"
+      ],
+      [
+        255,
+        "#FFFFFF"
+      ]
+    ]
+  },
+  "default_opacity": 0.92,
+  "default_blend": "normal",
+  "motion": {
+    "type": "parallax",
+    "period_s": 8
+  },
+  "recolor": "none",
+  "use_when": [
+    "Pixel-art stories and game explainers"
+  ],
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  }
+}

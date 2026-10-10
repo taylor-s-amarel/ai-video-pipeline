@@ -146,21 +146,21 @@ items:
   - id: kenney-ui-pack
     title: "Kenney UI Pack 2.0 (430 assets)"
     url: https://kenney.nl/assets/ui-pack
-    summary: "Completely remade UI pack (2.0): buttons, panels, sliders, arrows; 430 assets, CC0. Works for Godot themes and video lower-thirds."
+    summary: "Completely remade UI pack (2.0), 430 assets, CC0; source for Godot themes and video lower-thirds."
     licence: CC0-1.0
     licence_url: https://kenney.nl/support
     tags: [ui, buttons, panels]
   - id: kenney-ui-pack-rpg-expansion
     title: "Kenney UI Pack (RPG Expansion, 85 assets)"
     url: https://kenney.nl/assets/ui-pack-rpg-expansion
-    summary: "85 RPG-style panels, bars and buttons extending the UI Pack, CC0."
+    summary: "85-asset RPG expansion of the UI Pack, CC0."
     licence: CC0-1.0
     licence_url: https://kenney.nl/support
     tags: [ui, rpg]
   - id: kenney-particle-pack
     title: "Kenney Particle Pack (80 assets)"
     url: https://kenney.nl/assets/particle-pack
-    summary: "80 particle sprites (smoke, sparks, magic, light) for GPUParticles2D or video overlay layers, CC0."
+    summary: "80 particle sprites for GPUParticles2D or video overlay layers, CC0."
     licence: CC0-1.0
     licence_url: https://kenney.nl/support
     tags: [particles, vfx, overlay]

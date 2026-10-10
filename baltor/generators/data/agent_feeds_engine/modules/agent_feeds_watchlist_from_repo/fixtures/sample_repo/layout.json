@@ -1,0 +1,16 @@
+{
+  "_comment": "Fixture files use neutral names so no harness picks them up inside the package; the test copies them to these paths in a temporary repo.",
+  "requirements.txt": "requirements.txt",
+  "requirements-dev.txt": "requirements-dev.txt",
+  "pyproject.toml": "pyproject.toml",
+  "package.json": "web/package.json",
+  "Cargo.toml": "native/Cargo.toml",
+  "go.mod": "tools/go.mod",
+  "Dockerfile": "Dockerfile",
+  "compose.yaml": "compose.yaml",
+  "dot-mcp.json": ".mcp.json",
+  "codex-config.toml": ".codex/config.toml",
+  "opencode.json": "opencode.json",
+  "claude-settings.json": ".claude/settings.json",
+  "ignored-package.json": "web/node_modules/left-pad/package.json"
+}

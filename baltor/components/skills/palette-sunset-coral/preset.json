@@ -1,0 +1,206 @@
+{
+  "type": "palette",
+  "id": "palette_sunset_coral",
+  "name": "Sunset coral",
+  "version": 1,
+  "mode": "dark",
+  "colors": {
+    "background": "#2B1B3D",
+    "surface": "#3D2654",
+    "panel_tint": "#1E1230",
+    "text": "#FFFFFF",
+    "title": "#FFC857",
+    "keyword": "#FFB4B4",
+    "accent": "#F9844A",
+    "accent_2": "#C05299",
+    "stroke": "#1E1230",
+    "light": "#FF9F45",
+    "particle": "#FFD6A5"
+  },
+  "panel_opacity": 0.7,
+  "gradient": [
+    "#2B1B3D",
+    "#7A3B69"
+  ],
+  "ramp": [
+    "#1E1230",
+    "#3D2654",
+    "#7A3B69",
+    "#F9844A",
+    "#FFE3C2"
+  ],
+  "pairs": [
+    {
+      "fg_role": "text",
+      "bg_role": "panel_tint@panel",
+      "fg": "#FFFFFF",
+      "bg": "#1E1230",
+      "basis": "panel-worst-case",
+      "opacity": 0.7,
+      "ratio": 6.62,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "panel_tint@panel",
+      "fg": "#FFC857",
+      "bg": "#1E1230",
+      "basis": "panel-worst-case",
+      "opacity": 0.7,
+      "ratio": 4.3,
+      "required": 3.0,
+      "use": "large-bold-only",
+      "min_size_px": 24,
+      "min_weight": 700,
+      "level": "AA-large"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "panel_tint@panel",
+      "fg": "#FFB4B4",
+      "bg": "#1E1230",
+      "basis": "panel-worst-case",
+      "opacity": 0.7,
+      "ratio": 3.92,
+      "required": 3.0,
+      "use": "large-bold-only",
+      "min_size_px": 24,
+      "min_weight": 700,
+      "level": "AA-large"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "background",
+      "fg": "#FFFFFF",
+      "bg": "#2B1B3D",
+      "basis": "solid",
+      "ratio": 15.82,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "background",
+      "fg": "#FFC857",
+      "bg": "#2B1B3D",
+      "basis": "solid",
+      "ratio": 10.28,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "background",
+      "fg": "#FFB4B4",
+      "bg": "#2B1B3D",
+      "basis": "solid",
+      "ratio": 9.37,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "accent",
+      "bg_role": "background",
+      "fg": "#F9844A",
+      "bg": "#2B1B3D",
+      "basis": "solid",
+      "ratio": 6.35,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "surface",
+      "fg": "#FFFFFF",
+      "bg": "#3D2654",
+      "basis": "solid",
+      "ratio": 13.09,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "surface",
+      "fg": "#FFB4B4",
+      "bg": "#3D2654",
+      "basis": "solid",
+      "ratio": 7.75,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "stroke",
+      "fg": "#FFFFFF",
+      "bg": "#1E1230",
+      "basis": "solid",
+      "ratio": 17.73,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "stroke",
+      "fg": "#FFC857",
+      "bg": "#1E1230",
+      "basis": "solid",
+      "ratio": 11.52,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "keyword@card95",
+      "fg": "#2B1B3D",
+      "bg": "#FFB4B4",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 8.43,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "title@card95",
+      "fg": "#2B1B3D",
+      "bg": "#FFC857",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 9.24,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "accent@card95",
+      "fg": "#2B1B3D",
+      "bg": "#F9844A",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 5.74,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    }
+  ],
+  "failed_pair_count": 0,
+  "mood": [
+    "relationships",
+    "calm",
+    "energetic",
+    "nature"
+  ],
+  "notes": "Warm evening tones for feelings and relationship topics."
+}

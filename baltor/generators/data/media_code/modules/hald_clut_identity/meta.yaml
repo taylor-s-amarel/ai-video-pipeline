@@ -1,0 +1,7 @@
+title: Hald CLUT identity and apply
+summary: Exports identity Hald CLUT images to grade in any photo editor, then applies the edited CLUT to frames with numpy trilinear lookup or to video with ffmpeg haldclut.
+subkind: lut
+domain: video
+tags: [video, hald-clut, lut, colour-grading, ffmpeg, pillow]
+step_kinds: [design, render]
+depends_on: [ffmpeg]

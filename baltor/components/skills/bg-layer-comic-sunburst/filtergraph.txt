@@ -1,0 +1,1 @@
+color=c=black:s=540x960:r=30:d=8,format=gray,geq=lum='st(2,atan2(Y-0.42*H,X-0.5*W));255*clip(0.5+4*sin(ld(2)*14+2*(2*PI*T/8)),0,1)',format=gbrp,lutrgb=r='if(lt(val,255),lerp(255,255,(val-0)/255),255)':g='if(lt(val,255),lerp(159,210,(val-0)/255),210)':b='if(lt(val,255),lerp(28,31,(val-0)/255),31)',scale=1080:1920:flags=bicubic,setsar=1,format=yuv420p[out]

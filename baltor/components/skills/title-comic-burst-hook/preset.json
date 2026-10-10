@@ -1,0 +1,98 @@
+{
+  "type": "title-style",
+  "id": "title_comic_burst_hook",
+  "name": "Comic burst hook",
+  "version": 1,
+  "house": false,
+  "font": {
+    "family": "Bangers",
+    "weight": 400,
+    "licence": "OFL-1.1",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/bangers/Bangers-Regular.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/bangers/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Bangers",
+    "size_px": 112,
+    "min_size_px": 84,
+    "case": "upper",
+    "letter_spacing_em": 0.02,
+    "avg_char_em": 0.368
+  },
+  "fill": "#8E0B16",
+  "stroke": {
+    "color": "#FFFFFF",
+    "width_px": 8
+  },
+  "backing": {
+    "type": "sticker",
+    "tint": "#FFD21F",
+    "opacity": 0.95,
+    "blur_px": 0,
+    "radius_px": 0,
+    "padding_px": [
+      28,
+      44
+    ],
+    "feather_px": 0,
+    "rotation_deg": -3,
+    "shape": "starburst"
+  },
+  "position": {
+    "region": "upper-third",
+    "center_y_fraction": 0.25,
+    "over": "photo",
+    "max_width_fraction": 0.88,
+    "never_move_photo": true
+  },
+  "text": {
+    "min_words": 1,
+    "max_words": 5,
+    "max_lines": 2,
+    "max_chars_per_line": 20
+  },
+  "timing": {
+    "first_frame": true,
+    "hold_s": 2.2
+  },
+  "animation_in": "text_anim_springy_pop_overshoot",
+  "palette": "palette_comic_primary",
+  "contrast": {
+    "title": {
+      "basis": "panel-worst-case",
+      "fg": "#8E0B16",
+      "bg": "#FFD21F",
+      "opacity": 0.95,
+      "ratio": 5.89,
+      "required": 4.5,
+      "size_px": 84,
+      "weight": 400,
+      "level": "AAA"
+    }
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "reference_size": [
+    1080,
+    1920
+  ],
+  "use_when": [
+    "Ridiculous stories",
+    "cartoons and comic looks"
+  ],
+  "avoid_when": [
+    "Serious topics"
+  ],
+  "notes": "Dark red title with a white outline on a yellow starburst card; the contrast check measures the fill against the card."
+}

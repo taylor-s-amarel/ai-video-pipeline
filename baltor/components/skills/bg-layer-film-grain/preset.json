@@ -1,0 +1,53 @@
+{
+  "type": "background-layer",
+  "id": "bg_layer_film_grain",
+  "name": "Film grain",
+  "version": 1,
+  "category": "overlay",
+  "role": "grain",
+  "look": "Fine moving monochrome grain around mid-grey.",
+  "render": {
+    "method": "ffmpeg-lavfi",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "loop_period_s": 8,
+    "filtergraph_file": "filtergraph.txt",
+    "tested_with": "FFmpeg 6.1.1",
+    "colour_stops": [
+      [
+        0,
+        "#000000"
+      ],
+      [
+        255,
+        "#FFFFFF"
+      ]
+    ]
+  },
+  "default_opacity": 0.1,
+  "default_blend": "overlay",
+  "motion": {
+    "type": "loop",
+    "period_s": 8
+  },
+  "recolor": "none",
+  "use_when": [
+    "Unifying mixed sources; keep at 6-14% in overlay or soft-light"
+  ],
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "video_re_transcribe_adapter",
+  "title": "Video RE: speech-recognition adapter with word times",
+  "kind": "code-module",
+  "subkind": "audio-analysis",
+  "version": "1.0.0",
+  "summary": "Transcribes with faster-whisper, openai-whisper or whisper.cpp if installed (no model downloads unless allowed), or reads an existing transcript; words can be masked.",
+  "description": "Engines, tried in this order by ``--engine auto`` (all optional, all imported lazily):\n\n* ``faster-whisper`` (``pip install faster-whisper``) - word timestamps; CPU int8\n* ``openai-whisper`` (``pip install openai-whisper``) - word timestamps\n* ``whisper.cpp`` - the ``whisper-cli`` program with a ggml model named by ``WHISPER_CPP_MODEL``\n\nModels are not downloaded unless ``--allow-download`` is given: faster-whisper runs with\n``local_files_only`` and openai-whisper is only used when its model file is already in the cache.\nWithout a usable engine the result is ``{\"status\": \"unavailable\"}`` and nothing is guessed.\n\nThe transcript is the analysed video's script. It is local evidence for measuring structure\n(speech rate, hook length, sentence rhythm, where numbers are said) and must never be copied into a\nformat IR or republished. ``--text-mode masked`` keeps word timings but replaces each word with its\nshape ('Word', 'word', 'WORD', '{n}'); ``none`` drops the text.\n\nAnalysis boundary: this module measures technique and structure (timing, layout, motion, colour, loudness, rhythm). Analysing a public video for technique is fine; republishing its content is not. Its outputs are local working evidence: keyframes, OCR text, captions and transcripts of the analysed video stay out of anything published and out of a format IR, which keeps only technique, structure and parameters - never the source's footage, frames, music, voice or script text (at most a short on-screen label quoted as an evidence note, no transcripts).",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "measure",
+    "research"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "declared",
+    "executes": "python",
+    "secrets": [],
+    "hosts": [
+      "huggingface.co",
+      "*.huggingface.co",
+      "*.hf.co",
+      "openaipublic.azureedge.net"
+    ],
+    "side_effects": [
+      "runs ffmpeg/ffprobe as subprocesses",
+      "writes only where --out / --out-dir point (stdout otherwise)",
+      "imports optional engines lazily: faster_whisper, openai_whisper, whisper_cpp",
+      "only with --allow-download: faster-whisper fetches models from Hugging Face, openai-whisper from its model host"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "video_re_transcribe_adapter.py",
+  "tags": [
+    "audio",
+    "reverse-engineering",
+    "asr",
+    "whisper",
+    "transcript",
+    "evidence"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "ffmpeg",
+      "external": true
+    },
+    {
+      "identity": "ffprobe",
+      "external": true
+    },
+    {
+      "identity": "faster_whisper",
+      "external": true
+    },
+    {
+      "identity": "openai_whisper",
+      "external": true
+    },
+    {
+      "identity": "whisper_cpp",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_re_measure.py",
+    "data": "generators/data/video_re_measure",
+    "parameters": {
+      "swarm_stage": "load-disassemble",
+      "evidence_spec": "baltor.video-evidence/v1"
+    }
+  },
+  "examples": [
+    "python video_re_transcribe_adapter.py clip.mp4 --engine faster-whisper --model small --text-mode masked",
+    "python video_re_transcribe_adapter.py clip.mp4 --from-file subs.srt"
+  ],
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "pytest passes with Python 3.13, numpy 2.5, Pillow 12 and ffmpeg 6.1 on synthetic media with known ground truth; optional OCR/ASR engines were not installed, so their adapters were tested through fakes and parsers only."
+  }
+}

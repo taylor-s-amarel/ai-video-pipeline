@@ -1,0 +1,101 @@
+{
+  "type": "caption-style",
+  "id": "caption_boxed_keyword",
+  "name": "Outlined captions with boxed keyword",
+  "version": 1,
+  "house": false,
+  "font": {
+    "family": "Archivo Black",
+    "weight": 900,
+    "licence": "OFL-1.1",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/archivoblack/ArchivoBlack-Regular.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/archivoblack/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Archivo+Black",
+    "size_px": 60,
+    "min_size_px": 48,
+    "case": "upper",
+    "avg_char_em": 0.676
+  },
+  "fill": "#FFFFFF",
+  "stroke": {
+    "color": "#000000",
+    "width_px": 6
+  },
+  "backing": {
+    "type": "none"
+  },
+  "layout": {
+    "center_y_fraction": 0.751,
+    "max_width_fraction": 0.86,
+    "max_lines": 2,
+    "max_words": 5,
+    "max_chars": 22,
+    "align": "center"
+  },
+  "emphasis": {
+    "mode": "box-keyword",
+    "scale_peak": 1.08,
+    "duration_ms": 160,
+    "easing": "ease-out-back",
+    "color": "#FFD21F",
+    "text_color": "#0B1220",
+    "box_opacity": 0.95
+  },
+  "timing": {
+    "sync_tolerance_ms": 120,
+    "min_on_screen_ms": 600,
+    "max_on_screen_ms": 2400
+  },
+  "animation_in": "text_anim_springy_pop_overshoot",
+  "palette": "palette_house_yellow_night",
+  "contrast": {
+    "text": {
+      "basis": "stroke",
+      "fg": "#FFFFFF",
+      "bg": "#000000",
+      "ratio": 21.0,
+      "required": 3.0,
+      "size_px": 48,
+      "weight": 900,
+      "level": "AAA",
+      "stroke_px": 6
+    },
+    "keyword_box": {
+      "basis": "panel-worst-case",
+      "fg": "#0B1220",
+      "bg": "#FFD21F",
+      "opacity": 0.95,
+      "ratio": 11.6,
+      "required": 3.0,
+      "size_px": 48,
+      "weight": 900,
+      "level": "AAA"
+    }
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "reference_size": [
+    1080,
+    1920
+  ],
+  "use_when": [
+    "Top-N lists and numbers",
+    "Punchy hooks where one word carries the point"
+  ],
+  "avoid_when": [
+    "Light palettes with white outlines on white footage"
+  ]
+}

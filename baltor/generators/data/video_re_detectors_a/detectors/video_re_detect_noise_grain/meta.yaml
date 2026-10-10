@@ -1,0 +1,16 @@
+title: Measure noise level and grain size
+summary: Measures luma noise sigma (Immerkaer estimator on homogeneous pixels), grain size from residual autocorrelation and hints whether it is sensor-like, a synthetic grain overlay or a reused grain plate.
+description: >-
+  Native-resolution crops keep the noise intact. Signal dependence across intensity bins, chroma-to-luma noise
+  ratio and frame-to-frame residual correlation separate photon noise, monochrome synthetic grain and static grain
+  plates, reported as a hint with all evidence values.
+tags: [noise, grain, film-look, sensor-noise, texture]
+references:
+  - "Immerkaer, J. (1996). Fast noise variance estimation. Computer Vision and Image Understanding 64(2), 300-302."
+limits:
+  - Denoised or heavily compressed video reads clean.
+  - Fine real texture inflates the estimate despite the homogeneity mask.
+  - The hint is evidence, not a camera classification.
+contract:
+  title: Noise and grain payload
+  summary: JSON Schema for the noise/grain payload - Immerkaer sigma, residual sigma, grain size, signal-dependence and chroma ratios, temporal correlation and hint.

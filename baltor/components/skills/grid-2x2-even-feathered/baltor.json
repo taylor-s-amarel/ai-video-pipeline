@@ -1,0 +1,76 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "grid_2x2_even_feathered",
+  "title": "Even feathered 2x2",
+  "kind": "skill",
+  "subkind": "grid-system",
+  "version": "1.0.0",
+  "summary": "Feathered 2x2 grid: gutter 24 px, feather 32 px, radius 0 px, as background-layer.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "render",
+    "design"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "runs ffmpeg/ffprobe commands from SKILL.md that write render files into the working directory",
+      "scripts/check_preset.py reads preset.json and schema.json"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "video",
+    "shorts",
+    "grid",
+    "split-screen",
+    "ffmpeg",
+    "even-feathered",
+    "background-layer"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "grid_2x2_preset_schema"
+    },
+    {
+      "identity": "short_style_preset_kit"
+    },
+    {
+      "identity": "bg_layer_ocean_waves"
+    },
+    {
+      "identity": "bg_layer_meadow_wind"
+    },
+    {
+      "identity": "bg_layer_sunlit_water"
+    },
+    {
+      "identity": "bg_layer_coastal_aerial"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_styles.py",
+    "data": "generators/data/video_styles"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "headless-tested",
+  "evidence_notes": "Preset validated against its schema by the generator; contrast and opacity rules computed. No render recorded for this exact preset."
+}

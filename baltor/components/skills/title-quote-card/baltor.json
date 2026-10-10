@@ -1,0 +1,72 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "title_quote_card",
+  "title": "Quote card",
+  "kind": "skill",
+  "subkind": "title-style",
+  "version": "1.0.0",
+  "summary": "Playfair Display 700 title in `#F5ECD9`, center at 42%; contrast 6.28:1.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "design",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "declared",
+    "executes": "python",
+    "secrets": [],
+    "hosts": [
+      "raw.githubusercontent.com"
+    ],
+    "side_effects": [
+      "downloads font files from the google/fonts repository on GitHub",
+      "runs ffmpeg and scripts/check_preset.py"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "video",
+    "shorts",
+    "titles",
+    "hooks",
+    "typography",
+    "quote-card"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "title_style_preset_schema"
+    },
+    {
+      "identity": "short_style_preset_kit"
+    },
+    {
+      "identity": "palette_history_archive"
+    },
+    {
+      "identity": "text_anim_word_by_word_reveal"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_styles.py",
+    "data": "generators/data/video_styles"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "headless-tested",
+  "evidence_notes": "Preset validated against its schema by the generator; contrast and opacity rules computed. No render recorded for this exact preset."
+}

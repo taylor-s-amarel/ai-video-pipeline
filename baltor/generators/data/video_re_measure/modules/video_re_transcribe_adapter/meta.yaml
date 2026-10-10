@@ -1,0 +1,35 @@
+title: 'Video RE: speech-recognition adapter with word times'
+summary: Transcribes with faster-whisper, openai-whisper or whisper.cpp if installed (no model downloads unless allowed),
+  or reads an existing transcript; words can be masked.
+subkind: audio-analysis
+tags:
+- audio
+- reverse-engineering
+- asr
+- whisper
+- transcript
+- evidence
+step_kinds:
+- measure
+- research
+deps:
+- ffmpeg
+- ffprobe
+optional:
+- faster_whisper
+- openai_whisper
+- whisper_cpp
+network_hosts:
+- huggingface.co
+- '*.huggingface.co'
+- '*.hf.co'
+- openaipublic.azureedge.net
+network_note: 'only with --allow-download: faster-whisper fetches models from Hugging Face, openai-whisper from its model
+  host'
+examples:
+- python video_re_transcribe_adapter.py clip.mp4 --engine faster-whisper --model small --text-mode masked
+- python video_re_transcribe_adapter.py clip.mp4 --from-file subs.srt
+refs:
+- https://github.com/SYSTRAN/faster-whisper
+- https://github.com/openai/whisper
+- https://github.com/ggml-org/whisper.cpp

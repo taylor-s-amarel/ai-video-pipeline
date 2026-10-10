@@ -1,0 +1,9 @@
+model = "example"
+
+[mcp_servers.agent-feeds]
+command = "python3"
+args = [".baltor/lib/agent-feeds-mcp-server/agent_feeds_mcp_server.py"]
+
+[mcp_servers.context7]
+command = "npx"
+args = ["-y", "@upstash/context7-mcp"]

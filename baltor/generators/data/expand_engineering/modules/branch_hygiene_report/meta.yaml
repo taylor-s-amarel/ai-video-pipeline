@@ -1,0 +1,12 @@
+title: Branch naming policy and stale-branch report
+summary: Validates branch names against git ref-format rules and a team pattern (type/slug), and lists local branches that are merged, have a gone upstream or are stale, with reviewable cleanup commands (never deletes).
+subkind: git-workflow
+tags: [git, branches, hygiene, naming, cleanup]
+step_kinds: [operate, review]
+effects: {filesystem: read, executes: python, side_effects: ["runs read-only git commands (for-each-ref, branch --merged, rev-parse)"]}
+examples:
+  - "python branch_hygiene_report.py check feat/123-add-login"
+  - "python branch_hygiene_report.py report --base main --stale-days 45"
+references:
+  - https://git-scm.com/docs/git-check-ref-format
+  - https://git-scm.com/docs/git-for-each-ref

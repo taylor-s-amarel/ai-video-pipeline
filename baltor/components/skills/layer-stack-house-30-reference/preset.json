@@ -1,0 +1,599 @@
+{
+  "type": "layer-stack",
+  "id": "layer_stack_house_30_reference",
+  "name": "House 30-layer reference stack",
+  "version": 1,
+  "house": true,
+  "summary": "The full 30-layer reference for house-style shorts; every layer under 98% opacity, a moving background throughout, the photo at 90% width with a feathered edge.",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "theme": "ocean",
+  "palette": "palette_ocean_deep",
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "layers": [
+    {
+      "z": 1,
+      "id": "base_gradient",
+      "role": "base",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_gradient_drift"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "drift"
+      }
+    },
+    {
+      "z": 2,
+      "id": "footage_primary",
+      "role": "background-video",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_ocean_waves"
+      },
+      "opacity": 0.92,
+      "blend": "normal",
+      "motion": {
+        "type": "loop"
+      }
+    },
+    {
+      "z": 3,
+      "id": "footage_secondary",
+      "role": "background-video",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_sunlit_water"
+      },
+      "opacity": 0.35,
+      "blend": "soft-light",
+      "motion": {
+        "type": "loop"
+      }
+    },
+    {
+      "z": 4,
+      "id": "motion_grid",
+      "role": "grid-2x2",
+      "source": {
+        "kind": "component",
+        "ref": "grid_2x2_even_feathered",
+        "cells": [
+          "bg_layer_ocean_waves",
+          "bg_layer_meadow_wind",
+          "bg_layer_sunlit_water",
+          "bg_layer_coastal_aerial"
+        ]
+      },
+      "opacity": 0.35,
+      "blend": "screen",
+      "motion": {
+        "type": "loop"
+      }
+    },
+    {
+      "z": 5,
+      "id": "haze",
+      "role": "haze",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_atmospheric_haze"
+      },
+      "opacity": 0.22,
+      "blend": "screen",
+      "motion": {
+        "type": "drift"
+      }
+    },
+    {
+      "z": 6,
+      "id": "light_leaks",
+      "role": "light",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_light_leaks"
+      },
+      "opacity": 0.28,
+      "blend": "screen",
+      "motion": {
+        "type": "drift"
+      }
+    },
+    {
+      "z": 7,
+      "id": "bokeh_far",
+      "role": "particles",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_bokeh_drift"
+      },
+      "opacity": 0.22,
+      "blend": "screen",
+      "motion": {
+        "type": "rise"
+      }
+    },
+    {
+      "z": 8,
+      "id": "dust",
+      "role": "particles",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_dust_particles"
+      },
+      "opacity": 0.3,
+      "blend": "screen",
+      "motion": {
+        "type": "rise"
+      }
+    },
+    {
+      "z": 9,
+      "id": "light_rays",
+      "role": "light",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_underwater_rays"
+      },
+      "opacity": 0.18,
+      "blend": "screen",
+      "motion": {
+        "type": "sway"
+      }
+    },
+    {
+      "z": 10,
+      "id": "colour_wash",
+      "role": "overlay",
+      "source": {
+        "kind": "palette-colour",
+        "ref": "accent"
+      },
+      "opacity": 0.12,
+      "blend": "soft-light",
+      "motion": {
+        "type": "pulse"
+      },
+      "opacity_keyframes": [
+        [
+          0,
+          0.08
+        ],
+        [
+          4,
+          0.14
+        ],
+        [
+          8,
+          0.08
+        ]
+      ]
+    },
+    {
+      "z": 11,
+      "id": "vignette",
+      "role": "vignette",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_vignette_breathe"
+      },
+      "opacity": 0.5,
+      "blend": "multiply",
+      "motion": {
+        "type": "pulse"
+      }
+    },
+    {
+      "z": 12,
+      "id": "photo_shadow",
+      "role": "shadow",
+      "source": {
+        "kind": "effect",
+        "ref": "fx:photo_shadow"
+      },
+      "opacity": 0.45,
+      "blend": "multiply",
+      "motion": {
+        "type": "follow"
+      },
+      "details": {
+        "follows": "photo",
+        "blur_px": 40,
+        "offset_px": [
+          0,
+          18
+        ]
+      }
+    },
+    {
+      "z": 13,
+      "id": "photo",
+      "role": "photo",
+      "source": {
+        "kind": "asset",
+        "ref": "photo"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "ken-burns"
+      },
+      "rect": {
+        "x": 0.05,
+        "y": 0.16,
+        "w": 0.9,
+        "h": 0.52
+      },
+      "feather_px": 48,
+      "corner_radius_px": 24,
+      "details": {
+        "camera": "camera_ken_burns_in_upper_third"
+      }
+    },
+    {
+      "z": 14,
+      "id": "photo_rim_light",
+      "role": "light",
+      "source": {
+        "kind": "effect",
+        "ref": "fx:rim_light"
+      },
+      "opacity": 0.2,
+      "blend": "screen",
+      "motion": {
+        "type": "follow"
+      },
+      "details": {
+        "follows": "photo"
+      }
+    },
+    {
+      "z": 15,
+      "id": "photo_grain",
+      "role": "grain",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_film_grain"
+      },
+      "opacity": 0.08,
+      "blend": "overlay",
+      "motion": {
+        "type": "loop"
+      },
+      "rect": {
+        "x": 0.05,
+        "y": 0.16,
+        "w": 0.9,
+        "h": 0.52
+      }
+    },
+    {
+      "z": 16,
+      "id": "bokeh_near",
+      "role": "particles",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_bokeh_drift"
+      },
+      "opacity": 0.16,
+      "blend": "screen",
+      "motion": {
+        "type": "parallax"
+      },
+      "details": {
+        "speed": 1.4,
+        "scale": 1.6
+      }
+    },
+    {
+      "z": 17,
+      "id": "title_shadow",
+      "role": "shadow",
+      "source": {
+        "kind": "effect",
+        "ref": "fx:panel_shadow"
+      },
+      "opacity": 0.3,
+      "blend": "multiply",
+      "motion": {
+        "type": "static"
+      },
+      "details": {
+        "follows": "title_panel"
+      }
+    },
+    {
+      "z": 18,
+      "id": "title_panel",
+      "role": "panel",
+      "source": {
+        "kind": "effect",
+        "ref": "panel:title"
+      },
+      "opacity": 0.62,
+      "blend": "normal",
+      "motion": {
+        "type": "static"
+      },
+      "details": {
+        "backing": "frosted-glass"
+      }
+    },
+    {
+      "z": 19,
+      "id": "title_text",
+      "role": "title",
+      "source": {
+        "kind": "component",
+        "ref": "title_house_yellow_hook"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "keyframed"
+      },
+      "details": {
+        "animation": "text_anim_settle_in",
+        "visible_from_s": 0.0
+      }
+    },
+    {
+      "z": 20,
+      "id": "title_light_sweep",
+      "role": "light",
+      "source": {
+        "kind": "effect",
+        "ref": "fx:light_sweep"
+      },
+      "opacity": 0.25,
+      "blend": "add",
+      "motion": {
+        "type": "keyframed"
+      },
+      "details": {
+        "window_s": [
+          0.3,
+          0.9
+        ]
+      }
+    },
+    {
+      "z": 21,
+      "id": "label_panel",
+      "role": "panel",
+      "source": {
+        "kind": "effect",
+        "ref": "panel:label"
+      },
+      "opacity": 0.62,
+      "blend": "normal",
+      "motion": {
+        "type": "keyframed"
+      },
+      "details": {
+        "animation": "text_anim_springy_pop_overshoot"
+      }
+    },
+    {
+      "z": 22,
+      "id": "label_text",
+      "role": "label",
+      "source": {
+        "kind": "component",
+        "ref": "title_fact_number_label"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "keyframed"
+      },
+      "details": {
+        "animation": "text_anim_springy_pop_overshoot"
+      }
+    },
+    {
+      "z": 23,
+      "id": "key_number",
+      "role": "number",
+      "source": {
+        "kind": "component",
+        "ref": "text_anim_count_up_number"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "keyframed"
+      }
+    },
+    {
+      "z": 24,
+      "id": "caption_panel",
+      "role": "panel",
+      "source": {
+        "kind": "effect",
+        "ref": "panel:caption"
+      },
+      "opacity": 0.62,
+      "blend": "normal",
+      "motion": {
+        "type": "static"
+      },
+      "details": {
+        "backing": "frosted-glass"
+      }
+    },
+    {
+      "z": 25,
+      "id": "caption_text",
+      "role": "caption",
+      "source": {
+        "kind": "component",
+        "ref": "caption_frosted_keyword_pop"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "keyframed"
+      },
+      "details": {
+        "animation": "text_anim_fade_up_soft"
+      }
+    },
+    {
+      "z": 26,
+      "id": "caption_keyword",
+      "role": "caption",
+      "source": {
+        "kind": "component",
+        "ref": "text_anim_keyword_pop_house"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "keyframed"
+      }
+    },
+    {
+      "z": 27,
+      "id": "global_grain",
+      "role": "grain",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_film_grain"
+      },
+      "opacity": 0.08,
+      "blend": "overlay",
+      "motion": {
+        "type": "loop"
+      }
+    },
+    {
+      "z": 28,
+      "id": "edge_feather",
+      "role": "vignette",
+      "source": {
+        "kind": "effect",
+        "ref": "fx:edge_feather"
+      },
+      "opacity": 0.3,
+      "blend": "multiply",
+      "motion": {
+        "type": "static"
+      }
+    },
+    {
+      "z": 29,
+      "id": "transition_flash",
+      "role": "transition",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_light_leaks"
+      },
+      "opacity": 0.6,
+      "blend": "screen",
+      "motion": {
+        "type": "keyframed"
+      },
+      "opacity_keyframes": [
+        [
+          0,
+          0.0
+        ],
+        [
+          0.16,
+          0.6
+        ],
+        [
+          0.32,
+          0.0
+        ]
+      ],
+      "details": {
+        "at": "each cut"
+      }
+    },
+    {
+      "z": 30,
+      "id": "colour_grade",
+      "role": "grade",
+      "source": {
+        "kind": "grade",
+        "ref": "palette_ocean_deep"
+      },
+      "opacity": 0.4,
+      "blend": "soft-light",
+      "motion": {
+        "type": "static"
+      }
+    }
+  ],
+  "rules": {
+    "max_layer_opacity": 0.98,
+    "min_layers": 5
+  },
+  "effects": {
+    "photo_shadow": "Blurred copy of the photo's alpha mask, filled with the palette background colour, offset and multiplied under the photo.",
+    "rim_light": "The photo's feathered mask, blurred 24-40 px and filled with the palette light colour, screened behind the photo edge.",
+    "panel_shadow": "The panel's mask blurred 20 px, offset 8 px down, multiplied.",
+    "light_sweep": "A 30-degree soft white band (gaussian, 120 px wide) crossing the title once, added at low opacity.",
+    "edge_feather": "A rounded-rectangle mask with a 60 px feather at the frame edge, multiplied to soften the borders."
+  },
+  "background_render": {
+    "filtergraph_file": "background_filtergraph.txt",
+    "loop_period_s": 8,
+    "included_layers": [
+      "base_gradient",
+      "footage_primary",
+      "footage_secondary",
+      "motion_grid",
+      "haze",
+      "light_leaks",
+      "bokeh_far",
+      "dust",
+      "light_rays",
+      "vignette",
+      "bokeh_near",
+      "global_grain",
+      "colour_grade"
+    ],
+    "rendered_separately": [
+      "colour_wash",
+      "photo_shadow",
+      "photo",
+      "photo_rim_light",
+      "photo_grain",
+      "title_shadow",
+      "title_panel",
+      "title_text",
+      "title_light_sweep",
+      "label_panel",
+      "label_text",
+      "key_number",
+      "caption_panel",
+      "caption_text",
+      "caption_keyword",
+      "edge_feather",
+      "transition_flash"
+    ],
+    "note": "The background graph renders every full-frame procedural layer. Photo, panels, text, effects and cut-timed layers are composited afterwards in z order."
+  }
+}

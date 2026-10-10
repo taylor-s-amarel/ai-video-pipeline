@@ -1,0 +1,92 @@
+{
+  "type": "typography",
+  "id": "type_pair_spacegrotesk_jetbrains",
+  "name": "Space Grotesk + JetBrains Mono",
+  "version": 1,
+  "display": {
+    "family": "Space Grotesk",
+    "weight": 700,
+    "licence": "OFL-1.1",
+    "file": "SpaceGrotesk[wght].ttf",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/spacegrotesk/SpaceGrotesk%5Bwght%5D.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/spacegrotesk/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Space+Grotesk",
+    "category": "sans-serif",
+    "case": "as-written",
+    "avg_char_em": 0.475,
+    "variable_axes": {
+      "wght": [
+        300.0,
+        700.0
+      ]
+    }
+  },
+  "text": {
+    "family": "Space Grotesk",
+    "weight": 700,
+    "licence": "OFL-1.1",
+    "file": "SpaceGrotesk[wght].ttf",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/spacegrotesk/SpaceGrotesk%5Bwght%5D.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/spacegrotesk/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Space+Grotesk",
+    "category": "sans-serif",
+    "case": "as-written",
+    "avg_char_em": 0.475,
+    "variable_axes": {
+      "wght": [
+        300.0,
+        700.0
+      ]
+    }
+  },
+  "sizes": {
+    "title_px": 84,
+    "caption_px": 58,
+    "min_caption_px": 46,
+    "label_px": 44,
+    "number_px": 100
+  },
+  "chars_per_line": {
+    "title": 21,
+    "caption": 31
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "mood": [
+    "tech",
+    "science",
+    "education"
+  ],
+  "why": "A slightly quirky grotesque for AI and tech explainers; monospaced numbers and labels feel like code.",
+  "numbers": {
+    "family": "JetBrains Mono",
+    "weight": 700,
+    "licence": "OFL-1.1",
+    "file": "JetBrainsMono[wght].ttf",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/jetbrainsmono/JetBrainsMono%5Bwght%5D.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/jetbrainsmono/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/JetBrains+Mono",
+    "category": "monospace",
+    "case": "as-written",
+    "avg_char_em": 0.6,
+    "variable_axes": {
+      "wght": [
+        100.0,
+        800.0
+      ]
+    }
+  }
+}

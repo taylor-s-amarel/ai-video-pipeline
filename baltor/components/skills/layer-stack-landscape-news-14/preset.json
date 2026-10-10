@@ -1,0 +1,292 @@
+{
+  "type": "layer-stack",
+  "id": "layer_stack_landscape_news_14",
+  "name": "Landscape briefing 14-layer stack",
+  "version": 1,
+  "house": false,
+  "summary": "A 16:9 briefing layout with a lower-third bar and two-line subtitles.",
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30
+  },
+  "theme": "clouds",
+  "palette": "palette_news_contrast",
+  "target": {
+    "id": "landscape_16x9",
+    "label": "Landscape 16:9",
+    "platform": "youtube",
+    "aspect": "16:9",
+    "width": 1920,
+    "height": 1080,
+    "safe_margins": {
+      "top": 0.07,
+      "bottom": 0.1,
+      "left": 0.05,
+      "right": 0.05
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "layers": [
+    {
+      "z": 1,
+      "id": "base_gradient",
+      "role": "base",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_gradient_drift"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "drift"
+      }
+    },
+    {
+      "z": 2,
+      "id": "footage",
+      "role": "background-video",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_city_night_bokeh"
+      },
+      "opacity": 0.6,
+      "blend": "normal",
+      "motion": {
+        "type": "loop"
+      }
+    },
+    {
+      "z": 3,
+      "id": "haze",
+      "role": "haze",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_atmospheric_haze"
+      },
+      "opacity": 0.2,
+      "blend": "screen",
+      "motion": {
+        "type": "drift"
+      }
+    },
+    {
+      "z": 4,
+      "id": "light_leaks",
+      "role": "light",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_light_leaks"
+      },
+      "opacity": 0.15,
+      "blend": "screen",
+      "motion": {
+        "type": "drift"
+      }
+    },
+    {
+      "z": 5,
+      "id": "vignette",
+      "role": "vignette",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_vignette_breathe"
+      },
+      "opacity": 0.5,
+      "blend": "multiply",
+      "motion": {
+        "type": "pulse"
+      }
+    },
+    {
+      "z": 6,
+      "id": "photo_shadow",
+      "role": "shadow",
+      "source": {
+        "kind": "effect",
+        "ref": "fx:photo_shadow"
+      },
+      "opacity": 0.4,
+      "blend": "multiply",
+      "motion": {
+        "type": "follow"
+      },
+      "details": {
+        "follows": "photo",
+        "blur_px": 30,
+        "offset_px": [
+          0,
+          12
+        ]
+      }
+    },
+    {
+      "z": 7,
+      "id": "photo",
+      "role": "photo",
+      "source": {
+        "kind": "asset",
+        "ref": "photo"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "ken-burns"
+      },
+      "rect": {
+        "x": 0.1,
+        "y": 0.08,
+        "w": 0.8,
+        "h": 0.7
+      },
+      "feather_px": 12,
+      "corner_radius_px": 12,
+      "details": {
+        "camera": "camera_handheld_micro_shake"
+      }
+    },
+    {
+      "z": 8,
+      "id": "kicker_bar",
+      "role": "panel",
+      "source": {
+        "kind": "palette-colour",
+        "ref": "accent"
+      },
+      "opacity": 0.95,
+      "blend": "normal",
+      "motion": {
+        "type": "keyframed"
+      },
+      "details": {
+        "animation": "text_anim_mask_reveal_up"
+      }
+    },
+    {
+      "z": 9,
+      "id": "lower_third_panel",
+      "role": "panel",
+      "source": {
+        "kind": "effect",
+        "ref": "panel:title"
+      },
+      "opacity": 0.74,
+      "blend": "normal",
+      "motion": {
+        "type": "keyframed"
+      },
+      "details": {
+        "backing": "solid"
+      }
+    },
+    {
+      "z": 10,
+      "id": "lower_third_text",
+      "role": "title",
+      "source": {
+        "kind": "component",
+        "ref": "title_news_lower_third"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "keyframed"
+      },
+      "details": {
+        "animation": "text_anim_mask_reveal_up"
+      }
+    },
+    {
+      "z": 11,
+      "id": "subtitle_panel",
+      "role": "panel",
+      "source": {
+        "kind": "effect",
+        "ref": "panel:caption"
+      },
+      "opacity": 0.74,
+      "blend": "normal",
+      "motion": {
+        "type": "static"
+      },
+      "details": {
+        "backing": "solid"
+      }
+    },
+    {
+      "z": 12,
+      "id": "subtitle_text",
+      "role": "caption",
+      "source": {
+        "kind": "component",
+        "ref": "caption_solid_band_lower"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "keyframed"
+      },
+      "details": {
+        "animation": "text_anim_fade_up_soft"
+      }
+    },
+    {
+      "z": 13,
+      "id": "global_grain",
+      "role": "grain",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_film_grain"
+      },
+      "opacity": 0.05,
+      "blend": "overlay",
+      "motion": {
+        "type": "loop"
+      }
+    },
+    {
+      "z": 14,
+      "id": "colour_grade",
+      "role": "grade",
+      "source": {
+        "kind": "grade",
+        "ref": "palette_news_contrast"
+      },
+      "opacity": 0.3,
+      "blend": "soft-light",
+      "motion": {
+        "type": "static"
+      }
+    }
+  ],
+  "rules": {
+    "max_layer_opacity": 0.98,
+    "min_layers": 5
+  },
+  "effects": {
+    "photo_shadow": "Blurred copy of the photo's alpha mask, filled with the palette background colour, offset and multiplied under the photo."
+  },
+  "background_render": {
+    "filtergraph_file": "background_filtergraph.txt",
+    "loop_period_s": 8,
+    "included_layers": [
+      "base_gradient",
+      "footage",
+      "haze",
+      "light_leaks",
+      "vignette",
+      "kicker_bar",
+      "global_grain",
+      "colour_grade"
+    ],
+    "rendered_separately": [
+      "photo_shadow",
+      "photo",
+      "lower_third_panel",
+      "lower_third_text",
+      "subtitle_panel",
+      "subtitle_text"
+    ],
+    "note": "The background graph renders every full-frame procedural layer. Photo, panels, text, effects and cut-timed layers are composited afterwards in z order."
+  }
+}

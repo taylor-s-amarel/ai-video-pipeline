@@ -48,7 +48,7 @@ isometric:
   shading: flat
   outline: {enabled: false, width_px: 0}
   timing: {render_fps: 30, animate_on: ones}
-  palette: {max_colors: 14, note: Three tones per material (top light, left mid, right dark).}
+  palette: {max_colors: 14, note: "Three tones per material: top light, left mid, right dark."}
   best_for: [Rooms, cities and factories, How-it-works builds, Small-business process explainers]
   avoid: [Close-ups of faces]
   look: Clean three-quarter view from above with parallel lines; looks like a diorama.
@@ -112,7 +112,7 @@ textured_cutout:
     - "Pillow: fill each shape with a paper texture (bg_layer_warm_paper frame), add a 2-4 px darker edge and a drop shadow (offset 6 px, blur 6 px, 35%)."
     - "Animate on twos: change pose every 2 frames; limit rotations to +/-8 degrees and pivot at joints."
     - "Add a 1-2 px random offset per held pose (seeded) so shapes feel hand-placed."
-  pitfalls: [Smooth 60 fps tweens (they look digital, not cut out)]
+  pitfalls: ["Smooth 60 fps tweens: they look digital, not cut out"]
   tools: [Pillow, Godot, Blender]
 
 clay_like:

@@ -1,0 +1,68 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "video_re_probe_metadata",
+  "title": "Video RE: probe container and stream facts",
+  "kind": "code-module",
+  "subkind": "qa-check",
+  "version": "1.0.0",
+  "summary": "ffprobe facts for reverse-engineering a video: display size after rotation, fps, duration, audio, codecs, subtitle streams and aspect label. Nothing guessed.",
+  "description": "Returns display width/height with rotation metadata and non-square pixels applied, average fps,\nduration, audio presence and codec facts. Everything comes straight from ffprobe; nothing is guessed.\n\nAnalysis boundary: this module measures technique and structure (timing, layout, motion, colour, loudness, rhythm). Analysing a public video for technique is fine; republishing its content is not. Its outputs are local working evidence: keyframes, OCR text, captions and transcripts of the analysed video stay out of anything published and out of a format IR, which keeps only technique, structure and parameters - never the source's footage, frames, music, voice or script text (at most a short on-screen label quoted as an evidence note, no transcripts).",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "measure",
+    "research"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "runs ffmpeg/ffprobe as subprocesses",
+      "writes only where --out / --out-dir point (stdout otherwise)"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "video_re_probe_metadata.py",
+  "tags": [
+    "video",
+    "reverse-engineering",
+    "ffprobe",
+    "metadata",
+    "evidence"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "ffprobe",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_re_measure.py",
+    "data": "generators/data/video_re_measure",
+    "parameters": {
+      "swarm_stage": "load-disassemble",
+      "evidence_spec": "baltor.video-evidence/v1"
+    }
+  },
+  "examples": [
+    "python video_re_probe_metadata.py clip.mp4 --out probe.json"
+  ],
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "pytest passes with Python 3.13, numpy 2.5, Pillow 12 and ffmpeg 6.1 on synthetic media with known ground truth; optional OCR/ASR engines were not installed, so their adapters were tested through fakes and parsers only."
+  }
+}

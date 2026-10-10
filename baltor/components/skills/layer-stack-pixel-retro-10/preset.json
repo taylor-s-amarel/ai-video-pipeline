@@ -1,0 +1,236 @@
+{
+  "type": "layer-stack",
+  "id": "layer_stack_pixel_retro_10",
+  "name": "Pixel retro 10-layer stack",
+  "version": 1,
+  "house": false,
+  "summary": "Nearest-neighbour pixel sky, scanlines and pixel lettering for game-style stories.",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "theme": "meadow",
+  "palette": "palette_pixel_retro",
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "layers": [
+    {
+      "z": 1,
+      "id": "pixel_sky",
+      "role": "background-video",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_pixel_sky_parallax"
+      },
+      "opacity": 0.95,
+      "blend": "normal",
+      "motion": {
+        "type": "scroll"
+      }
+    },
+    {
+      "z": 2,
+      "id": "lava",
+      "role": "texture",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_lava_blobs"
+      },
+      "opacity": 0.12,
+      "blend": "soft-light",
+      "motion": {
+        "type": "drift"
+      }
+    },
+    {
+      "z": 3,
+      "id": "vignette",
+      "role": "vignette",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_vignette_breathe"
+      },
+      "opacity": 0.35,
+      "blend": "multiply",
+      "motion": {
+        "type": "pulse"
+      }
+    },
+    {
+      "z": 4,
+      "id": "sprite_scene",
+      "role": "photo",
+      "source": {
+        "kind": "asset",
+        "ref": "pixel_scene"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "static"
+      },
+      "rect": {
+        "x": 0.05,
+        "y": 0.16,
+        "w": 0.9,
+        "h": 0.52
+      },
+      "feather_px": 0,
+      "corner_radius_px": 0,
+      "details": {
+        "scale_filter": "neighbor"
+      }
+    },
+    {
+      "z": 5,
+      "id": "title_panel",
+      "role": "panel",
+      "source": {
+        "kind": "effect",
+        "ref": "panel:title"
+      },
+      "opacity": 0.7,
+      "blend": "normal",
+      "motion": {
+        "type": "static"
+      },
+      "details": {
+        "backing": "solid"
+      }
+    },
+    {
+      "z": 6,
+      "id": "title_text",
+      "role": "title",
+      "source": {
+        "kind": "component",
+        "ref": "title_kinetic_slam_hook"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "keyframed"
+      },
+      "details": {
+        "animation": "text_anim_kinetic_slam"
+      }
+    },
+    {
+      "z": 7,
+      "id": "caption_panel",
+      "role": "panel",
+      "source": {
+        "kind": "effect",
+        "ref": "panel:caption"
+      },
+      "opacity": 0.7,
+      "blend": "normal",
+      "motion": {
+        "type": "static"
+      },
+      "details": {
+        "backing": "solid"
+      }
+    },
+    {
+      "z": 8,
+      "id": "caption_text",
+      "role": "caption",
+      "source": {
+        "kind": "component",
+        "ref": "caption_outline_bold_center"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "keyframed"
+      },
+      "details": {
+        "animation": "text_anim_typewriter"
+      }
+    },
+    {
+      "z": 9,
+      "id": "scanlines",
+      "role": "overlay",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_crt_scanlines"
+      },
+      "opacity": 0.15,
+      "blend": "overlay",
+      "motion": {
+        "type": "loop"
+      }
+    },
+    {
+      "z": 10,
+      "id": "transition_flash",
+      "role": "transition",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_light_leaks"
+      },
+      "opacity": 0.4,
+      "blend": "screen",
+      "motion": {
+        "type": "keyframed"
+      },
+      "opacity_keyframes": [
+        [
+          0,
+          0.0
+        ],
+        [
+          0.1,
+          0.4
+        ],
+        [
+          0.2,
+          0.0
+        ]
+      ],
+      "details": {
+        "at": "each cut"
+      }
+    }
+  ],
+  "rules": {
+    "max_layer_opacity": 0.98,
+    "min_layers": 5
+  },
+  "effects": {},
+  "background_render": {
+    "filtergraph_file": "background_filtergraph.txt",
+    "loop_period_s": 8,
+    "included_layers": [
+      "pixel_sky",
+      "lava",
+      "vignette",
+      "scanlines"
+    ],
+    "rendered_separately": [
+      "sprite_scene",
+      "title_panel",
+      "title_text",
+      "caption_panel",
+      "caption_text",
+      "transition_flash"
+    ],
+    "note": "The background graph renders every full-frame procedural layer. Photo, panels, text, effects and cut-timed layers are composited afterwards in z order."
+  }
+}

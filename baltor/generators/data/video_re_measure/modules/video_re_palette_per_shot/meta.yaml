@@ -1,0 +1,22 @@
+title: 'Video RE: palette and tone per shot'
+summary: Dominant colours per shot by k-means in CIE Lab with area shares, plus mean luma, contrast, saturation and warmth,
+  for the colour-grade and palette lenses.
+subkind: evaluator
+tags:
+- video
+- reverse-engineering
+- palette
+- color
+- kmeans
+- evidence
+step_kinds:
+- measure
+- research
+deps:
+- ffmpeg
+- ffprobe
+- numpy
+internal:
+- identity: video_re_detect_shots
+examples:
+- python video_re_palette_per_shot.py clip.mp4 --shots shots.json --k 5

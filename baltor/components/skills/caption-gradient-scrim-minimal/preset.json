@@ -1,0 +1,119 @@
+{
+  "type": "caption-style",
+  "id": "caption_gradient_scrim_minimal",
+  "name": "Minimal captions on a soft gradient scrim",
+  "version": 1,
+  "house": false,
+  "font": {
+    "family": "Inter",
+    "weight": 700,
+    "licence": "OFL-1.1",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/inter/Inter%5Bopsz%2Cwght%5D.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/inter/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Inter",
+    "size_px": 56,
+    "min_size_px": 46,
+    "case": "as-written",
+    "avg_char_em": 0.487,
+    "variable_axes": {
+      "opsz": [
+        14.0,
+        32.0
+      ],
+      "wght": [
+        100.0,
+        900.0
+      ]
+    }
+  },
+  "fill": "#F4FBEF",
+  "stroke": {
+    "color": "#06110A",
+    "width_px": 0
+  },
+  "backing": {
+    "type": "scrim",
+    "tint": "#0D1F12",
+    "opacity": 0.64,
+    "blur_px": 0,
+    "radius_px": 0,
+    "padding_px": [
+      40,
+      40
+    ],
+    "feather_px": 120,
+    "full_width": true
+  },
+  "layout": {
+    "center_y_fraction": 0.751,
+    "max_width_fraction": 0.88,
+    "max_lines": 1,
+    "max_words": 7,
+    "max_chars": 31,
+    "align": "center"
+  },
+  "emphasis": {
+    "mode": "color",
+    "scale_peak": 1.0,
+    "duration_ms": 0,
+    "easing": "linear",
+    "color": "#A7E163"
+  },
+  "timing": {
+    "sync_tolerance_ms": 150,
+    "min_on_screen_ms": 700,
+    "max_on_screen_ms": 3200
+  },
+  "animation_in": "text_anim_fade_up_soft",
+  "palette": "palette_forest_canopy",
+  "contrast": {
+    "text": {
+      "basis": "panel-worst-case",
+      "fg": "#F4FBEF",
+      "bg": "#0D1F12",
+      "opacity": 0.64,
+      "ratio": 4.92,
+      "required": 3.0,
+      "size_px": 46,
+      "weight": 700,
+      "level": "AAA"
+    },
+    "keyword": {
+      "basis": "panel-worst-case",
+      "fg": "#A7E163",
+      "bg": "#0D1F12",
+      "opacity": 0.64,
+      "ratio": 3.36,
+      "required": 3.0,
+      "size_px": 46,
+      "weight": 700,
+      "level": "AA"
+    }
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "reference_size": [
+    1080,
+    1920
+  ],
+  "use_when": [
+    "Cinematic nature footage you do not want to box in"
+  ],
+  "avoid_when": [
+    "Bright skies or snow at the caption position unless the scrim is dense enough"
+  ],
+  "notes": "A full-width gradient (transparent at its edge, palette opacity at the text line) sits behind the caption region. The contrast check uses the scrim opacity at the text line."
+}

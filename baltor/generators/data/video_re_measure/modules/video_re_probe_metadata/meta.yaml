@@ -1,0 +1,19 @@
+title: 'Video RE: probe container and stream facts'
+summary: 'ffprobe facts for reverse-engineering a video: display size after rotation, fps, duration, audio, codecs, subtitle
+  streams and aspect label. Nothing guessed.'
+subkind: qa-check
+tags:
+- video
+- reverse-engineering
+- ffprobe
+- metadata
+- evidence
+step_kinds:
+- measure
+- research
+deps:
+- ffprobe
+examples:
+- python video_re_probe_metadata.py clip.mp4 --out probe.json
+refs:
+- https://ffmpeg.org/ffprobe.html

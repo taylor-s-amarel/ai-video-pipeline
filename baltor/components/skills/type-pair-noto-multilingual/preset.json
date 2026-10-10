@@ -1,0 +1,104 @@
+{
+  "type": "typography",
+  "id": "type_pair_noto_multilingual",
+  "name": "Noto Sans + Noto Serif",
+  "version": 1,
+  "display": {
+    "family": "Noto Sans",
+    "weight": 800,
+    "licence": "OFL-1.1",
+    "file": "NotoSans[wdth,wght].ttf",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/notosans/NotoSans%5Bwdth%2Cwght%5D.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/notosans/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Noto+Sans",
+    "category": "sans-serif",
+    "case": "as-written",
+    "avg_char_em": 0.503,
+    "variable_axes": {
+      "wdth": [
+        62.5,
+        100.0
+      ],
+      "wght": [
+        100.0,
+        900.0
+      ]
+    }
+  },
+  "text": {
+    "family": "Noto Sans",
+    "weight": 700,
+    "licence": "OFL-1.1",
+    "file": "NotoSans[wdth,wght].ttf",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/notosans/NotoSans%5Bwdth%2Cwght%5D.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/notosans/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Noto+Sans",
+    "category": "sans-serif",
+    "case": "as-written",
+    "avg_char_em": 0.503,
+    "variable_axes": {
+      "wdth": [
+        62.5,
+        100.0
+      ],
+      "wght": [
+        100.0,
+        900.0
+      ]
+    }
+  },
+  "sizes": {
+    "title_px": 80,
+    "caption_px": 56,
+    "min_caption_px": 46,
+    "label_px": 48,
+    "number_px": 104
+  },
+  "chars_per_line": {
+    "title": 21,
+    "caption": 31
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "mood": [
+    "education",
+    "news",
+    "documentary"
+  ],
+  "why": "The Noto families aim at broad script coverage, so translated captions keep one look. Check the exact Noto family for each script you need.",
+  "numbers": {
+    "family": "Noto Serif",
+    "weight": 700,
+    "licence": "OFL-1.1",
+    "file": "NotoSerif[wdth,wght].ttf",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/notoserif/NotoSerif%5Bwdth%2Cwght%5D.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/notoserif/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Noto+Serif",
+    "category": "serif",
+    "case": "as-written",
+    "avg_char_em": 0.499,
+    "variable_axes": {
+      "wdth": [
+        62.5,
+        100.0
+      ],
+      "wght": [
+        100.0,
+        900.0
+      ]
+    }
+  }
+}

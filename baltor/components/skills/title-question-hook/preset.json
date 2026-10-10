@@ -1,0 +1,101 @@
+{
+  "type": "title-style",
+  "id": "title_question_hook",
+  "name": "Question hook",
+  "version": 1,
+  "house": false,
+  "font": {
+    "family": "Montserrat",
+    "weight": 900,
+    "licence": "OFL-1.1",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/montserrat/Montserrat%5Bwght%5D.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/montserrat/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Montserrat",
+    "size_px": 84,
+    "min_size_px": 64,
+    "case": "upper",
+    "avg_char_em": 0.648,
+    "variable_axes": {
+      "wght": [
+        100.0,
+        900.0
+      ]
+    }
+  },
+  "fill": "#FFC857",
+  "stroke": {
+    "color": "#1E1230",
+    "width_px": 0
+  },
+  "backing": {
+    "type": "frosted-glass",
+    "tint": "#1E1230",
+    "opacity": 0.7,
+    "blur_px": 28,
+    "radius_px": 30,
+    "padding_px": [
+      24,
+      38
+    ],
+    "feather_px": 20
+  },
+  "position": {
+    "region": "upper-third",
+    "center_y_fraction": 0.24,
+    "over": "photo",
+    "max_width_fraction": 0.88,
+    "never_move_photo": true
+  },
+  "text": {
+    "min_words": 3,
+    "max_words": 8,
+    "max_lines": 2,
+    "ends_with": "?",
+    "max_chars_per_line": 16
+  },
+  "timing": {
+    "first_frame": true,
+    "hold_s": 2.4
+  },
+  "animation_in": "text_anim_settle_in",
+  "palette": "palette_sunset_coral",
+  "contrast": {
+    "title": {
+      "basis": "panel-worst-case",
+      "fg": "#FFC857",
+      "bg": "#1E1230",
+      "opacity": 0.7,
+      "ratio": 4.3,
+      "required": 3.0,
+      "size_px": 64,
+      "weight": 900,
+      "level": "AA"
+    }
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "reference_size": [
+    1080,
+    1920
+  ],
+  "use_when": [
+    "Curiosity hooks, e.g. WHY DO CATS KNEAD?",
+    "Quiz shorts"
+  ],
+  "avoid_when": [
+    "Questions the video does not answer"
+  ]
+}

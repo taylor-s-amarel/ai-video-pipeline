@@ -1,0 +1,208 @@
+{
+  "type": "palette",
+  "id": "palette_house_yellow_night",
+  "name": "House yellow on night glass",
+  "version": 1,
+  "mode": "dark",
+  "colors": {
+    "background": "#0B1220",
+    "surface": "#162033",
+    "panel_tint": "#0B1220",
+    "text": "#FFFFFF",
+    "title": "#FFD21F",
+    "keyword": "#FFD21F",
+    "accent": "#2EC4B6",
+    "accent_2": "#FF7A59",
+    "stroke": "#000000",
+    "light": "#FFB347",
+    "particle": "#FFE8A3"
+  },
+  "panel_opacity": 0.62,
+  "gradient": [
+    "#0B1220",
+    "#1F4E79"
+  ],
+  "ramp": [
+    "#060B14",
+    "#0B1220",
+    "#1F4E79",
+    "#2EC4B6",
+    "#E8F7FF"
+  ],
+  "pairs": [
+    {
+      "fg_role": "text",
+      "bg_role": "panel_tint@panel",
+      "fg": "#FFFFFF",
+      "bg": "#0B1220",
+      "basis": "panel-worst-case",
+      "opacity": 0.62,
+      "ratio": 5.26,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "panel_tint@panel",
+      "fg": "#FFD21F",
+      "bg": "#0B1220",
+      "basis": "panel-worst-case",
+      "opacity": 0.62,
+      "ratio": 3.63,
+      "required": 3.0,
+      "use": "large-bold-only",
+      "min_size_px": 24,
+      "min_weight": 700,
+      "level": "AA-large"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "panel_tint@panel",
+      "fg": "#FFD21F",
+      "bg": "#0B1220",
+      "basis": "panel-worst-case",
+      "opacity": 0.62,
+      "ratio": 3.63,
+      "required": 3.0,
+      "use": "large-bold-only",
+      "min_size_px": 24,
+      "min_weight": 700,
+      "level": "AA-large"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "background",
+      "fg": "#FFFFFF",
+      "bg": "#0B1220",
+      "basis": "solid",
+      "ratio": 18.72,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "background",
+      "fg": "#FFD21F",
+      "bg": "#0B1220",
+      "basis": "solid",
+      "ratio": 12.91,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "background",
+      "fg": "#FFD21F",
+      "bg": "#0B1220",
+      "basis": "solid",
+      "ratio": 12.91,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "accent",
+      "bg_role": "background",
+      "fg": "#2EC4B6",
+      "bg": "#0B1220",
+      "basis": "solid",
+      "ratio": 8.63,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "surface",
+      "fg": "#FFFFFF",
+      "bg": "#162033",
+      "basis": "solid",
+      "ratio": 16.29,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "surface",
+      "fg": "#FFD21F",
+      "bg": "#162033",
+      "basis": "solid",
+      "ratio": 11.24,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "stroke",
+      "fg": "#FFFFFF",
+      "bg": "#000000",
+      "basis": "solid",
+      "ratio": 21.0,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "stroke",
+      "fg": "#FFD21F",
+      "bg": "#000000",
+      "basis": "solid",
+      "ratio": 14.49,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "keyword@card95",
+      "fg": "#0B1220",
+      "bg": "#FFD21F",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 11.6,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "title@card95",
+      "fg": "#0B1220",
+      "bg": "#FFD21F",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 11.6,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "accent@card95",
+      "fg": "#0B1220",
+      "bg": "#2EC4B6",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 7.8,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    }
+  ],
+  "failed_pair_count": 0,
+  "mood": [
+    "house",
+    "calm",
+    "science",
+    "history",
+    "space",
+    "nature"
+  ],
+  "notes": "The house default. Bold yellow hook (#FFD21F) and keyword pops over a dark navy frosted panel."
+}

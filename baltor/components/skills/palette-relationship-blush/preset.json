@@ -1,0 +1,181 @@
+{
+  "type": "palette",
+  "id": "palette_relationship_blush",
+  "name": "Relationship blush (light)",
+  "version": 1,
+  "mode": "light",
+  "colors": {
+    "background": "#FBEFF1",
+    "surface": "#FFFFFF",
+    "panel_tint": "#FFFFFF",
+    "text": "#3A1E2B",
+    "title": "#8E2450",
+    "keyword": "#A3154C",
+    "accent": "#E8B4C4",
+    "accent_2": "#6D8B74",
+    "stroke": "#FFFFFF",
+    "light": "#FFE0E8",
+    "particle": "#FFFFFF"
+  },
+  "panel_opacity": 0.74,
+  "gradient": [
+    "#F6D7DE",
+    "#FBEFF1"
+  ],
+  "ramp": [
+    "#3B1E2B",
+    "#9C4F6B",
+    "#E8B4C4",
+    "#F6D7DE",
+    "#FFF5F7"
+  ],
+  "pairs": [
+    {
+      "fg_role": "text",
+      "bg_role": "panel_tint@panel",
+      "fg": "#3A1E2B",
+      "bg": "#FFFFFF",
+      "basis": "panel-worst-case",
+      "opacity": 0.74,
+      "ratio": 7.95,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "panel_tint@panel",
+      "fg": "#8E2450",
+      "bg": "#FFFFFF",
+      "basis": "panel-worst-case",
+      "opacity": 0.74,
+      "ratio": 4.42,
+      "required": 3.0,
+      "use": "large-bold-only",
+      "min_size_px": 24,
+      "min_weight": 700,
+      "level": "AA-large"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "panel_tint@panel",
+      "fg": "#A3154C",
+      "bg": "#FFFFFF",
+      "basis": "panel-worst-case",
+      "opacity": 0.74,
+      "ratio": 4.02,
+      "required": 3.0,
+      "use": "large-bold-only",
+      "min_size_px": 24,
+      "min_weight": 700,
+      "level": "AA-large"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "background",
+      "fg": "#3A1E2B",
+      "bg": "#FBEFF1",
+      "basis": "solid",
+      "ratio": 13.36,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "background",
+      "fg": "#8E2450",
+      "bg": "#FBEFF1",
+      "basis": "solid",
+      "ratio": 7.43,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "background",
+      "fg": "#A3154C",
+      "bg": "#FBEFF1",
+      "basis": "solid",
+      "ratio": 6.76,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "surface",
+      "fg": "#3A1E2B",
+      "bg": "#FFFFFF",
+      "basis": "solid",
+      "ratio": 14.99,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "surface",
+      "fg": "#A3154C",
+      "bg": "#FFFFFF",
+      "basis": "solid",
+      "ratio": 7.58,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "stroke",
+      "fg": "#3A1E2B",
+      "bg": "#FFFFFF",
+      "basis": "solid",
+      "ratio": 14.99,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "stroke",
+      "fg": "#8E2450",
+      "bg": "#FFFFFF",
+      "basis": "solid",
+      "ratio": 8.33,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "keyword@card95",
+      "fg": "#FBEFF1",
+      "bg": "#A3154C",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 6.23,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "title@card95",
+      "fg": "#FBEFF1",
+      "bg": "#8E2450",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 6.68,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    }
+  ],
+  "failed_pair_count": 2,
+  "mood": [
+    "relationships",
+    "calm"
+  ],
+  "notes": "Soft looks for trust, communication and feelings topics."
+}

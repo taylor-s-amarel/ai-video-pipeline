@@ -1,0 +1,28 @@
+id,name,email,phone,company
+r001,Chloe Martin,chloe@newjob.example,+1 202 555 0105,New Job Ltd
+r002,Alex Kim,alex.kim@contoso.example,202-555-0103,Contoso
+r003,Jo Nkosi,jo@nkosi.example,202-555-0112,Nkosi Farms
+r004,CHLOE MARTIN,c.hloemartin@gmail.com,202.555.0105,Tailspin
+r005,Chloe Martin,chloe.martin@gmail.com,202-555-0105,Tailspin
+r006,Lena Rossi,l.enarossi@gmail.com,+1 202 555 0114,Margie's Travel
+r007,Farah Haddad,f.arahhaddad@gmail.com,(202) 555-0108,Litware
+r008,Hana Sato,hana.sato@proseware.example,202-555-0110,Proseware
+r009,Lena Rossi,lena@newjob.example,+1 202 555 0114,New Job Ltd
+r010,Ivan Petrov,ivan.petrov@gmail.com,202-555-0111,Fourth Coffee
+r011,Farah Haddad,farah.haddad@gmail.com,202-555-0108,Litware
+r012,Lena Rossi,lena.rossi@gmail.com,202-555-0114,Margie's Travel
+r013,Farah Haddad,farah@newjob.example,+1 202 555 0108,New Job Ltd
+r014,KAI MUELLER,  KAI.MUELLER@WOODGROVE.EXAMPLE ,202.555.0113,Woodgrove
+r015,Ada Moreno,ada.moreno@gmail.com,202-555-0101,Northwind
+r016,Alex Kim,akim@fabrikam.example,202-555-0104,Fabrikam
+r017,Gus Ferreira,gus@ferreira.example,202-555-0109,Adatum
+r018,Kai Mueller,kai.mueller@woodgrove.example,202-555-0113,Woodgrove
+r019,Dev Patel,  DEV.PATEL@WINGTIP.EXAMPLE ,+1 202 555 0106,Wingtip
+r020,Ben Okafor,ben@okafor.example,202-555-0102,Okafor Labs
+r021,GUS FERREIRA,  GUS@FERREIRA.EXAMPLE ,202.555.0109,Adatum
+r022,Ada Moreno,ada@newjob.example,+1 202 555 0101,New Job Ltd
+r023,ADA MORENO,ada.moreno+crm@gmail.com,202.555.0101,Northwind
+r024,IVAN PETROV,i.vanpetrov@gmail.com,1-202-555-0111,Fourth Coffee
+r025,Eva Lindqvist,eva@lindqvist.example,202-555-0107,Lindqvist AB
+r026,Ben Okafor,  BEN@OKAFOR.EXAMPLE ,+1 202 555 0102,Okafor Labs
+r027,Dev Patel,dev.patel@wingtip.example,202-555-0106,Wingtip

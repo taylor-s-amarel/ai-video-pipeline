@@ -1,0 +1,129 @@
+{
+  "type": "title-style",
+  "id": "title_date_stamp_history",
+  "name": "On-this-day date stamp",
+  "version": 1,
+  "house": false,
+  "font": {
+    "family": "Special Elite",
+    "weight": 400,
+    "licence": "Apache-2.0",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/apache/specialelite/SpecialElite-Regular.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/apache/specialelite/LICENSE.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Special+Elite",
+    "size_px": 58,
+    "min_size_px": 46,
+    "case": "upper",
+    "letter_spacing_em": 0.04,
+    "avg_char_em": 0.557
+  },
+  "fill": "#7A2E0E",
+  "stroke": {
+    "color": "#FFF8EC",
+    "width_px": 0
+  },
+  "backing": {
+    "type": "solid",
+    "tint": "#FFF8EC",
+    "opacity": 0.78,
+    "blur_px": 0,
+    "radius_px": 4,
+    "padding_px": [
+      14,
+      28
+    ],
+    "feather_px": 2,
+    "rotation_deg": -1.5
+  },
+  "position": {
+    "region": "upper-third",
+    "center_y_fraction": 0.18,
+    "over": "photo",
+    "max_width_fraction": 0.7,
+    "never_move_photo": true
+  },
+  "text": {
+    "template": "ON THIS DAY · {date}",
+    "min_words": 3,
+    "max_words": 6,
+    "max_lines": 1,
+    "max_chars_per_line": 21
+  },
+  "timing": {
+    "first_frame": true,
+    "hold_s": 2.8
+  },
+  "animation_in": "text_anim_typewriter",
+  "palette": "palette_warm_paper_sepia",
+  "contrast": {
+    "title": {
+      "basis": "panel-worst-case",
+      "fg": "#7A2E0E",
+      "bg": "#FFF8EC",
+      "opacity": 0.78,
+      "ratio": 5.29,
+      "required": 4.5,
+      "size_px": 46,
+      "weight": 400,
+      "level": "AAA"
+    },
+    "secondary": {
+      "basis": "panel-worst-case",
+      "fg": "#2B1D12",
+      "bg": "#FFF8EC",
+      "opacity": 0.78,
+      "ratio": 9.15,
+      "required": 3.0,
+      "size_px": 76,
+      "weight": 800,
+      "level": "AAA"
+    }
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "reference_size": [
+    1080,
+    1920
+  ],
+  "use_when": [
+    "Today-in-history and anniversary shorts"
+  ],
+  "avoid_when": [
+    "Dates you have not verified against a source"
+  ],
+  "secondary": {
+    "font": {
+      "family": "Playfair Display",
+      "weight": 800,
+      "licence": "OFL-1.1",
+      "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/playfairdisplay/PlayfairDisplay%5Bwght%5D.ttf",
+      "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/playfairdisplay/OFL.txt",
+      "specimen_url": "https://fonts.google.com/specimen/Playfair+Display",
+      "size_px": 76,
+      "case": "as-written",
+      "avg_char_em": 0.45,
+      "variable_axes": {
+        "wght": [
+          400.0,
+          900.0
+        ]
+      }
+    },
+    "fill": "#2B1D12",
+    "gap_px": 16,
+    "content": "the event headline"
+  }
+}

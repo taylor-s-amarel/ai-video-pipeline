@@ -1,0 +1,205 @@
+{
+  "type": "palette",
+  "id": "palette_warm_paper_sepia",
+  "name": "Warm paper sepia (light)",
+  "version": 1,
+  "mode": "light",
+  "colors": {
+    "background": "#F3EBDD",
+    "surface": "#FFF8EC",
+    "panel_tint": "#FFF8EC",
+    "text": "#2B1D12",
+    "title": "#7A2E0E",
+    "keyword": "#9E3510",
+    "accent": "#8C6239",
+    "accent_2": "#3E5C76",
+    "stroke": "#FFF8EC",
+    "light": "#FFE7B0",
+    "particle": "#FFFFFF"
+  },
+  "panel_opacity": 0.78,
+  "gradient": [
+    "#E9DCC3",
+    "#F3EBDD"
+  ],
+  "ramp": [
+    "#5B4636",
+    "#8C6239",
+    "#CDB792",
+    "#EFE3CC",
+    "#FFF9EE"
+  ],
+  "pairs": [
+    {
+      "fg_role": "text",
+      "bg_role": "panel_tint@panel",
+      "fg": "#2B1D12",
+      "bg": "#FFF8EC",
+      "basis": "panel-worst-case",
+      "opacity": 0.78,
+      "ratio": 9.15,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "panel_tint@panel",
+      "fg": "#7A2E0E",
+      "bg": "#FFF8EC",
+      "basis": "panel-worst-case",
+      "opacity": 0.78,
+      "ratio": 5.29,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "panel_tint@panel",
+      "fg": "#9E3510",
+      "bg": "#FFF8EC",
+      "basis": "panel-worst-case",
+      "opacity": 0.78,
+      "ratio": 3.96,
+      "required": 3.0,
+      "use": "large-bold-only",
+      "min_size_px": 24,
+      "min_weight": 700,
+      "level": "AA-large"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "background",
+      "fg": "#2B1D12",
+      "bg": "#F3EBDD",
+      "basis": "solid",
+      "ratio": 13.78,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "background",
+      "fg": "#7A2E0E",
+      "bg": "#F3EBDD",
+      "basis": "solid",
+      "ratio": 7.97,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "background",
+      "fg": "#9E3510",
+      "bg": "#F3EBDD",
+      "basis": "solid",
+      "ratio": 5.97,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "accent",
+      "bg_role": "background",
+      "fg": "#8C6239",
+      "bg": "#F3EBDD",
+      "basis": "solid",
+      "ratio": 4.52,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "surface",
+      "fg": "#2B1D12",
+      "bg": "#FFF8EC",
+      "basis": "solid",
+      "ratio": 15.45,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "surface",
+      "fg": "#9E3510",
+      "bg": "#FFF8EC",
+      "basis": "solid",
+      "ratio": 6.69,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "stroke",
+      "fg": "#2B1D12",
+      "bg": "#FFF8EC",
+      "basis": "solid",
+      "ratio": 15.45,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "stroke",
+      "fg": "#7A2E0E",
+      "bg": "#FFF8EC",
+      "basis": "solid",
+      "ratio": 8.94,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "keyword@card95",
+      "fg": "#F3EBDD",
+      "bg": "#9E3510",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 5.4,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "title@card95",
+      "fg": "#F3EBDD",
+      "bg": "#7A2E0E",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 7.04,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "accent@card95",
+      "fg": "#F3EBDD",
+      "bg": "#8C6239",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 4.07,
+      "required": 3.0,
+      "use": "large-bold-only",
+      "min_size_px": 24,
+      "min_weight": 700,
+      "level": "AA-large"
+    }
+  ],
+  "failed_pair_count": 0,
+  "mood": [
+    "history",
+    "documentary",
+    "calm"
+  ],
+  "notes": "Archive and today-in-history looks on paper textures."
+}

@@ -1,0 +1,132 @@
+{
+  "type": "title-style",
+  "id": "title_quote_card",
+  "name": "Quote card",
+  "version": 1,
+  "house": false,
+  "font": {
+    "family": "Playfair Display",
+    "weight": 700,
+    "licence": "OFL-1.1",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/playfairdisplay/PlayfairDisplay%5Bwght%5D.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/playfairdisplay/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Playfair+Display",
+    "size_px": 64,
+    "min_size_px": 50,
+    "case": "as-written",
+    "avg_char_em": 0.45,
+    "variable_axes": {
+      "wght": [
+        400.0,
+        900.0
+      ]
+    }
+  },
+  "fill": "#F5ECD9",
+  "stroke": {
+    "color": "#0E0A06",
+    "width_px": 0
+  },
+  "backing": {
+    "type": "frosted-glass",
+    "tint": "#19130C",
+    "opacity": 0.72,
+    "blur_px": 30,
+    "radius_px": 28,
+    "padding_px": [
+      34,
+      44
+    ],
+    "feather_px": 22
+  },
+  "position": {
+    "region": "center",
+    "center_y_fraction": 0.42,
+    "over": "photo",
+    "max_width_fraction": 0.86,
+    "never_move_photo": true
+  },
+  "text": {
+    "min_words": 4,
+    "max_words": 24,
+    "max_lines": 4,
+    "max_chars_per_line": 29
+  },
+  "timing": {
+    "first_frame": false,
+    "hold_s": 4.5
+  },
+  "animation_in": "text_anim_word_by_word_reveal",
+  "palette": "palette_history_archive",
+  "contrast": {
+    "title": {
+      "basis": "panel-worst-case",
+      "fg": "#F5ECD9",
+      "bg": "#19130C",
+      "opacity": 0.72,
+      "ratio": 6.28,
+      "required": 3.0,
+      "size_px": 50,
+      "weight": 700,
+      "level": "AAA"
+    },
+    "secondary": {
+      "basis": "panel-worst-case",
+      "fg": "#F6B878",
+      "bg": "#19130C",
+      "opacity": 0.72,
+      "ratio": 4.23,
+      "required": 3.0,
+      "size_px": 40,
+      "weight": 700,
+      "level": "AA"
+    }
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "reference_size": [
+    1080,
+    1920
+  ],
+  "use_when": [
+    "Verified quotations with a source"
+  ],
+  "avoid_when": [
+    "Quotes you cannot attribute to a primary or reputable source"
+  ],
+  "secondary": {
+    "font": {
+      "family": "Source Sans 3",
+      "weight": 700,
+      "licence": "OFL-1.1",
+      "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/sourcesans3/SourceSans3%5Bwght%5D.ttf",
+      "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/sourcesans3/OFL.txt",
+      "specimen_url": "https://fonts.google.com/specimen/Source+Sans+3",
+      "size_px": 40,
+      "case": "as-written",
+      "avg_char_em": 0.434,
+      "variable_axes": {
+        "wght": [
+          200.0,
+          900.0
+        ]
+      }
+    },
+    "fill": "#F6B878",
+    "gap_px": 18,
+    "content": "attribution: name, year, source"
+  }
+}

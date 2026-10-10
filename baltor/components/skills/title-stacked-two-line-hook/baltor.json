@@ -1,0 +1,72 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "title_stacked_two_line_hook",
+  "title": "Two-line stacked hook",
+  "kind": "skill",
+  "subkind": "title-style",
+  "version": "1.0.0",
+  "summary": "Oswald 700 title in `#FFD21F`, upper-third at 25%; contrast 3.63:1.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "design",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "declared",
+    "executes": "python",
+    "secrets": [],
+    "hosts": [
+      "raw.githubusercontent.com"
+    ],
+    "side_effects": [
+      "downloads font files from the google/fonts repository on GitHub",
+      "runs ffmpeg and scripts/check_preset.py"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "video",
+    "shorts",
+    "titles",
+    "hooks",
+    "typography",
+    "stacked-two-line-hook"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "title_style_preset_schema"
+    },
+    {
+      "identity": "short_style_preset_kit"
+    },
+    {
+      "identity": "palette_house_yellow_night"
+    },
+    {
+      "identity": "text_anim_settle_in"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_styles.py",
+    "data": "generators/data/video_styles"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "headless-tested",
+  "evidence_notes": "Preset validated against its schema by the generator; contrast and opacity rules computed. No render recorded for this exact preset."
+}

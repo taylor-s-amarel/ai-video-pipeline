@@ -1,0 +1,208 @@
+{
+  "type": "palette",
+  "id": "palette_okabe_ito_safe",
+  "name": "Okabe-Ito colour-vision-friendly",
+  "version": 1,
+  "mode": "dark",
+  "colors": {
+    "background": "#101010",
+    "surface": "#1E1E1E",
+    "panel_tint": "#000000",
+    "text": "#FFFFFF",
+    "title": "#F0E442",
+    "keyword": "#56B4E9",
+    "accent": "#E69F00",
+    "accent_2": "#009E73",
+    "stroke": "#000000",
+    "light": "#E69F00",
+    "particle": "#FFFFFF"
+  },
+  "panel_opacity": 0.66,
+  "gradient": [
+    "#101010",
+    "#1E1E1E"
+  ],
+  "ramp": [
+    "#000000",
+    "#101010",
+    "#0072B2",
+    "#56B4E9",
+    "#F0E442"
+  ],
+  "pairs": [
+    {
+      "fg_role": "text",
+      "bg_role": "panel_tint@panel",
+      "fg": "#FFFFFF",
+      "bg": "#000000",
+      "basis": "panel-worst-case",
+      "opacity": 0.66,
+      "ratio": 7.25,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "panel_tint@panel",
+      "fg": "#F0E442",
+      "bg": "#000000",
+      "basis": "panel-worst-case",
+      "opacity": 0.66,
+      "ratio": 5.49,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "panel_tint@panel",
+      "fg": "#56B4E9",
+      "bg": "#000000",
+      "basis": "panel-worst-case",
+      "opacity": 0.66,
+      "ratio": 3.14,
+      "required": 3.0,
+      "use": "large-bold-only",
+      "min_size_px": 24,
+      "min_weight": 700,
+      "level": "AA-large"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "background",
+      "fg": "#FFFFFF",
+      "bg": "#101010",
+      "basis": "solid",
+      "ratio": 19.02,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "background",
+      "fg": "#F0E442",
+      "bg": "#101010",
+      "basis": "solid",
+      "ratio": 14.38,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "background",
+      "fg": "#56B4E9",
+      "bg": "#101010",
+      "basis": "solid",
+      "ratio": 8.24,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "accent",
+      "bg_role": "background",
+      "fg": "#E69F00",
+      "bg": "#101010",
+      "basis": "solid",
+      "ratio": 8.44,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "surface",
+      "fg": "#FFFFFF",
+      "bg": "#1E1E1E",
+      "basis": "solid",
+      "ratio": 16.67,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "surface",
+      "fg": "#56B4E9",
+      "bg": "#1E1E1E",
+      "basis": "solid",
+      "ratio": 7.22,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "stroke",
+      "fg": "#FFFFFF",
+      "bg": "#000000",
+      "basis": "solid",
+      "ratio": 21.0,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "stroke",
+      "fg": "#F0E442",
+      "bg": "#000000",
+      "basis": "solid",
+      "ratio": 15.88,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "keyword@card95",
+      "fg": "#101010",
+      "bg": "#56B4E9",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 7.45,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "title@card95",
+      "fg": "#101010",
+      "bg": "#F0E442",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 12.91,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "accent@card95",
+      "fg": "#101010",
+      "bg": "#E69F00",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 7.63,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    }
+  ],
+  "failed_pair_count": 0,
+  "mood": [
+    "science",
+    "education",
+    "news",
+    "house"
+  ],
+  "notes": "Accent hues from the Okabe-Ito set, which is designed to stay distinguishable for common colour-vision deficiencies. Use when colour carries meaning.",
+  "source": {
+    "name": "Okabe-Ito palette hex values (lab reference table)",
+    "url": "https://siegal.bio.nyu.edu/color-palette/"
+  }
+}

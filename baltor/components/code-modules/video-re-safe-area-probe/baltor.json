@@ -1,0 +1,73 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "video_re_safe_area_probe",
+  "title": "Video RE: safe-area check for on-screen text",
+  "kind": "code-module",
+  "subkind": "qa-check",
+  "version": "1.0.0",
+  "summary": "Flags text regions that overlap zones where app UI or frame edges cover text; zone profiles are labelled assumptions you can replace with measured zones.",
+  "description": "Input: text regions from video_re_text_regions (t_s, bbox in source pixels) and the frame size.\nA violation is a text region with at least ``min_overlap`` (25%) of its area inside a zone.\n\nProfiles (zones are fractions of width/height, origin top-left). The numbers are working\nassumptions, not published platform specifications: app layouts differ and change, so measure the\napp you target (screenshot its player) and pass your own zones with ``--zones``.\n\n* ``vertical_ui_conservative`` - for 9:16: top-ui (top 10%), bottom-ui (bottom 20%), right-rail\n  (right 14% between 40% and 80% of the height), where vertical-video apps commonly overlay\n  their header, caption/handle text and action buttons\n* ``margins_10`` - a 10% margin on every side, the old title-safe rule of thumb\n* ``none`` - no zones\n* ``auto`` - vertical_ui_conservative for portrait frames, margins_10 otherwise\n\nAnalysis boundary: this module measures technique and structure (timing, layout, motion, colour, loudness, rhythm). Analysing a public video for technique is fine; republishing its content is not. Its outputs are local working evidence: keyframes, OCR text, captions and transcripts of the analysed video stay out of anything published and out of a format IR, which keeps only technique, structure and parameters - never the source's footage, frames, music, voice or script text (at most a short on-screen label quoted as an evidence note, no transcripts).",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "measure",
+    "verify",
+    "review"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "pure computation on JSON inputs",
+      "writes only where --out / --out-dir point (stdout otherwise)"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "video_re_safe_area_probe.py",
+  "tags": [
+    "video",
+    "reverse-engineering",
+    "safe-area",
+    "platform",
+    "typography",
+    "evidence"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "numpy",
+      "external": true
+    },
+    {
+      "identity": "video_re_text_regions"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_re_measure.py",
+    "data": "generators/data/video_re_measure",
+    "parameters": {
+      "swarm_stage": "load-disassemble",
+      "evidence_spec": "baltor.video-evidence/v1"
+    }
+  },
+  "examples": [
+    "python video_re_safe_area_probe.py text_regions.json --profile auto"
+  ],
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "pytest passes with Python 3.13, numpy 2.5, Pillow 12 and ffmpeg 6.1 on synthetic media with known ground truth; optional OCR/ASR engines were not installed, so their adapters were tested through fakes and parsers only."
+  }
+}

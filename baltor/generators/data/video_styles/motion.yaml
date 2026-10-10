@@ -182,7 +182,7 @@ camera_moves:
     easing: sine-in-out
     renderer: zoompan
     family: ken-burns
-    use_when: [Tall subjects (towers, rockets, people), Top-to-bottom stories]
+    use_when: ["Tall subjects: towers, rockets, people", Top-to-bottom stories]
   tilt_up_rise:
     name: Tilt up
     kind: tilt
@@ -280,7 +280,7 @@ camera_moves:
     easing: sine-in-out
     renderer: overlay-expr
     layers: [{name: background, speed: 0.3, zoom_extra: 0.02}, {name: midground, speed: 0.6, zoom_extra: 0.04}, {name: subject, speed: 1.0, zoom_extra: 0.06}]
-    use_when: [Photos cut into layers (sky, middle, subject), Layered 2.5D animation style]
+    use_when: ["Photos cut into layers: sky, middle, subject", Layered 2.5D animation style]
 
 text_animations:
   springy_pop_overshoot:
@@ -374,7 +374,7 @@ text_animations:
     duration_ms: 700
     keyframes: [{t: 0, opacity: 1.0}, {t: 1.0, opacity: 1.0}]
     count: {from: 0, easing: ease-out}
-    use_when: [Key numbers under FACT labels (14 DAYS, 50 FEET)]
+    use_when: ["Key numbers under FACT labels, e.g. 14 DAYS or 50 FEET"]
   blur_in_focus:
     name: Blur in to focus
     unit: text

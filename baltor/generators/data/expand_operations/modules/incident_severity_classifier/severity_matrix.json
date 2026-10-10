@@ -1,0 +1,55 @@
+{
+  "version": "1.0.0",
+  "notes": "Starting point; adapt thresholds to your product. Severity is about customer impact now, not root cause. Upgrade fast, downgrade only with evidence.",
+  "facts": {
+    "users_affected_pct": "Share of active users or requests failing or unusable (0-100)",
+    "core_function_down": "A core user journey (login, checkout, send, read) is unavailable",
+    "core_function_degraded": "A core journey works but is slow or error-prone",
+    "data_loss": "Customer data lost or corrupted without a verified restore path",
+    "security_exposure": "Confirmed or strongly suspected unauthorised access to data or systems",
+    "revenue_path_impacted": "Payments, sign-up or other revenue path failing",
+    "workaround": "Customers have a reasonable workaround",
+    "internal_only": "Only internal users or tooling are affected"
+  },
+  "levels": [
+    {
+      "name": "SEV1",
+      "response": {"page": ["on-call", "incident commander", "communications lead"], "status_page": true,
+                    "update_interval_min": 30, "executive_notice": true, "postmortem": "required"},
+      "rules": [
+        {"reason": "confirmed security exposure", "when": {"fact": "security_exposure"}},
+        {"reason": "customer data loss", "when": {"fact": "data_loss"}},
+        {"reason": "core function down for at least 25% of users", "when": {"all": [{"fact": "core_function_down"}, {"fact": "users_affected_pct", "op": ">=", "value": 25}]}},
+        {"reason": "revenue path down without workaround", "when": {"all": [{"fact": "revenue_path_impacted"}, {"fact": "workaround", "op": "==", "value": false}]}}
+      ]
+    },
+    {
+      "name": "SEV2",
+      "response": {"page": ["on-call", "incident commander"], "status_page": true, "update_interval_min": 60,
+                    "executive_notice": false, "postmortem": "required"},
+      "rules": [
+        {"reason": "core function down for some users", "when": {"fact": "core_function_down"}},
+        {"reason": "at least 5% of users affected", "when": {"fact": "users_affected_pct", "op": ">=", "value": 5}},
+        {"reason": "revenue path impacted (workaround exists)", "when": {"fact": "revenue_path_impacted"}},
+        {"reason": "core function degraded for at least 25% of users", "when": {"all": [{"fact": "core_function_degraded"}, {"fact": "users_affected_pct", "op": ">=", "value": 25}]}}
+      ]
+    },
+    {
+      "name": "SEV3",
+      "response": {"page": ["on-call"], "status_page": "if customer-visible", "update_interval_min": 240,
+                    "postmortem": "recommended"},
+      "rules": [
+        {"reason": "core function degraded", "when": {"fact": "core_function_degraded"}},
+        {"reason": "some customers affected", "when": {"fact": "users_affected_pct", "op": ">", "value": 0}}
+      ]
+    },
+    {
+      "name": "SEV4",
+      "default": true,
+      "response": {"page": [], "ticket": true, "status_page": false, "postmortem": "optional"},
+      "rules": [
+        {"reason": "internal-only impact", "when": {"fact": "internal_only"}}
+      ]
+    }
+  ]
+}

@@ -122,7 +122,7 @@
       "id": "phosphor-icons-core",
       "title": "Phosphor Icons (core)",
       "url": "https://github.com/phosphor-icons/core",
-      "summary": "Flexible icon family grouped by weight (thin to duotone) as raw SVG with a catalogue of names, categories and tags; MIT.",
+      "summary": "Icon family grouped by weight (including duotone) as raw SVG, with a catalogue of names, categories and tags; MIT.",
       "kind": "repository",
       "verified_on": "2026-10-10",
       "verification": "fetched",

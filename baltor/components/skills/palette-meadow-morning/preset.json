@@ -1,0 +1,179 @@
+{
+  "type": "palette",
+  "id": "palette_meadow_morning",
+  "name": "Meadow morning (light)",
+  "version": 1,
+  "mode": "light",
+  "colors": {
+    "background": "#EEF6E2",
+    "surface": "#FFFFFF",
+    "panel_tint": "#FFFFFF",
+    "text": "#10230F",
+    "title": "#1F5E14",
+    "keyword": "#1E5E12",
+    "accent": "#6BA539",
+    "accent_2": "#E8A33D",
+    "stroke": "#FFFFFF",
+    "light": "#FFF3C4",
+    "particle": "#FFFFFF"
+  },
+  "panel_opacity": 0.8,
+  "gradient": [
+    "#CFE8B4",
+    "#EEF6E2"
+  ],
+  "ramp": [
+    "#173A12",
+    "#3F7A22",
+    "#9CCB4A",
+    "#DDEEB0",
+    "#F7FBEF"
+  ],
+  "pairs": [
+    {
+      "fg_role": "text",
+      "bg_role": "panel_tint@panel",
+      "fg": "#10230F",
+      "bg": "#FFFFFF",
+      "basis": "panel-worst-case",
+      "opacity": 0.8,
+      "ratio": 10.3,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "panel_tint@panel",
+      "fg": "#1F5E14",
+      "bg": "#FFFFFF",
+      "basis": "panel-worst-case",
+      "opacity": 0.8,
+      "ratio": 4.89,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "panel_tint@panel",
+      "fg": "#1E5E12",
+      "bg": "#FFFFFF",
+      "basis": "panel-worst-case",
+      "opacity": 0.8,
+      "ratio": 4.9,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "background",
+      "fg": "#10230F",
+      "bg": "#EEF6E2",
+      "basis": "solid",
+      "ratio": 14.9,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "background",
+      "fg": "#1F5E14",
+      "bg": "#EEF6E2",
+      "basis": "solid",
+      "ratio": 7.08,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "background",
+      "fg": "#1E5E12",
+      "bg": "#EEF6E2",
+      "basis": "solid",
+      "ratio": 7.09,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "surface",
+      "fg": "#10230F",
+      "bg": "#FFFFFF",
+      "basis": "solid",
+      "ratio": 16.54,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "surface",
+      "fg": "#1E5E12",
+      "bg": "#FFFFFF",
+      "basis": "solid",
+      "ratio": 7.87,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "stroke",
+      "fg": "#10230F",
+      "bg": "#FFFFFF",
+      "basis": "solid",
+      "ratio": 16.54,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "stroke",
+      "fg": "#1F5E14",
+      "bg": "#FFFFFF",
+      "basis": "solid",
+      "ratio": 7.86,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "keyword@card95",
+      "fg": "#EEF6E2",
+      "bg": "#1E5E12",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 6.27,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "title@card95",
+      "fg": "#EEF6E2",
+      "bg": "#1F5E14",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 6.25,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    }
+  ],
+  "failed_pair_count": 2,
+  "mood": [
+    "nature",
+    "calm",
+    "relationships",
+    "animals"
+  ],
+  "notes": "Light frosted panels with dark green text. Use for gentle nature and pet topics."
+}

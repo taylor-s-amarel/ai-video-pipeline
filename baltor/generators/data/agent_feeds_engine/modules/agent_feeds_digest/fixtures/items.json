@@ -1,0 +1,322 @@
+[
+  {
+    "id": "afi_1548fc135c4ef68264b7",
+    "source_id": "osv-pypi",
+    "collection": "",
+    "title": "GHSA-aaaa-bbbb-cccc: examplelib leaks Proxy-Authorization headers on redirect",
+    "url": "https://osv.dev/vulnerability/GHSA-aaaa-bbbb-cccc",
+    "published": "2026-10-08T18:00:00Z",
+    "updated": "2026-10-08T18:00:00Z",
+    "summary": "examplelib from 2.3.0 before 2.31.0 forwards the Proxy-Authorization header.",
+    "vendor": null,
+    "products": [
+      "examplelib"
+    ],
+    "versions": [],
+    "change_types": [
+      "security"
+    ],
+    "severity": "medium",
+    "affected_packages": [
+      {
+        "ecosystem": "PyPI",
+        "name": "examplelib",
+        "version_range": ">=2.3.0,<2.31.0",
+        "fixed": [
+          "2.31.0"
+        ]
+      }
+    ],
+    "cve_ids": [
+      "CVE-2099-0100"
+    ],
+    "entities": [],
+    "dedupe_key": "e113e4c8ebbf5cd558b8173b",
+    "cluster_id": "afi_1548fc135c4ef68264b7",
+    "relevance": null
+  },
+  {
+    "id": "afi_2520f62b15a03c0a1e4c",
+    "source_id": "pypi-examplelib",
+    "collection": "",
+    "title": "GHSA-aaaa-bbbb-cccc: vulnerability in examplelib",
+    "url": "https://pypi.org/project/examplelib/",
+    "published": "2026-10-08T19:00:00Z",
+    "updated": "2026-10-08T19:00:00Z",
+    "summary": "",
+    "vendor": null,
+    "products": [],
+    "versions": [],
+    "change_types": [
+      "security"
+    ],
+    "severity": "unknown",
+    "affected_packages": [
+      {
+        "ecosystem": "PyPI",
+        "name": "examplelib",
+        "version_range": "<2.31.0",
+        "fixed": [
+          "2.31.0"
+        ]
+      }
+    ],
+    "cve_ids": [
+      "CVE-2099-0100"
+    ],
+    "entities": [],
+    "dedupe_key": "d6d7ea5576b1fc8d4b564a9e",
+    "cluster_id": "afi_1548fc135c4ef68264b7",
+    "relevance": null
+  },
+  {
+    "id": "afi_24c045c1a97c647641cb",
+    "source_id": "osv-npm",
+    "collection": "",
+    "title": "GHSA-dddd-eeee-ffff: Prototype pollution in example-merge",
+    "url": "https://osv.dev/vulnerability/GHSA-dddd-eeee-ffff",
+    "published": "2026-10-06T00:00:00Z",
+    "updated": "2026-10-06T00:00:00Z",
+    "summary": "",
+    "vendor": null,
+    "products": [],
+    "versions": [],
+    "change_types": [
+      "security"
+    ],
+    "severity": "critical",
+    "affected_packages": [
+      {
+        "ecosystem": "npm",
+        "name": "example-merge",
+        "version_range": "<1.4.2 || >=2.0.0,<2.1.1",
+        "fixed": [
+          "1.4.2",
+          "2.1.1"
+        ]
+      }
+    ],
+    "cve_ids": [
+      "CVE-2099-0200"
+    ],
+    "entities": [],
+    "dedupe_key": "baa795864858d15e9d2cc55a",
+    "cluster_id": null,
+    "relevance": null
+  },
+  {
+    "id": "afi_03b36d78585f275afcd7",
+    "source_id": "osv-pypi",
+    "collection": "",
+    "title": "GHSA-zzzz: safe-lib issue",
+    "url": "https://osv.dev/vulnerability/GHSA-zzzz",
+    "published": "2026-10-07T00:00:00Z",
+    "updated": "2026-10-07T00:00:00Z",
+    "summary": "",
+    "vendor": null,
+    "products": [],
+    "versions": [],
+    "change_types": [
+      "security"
+    ],
+    "severity": "high",
+    "affected_packages": [
+      {
+        "ecosystem": "PyPI",
+        "name": "safe-lib",
+        "version_range": "<3.0.0",
+        "fixed": [
+          "3.0.0"
+        ]
+      }
+    ],
+    "cve_ids": [],
+    "entities": [],
+    "dedupe_key": "efbaff594f26d51c4a1e67ae",
+    "cluster_id": null,
+    "relevance": null
+  },
+  {
+    "id": "afi_265a9afc6fa2b49ee7ea",
+    "source_id": "gh-example-cli",
+    "collection": "",
+    "title": "v3.0.0",
+    "url": "https://github.com/example-org/example-cli/releases/tag/v3.0.0",
+    "published": "2026-10-09T19:28:59Z",
+    "updated": "2026-10-09T19:28:59Z",
+    "summary": "Breaking changes: removed the deprecated --legacy flag.",
+    "vendor": "example-org",
+    "products": [
+      "example-cli"
+    ],
+    "versions": [
+      "3.0.0"
+    ],
+    "change_types": [
+      "release",
+      "breaking-change",
+      "deprecation"
+    ],
+    "severity": null,
+    "affected_packages": [],
+    "cve_ids": [],
+    "entities": [],
+    "dedupe_key": "58faa839616b87b54fc42d46",
+    "cluster_id": null,
+    "relevance": null
+  },
+  {
+    "id": "afi_38f8b2832714227ef7f6",
+    "source_id": "example-changelog",
+    "collection": "",
+    "title": "Legacy completions endpoint will be removed on 2027-01-15",
+    "url": "https://example.com/changelog/legacy-completions",
+    "published": "2026-10-08T16:00:00Z",
+    "updated": "2026-10-08T16:00:00Z",
+    "summary": "Deprecated. Migrate to the Messages API.",
+    "vendor": "Example AI",
+    "products": [
+      "messages-api"
+    ],
+    "versions": [],
+    "change_types": [
+      "deprecation"
+    ],
+    "severity": null,
+    "affected_packages": [],
+    "cve_ids": [],
+    "entities": [],
+    "dedupe_key": "5734e10d561e525f7f838e20",
+    "cluster_id": null,
+    "relevance": null
+  },
+  {
+    "id": "afi_9ef91d333b89f9139430",
+    "source_id": "npm-sdk",
+    "collection": "",
+    "title": "@example/sdk 5.1.0",
+    "url": "https://www.npmjs.com/package/@example/sdk/v/5.1.0",
+    "published": "2026-10-09T15:44:11Z",
+    "updated": "2026-10-09T15:44:11Z",
+    "summary": "",
+    "vendor": null,
+    "products": [
+      "@example/sdk"
+    ],
+    "versions": [
+      "5.1.0"
+    ],
+    "change_types": [
+      "release"
+    ],
+    "severity": null,
+    "affected_packages": [
+      {
+        "ecosystem": "npm",
+        "name": "@example/sdk",
+        "version_range": "==5.1.0"
+      }
+    ],
+    "cve_ids": [],
+    "entities": [],
+    "dedupe_key": "864075502dffc70d13282dd6",
+    "cluster_id": null,
+    "relevance": null
+  },
+  {
+    "id": "afi_fe10e27abfbb677c0f4e",
+    "source_id": "example-blog",
+    "collection": "",
+    "title": "Model X 2 is generally available",
+    "url": "https://models.example.ai/posts/model-x-2",
+    "published": "2026-10-07T21:00:00Z",
+    "updated": "2026-10-07T21:00:00Z",
+    "summary": "",
+    "vendor": "Example AI",
+    "products": [],
+    "versions": [],
+    "change_types": [
+      "model-release"
+    ],
+    "severity": null,
+    "affected_packages": [],
+    "cve_ids": [],
+    "entities": [],
+    "dedupe_key": "ebc406afb7dcf543f194ebb8",
+    "cluster_id": null,
+    "relevance": null
+  },
+  {
+    "id": "afi_966fa83c42cb46caec04",
+    "source_id": "example-status",
+    "collection": "",
+    "title": "Example AI: Elevated errors on the Messages API",
+    "url": "https://stspg.io/example1",
+    "published": "2026-10-10T07:45:00Z",
+    "updated": "2026-10-10T07:45:00Z",
+    "summary": "",
+    "vendor": "Example AI",
+    "products": [],
+    "versions": [],
+    "change_types": [
+      "incident"
+    ],
+    "severity": "high",
+    "affected_packages": [],
+    "cve_ids": [],
+    "entities": [],
+    "dedupe_key": "76f309acc302edc4443f1e0c",
+    "cluster_id": null,
+    "relevance": null
+  },
+  {
+    "id": "afi_9bf31086558b14b365ac",
+    "source_id": "cisa-kev",
+    "collection": "",
+    "title": "CVE-2099-0002: Exampleware Example VPN Authentication Bypass",
+    "url": "https://nvd.nist.gov/vuln/detail/CVE-2099-0002",
+    "published": "2026-10-09T00:00:00Z",
+    "updated": "2026-10-09T00:00:00Z",
+    "summary": "Example VPN allows authentication bypass. Required action: Apply updates. Due: 2026-10-30.",
+    "vendor": "Exampleware",
+    "products": [
+      "Example VPN"
+    ],
+    "versions": [],
+    "change_types": [
+      "security"
+    ],
+    "severity": "critical",
+    "affected_packages": [],
+    "cve_ids": [
+      "CVE-2099-0002"
+    ],
+    "entities": [
+      "known-exploited"
+    ],
+    "dedupe_key": "463453e7b1b45bdb413c4ce6",
+    "cluster_id": null,
+    "relevance": null
+  },
+  {
+    "id": "afi_694d876b40a44d3aa7f2",
+    "source_id": "hn",
+    "collection": "",
+    "title": "Show HN: a crypto trading bot",
+    "url": "https://news.example/1",
+    "published": "2026-10-09T00:00:00Z",
+    "updated": "2026-10-09T00:00:00Z",
+    "summary": "",
+    "vendor": null,
+    "products": [],
+    "versions": [],
+    "change_types": [],
+    "severity": null,
+    "affected_packages": [],
+    "cve_ids": [],
+    "entities": [],
+    "dedupe_key": "f1372b7cd058c104fa2e0bee",
+    "cluster_id": null,
+    "relevance": null
+  }
+]

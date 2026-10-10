@@ -1,0 +1,6 @@
+title: Palette extractor (k-means)
+summary: Extracts a dominant-colour palette from an image with seeded k-means++ in OKLab (or RGB) on downsampled pixels, returning hex colours sorted by coverage share.
+subkind: palette
+domain: video
+tags: [video, colour, palette, k-means, design, numpy]
+step_kinds: [design, build]

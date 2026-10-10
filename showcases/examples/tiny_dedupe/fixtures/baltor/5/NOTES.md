@@ -1,0 +1,1 @@
+Same person = same normalised phone (digits only, no leading 1) or same normalised email (lower-case, Gmail dots and +tags dropped). Union-find merges chains. Names are ignored because two people share one name.

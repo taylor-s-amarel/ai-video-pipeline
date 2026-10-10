@@ -1,0 +1,133 @@
+collection:
+  id: status-ai-providers
+  title: "Status pages: model and inference providers"
+  description: "Official status pages for the model APIs agents call (Anthropic, OpenAI, Google Cloud/Vertex AI, Azure, AWS, Hugging Face, Mistral, Cohere, Groq, Together, OpenRouter, Replicate, xAI) and GitHub Copilot. When a provider has an incident, an agent should switch model or wait instead of retrying blindly; the statuspage_incident_reader module turns these endpoints into incident events filtered to the components a project uses. Status hosts could not be fetched from the research network on 2026-10-10: feed_url is given only when a source named that exact endpoint (the vendor's API page, a vendor forum, or a community list), otherwise notes say how to discover it."
+  tags: [status, incidents, ai, model-providers]
+  defaults: {terms: statuspage, poll: status, auth: none, change_types: [incident], kind: status-page}
+
+items:
+  - id: anthropic-claude-status
+    title: "Claude status (Anthropic)"
+    url: "https://status.claude.com"
+    feed_url: "https://status.claude.com/api/v2/summary.json"
+    feed_format: statuspage
+    summary: "Anthropic's status page for claude.ai, the Claude API, Claude Code and the Claude Console. It is an Atlassian Statuspage: the API page at status.claude.com/api documents summary.json (overall indicator, components, unresolved incidents, scheduled maintenance)."
+    vendor: Anthropic
+    products: [Claude API, claude.ai, Claude Code, Claude Console]
+    verification: search-result
+    notes: "API documentation: https://status.claude.com/api. Older links use status.anthropic.com. Statuspage pages also serve incidents.json and history.rss/atom; read the /api page for the full list."
+  - id: openai-status
+    title: "OpenAI status"
+    url: "https://status.openai.com"
+    feed_url: "https://status.openai.com/api/v2/summary.json"
+    feed_format: statuspage
+    summary: "OpenAI's status page for the API, ChatGPT, Sora and Codex, tracked per component so an API incident can be told apart from a ChatGPT one."
+    vendor: OpenAI
+    products: [OpenAI API, ChatGPT, Codex, Sora]
+    verification: search-result
+    notes: "OpenAI community threads (2025) cite /api/v2/summary.json and /api/v2/components.json, and one links an RSS feed at https://status.openai.com/feed.rss. The page URL is also in Sentry's status-page-list."
+    cautions: ["A forum thread reported summary.json briefly returning a 'page not found' response during a status-page migration; validate the JSON shape on every poll."]
+  - id: github-copilot-status
+    title: "GitHub Copilot status (GitHub status, Copilot component)"
+    url: "https://www.githubstatus.com"
+    feed_url: "https://www.githubstatus.com/api/v2/summary.json"
+    feed_format: statuspage
+    summary: "GitHub's Statuspage, filtered to the Copilot component for agents that depend on Copilot models, Copilot coding agent or Copilot CLI. The Octokit client uses this summary.json endpoint."
+    vendor: GitHub
+    products: [GitHub Copilot]
+    verification: search-result
+    notes: "Keep only components whose name contains 'Copilot'; the full GitHub page is in status-dev-cloud-platforms."
+  - id: google-cloud-status
+    title: "Google Cloud Service Health (Vertex AI, Gemini on Google Cloud)"
+    url: "https://status.cloud.google.com"
+    feed_url: "https://status.cloud.google.com/en/feed.atom"
+    feed_format: atom
+    summary: "Google Cloud's public service health dashboard, covering Vertex AI and Gemini on Google Cloud among all products; incidents list affected products and locations."
+    vendor: Google Cloud
+    products: [Vertex AI, Google Cloud]
+    verification: from-prior-research
+    notes: "Page URL from Sentry's status-page-list 0.6.1 (MIT, downloaded from npm on 2026-10-10); feed URL from the talonx/service-provider-status-links list fetched the same day. Neither host was reachable for a direct fetch."
+  - id: azure-status
+    title: "Azure status (Azure OpenAI and Foundry)"
+    url: "https://azure.status.microsoft/en-us/status"
+    feed_url: "https://azure.status.microsoft/en-us/status/feed/"
+    feed_format: rss
+    summary: "Azure's global status page; it shows only broad, multi-region incidents. Tenant-specific Azure OpenAI issues appear in Azure Service Health inside your subscription instead."
+    vendor: Microsoft
+    products: [Azure, Azure OpenAI, Microsoft Foundry]
+    verification: from-prior-research
+    notes: "Page URL from Sentry's status-page-list 0.6.1; feed URL from the talonx/service-provider-status-links list (both fetched 2026-10-10)."
+    cautions: ["The public page omits subscription-scoped incidents; use the Azure Resource Health / Service Health API with credentials for those."]
+  - id: aws-health-dashboard
+    title: "AWS Health Dashboard (Amazon Bedrock and all services)"
+    url: "https://health.aws.amazon.com/health/status"
+    feed_url: "http://status.aws.amazon.com/rss/all.rss"
+    feed_format: rss
+    summary: "AWS's public service health dashboard for all services and regions, including Amazon Bedrock; per-service RSS feeds also exist."
+    vendor: Amazon Web Services
+    products: [Amazon Bedrock, AWS]
+    verification: from-prior-research
+    notes: "Page URL from Sentry's status-page-list 0.6.1; the all-services RSS URL from the talonx/service-provider-status-links list (both fetched 2026-10-10)."
+    cautions: ["The RSS URL uses the legacy status.aws.amazon.com host over http; confirm the redirect target on first poll. Account-specific events need the AWS Health API."]
+  - id: huggingface-status
+    title: "Hugging Face status"
+    url: "https://status.huggingface.co/"
+    summary: "Hugging Face's status page for the Hub, Inference Endpoints, Inference Providers, Spaces and Jobs; it is hosted on Better Stack."
+    vendor: Hugging Face
+    products: [Hugging Face Hub, Inference Endpoints, Spaces]
+    verification: search-result
+    notes: "Better Stack documents RSS subscriptions for its status pages (betterstack.com/docs/uptime/status-pages/subscribing-to-status-updates/subscribing-to-rss/); take the feed link from the page's Subscribe menu."
+  - id: mistral-status
+    title: "Mistral AI status"
+    url: "https://status.mistral.ai"
+    summary: "Mistral AI's status page for La Plateforme API, Le Chat and fine-tuning; search results returned its paged incident history."
+    vendor: Mistral AI
+    products: [Mistral API, Le Chat]
+    verification: search-result
+  - id: cohere-status
+    title: "Cohere status"
+    url: "https://status.cohere.com"
+    summary: "Cohere's status page covering Command, Embed and Rerank models and its platform."
+    vendor: Cohere
+    products: [Cohere API]
+    verification: search-result
+    notes: "Confirmed through third-party status aggregators that read this page."
+  - id: groq-status
+    title: "GroqCloud status"
+    url: "https://groqstatus.com"
+    summary: "Groq's status page for the GroqCloud API and open model serving."
+    vendor: Groq
+    products: [GroqCloud]
+    verification: search-result
+    notes: "Confirmed through third-party status aggregators that read this page."
+  - id: together-status
+    title: "Together AI status"
+    url: "https://status.together.ai"
+    summary: "Together AI's status page for serverless inference, dedicated endpoints and fine-tuning."
+    vendor: Together AI
+    products: [Together API]
+    verification: search-result
+    notes: "Confirmed through a third-party status aggregator."
+  - id: openrouter-status
+    title: "OpenRouter status"
+    url: "https://status.openrouter.ai"
+    summary: "OpenRouter's status page; OpenRouter routes around individual provider outages, so this page covers its own API and routing layer."
+    vendor: OpenRouter
+    products: [OpenRouter API]
+    verification: search-result
+  - id: replicate-status
+    title: "Replicate status"
+    url: "https://replicatestatus.com"
+    summary: "Replicate's status page for predictions, training and the web app."
+    vendor: Replicate
+    products: [Replicate API]
+    verification: search-result
+    notes: "Confirmed through a third-party status aggregator."
+  - id: xai-status
+    title: "xAI status"
+    url: "https://status.x.ai"
+    summary: "xAI's status page for the xAI API and Grok."
+    vendor: xAI
+    products: [xAI API]
+    verification: search-result
+    notes: "Confirmed through a third-party status tracker (last check it showed was April 2026)."

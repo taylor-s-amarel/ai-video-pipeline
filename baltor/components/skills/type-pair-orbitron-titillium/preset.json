@@ -1,0 +1,68 @@
+{
+  "type": "typography",
+  "id": "type_pair_orbitron_titillium",
+  "name": "Orbitron + Titillium Web",
+  "version": 1,
+  "display": {
+    "family": "Orbitron",
+    "weight": 800,
+    "licence": "OFL-1.1",
+    "file": "Orbitron[wght].ttf",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/orbitron/Orbitron%5Bwght%5D.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/orbitron/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Orbitron",
+    "category": "sans-serif",
+    "case": "upper",
+    "avg_char_em": 0.711,
+    "variable_axes": {
+      "wght": [
+        400.0,
+        900.0
+      ]
+    }
+  },
+  "text": {
+    "family": "Titillium Web",
+    "weight": 700,
+    "licence": "OFL-1.1",
+    "file": "TitilliumWeb-Bold.ttf",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/titilliumweb/TitilliumWeb-Bold.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/titilliumweb/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Titillium+Web",
+    "category": "sans-serif",
+    "case": "as-written",
+    "avg_char_em": 0.432
+  },
+  "sizes": {
+    "title_px": 76,
+    "caption_px": 58,
+    "min_caption_px": 46,
+    "label_px": 44,
+    "number_px": 100
+  },
+  "chars_per_line": {
+    "title": 16,
+    "caption": 35
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "mood": [
+    "space",
+    "tech",
+    "retro"
+  ],
+  "why": "Wide geometric display for space and sci-fi hooks; Titillium is compact enough for captions."
+}

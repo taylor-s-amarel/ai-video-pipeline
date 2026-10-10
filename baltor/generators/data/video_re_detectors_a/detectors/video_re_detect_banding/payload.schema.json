@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/video-re-contract-banding",
+  "title": "Banding payload",
+  "description": "Payload of video_re_detect_banding. Steps are in 8-bit code values; region boxes in source pixels.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["score", "banded", "step_code_values", "flat_run_px", "ramp_blocks", "banded_blocks", "regions", "frames_analysed"],
+  "properties": {
+    "score": { "type": ["number", "null"], "minimum": 0, "maximum": 1, "description": "banded share of smooth-ramp blocks; null without gradients" },
+    "banded": { "type": "boolean", "description": "score >= 0.1" },
+    "step_code_values": { "type": ["number", "null"], "minimum": 0, "description": "median effective step in banded blocks (about 1 = clean)" },
+    "flat_run_px": { "type": ["number", "null"], "minimum": 0, "description": "median width of a band along the gradient" },
+    "ramp_blocks": { "type": "integer", "minimum": 0 },
+    "banded_blocks": { "type": "integer", "minimum": 0 },
+    "regions": {
+      "type": "array", "maxItems": 20,
+      "items": {
+        "type": "object", "additionalProperties": false, "required": ["bbox", "blocks"],
+        "properties": {
+          "bbox": { "type": "array", "items": { "type": "integer", "minimum": 0 }, "minItems": 4, "maxItems": 4 },
+          "blocks": { "type": "integer", "minimum": 1 }
+        }
+      }
+    },
+    "frames_analysed": { "type": "integer", "minimum": 1 }
+  }
+}

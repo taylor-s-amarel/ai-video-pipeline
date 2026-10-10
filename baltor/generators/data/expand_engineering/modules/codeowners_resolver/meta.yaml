@@ -1,0 +1,10 @@
+title: CODEOWNERS resolver and linter
+summary: Resolves GitHub CODEOWNERS for a list of changed paths (last match wins, unowned lines, anchored and ** patterns) to route reviews, and lints unsupported syntax and malformed owners.
+subkind: code-review
+tags: [codeowners, code-review, github, monorepo, ownership]
+step_kinds: [review, plan]
+effects: {filesystem: read, executes: python}
+examples:
+  - "git diff --name-only origin/main... | python codeowners_resolver.py"
+references:
+  - https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners

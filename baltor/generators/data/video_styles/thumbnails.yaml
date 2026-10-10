@@ -26,10 +26,10 @@ styles:
   big_number_thumb:
     name: Big number
     default_palette: news_contrast
-    text: {max_words: 2, font: {family: Anton, weight: 400, case: upper}, size_frac: 0.26, fill_role: keyword, stroke_role: stroke, stroke_frac: 0.01}
+    text: {max_words: 2, font: {family: Anton, weight: 400, case: upper}, size_frac: 0.26, fill_role: keyword, stroke_role: stroke, stroke_frac: 0.016}
     panel: {type: none}
     layout: {text_region: left-half, subject: right-half, subject_min_width_fraction: 0.45}
-    use_when: [The hook is a number (14 DAYS, 1,000 DOGS)]
+    use_when: ["The hook is a number, e.g. 14 DAYS or 1,000 DOGS"]
   fact_card_thumb:
     name: FACT card
     default_palette: house_yellow_night
@@ -54,7 +54,7 @@ styles:
   countdown_rank_thumb:
     name: Countdown rank
     default_palette: news_contrast
-    text: {max_words: 3, font: {family: Anton, weight: 400, case: upper}, size_frac: 0.22, fill_role: keyword, stroke_role: stroke, stroke_frac: 0.01}
+    text: {max_words: 3, font: {family: Anton, weight: 400, case: upper}, size_frac: 0.22, fill_role: keyword, stroke_role: stroke, stroke_frac: 0.016}
     panel: {type: none}
     layout: {text_region: left-third, subject: right-two-thirds, subject_min_width_fraction: 0.6}
     use_when: [Top-N lists]

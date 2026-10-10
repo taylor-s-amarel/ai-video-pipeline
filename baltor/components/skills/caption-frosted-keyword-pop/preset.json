@@ -1,0 +1,127 @@
+{
+  "type": "caption-style",
+  "id": "caption_frosted_keyword_pop",
+  "name": "Frosted glass captions with keyword pop (house)",
+  "version": 1,
+  "house": true,
+  "font": {
+    "family": "Inter",
+    "weight": 800,
+    "licence": "OFL-1.1",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/inter/Inter%5Bopsz%2Cwght%5D.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/inter/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Inter",
+    "size_px": 60,
+    "min_size_px": 48,
+    "case": "as-written",
+    "avg_char_em": 0.487,
+    "variable_axes": {
+      "opsz": [
+        14.0,
+        32.0
+      ],
+      "wght": [
+        100.0,
+        900.0
+      ]
+    }
+  },
+  "fill": "#FFFFFF",
+  "stroke": {
+    "color": "#000000",
+    "width_px": 0
+  },
+  "backing": {
+    "type": "frosted-glass",
+    "tint": "#0B1220",
+    "opacity": 0.62,
+    "blur_px": 28,
+    "radius_px": 28,
+    "padding_px": [
+      22,
+      36
+    ],
+    "feather_px": 16
+  },
+  "layout": {
+    "center_y_fraction": 0.759,
+    "max_width_fraction": 0.88,
+    "max_lines": 1,
+    "max_words": 7,
+    "max_chars": 30,
+    "align": "center"
+  },
+  "emphasis": {
+    "mode": "keyword-pop",
+    "scale_peak": 1.12,
+    "duration_ms": 180,
+    "easing": "ease-out-back",
+    "color": "#FFD21F"
+  },
+  "timing": {
+    "sync_tolerance_ms": 150,
+    "min_on_screen_ms": 700,
+    "max_on_screen_ms": 3200
+  },
+  "animation_in": "text_anim_fade_up_soft",
+  "palette": "palette_house_yellow_night",
+  "contrast": {
+    "text": {
+      "basis": "panel-worst-case",
+      "fg": "#FFFFFF",
+      "bg": "#0B1220",
+      "opacity": 0.62,
+      "ratio": 5.26,
+      "required": 3.0,
+      "size_px": 48,
+      "weight": 800,
+      "level": "AAA"
+    },
+    "keyword": {
+      "basis": "panel-worst-case",
+      "fg": "#FFD21F",
+      "bg": "#0B1220",
+      "opacity": 0.62,
+      "ratio": 3.63,
+      "required": 3.0,
+      "size_px": 48,
+      "weight": 800,
+      "level": "AA"
+    }
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "reference_size": [
+    1080,
+    1920
+  ],
+  "use_when": [
+    "Any house-style short",
+    "Facts and explainers with narration",
+    "Footage or photos with busy detail behind the text"
+  ],
+  "avoid_when": [
+    "Silent videos where viewers read long sentences",
+    "Comic looks that want outlined lettering"
+  ],
+  "keyword_animation": "text_anim_keyword_pop_house",
+  "forbid": [
+    "progress bars",
+    "stacked label panels",
+    "repeated section labels"
+  ],
+  "notes": "One synced line at a time. The key word (a number, name or outcome) turns keyword colour and pops 1.0 -> 1.12 -> 1.0 over 180 ms. No progress bars, stacked label panels or repeated section labels."
+}

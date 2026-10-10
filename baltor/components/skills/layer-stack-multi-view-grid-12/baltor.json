@@ -1,0 +1,97 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "layer_stack_multi_view_grid_12",
+  "title": "Multi-view grid 12-layer stack",
+  "kind": "skill",
+  "subkind": "layer-stack",
+  "version": "1.0.0",
+  "summary": "12-layer stack, theme clouds, 1080x1920; all layers <= 98% opacity with a moving background.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "render",
+    "design"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "runs ffmpeg/ffprobe commands from SKILL.md that write render files into the working directory",
+      "scripts/check_preset.py reads preset.json and schema.json"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "video",
+    "shorts",
+    "layers",
+    "compositing",
+    "ffmpeg",
+    "multi-view-grid-12",
+    "12-layers"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "layer_stack_preset_schema"
+    },
+    {
+      "identity": "short_style_preset_kit"
+    },
+    {
+      "identity": "palette_okabe_ito_safe"
+    },
+    {
+      "identity": "bg_layer_gradient_drift"
+    },
+    {
+      "identity": "bg_layer_blueprint_grid"
+    },
+    {
+      "identity": "bg_layer_atmospheric_haze"
+    },
+    {
+      "identity": "grid_2x2_multi_viewpoint_split"
+    },
+    {
+      "identity": "bg_layer_vignette_breathe"
+    },
+    {
+      "identity": "title_step_card_center"
+    },
+    {
+      "identity": "caption_two_tone_emphasis"
+    },
+    {
+      "identity": "bg_layer_film_grain"
+    },
+    {
+      "identity": "text_anim_springy_pop_overshoot"
+    },
+    {
+      "identity": "text_anim_fade_up_soft"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_styles.py",
+    "data": "generators/data/video_styles"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "headless-tested",
+  "evidence_notes": "Preset validated against its schema by the generator; contrast and opacity rules computed. No render recorded for this exact preset."
+}

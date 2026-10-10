@@ -1,0 +1,9 @@
+{
+  "events": [
+    { "type": "speed_change", "t_start_s": 3.12, "t_end_s": 4.4, "rate": 0.42, "frames": 33 },
+    { "type": "freeze", "t_start_s": 6.84, "t_end_s": 7.36, "rate": 0.0, "frames": 13 },
+    { "type": "duplicate_slowmo", "t_start_s": 12.0, "t_end_s": 13.96, "rate": 0.5, "frames": 59 }
+  ],
+  "counts": { "freeze": 1, "duplicate_slowmo": 1, "speed_change": 1 },
+  "frames_without_speed": 112
+}

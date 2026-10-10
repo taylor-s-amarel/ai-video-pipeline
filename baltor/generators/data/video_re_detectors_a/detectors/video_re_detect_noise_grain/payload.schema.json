@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/video-re-contract-noise-grain",
+  "title": "Noise and grain payload",
+  "description": "Payload of video_re_detect_noise_grain. Sigmas are on the 0-255 luma scale at native resolution.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["noise_sigma", "residual_sigma", "grain_size_px", "signal_dependence_ratio", "chroma_luma_ratio", "temporal_correlation", "hint", "native_pixels", "frames_analysed"],
+  "properties": {
+    "noise_sigma": { "type": "number", "minimum": 0, "description": "Immerkaer estimate on homogeneous pixels" },
+    "residual_sigma": { "type": "number", "minimum": 0, "description": "std of frame minus Gaussian blur (sigma 2 px) on homogeneous pixels" },
+    "grain_size_px": { "type": "number", "minimum": 0, "description": "FWHM of the residual autocorrelation" },
+    "signal_dependence_ratio": { "type": ["number", "null"], "minimum": 0, "description": "noise in the brightest quarter of intensity bins / darkest quarter" },
+    "chroma_luma_ratio": { "type": ["number", "null"], "minimum": 0 },
+    "temporal_correlation": { "type": ["number", "null"], "minimum": -1, "maximum": 1 },
+    "hint": { "enum": ["clean", "static-overlay", "sensor-like", "synthetic-grain-like", "mixed"] },
+    "native_pixels": { "type": "boolean" },
+    "frames_analysed": { "type": "integer", "minimum": 1 }
+  }
+}

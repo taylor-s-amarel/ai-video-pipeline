@@ -1,0 +1,15 @@
+title: Incident severity classifier
+summary: Assigns SEV1-SEV4 from observable impact facts (users affected, core journey down, data loss, security exposure, revenue path, workaround) using an editable JSON matrix, and returns the required response.
+subkind: incident-response
+tags: [incident-response, severity, triage, on-call, sre]
+step_kinds: [operate, plan]
+effects: {filesystem: read, executes: python}
+description: >-
+  Data-driven classifier: severity_matrix.json lists levels from most to least severe, each with rules (all/any
+  conditions over facts with >=, >, ==, ...) and a response block (who to page, status page, update interval,
+  postmortem requirement). The first level with a matching rule wins; all matching reasons are returned, as are
+  facts that were not supplied so the incident commander can ask for them. Unknown facts never match, so a
+  missing 'workaround' does not escalate. The shipped thresholds are a starting point, not a standard.
+examples:
+  - "echo '{\"core_function_down\": true, \"users_affected_pct\": 30}' | python incident_severity_classifier.py --facts -"
+evidence_notes: pytest suite passes on the default and a custom matrix.

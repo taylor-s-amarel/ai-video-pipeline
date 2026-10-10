@@ -1,0 +1,67 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "palette_news_contrast",
+  "title": "News high contrast",
+  "kind": "skill",
+  "subkind": "palette",
+  "version": "1.0.0",
+  "summary": "Dark palette with 14 WCAG-passing text pairs; panel #000000 at 74%.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "design",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "read",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "scripts/check_preset.py reads preset.json and schema.json"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "video",
+    "shorts",
+    "palette",
+    "colour",
+    "wcag",
+    "contrast",
+    "news-contrast",
+    "dark",
+    "news",
+    "documentary",
+    "energetic"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "palette_preset_schema"
+    },
+    {
+      "identity": "short_style_preset_kit"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_styles.py",
+    "data": "generators/data/video_styles"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "headless-tested",
+  "evidence_notes": "Every listed pair's contrast was computed from the hex values; preset validated against its schema."
+}

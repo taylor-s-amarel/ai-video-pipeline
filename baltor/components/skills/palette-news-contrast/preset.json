@@ -1,0 +1,205 @@
+{
+  "type": "palette",
+  "id": "palette_news_contrast",
+  "name": "News high contrast",
+  "version": 1,
+  "mode": "dark",
+  "colors": {
+    "background": "#0E0E10",
+    "surface": "#1C1C20",
+    "panel_tint": "#000000",
+    "text": "#FFFFFF",
+    "title": "#FFFFFF",
+    "keyword": "#FFCC00",
+    "accent": "#E03A3E",
+    "accent_2": "#3A7BD5",
+    "stroke": "#000000",
+    "light": "#FFFFFF",
+    "particle": "#FFFFFF"
+  },
+  "panel_opacity": 0.74,
+  "gradient": [
+    "#0E0E10",
+    "#2A2A30"
+  ],
+  "ramp": [
+    "#000000",
+    "#0E0E10",
+    "#2A2A30",
+    "#8A8A96",
+    "#FFFFFF"
+  ],
+  "pairs": [
+    {
+      "fg_role": "text",
+      "bg_role": "panel_tint@panel",
+      "fg": "#FFFFFF",
+      "bg": "#000000",
+      "basis": "panel-worst-case",
+      "opacity": 0.74,
+      "ratio": 10.0,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "panel_tint@panel",
+      "fg": "#FFFFFF",
+      "bg": "#000000",
+      "basis": "panel-worst-case",
+      "opacity": 0.74,
+      "ratio": 10.0,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "panel_tint@panel",
+      "fg": "#FFCC00",
+      "bg": "#000000",
+      "basis": "panel-worst-case",
+      "opacity": 0.74,
+      "ratio": 6.61,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "background",
+      "fg": "#FFFFFF",
+      "bg": "#0E0E10",
+      "basis": "solid",
+      "ratio": 19.28,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "background",
+      "fg": "#FFFFFF",
+      "bg": "#0E0E10",
+      "basis": "solid",
+      "ratio": 19.28,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "background",
+      "fg": "#FFCC00",
+      "bg": "#0E0E10",
+      "basis": "solid",
+      "ratio": 12.75,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "accent",
+      "bg_role": "background",
+      "fg": "#E03A3E",
+      "bg": "#0E0E10",
+      "basis": "solid",
+      "ratio": 4.44,
+      "required": 3.0,
+      "use": "large-bold-only",
+      "min_size_px": 24,
+      "min_weight": 700,
+      "level": "AA-large"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "surface",
+      "fg": "#FFFFFF",
+      "bg": "#1C1C20",
+      "basis": "solid",
+      "ratio": 16.98,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "surface",
+      "fg": "#FFCC00",
+      "bg": "#1C1C20",
+      "basis": "solid",
+      "ratio": 11.23,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "stroke",
+      "fg": "#FFFFFF",
+      "bg": "#000000",
+      "basis": "solid",
+      "ratio": 21.0,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "stroke",
+      "fg": "#FFFFFF",
+      "bg": "#000000",
+      "basis": "solid",
+      "ratio": 21.0,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "keyword@card95",
+      "fg": "#0E0E10",
+      "bg": "#FFCC00",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 11.46,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "title@card95",
+      "fg": "#0E0E10",
+      "bg": "#FFFFFF",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 17.26,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "accent@card95",
+      "fg": "#0E0E10",
+      "bg": "#E03A3E",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 4.07,
+      "required": 3.0,
+      "use": "large-bold-only",
+      "min_size_px": 24,
+      "min_weight": 700,
+      "level": "AA-large"
+    }
+  ],
+  "failed_pair_count": 0,
+  "mood": [
+    "news",
+    "documentary",
+    "energetic"
+  ],
+  "notes": "Briefings and explainers where text must read at a glance. Red is for bars and accents, not small text."
+}

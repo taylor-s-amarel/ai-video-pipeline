@@ -1,0 +1,121 @@
+{
+  "type": "caption-style",
+  "id": "caption_karaoke_word_highlight",
+  "name": "Karaoke word highlight",
+  "version": 1,
+  "house": false,
+  "font": {
+    "family": "Inter",
+    "weight": 800,
+    "licence": "OFL-1.1",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/inter/Inter%5Bopsz%2Cwght%5D.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/inter/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Inter",
+    "size_px": 58,
+    "min_size_px": 46,
+    "case": "as-written",
+    "avg_char_em": 0.487,
+    "variable_axes": {
+      "opsz": [
+        14.0,
+        32.0
+      ],
+      "wght": [
+        100.0,
+        900.0
+      ]
+    }
+  },
+  "fill": "#FFFFFF",
+  "stroke": {
+    "color": "#000000",
+    "width_px": 0
+  },
+  "backing": {
+    "type": "frosted-glass",
+    "tint": "#0B1220",
+    "opacity": 0.62,
+    "blur_px": 24,
+    "radius_px": 24,
+    "padding_px": [
+      20,
+      32
+    ],
+    "feather_px": 14
+  },
+  "layout": {
+    "center_y_fraction": 0.761,
+    "max_width_fraction": 0.88,
+    "max_lines": 1,
+    "max_words": 6,
+    "max_chars": 31,
+    "align": "center"
+  },
+  "emphasis": {
+    "mode": "box-current-word",
+    "scale_peak": 1.04,
+    "duration_ms": 120,
+    "easing": "ease-out",
+    "color": "#FFD21F",
+    "text_color": "#0B1220",
+    "box_opacity": 0.95
+  },
+  "timing": {
+    "sync_tolerance_ms": 100,
+    "min_on_screen_ms": 700,
+    "max_on_screen_ms": 3000
+  },
+  "animation_in": "text_anim_fade_up_soft",
+  "palette": "palette_house_yellow_night",
+  "contrast": {
+    "text": {
+      "basis": "panel-worst-case",
+      "fg": "#FFFFFF",
+      "bg": "#0B1220",
+      "opacity": 0.62,
+      "ratio": 5.26,
+      "required": 3.0,
+      "size_px": 46,
+      "weight": 800,
+      "level": "AAA"
+    },
+    "keyword_box": {
+      "basis": "panel-worst-case",
+      "fg": "#0B1220",
+      "bg": "#FFD21F",
+      "opacity": 0.95,
+      "ratio": 11.6,
+      "required": 3.0,
+      "size_px": 46,
+      "weight": 800,
+      "level": "AAA"
+    }
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "reference_size": [
+    1080,
+    1920
+  ],
+  "use_when": [
+    "Narration with word timestamps from TTS or alignment",
+    "Language learning and read-along content"
+  ],
+  "avoid_when": [
+    "No word-level timestamps (the box would drift from the voice)"
+  ],
+  "notes": "The word being spoken sits in a rounded keyword-colour box with dark text; the box moves word to word."
+}

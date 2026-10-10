@@ -1,0 +1,15 @@
+title: Status page update writer and lint
+summary: Drafts investigating/identified/monitoring/resolved status updates from impact facts and lints drafts for speculation, blame, internal hostnames/IPs/jargon, promised fix times and missing next-update times.
+subkind: incident-response
+tags: [incident-response, status-page, communications, customer-comms, sre]
+step_kinds: [operate, write, publish]
+effects: {filesystem: read, executes: python}
+description: >-
+  draft() fills plain-language templates for the four common status-page phases (component, customer impact,
+  optional detail, next update time); lint() returns problems that make public updates worse: naming a cause while
+  still investigating, blaming people or vendors, internal hostnames, IPs, Kubernetes/database jargon or status
+  codes, ETA promises instead of next-update commitments, missing next-update times, all caps and length over 600
+  characters. Writing aid only: a person approves and posts every public message; nothing is published.
+examples:
+  - "python status_page_update_writer.py draft --phase investigating --component Checkout --impact 'Some card payments fail'"
+evidence_notes: pytest suite passes; templates read as neutral English but have not been reviewed by a communications team.

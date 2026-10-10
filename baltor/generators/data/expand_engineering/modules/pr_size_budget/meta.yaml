@@ -1,0 +1,9 @@
+title: Pull request size budget
+summary: Reads git diff --numstat, excludes lockfiles, snapshots, generated, vendored and binary files, and checks reviewable lines/files against a budget, flagging source changes without test changes and suggesting split points.
+subkind: git-workflow
+tags: [pull-request, code-review, diff, budget, git]
+step_kinds: [review, verify]
+effects: {filesystem: read, executes: python, side_effects: ["runs git diff --numstat unless input is '-'"]}
+examples:
+  - "python pr_size_budget.py --base origin/main --max-lines 400"
+  - "git diff --numstat --cached | python pr_size_budget.py -"

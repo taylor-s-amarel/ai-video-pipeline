@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/video-re-contract-whip-pan",
+  "title": "Whip pan payload",
+  "description": "Payload of video_re_detect_whip_pan: runs of frames with strong directional motion blur relative to the shot's own sharpness, their axis and camera direction, and whether they hide a cut.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["events", "count", "per_minute", "as_transition"],
+  "properties": {
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["t_start_s", "t_end_s", "frames", "axis", "camera_direction", "blur_anisotropy", "sharpness_ratio", "at_cut"],
+        "properties": {
+          "t_start_s": { "type": "number", "minimum": 0 },
+          "t_end_s": { "type": "number", "minimum": 0 },
+          "frames": { "type": "integer", "minimum": 1 },
+          "axis": { "enum": ["horizontal", "vertical"] },
+          "camera_direction": { "enum": ["left", "right", "up", "down", "unknown"] },
+          "blur_anisotropy": { "type": "number", "minimum": 1, "description": "ratio of per-axis gradient-energy losses (median over the event)" },
+          "sharpness_ratio": { "type": "number", "minimum": 0, "description": "lowest frame gradient energy / baseline" },
+          "at_cut": { "type": ["boolean", "null"], "description": "colour histograms before and after differ (null at clip edges)" }
+        }
+      }
+    },
+    "count": { "type": "integer", "minimum": 0 },
+    "per_minute": { "type": ["number", "null"], "minimum": 0 },
+    "as_transition": { "type": "integer", "minimum": 0 }
+  }
+}

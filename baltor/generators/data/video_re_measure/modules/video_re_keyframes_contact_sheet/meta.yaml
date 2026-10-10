@@ -1,0 +1,23 @@
+title: 'Video RE: keyframes and contact sheets per shot'
+summary: Picks the sharpest of three candidate frames per shot (Laplacian variance), saves keyframes and labelled contact
+  sheets so analysts can see every shot.
+subkind: qa-check
+tags:
+- video
+- reverse-engineering
+- keyframes
+- contact-sheet
+- evidence
+step_kinds:
+- measure
+- research
+- review
+deps:
+- ffmpeg
+- ffprobe
+- numpy
+- pillow
+internal:
+- identity: video_re_detect_shots
+examples:
+- python video_re_keyframes_contact_sheet.py clip.mp4 --shots shots.json --out-dir evidence/

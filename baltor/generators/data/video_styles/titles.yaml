@@ -45,7 +45,7 @@ top_n_rank:
   default_palette: news_contrast
   font: {family: Anton, weight: 400, size_px: 220, min_size_px: 160, case: upper}
   fill_role: keyword
-  stroke: {role: stroke, width_px: 8}
+  stroke: {role: stroke, width_px: 14}
   backing: {type: none}
   position: {region: upper-third, center_y_fraction: 0.26, over: background, max_width_fraction: 0.5}
   text: {template: "#{n}", min_words: 1, max_words: 1, max_lines: 1}
@@ -67,7 +67,7 @@ stacked_two_line_hook:
   secondary: {font: {family: Montserrat, weight: 800, size_px: 54, case: upper}, fill_role: text, gap_px: 6, content: setup line above the hook, placement: above}
   timing: {first_frame: true, hold_s: 2.6}
   animation_in: text_anim_settle_in
-  use_when: [Hooks that need a short setup ("SHE SPENT", "14 DAYS UNDERWATER")]
+  use_when: ["Hooks that need a short setup line above the main hook, e.g. SHE SPENT / 14 DAYS UNDERWATER"]
   avoid_when: [Hooks that fit in one line]
 
 question_hook:
@@ -81,7 +81,7 @@ question_hook:
   text: {min_words: 3, max_words: 8, max_lines: 2, ends_with: "?"}
   timing: {first_frame: true, hold_s: 2.4}
   animation_in: text_anim_settle_in
-  use_when: [Curiosity hooks ("WHY DO CATS KNEAD?"), Quiz shorts]
+  use_when: ["Curiosity hooks, e.g. WHY DO CATS KNEAD?", Quiz shorts]
   avoid_when: [Questions the video does not answer]
 
 date_stamp_history:
@@ -203,4 +203,4 @@ comic_burst_hook:
   animation_in: text_anim_springy_pop_overshoot
   use_when: [Ridiculous stories, cartoons and comic looks]
   avoid_when: [Serious topics]
-  notes: Red title with a white outline on a yellow starburst card; the contrast check measures the fill against the card.
+  notes: Dark red title with a white outline on a yellow starburst card; the contrast check measures the fill against the card.

@@ -3112,3 +3112,519 @@ def uniq_tags(*groups) -> list[str]:
             if t and t not in out:
                 out.append(t)
     return out
+
+
+# --------------------------------------------------------------------------- main
+
+def invalid_example(ptype: str, preset: dict) -> tuple[str, dict]:
+    bad = copy.deepcopy(preset)
+    if ptype in ("caption-style", "title-style"):
+        bad.setdefault("backing", {})["opacity"] = 1.0
+        return "invalid-opaque-panel.json", bad
+    if ptype == "background-layer":
+        bad["default_opacity"] = 1.0
+        return "invalid-fully-opaque.json", bad
+    if ptype == "layer-stack":
+        bad["layers"] = bad["layers"][:3]
+        return "invalid-too-few-layers.json", bad
+    if ptype == "grid-system":
+        bad["cells"] = bad["cells"][:3]
+        return "invalid-three-cells.json", bad
+    if ptype == "transition":
+        bad["method"] = "cut"
+        bad["duration_ms"] = 400
+        return "invalid-cut-with-duration.json", bad
+    if ptype == "camera-move":
+        bad["renderer"] = "zoompan"
+        bad["rotation_deg"] = {"from": 0, "to": 5}
+        return "invalid-zoompan-rotation.json", bad
+    if ptype == "text-animation":
+        bad.pop("keyframes", None)
+        bad.pop("spring", None)
+        return "invalid-no-motion.json", bad
+    if ptype == "palette":
+        bad["pairs"][0]["ratio"] = 2.1
+        return "invalid-low-contrast-pair.json", bad
+    if ptype == "typography":
+        bad["display"]["licence"] = "Proprietary"
+        return "invalid-closed-licence.json", bad
+    if ptype == "animation-style":
+        bad["timing"]["animate_on"] = "fours"
+        return "invalid-timing.json", bad
+    if ptype == "aspect-format":
+        bad["safe_margins"]["bottom"] = 0.7
+        return "invalid-margins.json", bad
+    if ptype == "thumbnail-style":
+        bad["contrast"]["text"]["ratio"] = 2.0
+        return "invalid-low-contrast.json", bad
+    if ptype == "style-preset":
+        bad["rules"]["max_layer_opacity"] = 1.0
+        bad["rules"]["min_duration_s"] = 6
+        return "invalid-short-and-opaque.json", bad
+    raise ValueError(ptype)
+
+
+SCHEMA_SUMMARIES = {
+    "caption-style": "JSON Schema for caption style presets: font, fill, outline, backing panel, safe-area layout, keyword emphasis, timing and computed WCAG contrast.",
+    "title-style": "JSON Schema for hook titles and FACT/STEP labels, enforcing the house rules (#FFD21F, upper third, first frame, 55-75% frosted backing).",
+    "background-layer": "JSON Schema for moving background layers: procedural ffmpeg loop, footage licence policy, default opacity <= 0.98, blend and measured motion.",
+    "layer-stack": "JSON Schema for 5-64 layer stacks with role, source, opacity <= 0.98, blend, motion; requires a moving background and an 80%-wide photo.",
+    "grid-system": "JSON Schema for 2x2 motion grids: gutter, margin, feather, rounded cells, per-cell opacity <= 0.98, mirroring and reveal timing.",
+    "transition": "JSON Schema for cut and ffmpeg xfade transitions with duration, tempo and optional overlay pulse.",
+    "camera-move": "JSON Schema for camera moves: zoom and centre paths, rotation, punch-in keyframes, shake, parallax layers and renderer.",
+    "text-animation": "JSON Schema for text animations: unit, keyframes or damped spring with computed overshoot and settle time.",
+    "palette": "JSON Schema for palettes whose listed text/background pairs all pass WCAG contrast (3:1 pairs restricted to >= 24 px bold).",
+    "typography": "JSON Schema for font pairings limited to OFL-1.1 or Apache-2.0 Google Fonts with sizes and characters per line.",
+    "animation-style": "JSON Schema for animation styles: projection, camera angles, shading, outlines, frame timing and tool recipes.",
+    "aspect-format": "JSON Schema for aspect formats: size, platform, safe margins with their basis, zones and export encoding.",
+    "thumbnail-style": "JSON Schema for thumbnail and cover styles with text limits, panel, layout, computed contrast and export limits.",
+    "style-preset": "JSON Schema for whole looks that combine caption, title, stack, palette, typography, motion and pacing presets under the house rules.",
+}
+
+DESCRIPTIONS = {
+    "caption-style": "Use when adding synced captions to a vertical short and you want the '{name}' look: exact font, size, colours, backing, safe-area position, keyword emphasis and timing, with WCAG contrast already computed and an ffmpeg/Pillow recipe.",
+    "title-style": "Use when placing a hook title or item label (FACT N, STEP N, #N) on a short in the '{name}' style: font, colours, backing, upper-third position over the photo, first-frame timing and computed contrast, with an ffmpeg recipe.",
+    "background-layer": "Use when a short needs the '{name}' moving background or overlay layer: a seamless {loop}-second procedural ffmpeg loop (no downloads), default opacity and blend, measured motion, and how to source licensed footage instead.",
+    "layer-stack": "Use when composing a short's layers in the '{name}' arrangement: every layer with source, opacity (max 98%), blend mode and motion, plus a ready ffmpeg graph for the procedural background layers.",
+    "grid-system": "Use when you want four moving clips in a feathered 2x2 grid ('{name}') as a background layer or split-screen: exact cell geometry, opacities, mirroring and a ready ffmpeg graph.",
+    "transition": "Use when joining two shots of a short with the '{name}' transition: exact ffmpeg xfade or concat command with the right offset, duration and tempo, and when not to use it.",
+    "camera-move": "Use when animating a still photo or layered image with the '{name}' camera move: zoom and centre path, easing and a tested ffmpeg zoompan, Pillow or overlay command.",
+    "text-animation": "Use when animating captions, titles or numbers with '{name}': keyframes or spring constants, computed samples, and ffmpeg drawtext or Pillow instructions.",
+    "palette": "Use when choosing colours for a short ('{name}'): role colours, frosted panel tint and opacity, and only text/background pairs that pass WCAG contrast (worst case over any video).",
+    "typography": "Use when picking fonts for a short ('{name}'): open-licence Google Fonts (OFL/Apache) with verified download URLs, sizes, characters per line and install commands.",
+    "animation-style": "Use when choosing or producing the '{name}' animation style for a short: camera angles, shading, outlines, frame timing, palette limits and open-source tool recipes.",
+    "aspect-format": "Use when exporting or laying out a short for {name}: frame size, conservative safe margins, title/caption zones and the export encoding command.",
+    "thumbnail-style": "Use when making a thumbnail or cover in the '{name}' style: size, text limits, font, panel, computed contrast and a Pillow recipe with export limits.",
+    "style-preset": "Use when starting a new short in the '{name}' look: which caption, title, stack, palette, typography, motion and thumbnail presets to combine, pacing, standing rules and a render-spec template.",
+}
+
+
+def desc(ptype: str, preset: dict) -> str:
+    d = DESCRIPTIONS[ptype].format(name=preset["name"], loop=LOOP_S)
+    if preset.get("variant"):
+        d += f" Variant: {preset['variant']['changed']}."
+    return d
+
+
+def summary_for(ptype: str, p: dict) -> str:
+    v = f" Variant: {p['variant']['changed']}." if p.get("variant") else ""
+    if ptype == "caption-style":
+        s = f"{p['font']['family']} {p['font']['weight']} captions, {p['backing']['type']} backing; text contrast {p['contrast']['text']['ratio']}:1 worst case."
+    elif ptype == "title-style":
+        s = f"{p['font']['family']} {p['font']['weight']} title in `{p['fill']}`, {p['position']['region']} at {pct(p['position']['center_y_fraction'])}; contrast {p['contrast']['title']['ratio']}:1."
+    elif ptype == "background-layer":
+        s = f"{p['look']} Seamless {LOOP_S} s ffmpeg loop at {p['target']['width']}x{p['target']['height']}."
+    elif ptype == "layer-stack":
+        s = f"{len(p['layers'])}-layer stack, theme {p['theme']}, {p['canvas']['width']}x{p['canvas']['height']}; all layers <= 98% opacity with a moving background."
+    elif ptype == "grid-system":
+        s = f"Feathered 2x2 grid: gutter {p['gutter_px']} px, feather {p['feather_px']} px, radius {p['corner_radius_px']} px, as {p['placement']['as']}."
+    elif ptype == "transition":
+        s = f"{p['name']}: {p['method']}" + (f" ({p['xfade']})" if p.get("xfade") else "") + f", {p['duration_ms']} ms, {p['tempo']} tempo, with the exact ffmpeg command."
+    elif ptype == "camera-move":
+        s = f"{p['name']}: zoom {p['zoom']['from']}->{p['zoom']['to']} over {p['duration_s']} s ({p['renderer']}) at {p['output']['width']}x{p['output']['height']}."
+    elif ptype == "text-animation":
+        s = f"{p['name']} per {p['unit']}, {p['duration_ms']} ms" + (f", spring peak {p['spring_metrics']['peak']} at {p['spring_metrics']['peak_time_s']} s" if p.get("spring_metrics") else "") + "."
+    elif ptype == "palette":
+        s = f"{p['mode'].title()} palette with {len(p['pairs'])} WCAG-passing text pairs; panel {p['colors']['panel_tint']} at {pct(p['panel_opacity'])}."
+    elif ptype == "typography":
+        s = f"{p['display']['family']} + {p['text']['family']} ({p['display']['licence']}/{p['text']['licence']}) at {p['target']['width']}x{p['target']['height']}: sizes and characters per line."
+    elif ptype == "animation-style":
+        s = f"{p['name']} animation style: {p['projection']}, {p['shading']} shading, {p['timing']['render_fps']} fps on {p['timing']['animate_on']}."
+    elif ptype == "aspect-format":
+        s = f"{p['aspect']} {p['width']}x{p['height']} for {p['platform']}: safe margins, zones and H.264/AAC export command."
+    elif ptype == "thumbnail-style":
+        s = f"{p['name']} at {p['target']['width']}x{p['target']['height']}: up to {p['text']['max_words']} words, contrast {p['contrast']['text']['ratio']}:1."
+    else:
+        s = f"{p['name']}: combines caption, title, stack, palette, typography and motion presets with pacing and the house rules."
+    return (s + v)[:240]
+
+
+def make_files(ptype: str, preset: dict, extra=None) -> tuple[str, dict]:
+    if ptype == "caption-style":
+        return skill_caption(preset)
+    if ptype == "title-style":
+        return skill_title(preset)
+    if ptype == "palette":
+        return skill_palette(preset)
+    if ptype == "typography":
+        return skill_typography(preset)
+    if ptype == "background-layer":
+        return skill_background(preset, extra)
+    if ptype == "grid-system":
+        return skill_grid(preset, extra)
+    if ptype == "layer-stack":
+        return skill_stack(preset, extra)
+    if ptype == "transition":
+        return skill_transition(preset)
+    if ptype == "camera-move":
+        return skill_camera(preset)
+    if ptype == "text-animation":
+        return skill_text_anim(preset)
+    if ptype == "animation-style":
+        return skill_anim_style(preset)
+    if ptype == "aspect-format":
+        return skill_aspect(preset)
+    if ptype == "thumbnail-style":
+        return skill_thumbnail(preset)
+    if ptype == "style-preset":
+        return skill_look(preset, extra)
+    raise ValueError(ptype)
+
+
+def effects_for(ptype: str, preset: dict) -> dict:
+    if ptype in ("caption-style", "title-style", "typography", "thumbnail-style"):
+        return EFFECTS_FONTS
+    if ptype == "background-layer" and preset.get("footage"):
+        return effects(filesystem="write", executes="python", hosts=FOOTAGE_HOSTS,
+                       side_effects=["runs ffmpeg to render the procedural loop",
+                                     "optional: an agent browses and downloads licensed footage from the listed sites"])
+    if ptype in ("palette", "animation-style"):
+        return EFFECTS_CHECK
+    return EFFECTS_RENDER
+
+
+def deps_for(ptype: str, preset: dict) -> list[str]:
+    d = []
+    if preset.get("palette"):
+        d.append(preset["palette"])
+    for k in ("animation_in", "keyword_animation"):
+        if preset.get(k):
+            d.append(preset[k])
+    if ptype == "background-layer" and preset.get("grid"):
+        d += [preset["grid"]["preset"]] + preset["grid"]["cells"]
+    if ptype == "grid-system":
+        d += [c["source"] for c in preset["cells"] if c["source"].startswith("bg_layer_")]
+    if ptype == "layer-stack":
+        d += [l["source"]["ref"] for l in preset["layers"] if l["source"]["kind"] == "component"]
+        for l in preset["layers"]:
+            if (l.get("details") or {}).get("camera"):
+                d.append(l["details"]["camera"])
+            if (l.get("details") or {}).get("animation"):
+                d.append(l["details"]["animation"])
+    if ptype == "transition" and preset.get("overlay"):
+        d.append(preset["overlay"]["source"])
+    if ptype == "style-preset":
+        c = preset["components"]
+        d += [c[k] for k in ("palette", "typography", "caption_style", "title_style", "layer_stack", "text_in", "keyword",
+                             "thumbnail", "aspect_format") if c.get(k)]
+        d += c["camera_moves"] + c["transitions"]
+        if c.get("label_style"):
+            d.append(c["label_style"])
+        if c.get("animation_style"):
+            d.append(c["animation_style"])
+        d.append("short_video_spec")
+    if ptype == "animation-style" and preset.get("suggested"):
+        d += list(preset["suggested"].values())
+    return list(dict.fromkeys(d))
+
+
+def emit_preset(run, ptype, preset, extra=None, base=None, params=None, tags=()):
+    body, files = make_files(ptype, preset, extra)
+    emit(run, ptype, preset, body, files, desc(ptype, preset), summary_for(ptype, preset),
+         uniq_tags(tags), base=base, params=params, eff=effects_for(ptype, preset), depends=deps_for(ptype, preset))
+
+
+def main() -> None:
+    examples: dict[str, dict] = {}
+    with GeneratorRun(__file__, data=DATA_REL) as run:
+        # ---------------------------------------------------------------- base presets
+        for pid in PALETTES:
+            p = build_palette(pid)
+            examples.setdefault("palette", p)
+            emit_preset(run, "palette", p, tags=[pid.replace("_", "-"), PALETTES[pid]["mode"]] + PALETTES[pid]["mood"])
+        for tp in TYPOGRAPHY:
+            p = build_typography(tp)
+            examples.setdefault("typography", p)
+            emit_preset(run, "typography", p, tags=[p["display"]["family"], p["text"]["family"]] + TYPOGRAPHY[tp]["mood"])
+        for cid in CAPTIONS:
+            p = build_caption(cid)
+            if p is None:
+                raise ValueError(f"caption {cid} fails contrast with its default palette")
+            examples.setdefault("caption-style", p)
+            emit_preset(run, "caption-style", p, tags=[cid.replace("_", "-"), p["backing"]["type"]] + (["house-style"] if p["house"] else []))
+        for tid in TITLES:
+            p = build_title(tid)
+            if p is None:
+                raise ValueError(f"title {tid} fails contrast or house rules with its default palette")
+            examples.setdefault("title-style", p)
+            emit_preset(run, "title-style", p, tags=[tid.replace("_", "-")] + (["house-style"] if p["house"] else []))
+        bg_graphs = {}
+        for bid in BACKGROUNDS:
+            p, g = build_background(bid)
+            bg_graphs[bid] = g
+            examples.setdefault("background-layer", p)
+            emit_preset(run, "background-layer", p, g, tags=[bid.replace("_", "-"), BACKGROUNDS[bid]["category"]] + BACKGROUNDS[bid]["mood"])
+        for gid, g in MOTION["grids"].items():
+            p, graph = build_grid(gid, "nature")
+            examples.setdefault("grid-system", p)
+            emit_preset(run, "grid-system", p, graph, tags=[gid.replace("_", "-"), g["placement"]])
+        for sid in STACKS["stacks"]:
+            p, graph, _ = build_stack(sid)
+            if sid == "house_30_reference":
+                examples["layer-stack"] = p
+            emit_preset(run, "layer-stack", p, graph, tags=[sid.replace("_", "-"), f"{len(p['layers'])}-layers"] + (["house-style"] if p["house"] else []))
+        for tid in MOTION["transitions"]:
+            p = build_transition(tid)
+            examples.setdefault("transition", p)
+            emit_preset(run, "transition", p, tags=[tid.replace("_", "-"), p["method"]])
+        for mid in MOTION["camera_moves"]:
+            p = build_camera(mid)
+            examples.setdefault("camera-move", p)
+            emit_preset(run, "camera-move", p, tags=[mid.replace("_", "-"), p["kind"], p["renderer"]])
+        for aid in MOTION["text_animations"]:
+            p = build_text_anim(aid)
+            if aid == "springy_pop_overshoot":
+                examples["text-animation"] = p
+            emit_preset(run, "text-animation", p, tags=[aid.replace("_", "-"), p["unit"]])
+        for sid in ANIM:
+            p = build_anim_style(sid)
+            examples.setdefault("animation-style", p)
+            emit_preset(run, "animation-style", p, tags=[sid.replace("_", "-"), p["projection"]] + p["tools"])
+        for asp in ASPECTS:
+            p = build_aspect(asp)
+            examples.setdefault("aspect-format", p)
+            emit_preset(run, "aspect-format", p, tags=[asp, p["platform"]])
+        for thid in THUMBS["styles"]:
+            p = build_thumbnail(thid)
+            if p is None:
+                raise ValueError(f"thumbnail {thid} fails contrast")
+            examples.setdefault("thumbnail-style", p)
+            emit_preset(run, "thumbnail-style", p, tags=[thid.replace("_", "-")])
+        look_tpls = {}
+        for lid in LOOKS:
+            p, tpl = build_look(lid)
+            look_tpls[lid] = tpl
+            examples.setdefault("style-preset", p)
+            emit_preset(run, "style-preset", p, tpl, tags=[lid.replace("_", "-")] + (["house-style"] if p["house"] else []))
+
+        # ---------------------------------------------------------------- variants
+        target_ids = [t for t in TARGETS if t != "generic_9x16"]
+        for cid in CAPTIONS:
+            base = f"caption_{cid}"
+            for pid in PALETTES:
+                if pid == CAPTIONS[cid]["default_palette"]:
+                    continue
+                p = build_caption(cid, pid)
+                if p is None:
+                    continue
+                emit_preset(run, "caption-style", as_variant(p, base, f"{base}_on_{pid}", f"palette {PALETTES[pid]['name']}"),
+                            base=base, params={"palette": pid}, tags=[pid.replace("_", "-")])
+            for tg in target_ids:
+                p = build_caption(cid, None, tg)
+                if p is None:
+                    continue
+                emit_preset(run, "caption-style", as_variant(p, base, f"{base}_for_{tg}", f"layout for {TARGETS[tg]['label']}"),
+                            base=base, params={"target": tg}, tags=[tg.replace("_", "-"), TARGETS[tg]["platform"]])
+        for tid in TITLES:
+            base = f"title_{tid}"
+            for pid in PALETTES:
+                if pid == TITLES[tid]["default_palette"]:
+                    continue
+                p = build_title(tid, pid)
+                if p is None:
+                    continue
+                emit_preset(run, "title-style", as_variant(p, base, f"{base}_on_{pid}", f"palette {PALETTES[pid]['name']}"),
+                            base=base, params={"palette": pid}, tags=[pid.replace("_", "-")])
+            for tg in target_ids:
+                p = build_title(tid, None, tg)
+                if p is None:
+                    continue
+                emit_preset(run, "title-style", as_variant(p, base, f"{base}_for_{tg}", f"layout for {TARGETS[tg]['label']}"),
+                            base=base, params={"target": tg}, tags=[tg.replace("_", "-"), TARGETS[tg]["platform"]])
+        for bid, spec in BACKGROUNDS.items():
+            base = f"bg_layer_{bid}"
+            if spec["recolor"] != "none":
+                for pid, pal in PALETTES.items():
+                    if not set(pal["mood"]) & set(spec["mood"]):
+                        continue
+                    if bid != "gradient_drift" and spec["recolor"] == "ramp" and pal["mode"] == "light" and spec["role"] != "texture":
+                        continue
+                    p, g = build_background(bid, pid)
+                    if p["render"].get("colour_stops") == build_background(bid)[0]["render"].get("colour_stops"):
+                        continue
+                    emit_preset(run, "background-layer", as_variant(p, base, f"{base}_in_{pid}", f"recoloured with palette {PALETTES[pid]['name']}"),
+                                g, base=base, params={"palette": pid}, tags=[pid.replace("_", "-")])
+            for asp in ("4x5", "1x1", "16x9"):
+                p, g = build_background(bid, None, asp)
+                emit_preset(run, "background-layer", as_variant(p, base, f"{base}_{asp}", f"rendered at {ASPECTS[asp]['ratio']}"),
+                            g, base=base, params={"aspect": ASPECTS[asp]["ratio"]}, tags=[asp])
+        for gid, g in MOTION["grids"].items():
+            base = f"grid_2x2_{gid}"
+            if g["placement"] != "main-content":
+                for cs in MOTION["grid_cell_sets"]:
+                    if cs == "nature":
+                        continue
+                    p, graph = build_grid(gid, cs)
+                    emit_preset(run, "grid-system", as_variant(p, base, f"{base}_with_{cs}", f"{cs} cell set"),
+                                graph, base=base, params={"cell_set": cs}, tags=[cs])
+            for asp in ("4x5", "1x1", "16x9"):
+                p, graph = build_grid(gid, "nature", asp)
+                emit_preset(run, "grid-system", as_variant(p, base, f"{base}_{asp}", f"geometry for {ASPECTS[asp]['ratio']}"),
+                            graph, base=base, params={"aspect": ASPECTS[asp]["ratio"]}, tags=[asp])
+        for sid, spec in STACKS["stacks"].items():
+            base = f"layer_stack_{sid}"
+            if spec.get("house"):
+                for th in STACKS["themes"]:
+                    if th == spec["theme"]:
+                        continue
+                    p, graph, _ = build_stack(sid, th)
+                    emit_preset(run, "layer-stack", as_variant(p, base, f"{base}_{th}", f"theme {STACKS['themes'][th]['label']}"),
+                                graph, base=base, params={"theme": th}, tags=[th.replace("_", "-")])
+            if spec.get("aspect", "9x16") == "9x16":
+                for asp in ("4x5", "1x1", "16x9"):
+                    p, graph, _ = build_stack(sid, None, asp)
+                    emit_preset(run, "layer-stack", as_variant(p, base, f"{base}_{asp}", f"canvas {ASPECTS[asp]['ratio']}"),
+                                graph, base=base, params={"aspect": ASPECTS[asp]["ratio"]}, tags=[asp])
+        for tid, spec in MOTION["transitions"].items():
+            if spec["method"] == "cut":
+                continue
+            base = f"transition_{tid}"
+            for tempo in ("snappy", "slow"):
+                p = build_transition(tid, tempo)
+                emit_preset(run, "transition", as_variant(p, base, f"{base}_{tempo}", f"{tempo} tempo ({p['duration_ms']} ms)"),
+                            base=base, params={"tempo": tempo}, tags=[tempo])
+        for mid, spec in MOTION["camera_moves"].items():
+            base = f"camera_{mid}"
+            for asp in ("4x5", "1x1", "16x9"):
+                p = build_camera(mid, asp)
+                emit_preset(run, "camera-move", as_variant(p, base, f"{base}_{asp}", f"output {ASPECTS[asp]['ratio']}"),
+                            base=base, params={"aspect": ASPECTS[asp]["ratio"]}, tags=[asp])
+            if spec.get("family") == "ken-burns":
+                for inten in ("subtle", "strong"):
+                    p = build_camera(mid, "9x16", inten)
+                    emit_preset(run, "camera-move", as_variant(p, base, f"{base}_{inten}", f"{inten} intensity"),
+                                base=base, params={"intensity": inten}, tags=[inten])
+        for aid in MOTION["text_animations"]:
+            base = f"text_anim_{aid}"
+            for tempo in ("snappy", "gentle"):
+                p = build_text_anim(aid, tempo)
+                emit_preset(run, "text-animation", as_variant(p, base, f"{base}_{tempo}", f"{tempo} tempo"),
+                            base=base, params={"tempo": tempo}, tags=[tempo])
+        for tp in TYPOGRAPHY:
+            base = f"type_pair_{tp}"
+            for asp in ("4x5", "1x1", "16x9"):
+                p = build_typography(tp, asp)
+                emit_preset(run, "typography", as_variant(p, base, f"{base}_{asp}", f"sized for {ASPECTS[asp]['ratio']}"),
+                            base=base, params={"aspect": ASPECTS[asp]["ratio"]}, tags=[asp])
+        for sid in ANIM:
+            base = f"anim_style_{sid}"
+            for asp in ("4x5", "1x1", "16x9"):
+                p = build_anim_style(sid, asp)
+                emit_preset(run, "animation-style", as_variant(p, base, f"{base}_{asp}", f"framed for {ASPECTS[asp]['ratio']}"),
+                            base=base, params={"aspect": ASPECTS[asp]["ratio"]}, tags=[asp])
+            for topic in TOPICS:
+                p = build_anim_style(sid, "9x16", topic)
+                emit_preset(run, "animation-style", as_variant(p, base, f"{base}_for_{topic}", f"topic {TOPICS[topic]['label']}"),
+                            base=base, params={"topic": topic}, tags=[topic.replace("_", "-")])
+        for asp in ASPECTS:
+            base = f"aspect_{asp}"
+            for tg, t in TARGETS.items():
+                if t["aspect"] != asp or tg == aspect_target(asp) or tg == "generic_9x16":
+                    continue
+                p = build_aspect(asp, tg)
+                emit_preset(run, "aspect-format", as_variant(p, base, p["id"], f"margins for {t['label']}"),
+                            base=base, params={"target": tg}, tags=[t["platform"]])
+        for thid, spec in THUMBS["styles"].items():
+            base = f"thumb_{thid}"
+            for pid in PALETTES:
+                if pid == spec["default_palette"] or PALETTES[pid]["mode"] != PALETTES[spec["default_palette"]]["mode"]:
+                    continue
+                p = build_thumbnail(thid, pid)
+                if p is None:
+                    continue
+                emit_preset(run, "thumbnail-style", as_variant(p, base, f"{base}_on_{pid}", f"palette {PALETTES[pid]['name']}"),
+                            base=base, params={"palette": pid}, tags=[pid.replace("_", "-")])
+            p = build_thumbnail(thid, None, "vertical_cover")
+            if p is not None:
+                emit_preset(run, "thumbnail-style", as_variant(p, base, f"{base}_vertical_cover", "vertical cover frame 1080x1920"),
+                            base=base, params={"target": "vertical_cover"}, tags=["vertical-cover"])
+        for lid, spec in LOOKS.items():
+            base = f"look_{lid}"
+            for tg in target_ids:
+                p, tpl = build_look(lid, tg)
+                emit_preset(run, "style-preset", as_variant(p, base, f"{base}_for_{tg}", f"target {TARGETS[tg]['label']}"),
+                            tpl, base=base, params={"target": tg}, tags=[tg.replace("_", "-")])
+            alts = [pid for pid, pal in PALETTES.items() if pid != spec["palette"] and pal["mode"] == PALETTES[spec["palette"]]["mode"]
+                    and set(pal["mood"]) & set(PALETTES[spec["palette"]]["mood"])
+                    and (not spec.get("house") or pal["colors"]["title"].upper() == "#FFD21F")]
+            for pid in alts[:3]:
+                p, tpl = build_look(lid, "generic_9x16", pid)
+                emit_preset(run, "style-preset", as_variant(p, base, f"{base}_on_{pid}", f"palette {PALETTES[pid]['name']}"),
+                            tpl, base=base, params={"palette": pid}, tags=[pid.replace("_", "-")])
+
+        # ---------------------------------------------------------------- schemas and the kit
+        spec_schema_path = HERE.parent / "components" / "contract-schemas" / "short-video-spec" / "schema.json"
+        if jsonschema is not None and spec_schema_path.exists():
+            spec_schema = json.loads(spec_schema_path.read_text())
+            v = jsonschema.Draft202012Validator(spec_schema)
+            for lid, tpl in look_tpls.items():
+                if tpl is not None:
+                    errs = list(v.iter_errors(tpl))
+                    if errs:
+                        raise ValueError(f"look {lid} spec template: {errs[0].message}")
+        for ptype, sid in SCHEMA_IDS.items():
+            valid = examples[ptype]
+            bad_name, bad = invalid_example(ptype, valid)
+            if jsonschema is not None:
+                val = jsonschema.Draft202012Validator(SCHEMAS[ptype])
+                if not list(val.iter_errors(bad)):
+                    raise ValueError(f"{ptype}: invalid example validates")
+            run.component(
+                "contract-schema", sid, title=SCHEMAS[ptype]["title"] + " schema", summary=SCHEMA_SUMMARIES[ptype],
+                subkind=SUBKIND[ptype], domain="video",
+                files={"schema.json": dumps(SCHEMAS[ptype]), f"examples/{valid['id'].replace('_', '-')}.json": dumps(valid),
+                       f"examples/{bad_name}": dumps(bad),
+                       "README.md": f"# {SCHEMAS[ptype]['title']}\n\n{SCHEMAS[ptype]['description']}\n\nEvery `{ptype}` preset skill in this "
+                                    f"catalogue ships a copy of this schema as `schema.json` and checks itself with `scripts/check_preset.py`, "
+                                    f"which adds the numeric rules a schema cannot express (contrast recomputed from colours, 0.98 opacity cap, "
+                                    f"layer-stack invariants).\n\nExamples: `examples/{valid['id'].replace('_', '-')}.json` (valid) and "
+                                    f"`examples/{bad_name}` (must fail).\n"},
+                tags=["video", "shorts", "schema", "contract", SUBKIND[ptype]], step_kinds=["plan", "design", "verify"],
+                evidence_stage="headless-tested",
+                evidence_notes="Schema checked with jsonschema Draft 2020-12; the valid example validates and the invalid one fails.")
+        run.component(
+            "code-module", KIT, title="Short-video style preset kit",
+            summary="WCAG contrast (worst case over video), easing and springs, zoompan, xfade chains, feathered 2x2 grids, layer-stack filter graphs and a Pillow frosted caption renderer.",
+            subkind="render-recipe", domain="video",
+            files={"style_kit.py": CODE["style_kit.py"], "test_style_kit.py": CODE["style_kit_checks.py"],
+                   "README.md": KIT_README},
+            entry="style_kit.py", tags=["video", "shorts", "ffmpeg", "pillow", "wcag", "contrast", "easing", "springs", "zoompan", "xfade"],
+            step_kinds=["build", "render", "verify"],
+            effects_=effects(filesystem="read", executes="python",
+                             side_effects=["Pillow functions return new images (nothing is written unless you save)",
+                                           "tests run ffmpeg/ffprobe in a temporary directory when they are installed"]),
+            depends_on=[{"identity": "pillow", "external": True}, {"identity": "ffmpeg", "external": True}],
+            evidence_stage="headless-tested",
+            evidence_notes="pytest suite passes (contrast values, easing curves, spring metrics, xfade offsets, grid and layer-stack graphs rendered with FFmpeg 6.1.1, Pillow renderers).")
+
+    # every referenced component identity must exist
+    missing = sorted({d for p in BUILT.values() for d in deps_for(p["type"], p)} - set(BUILT) - {"short_video_spec"})
+    if missing:
+        raise SystemExit(f"referenced identities that were not generated: {missing[:20]}")
+
+
+KIT_README = f"""# Short-video style preset kit
+
+Pure-Python helpers behind the video style presets in this catalogue. Standard library only; Pillow is
+imported lazily by `frosted_panel`, `render_caption_preview` and `camera_frames`.
+
+| Area | Functions |
+|---|---|
+| Contrast | `relative_luminance`, `contrast_ratio`, `composite`, `panel_contrast` (worst case over any video), `required_ratio`, `wcag_level` |
+| Timing | `ease`, `ease_expr` (same curves as ffmpeg expressions), `cubic_bezier`, `spring`, `spring_metrics`, `keyframe_value`, `text_anim_state` |
+| Camera | `camera_state`, `zoompan_filter`, `camera_frames` (Pillow, sub-pixel, rotation and shake) |
+| Joining | `xfade_chain` (correct offsets, cuts via concat) |
+| Layout | `grid_2x2_rects`, `grid_2x2_filter`, `layer_stack_problems`, `layer_stack_filter`, `safe_rect`, `place_box` |
+| Pillow | `frosted_panel`, `render_caption_preview` |
+
+`layer_stack_filter` refuses any layer above 0.98 opacity (house rule) and handles ffmpeg's blend input order
+(`normal` weights the first input by opacity; every other mode treats the first input as the base).
+
+Run the tests: `python3 -m pytest -q .` (ffmpeg tests are skipped when ffmpeg is not installed).
+
+References: WCAG contrast {WCAG_URL}; ffmpeg filters {FFMPEG_DOCS}.
+"""
+
+
+if __name__ == "__main__":
+    main()

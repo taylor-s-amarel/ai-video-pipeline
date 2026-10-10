@@ -20,13 +20,11 @@ import sys
 from dataclasses import dataclass
 
 CC_PREFIX = re.compile(r"^[A-Za-z][\w-]*(?:\([^()]+\))?!?: ")
-NON_IMPERATIVE = {
-    f"{stem}{suffix}"
-    for stem in ("add", "fix", "updat", "remov", "chang", "refactor", "implement", "improv", "creat", "delet",
-                 "renam", "mov", "bump", "merg", "correct", "clean", "introduc", "replac", "support", "handl",
-                 "upgrad", "migrat", "adjust", "tweak", "enabl", "disabl", "allow", "prevent", "ensur", "us")
-    for suffix in ("ed", "es", "ing", "s")
-} - {"uses", "us", "uss", "uses"} | {"used", "using", "fixes", "fixed", "fixing", "adds", "added", "adding"}
+_STEMS = ("add", "fix", "updat", "remov", "chang", "refactor", "implement", "improv", "creat", "delet",
+          "renam", "mov", "bump", "merg", "correct", "clean", "introduc", "replac", "support", "handl",
+          "upgrad", "migrat", "adjust", "tweak", "enabl", "disabl", "allow", "prevent", "ensur", "us")
+# Past tense, gerund and third-person forms of common commit verbs ("Added", "Fixing", "Updates").
+NON_IMPERATIVE = {stem + suffix for stem in _STEMS for suffix in ("ed", "es", "ing", "s")} - {"uss"}
 TRAILER_RE = re.compile(r"^(?P<key>[A-Za-z][A-Za-z0-9-]*): (?P<value>.+)$")
 PERSON_TRAILERS = {"signed-off-by", "co-authored-by", "reviewed-by", "acked-by", "tested-by", "reported-by"}
 URL_ONLY = re.compile(r"^\s*(?:[-*]\s*)?(?:\[\d+\]:?\s*)?\S+://\S+\s*$")

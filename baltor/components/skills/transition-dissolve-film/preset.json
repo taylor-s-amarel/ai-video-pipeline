@@ -1,0 +1,20 @@
+{
+  "type": "transition",
+  "id": "transition_dissolve_film",
+  "name": "Film dissolve",
+  "version": 1,
+  "method": "xfade",
+  "duration_ms": 500,
+  "tempo": "standard",
+  "use_when": [
+    "Archive and history looks",
+    "Passing time"
+  ],
+  "avoid_when": [
+    "Text-heavy frames (dissolve noise breaks letters)"
+  ],
+  "xfade": "dissolve",
+  "ffmpeg": {
+    "filter": "[a][b]xfade=transition=dissolve:duration=0.5:offset=<A_DURATION-0.5>[v]"
+  }
+}

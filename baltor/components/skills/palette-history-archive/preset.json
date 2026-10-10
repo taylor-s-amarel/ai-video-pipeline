@@ -1,0 +1,204 @@
+{
+  "type": "palette",
+  "id": "palette_history_archive",
+  "name": "History archive",
+  "version": 1,
+  "mode": "dark",
+  "colors": {
+    "background": "#1E1710",
+    "surface": "#2E241A",
+    "panel_tint": "#19130C",
+    "text": "#F5ECD9",
+    "title": "#E8C27A",
+    "keyword": "#F6B878",
+    "accent": "#B08D57",
+    "accent_2": "#6E8B9C",
+    "stroke": "#0E0A06",
+    "light": "#F3D9A4",
+    "particle": "#F5ECD9"
+  },
+  "panel_opacity": 0.72,
+  "gradient": [
+    "#1E1710",
+    "#4A3A28"
+  ],
+  "ramp": [
+    "#0E0A06",
+    "#1E1710",
+    "#4A3A28",
+    "#B08D57",
+    "#F5ECD9"
+  ],
+  "pairs": [
+    {
+      "fg_role": "text",
+      "bg_role": "panel_tint@panel",
+      "fg": "#F5ECD9",
+      "bg": "#19130C",
+      "basis": "panel-worst-case",
+      "opacity": 0.72,
+      "ratio": 6.28,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "panel_tint@panel",
+      "fg": "#E8C27A",
+      "bg": "#19130C",
+      "basis": "panel-worst-case",
+      "opacity": 0.72,
+      "ratio": 4.36,
+      "required": 3.0,
+      "use": "large-bold-only",
+      "min_size_px": 24,
+      "min_weight": 700,
+      "level": "AA-large"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "panel_tint@panel",
+      "fg": "#F6B878",
+      "bg": "#19130C",
+      "basis": "panel-worst-case",
+      "opacity": 0.72,
+      "ratio": 4.23,
+      "required": 3.0,
+      "use": "large-bold-only",
+      "min_size_px": 24,
+      "min_weight": 700,
+      "level": "AA-large"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "background",
+      "fg": "#F5ECD9",
+      "bg": "#1E1710",
+      "basis": "solid",
+      "ratio": 15.08,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "background",
+      "fg": "#E8C27A",
+      "bg": "#1E1710",
+      "basis": "solid",
+      "ratio": 10.48,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "background",
+      "fg": "#F6B878",
+      "bg": "#1E1710",
+      "basis": "solid",
+      "ratio": 10.16,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "accent",
+      "bg_role": "background",
+      "fg": "#B08D57",
+      "bg": "#1E1710",
+      "basis": "solid",
+      "ratio": 5.73,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "surface",
+      "fg": "#F5ECD9",
+      "bg": "#2E241A",
+      "basis": "solid",
+      "ratio": 12.92,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "surface",
+      "fg": "#F6B878",
+      "bg": "#2E241A",
+      "basis": "solid",
+      "ratio": 8.7,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "stroke",
+      "fg": "#F5ECD9",
+      "bg": "#0E0A06",
+      "basis": "solid",
+      "ratio": 16.79,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "stroke",
+      "fg": "#E8C27A",
+      "bg": "#0E0A06",
+      "basis": "solid",
+      "ratio": 11.67,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "keyword@card95",
+      "fg": "#1E1710",
+      "bg": "#F6B878",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 9.15,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "title@card95",
+      "fg": "#1E1710",
+      "bg": "#E8C27A",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 9.43,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "accent@card95",
+      "fg": "#1E1710",
+      "bg": "#B08D57",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 5.21,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    }
+  ],
+  "failed_pair_count": 0,
+  "mood": [
+    "history",
+    "documentary"
+  ],
+  "notes": "Battles, eras and biographies with a dark sepia base."
+}

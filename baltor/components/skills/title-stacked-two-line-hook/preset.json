@@ -1,0 +1,133 @@
+{
+  "type": "title-style",
+  "id": "title_stacked_two_line_hook",
+  "name": "Two-line stacked hook",
+  "version": 1,
+  "house": false,
+  "font": {
+    "family": "Oswald",
+    "weight": 700,
+    "licence": "OFL-1.1",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/oswald/Oswald%5Bwght%5D.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/oswald/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Oswald",
+    "size_px": 104,
+    "min_size_px": 80,
+    "case": "upper",
+    "avg_char_em": 0.475,
+    "variable_axes": {
+      "wght": [
+        200.0,
+        700.0
+      ]
+    }
+  },
+  "fill": "#FFD21F",
+  "stroke": {
+    "color": "#000000",
+    "width_px": 3
+  },
+  "backing": {
+    "type": "frosted-glass",
+    "tint": "#0B1220",
+    "opacity": 0.62,
+    "blur_px": 28,
+    "radius_px": 32,
+    "padding_px": [
+      24,
+      40
+    ],
+    "feather_px": 22
+  },
+  "position": {
+    "region": "upper-third",
+    "center_y_fraction": 0.25,
+    "over": "photo",
+    "max_width_fraction": 0.88,
+    "never_move_photo": true
+  },
+  "text": {
+    "min_words": 3,
+    "max_words": 8,
+    "max_lines": 2,
+    "max_chars_per_line": 17
+  },
+  "timing": {
+    "first_frame": true,
+    "hold_s": 2.6
+  },
+  "animation_in": "text_anim_settle_in",
+  "palette": "palette_house_yellow_night",
+  "contrast": {
+    "title": {
+      "basis": "panel-worst-case",
+      "fg": "#FFD21F",
+      "bg": "#0B1220",
+      "opacity": 0.62,
+      "ratio": 3.63,
+      "required": 3.0,
+      "size_px": 80,
+      "weight": 700,
+      "level": "AA"
+    },
+    "secondary": {
+      "basis": "panel-worst-case",
+      "fg": "#FFFFFF",
+      "bg": "#0B1220",
+      "opacity": 0.62,
+      "ratio": 5.26,
+      "required": 3.0,
+      "size_px": 54,
+      "weight": 800,
+      "level": "AAA"
+    }
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "reference_size": [
+    1080,
+    1920
+  ],
+  "use_when": [
+    "Hooks that need a short setup line above the main hook, e.g. SHE SPENT / 14 DAYS UNDERWATER"
+  ],
+  "avoid_when": [
+    "Hooks that fit in one line"
+  ],
+  "secondary": {
+    "font": {
+      "family": "Montserrat",
+      "weight": 800,
+      "licence": "OFL-1.1",
+      "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/montserrat/Montserrat%5Bwght%5D.ttf",
+      "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/montserrat/OFL.txt",
+      "specimen_url": "https://fonts.google.com/specimen/Montserrat",
+      "size_px": 54,
+      "case": "upper",
+      "avg_char_em": 0.648,
+      "variable_axes": {
+        "wght": [
+          100.0,
+          900.0
+        ]
+      }
+    },
+    "fill": "#FFFFFF",
+    "gap_px": 6,
+    "content": "setup line above the hook",
+    "placement": "above"
+  }
+}

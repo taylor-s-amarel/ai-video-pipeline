@@ -1,0 +1,204 @@
+{
+  "type": "palette",
+  "id": "palette_space_violet",
+  "name": "Space violet",
+  "version": 1,
+  "mode": "dark",
+  "colors": {
+    "background": "#05040F",
+    "surface": "#120F2B",
+    "panel_tint": "#0B0820",
+    "text": "#FFFFFF",
+    "title": "#FFD21F",
+    "keyword": "#CBB8FF",
+    "accent": "#6C63FF",
+    "accent_2": "#4FD1C5",
+    "stroke": "#03020A",
+    "light": "#B69CFF",
+    "particle": "#FFFFFF"
+  },
+  "panel_opacity": 0.72,
+  "gradient": [
+    "#05040F",
+    "#1C1645"
+  ],
+  "ramp": [
+    "#02030A",
+    "#141B3A",
+    "#3B2F8F",
+    "#6C63FF",
+    "#E9E6FF"
+  ],
+  "pairs": [
+    {
+      "fg_role": "text",
+      "bg_role": "panel_tint@panel",
+      "fg": "#FFFFFF",
+      "bg": "#0B0820",
+      "basis": "panel-worst-case",
+      "opacity": 0.72,
+      "ratio": 8.18,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "panel_tint@panel",
+      "fg": "#FFD21F",
+      "bg": "#0B0820",
+      "basis": "panel-worst-case",
+      "opacity": 0.72,
+      "ratio": 5.65,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "panel_tint@panel",
+      "fg": "#CBB8FF",
+      "bg": "#0B0820",
+      "basis": "panel-worst-case",
+      "opacity": 0.72,
+      "ratio": 4.61,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "background",
+      "fg": "#FFFFFF",
+      "bg": "#05040F",
+      "basis": "solid",
+      "ratio": 20.37,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "background",
+      "fg": "#FFD21F",
+      "bg": "#05040F",
+      "basis": "solid",
+      "ratio": 14.05,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "background",
+      "fg": "#CBB8FF",
+      "bg": "#05040F",
+      "basis": "solid",
+      "ratio": 11.48,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "accent",
+      "bg_role": "background",
+      "fg": "#6C63FF",
+      "bg": "#05040F",
+      "basis": "solid",
+      "ratio": 4.72,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "surface",
+      "fg": "#FFFFFF",
+      "bg": "#120F2B",
+      "basis": "solid",
+      "ratio": 18.6,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "surface",
+      "fg": "#CBB8FF",
+      "bg": "#120F2B",
+      "basis": "solid",
+      "ratio": 10.48,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "stroke",
+      "fg": "#FFFFFF",
+      "bg": "#03020A",
+      "basis": "solid",
+      "ratio": 20.65,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "stroke",
+      "fg": "#FFD21F",
+      "bg": "#03020A",
+      "basis": "solid",
+      "ratio": 14.24,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "keyword@card95",
+      "fg": "#05040F",
+      "bg": "#CBB8FF",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 10.34,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "title@card95",
+      "fg": "#05040F",
+      "bg": "#FFD21F",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 12.62,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "accent@card95",
+      "fg": "#05040F",
+      "bg": "#6C63FF",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 4.32,
+      "required": 3.0,
+      "use": "large-bold-only",
+      "min_size_px": 24,
+      "min_weight": 700,
+      "level": "AA-large"
+    }
+  ],
+  "failed_pair_count": 0,
+  "mood": [
+    "space",
+    "science",
+    "calm",
+    "house"
+  ],
+  "notes": "Space, astronomy and women-in-space facts with the house yellow hook."
+}

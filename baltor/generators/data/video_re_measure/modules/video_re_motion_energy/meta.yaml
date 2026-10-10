@@ -1,0 +1,22 @@
+title: 'Video RE: centre vs border motion energy'
+summary: Mean grey-level frame difference in the centre box and the border per shot, a 0.5 s series and the share of 2 s windows
+  where the background keeps moving.
+subkind: evaluator
+tags:
+- video
+- reverse-engineering
+- motion
+- background
+- evidence
+step_kinds:
+- measure
+- research
+- verify
+deps:
+- ffmpeg
+- ffprobe
+- numpy
+internal:
+- identity: video_re_detect_shots
+examples:
+- python video_re_motion_energy.py clip.mp4 --shots shots.json --threshold 0.6

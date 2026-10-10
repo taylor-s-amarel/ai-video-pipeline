@@ -1,0 +1,180 @@
+{
+  "type": "palette",
+  "id": "palette_arctic_ice",
+  "name": "Arctic ice (light)",
+  "version": 1,
+  "mode": "light",
+  "colors": {
+    "background": "#E8F4FA",
+    "surface": "#FFFFFF",
+    "panel_tint": "#FFFFFF",
+    "text": "#0B2537",
+    "title": "#0B4F75",
+    "keyword": "#005A8C",
+    "accent": "#4CB5E0",
+    "accent_2": "#9C6ADE",
+    "stroke": "#FFFFFF",
+    "light": "#FFFFFF",
+    "particle": "#FFFFFF"
+  },
+  "panel_opacity": 0.74,
+  "gradient": [
+    "#CDE7F3",
+    "#F4FAFD"
+  ],
+  "ramp": [
+    "#0B2537",
+    "#1F5F86",
+    "#7FC1E3",
+    "#CDE7F3",
+    "#FFFFFF"
+  ],
+  "pairs": [
+    {
+      "fg_role": "text",
+      "bg_role": "panel_tint@panel",
+      "fg": "#0B2537",
+      "bg": "#FFFFFF",
+      "basis": "panel-worst-case",
+      "opacity": 0.74,
+      "ratio": 8.35,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "panel_tint@panel",
+      "fg": "#0B4F75",
+      "bg": "#FFFFFF",
+      "basis": "panel-worst-case",
+      "opacity": 0.74,
+      "ratio": 4.66,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "panel_tint@panel",
+      "fg": "#005A8C",
+      "bg": "#FFFFFF",
+      "basis": "panel-worst-case",
+      "opacity": 0.74,
+      "ratio": 3.92,
+      "required": 3.0,
+      "use": "large-bold-only",
+      "min_size_px": 24,
+      "min_weight": 700,
+      "level": "AA-large"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "background",
+      "fg": "#0B2537",
+      "bg": "#E8F4FA",
+      "basis": "solid",
+      "ratio": 14.05,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "background",
+      "fg": "#0B4F75",
+      "bg": "#E8F4FA",
+      "basis": "solid",
+      "ratio": 7.84,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "background",
+      "fg": "#005A8C",
+      "bg": "#E8F4FA",
+      "basis": "solid",
+      "ratio": 6.6,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "surface",
+      "fg": "#0B2537",
+      "bg": "#FFFFFF",
+      "basis": "solid",
+      "ratio": 15.74,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "surface",
+      "fg": "#005A8C",
+      "bg": "#FFFFFF",
+      "basis": "solid",
+      "ratio": 7.39,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "stroke",
+      "fg": "#0B2537",
+      "bg": "#FFFFFF",
+      "basis": "solid",
+      "ratio": 15.74,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "stroke",
+      "fg": "#0B4F75",
+      "bg": "#FFFFFF",
+      "basis": "solid",
+      "ratio": 8.78,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "keyword@card95",
+      "fg": "#E8F4FA",
+      "bg": "#005A8C",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 5.88,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "title@card95",
+      "fg": "#E8F4FA",
+      "bg": "#0B4F75",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 6.9,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    }
+  ],
+  "failed_pair_count": 2,
+  "mood": [
+    "science",
+    "calm",
+    "nature"
+  ],
+  "notes": "Clean science and weather topics on a bright base."
+}

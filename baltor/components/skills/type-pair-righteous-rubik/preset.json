@@ -1,0 +1,68 @@
+{
+  "type": "typography",
+  "id": "type_pair_righteous_rubik",
+  "name": "Righteous + Rubik",
+  "version": 1,
+  "display": {
+    "family": "Righteous",
+    "weight": 400,
+    "licence": "OFL-1.1",
+    "file": "Righteous-Regular.ttf",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/righteous/Righteous-Regular.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/righteous/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Righteous",
+    "category": "display",
+    "case": "as-written",
+    "avg_char_em": 0.458
+  },
+  "text": {
+    "family": "Rubik",
+    "weight": 700,
+    "licence": "OFL-1.1",
+    "file": "Rubik[wght].ttf",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/rubik/Rubik%5Bwght%5D.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/rubik/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Rubik",
+    "category": "sans-serif",
+    "case": "as-written",
+    "avg_char_em": 0.488,
+    "variable_axes": {
+      "wght": [
+        300.0,
+        900.0
+      ]
+    }
+  },
+  "sizes": {
+    "title_px": 84,
+    "caption_px": 58,
+    "min_caption_px": 46,
+    "label_px": 50,
+    "number_px": 110
+  },
+  "chars_per_line": {
+    "title": 22,
+    "caption": 31
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "mood": [
+    "retro",
+    "tech",
+    "energetic"
+  ],
+  "why": "Rounded retro display with a friendly geometric sans; works for neon and 80s looks."
+}

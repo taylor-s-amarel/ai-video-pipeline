@@ -40,7 +40,7 @@ items:
   - id: polyhaven-models
     title: "Poly Haven models"
     url: https://polyhaven.com/models
-    summary: "Photoreal CC0 props and furniture with PBR materials (glTF/Blend/FBX)."
+    summary: "Photoreal ('hyperreal') CC0 3D models with PBR materials."
     licence_url: https://docs.polyhaven.com/en/faq
     tags: [polyhaven, models, photoreal]
   - id: polyhaven-sunrise-sunset-hdris

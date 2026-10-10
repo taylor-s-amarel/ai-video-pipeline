@@ -70,7 +70,7 @@ solid_band_lower:
 pill_per_line:
   name: Rounded pill captions
   default_palette: sunset_coral
-  font: {family: Fredoka, weight: 600, size_px: 58, min_size_px: 46, case: as-written}
+  font: {family: Fredoka, weight: 700, size_px: 58, min_size_px: 46, case: as-written}
   fill_role: text
   stroke: {role: stroke, width_px: 0}
   backing: {type: pill, tint_role: panel_tint, blur_px: 12, radius_px: 999, padding_px: [18, 40], feather_px: 6}
@@ -78,7 +78,7 @@ pill_per_line:
   emphasis: {mode: color, color_role: keyword, scale_peak: 1.06, duration_ms: 160, easing: ease-out}
   timing: {sync_tolerance_ms: 150, min_on_screen_ms: 700, max_on_screen_ms: 3000}
   animation_in: text_anim_springy_pop_overshoot
-  use_when: [Friendly topics (relationships, pets, lifestyle), Rounded typefaces]
+  use_when: ["Friendly topics: relationships, pets, lifestyle", Rounded typefaces]
   avoid_when: [Serious news and history]
 
 boxed_keyword:
@@ -192,7 +192,7 @@ sticker_label:
   stroke: {role: stroke, width_px: 0}
   backing: {type: sticker, tint_role: accent_2, opacity: 0.95, blur_px: 0, radius_px: 16, padding_px: [16, 30], feather_px: 0, rotation_deg: -2}
   layout: {max_width_fraction: 0.84, max_lines: 1, max_words: 5, align: center}
-  emphasis: {mode: color, color_role: accent, scale_peak: 1.0, duration_ms: 0, easing: linear}
+  emphasis: {mode: underline, color_role: stroke, scale_peak: 1.0, duration_ms: 0, easing: linear}
   timing: {sync_tolerance_ms: 150, min_on_screen_ms: 700, max_on_screen_ms: 2600}
   animation_in: text_anim_bounce_in_from_below
   use_when: [Comic and cartoon stories, Kids and pets topics]

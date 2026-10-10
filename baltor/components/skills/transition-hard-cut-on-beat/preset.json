@@ -1,0 +1,20 @@
+{
+  "type": "transition",
+  "id": "transition_hard_cut_on_beat",
+  "name": "Hard cut on the beat",
+  "version": 1,
+  "method": "cut",
+  "duration_ms": 0,
+  "tempo": "standard",
+  "use_when": [
+    "Default between shots",
+    "Every 1.5-3 s in fast edits",
+    "On a music beat or a sentence break"
+  ],
+  "avoid_when": [
+    "Two shots that are nearly identical (looks like a glitch)"
+  ],
+  "ffmpeg": {
+    "filter": "[a][b]concat=n=2:v=1:a=0[v]"
+  }
+}

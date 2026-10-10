@@ -1,0 +1,75 @@
+{
+  "type": "typography",
+  "id": "type_pair_montserrat_black",
+  "name": "Montserrat Black + Montserrat Bold",
+  "version": 1,
+  "display": {
+    "family": "Montserrat",
+    "weight": 900,
+    "licence": "OFL-1.1",
+    "file": "Montserrat[wght].ttf",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/montserrat/Montserrat%5Bwght%5D.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/montserrat/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Montserrat",
+    "category": "sans-serif",
+    "case": "upper",
+    "avg_char_em": 0.648,
+    "variable_axes": {
+      "wght": [
+        100.0,
+        900.0
+      ]
+    }
+  },
+  "text": {
+    "family": "Montserrat",
+    "weight": 700,
+    "licence": "OFL-1.1",
+    "file": "Montserrat[wght].ttf",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/montserrat/Montserrat%5Bwght%5D.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/montserrat/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Montserrat",
+    "category": "sans-serif",
+    "case": "as-written",
+    "avg_char_em": 0.525,
+    "variable_axes": {
+      "wght": [
+        100.0,
+        900.0
+      ]
+    }
+  },
+  "sizes": {
+    "title_px": 84,
+    "caption_px": 58,
+    "min_caption_px": 46,
+    "label_px": 52,
+    "number_px": 110
+  },
+  "chars_per_line": {
+    "title": 15,
+    "caption": 28
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "mood": [
+    "house",
+    "energetic",
+    "relationships",
+    "news"
+  ],
+  "why": "One geometric family keeps the look tidy; the 900 weight gives hooks punch without a second font."
+}

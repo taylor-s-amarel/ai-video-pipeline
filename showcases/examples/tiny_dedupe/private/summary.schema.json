@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "rows",
+    "clusters",
+    "method"
+  ],
+  "properties": {
+    "rows": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "clusters": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "method": {
+      "type": "string",
+      "minLength": 10
+    }
+  }
+}

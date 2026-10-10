@@ -1,0 +1,107 @@
+{
+  "type": "caption-style",
+  "id": "caption_outline_bold_center",
+  "name": "Bold outlined captions, centred",
+  "version": 1,
+  "house": false,
+  "font": {
+    "family": "Montserrat",
+    "weight": 800,
+    "licence": "OFL-1.1",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/montserrat/Montserrat%5Bwght%5D.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/montserrat/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Montserrat",
+    "size_px": 70,
+    "min_size_px": 56,
+    "case": "upper",
+    "avg_char_em": 0.648,
+    "variable_axes": {
+      "wght": [
+        100.0,
+        900.0
+      ]
+    }
+  },
+  "fill": "#FFFFFF",
+  "stroke": {
+    "color": "#000000",
+    "width_px": 7
+  },
+  "backing": {
+    "type": "none"
+  },
+  "layout": {
+    "center_y_fraction": 0.62,
+    "max_width_fraction": 0.86,
+    "max_lines": 2,
+    "max_words": 4,
+    "max_chars": 20,
+    "align": "center"
+  },
+  "emphasis": {
+    "mode": "color",
+    "scale_peak": 1.0,
+    "duration_ms": 0,
+    "easing": "linear",
+    "color": "#FFD21F"
+  },
+  "timing": {
+    "sync_tolerance_ms": 120,
+    "min_on_screen_ms": 500,
+    "max_on_screen_ms": 2000
+  },
+  "animation_in": "text_anim_springy_pop_overshoot",
+  "palette": "palette_house_yellow_night",
+  "contrast": {
+    "text": {
+      "basis": "stroke",
+      "fg": "#FFFFFF",
+      "bg": "#000000",
+      "ratio": 21.0,
+      "required": 3.0,
+      "size_px": 56,
+      "weight": 800,
+      "level": "AAA",
+      "stroke_px": 7
+    },
+    "keyword": {
+      "basis": "stroke",
+      "fg": "#FFD21F",
+      "bg": "#000000",
+      "ratio": 14.49,
+      "required": 3.0,
+      "size_px": 56,
+      "weight": 800,
+      "level": "AAA",
+      "stroke_px": 7
+    }
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "reference_size": [
+    1080,
+    1920
+  ],
+  "use_when": [
+    "Fast talking-head or gameplay clips",
+    "Bright footage where a panel would hide too much"
+  ],
+  "avoid_when": [
+    "Thin or detailed fonts (the outline needs a heavy weight)",
+    "Long sentences"
+  ],
+  "notes": "The 7 px outline carries the contrast, so the fill/outline pair is what the contrast check measures. Keep the outline at least 10% of the font size."
+}

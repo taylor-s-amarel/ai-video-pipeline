@@ -1,0 +1,201 @@
+{
+  "type": "palette",
+  "id": "palette_neon_night",
+  "name": "Neon night",
+  "version": 1,
+  "mode": "dark",
+  "colors": {
+    "background": "#0B0221",
+    "surface": "#1A0838",
+    "panel_tint": "#12062B",
+    "text": "#FFFFFF",
+    "title": "#FFE45E",
+    "keyword": "#00F0FF",
+    "accent": "#FF2E97",
+    "accent_2": "#7A1FA2",
+    "stroke": "#0B0221",
+    "light": "#FF2E97",
+    "particle": "#FFB3E1"
+  },
+  "panel_opacity": 0.66,
+  "gradient": [
+    "#0B0221",
+    "#2B0A4F"
+  ],
+  "ramp": [
+    "#0B0221",
+    "#2B0A4F",
+    "#7A1FA2",
+    "#FF2E97",
+    "#FFE8F5"
+  ],
+  "pairs": [
+    {
+      "fg_role": "text",
+      "bg_role": "panel_tint@panel",
+      "fg": "#FFFFFF",
+      "bg": "#12062B",
+      "basis": "panel-worst-case",
+      "opacity": 0.66,
+      "ratio": 6.44,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "panel_tint@panel",
+      "fg": "#FFE45E",
+      "bg": "#12062B",
+      "basis": "panel-worst-case",
+      "opacity": 0.66,
+      "ratio": 5.06,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "panel_tint@panel",
+      "fg": "#00F0FF",
+      "bg": "#12062B",
+      "basis": "panel-worst-case",
+      "opacity": 0.66,
+      "ratio": 4.57,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "background",
+      "fg": "#FFFFFF",
+      "bg": "#0B0221",
+      "basis": "solid",
+      "ratio": 20.09,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "background",
+      "fg": "#FFE45E",
+      "bg": "#0B0221",
+      "basis": "solid",
+      "ratio": 15.8,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "background",
+      "fg": "#00F0FF",
+      "bg": "#0B0221",
+      "basis": "solid",
+      "ratio": 14.26,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "accent",
+      "bg_role": "background",
+      "fg": "#FF2E97",
+      "bg": "#0B0221",
+      "basis": "solid",
+      "ratio": 5.82,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "surface",
+      "fg": "#FFFFFF",
+      "bg": "#1A0838",
+      "basis": "solid",
+      "ratio": 18.48,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "surface",
+      "fg": "#00F0FF",
+      "bg": "#1A0838",
+      "basis": "solid",
+      "ratio": 13.12,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "stroke",
+      "fg": "#FFFFFF",
+      "bg": "#0B0221",
+      "basis": "solid",
+      "ratio": 20.09,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "stroke",
+      "fg": "#FFE45E",
+      "bg": "#0B0221",
+      "basis": "solid",
+      "ratio": 15.8,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "keyword@card95",
+      "fg": "#0B0221",
+      "bg": "#00F0FF",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 12.8,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "title@card95",
+      "fg": "#0B0221",
+      "bg": "#FFE45E",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 14.17,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "accent@card95",
+      "fg": "#0B0221",
+      "bg": "#FF2E97",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 5.3,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    }
+  ],
+  "failed_pair_count": 0,
+  "mood": [
+    "tech",
+    "retro",
+    "energetic"
+  ],
+  "notes": "AI explainers and synthwave looks."
+}

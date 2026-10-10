@@ -1,0 +1,26 @@
+title: 'Video RE: EBU R128 loudness, dynamics and silence'
+summary: 'One ffmpeg pass: integrated loudness, loudness range, true peak, short-term loudness per second, RMS and silence
+  segments of a video''s soundtrack.'
+subkind: audio-analysis
+tags:
+- audio
+- reverse-engineering
+- loudness
+- ebu-r128
+- lufs
+- evidence
+step_kinds:
+- measure
+- research
+- verify
+deps:
+- ffmpeg
+- ffprobe
+examples:
+- python video_re_audio_loudness.py clip.mp4 --out loudness.json
+refs:
+- https://ffmpeg.org/ffmpeg-filters.html#ebur128
+- https://ffmpeg.org/ffmpeg-filters.html#astats
+- https://ffmpeg.org/ffmpeg-filters.html#silencedetect
+- https://www.itu.int/rec/R-REC-BS.1770
+- https://tech.ebu.ch/docs/r/r128.pdf

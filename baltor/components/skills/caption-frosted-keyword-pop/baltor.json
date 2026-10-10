@@ -1,0 +1,78 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "caption_frosted_keyword_pop",
+  "title": "Frosted glass captions with keyword pop (house)",
+  "kind": "skill",
+  "subkind": "caption-style",
+  "version": "1.0.0",
+  "summary": "Inter 800 captions, frosted-glass backing; text contrast 5.26:1 worst case.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "design",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "declared",
+    "executes": "python",
+    "secrets": [],
+    "hosts": [
+      "raw.githubusercontent.com"
+    ],
+    "side_effects": [
+      "downloads font files from the google/fonts repository on GitHub",
+      "runs ffmpeg and scripts/check_preset.py"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "video",
+    "shorts",
+    "captions",
+    "subtitles",
+    "typography",
+    "accessibility",
+    "frosted-keyword-pop",
+    "frosted-glass",
+    "house-style"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "caption_style_preset_schema"
+    },
+    {
+      "identity": "short_style_preset_kit"
+    },
+    {
+      "identity": "palette_house_yellow_night"
+    },
+    {
+      "identity": "text_anim_fade_up_soft"
+    },
+    {
+      "identity": "text_anim_keyword_pop_house"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_styles.py",
+    "data": "generators/data/video_styles"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "headless-tested",
+  "evidence_notes": "Preset validated against its schema by the generator; contrast and opacity rules computed. No render recorded for this exact preset."
+}

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "filesystem": {"command": "npx", "args": ["-y", "@modelcontextprotocol/server-filesystem@2026.1.14", "./"]},
+    "fetch": {"command": "uvx", "args": ["mcp-server-fetch"]},
+    "github": {"type": "http", "url": "https://api.githubcopilot.com/mcp/"},
+    "browser": {"command": "docker", "args": ["run", "-i", "--rm", "-e", "TOKEN", "mcp/playwright:1.0"]}
+  }
+}

@@ -1,0 +1,23 @@
+title: 'Video RE: speech segments (transparent VAD heuristic)'
+summary: 'Where narration probably is: energy, voice-band share and flatness gating with hangover smoothing, plus a syllable-rate
+  modulation depth per segment; silencedetect fallback.'
+subkind: audio-analysis
+tags:
+- audio
+- reverse-engineering
+- vad
+- speech
+- narration
+- evidence
+step_kinds:
+- measure
+- research
+deps:
+- ffmpeg
+- ffprobe
+- numpy
+examples:
+- python video_re_speech_segments.py clip.mp4 --out speech.json
+refs:
+- https://ffmpeg.org/ffmpeg-filters.html#silencedetect
+- https://github.com/snakers4/silero-vad (a more accurate neural alternative)

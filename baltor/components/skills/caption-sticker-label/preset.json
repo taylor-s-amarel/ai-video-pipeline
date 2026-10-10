@@ -1,0 +1,108 @@
+{
+  "type": "caption-style",
+  "id": "caption_sticker_label",
+  "name": "Sticker label captions",
+  "version": 1,
+  "house": false,
+  "font": {
+    "family": "Lilita One",
+    "weight": 400,
+    "licence": "OFL-1.1",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/lilitaone/LilitaOne-Regular.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/lilitaone/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Lilita+One",
+    "size_px": 62,
+    "min_size_px": 50,
+    "case": "as-written",
+    "avg_char_em": 0.425
+  },
+  "fill": "#111111",
+  "stroke": {
+    "color": "#111111",
+    "width_px": 0
+  },
+  "backing": {
+    "type": "sticker",
+    "tint": "#FFD21F",
+    "opacity": 0.95,
+    "blur_px": 0,
+    "radius_px": 16,
+    "padding_px": [
+      16,
+      30
+    ],
+    "feather_px": 0,
+    "rotation_deg": -2
+  },
+  "layout": {
+    "center_y_fraction": 0.761,
+    "max_width_fraction": 0.84,
+    "max_lines": 1,
+    "max_words": 5,
+    "max_chars": 32,
+    "align": "center"
+  },
+  "emphasis": {
+    "mode": "underline",
+    "scale_peak": 1.0,
+    "duration_ms": 0,
+    "easing": "linear",
+    "color": "#111111"
+  },
+  "timing": {
+    "sync_tolerance_ms": 150,
+    "min_on_screen_ms": 700,
+    "max_on_screen_ms": 2600
+  },
+  "animation_in": "text_anim_bounce_in_from_below",
+  "palette": "palette_comic_primary",
+  "contrast": {
+    "text": {
+      "basis": "panel-worst-case",
+      "fg": "#111111",
+      "bg": "#FFD21F",
+      "opacity": 0.95,
+      "ratio": 11.7,
+      "required": 4.5,
+      "size_px": 50,
+      "weight": 400,
+      "level": "AAA"
+    },
+    "underline": {
+      "basis": "panel-worst-case",
+      "fg": "#111111",
+      "bg": "#FFD21F",
+      "opacity": 0.95,
+      "ratio": 11.7,
+      "required": 3.0,
+      "level": "AA"
+    }
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "reference_size": [
+    1080,
+    1920
+  ],
+  "use_when": [
+    "Comic and cartoon stories",
+    "Kids and pets topics"
+  ],
+  "avoid_when": [
+    "Documentary tone"
+  ],
+  "notes": "The sticker is a 95% opaque keyword-colour card tilted 2 degrees; text contrast is measured against it."
+}

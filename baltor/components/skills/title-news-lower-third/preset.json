@@ -1,0 +1,137 @@
+{
+  "type": "title-style",
+  "id": "title_news_lower_third",
+  "name": "News lower third",
+  "version": 1,
+  "house": false,
+  "font": {
+    "family": "Roboto Slab",
+    "weight": 800,
+    "licence": "Apache-2.0",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/apache/robotoslab/RobotoSlab%5Bwght%5D.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/apache/robotoslab/LICENSE.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Roboto+Slab",
+    "size_px": 52,
+    "min_size_px": 42,
+    "case": "as-written",
+    "avg_char_em": 0.472,
+    "variable_axes": {
+      "wght": [
+        100.0,
+        900.0
+      ]
+    }
+  },
+  "fill": "#FFFFFF",
+  "stroke": {
+    "color": "#000000",
+    "width_px": 0
+  },
+  "backing": {
+    "type": "solid",
+    "tint": "#000000",
+    "opacity": 0.74,
+    "blur_px": 0,
+    "radius_px": 0,
+    "padding_px": [
+      16,
+      28
+    ],
+    "feather_px": 0
+  },
+  "position": {
+    "region": "lower-third-bar",
+    "center_y_fraction": 0.776,
+    "over": "background",
+    "max_width_fraction": 0.88
+  },
+  "text": {
+    "min_words": 2,
+    "max_words": 10,
+    "max_lines": 1,
+    "max_chars_per_line": 36
+  },
+  "timing": {
+    "first_frame": false,
+    "hold_s": 4.0
+  },
+  "animation_in": "text_anim_mask_reveal_up",
+  "palette": "palette_news_contrast",
+  "contrast": {
+    "title": {
+      "basis": "panel-worst-case",
+      "fg": "#FFFFFF",
+      "bg": "#000000",
+      "opacity": 0.74,
+      "ratio": 10.0,
+      "required": 3.0,
+      "size_px": 42,
+      "weight": 800,
+      "level": "AAA"
+    },
+    "secondary": {
+      "basis": "solid",
+      "fg": "#FFFFFF",
+      "bg": "#E03A3E",
+      "ratio": 4.33,
+      "required": 3.0,
+      "size_px": 34,
+      "weight": 700,
+      "level": "AA"
+    }
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "reference_size": [
+    1080,
+    1920
+  ],
+  "use_when": [
+    "Briefings",
+    "explainers and landscape (16:9) edits"
+  ],
+  "avoid_when": [
+    "Vertical shorts where the bottom area is covered by platform UI"
+  ],
+  "secondary": {
+    "font": {
+      "family": "Roboto",
+      "weight": 700,
+      "licence": "OFL-1.1",
+      "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/roboto/Roboto%5Bwdth%2Cwght%5D.ttf",
+      "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/roboto/OFL.txt",
+      "specimen_url": "https://fonts.google.com/specimen/Roboto",
+      "size_px": 34,
+      "case": "upper",
+      "avg_char_em": 0.557,
+      "variable_axes": {
+        "wdth": [
+          75.0,
+          100.0
+        ],
+        "wght": [
+          100.0,
+          900.0
+        ]
+      }
+    },
+    "fill": "#FFFFFF",
+    "gap_px": 0,
+    "content": "kicker label such as BRIEFING",
+    "placement": "above",
+    "bar_color": "#E03A3E"
+  }
+}

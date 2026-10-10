@@ -1,0 +1,203 @@
+{
+  "type": "palette",
+  "id": "palette_pixel_retro",
+  "name": "Pixel retro",
+  "version": 1,
+  "mode": "dark",
+  "colors": {
+    "background": "#1B1B2F",
+    "surface": "#2C2C4A",
+    "panel_tint": "#14142A",
+    "text": "#F4F4F4",
+    "title": "#FFC85C",
+    "keyword": "#9CEB6B",
+    "accent": "#4AA8F0",
+    "accent_2": "#E05A6D",
+    "stroke": "#0B0B18",
+    "light": "#FFC85C",
+    "particle": "#F4F4F4"
+  },
+  "panel_opacity": 0.7,
+  "gradient": [
+    "#1B1B2F",
+    "#2C2C4A"
+  ],
+  "ramp": [
+    "#0B0B18",
+    "#1B1B2F",
+    "#3B5DC9",
+    "#4AA8F0",
+    "#F4F4F4"
+  ],
+  "pairs": [
+    {
+      "fg_role": "text",
+      "bg_role": "panel_tint@panel",
+      "fg": "#F4F4F4",
+      "bg": "#14142A",
+      "basis": "panel-worst-case",
+      "opacity": 0.7,
+      "ratio": 6.1,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "panel_tint@panel",
+      "fg": "#FFC85C",
+      "bg": "#14142A",
+      "basis": "panel-worst-case",
+      "opacity": 0.7,
+      "ratio": 4.37,
+      "required": 3.0,
+      "use": "large-bold-only",
+      "min_size_px": 24,
+      "min_weight": 700,
+      "level": "AA-large"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "panel_tint@panel",
+      "fg": "#9CEB6B",
+      "bg": "#14142A",
+      "basis": "panel-worst-case",
+      "opacity": 0.7,
+      "ratio": 4.64,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "background",
+      "fg": "#F4F4F4",
+      "bg": "#1B1B2F",
+      "basis": "solid",
+      "ratio": 15.34,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "background",
+      "fg": "#FFC85C",
+      "bg": "#1B1B2F",
+      "basis": "solid",
+      "ratio": 10.98,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "background",
+      "fg": "#9CEB6B",
+      "bg": "#1B1B2F",
+      "basis": "solid",
+      "ratio": 11.65,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "accent",
+      "bg_role": "background",
+      "fg": "#4AA8F0",
+      "bg": "#1B1B2F",
+      "basis": "solid",
+      "ratio": 6.54,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "surface",
+      "fg": "#F4F4F4",
+      "bg": "#2C2C4A",
+      "basis": "solid",
+      "ratio": 12.19,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "surface",
+      "fg": "#9CEB6B",
+      "bg": "#2C2C4A",
+      "basis": "solid",
+      "ratio": 9.26,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "stroke",
+      "fg": "#F4F4F4",
+      "bg": "#0B0B18",
+      "basis": "solid",
+      "ratio": 17.75,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "stroke",
+      "fg": "#FFC85C",
+      "bg": "#0B0B18",
+      "basis": "solid",
+      "ratio": 12.71,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "keyword@card95",
+      "fg": "#1B1B2F",
+      "bg": "#9CEB6B",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 10.47,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "title@card95",
+      "fg": "#1B1B2F",
+      "bg": "#FFC85C",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 9.87,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "accent@card95",
+      "fg": "#1B1B2F",
+      "bg": "#4AA8F0",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 5.93,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    }
+  ],
+  "failed_pair_count": 0,
+  "mood": [
+    "retro",
+    "tech",
+    "energetic"
+  ],
+  "notes": "Pixel-art and game-style stories; pairs with nearest-neighbour scaling."
+}

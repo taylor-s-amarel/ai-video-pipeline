@@ -1,0 +1,250 @@
+{
+  "type": "layer-stack",
+  "id": "layer_stack_multi_view_grid_12",
+  "name": "Multi-view grid 12-layer stack",
+  "version": 1,
+  "house": false,
+  "summary": "Four synced viewpoints in a 2x2 grid as the main content, with view labels and captions.",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "theme": "clouds",
+  "palette": "palette_okabe_ito_safe",
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "layers": [
+    {
+      "z": 1,
+      "id": "base_gradient",
+      "role": "base",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_gradient_drift"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "drift"
+      }
+    },
+    {
+      "z": 2,
+      "id": "blueprint",
+      "role": "texture",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_blueprint_grid"
+      },
+      "opacity": 0.35,
+      "blend": "soft-light",
+      "motion": {
+        "type": "loop"
+      }
+    },
+    {
+      "z": 3,
+      "id": "haze",
+      "role": "haze",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_atmospheric_haze"
+      },
+      "opacity": 0.15,
+      "blend": "screen",
+      "motion": {
+        "type": "drift"
+      }
+    },
+    {
+      "z": 4,
+      "id": "views",
+      "role": "grid-2x2",
+      "source": {
+        "kind": "component",
+        "ref": "grid_2x2_multi_viewpoint_split",
+        "cells": [
+          "asset:view_top",
+          "asset:view_front",
+          "asset:view_side",
+          "asset:view_3d"
+        ]
+      },
+      "opacity": 0.96,
+      "blend": "normal",
+      "motion": {
+        "type": "loop"
+      }
+    },
+    {
+      "z": 5,
+      "id": "view_labels",
+      "role": "label",
+      "source": {
+        "kind": "effect",
+        "ref": "fx:view_labels"
+      },
+      "opacity": 0.95,
+      "blend": "normal",
+      "motion": {
+        "type": "static"
+      }
+    },
+    {
+      "z": 6,
+      "id": "vignette",
+      "role": "vignette",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_vignette_breathe"
+      },
+      "opacity": 0.3,
+      "blend": "multiply",
+      "motion": {
+        "type": "pulse"
+      }
+    },
+    {
+      "z": 7,
+      "id": "title_panel",
+      "role": "panel",
+      "source": {
+        "kind": "effect",
+        "ref": "panel:title"
+      },
+      "opacity": 0.66,
+      "blend": "normal",
+      "motion": {
+        "type": "static"
+      },
+      "details": {
+        "backing": "frosted-glass"
+      }
+    },
+    {
+      "z": 8,
+      "id": "title_text",
+      "role": "title",
+      "source": {
+        "kind": "component",
+        "ref": "title_step_card_center"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "keyframed"
+      },
+      "details": {
+        "animation": "text_anim_springy_pop_overshoot"
+      }
+    },
+    {
+      "z": 9,
+      "id": "caption_panel",
+      "role": "panel",
+      "source": {
+        "kind": "effect",
+        "ref": "panel:caption"
+      },
+      "opacity": 0.66,
+      "blend": "normal",
+      "motion": {
+        "type": "static"
+      },
+      "details": {
+        "backing": "frosted-glass"
+      }
+    },
+    {
+      "z": 10,
+      "id": "caption_text",
+      "role": "caption",
+      "source": {
+        "kind": "component",
+        "ref": "caption_two_tone_emphasis"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "keyframed"
+      },
+      "details": {
+        "animation": "text_anim_fade_up_soft"
+      }
+    },
+    {
+      "z": 11,
+      "id": "highlight_ring",
+      "role": "overlay",
+      "source": {
+        "kind": "effect",
+        "ref": "fx:callout_ring"
+      },
+      "opacity": 0.9,
+      "blend": "normal",
+      "motion": {
+        "type": "keyframed"
+      },
+      "details": {
+        "at": "when a part is named"
+      }
+    },
+    {
+      "z": 12,
+      "id": "global_grain",
+      "role": "grain",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_film_grain"
+      },
+      "opacity": 0.05,
+      "blend": "overlay",
+      "motion": {
+        "type": "loop"
+      }
+    }
+  ],
+  "rules": {
+    "max_layer_opacity": 0.98,
+    "min_layers": 5
+  },
+  "effects": {
+    "view_labels": "TOP / FRONT / SIDE / 3D labels in each grid cell's top-left corner.",
+    "callout_ring": "A 6 px ring in the palette keyword colour drawn around the part being named."
+  },
+  "background_render": {
+    "filtergraph_file": "background_filtergraph.txt",
+    "loop_period_s": 8,
+    "included_layers": [
+      "base_gradient",
+      "blueprint",
+      "haze",
+      "vignette",
+      "global_grain"
+    ],
+    "rendered_separately": [
+      "views",
+      "view_labels",
+      "title_panel",
+      "title_text",
+      "caption_panel",
+      "caption_text",
+      "highlight_ring"
+    ],
+    "note": "The background graph renders every full-frame procedural layer. Photo, panels, text, effects and cut-timed layers are composited afterwards in z order."
+  }
+}

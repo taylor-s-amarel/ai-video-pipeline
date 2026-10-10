@@ -1,0 +1,133 @@
+{
+  "type": "title-style",
+  "id": "title_fact_number_label",
+  "name": "FACT N label with key number",
+  "version": 1,
+  "house": false,
+  "font": {
+    "family": "Montserrat",
+    "weight": 900,
+    "licence": "OFL-1.1",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/montserrat/Montserrat%5Bwght%5D.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/montserrat/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Montserrat",
+    "size_px": 54,
+    "min_size_px": 44,
+    "case": "upper",
+    "letter_spacing_em": 0.06,
+    "avg_char_em": 0.648,
+    "variable_axes": {
+      "wght": [
+        100.0,
+        900.0
+      ]
+    }
+  },
+  "fill": "#FFD21F",
+  "stroke": {
+    "color": "#000000",
+    "width_px": 0
+  },
+  "backing": {
+    "type": "frosted-glass",
+    "tint": "#0B1220",
+    "opacity": 0.62,
+    "blur_px": 24,
+    "radius_px": 999,
+    "padding_px": [
+      14,
+      30
+    ],
+    "feather_px": 10
+  },
+  "position": {
+    "region": "upper-third",
+    "center_y_fraction": 0.3,
+    "over": "photo",
+    "max_width_fraction": 0.6,
+    "never_move_photo": true
+  },
+  "text": {
+    "template": "FACT {n}",
+    "min_words": 2,
+    "max_words": 2,
+    "max_lines": 1,
+    "max_chars_per_line": 16
+  },
+  "timing": {
+    "first_frame": false,
+    "hold_s": 3.0
+  },
+  "animation_in": "text_anim_springy_pop_overshoot",
+  "palette": "palette_house_yellow_night",
+  "contrast": {
+    "title": {
+      "basis": "panel-worst-case",
+      "fg": "#FFD21F",
+      "bg": "#0B1220",
+      "opacity": 0.62,
+      "ratio": 3.63,
+      "required": 3.0,
+      "size_px": 44,
+      "weight": 900,
+      "level": "AA"
+    },
+    "secondary": {
+      "basis": "panel-worst-case",
+      "fg": "#FFFFFF",
+      "bg": "#0B1220",
+      "opacity": 0.62,
+      "ratio": 5.26,
+      "required": 4.5,
+      "size_px": 120,
+      "weight": 400,
+      "level": "AAA"
+    }
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "reference_size": [
+    1080,
+    1920
+  ],
+  "use_when": [
+    "Numbered fact",
+    "tip or step shorts",
+    "Each time a new item starts"
+  ],
+  "avoid_when": [
+    "Repeating the same label on every caption (one label per item)"
+  ],
+  "label_house": true,
+  "secondary": {
+    "font": {
+      "family": "Anton",
+      "weight": 400,
+      "licence": "OFL-1.1",
+      "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/anton/Anton-Regular.ttf",
+      "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/anton/OFL.txt",
+      "specimen_url": "https://fonts.google.com/specimen/Anton",
+      "size_px": 120,
+      "case": "upper",
+      "avg_char_em": 0.419
+    },
+    "fill": "#FFFFFF",
+    "gap_px": 12,
+    "content": "key number with unit",
+    "animation": "text_anim_count_up_number"
+  },
+  "notes": "The label pops in when a new item starts and the key number (for example \"14 DAYS\") sits under it."
+}

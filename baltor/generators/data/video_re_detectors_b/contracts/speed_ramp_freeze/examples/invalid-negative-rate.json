@@ -1,0 +1,7 @@
+{
+  "events": [
+    { "type": "reverse", "t_start_s": 3.12, "t_end_s": 4.4, "rate": -1.0, "frames": 0 }
+  ],
+  "counts": { "freeze": 0 },
+  "frames_without_speed": 0
+}

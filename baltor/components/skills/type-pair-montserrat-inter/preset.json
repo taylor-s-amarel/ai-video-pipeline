@@ -1,0 +1,92 @@
+{
+  "type": "typography",
+  "id": "type_pair_montserrat_inter",
+  "name": "Montserrat Black + Inter (house)",
+  "version": 1,
+  "display": {
+    "family": "Montserrat",
+    "weight": 900,
+    "licence": "OFL-1.1",
+    "file": "Montserrat[wght].ttf",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/montserrat/Montserrat%5Bwght%5D.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/montserrat/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Montserrat",
+    "category": "sans-serif",
+    "case": "upper",
+    "avg_char_em": 0.648,
+    "variable_axes": {
+      "wght": [
+        100.0,
+        900.0
+      ]
+    }
+  },
+  "text": {
+    "family": "Inter",
+    "weight": 800,
+    "licence": "OFL-1.1",
+    "file": "Inter[opsz,wght].ttf",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/inter/Inter%5Bopsz%2Cwght%5D.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/inter/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Inter",
+    "category": "sans-serif",
+    "case": "as-written",
+    "avg_char_em": 0.487,
+    "variable_axes": {
+      "opsz": [
+        14.0,
+        32.0
+      ],
+      "wght": [
+        100.0,
+        900.0
+      ]
+    }
+  },
+  "sizes": {
+    "title_px": 92,
+    "caption_px": 60,
+    "min_caption_px": 48,
+    "label_px": 54,
+    "number_px": 120
+  },
+  "chars_per_line": {
+    "title": 14,
+    "caption": 30
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "mood": [
+    "house",
+    "science",
+    "history",
+    "nature",
+    "space"
+  ],
+  "why": "Montserrat 900 is a true bold for the yellow hook (so the 3:1 large-bold contrast rule applies); Inter 800 stays crisp at caption size; Anton gives tall key numbers.",
+  "numbers": {
+    "family": "Anton",
+    "weight": 400,
+    "licence": "OFL-1.1",
+    "file": "Anton-Regular.ttf",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/anton/Anton-Regular.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/anton/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Anton",
+    "category": "display",
+    "case": "as-written",
+    "avg_char_em": 0.399
+  }
+}

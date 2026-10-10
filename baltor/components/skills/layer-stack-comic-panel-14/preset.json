@@ -1,0 +1,304 @@
+{
+  "type": "layer-stack",
+  "id": "layer_stack_comic_panel_14",
+  "name": "Comic panel 14-layer stack",
+  "version": 1,
+  "house": false,
+  "summary": "Sunburst, halftone and sticker lettering for ridiculous stories and cartoons.",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "theme": "meadow",
+  "palette": "palette_comic_primary",
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "layers": [
+    {
+      "z": 1,
+      "id": "sunburst",
+      "role": "background-video",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_comic_sunburst"
+      },
+      "opacity": 0.92,
+      "blend": "normal",
+      "motion": {
+        "type": "rotate"
+      }
+    },
+    {
+      "z": 2,
+      "id": "halftone",
+      "role": "texture",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_halftone_drift"
+      },
+      "opacity": 0.25,
+      "blend": "multiply",
+      "motion": {
+        "type": "loop"
+      }
+    },
+    {
+      "z": 3,
+      "id": "light_leaks",
+      "role": "light",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_light_leaks"
+      },
+      "opacity": 0.18,
+      "blend": "screen",
+      "motion": {
+        "type": "drift"
+      }
+    },
+    {
+      "z": 4,
+      "id": "vignette",
+      "role": "vignette",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_vignette_breathe"
+      },
+      "opacity": 0.35,
+      "blend": "multiply",
+      "motion": {
+        "type": "pulse"
+      }
+    },
+    {
+      "z": 5,
+      "id": "panel_shadow",
+      "role": "shadow",
+      "source": {
+        "kind": "effect",
+        "ref": "fx:photo_shadow"
+      },
+      "opacity": 0.5,
+      "blend": "multiply",
+      "motion": {
+        "type": "follow"
+      },
+      "details": {
+        "follows": "photo",
+        "blur_px": 0,
+        "offset_px": [
+          14,
+          14
+        ]
+      }
+    },
+    {
+      "z": 6,
+      "id": "panel_border",
+      "role": "overlay",
+      "source": {
+        "kind": "effect",
+        "ref": "fx:ink_border"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "follow"
+      },
+      "details": {
+        "follows": "photo",
+        "border_px": 10
+      }
+    },
+    {
+      "z": 7,
+      "id": "photo",
+      "role": "photo",
+      "source": {
+        "kind": "asset",
+        "ref": "photo"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "punch-in"
+      },
+      "rect": {
+        "x": 0.05,
+        "y": 0.16,
+        "w": 0.9,
+        "h": 0.52
+      },
+      "feather_px": 0,
+      "corner_radius_px": 0,
+      "details": {
+        "camera": "camera_impact_punch_in"
+      }
+    },
+    {
+      "z": 8,
+      "id": "photo_halftone",
+      "role": "texture",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_halftone_drift"
+      },
+      "opacity": 0.12,
+      "blend": "multiply",
+      "motion": {
+        "type": "loop"
+      },
+      "rect": {
+        "x": 0.05,
+        "y": 0.16,
+        "w": 0.9,
+        "h": 0.52
+      }
+    },
+    {
+      "z": 9,
+      "id": "title_sticker",
+      "role": "panel",
+      "source": {
+        "kind": "effect",
+        "ref": "panel:title"
+      },
+      "opacity": 0.95,
+      "blend": "normal",
+      "motion": {
+        "type": "keyframed"
+      },
+      "details": {
+        "backing": "sticker"
+      }
+    },
+    {
+      "z": 10,
+      "id": "title_text",
+      "role": "title",
+      "source": {
+        "kind": "component",
+        "ref": "title_comic_burst_hook"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "keyframed"
+      },
+      "details": {
+        "animation": "text_anim_springy_pop_overshoot"
+      }
+    },
+    {
+      "z": 11,
+      "id": "caption_sticker",
+      "role": "panel",
+      "source": {
+        "kind": "effect",
+        "ref": "panel:caption"
+      },
+      "opacity": 0.95,
+      "blend": "normal",
+      "motion": {
+        "type": "keyframed"
+      },
+      "details": {
+        "backing": "sticker"
+      }
+    },
+    {
+      "z": 12,
+      "id": "caption_text",
+      "role": "caption",
+      "source": {
+        "kind": "component",
+        "ref": "caption_sticker_label"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "keyframed"
+      },
+      "details": {
+        "animation": "text_anim_bounce_in_from_below"
+      }
+    },
+    {
+      "z": 13,
+      "id": "impact_lines",
+      "role": "overlay",
+      "source": {
+        "kind": "effect",
+        "ref": "fx:speed_lines"
+      },
+      "opacity": 0.4,
+      "blend": "normal",
+      "motion": {
+        "type": "keyframed"
+      },
+      "details": {
+        "at": "punchlines"
+      }
+    },
+    {
+      "z": 14,
+      "id": "global_grain",
+      "role": "grain",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_film_grain"
+      },
+      "opacity": 0.06,
+      "blend": "overlay",
+      "motion": {
+        "type": "loop"
+      }
+    }
+  ],
+  "rules": {
+    "max_layer_opacity": 0.98,
+    "min_layers": 5
+  },
+  "effects": {
+    "photo_shadow": "Blurred copy of the photo's alpha mask, filled with the palette background colour, offset and multiplied under the photo.",
+    "ink_border": "A black border of 10 px around the comic panel.",
+    "speed_lines": "Radial white lines from the frame centre, shown for 6-10 frames on a punchline."
+  },
+  "background_render": {
+    "filtergraph_file": "background_filtergraph.txt",
+    "loop_period_s": 8,
+    "included_layers": [
+      "sunburst",
+      "halftone",
+      "light_leaks",
+      "vignette",
+      "global_grain"
+    ],
+    "rendered_separately": [
+      "panel_shadow",
+      "panel_border",
+      "photo",
+      "photo_halftone",
+      "title_sticker",
+      "title_text",
+      "caption_sticker",
+      "caption_text",
+      "impact_lines"
+    ],
+    "note": "The background graph renders every full-frame procedural layer. Photo, panels, text, effects and cut-timed layers are composited afterwards in z order."
+  }
+}

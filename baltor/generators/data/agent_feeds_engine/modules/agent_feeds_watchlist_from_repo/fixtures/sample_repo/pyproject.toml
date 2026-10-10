@@ -1,0 +1,14 @@
+[project]
+name = "video-pipeline-demo"
+requires-python = ">=3.11"
+dependencies = ["moviepy (>=2.0)", "mcp>=1.2"]
+
+[project.optional-dependencies]
+dev = ["ruff==0.6.9"]
+
+[dependency-groups]
+test = ["pytest-cov>=5"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+local-thing = { path = "../local-thing" }

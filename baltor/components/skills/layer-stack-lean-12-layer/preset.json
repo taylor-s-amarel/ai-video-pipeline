@@ -1,0 +1,256 @@
+{
+  "type": "layer-stack",
+  "id": "layer_stack_lean_12_layer",
+  "name": "Lean 12-layer stack",
+  "version": 1,
+  "house": true,
+  "summary": "Twelve layers that keep every house rule but render about three times faster than the 30-layer reference.",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "theme": "ocean",
+  "palette": "palette_ocean_deep",
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "layers": [
+    {
+      "z": 1,
+      "id": "base_gradient",
+      "role": "base",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_gradient_drift"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "drift"
+      }
+    },
+    {
+      "z": 2,
+      "id": "footage_primary",
+      "role": "background-video",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_ocean_waves"
+      },
+      "opacity": 0.92,
+      "blend": "normal",
+      "motion": {
+        "type": "loop"
+      }
+    },
+    {
+      "z": 3,
+      "id": "motion_grid",
+      "role": "grid-2x2",
+      "source": {
+        "kind": "component",
+        "ref": "grid_2x2_even_feathered",
+        "cells": [
+          "bg_layer_ocean_waves",
+          "bg_layer_meadow_wind",
+          "bg_layer_sunlit_water",
+          "bg_layer_coastal_aerial"
+        ]
+      },
+      "opacity": 0.3,
+      "blend": "screen",
+      "motion": {
+        "type": "loop"
+      }
+    },
+    {
+      "z": 4,
+      "id": "light_leaks",
+      "role": "light",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_light_leaks"
+      },
+      "opacity": 0.28,
+      "blend": "screen",
+      "motion": {
+        "type": "drift"
+      }
+    },
+    {
+      "z": 5,
+      "id": "dust",
+      "role": "particles",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_dust_particles"
+      },
+      "opacity": 0.3,
+      "blend": "screen",
+      "motion": {
+        "type": "rise"
+      }
+    },
+    {
+      "z": 6,
+      "id": "vignette",
+      "role": "vignette",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_vignette_breathe"
+      },
+      "opacity": 0.5,
+      "blend": "multiply",
+      "motion": {
+        "type": "pulse"
+      }
+    },
+    {
+      "z": 7,
+      "id": "photo",
+      "role": "photo",
+      "source": {
+        "kind": "asset",
+        "ref": "photo"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "ken-burns"
+      },
+      "rect": {
+        "x": 0.05,
+        "y": 0.16,
+        "w": 0.9,
+        "h": 0.52
+      },
+      "feather_px": 48,
+      "corner_radius_px": 24,
+      "details": {
+        "camera": "camera_ken_burns_slow_in_center"
+      }
+    },
+    {
+      "z": 8,
+      "id": "title_panel",
+      "role": "panel",
+      "source": {
+        "kind": "effect",
+        "ref": "panel:title"
+      },
+      "opacity": 0.62,
+      "blend": "normal",
+      "motion": {
+        "type": "static"
+      },
+      "details": {
+        "backing": "frosted-glass"
+      }
+    },
+    {
+      "z": 9,
+      "id": "title_text",
+      "role": "title",
+      "source": {
+        "kind": "component",
+        "ref": "title_house_yellow_hook"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "keyframed"
+      },
+      "details": {
+        "animation": "text_anim_settle_in",
+        "visible_from_s": 0.0
+      }
+    },
+    {
+      "z": 10,
+      "id": "caption_panel",
+      "role": "panel",
+      "source": {
+        "kind": "effect",
+        "ref": "panel:caption"
+      },
+      "opacity": 0.62,
+      "blend": "normal",
+      "motion": {
+        "type": "static"
+      },
+      "details": {
+        "backing": "frosted-glass"
+      }
+    },
+    {
+      "z": 11,
+      "id": "caption_text",
+      "role": "caption",
+      "source": {
+        "kind": "component",
+        "ref": "caption_frosted_keyword_pop"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "keyframed"
+      },
+      "details": {
+        "animation": "text_anim_fade_up_soft"
+      }
+    },
+    {
+      "z": 12,
+      "id": "global_grain",
+      "role": "grain",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_film_grain"
+      },
+      "opacity": 0.08,
+      "blend": "overlay",
+      "motion": {
+        "type": "loop"
+      }
+    }
+  ],
+  "rules": {
+    "max_layer_opacity": 0.98,
+    "min_layers": 5
+  },
+  "effects": {},
+  "background_render": {
+    "filtergraph_file": "background_filtergraph.txt",
+    "loop_period_s": 8,
+    "included_layers": [
+      "base_gradient",
+      "footage_primary",
+      "motion_grid",
+      "light_leaks",
+      "dust",
+      "vignette",
+      "global_grain"
+    ],
+    "rendered_separately": [
+      "photo",
+      "title_panel",
+      "title_text",
+      "caption_panel",
+      "caption_text"
+    ],
+    "note": "The background graph renders every full-frame procedural layer. Photo, panels, text, effects and cut-timed layers are composited afterwards in z order."
+  }
+}

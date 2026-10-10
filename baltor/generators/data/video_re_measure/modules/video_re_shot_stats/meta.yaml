@@ -1,0 +1,20 @@
+title: 'Video RE: shot-length statistics and cut rhythm'
+summary: 'Cut rhythm as numbers: median/mean shot length, cuts per minute, regularity, acceleration trend, hook-window cuts,
+  per-third rates and the dominant template shot length.'
+subkind: evaluator
+tags:
+- video
+- reverse-engineering
+- pacing
+- cut-rate
+- statistics
+- evidence
+step_kinds:
+- measure
+- research
+deps:
+- numpy
+internal:
+- identity: video_re_detect_shots
+examples:
+- python video_re_shot_stats.py shots.json --duration 61.2

@@ -1,0 +1,95 @@
+{
+  "type": "caption-style",
+  "id": "caption_subtitle_accessible",
+  "name": "Accessible subtitles (two lines)",
+  "version": 1,
+  "house": false,
+  "font": {
+    "family": "Atkinson Hyperlegible",
+    "weight": 700,
+    "licence": "OFL-1.1",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/atkinsonhyperlegible/AtkinsonHyperlegible-Bold.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/atkinsonhyperlegible/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Atkinson+Hyperlegible",
+    "size_px": 52,
+    "min_size_px": 44,
+    "case": "as-written",
+    "avg_char_em": 0.471
+  },
+  "fill": "#FFFFFF",
+  "stroke": {
+    "color": "#000000",
+    "width_px": 0
+  },
+  "backing": {
+    "type": "solid",
+    "tint": "#000000",
+    "opacity": 0.75,
+    "blur_px": 0,
+    "radius_px": 12,
+    "padding_px": [
+      16,
+      26
+    ],
+    "feather_px": 0
+  },
+  "layout": {
+    "center_y_fraction": 0.748,
+    "max_width_fraction": 0.88,
+    "max_lines": 2,
+    "max_words": 14,
+    "max_chars": 36,
+    "align": "center"
+  },
+  "emphasis": {
+    "mode": "none"
+  },
+  "timing": {
+    "sync_tolerance_ms": 150,
+    "min_on_screen_ms": 1200,
+    "max_on_screen_ms": 6000
+  },
+  "animation_in": "text_anim_fade_up_soft",
+  "palette": "palette_mono_high_contrast",
+  "contrast": {
+    "text": {
+      "basis": "panel-worst-case",
+      "fg": "#FFFFFF",
+      "bg": "#000000",
+      "opacity": 0.75,
+      "ratio": 10.4,
+      "required": 3.0,
+      "size_px": 44,
+      "weight": 700,
+      "level": "AAA"
+    }
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "reference_size": [
+    1080,
+    1920
+  ],
+  "use_when": [
+    "Accessibility-first edits",
+    "Translated or bilingual subtitles",
+    "Viewers watching without sound"
+  ],
+  "avoid_when": [
+    "Hook-driven house shorts that need one punchy line"
+  ],
+  "notes": "Atkinson Hyperlegible was designed for low-vision readers; keep line breaks at phrase boundaries."
+}

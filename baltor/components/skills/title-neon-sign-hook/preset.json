@@ -1,0 +1,110 @@
+{
+  "type": "title-style",
+  "id": "title_neon_sign_hook",
+  "name": "Neon sign hook",
+  "version": 1,
+  "house": false,
+  "font": {
+    "family": "Orbitron",
+    "weight": 800,
+    "licence": "OFL-1.1",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/orbitron/Orbitron%5Bwght%5D.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/orbitron/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Orbitron",
+    "size_px": 80,
+    "min_size_px": 60,
+    "case": "upper",
+    "letter_spacing_em": 0.03,
+    "avg_char_em": 0.711,
+    "variable_axes": {
+      "wght": [
+        400.0,
+        900.0
+      ]
+    }
+  },
+  "fill": "#FFE45E",
+  "stroke": {
+    "color": "#0B0221",
+    "width_px": 0
+  },
+  "backing": {
+    "type": "frosted-glass",
+    "tint": "#12062B",
+    "opacity": 0.66,
+    "blur_px": 30,
+    "radius_px": 24,
+    "padding_px": [
+      24,
+      36
+    ],
+    "feather_px": 20
+  },
+  "position": {
+    "region": "upper-third",
+    "center_y_fraction": 0.24,
+    "over": "photo",
+    "max_width_fraction": 0.88,
+    "never_move_photo": true
+  },
+  "text": {
+    "min_words": 2,
+    "max_words": 6,
+    "max_lines": 2,
+    "max_chars_per_line": 15
+  },
+  "timing": {
+    "first_frame": true,
+    "hold_s": 2.4
+  },
+  "animation_in": "text_anim_blur_in_focus",
+  "palette": "palette_neon_night",
+  "contrast": {
+    "title": {
+      "basis": "panel-worst-case",
+      "fg": "#FFE45E",
+      "bg": "#12062B",
+      "opacity": 0.66,
+      "ratio": 5.06,
+      "required": 3.0,
+      "size_px": 60,
+      "weight": 800,
+      "level": "AAA"
+    }
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "reference_size": [
+    1080,
+    1920
+  ],
+  "use_when": [
+    "AI",
+    "gaming and tech hooks"
+  ],
+  "avoid_when": [
+    "Light palettes"
+  ],
+  "shadow": {
+    "color": "#FF2E97",
+    "opacity": 0.9,
+    "blur_px": 22,
+    "offset_px": [
+      0,
+      0
+    ]
+  }
+}

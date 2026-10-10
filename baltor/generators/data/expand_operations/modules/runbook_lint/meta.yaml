@@ -1,0 +1,15 @@
+title: Runbook lint
+summary: Checks Markdown runbooks for required sections (summary, symptoms, diagnosis, mitigation, rollback, escalation), owner, last-reviewed age, copy-pasteable commands, verification language and placeholders.
+subkind: runbook
+tags: [runbook, incident-response, on-call, documentation, lint, sre]
+step_kinds: [review, write, operate]
+effects: {filesystem: read, executes: python}
+description: >-
+  Errors: missing required sections (matched by heading keywords), no owner, no or stale last-reviewed date
+  (default 180 days), no fenced command blocks, TODO/TBD/FIXME placeholders. Warnings: no 'expected/verify' language,
+  destructive commands (rm -rf /, kubectl delete namespace, terraform destroy, DROP TABLE, --force) without a
+  confirmation note, and no dashboard or log link. Ships an example runbook that passes. Use in CI on the
+  runbooks directory and before linking a runbook_url from an alert.
+examples:
+  - "python runbook_lint.py docs/runbooks/*.md --max-age-days 120"
+evidence_notes: pytest suite passes on the bundled example and synthetic failures.

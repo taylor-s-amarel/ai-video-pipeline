@@ -1,0 +1,1 @@
+color=c=0x808080:s=540x960:r=30:d=8,noise=alls=36:allf=t+u:all_seed=1234,format=gray,format=gbrp,lutrgb=r='if(lt(val,255),lerp(0,255,(val-0)/255),255)':g='if(lt(val,255),lerp(0,255,(val-0)/255),255)':b='if(lt(val,255),lerp(0,255,(val-0)/255),255)',scale=1080:1920:flags=bicubic,setsar=1,format=yuv420p[out]

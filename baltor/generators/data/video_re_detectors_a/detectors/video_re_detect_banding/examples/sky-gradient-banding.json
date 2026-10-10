@@ -1,0 +1,10 @@
+{
+  "score": 0.62,
+  "banded": true,
+  "step_code_values": 3.4,
+  "flat_run_px": 41.0,
+  "ramp_blocks": 58,
+  "banded_blocks": 36,
+  "regions": [ { "bbox": [0, 0, 960, 288], "blocks": 33 } ],
+  "frames_analysed": 8
+}

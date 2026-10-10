@@ -13,7 +13,7 @@ items:
   - id: pixelorama
     title: "Pixelorama (pixel-art multitool, made with Godot)"
     url: https://github.com/Orama-Interactive/Pixelorama
-    summary: "Open pixel-art editor with animation timeline and sprite-sheet export, built in Godot (requires Godot 4.7.2 to build); MIT."
+    summary: "Open-source pixel-art multitool built with Godot (building it requires Godot 4.7.2); MIT."
     licence: MIT
     licence_url: https://github.com/Orama-Interactive/Pixelorama
     tags: [pixel-art, sprites, godot]
@@ -35,21 +35,21 @@ items:
   - id: blockbench
     title: "Blockbench (low-poly 3D model editor)"
     url: https://github.com/JannisX11/blockbench
-    summary: "Low-poly/boxy 3D modeller with texture painting and animation, exports glTF/OBJ; GPL-3.0 (plugins and themes using its API are excepted)."
+    summary: "Low-poly 3D model editor; GPL-3.0 (plugins and themes that use its API are an exception)."
     licence: GPL-3.0
     licence_url: https://github.com/JannisX11/blockbench
     tags: [3d, low-poly, modelling]
   - id: tiled
     title: "Tiled map editor"
     url: https://github.com/mapeditor/tiled
-    summary: "Flexible 2D level editor for orthogonal, isometric and hex tile maps (TMX/JSON); repo ships GPL, BSD and Apache licence files for its parts."
+    summary: "Flexible tile-map level editor; the repository ships GPL, BSD and Apache licence files for its parts."
     licence: "GPL-2.0 and Apache-2.0/BSD parts (see repo)"
     licence_url: https://github.com/mapeditor/tiled
     tags: [tiles, level-editor, isometric]
   - id: ldtk
     title: "LDtk (Level Designer Toolkit)"
     url: https://github.com/deepnight/ldtk
-    summary: "Modern lightweight 2D level editor with auto-layers and JSON output; MIT."
+    summary: "Modern, lightweight and efficient 2D level editor; MIT."
     licence: MIT
     licence_url: https://github.com/deepnight/ldtk
     tags: [tiles, level-editor, json]
@@ -63,7 +63,7 @@ items:
   - id: laigter
     title: "Laigter (normal maps for sprites)"
     url: https://github.com/azagaya/laigter
-    summary: "Automatic normal/specular/parallax map generator for 2D sprites so Light2D can shade them; GPL-3.0."
+    summary: "Automatic normal-map generator for 2D sprites so Light2D can shade them; GPL-3.0."
     licence: GPL-3.0
     licence_url: https://github.com/azagaya/laigter
     tags: [normal-maps, 2d-lighting]

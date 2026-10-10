@@ -1,0 +1,76 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "bg_layer_ocean_waves",
+  "title": "Ocean waves",
+  "kind": "skill",
+  "subkind": "background-layer",
+  "version": "1.0.0",
+  "summary": "Rolling blue swell with bright foam crests drifting across the frame. Seamless 8 s ffmpeg loop at 1080x1920.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "render",
+    "design"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "declared",
+    "executes": "python",
+    "secrets": [],
+    "hosts": [
+      "commons.wikimedia.org",
+      "upload.wikimedia.org",
+      "images.nasa.gov",
+      "www.nasa.gov",
+      "www.pexels.com",
+      "pixabay.com"
+    ],
+    "side_effects": [
+      "runs ffmpeg to render the procedural loop",
+      "optional: an agent browses and downloads licensed footage from the listed sites"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "video",
+    "shorts",
+    "background",
+    "ffmpeg",
+    "procedural",
+    "loop",
+    "ocean-waves",
+    "footage",
+    "nature",
+    "calm",
+    "house"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "background_layer_preset_schema"
+    },
+    {
+      "identity": "short_style_preset_kit"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_styles.py",
+    "data": "generators/data/video_styles"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "headless-tested",
+  "evidence_notes": "Preset validated against its schema by the generator; contrast and opacity rules computed. No render recorded for this exact preset."
+}

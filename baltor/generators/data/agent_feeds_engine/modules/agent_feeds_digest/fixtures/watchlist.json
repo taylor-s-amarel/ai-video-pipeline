@@ -1,0 +1,24 @@
+{
+  "spec": "baltor.agent-feed-watchlist/v1",
+  "project": "demo",
+  "generated": "2026-10-10T12:00:00Z",
+  "ecosystems": ["PyPI", "npm", "crates.io", "Go"],
+  "packages": [
+    {"ecosystem": "PyPI", "name": "examplelib", "version": "==2.30.0", "pinned": "2.30.0", "source_file": "requirements.txt"},
+    {"ecosystem": "PyPI", "name": "Example_Tools", "version": ">=1.0,<2", "pinned": null, "source_file": "pyproject.toml"},
+    {"ecosystem": "PyPI", "name": "safe-lib", "version": "==3.1.0", "pinned": "3.1.0", "source_file": "requirements.txt"},
+    {"ecosystem": "npm", "name": "example-merge", "version": "^2.0.3", "pinned": null, "source_file": "package.json"},
+    {"ecosystem": "npm", "name": "@example/sdk", "version": "^5.0.0", "pinned": null, "source_file": "package.json"},
+    {"ecosystem": "npm", "name": "image_library", "version": "9.1.0", "pinned": "9.1.0", "source_file": "package.json"},
+    {"ecosystem": "crates.io", "name": "example-serde", "version": "1.0", "pinned": null, "source_file": "Cargo.toml"},
+    {"ecosystem": "Go", "name": "github.com/example/Cobra", "version": "v1.9.0", "pinned": "1.9.0", "source_file": "go.mod"}
+  ],
+  "vendors": ["Example AI"],
+  "products": ["example-cli", "ffmpeg"],
+  "mcp_servers": [{"name": "filesystem", "package": "@modelcontextprotocol/server-filesystem", "ecosystem": "npm", "harness": "claude-code", "source_file": ".mcp.json"}],
+  "harnesses": ["claude-code"],
+  "topics": ["text-to-speech", "mcp"],
+  "excluded_topics": ["crypto"],
+  "min_severity": "medium",
+  "min_score": 30
+}

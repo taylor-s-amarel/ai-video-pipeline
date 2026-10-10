@@ -469,7 +469,7 @@
       "id": "terrain3d",
       "title": "Terrain3D (TokisanGames)",
       "url": "https://github.com/TokisanGames/Terrain3D",
-      "summary": "High-performance editable terrain system for Godot 4 (C++ GDExtension), MIT.",
+      "summary": "High-performance editable terrain system for Godot 4, MIT.",
       "kind": "repository",
       "verified_on": "2026-10-10",
       "verification": "fetched",

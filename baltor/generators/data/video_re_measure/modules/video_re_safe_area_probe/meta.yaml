@@ -1,0 +1,21 @@
+title: 'Video RE: safe-area check for on-screen text'
+summary: Flags text regions that overlap zones where app UI or frame edges cover text; zone profiles are labelled assumptions
+  you can replace with measured zones.
+subkind: qa-check
+tags:
+- video
+- reverse-engineering
+- safe-area
+- platform
+- typography
+- evidence
+step_kinds:
+- measure
+- verify
+- review
+deps:
+- numpy
+internal:
+- identity: video_re_text_regions
+examples:
+- python video_re_safe_area_probe.py text_regions.json --profile auto

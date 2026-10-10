@@ -1,0 +1,80 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "video_re_palette_per_shot",
+  "title": "Video RE: palette and tone per shot",
+  "kind": "code-module",
+  "subkind": "evaluator",
+  "version": "1.0.0",
+  "summary": "Dominant colours per shot by k-means in CIE Lab with area shares, plus mean luma, contrast, saturation and warmth, for the colour-grade and palette lenses.",
+  "description": "Frames are decoded at ``sample_fps`` (default 4) and 64 px wide; every shot gets the frames inside\nit (or its middle frame when it is shorter than one sample interval). Pixels are clustered with\nk-means in CIE L*a*b* (D65, deterministic k-means++ seeding), clusters closer than ``merge_delta_e``\n(default 8) are merged, and each colour is reported as the mean sRGB of its pixels with its share of\nthe shot's area.\n\nPer shot: palette (hex, largest share first), shares, mean_luma (0-255), luma_std (contrast proxy),\nsaturation (mean HSV saturation, 0-1), warmth ((mean R - mean B) / 255, -1..1). Plus the same for the\nwhole video. Colours are measured after the video's own encoding and compression, so they shift a\nlittle from the colours the editor picked.\n\nAnalysis boundary: this module measures technique and structure (timing, layout, motion, colour, loudness, rhythm). Analysing a public video for technique is fine; republishing its content is not. Its outputs are local working evidence: keyframes, OCR text, captions and transcripts of the analysed video stay out of anything published and out of a format IR, which keeps only technique, structure and parameters - never the source's footage, frames, music, voice or script text (at most a short on-screen label quoted as an evidence note, no transcripts).",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "measure",
+    "research"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "runs ffmpeg/ffprobe as subprocesses",
+      "writes only where --out / --out-dir point (stdout otherwise)"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "video_re_palette_per_shot.py",
+  "tags": [
+    "video",
+    "reverse-engineering",
+    "palette",
+    "color",
+    "kmeans",
+    "evidence"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "ffmpeg",
+      "external": true
+    },
+    {
+      "identity": "ffprobe",
+      "external": true
+    },
+    {
+      "identity": "numpy",
+      "external": true
+    },
+    {
+      "identity": "video_re_detect_shots"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_re_measure.py",
+    "data": "generators/data/video_re_measure",
+    "parameters": {
+      "swarm_stage": "load-disassemble",
+      "evidence_spec": "baltor.video-evidence/v1"
+    }
+  },
+  "examples": [
+    "python video_re_palette_per_shot.py clip.mp4 --shots shots.json --k 5"
+  ],
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "pytest passes with Python 3.13, numpy 2.5, Pillow 12 and ffmpeg 6.1 on synthetic media with known ground truth; optional OCR/ASR engines were not installed, so their adapters were tested through fakes and parsers only."
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "video_re_audio_loudness",
+  "title": "Video RE: EBU R128 loudness, dynamics and silence",
+  "kind": "code-module",
+  "subkind": "audio-analysis",
+  "version": "1.0.0",
+  "summary": "One ffmpeg pass: integrated loudness, loudness range, true peak, short-term loudness per second, RMS and silence segments of a video's soundtrack.",
+  "description": "One ffmpeg pass runs ``ebur128=peak=true:metadata=1`` (momentary/short-term loudness every 100 ms\nand the R128 summary), ``astats`` (RMS and sample peak) and ``silencedetect``. Reported:\n\n* integrated_lufs, loudness_range (LU), lra_low/lra_high (LUFS), true_peak_dbtp - the ebur128 summary\n* rms_db, sample_peak_db - astats over all channels\n* short_term - short-term (3 s) loudness once per second, LUFS; momentary_max_lufs\n* silence - segments quieter than ``silence_db`` for at least ``silence_min_s`` and their share of\n  the running time\n\nValues are measurements of the delivered file, after any platform re-encode. For files under about\n3 s the loudness range is not meaningful. A video without an audio stream returns status\n'unavailable' and no numbers.\n\nAnalysis boundary: this module measures technique and structure (timing, layout, motion, colour, loudness, rhythm). Analysing a public video for technique is fine; republishing its content is not. Its outputs are local working evidence: keyframes, OCR text, captions and transcripts of the analysed video stay out of anything published and out of a format IR, which keeps only technique, structure and parameters - never the source's footage, frames, music, voice or script text (at most a short on-screen label quoted as an evidence note, no transcripts).",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "measure",
+    "research",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "runs ffmpeg/ffprobe as subprocesses",
+      "writes only where --out / --out-dir point (stdout otherwise)"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "video_re_audio_loudness.py",
+  "tags": [
+    "audio",
+    "reverse-engineering",
+    "loudness",
+    "ebu-r128",
+    "lufs",
+    "evidence"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "ffmpeg",
+      "external": true
+    },
+    {
+      "identity": "ffprobe",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_re_measure.py",
+    "data": "generators/data/video_re_measure",
+    "parameters": {
+      "swarm_stage": "load-disassemble",
+      "evidence_spec": "baltor.video-evidence/v1"
+    }
+  },
+  "examples": [
+    "python video_re_audio_loudness.py clip.mp4 --out loudness.json"
+  ],
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "pytest passes with Python 3.13, numpy 2.5, Pillow 12 and ffmpeg 6.1 on synthetic media with known ground truth; optional OCR/ASR engines were not installed, so their adapters were tested through fakes and parsers only."
+  }
+}

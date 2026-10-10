@@ -1,0 +1,53 @@
+{
+  "type": "background-layer",
+  "id": "bg_layer_motion_grid_2x2",
+  "name": "2x2 motion grid",
+  "version": 1,
+  "category": "composite",
+  "role": "grid-2x2",
+  "look": "Four different moving loops in a feathered 2x2 grid over a dark gradient.",
+  "render": {
+    "method": "ffmpeg-composite",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "loop_period_s": 8,
+    "filtergraph_file": "filtergraph.txt",
+    "tested_with": "FFmpeg 6.1.1"
+  },
+  "default_opacity": 0.35,
+  "default_blend": "screen",
+  "motion": {
+    "type": "loop",
+    "period_s": 8
+  },
+  "recolor": "none",
+  "use_when": [
+    "House stacks (layer 4)",
+    "busy energetic intros"
+  ],
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "grid": {
+    "preset": "grid_2x2_even_feathered",
+    "cells": [
+      "bg_layer_ocean_waves",
+      "bg_layer_meadow_wind",
+      "bg_layer_sunlit_water",
+      "bg_layer_coastal_aerial"
+    ]
+  }
+}

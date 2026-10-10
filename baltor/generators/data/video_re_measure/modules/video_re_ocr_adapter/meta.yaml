@@ -1,0 +1,35 @@
+title: 'Video RE: OCR adapter for text regions'
+summary: Reads proposed text regions with Tesseract, pytesseract or EasyOCR when installed; turns 'FACT 3' into the pattern
+  'FACT {n}'; masks words on request; unavailable otherwise.
+subkind: evaluator
+tags:
+- video
+- reverse-engineering
+- ocr
+- tesseract
+- labels
+- evidence
+step_kinds:
+- measure
+- research
+deps:
+- ffmpeg
+- ffprobe
+- numpy
+- pillow
+optional:
+- tesseract
+- pytesseract
+- easyocr
+internal:
+- identity: video_re_text_regions
+network_hosts:
+- github.com
+- '*.githubusercontent.com'
+network_note: 'only with --allow-download: EasyOCR may fetch its model weights; Tesseract never uses the network'
+examples:
+- python video_re_ocr_adapter.py clip.mp4 --regions text_regions.json --text-mode masked
+refs:
+- https://github.com/tesseract-ocr/tesseract
+- https://github.com/madmaze/pytesseract
+- https://github.com/JaidedAI/EasyOCR

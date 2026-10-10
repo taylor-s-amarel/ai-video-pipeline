@@ -1,0 +1,26 @@
+title: 'Video RE: camera pan, tilt and zoom per shot'
+summary: Global pan/tilt/zoom rates per shot from block phase correlation and a RANSAC zoom+translation fit that outvotes
+  static titles and captions; labels Ken Burns moves.
+subkind: evaluator
+tags:
+- video
+- reverse-engineering
+- camera-move
+- ken-burns
+- phase-correlation
+- evidence
+step_kinds:
+- measure
+- research
+deps:
+- ffmpeg
+- ffprobe
+- numpy
+internal:
+- identity: video_re_detect_shots
+examples:
+- python video_re_camera_motion.py clip.mp4 --shots shots.json --stride 0.2
+refs:
+- C. D. Kuglin, D. C. Hines, The phase correlation image alignment method, IEEE Conf. Cybernetics and Society, 1975
+- M. A. Fischler, R. C. Bolles, Random sample consensus, Communications of the ACM 24(6), 1981
+- 'P. H. S. Torr, A. Zisserman, MLESAC: a new robust estimator, CVIU 78(1), 2000 (MSAC scoring)'

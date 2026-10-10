@@ -1,0 +1,20 @@
+{
+  "type": "transition",
+  "id": "transition_dip_to_black",
+  "name": "Dip to black",
+  "version": 1,
+  "method": "xfade",
+  "duration_ms": 600,
+  "tempo": "standard",
+  "use_when": [
+    "End of a chapter",
+    "Before a serious reveal"
+  ],
+  "avoid_when": [
+    "Within the first 3 seconds"
+  ],
+  "xfade": "fadeblack",
+  "ffmpeg": {
+    "filter": "[a][b]xfade=transition=fadeblack:duration=0.6:offset=<A_DURATION-0.6>[v]"
+  }
+}

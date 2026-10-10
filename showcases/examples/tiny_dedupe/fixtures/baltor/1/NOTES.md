@@ -1,0 +1,1 @@
+Two rows are the same person when their normalised phone numbers (digits only, leading US country code 1 removed) or normalised emails (trimmed, lower-cased, Gmail dots and +tags removed) match. Matches are merged with union-find, so chains end up together. Name alone is never enough: two different people are called Alex Kim.

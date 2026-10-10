@@ -1,0 +1,116 @@
+collection:
+  id: updates-cloud-dev-platforms
+  title: "Developer platforms: Cloudflare, Vercel, Netlify, Supabase, Firebase, Fly.io, Render, Neon, PlanetScale, Railway, Docker, GitHub and GitLab"
+  description: "Changelog feeds, CLI release feeds and registry versions for the hosting, database and CI platforms agents deploy to. CLI releases matter because agents drive these platforms through their CLIs (wrangler, vercel, netlify, supabase, firebase, flyctl, render, pscale, railway, neonctl), and flags change. Vendor changelog pages that could not be fetched are search-verified and marked html-diff."
+  tags: [cloud, hosting, databases, ci, cli]
+  defaults: {terms: github, poll: release, feed_format: github-releases, auth: none, verification: fetched,
+             change_types: [release, breaking-change, deprecation, security]}
+
+items:
+  # ------------------------------------------------------------ Cloudflare
+  - id: cloudflare-changelog-source
+    title: "Cloudflare changelog (source commits)"
+    url: "https://developers.cloudflare.com/changelog/"
+    gh: cloudflare/cloudflare-docs
+    feed: "path:production:src/content/changelog"
+    feed_format: atom
+    poll: changelog
+    summary: "Commit feed for the folder that holds every Cloudflare changelog entry (Workers, Agents, AI Gateway, R2, D1, Zero Trust...). New entries such as '[Agents] Changelog: Cloudflare API MCP server serves Cloudflare skills' arrive as commits before the site rebuilds."
+    vendor: Cloudflare
+    products: [Cloudflare Developer Platform, Workers, Agents SDK]
+    seen: "'[Agents] Changelog: Cloudflare API MCP server serves Cloudflare skills (#34173)' on 2026-10-10"
+    change_types: [release, deprecation, breaking-change, pricing]
+  - id: cloudflare-changelog-rss-feeds
+    title: "Cloudflare changelog RSS feeds (index)"
+    url: "https://developers.cloudflare.com/fundamentals/new-features/available-rss-feeds"
+    feed_format: none
+    terms: vendor-docs
+    poll: lifecycle
+    verification: search-result
+    summary: "Cloudflare's list of official changelog RSS feeds: a global feed, feeds per product area (Developer platform, Application security...) and per product at /changelog/rss/<product>.xml. Entries carry HTML descriptions and product categories, so one feed can be filtered by category."
+    vendor: Cloudflare
+    products: [Cloudflare]
+    notes: "A companion page explains how to consume them: https://developers.cloudflare.com/fundamentals/new-features/consuming-rss-feeds. Pick the feed URLs from the index rather than guessing paths."
+  - {gh: cloudflare/workers-sdk, title: "Cloudflare workers-sdk (wrangler) releases", vendor: Cloudflare, products: [wrangler, Miniflare, create-cloudflare], seen: "@cloudflare/workers-utils@0.47.1 on 2026-10-08", summary: "Release notes for the Workers SDK monorepo, tagged per package; wrangler config keys and compatibility behaviour change here.", cautions: ["Per-package tags; the npm wrangler item gives the CLI version alone."]}
+  - {npm: wrangler, title: "npm: wrangler", vendor: Cloudflare, products: [wrangler], seen: "4.149.0", summary: "Latest wrangler CLI version on npm.", terms: npm, poll: registry}
+  # ------------------------------------------------------------ Vercel / Netlify
+  - id: vercel-changelog
+    title: "Vercel changelog"
+    url: "https://vercel.com/changelog"
+    feed_format: html-diff
+    terms: vendor-docs
+    poll: changelog
+    verification: search-result
+    summary: "Vercel's product changelog (Functions, AI Gateway, AI SDK, v0, builds, pricing). Vercel announced that people and agents can read and search the changelog from the terminal with 'vercel changelog', which is the simplest compliant way for an agent to query it."
+    vendor: Vercel
+    products: [Vercel, AI Gateway, v0]
+    change_types: [release, deprecation, breaking-change, pricing]
+    notes: "Announcement: https://vercel.com/changelog/you-can-now-read-and-search-changelogs-from-the-cli. No RSS URL was confirmed."
+  - {npm: vercel, title: "npm: vercel (CLI)", vendor: Vercel, products: [Vercel CLI], seen: "63.1.2", summary: "Latest Vercel CLI on npm. The vercel/vercel GitHub release feed had not published since 2026-07-30 while npm moved on, so use this for versions.", terms: npm, poll: registry}
+  - {gh: netlify/cli, title: "Netlify CLI releases", vendor: Netlify, products: [Netlify CLI], seen: "v27.12.0 on 2026-10-08", summary: "Release notes for the Netlify CLI (deploys, functions, dev server)."}
+  - {npm: netlify-cli, title: "npm: netlify-cli", vendor: Netlify, products: [Netlify CLI], seen: "27.12.0", summary: "Latest Netlify CLI on npm.", terms: npm, poll: registry}
+  # ------------------------------------------------------------ Supabase / Firebase / Neon / PlanetScale
+  - {gh: supabase/cli, title: "Supabase CLI releases", vendor: Supabase, products: [Supabase CLI], seen: "v2.121.0-beta.15 on 2026-10-09", summary: "Release notes for the Supabase CLI (local stack, migrations, edge functions, type generation).", cautions: ["Betas share the feed."]}
+  - {npm: supabase, title: "npm: supabase (CLI)", vendor: Supabase, products: [Supabase CLI], seen: "2.120.0", summary: "Latest stable Supabase CLI on npm.", terms: npm, poll: registry}
+  - {gh: supabase/supabase-js, title: "supabase-js releases", vendor: Supabase, products: [supabase-js], seen: "v2.118.0-canary.0 on 2026-10-09", summary: "Release notes for the Supabase JavaScript client (auth, PostgREST, realtime, storage).", cautions: ["Canary builds share the feed."]}
+  - {gh: supabase/supabase, title: "Supabase self-hosted releases", vendor: Supabase, products: [Supabase self-hosted], seen: "self-hosted/v0.8.2 on 2026-09-23", summary: "Release feed of the main Supabase repository, used for self-hosted Docker stack versions."}
+  - {gh: firebase/firebase-tools, title: "Firebase CLI releases", vendor: Google, products: [Firebase CLI], seen: "v15.33.0 on 2026-10-08", summary: "Release notes for firebase-tools (deploys, emulators, Data Connect, App Hosting)."}
+  - {npm: neonctl, title: "npm: neonctl (Neon CLI)", vendor: Neon, products: [Neon CLI], seen: "8.3.5", summary: "Latest Neon CLI on npm. Its repository field now points to neondatabase/neon-pkgs; the old neondatabase/neonctl release feed stopped at v2.27.0 in June 2026.", terms: npm, poll: registry}
+  - {gh: planetscale/cli, title: "PlanetScale CLI releases", vendor: PlanetScale, products: [pscale], seen: "v0.344.0 on 2026-10-09", summary: "Release notes for the PlanetScale CLI (branches, deploy requests, Postgres and Vitess databases)."}
+  # ------------------------------------------------------------ Fly / Render / Railway
+  - {gh: superfly/flyctl, title: "flyctl releases", vendor: Fly.io, products: [flyctl], seen: "v0.4.115 on 2026-10-08", summary: "Release notes for flyctl, the Fly.io CLI; releases several times a week."}
+  - {gh: render-oss/cli, title: "Render CLI releases", vendor: Render, products: [Render CLI], seen: "v2.28.0 on 2026-09-10", summary: "Release notes for the Render CLI."}
+  - {gh: railwayapp/cli, title: "Railway CLI releases", vendor: Railway, products: [Railway CLI], seen: "v5.64.2 on 2026-10-09", summary: "Release notes for the Railway CLI."}
+  # ------------------------------------------------------------ Docker
+  - {gh: docker/compose, title: "Docker Compose releases", vendor: Docker, products: [Docker Compose], seen: "v5.6.0 on 2026-10-02", summary: "Release notes for Docker Compose; compose file behaviour and flag changes."}
+  - {gh: moby/moby, title: "Moby (Docker Engine) releases", vendor: Docker, products: [Docker Engine], seen: "v29.9.0 on 2026-10-08", summary: "Release notes for the Moby project, the upstream of Docker Engine; security fixes and API version bumps."}
+  - {gh: docker/buildx, title: "Docker Buildx releases", vendor: Docker, products: [Buildx], seen: "v0.38.0 on 2026-10-07", summary: "Release notes for Buildx (BuildKit front end, bake, multi-platform builds)."}
+  - id: docker-desktop-release-notes-source
+    title: "Docker Desktop release notes (source commits)"
+    url: "https://docs.docker.com/desktop/release-notes/"
+    gh: docker/docs
+    feed: "path:main:content/manuals/desktop/release-notes.md"
+    feed_format: atom
+    poll: changelog
+    summary: "Commit feed for the source of the Docker Desktop release notes page; each release ('4.94-RN') arrives as a commit with its security fixes and deprecations."
+    vendor: Docker
+    products: [Docker Desktop]
+    seen: "'4.94-RN (#26214)' on 2026-10-05"
+    notes: "The human page URL is the standard docs path for this file (not fetched; docs.docker.com was unreachable)."
+  - id: docker-blog-feed
+    title: "Docker blog"
+    url: "https://www.docker.com/blog/"
+    feed_url: "https://www.docker.com/feed/"
+    feed_format: rss
+    terms: vendor-feed
+    poll: changelog
+    summary: "Docker's blog RSS (product launches, Docker MCP Toolkit and agent features, security notices). https://www.docker.com/blog/feed/ redirects to this feed."
+    vendor: Docker
+    products: [Docker]
+    seen: "'Trust Docker for the agents you don't' on 2026-10-01"
+    change_types: [release, security, docs]
+  # ------------------------------------------------------------ GitHub / GitLab
+  - id: github-changelog
+    title: "GitHub changelog"
+    url: "https://github.blog/changelog/"
+    feed_url: "https://github.blog/changelog/feed/"
+    feed_format: rss
+    terms: vendor-feed
+    poll: release
+    verification: search-result
+    summary: "GitHub's product changelog (Actions, Copilot, code security, API deprecations). Every label has its own RSS feed, so subscribe to the labels a project depends on rather than the whole stream."
+    vendor: GitHub
+    products: [GitHub, GitHub Actions, GitHub Copilot]
+    change_types: [release, deprecation, breaking-change, security]
+    notes: "Per-label feeds exist (the 'feed' label page reads 'Subscribe to all \"feed\" posts via RSS'); the main feed is also listed in community-ai-oss-voices as a voice; here it is filtered for platform changes."
+  - id: gitlab-tags-feed
+    title: "GitLab (gitlab-org/gitlab) tags"
+    url: "https://gitlab.com/gitlab-org/gitlab/-/tags"
+    feed_url: "https://gitlab.com/gitlab-org/gitlab/-/tags?format=atom"
+    feed_format: atom
+    terms: vendor-feed
+    summary: "Atom feed of GitLab release tags (CE/EE, including security patch releases). gitlab.com does not serve a releases.atom for this project (404 on 2026-10-10), so tags are the machine signal."
+    vendor: GitLab
+    products: [GitLab]
+    seen: "v19.2.7-ee on 2026-09-22"
+    cautions: ["WebFetch got HTTP 429 from gitlab.com while curl succeeded; poll slowly and identify your client."]

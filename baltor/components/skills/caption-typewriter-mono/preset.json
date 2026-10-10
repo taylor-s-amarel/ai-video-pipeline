@@ -1,0 +1,107 @@
+{
+  "type": "caption-style",
+  "id": "caption_typewriter_mono",
+  "name": "Typewriter captions on paper",
+  "version": 1,
+  "house": false,
+  "font": {
+    "family": "Courier Prime",
+    "weight": 700,
+    "licence": "OFL-1.1",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/courierprime/CourierPrime-Bold.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/courierprime/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Courier+Prime",
+    "size_px": 50,
+    "min_size_px": 42,
+    "case": "as-written",
+    "avg_char_em": 0.6
+  },
+  "fill": "#2B1D12",
+  "stroke": {
+    "color": "#FFF8EC",
+    "width_px": 0
+  },
+  "backing": {
+    "type": "solid",
+    "tint": "#FFF8EC",
+    "opacity": 0.78,
+    "blur_px": 0,
+    "radius_px": 6,
+    "padding_px": [
+      16,
+      28
+    ],
+    "feather_px": 4
+  },
+  "layout": {
+    "center_y_fraction": 0.749,
+    "max_width_fraction": 0.88,
+    "max_lines": 2,
+    "max_words": 10,
+    "max_chars": 29,
+    "align": "left"
+  },
+  "emphasis": {
+    "mode": "underline",
+    "scale_peak": 1.0,
+    "duration_ms": 0,
+    "easing": "linear",
+    "color": "#9E3510"
+  },
+  "timing": {
+    "sync_tolerance_ms": 200,
+    "min_on_screen_ms": 1200,
+    "max_on_screen_ms": 5000
+  },
+  "animation_in": "text_anim_typewriter",
+  "palette": "palette_warm_paper_sepia",
+  "contrast": {
+    "text": {
+      "basis": "panel-worst-case",
+      "fg": "#2B1D12",
+      "bg": "#FFF8EC",
+      "opacity": 0.78,
+      "ratio": 9.15,
+      "required": 3.0,
+      "size_px": 42,
+      "weight": 700,
+      "level": "AAA"
+    },
+    "underline": {
+      "basis": "panel-worst-case",
+      "fg": "#9E3510",
+      "bg": "#FFF8EC",
+      "opacity": 0.78,
+      "ratio": 3.96,
+      "required": 3.0,
+      "level": "AA"
+    }
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "reference_size": [
+    1080,
+    1920
+  ],
+  "use_when": [
+    "Today-in-history",
+    "Letters and diaries",
+    "Archive documents"
+  ],
+  "avoid_when": [
+    "Fast narration (characters appear at 18 per second)"
+  ]
+}

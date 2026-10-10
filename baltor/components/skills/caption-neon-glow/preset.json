@@ -1,0 +1,117 @@
+{
+  "type": "caption-style",
+  "id": "caption_neon_glow",
+  "name": "Neon glow captions",
+  "version": 1,
+  "house": false,
+  "font": {
+    "family": "Righteous",
+    "weight": 400,
+    "licence": "OFL-1.1",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/righteous/Righteous-Regular.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/righteous/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Righteous",
+    "size_px": 60,
+    "min_size_px": 48,
+    "case": "as-written",
+    "avg_char_em": 0.458
+  },
+  "fill": "#FFFFFF",
+  "stroke": {
+    "color": "#0B0221",
+    "width_px": 0
+  },
+  "backing": {
+    "type": "frosted-glass",
+    "tint": "#12062B",
+    "opacity": 0.66,
+    "blur_px": 30,
+    "radius_px": 22,
+    "padding_px": [
+      20,
+      34
+    ],
+    "feather_px": 18
+  },
+  "layout": {
+    "center_y_fraction": 0.76,
+    "max_width_fraction": 0.88,
+    "max_lines": 1,
+    "max_words": 6,
+    "max_chars": 32,
+    "align": "center"
+  },
+  "emphasis": {
+    "mode": "glow",
+    "scale_peak": 1.08,
+    "duration_ms": 200,
+    "easing": "ease-out",
+    "color": "#00F0FF"
+  },
+  "timing": {
+    "sync_tolerance_ms": 150,
+    "min_on_screen_ms": 700,
+    "max_on_screen_ms": 3000
+  },
+  "animation_in": "text_anim_blur_in_focus",
+  "palette": "palette_neon_night",
+  "contrast": {
+    "text": {
+      "basis": "panel-worst-case",
+      "fg": "#FFFFFF",
+      "bg": "#12062B",
+      "opacity": 0.66,
+      "ratio": 6.44,
+      "required": 4.5,
+      "size_px": 48,
+      "weight": 400,
+      "level": "AAA"
+    },
+    "keyword": {
+      "basis": "panel-worst-case",
+      "fg": "#00F0FF",
+      "bg": "#12062B",
+      "opacity": 0.66,
+      "ratio": 4.57,
+      "required": 4.5,
+      "size_px": 48,
+      "weight": 400,
+      "level": "AAA"
+    }
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "reference_size": [
+    1080,
+    1920
+  ],
+  "use_when": [
+    "AI and tech explainers",
+    "Synthwave and night looks"
+  ],
+  "avoid_when": [
+    "Light palettes (a glow needs darkness around it)"
+  ],
+  "shadow": {
+    "color": "#FF2E97",
+    "opacity": 0.85,
+    "blur_px": 18,
+    "offset_px": [
+      0,
+      0
+    ]
+  }
+}

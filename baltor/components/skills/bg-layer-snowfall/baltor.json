@@ -1,0 +1,68 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "bg_layer_snowfall",
+  "title": "Snowfall",
+  "kind": "skill",
+  "subkind": "background-layer",
+  "version": "1.0.0",
+  "summary": "Three depths of snowflakes falling at different speeds. Seamless 8 s ffmpeg loop at 1080x1920.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "render",
+    "design"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "runs ffmpeg/ffprobe commands from SKILL.md that write render files into the working directory",
+      "scripts/check_preset.py reads preset.json and schema.json"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "video",
+    "shorts",
+    "background",
+    "ffmpeg",
+    "procedural",
+    "loop",
+    "snowfall",
+    "procedural-particles",
+    "calm",
+    "nature",
+    "history"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "background_layer_preset_schema"
+    },
+    {
+      "identity": "short_style_preset_kit"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_styles.py",
+    "data": "generators/data/video_styles"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "headless-tested",
+  "evidence_notes": "Preset validated against its schema by the generator; contrast and opacity rules computed. No render recorded for this exact preset."
+}

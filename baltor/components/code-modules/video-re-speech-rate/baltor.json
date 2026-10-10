@@ -1,0 +1,82 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "video_re_speech_rate",
+  "title": "Video RE: narration speaking rate",
+  "kind": "code-module",
+  "subkind": "audio-analysis",
+  "version": "1.0.0",
+  "summary": "Words per minute of speaking time, overall and articulation rate and pauses from word timestamps; otherwise a labelled syllable-count estimate from the audio.",
+  "description": "Method 'transcript' (preferred) uses word time stamps:\n\n* speech_wpm = words / speaking time, where speaking time runs from the first word's start to the\n  last word's end minus pauses longer than ``long_pause_s`` (1.0 s): words per minute while talking\n* overall_wpm = words / (last end - first start)\n* articulation_wpm = words / sum of word durations\n* pauses between words of at least ``pause_s`` (0.3 s): count, mean, longest, pause_ratio\n\nWord times that were only spread evenly over subtitle lines (``estimated`` in the transcript) give\nthe same wpm but no real pause data; the result says so.\n\nMethod 'syllable-estimate' needs no transcript: syllable nuclei are counted as peaks of the\n300-3000 Hz energy envelope (10 ms frames, 40 ms smoothing, at least 100 ms apart, at least 4 dB\nabove the surrounding dip and 12 dB above the noise floor) and\n\n    speech_wpm ~= syllables per second of voiced time x 60 / 1.5\n\nThe 1.5 syllables per word is an assumption for English narration, so this is an estimate (expect\nroughly +-25%) and is reported with method 'syllable-estimate' and confidence 0.4.\n\nAnalysis boundary: this module measures technique and structure (timing, layout, motion, colour, loudness, rhythm). Analysing a public video for technique is fine; republishing its content is not. Its outputs are local working evidence: keyframes, OCR text, captions and transcripts of the analysed video stay out of anything published and out of a format IR, which keeps only technique, structure and parameters - never the source's footage, frames, music, voice or script text (at most a short on-screen label quoted as an evidence note, no transcripts).",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "measure",
+    "research",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "runs ffmpeg/ffprobe as subprocesses",
+      "writes only where --out / --out-dir point (stdout otherwise)"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "video_re_speech_rate.py",
+  "tags": [
+    "audio",
+    "reverse-engineering",
+    "speech-rate",
+    "wpm",
+    "narration",
+    "evidence"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "ffmpeg",
+      "external": true
+    },
+    {
+      "identity": "ffprobe",
+      "external": true
+    },
+    {
+      "identity": "numpy",
+      "external": true
+    },
+    {
+      "identity": "video_re_transcribe_adapter"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_re_measure.py",
+    "data": "generators/data/video_re_measure",
+    "parameters": {
+      "swarm_stage": "load-disassemble",
+      "evidence_spec": "baltor.video-evidence/v1"
+    }
+  },
+  "examples": [
+    "python video_re_speech_rate.py --transcript transcript.json",
+    "python video_re_speech_rate.py clip.mp4"
+  ],
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "pytest passes with Python 3.13, numpy 2.5, Pillow 12 and ffmpeg 6.1 on synthetic media with known ground truth; optional OCR/ASR engines were not installed, so their adapters were tested through fakes and parsers only."
+  }
+}

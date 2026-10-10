@@ -1,0 +1,55 @@
+collection:
+  id: updates-cloud-api-contracts
+  title: "API contracts: OpenAPI specs, SDK releases and API version histories"
+  description: "Machine-readable API contracts and version histories for services that application code calls directly: Stripe's OpenAPI releases and API upgrade log, Twilio's OpenAPI and SDK releases, GitHub's REST API description, Cloudflare's API schemas and the YouTube Data API revision history. A spec commit or release is the earliest reliable signal that an endpoint, field or enum changed; diff the spec, then read the human changelog."
+  tags: [api, openapi, sdk, payments, messaging]
+  defaults: {terms: github, poll: release, feed_format: github-releases, auth: none, verification: fetched,
+             change_types: [release, breaking-change, deprecation]}
+
+items:
+  - {gh: stripe/openapi, title: "Stripe OpenAPI specification releases", vendor: Stripe, products: [Stripe API], seen: "v2556 on 2026-10-10", summary: "Numbered releases of Stripe's OpenAPI specification; each new API version and every new field or endpoint appears here first, often several times a week."}
+  - id: stripe-api-upgrades
+    title: "Stripe API upgrades"
+    url: "https://docs.stripe.com/upgrades"
+    feed_format: html-diff
+    terms: vendor-docs
+    poll: changelog
+    verification: search-result
+    summary: "Stripe's API upgrade guide and log: each account is pinned to an API version; major releases (named, such as Acacia) contain breaking changes, while monthly releases under the same name are backward compatible. Test a newer version per request with the Stripe-Version header."
+    vendor: Stripe
+    products: [Stripe API]
+    notes: "Markdown variant: https://docs.stripe.com/upgrades.md (seen in search results). The full changelog is linked from this page."
+  - {gh: stripe/stripe-python, title: "stripe-python releases", vendor: Stripe, products: [stripe (PyPI)], seen: "v16.1.0a2 on 2026-10-08", summary: "Release notes for Stripe's Python library; each major version pins a new API version.", cautions: ["Alpha/beta releases for preview API versions share the feed."]}
+  - {gh: stripe/stripe-node, title: "stripe-node releases", vendor: Stripe, products: [stripe (npm)], seen: "v23.1.0-alpha.2 on 2026-10-08", summary: "Release notes for Stripe's Node library.", cautions: ["Alpha/beta releases share the feed."]}
+  - {gh: twilio/twilio-oai, title: "Twilio OpenAPI specification releases", vendor: Twilio, products: [Twilio APIs], seen: "2.9.0 on 2026-10-06", summary: "Releases of Twilio's OpenAPI definitions, listing API changes per product (Messaging, Voice, Verify, Content...) for each release."}
+  - {gh: twilio/twilio-python, title: "twilio-python releases", vendor: Twilio, products: [twilio (PyPI)], seen: "9.11.2 on 2026-09-28", summary: "Release notes for Twilio's Python helper library, generated from the OpenAPI definitions."}
+  - id: github-rest-api-description-commits
+    title: "GitHub REST API description commits"
+    gh: github/rest-api-description
+    feed: "commits:main"
+    feed_format: atom
+    summary: "Commit feed of GitHub's OpenAPI description of the REST API; automated 'openapi-update' merges carry every new endpoint, parameter and deprecation. The repository's GitHub releases stopped in 2022, so the commit feed is the live signal."
+    vendor: GitHub
+    products: [GitHub REST API]
+    seen: "openapi-update merge (#7297) on 2026-10-10"
+  - id: cloudflare-api-schemas-commits
+    title: "Cloudflare API schemas commits"
+    gh: cloudflare/api-schemas
+    feed: "commits:main"
+    feed_format: atom
+    summary: "Commit feed of Cloudflare's published OpenAPI schemas for the Cloudflare API; 'Update schema: openapi.json' commits show endpoint changes that wrangler, Terraform and SDKs follow."
+    vendor: Cloudflare
+    products: [Cloudflare API]
+    seen: "'Update schema: openapi.json' on 2026-10-09"
+  - id: youtube-data-api-revision-history
+    title: "YouTube Data API revision history"
+    url: "https://developers.google.com/youtube/v3/revision_history"
+    feed_format: html-diff
+    terms: vendor-docs
+    poll: lifecycle
+    verification: search-result
+    summary: "Dated changes to the YouTube Data API v3: new properties (status.containsSyntheticMedia for altered or synthetic content), deprecated methods and quota changes, including the 2025-12-04 cut in video upload cost from about 1,600 to about 100 quota units. Relevant to any pipeline that uploads videos."
+    vendor: Google
+    products: [YouTube Data API]
+    change_types: [breaking-change, deprecation, policy, pricing]
+    notes: "The page offers a changelog subscription; use it, or diff the page weekly."

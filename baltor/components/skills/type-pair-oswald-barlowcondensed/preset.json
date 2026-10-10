@@ -1,0 +1,68 @@
+{
+  "type": "typography",
+  "id": "type_pair_oswald_barlowcondensed",
+  "name": "Oswald + Barlow Condensed",
+  "version": 1,
+  "display": {
+    "family": "Oswald",
+    "weight": 700,
+    "licence": "OFL-1.1",
+    "file": "Oswald[wght].ttf",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/oswald/Oswald%5Bwght%5D.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/oswald/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Oswald",
+    "category": "sans-serif",
+    "case": "upper",
+    "avg_char_em": 0.475,
+    "variable_axes": {
+      "wght": [
+        200.0,
+        700.0
+      ]
+    }
+  },
+  "text": {
+    "family": "Barlow Condensed",
+    "weight": 700,
+    "licence": "OFL-1.1",
+    "file": "BarlowCondensed-Bold.ttf",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/barlowcondensed/BarlowCondensed-Bold.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/barlowcondensed/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Barlow+Condensed",
+    "category": "sans-serif",
+    "case": "as-written",
+    "avg_char_em": 0.357
+  },
+  "sizes": {
+    "title_px": 96,
+    "caption_px": 64,
+    "min_caption_px": 52,
+    "label_px": 56,
+    "number_px": 130
+  },
+  "chars_per_line": {
+    "title": 19,
+    "caption": 38
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "mood": [
+    "energetic",
+    "news",
+    "history"
+  ],
+  "why": "Condensed sports-poster feel; fits more words per line in narrow frames."
+}

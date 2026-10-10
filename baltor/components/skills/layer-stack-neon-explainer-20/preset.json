@@ -1,0 +1,407 @@
+{
+  "type": "layer-stack",
+  "id": "layer_stack_neon_explainer_20",
+  "name": "Neon explainer 20-layer stack",
+  "version": 1,
+  "house": false,
+  "summary": "Synthwave grid, scanlines and glow around a screen or photo for AI and tech explainers.",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "theme": "night_city",
+  "palette": "palette_neon_night",
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "layers": [
+    {
+      "z": 1,
+      "id": "base_gradient",
+      "role": "base",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_gradient_drift"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "drift"
+      }
+    },
+    {
+      "z": 2,
+      "id": "neon_grid",
+      "role": "background-video",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_neon_grid"
+      },
+      "opacity": 0.9,
+      "blend": "normal",
+      "motion": {
+        "type": "loop"
+      }
+    },
+    {
+      "z": 3,
+      "id": "facets",
+      "role": "texture",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_lowpoly_facets"
+      },
+      "opacity": 0.2,
+      "blend": "soft-light",
+      "motion": {
+        "type": "drift"
+      }
+    },
+    {
+      "z": 4,
+      "id": "motion_grid",
+      "role": "grid-2x2",
+      "source": {
+        "kind": "component",
+        "ref": "grid_2x2_tight_mosaic",
+        "cells": [
+          "bg_layer_neon_grid",
+          "bg_layer_crt_scanlines",
+          "bg_layer_pixel_sky_parallax",
+          "bg_layer_lava_blobs"
+        ]
+      },
+      "opacity": 0.25,
+      "blend": "screen",
+      "motion": {
+        "type": "loop"
+      }
+    },
+    {
+      "z": 5,
+      "id": "haze",
+      "role": "haze",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_atmospheric_haze"
+      },
+      "opacity": 0.18,
+      "blend": "screen",
+      "motion": {
+        "type": "drift"
+      }
+    },
+    {
+      "z": 6,
+      "id": "light_leaks",
+      "role": "light",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_light_leaks"
+      },
+      "opacity": 0.3,
+      "blend": "screen",
+      "motion": {
+        "type": "drift"
+      }
+    },
+    {
+      "z": 7,
+      "id": "bokeh",
+      "role": "particles",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_bokeh_drift"
+      },
+      "opacity": 0.25,
+      "blend": "screen",
+      "motion": {
+        "type": "rise"
+      }
+    },
+    {
+      "z": 8,
+      "id": "vignette",
+      "role": "vignette",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_vignette_breathe"
+      },
+      "opacity": 0.5,
+      "blend": "multiply",
+      "motion": {
+        "type": "pulse"
+      }
+    },
+    {
+      "z": 9,
+      "id": "photo_glow",
+      "role": "light",
+      "source": {
+        "kind": "effect",
+        "ref": "fx:rim_light"
+      },
+      "opacity": 0.35,
+      "blend": "screen",
+      "motion": {
+        "type": "follow"
+      },
+      "details": {
+        "follows": "photo"
+      }
+    },
+    {
+      "z": 10,
+      "id": "photo",
+      "role": "photo",
+      "source": {
+        "kind": "asset",
+        "ref": "photo"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "ken-burns"
+      },
+      "rect": {
+        "x": 0.05,
+        "y": 0.16,
+        "w": 0.9,
+        "h": 0.52
+      },
+      "feather_px": 24,
+      "corner_radius_px": 28,
+      "details": {
+        "camera": "camera_push_in_fast"
+      }
+    },
+    {
+      "z": 11,
+      "id": "photo_scanlines",
+      "role": "overlay",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_crt_scanlines"
+      },
+      "opacity": 0.15,
+      "blend": "overlay",
+      "motion": {
+        "type": "loop"
+      },
+      "rect": {
+        "x": 0.05,
+        "y": 0.16,
+        "w": 0.9,
+        "h": 0.52
+      }
+    },
+    {
+      "z": 12,
+      "id": "title_panel",
+      "role": "panel",
+      "source": {
+        "kind": "effect",
+        "ref": "panel:title"
+      },
+      "opacity": 0.66,
+      "blend": "normal",
+      "motion": {
+        "type": "static"
+      },
+      "details": {
+        "backing": "frosted-glass"
+      }
+    },
+    {
+      "z": 13,
+      "id": "title_text",
+      "role": "title",
+      "source": {
+        "kind": "component",
+        "ref": "title_neon_sign_hook"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "keyframed"
+      },
+      "details": {
+        "animation": "text_anim_blur_in_focus"
+      }
+    },
+    {
+      "z": 14,
+      "id": "title_glow",
+      "role": "light",
+      "source": {
+        "kind": "effect",
+        "ref": "fx:text_glow"
+      },
+      "opacity": 0.6,
+      "blend": "screen",
+      "motion": {
+        "type": "keyframed"
+      },
+      "details": {
+        "follows": "title_text"
+      }
+    },
+    {
+      "z": 15,
+      "id": "caption_panel",
+      "role": "panel",
+      "source": {
+        "kind": "effect",
+        "ref": "panel:caption"
+      },
+      "opacity": 0.66,
+      "blend": "normal",
+      "motion": {
+        "type": "static"
+      },
+      "details": {
+        "backing": "frosted-glass"
+      }
+    },
+    {
+      "z": 16,
+      "id": "caption_text",
+      "role": "caption",
+      "source": {
+        "kind": "component",
+        "ref": "caption_neon_glow"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "keyframed"
+      },
+      "details": {
+        "animation": "text_anim_blur_in_focus"
+      }
+    },
+    {
+      "z": 17,
+      "id": "caption_keyword",
+      "role": "caption",
+      "source": {
+        "kind": "component",
+        "ref": "text_anim_keyword_pop_house"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "keyframed"
+      }
+    },
+    {
+      "z": 18,
+      "id": "scanlines",
+      "role": "overlay",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_crt_scanlines"
+      },
+      "opacity": 0.12,
+      "blend": "overlay",
+      "motion": {
+        "type": "loop"
+      }
+    },
+    {
+      "z": 19,
+      "id": "global_grain",
+      "role": "grain",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_film_grain"
+      },
+      "opacity": 0.06,
+      "blend": "overlay",
+      "motion": {
+        "type": "loop"
+      }
+    },
+    {
+      "z": 20,
+      "id": "transition_flash",
+      "role": "transition",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_light_leaks"
+      },
+      "opacity": 0.5,
+      "blend": "screen",
+      "motion": {
+        "type": "keyframed"
+      },
+      "opacity_keyframes": [
+        [
+          0,
+          0.0
+        ],
+        [
+          0.15,
+          0.5
+        ],
+        [
+          0.3,
+          0.0
+        ]
+      ],
+      "details": {
+        "at": "each cut"
+      }
+    }
+  ],
+  "rules": {
+    "max_layer_opacity": 0.98,
+    "min_layers": 5
+  },
+  "effects": {
+    "rim_light": "The photo's feathered mask, blurred 24-40 px and filled with the palette light colour, screened behind the photo edge.",
+    "text_glow": "The title's own alpha blurred 18 px and tinted with the palette accent."
+  },
+  "background_render": {
+    "filtergraph_file": "background_filtergraph.txt",
+    "loop_period_s": 8,
+    "included_layers": [
+      "base_gradient",
+      "neon_grid",
+      "facets",
+      "motion_grid",
+      "haze",
+      "light_leaks",
+      "bokeh",
+      "vignette",
+      "scanlines",
+      "global_grain"
+    ],
+    "rendered_separately": [
+      "photo_glow",
+      "photo",
+      "photo_scanlines",
+      "title_panel",
+      "title_text",
+      "title_glow",
+      "caption_panel",
+      "caption_text",
+      "caption_keyword",
+      "transition_flash"
+    ],
+    "note": "The background graph renders every full-frame procedural layer. Photo, panels, text, effects and cut-timed layers are composited afterwards in z order."
+  }
+}

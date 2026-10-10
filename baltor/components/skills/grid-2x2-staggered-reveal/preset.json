@@ -1,0 +1,99 @@
+{
+  "type": "grid-system",
+  "id": "grid_2x2_staggered_reveal",
+  "name": "Staggered reveal",
+  "version": 1,
+  "rows": 2,
+  "cols": 2,
+  "gutter_px": 20,
+  "margin_px": 24,
+  "feather_px": 24,
+  "corner_radius_px": 20,
+  "cells": [
+    {
+      "source": "bg_layer_ocean_waves",
+      "opacity": 0.4,
+      "start_offset_s": 0.0,
+      "reveal_delay_s": 0.0
+    },
+    {
+      "source": "bg_layer_meadow_wind",
+      "opacity": 0.4,
+      "start_offset_s": 1.0,
+      "reveal_delay_s": 0.25
+    },
+    {
+      "source": "bg_layer_sunlit_water",
+      "opacity": 0.4,
+      "start_offset_s": 2.0,
+      "reveal_delay_s": 0.5
+    },
+    {
+      "source": "bg_layer_coastal_aerial",
+      "opacity": 0.4,
+      "start_offset_s": 3.0,
+      "reveal_delay_s": 0.75
+    }
+  ],
+  "placement": {
+    "as": "background-layer",
+    "blend": "normal",
+    "layer_opacity": 0.98
+  },
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "rects": [
+    [
+      24,
+      24,
+      506,
+      926
+    ],
+    [
+      550,
+      24,
+      506,
+      926
+    ],
+    [
+      24,
+      970,
+      506,
+      926
+    ],
+    [
+      550,
+      970,
+      506,
+      926
+    ]
+  ],
+  "render": {
+    "filtergraph_file": "filtergraph.txt",
+    "standalone": true,
+    "inputs": "none (procedural cells and base gradient are generated inside the graph)"
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "use_when": [
+    "Intros (cells appear one by one)",
+    "List openers"
+  ],
+  "cell_set": "nature"
+}

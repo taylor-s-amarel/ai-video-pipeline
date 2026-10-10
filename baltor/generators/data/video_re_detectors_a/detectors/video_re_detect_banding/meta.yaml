@@ -1,0 +1,13 @@
+title: Detect gradient banding
+summary: Finds posterised steps in smooth gradients by comparing the distinct code values in smooth-ramp blocks with their range (effective step in code values), on raw Y codes, with banded regions and band width.
+description: >-
+  Smooth ramps are 48 px blocks with a gentle planar gradient and little residual. A clean or dithered ramp holds
+  about one code value per step; posterised ramps hold far fewer. Banded blocks are merged into regions; the band
+  width along the gradient is reported.
+tags: [banding, posterization, gradients, bit-depth, artifacts]
+limits:
+  - Inherent 8-bit steps are not counted as banding (flat_run_px shows their width).
+  - Noise and dither hide banding.
+contract:
+  title: Banding payload
+  summary: JSON Schema for the banding payload - banded share of smooth-ramp blocks, effective step in code values, band width, block counts and regions.

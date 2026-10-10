@@ -1,0 +1,112 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "layer_stack_neon_explainer_20",
+  "title": "Neon explainer 20-layer stack",
+  "kind": "skill",
+  "subkind": "layer-stack",
+  "version": "1.0.0",
+  "summary": "20-layer stack, theme night_city, 1080x1920; all layers <= 98% opacity with a moving background.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "render",
+    "design"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "runs ffmpeg/ffprobe commands from SKILL.md that write render files into the working directory",
+      "scripts/check_preset.py reads preset.json and schema.json"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "video",
+    "shorts",
+    "layers",
+    "compositing",
+    "ffmpeg",
+    "neon-explainer-20",
+    "20-layers"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "layer_stack_preset_schema"
+    },
+    {
+      "identity": "short_style_preset_kit"
+    },
+    {
+      "identity": "palette_neon_night"
+    },
+    {
+      "identity": "bg_layer_gradient_drift"
+    },
+    {
+      "identity": "bg_layer_neon_grid"
+    },
+    {
+      "identity": "bg_layer_lowpoly_facets"
+    },
+    {
+      "identity": "grid_2x2_tight_mosaic"
+    },
+    {
+      "identity": "bg_layer_atmospheric_haze"
+    },
+    {
+      "identity": "bg_layer_light_leaks"
+    },
+    {
+      "identity": "bg_layer_bokeh_drift"
+    },
+    {
+      "identity": "bg_layer_vignette_breathe"
+    },
+    {
+      "identity": "bg_layer_crt_scanlines"
+    },
+    {
+      "identity": "title_neon_sign_hook"
+    },
+    {
+      "identity": "caption_neon_glow"
+    },
+    {
+      "identity": "text_anim_keyword_pop_house"
+    },
+    {
+      "identity": "bg_layer_film_grain"
+    },
+    {
+      "identity": "camera_push_in_fast"
+    },
+    {
+      "identity": "text_anim_blur_in_focus"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_styles.py",
+    "data": "generators/data/video_styles"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "headless-tested",
+  "evidence_notes": "Preset validated against its schema by the generator; contrast and opacity rules computed. No render recorded for this exact preset."
+}

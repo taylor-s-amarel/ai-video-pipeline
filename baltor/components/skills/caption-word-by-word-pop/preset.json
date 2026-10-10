@@ -1,0 +1,99 @@
+{
+  "type": "caption-style",
+  "id": "caption_word_by_word_pop",
+  "name": "One big word at a time",
+  "version": 1,
+  "house": false,
+  "font": {
+    "family": "Anton",
+    "weight": 400,
+    "licence": "OFL-1.1",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/anton/Anton-Regular.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/anton/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Anton",
+    "size_px": 120,
+    "min_size_px": 96,
+    "case": "upper",
+    "avg_char_em": 0.419
+  },
+  "fill": "#FFFFFF",
+  "stroke": {
+    "color": "#000000",
+    "width_px": 10
+  },
+  "backing": {
+    "type": "none"
+  },
+  "layout": {
+    "center_y_fraction": 0.55,
+    "max_width_fraction": 0.86,
+    "max_lines": 1,
+    "max_words": 1,
+    "max_chars": 18,
+    "align": "center"
+  },
+  "emphasis": {
+    "mode": "color",
+    "scale_peak": 1.0,
+    "duration_ms": 0,
+    "easing": "linear",
+    "color": "#FFD21F"
+  },
+  "timing": {
+    "sync_tolerance_ms": 80,
+    "min_on_screen_ms": 180,
+    "max_on_screen_ms": 900
+  },
+  "animation_in": "text_anim_springy_pop_overshoot",
+  "palette": "palette_house_yellow_night",
+  "contrast": {
+    "text": {
+      "basis": "stroke",
+      "fg": "#FFFFFF",
+      "bg": "#000000",
+      "ratio": 21.0,
+      "required": 4.5,
+      "size_px": 96,
+      "weight": 400,
+      "level": "AAA",
+      "stroke_px": 10
+    },
+    "keyword": {
+      "basis": "stroke",
+      "fg": "#FFD21F",
+      "bg": "#000000",
+      "ratio": 14.49,
+      "required": 4.5,
+      "size_px": 96,
+      "weight": 400,
+      "level": "AAA",
+      "stroke_px": 10
+    }
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "reference_size": [
+    1080,
+    1920
+  ],
+  "use_when": [
+    "Hype intros and hooks",
+    "Short emphatic sentences"
+  ],
+  "avoid_when": [
+    "Narration faster than about 3 words per second (words flash too briefly)"
+  ]
+}

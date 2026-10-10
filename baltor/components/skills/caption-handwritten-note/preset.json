@@ -1,0 +1,107 @@
+{
+  "type": "caption-style",
+  "id": "caption_handwritten_note",
+  "name": "Handwritten note captions",
+  "version": 1,
+  "house": false,
+  "font": {
+    "family": "Patrick Hand",
+    "weight": 400,
+    "licence": "OFL-1.1",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/patrickhand/PatrickHand-Regular.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/patrickhand/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Patrick+Hand",
+    "size_px": 64,
+    "min_size_px": 52,
+    "case": "as-written",
+    "avg_char_em": 0.35
+  },
+  "fill": "#10230F",
+  "stroke": {
+    "color": "#FFFFFF",
+    "width_px": 0
+  },
+  "backing": {
+    "type": "scrim",
+    "tint": "#FFFFFF",
+    "opacity": 0.8,
+    "blur_px": 0,
+    "radius_px": 18,
+    "padding_px": [
+      14,
+      28
+    ],
+    "feather_px": 22
+  },
+  "layout": {
+    "center_y_fraction": 0.762,
+    "max_width_fraction": 0.86,
+    "max_lines": 1,
+    "max_words": 7,
+    "max_chars": 38,
+    "align": "center"
+  },
+  "emphasis": {
+    "mode": "underline",
+    "scale_peak": 1.0,
+    "duration_ms": 0,
+    "easing": "linear",
+    "color": "#1E5E12"
+  },
+  "timing": {
+    "sync_tolerance_ms": 150,
+    "min_on_screen_ms": 800,
+    "max_on_screen_ms": 3200
+  },
+  "animation_in": "text_anim_mask_reveal_up",
+  "palette": "palette_meadow_morning",
+  "contrast": {
+    "text": {
+      "basis": "panel-worst-case",
+      "fg": "#10230F",
+      "bg": "#FFFFFF",
+      "opacity": 0.8,
+      "ratio": 10.3,
+      "required": 4.5,
+      "size_px": 52,
+      "weight": 400,
+      "level": "AAA"
+    },
+    "underline": {
+      "basis": "panel-worst-case",
+      "fg": "#1E5E12",
+      "bg": "#FFFFFF",
+      "opacity": 0.8,
+      "ratio": 4.9,
+      "required": 3.0,
+      "level": "AA"
+    }
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "reference_size": [
+    1080,
+    1920
+  ],
+  "use_when": [
+    "Stick-figure and doodle stories",
+    "Personal tips"
+  ],
+  "avoid_when": [
+    "Serious or formal topics"
+  ],
+  "notes": "Patrick Hand has one weight; its contrast check uses the regular-weight threshold (4.5:1)."
+}

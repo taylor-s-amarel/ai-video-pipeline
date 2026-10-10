@@ -1,0 +1,71 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "type_pair_sharetech_plex",
+  "title": "Share Tech Mono + IBM Plex Sans",
+  "kind": "skill",
+  "subkind": "typography",
+  "version": "1.0.0",
+  "summary": "Share Tech Mono + IBM Plex Sans (OFL-1.1/OFL-1.1) at 1080x1920: sizes and characters per line.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "design",
+    "build"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "declared",
+    "executes": "python",
+    "secrets": [],
+    "hosts": [
+      "raw.githubusercontent.com"
+    ],
+    "side_effects": [
+      "downloads font files from the google/fonts repository on GitHub",
+      "runs ffmpeg and scripts/check_preset.py"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "video",
+    "shorts",
+    "fonts",
+    "typography",
+    "ofl",
+    "google-fonts",
+    "share-tech-mono",
+    "ibm-plex-sans",
+    "science",
+    "tech",
+    "education"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "typography_pairing_schema"
+    },
+    {
+      "identity": "short_style_preset_kit"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_styles.py",
+    "data": "generators/data/video_styles"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "headless-tested",
+  "evidence_notes": "Font names, licences and file URLs read from google/fonts and fetched (HTTP 200) on 2026-10-10; widths measured with Pillow; preset validated."
+}

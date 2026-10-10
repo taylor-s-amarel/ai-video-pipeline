@@ -1,0 +1,10 @@
+{
+  "arm": "baseline",
+  "trial": 4,
+  "harness": "manual",
+  "harness_version": "external (fixture)",
+  "model_reported": "example-model",
+  "started_at": "2026-10-10T14:05:00Z",
+  "ended_at": "2026-10-10T14:11:26Z",
+  "message": "FIXTURE written by make_fixtures.py"
+}

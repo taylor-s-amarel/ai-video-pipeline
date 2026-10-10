@@ -1,0 +1,94 @@
+{
+  "type": "grid-system",
+  "id": "grid_2x2_multi_viewpoint_split",
+  "name": "Multi-viewpoint split screen",
+  "version": 1,
+  "rows": 2,
+  "cols": 2,
+  "gutter_px": 12,
+  "margin_px": 0,
+  "feather_px": 4,
+  "corner_radius_px": 8,
+  "cells": [
+    {
+      "source": "asset:view_top",
+      "opacity": 0.96,
+      "view": "top"
+    },
+    {
+      "source": "asset:view_front",
+      "opacity": 0.96,
+      "view": "front"
+    },
+    {
+      "source": "asset:view_side",
+      "opacity": 0.96,
+      "view": "side"
+    },
+    {
+      "source": "asset:view_perspective",
+      "opacity": 0.96,
+      "view": "perspective"
+    }
+  ],
+  "placement": {
+    "as": "main-content",
+    "blend": "normal",
+    "layer_opacity": 0.96
+  },
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "rects": [
+    [
+      0,
+      0,
+      534,
+      954
+    ],
+    [
+      546,
+      0,
+      534,
+      954
+    ],
+    [
+      0,
+      966,
+      534,
+      954
+    ],
+    [
+      546,
+      966,
+      534,
+      954
+    ]
+  ],
+  "render": {
+    "filtergraph_file": "filtergraph.txt",
+    "standalone": false,
+    "inputs": "0: base video; 1-4: the four view clips (top, front, side, perspective)"
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "use_when": [
+    "Showing one object or scene from four synced viewpoints",
+    "Explainers and builds"
+  ]
+}

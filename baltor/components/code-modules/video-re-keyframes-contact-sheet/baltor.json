@@ -1,0 +1,84 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "video_re_keyframes_contact_sheet",
+  "title": "Video RE: keyframes and contact sheets per shot",
+  "kind": "code-module",
+  "subkind": "qa-check",
+  "version": "1.0.0",
+  "summary": "Picks the sharpest of three candidate frames per shot (Laplacian variance), saves keyframes and labelled contact sheets so analysts can see every shot.",
+  "description": "For every shot it decodes candidate frames at 25%, 50% and 75% of the shot (``--candidates 1`` uses\nonly the middle) and keeps the sharpest one (variance of a Laplacian on the grey image), which avoids\nmotion-blurred frames and dissolve frames. It writes:\n\n* ``keyframes/shot_000.jpg`` ... (default 360 px wide)\n* ``contact_sheet_01.jpg`` ... grids of thumbnails labelled \"#index start_s (duration)\"\n\nThe frames are local analysis artefacts so an analyst (human or model) can look at every shot. They\nare copies of the source's pictures: keep them out of anything published and out of a format IR.\n\nAnalysis boundary: this module measures technique and structure (timing, layout, motion, colour, loudness, rhythm). Analysing a public video for technique is fine; republishing its content is not. Its outputs are local working evidence: keyframes, OCR text, captions and transcripts of the analysed video stay out of anything published and out of a format IR, which keeps only technique, structure and parameters - never the source's footage, frames, music, voice or script text (at most a short on-screen label quoted as an evidence note, no transcripts).",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "measure",
+    "research",
+    "review"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "runs ffmpeg/ffprobe as subprocesses",
+      "writes only where --out / --out-dir point (stdout otherwise)"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "video_re_keyframes_contact_sheet.py",
+  "tags": [
+    "video",
+    "reverse-engineering",
+    "keyframes",
+    "contact-sheet",
+    "evidence"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "ffmpeg",
+      "external": true
+    },
+    {
+      "identity": "ffprobe",
+      "external": true
+    },
+    {
+      "identity": "numpy",
+      "external": true
+    },
+    {
+      "identity": "pillow",
+      "external": true
+    },
+    {
+      "identity": "video_re_detect_shots"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_re_measure.py",
+    "data": "generators/data/video_re_measure",
+    "parameters": {
+      "swarm_stage": "load-disassemble",
+      "evidence_spec": "baltor.video-evidence/v1"
+    }
+  },
+  "examples": [
+    "python video_re_keyframes_contact_sheet.py clip.mp4 --shots shots.json --out-dir evidence/"
+  ],
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "pytest passes with Python 3.13, numpy 2.5, Pillow 12 and ffmpeg 6.1 on synthetic media with known ground truth; optional OCR/ASR engines were not installed, so their adapters were tested through fakes and parsers only."
+  }
+}

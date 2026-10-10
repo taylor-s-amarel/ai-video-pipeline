@@ -1,0 +1,40 @@
+title: 'Video RE: evidence bundle (writes evidence.json)'
+summary: Runs all 18 video_re measurements on one video and writes evidence.json (baltor.video-evidence/v1) with details,
+  keyframes, tool versions and an error per missing value.
+subkind: evaluator
+tags:
+- video
+- reverse-engineering
+- evidence
+- swarm
+- pipeline
+- measurement
+step_kinds:
+- measure
+- research
+- verify
+deps:
+- ffmpeg
+- ffprobe
+- numpy
+- pillow
+- jsonschema
+optional:
+- tesseract
+- pytesseract
+- easyocr
+- faster_whisper
+- openai_whisper
+- whisper_cpp
+internal: ALL
+network_hosts:
+- github.com
+- '*.githubusercontent.com'
+- huggingface.co
+- '*.huggingface.co'
+- '*.hf.co'
+- openaipublic.azureedge.net
+network_note: only with --allow-download, passed to the OCR and speech-recognition adapters
+examples:
+- python video_re_evidence_bundle.py clip.mp4 --out-dir evidence/ --reference "<public URL of the video>"
+- python video_re_evidence_bundle.py clip.mp4 --out-dir evidence/ --fast --text-mode masked --share-safe

@@ -1,0 +1,67 @@
+{
+  "type": "background-layer",
+  "id": "bg_layer_underwater_rays",
+  "name": "Underwater light rays",
+  "version": 1,
+  "category": "procedural-light",
+  "role": "background-video",
+  "look": "Shafts of light swaying down from the surface into blue water.",
+  "render": {
+    "method": "ffmpeg-lavfi",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "loop_period_s": 8,
+    "filtergraph_file": "filtergraph.txt",
+    "tested_with": "FFmpeg 6.1.1",
+    "colour_stops": [
+      [
+        0,
+        "#012235"
+      ],
+      [
+        70,
+        "#03506F"
+      ],
+      [
+        150,
+        "#0A8DB0"
+      ],
+      [
+        230,
+        "#9FE7F5"
+      ],
+      [
+        255,
+        "#E8FCFF"
+      ]
+    ]
+  },
+  "default_opacity": 0.9,
+  "default_blend": "normal",
+  "motion": {
+    "type": "sway",
+    "period_s": 8
+  },
+  "recolor": "ramp",
+  "use_when": [
+    "Ocean science",
+    "diving",
+    "Sylvia Earle style facts"
+  ],
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "type": "palette",
+  "id": "palette_comic_primary",
+  "name": "Comic primary (light)",
+  "version": 1,
+  "mode": "light",
+  "colors": {
+    "background": "#FFF4D6",
+    "surface": "#FFFFFF",
+    "panel_tint": "#FFFFFF",
+    "text": "#111111",
+    "title": "#8E0B16",
+    "keyword": "#1D4ED8",
+    "accent": "#E63946",
+    "accent_2": "#FFD21F",
+    "stroke": "#111111",
+    "light": "#FFFFFF",
+    "particle": "#FFFFFF"
+  },
+  "panel_opacity": 0.86,
+  "gradient": [
+    "#FFE9A8",
+    "#FFF4D6"
+  ],
+  "ramp": [
+    "#111111",
+    "#E63946",
+    "#FF9F1C",
+    "#FFD21F",
+    "#FFF4D6"
+  ],
+  "pairs": [
+    {
+      "fg_role": "text",
+      "bg_role": "panel_tint@panel",
+      "fg": "#111111",
+      "bg": "#FFFFFF",
+      "basis": "panel-worst-case",
+      "opacity": 0.86,
+      "ratio": 13.67,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "panel_tint@panel",
+      "fg": "#8E0B16",
+      "bg": "#FFFFFF",
+      "basis": "panel-worst-case",
+      "opacity": 0.86,
+      "ratio": 6.88,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "panel_tint@panel",
+      "fg": "#1D4ED8",
+      "bg": "#FFFFFF",
+      "basis": "panel-worst-case",
+      "opacity": 0.86,
+      "ratio": 4.85,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "background",
+      "fg": "#111111",
+      "bg": "#FFF4D6",
+      "basis": "solid",
+      "ratio": 17.23,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "background",
+      "fg": "#8E0B16",
+      "bg": "#FFF4D6",
+      "basis": "solid",
+      "ratio": 8.67,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "background",
+      "fg": "#1D4ED8",
+      "bg": "#FFF4D6",
+      "basis": "solid",
+      "ratio": 6.11,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "accent",
+      "bg_role": "background",
+      "fg": "#E63946",
+      "bg": "#FFF4D6",
+      "basis": "solid",
+      "ratio": 3.8,
+      "required": 3.0,
+      "use": "large-bold-only",
+      "min_size_px": 24,
+      "min_weight": 700,
+      "level": "AA-large"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "surface",
+      "fg": "#111111",
+      "bg": "#FFFFFF",
+      "basis": "solid",
+      "ratio": 18.88,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "surface",
+      "fg": "#1D4ED8",
+      "bg": "#FFFFFF",
+      "basis": "solid",
+      "ratio": 6.7,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "keyword@card95",
+      "fg": "#FFF4D6",
+      "bg": "#1D4ED8",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 5.53,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "title@card95",
+      "fg": "#FFF4D6",
+      "bg": "#8E0B16",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 7.98,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "accent@card95",
+      "fg": "#FFF4D6",
+      "bg": "#E63946",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 3.6,
+      "required": 3.0,
+      "use": "large-bold-only",
+      "min_size_px": 24,
+      "min_weight": 700,
+      "level": "AA-large"
+    }
+  ],
+  "failed_pair_count": 1,
+  "mood": [
+    "comic",
+    "energetic",
+    "animals"
+  ],
+  "notes": "Ridiculous stories, cartoons and comic panels."
+}

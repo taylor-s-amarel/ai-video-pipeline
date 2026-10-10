@@ -1,0 +1,9 @@
+{
+  "events": [
+    { "t_start_s": 4.32, "t_end_s": 4.52, "frames": 5, "axis": "horizontal", "camera_direction": "right", "blur_anisotropy": 7.4, "sharpness_ratio": 0.12, "at_cut": true },
+    { "t_start_s": 11.08, "t_end_s": 11.2, "frames": 3, "axis": "vertical", "camera_direction": "down", "blur_anisotropy": 4.1, "sharpness_ratio": 0.28, "at_cut": false }
+  ],
+  "count": 2,
+  "per_minute": 6.9,
+  "as_transition": 1
+}

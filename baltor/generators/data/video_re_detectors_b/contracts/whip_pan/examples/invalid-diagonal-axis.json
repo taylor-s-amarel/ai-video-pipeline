@@ -1,0 +1,8 @@
+{
+  "events": [
+    { "t_start_s": 4.32, "t_end_s": 4.52, "frames": 0, "axis": "diagonal", "camera_direction": "north", "blur_anisotropy": 0.5, "sharpness_ratio": 0.12, "at_cut": true }
+  ],
+  "count": 1,
+  "per_minute": 6.9,
+  "as_transition": 1
+}

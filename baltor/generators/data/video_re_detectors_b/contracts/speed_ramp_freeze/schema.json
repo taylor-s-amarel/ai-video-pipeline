@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/video-re-contract-speed-ramp-freeze",
+  "title": "Speed ramp and freeze payload",
+  "description": "Payload of video_re_detect_speed_ramp_freeze: freeze frames (rate 0), duplicate-frame slow motion (rate 1/k) and segments whose global motion speed differs from the shot's normal speed (rate = speed / normal). Rates are playback-speed factors relative to normal.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["events", "counts", "frames_without_speed"],
+  "properties": {
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["type", "t_start_s", "t_end_s", "rate", "frames"],
+        "properties": {
+          "type": { "enum": ["freeze", "duplicate_slowmo", "speed_change"] },
+          "t_start_s": { "type": "number", "minimum": 0 },
+          "t_end_s": { "type": "number", "minimum": 0 },
+          "rate": { "type": "number", "minimum": 0 },
+          "frames": { "type": "integer", "minimum": 1 }
+        }
+      }
+    },
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["freeze", "duplicate_slowmo", "speed_change"],
+      "properties": {
+        "freeze": { "type": "integer", "minimum": 0 },
+        "duplicate_slowmo": { "type": "integer", "minimum": 0 },
+        "speed_change": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "frames_without_speed": { "type": "integer", "minimum": 0, "description": "frames whose global displacement could not be measured (non-rigid content)" }
+  }
+}

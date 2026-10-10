@@ -1,0 +1,59 @@
+{
+  "type": "background-layer",
+  "id": "bg_layer_smoke_wisps",
+  "name": "Smoke wisps",
+  "version": 1,
+  "category": "procedural-texture",
+  "role": "haze",
+  "look": "Grey smoke curling upward.",
+  "render": {
+    "method": "ffmpeg-lavfi",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "loop_period_s": 8,
+    "filtergraph_file": "filtergraph.txt",
+    "tested_with": "FFmpeg 6.1.1",
+    "colour_stops": [
+      [
+        0,
+        "#000000"
+      ],
+      [
+        140,
+        "#6E6E7A"
+      ],
+      [
+        255,
+        "#E6E6F0"
+      ]
+    ]
+  },
+  "default_opacity": 0.3,
+  "default_blend": "screen",
+  "motion": {
+    "type": "rise",
+    "period_s": 8
+  },
+  "recolor": "overlay",
+  "use_when": [
+    "Battles",
+    "mysteries",
+    "dramatic reveals"
+  ],
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  }
+}

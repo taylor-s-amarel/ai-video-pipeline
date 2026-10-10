@@ -1,0 +1,22 @@
+title: 'Video RE: caption track and caption density'
+summary: Caption events from a sidecar, an embedded subtitle stream or OCR of the caption band, with words per caption, reading
+  speed, coverage and gaps; text can be masked.
+subkind: evaluator
+tags:
+- video
+- reverse-engineering
+- captions
+- subtitles
+- srt
+- evidence
+step_kinds:
+- measure
+- research
+deps:
+- ffmpeg
+- ffprobe
+- numpy
+internal:
+- identity: video_re_ocr_adapter
+examples:
+- python video_re_caption_track.py clip.mp4 --ocr ocr.json --text-mode masked

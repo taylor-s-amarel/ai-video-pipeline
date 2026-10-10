@@ -1,0 +1,207 @@
+{
+  "type": "palette",
+  "id": "palette_forest_canopy",
+  "name": "Forest canopy",
+  "version": 1,
+  "mode": "dark",
+  "colors": {
+    "background": "#0D1F12",
+    "surface": "#173322",
+    "panel_tint": "#0A1A0F",
+    "text": "#F4FBEF",
+    "title": "#E9F5A1",
+    "keyword": "#A7E163",
+    "accent": "#3E8E41",
+    "accent_2": "#F3E3A0",
+    "stroke": "#06110A",
+    "light": "#F3E3A0",
+    "particle": "#EAF7C9"
+  },
+  "panel_opacity": 0.64,
+  "gradient": [
+    "#0D1F12",
+    "#20402A"
+  ],
+  "ramp": [
+    "#0B1A0E",
+    "#20402A",
+    "#3E6B2F",
+    "#A7E163",
+    "#F6F9E8"
+  ],
+  "pairs": [
+    {
+      "fg_role": "text",
+      "bg_role": "panel_tint@panel",
+      "fg": "#F4FBEF",
+      "bg": "#0A1A0F",
+      "basis": "panel-worst-case",
+      "opacity": 0.64,
+      "ratio": 5.13,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "panel_tint@panel",
+      "fg": "#E9F5A1",
+      "bg": "#0A1A0F",
+      "basis": "panel-worst-case",
+      "opacity": 0.64,
+      "ratio": 4.65,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "panel_tint@panel",
+      "fg": "#A7E163",
+      "bg": "#0A1A0F",
+      "basis": "panel-worst-case",
+      "opacity": 0.64,
+      "ratio": 3.5,
+      "required": 3.0,
+      "use": "large-bold-only",
+      "min_size_px": 24,
+      "min_weight": 700,
+      "level": "AA-large"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "background",
+      "fg": "#F4FBEF",
+      "bg": "#0D1F12",
+      "basis": "solid",
+      "ratio": 16.28,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "background",
+      "fg": "#E9F5A1",
+      "bg": "#0D1F12",
+      "basis": "solid",
+      "ratio": 14.76,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "background",
+      "fg": "#A7E163",
+      "bg": "#0D1F12",
+      "basis": "solid",
+      "ratio": 11.12,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "accent",
+      "bg_role": "background",
+      "fg": "#3E8E41",
+      "bg": "#0D1F12",
+      "basis": "solid",
+      "ratio": 4.21,
+      "required": 3.0,
+      "use": "large-bold-only",
+      "min_size_px": 24,
+      "min_weight": 700,
+      "level": "AA-large"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "surface",
+      "fg": "#F4FBEF",
+      "bg": "#173322",
+      "basis": "solid",
+      "ratio": 12.97,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "surface",
+      "fg": "#A7E163",
+      "bg": "#173322",
+      "basis": "solid",
+      "ratio": 8.86,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "stroke",
+      "fg": "#F4FBEF",
+      "bg": "#06110A",
+      "basis": "solid",
+      "ratio": 18.21,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "stroke",
+      "fg": "#E9F5A1",
+      "bg": "#06110A",
+      "basis": "solid",
+      "ratio": 16.51,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "keyword@card95",
+      "fg": "#0D1F12",
+      "bg": "#A7E163",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 10.0,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "title@card95",
+      "fg": "#0D1F12",
+      "bg": "#E9F5A1",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 13.23,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "accent@card95",
+      "fg": "#0D1F12",
+      "bg": "#3E8E41",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 3.85,
+      "required": 3.0,
+      "use": "large-bold-only",
+      "min_size_px": 24,
+      "min_weight": 700,
+      "level": "AA-large"
+    }
+  ],
+  "failed_pair_count": 0,
+  "mood": [
+    "nature",
+    "calm",
+    "animals"
+  ],
+  "notes": "Woods, wildlife and calm nature facts."
+}

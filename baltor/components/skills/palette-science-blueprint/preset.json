@@ -1,0 +1,182 @@
+{
+  "type": "palette",
+  "id": "palette_science_blueprint",
+  "name": "Science blueprint",
+  "version": 1,
+  "mode": "dark",
+  "colors": {
+    "background": "#0F2C4C",
+    "surface": "#163A61",
+    "panel_tint": "#0A1F36",
+    "text": "#FFFFFF",
+    "title": "#9FE7FF",
+    "keyword": "#FFD21F",
+    "accent": "#3D6A99",
+    "accent_2": "#FF8A5B",
+    "stroke": "#06182B",
+    "light": "#BFE9FF",
+    "particle": "#E6F0FF"
+  },
+  "panel_opacity": 0.66,
+  "gradient": [
+    "#0F2C4C",
+    "#1F4E79"
+  ],
+  "ramp": [
+    "#06182B",
+    "#0F2C4C",
+    "#3D6A99",
+    "#9FE7FF",
+    "#E6F0FF"
+  ],
+  "pairs": [
+    {
+      "fg_role": "text",
+      "bg_role": "panel_tint@panel",
+      "fg": "#FFFFFF",
+      "bg": "#0A1F36",
+      "basis": "panel-worst-case",
+      "opacity": 0.66,
+      "ratio": 5.43,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "panel_tint@panel",
+      "fg": "#9FE7FF",
+      "bg": "#0A1F36",
+      "basis": "panel-worst-case",
+      "opacity": 0.66,
+      "ratio": 3.97,
+      "required": 3.0,
+      "use": "large-bold-only",
+      "min_size_px": 24,
+      "min_weight": 700,
+      "level": "AA-large"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "panel_tint@panel",
+      "fg": "#FFD21F",
+      "bg": "#0A1F36",
+      "basis": "panel-worst-case",
+      "opacity": 0.66,
+      "ratio": 3.75,
+      "required": 3.0,
+      "use": "large-bold-only",
+      "min_size_px": 24,
+      "min_weight": 700,
+      "level": "AA-large"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "background",
+      "fg": "#FFFFFF",
+      "bg": "#0F2C4C",
+      "basis": "solid",
+      "ratio": 14.14,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "background",
+      "fg": "#9FE7FF",
+      "bg": "#0F2C4C",
+      "basis": "solid",
+      "ratio": 10.33,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "background",
+      "fg": "#FFD21F",
+      "bg": "#0F2C4C",
+      "basis": "solid",
+      "ratio": 9.75,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "surface",
+      "fg": "#FFFFFF",
+      "bg": "#163A61",
+      "basis": "solid",
+      "ratio": 11.58,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "surface",
+      "fg": "#FFD21F",
+      "bg": "#163A61",
+      "basis": "solid",
+      "ratio": 7.99,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "stroke",
+      "fg": "#FFFFFF",
+      "bg": "#06182B",
+      "basis": "solid",
+      "ratio": 17.89,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "stroke",
+      "fg": "#9FE7FF",
+      "bg": "#06182B",
+      "basis": "solid",
+      "ratio": 13.08,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "keyword@card95",
+      "fg": "#0F2C4C",
+      "bg": "#FFD21F",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 8.76,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "title@card95",
+      "fg": "#0F2C4C",
+      "bg": "#9FE7FF",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 9.28,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    }
+  ],
+  "failed_pair_count": 2,
+  "mood": [
+    "science",
+    "tech",
+    "education"
+  ],
+  "notes": "Explainers, how-it-works and engineering topics."
+}

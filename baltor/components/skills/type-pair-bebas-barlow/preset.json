@@ -1,0 +1,62 @@
+{
+  "type": "typography",
+  "id": "type_pair_bebas_barlow",
+  "name": "Bebas Neue + Barlow SemiBold",
+  "version": 1,
+  "display": {
+    "family": "Bebas Neue",
+    "weight": 400,
+    "licence": "OFL-1.1",
+    "file": "BebasNeue-Regular.ttf",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/bebasneue/BebasNeue-Regular.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/bebasneue/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Bebas+Neue",
+    "category": "display",
+    "case": "upper",
+    "avg_char_em": 0.348
+  },
+  "text": {
+    "family": "Barlow",
+    "weight": 600,
+    "licence": "OFL-1.1",
+    "file": "Barlow-SemiBold.ttf",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/barlow/Barlow-SemiBold.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/barlow/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Barlow",
+    "category": "sans-serif",
+    "case": "as-written",
+    "avg_char_em": 0.428
+  },
+  "sizes": {
+    "title_px": 110,
+    "caption_px": 60,
+    "min_caption_px": 48,
+    "label_px": 60,
+    "number_px": 140
+  },
+  "chars_per_line": {
+    "title": 22,
+    "caption": 34
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "mood": [
+    "energetic",
+    "news",
+    "tech"
+  ],
+  "why": "Bebas Neue is tall and narrow (all caps); Barlow's slightly rounded grotesque balances it in captions."
+}

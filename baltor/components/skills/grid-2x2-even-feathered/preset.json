@@ -1,0 +1,91 @@
+{
+  "type": "grid-system",
+  "id": "grid_2x2_even_feathered",
+  "name": "Even feathered 2x2",
+  "version": 1,
+  "rows": 2,
+  "cols": 2,
+  "gutter_px": 24,
+  "margin_px": 0,
+  "feather_px": 32,
+  "corner_radius_px": 0,
+  "cells": [
+    {
+      "source": "bg_layer_ocean_waves",
+      "opacity": 0.35
+    },
+    {
+      "source": "bg_layer_meadow_wind",
+      "opacity": 0.35
+    },
+    {
+      "source": "bg_layer_sunlit_water",
+      "opacity": 0.35
+    },
+    {
+      "source": "bg_layer_coastal_aerial",
+      "opacity": 0.35
+    }
+  ],
+  "placement": {
+    "as": "background-layer",
+    "blend": "screen",
+    "layer_opacity": 0.98
+  },
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "rects": [
+    [
+      0,
+      0,
+      528,
+      948
+    ],
+    [
+      552,
+      0,
+      528,
+      948
+    ],
+    [
+      0,
+      972,
+      528,
+      948
+    ],
+    [
+      552,
+      972,
+      528,
+      948
+    ]
+  ],
+  "render": {
+    "filtergraph_file": "filtergraph.txt",
+    "standalone": true,
+    "inputs": "none (procedural cells and base gradient are generated inside the graph)"
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "use_when": [
+    "House stacks (layer 4)",
+    "Any background that needs four kinds of motion"
+  ],
+  "cell_set": "nature"
+}

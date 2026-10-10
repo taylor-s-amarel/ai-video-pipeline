@@ -1,0 +1,120 @@
+{
+  "type": "background-layer",
+  "id": "bg_layer_forest_sunbeams",
+  "name": "Forest sunbeams",
+  "version": 1,
+  "category": "footage",
+  "role": "background-video",
+  "look": "Soft beams of light slanting through a dark green canopy.",
+  "render": {
+    "method": "ffmpeg-lavfi",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "loop_period_s": 8,
+    "filtergraph_file": "filtergraph.txt",
+    "tested_with": "FFmpeg 6.1.1",
+    "colour_stops": [
+      [
+        0,
+        "#0B1A0E"
+      ],
+      [
+        60,
+        "#20402A"
+      ],
+      [
+        140,
+        "#6E8F3C"
+      ],
+      [
+        220,
+        "#F3E3A0"
+      ],
+      [
+        255,
+        "#FFF8DC"
+      ]
+    ]
+  },
+  "default_opacity": 0.9,
+  "default_blend": "normal",
+  "motion": {
+    "type": "sway",
+    "period_s": 8
+  },
+  "recolor": "none",
+  "use_when": [
+    "Forest",
+    "wildlife",
+    "mindful topics"
+  ],
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "footage": {
+    "search_terms": [
+      "sunbeams forest",
+      "god rays trees",
+      "light through forest canopy"
+    ],
+    "prefer": "slow camera",
+    "sources": [
+      {
+        "name": "Wikimedia Commons",
+        "url": "https://commons.wikimedia.org/",
+        "note": "Each file page states its author and licence (often CC BY, CC BY-SA or public domain). Use the page's own credit line."
+      },
+      {
+        "name": "NASA Image and Video Library",
+        "url": "https://images.nasa.gov/",
+        "terms_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+        "note": "NASA's guidelines say its media is generally not subject to US copyright; logos and insignia are not public domain, endorsement may not be implied, and some items are third-party and marked."
+      },
+      {
+        "name": "Pexels",
+        "url": "https://www.pexels.com/",
+        "terms_url": "https://www.pexels.com/license/",
+        "note": "Pexels License: free to use and modify, attribution appreciated but not required; do not sell unaltered copies, imply endorsement or show identifiable people in a bad light."
+      },
+      {
+        "name": "Pixabay",
+        "url": "https://pixabay.com/",
+        "terms_url": "https://pixabay.com/en/service/license/",
+        "note": "Pixabay Content License: free to use without attribution; no standalone redistribution, and restrictions on trademarks and recognisable people."
+      }
+    ],
+    "accepted_licences": [
+      "CC0-1.0",
+      "Public domain (check the item page, e.g. US federal government works)",
+      "CC-BY-4.0 (credit the author in the post text)",
+      "Pexels License (see terms_url)",
+      "Pixabay Content License (see terms_url)"
+    ],
+    "rejected_licences": [
+      "Any NC (non-commercial) licence",
+      "Any ND (no-derivatives) licence",
+      "No stated licence",
+      "CC-BY-SA unless you accept ShareAlike terms for the finished video"
+    ],
+    "record": [
+      "item page URL",
+      "author or agency",
+      "licence name and version",
+      "retrieval date",
+      "credit line, if required"
+    ]
+  }
+}

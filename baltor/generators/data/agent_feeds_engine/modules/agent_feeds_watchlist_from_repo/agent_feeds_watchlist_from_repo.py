@@ -437,6 +437,9 @@ def _known(name: str):
     n = name.lower()
     if n in KNOWN:
         return KNOWN[n]
+    n = re.sub(r"[_.]+", "-", n)
+    if n in KNOWN:
+        return KNOWN[n]
     for prefix, val in KNOWN_PREFIX:
         if n.startswith(prefix):
             return val

@@ -1,0 +1,327 @@
+{
+  "type": "layer-stack",
+  "id": "layer_stack_documentary_archive_16",
+  "name": "Documentary archive 16-layer stack",
+  "version": 1,
+  "house": false,
+  "summary": "Paper, smoke and grain around an archive photo with a date stamp; for today-in-history and biographies.",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "theme": "clouds",
+  "palette": "palette_history_archive",
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "layers": [
+    {
+      "z": 1,
+      "id": "base_gradient",
+      "role": "base",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_gradient_drift"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "drift"
+      }
+    },
+    {
+      "z": 2,
+      "id": "paper",
+      "role": "texture",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_warm_paper"
+      },
+      "opacity": 0.85,
+      "blend": "normal",
+      "motion": {
+        "type": "drift"
+      }
+    },
+    {
+      "z": 3,
+      "id": "contours",
+      "role": "texture",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_topographic_lines"
+      },
+      "opacity": 0.18,
+      "blend": "multiply",
+      "motion": {
+        "type": "loop"
+      }
+    },
+    {
+      "z": 4,
+      "id": "smoke",
+      "role": "haze",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_smoke_wisps"
+      },
+      "opacity": 0.25,
+      "blend": "screen",
+      "motion": {
+        "type": "rise"
+      }
+    },
+    {
+      "z": 5,
+      "id": "dust",
+      "role": "particles",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_dust_particles"
+      },
+      "opacity": 0.3,
+      "blend": "screen",
+      "motion": {
+        "type": "rise"
+      }
+    },
+    {
+      "z": 6,
+      "id": "light_leaks",
+      "role": "light",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_light_leaks"
+      },
+      "opacity": 0.22,
+      "blend": "screen",
+      "motion": {
+        "type": "drift"
+      }
+    },
+    {
+      "z": 7,
+      "id": "vignette",
+      "role": "vignette",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_vignette_breathe"
+      },
+      "opacity": 0.55,
+      "blend": "multiply",
+      "motion": {
+        "type": "pulse"
+      }
+    },
+    {
+      "z": 8,
+      "id": "photo_shadow",
+      "role": "shadow",
+      "source": {
+        "kind": "effect",
+        "ref": "fx:photo_shadow"
+      },
+      "opacity": 0.45,
+      "blend": "multiply",
+      "motion": {
+        "type": "follow"
+      },
+      "details": {
+        "follows": "photo",
+        "blur_px": 30,
+        "offset_px": [
+          8,
+          14
+        ]
+      }
+    },
+    {
+      "z": 9,
+      "id": "photo_border",
+      "role": "overlay",
+      "source": {
+        "kind": "effect",
+        "ref": "fx:paper_border"
+      },
+      "opacity": 0.95,
+      "blend": "normal",
+      "motion": {
+        "type": "follow"
+      },
+      "details": {
+        "follows": "photo",
+        "border_px": 18
+      }
+    },
+    {
+      "z": 10,
+      "id": "photo",
+      "role": "photo",
+      "source": {
+        "kind": "asset",
+        "ref": "photo"
+      },
+      "opacity": 0.96,
+      "blend": "normal",
+      "motion": {
+        "type": "ken-burns"
+      },
+      "rect": {
+        "x": 0.05,
+        "y": 0.16,
+        "w": 0.9,
+        "h": 0.52
+      },
+      "feather_px": 6,
+      "corner_radius_px": 4,
+      "details": {
+        "camera": "camera_diagonal_drift"
+      }
+    },
+    {
+      "z": 11,
+      "id": "photo_grain",
+      "role": "grain",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_film_grain"
+      },
+      "opacity": 0.14,
+      "blend": "overlay",
+      "motion": {
+        "type": "loop"
+      },
+      "rect": {
+        "x": 0.05,
+        "y": 0.16,
+        "w": 0.9,
+        "h": 0.52
+      }
+    },
+    {
+      "z": 12,
+      "id": "date_stamp",
+      "role": "title",
+      "source": {
+        "kind": "component",
+        "ref": "title_date_stamp_history"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "keyframed"
+      },
+      "details": {
+        "animation": "text_anim_typewriter"
+      }
+    },
+    {
+      "z": 13,
+      "id": "caption_panel",
+      "role": "panel",
+      "source": {
+        "kind": "effect",
+        "ref": "panel:caption"
+      },
+      "opacity": 0.78,
+      "blend": "normal",
+      "motion": {
+        "type": "static"
+      },
+      "details": {
+        "backing": "solid"
+      }
+    },
+    {
+      "z": 14,
+      "id": "caption_text",
+      "role": "caption",
+      "source": {
+        "kind": "component",
+        "ref": "caption_typewriter_mono"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "keyframed"
+      },
+      "details": {
+        "animation": "text_anim_typewriter"
+      }
+    },
+    {
+      "z": 15,
+      "id": "global_grain",
+      "role": "grain",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_film_grain"
+      },
+      "opacity": 0.12,
+      "blend": "overlay",
+      "motion": {
+        "type": "loop"
+      }
+    },
+    {
+      "z": 16,
+      "id": "colour_grade",
+      "role": "grade",
+      "source": {
+        "kind": "grade",
+        "ref": "palette_history_archive"
+      },
+      "opacity": 0.45,
+      "blend": "soft-light",
+      "motion": {
+        "type": "static"
+      }
+    }
+  ],
+  "rules": {
+    "max_layer_opacity": 0.98,
+    "min_layers": 5
+  },
+  "effects": {
+    "photo_shadow": "Blurred copy of the photo's alpha mask, filled with the palette background colour, offset and multiplied under the photo.",
+    "paper_border": "A paper-coloured border around the photo, slightly rotated (0.5-1.5 degrees)."
+  },
+  "background_render": {
+    "filtergraph_file": "background_filtergraph.txt",
+    "loop_period_s": 8,
+    "included_layers": [
+      "base_gradient",
+      "paper",
+      "contours",
+      "smoke",
+      "dust",
+      "light_leaks",
+      "vignette",
+      "global_grain",
+      "colour_grade"
+    ],
+    "rendered_separately": [
+      "photo_shadow",
+      "photo_border",
+      "photo",
+      "photo_grain",
+      "date_stamp",
+      "caption_panel",
+      "caption_text"
+    ],
+    "note": "The background graph renders every full-frame procedural layer. Photo, panels, text, effects and cut-timed layers are composited afterwards in z order."
+  }
+}

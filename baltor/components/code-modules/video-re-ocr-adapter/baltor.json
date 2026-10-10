@@ -1,0 +1,102 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "video_re_ocr_adapter",
+  "title": "Video RE: OCR adapter for text regions",
+  "kind": "code-module",
+  "subkind": "evaluator",
+  "version": "1.0.0",
+  "summary": "Reads proposed text regions with Tesseract, pytesseract or EasyOCR when installed; turns 'FACT 3' into the pattern 'FACT {n}'; masks words on request; unavailable otherwise.",
+  "description": "Engines, tried in this order by ``--engine auto``:\n\n* ``tesseract`` - the Tesseract command-line program (``tesseract img stdout --psm 7 tsv``)\n* ``pytesseract`` - the Python wrapper around the same program\n* ``easyocr`` - EasyOCR on CPU; models are only downloaded when ``--allow-download`` is given\n\nNone of them is required: without one the result is ``{\"status\": \"unavailable\", ...}`` and the\nevidence bundle records the gap instead of guessing text.\n\nEach region (from video_re_text_regions) is cropped from a frame decoded at its time stamp (up to\n1280 px wide), padded by 15%, enlarged to at least 64 px tall, converted to grey and sent to the\nengine. Regions at the same time stamp share one decoded frame.\n\nText handling (the analysis boundary): OCR text is local evidence for structure, never content to\nreuse. ``text_mode`` 'full' keeps the words (default, local files only), 'masked' keeps only their\nshape (\"WORD {n}: {n} word word\"), 'none' drops them. ``label_pattern`` turns \"FACT 3\" into\n\"FACT {n}\" so the parameteriser can lift a numbered-label pattern without copying wording.\n\nAnalysis boundary: this module measures technique and structure (timing, layout, motion, colour, loudness, rhythm). Analysing a public video for technique is fine; republishing its content is not. Its outputs are local working evidence: keyframes, OCR text, captions and transcripts of the analysed video stay out of anything published and out of a format IR, which keeps only technique, structure and parameters - never the source's footage, frames, music, voice or script text (at most a short on-screen label quoted as an evidence note, no transcripts).",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "measure",
+    "research"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "declared",
+    "executes": "python",
+    "secrets": [],
+    "hosts": [
+      "github.com",
+      "*.githubusercontent.com"
+    ],
+    "side_effects": [
+      "runs ffmpeg/ffprobe as subprocesses",
+      "writes only where --out / --out-dir point (stdout otherwise)",
+      "imports optional engines lazily: tesseract, pytesseract, easyocr",
+      "only with --allow-download: EasyOCR may fetch its model weights; Tesseract never uses the network"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "video_re_ocr_adapter.py",
+  "tags": [
+    "video",
+    "reverse-engineering",
+    "ocr",
+    "tesseract",
+    "labels",
+    "evidence"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "ffmpeg",
+      "external": true
+    },
+    {
+      "identity": "ffprobe",
+      "external": true
+    },
+    {
+      "identity": "numpy",
+      "external": true
+    },
+    {
+      "identity": "pillow",
+      "external": true
+    },
+    {
+      "identity": "tesseract",
+      "external": true
+    },
+    {
+      "identity": "pytesseract",
+      "external": true
+    },
+    {
+      "identity": "easyocr",
+      "external": true
+    },
+    {
+      "identity": "video_re_text_regions"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_re_measure.py",
+    "data": "generators/data/video_re_measure",
+    "parameters": {
+      "swarm_stage": "load-disassemble",
+      "evidence_spec": "baltor.video-evidence/v1"
+    }
+  },
+  "examples": [
+    "python video_re_ocr_adapter.py clip.mp4 --regions text_regions.json --text-mode masked"
+  ],
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "pytest passes with Python 3.13, numpy 2.5, Pillow 12 and ffmpeg 6.1 on synthetic media with known ground truth; optional OCR/ASR engines were not installed, so their adapters were tested through fakes and parsers only."
+  }
+}

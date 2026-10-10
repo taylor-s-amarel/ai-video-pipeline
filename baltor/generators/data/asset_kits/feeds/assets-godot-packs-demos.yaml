@@ -226,7 +226,7 @@ items:
   - id: terrain3d
     title: "Terrain3D (TokisanGames)"
     url: https://github.com/TokisanGames/Terrain3D
-    summary: "High-performance editable terrain system for Godot 4 (C++ GDExtension), MIT."
+    summary: "High-performance editable terrain system for Godot 4, MIT."
     licence: MIT
     licence_url: https://github.com/TokisanGames/Terrain3D
     tags: [godot, terrain, addon]

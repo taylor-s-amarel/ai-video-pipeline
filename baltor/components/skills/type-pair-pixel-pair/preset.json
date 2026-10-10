@@ -1,0 +1,67 @@
+{
+  "type": "typography",
+  "id": "type_pair_pixel_pair",
+  "name": "Press Start 2P + Pixelify Sans",
+  "version": 1,
+  "display": {
+    "family": "Press Start 2P",
+    "weight": 400,
+    "licence": "OFL-1.1",
+    "file": "PressStart2P-Regular.ttf",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/pressstart2p/PressStart2P-Regular.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/pressstart2p/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Press+Start+2P",
+    "category": "display",
+    "case": "upper",
+    "avg_char_em": 1.0
+  },
+  "text": {
+    "family": "Pixelify Sans",
+    "weight": 700,
+    "licence": "OFL-1.1",
+    "file": "PixelifySans[wght].ttf",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/pixelifysans/PixelifySans%5Bwght%5D.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/pixelifysans/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Pixelify+Sans",
+    "category": "display",
+    "case": "as-written",
+    "avg_char_em": 0.501,
+    "variable_axes": {
+      "wght": [
+        400.0,
+        700.0
+      ]
+    }
+  },
+  "sizes": {
+    "title_px": 56,
+    "caption_px": 56,
+    "min_caption_px": 44,
+    "label_px": 40,
+    "number_px": 72
+  },
+  "chars_per_line": {
+    "title": 15,
+    "caption": 31
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "mood": [
+    "retro",
+    "energetic"
+  ],
+  "why": "Press Start 2P is very wide (about 1 em per character) so keep hooks to 2-3 short words; Pixelify Sans is easier to read in captions."
+}

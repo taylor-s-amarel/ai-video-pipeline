@@ -1,0 +1,202 @@
+{
+  "type": "palette",
+  "id": "palette_mono_high_contrast",
+  "name": "Monochrome high contrast",
+  "version": 1,
+  "mode": "dark",
+  "colors": {
+    "background": "#000000",
+    "surface": "#161616",
+    "panel_tint": "#000000",
+    "text": "#FFFFFF",
+    "title": "#FFFFFF",
+    "keyword": "#FFE600",
+    "accent": "#BDBDBD",
+    "accent_2": "#FFFFFF",
+    "stroke": "#000000",
+    "light": "#FFFFFF",
+    "particle": "#FFFFFF"
+  },
+  "panel_opacity": 0.75,
+  "gradient": [
+    "#000000",
+    "#262626"
+  ],
+  "ramp": [
+    "#000000",
+    "#161616",
+    "#3A3A3A",
+    "#9E9E9E",
+    "#FFFFFF"
+  ],
+  "pairs": [
+    {
+      "fg_role": "text",
+      "bg_role": "panel_tint@panel",
+      "fg": "#FFFFFF",
+      "bg": "#000000",
+      "basis": "panel-worst-case",
+      "opacity": 0.75,
+      "ratio": 10.4,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "panel_tint@panel",
+      "fg": "#FFFFFF",
+      "bg": "#000000",
+      "basis": "panel-worst-case",
+      "opacity": 0.75,
+      "ratio": 10.4,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "panel_tint@panel",
+      "fg": "#FFE600",
+      "bg": "#000000",
+      "basis": "panel-worst-case",
+      "opacity": 0.75,
+      "ratio": 8.21,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "background",
+      "fg": "#FFFFFF",
+      "bg": "#000000",
+      "basis": "solid",
+      "ratio": 21.0,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "background",
+      "fg": "#FFFFFF",
+      "bg": "#000000",
+      "basis": "solid",
+      "ratio": 21.0,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "background",
+      "fg": "#FFE600",
+      "bg": "#000000",
+      "basis": "solid",
+      "ratio": 16.57,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "accent",
+      "bg_role": "background",
+      "fg": "#BDBDBD",
+      "bg": "#000000",
+      "basis": "solid",
+      "ratio": 11.17,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "surface",
+      "fg": "#FFFFFF",
+      "bg": "#161616",
+      "basis": "solid",
+      "ratio": 18.09,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "keyword",
+      "bg_role": "surface",
+      "fg": "#FFE600",
+      "bg": "#161616",
+      "basis": "solid",
+      "ratio": 14.27,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "text",
+      "bg_role": "stroke",
+      "fg": "#FFFFFF",
+      "bg": "#000000",
+      "basis": "solid",
+      "ratio": 21.0,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "title",
+      "bg_role": "stroke",
+      "fg": "#FFFFFF",
+      "bg": "#000000",
+      "basis": "solid",
+      "ratio": 21.0,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "keyword@card95",
+      "fg": "#000000",
+      "bg": "#FFE600",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 14.86,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "title@card95",
+      "fg": "#000000",
+      "bg": "#FFFFFF",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 18.8,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    },
+    {
+      "fg_role": "background",
+      "bg_role": "accent@card95",
+      "fg": "#000000",
+      "bg": "#BDBDBD",
+      "basis": "panel-worst-case",
+      "opacity": 0.95,
+      "ratio": 10.07,
+      "required": 4.5,
+      "use": "any-size",
+      "level": "AAA"
+    }
+  ],
+  "failed_pair_count": 0,
+  "mood": [
+    "news",
+    "documentary",
+    "education",
+    "house"
+  ],
+  "notes": "Maximum legibility; one yellow keyword colour."
+}

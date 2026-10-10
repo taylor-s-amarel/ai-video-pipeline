@@ -1,0 +1,7 @@
+title: .cube 3D LUT reader, writer and applier
+summary: Reads and writes .cube 3D LUTs (red-fastest order, domain scaling) and applies them to images with numpy trilinear interpolation; files work with ffmpeg lut3d.
+subkind: lut
+domain: video
+tags: [video, lut, cube, colour-grading, numpy, ffmpeg]
+step_kinds: [build, render]
+depends_on: [ffmpeg]

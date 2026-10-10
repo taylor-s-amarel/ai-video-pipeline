@@ -1,0 +1,68 @@
+{
+  "type": "typography",
+  "id": "type_pair_bangers_nunito",
+  "name": "Bangers + Nunito Black",
+  "version": 1,
+  "display": {
+    "family": "Bangers",
+    "weight": 400,
+    "licence": "OFL-1.1",
+    "file": "Bangers-Regular.ttf",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/bangers/Bangers-Regular.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/bangers/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Bangers",
+    "category": "display",
+    "case": "upper",
+    "avg_char_em": 0.368
+  },
+  "text": {
+    "family": "Nunito",
+    "weight": 900,
+    "licence": "OFL-1.1",
+    "file": "Nunito[wght].ttf",
+    "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/nunito/Nunito%5Bwght%5D.ttf",
+    "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/nunito/OFL.txt",
+    "specimen_url": "https://fonts.google.com/specimen/Nunito",
+    "category": "sans-serif",
+    "case": "as-written",
+    "avg_char_em": 0.473,
+    "variable_axes": {
+      "wght": [
+        200.0,
+        1000.0
+      ]
+    }
+  },
+  "sizes": {
+    "title_px": 112,
+    "caption_px": 60,
+    "min_caption_px": 48,
+    "label_px": 56,
+    "number_px": 140
+  },
+  "chars_per_line": {
+    "title": 21,
+    "caption": 30
+  },
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "mood": [
+    "comic",
+    "energetic",
+    "animals"
+  ],
+  "why": "Comic-book lettering for hooks with a sturdy rounded sans for captions that must stay readable."
+}

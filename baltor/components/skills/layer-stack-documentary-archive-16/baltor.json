@@ -1,0 +1,103 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "layer_stack_documentary_archive_16",
+  "title": "Documentary archive 16-layer stack",
+  "kind": "skill",
+  "subkind": "layer-stack",
+  "version": "1.0.0",
+  "summary": "16-layer stack, theme clouds, 1080x1920; all layers <= 98% opacity with a moving background.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "render",
+    "design"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "runs ffmpeg/ffprobe commands from SKILL.md that write render files into the working directory",
+      "scripts/check_preset.py reads preset.json and schema.json"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "video",
+    "shorts",
+    "layers",
+    "compositing",
+    "ffmpeg",
+    "documentary-archive-16",
+    "16-layers"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "layer_stack_preset_schema"
+    },
+    {
+      "identity": "short_style_preset_kit"
+    },
+    {
+      "identity": "palette_history_archive"
+    },
+    {
+      "identity": "bg_layer_gradient_drift"
+    },
+    {
+      "identity": "bg_layer_warm_paper"
+    },
+    {
+      "identity": "bg_layer_topographic_lines"
+    },
+    {
+      "identity": "bg_layer_smoke_wisps"
+    },
+    {
+      "identity": "bg_layer_dust_particles"
+    },
+    {
+      "identity": "bg_layer_light_leaks"
+    },
+    {
+      "identity": "bg_layer_vignette_breathe"
+    },
+    {
+      "identity": "bg_layer_film_grain"
+    },
+    {
+      "identity": "title_date_stamp_history"
+    },
+    {
+      "identity": "caption_typewriter_mono"
+    },
+    {
+      "identity": "camera_diagonal_drift"
+    },
+    {
+      "identity": "text_anim_typewriter"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_styles.py",
+    "data": "generators/data/video_styles"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "headless-tested",
+  "evidence_notes": "Preset validated against its schema by the generator; contrast and opacity rules computed. No render recorded for this exact preset."
+}

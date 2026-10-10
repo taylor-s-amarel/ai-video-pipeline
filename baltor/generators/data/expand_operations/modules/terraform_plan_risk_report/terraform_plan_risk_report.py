@@ -191,7 +191,7 @@ def analyse(plan: dict, require_tags: list[str] | None = None,
             paths = change.get("replace_paths") or []
             detail = f" (forced by {', '.join('.'.join(map(str, p)) for p in paths)})" if paths else ""
             rep.findings.append(Finding(sev, "replace", address,
-                                        f"{rtype} will be replaced, {order}{detail}{' ' + why if why else ''}".strip()))
+                                        f"{rtype} will be replaced, {order}{detail}{'; reason: ' + why if why else ''}"))
         elif kind == "forget":
             rep.findings.append(Finding("low", "forget", address, f"{rtype} will be removed from state but not destroyed"))
 

@@ -1,0 +1,24 @@
+title: 'Video RE: narration speaking rate'
+summary: Words per minute of speaking time, overall and articulation rate and pauses from word timestamps; otherwise a labelled
+  syllable-count estimate from the audio.
+subkind: audio-analysis
+tags:
+- audio
+- reverse-engineering
+- speech-rate
+- wpm
+- narration
+- evidence
+step_kinds:
+- measure
+- research
+- verify
+deps:
+- ffmpeg
+- ffprobe
+- numpy
+internal:
+- identity: video_re_transcribe_adapter
+examples:
+- python video_re_speech_rate.py --transcript transcript.json
+- python video_re_speech_rate.py clip.mp4

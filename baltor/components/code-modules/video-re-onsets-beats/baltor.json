@@ -1,0 +1,77 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "video_re_onsets_beats",
+  "title": "Video RE: onsets, tempo and beats with numpy",
+  "kind": "code-module",
+  "subkind": "audio-analysis",
+  "version": "1.0.0",
+  "summary": "Spectral-flux onsets (within 30 ms on test clicks), autocorrelation tempo with a 120 BPM prior and a dynamic-programming beat tracker, without librosa.",
+  "description": "* Onset envelope: spectral flux. Mono audio at 22.05 kHz, centred STFT (1024-sample Hann window,\n  256-sample hop = 11.6 ms), magnitudes summed into 40 log-spaced bands (60 Hz - 10 kHz), log\n  compressed (log1p(100 x)), and the half-wave-rectified frame-to-frame increase summed over bands.\n* Onsets: peaks of the normalised envelope that are the maximum within 30 ms before, exceed the\n  local mean (100 ms either side) by ``delta`` (0.07) and come at least ``wait_s`` (50 ms) after\n  the previous onset. Time = frame centre plus one hop: on sharp clicks the flux peak arrives one\n  hop before the attack, so this correction centres the error on zero; soft attacks read later.\n* Tempo: autocorrelation of the (lightly smoothed) onset envelope over 30-300 BPM, weighted by a log-normal prior\n  centred on 120 BPM with a one-octave spread (the same idea librosa uses), parabolic refinement.\n  ``tempo_confidence`` is the weighted autocorrelation peak relative to lag 0; tempo is null when\n  there are fewer than 4 onsets or the confidence is under 0.05.\n* Beats: dynamic-programming beat tracker (Ellis 2007, tightness 100) on the onset envelope,\n  kept between the first and last onset (half a beat of margin).\n\nAccuracy on synthetic clicks: onset times within 30 ms, tempo within 2 BPM (see the tests). Real\nmusic with soft attacks, rubato or no percussion gives weaker results; octave errors (half or double\ntempo) are the typical failure. Speech-only soundtracks produce onsets at syllables and usually no\nstable tempo.\n\nAnalysis boundary: this module measures technique and structure (timing, layout, motion, colour, loudness, rhythm). Analysing a public video for technique is fine; republishing its content is not. Its outputs are local working evidence: keyframes, OCR text, captions and transcripts of the analysed video stay out of anything published and out of a format IR, which keeps only technique, structure and parameters - never the source's footage, frames, music, voice or script text (at most a short on-screen label quoted as an evidence note, no transcripts).",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "measure",
+    "research"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "runs ffmpeg/ffprobe as subprocesses",
+      "writes only where --out / --out-dir point (stdout otherwise)"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "video_re_onsets_beats.py",
+  "tags": [
+    "audio",
+    "reverse-engineering",
+    "onsets",
+    "tempo",
+    "beats",
+    "evidence"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "ffmpeg",
+      "external": true
+    },
+    {
+      "identity": "ffprobe",
+      "external": true
+    },
+    {
+      "identity": "numpy",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_re_measure.py",
+    "data": "generators/data/video_re_measure",
+    "parameters": {
+      "swarm_stage": "load-disassemble",
+      "evidence_spec": "baltor.video-evidence/v1"
+    }
+  },
+  "examples": [
+    "python video_re_onsets_beats.py clip.mp4 --out beats.json"
+  ],
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "pytest passes with Python 3.13, numpy 2.5, Pillow 12 and ffmpeg 6.1 on synthetic media with known ground truth; optional OCR/ASR engines were not installed, so their adapters were tested through fakes and parsers only."
+  }
+}

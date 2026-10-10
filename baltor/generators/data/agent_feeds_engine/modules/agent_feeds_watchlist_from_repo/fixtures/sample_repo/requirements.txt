@@ -1,0 +1,9 @@
+# runtime
+-r requirements-dev.txt
+anthropic>=0.40,<2  # SDK
+examplelib==2.30.0
+Kokoro_ONNX[gpu]==0.4.9 ; python_version >= "3.10"
+yt-dlp
+git+https://github.com/example/unpinned.git
+mypkg @ https://example.com/mypkg-1.0.tar.gz
+--index-url https://pypi.org/simple

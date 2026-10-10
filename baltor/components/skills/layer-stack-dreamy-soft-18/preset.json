@@ -1,0 +1,359 @@
+{
+  "type": "layer-stack",
+  "id": "layer_stack_dreamy_soft_18",
+  "name": "Dreamy soft 18-layer stack",
+  "version": 1,
+  "house": false,
+  "summary": "Silk, bokeh, haze and warm leaks for relationship and feelings topics.",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "theme": "meadow",
+  "palette": "palette_relationship_blush",
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "layers": [
+    {
+      "z": 1,
+      "id": "base_gradient",
+      "role": "base",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_gradient_drift"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "drift"
+      }
+    },
+    {
+      "z": 2,
+      "id": "silk",
+      "role": "background-video",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_silk_waves"
+      },
+      "opacity": 0.8,
+      "blend": "normal",
+      "motion": {
+        "type": "loop"
+      }
+    },
+    {
+      "z": 3,
+      "id": "clouds",
+      "role": "background-video",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_cloud_timelapse"
+      },
+      "opacity": 0.25,
+      "blend": "soft-light",
+      "motion": {
+        "type": "loop"
+      }
+    },
+    {
+      "z": 4,
+      "id": "motion_grid",
+      "role": "grid-2x2",
+      "source": {
+        "kind": "component",
+        "ref": "grid_2x2_soft_vignette_grid",
+        "cells": [
+          "bg_layer_cloud_timelapse",
+          "bg_layer_silk_waves",
+          "bg_layer_atmospheric_haze",
+          "bg_layer_underwater_rays"
+        ]
+      },
+      "opacity": 0.3,
+      "blend": "screen",
+      "motion": {
+        "type": "loop"
+      }
+    },
+    {
+      "z": 5,
+      "id": "haze",
+      "role": "haze",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_atmospheric_haze"
+      },
+      "opacity": 0.25,
+      "blend": "screen",
+      "motion": {
+        "type": "drift"
+      }
+    },
+    {
+      "z": 6,
+      "id": "light_leaks",
+      "role": "light",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_light_leaks"
+      },
+      "opacity": 0.32,
+      "blend": "screen",
+      "motion": {
+        "type": "drift"
+      }
+    },
+    {
+      "z": 7,
+      "id": "bokeh_far",
+      "role": "particles",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_bokeh_drift"
+      },
+      "opacity": 0.28,
+      "blend": "screen",
+      "motion": {
+        "type": "rise"
+      }
+    },
+    {
+      "z": 8,
+      "id": "fireflies",
+      "role": "particles",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_fireflies"
+      },
+      "opacity": 0.2,
+      "blend": "screen",
+      "motion": {
+        "type": "drift"
+      }
+    },
+    {
+      "z": 9,
+      "id": "vignette",
+      "role": "vignette",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_vignette_breathe"
+      },
+      "opacity": 0.35,
+      "blend": "multiply",
+      "motion": {
+        "type": "pulse"
+      }
+    },
+    {
+      "z": 10,
+      "id": "photo_shadow",
+      "role": "shadow",
+      "source": {
+        "kind": "effect",
+        "ref": "fx:photo_shadow"
+      },
+      "opacity": 0.35,
+      "blend": "multiply",
+      "motion": {
+        "type": "follow"
+      },
+      "details": {
+        "follows": "photo",
+        "blur_px": 50,
+        "offset_px": [
+          0,
+          20
+        ]
+      }
+    },
+    {
+      "z": 11,
+      "id": "photo",
+      "role": "photo",
+      "source": {
+        "kind": "asset",
+        "ref": "photo"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "rotate"
+      },
+      "rect": {
+        "x": 0.05,
+        "y": 0.16,
+        "w": 0.9,
+        "h": 0.52
+      },
+      "feather_px": 64,
+      "corner_radius_px": 40,
+      "details": {
+        "camera": "camera_slow_rotate_drift"
+      }
+    },
+    {
+      "z": 12,
+      "id": "bokeh_near",
+      "role": "particles",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_bokeh_drift"
+      },
+      "opacity": 0.14,
+      "blend": "screen",
+      "motion": {
+        "type": "parallax"
+      },
+      "details": {
+        "speed": 1.4,
+        "scale": 1.6
+      }
+    },
+    {
+      "z": 13,
+      "id": "title_panel",
+      "role": "panel",
+      "source": {
+        "kind": "effect",
+        "ref": "panel:title"
+      },
+      "opacity": 0.74,
+      "blend": "normal",
+      "motion": {
+        "type": "static"
+      },
+      "details": {
+        "backing": "frosted-glass"
+      }
+    },
+    {
+      "z": 14,
+      "id": "title_text",
+      "role": "title",
+      "source": {
+        "kind": "component",
+        "ref": "title_minimal_serif_white"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "keyframed"
+      },
+      "details": {
+        "animation": "text_anim_blur_in_focus"
+      }
+    },
+    {
+      "z": 15,
+      "id": "caption_panel",
+      "role": "panel",
+      "source": {
+        "kind": "effect",
+        "ref": "panel:caption"
+      },
+      "opacity": 0.74,
+      "blend": "normal",
+      "motion": {
+        "type": "static"
+      },
+      "details": {
+        "backing": "pill"
+      }
+    },
+    {
+      "z": 16,
+      "id": "caption_text",
+      "role": "caption",
+      "source": {
+        "kind": "component",
+        "ref": "caption_pill_per_line"
+      },
+      "opacity": 0.98,
+      "blend": "normal",
+      "motion": {
+        "type": "keyframed"
+      },
+      "details": {
+        "animation": "text_anim_springy_pop_overshoot"
+      }
+    },
+    {
+      "z": 17,
+      "id": "global_grain",
+      "role": "grain",
+      "source": {
+        "kind": "component",
+        "ref": "bg_layer_film_grain"
+      },
+      "opacity": 0.06,
+      "blend": "overlay",
+      "motion": {
+        "type": "loop"
+      }
+    },
+    {
+      "z": 18,
+      "id": "colour_grade",
+      "role": "grade",
+      "source": {
+        "kind": "grade",
+        "ref": "palette_relationship_blush"
+      },
+      "opacity": 0.35,
+      "blend": "soft-light",
+      "motion": {
+        "type": "static"
+      }
+    }
+  ],
+  "rules": {
+    "max_layer_opacity": 0.98,
+    "min_layers": 5
+  },
+  "effects": {
+    "photo_shadow": "Blurred copy of the photo's alpha mask, filled with the palette background colour, offset and multiplied under the photo."
+  },
+  "background_render": {
+    "filtergraph_file": "background_filtergraph.txt",
+    "loop_period_s": 8,
+    "included_layers": [
+      "base_gradient",
+      "silk",
+      "clouds",
+      "motion_grid",
+      "haze",
+      "light_leaks",
+      "bokeh_far",
+      "fireflies",
+      "vignette",
+      "bokeh_near",
+      "global_grain",
+      "colour_grade"
+    ],
+    "rendered_separately": [
+      "photo_shadow",
+      "photo",
+      "title_panel",
+      "title_text",
+      "caption_panel",
+      "caption_text"
+    ],
+    "note": "The background graph renders every full-frame procedural layer. Photo, panels, text, effects and cut-timed layers are composited afterwards in z order."
+  }
+}

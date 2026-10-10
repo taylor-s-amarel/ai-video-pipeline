@@ -1,0 +1,11 @@
+{
+  "noise_sigma": -1,
+  "residual_sigma": 6.0,
+  "grain_size_px": 2.4,
+  "signal_dependence_ratio": null,
+  "chroma_luma_ratio": null,
+  "temporal_correlation": 2,
+  "hint": "film",
+  "native_pixels": true,
+  "frames_analysed": 12
+}

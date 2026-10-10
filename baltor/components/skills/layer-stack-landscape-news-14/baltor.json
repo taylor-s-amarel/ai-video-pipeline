@@ -1,0 +1,100 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "layer_stack_landscape_news_14",
+  "title": "Landscape briefing 14-layer stack",
+  "kind": "skill",
+  "subkind": "layer-stack",
+  "version": "1.0.0",
+  "summary": "14-layer stack, theme clouds, 1920x1080; all layers <= 98% opacity with a moving background.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "render",
+    "design"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "runs ffmpeg/ffprobe commands from SKILL.md that write render files into the working directory",
+      "scripts/check_preset.py reads preset.json and schema.json"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "video",
+    "shorts",
+    "layers",
+    "compositing",
+    "ffmpeg",
+    "landscape-news-14",
+    "14-layers"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "layer_stack_preset_schema"
+    },
+    {
+      "identity": "short_style_preset_kit"
+    },
+    {
+      "identity": "palette_news_contrast"
+    },
+    {
+      "identity": "bg_layer_gradient_drift"
+    },
+    {
+      "identity": "bg_layer_city_night_bokeh"
+    },
+    {
+      "identity": "bg_layer_atmospheric_haze"
+    },
+    {
+      "identity": "bg_layer_light_leaks"
+    },
+    {
+      "identity": "bg_layer_vignette_breathe"
+    },
+    {
+      "identity": "title_news_lower_third"
+    },
+    {
+      "identity": "caption_solid_band_lower"
+    },
+    {
+      "identity": "bg_layer_film_grain"
+    },
+    {
+      "identity": "camera_handheld_micro_shake"
+    },
+    {
+      "identity": "text_anim_mask_reveal_up"
+    },
+    {
+      "identity": "text_anim_fade_up_soft"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_styles.py",
+    "data": "generators/data/video_styles"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "headless-tested",
+  "evidence_notes": "Preset validated against its schema by the generator; contrast and opacity rules computed. No render recorded for this exact preset."
+}
