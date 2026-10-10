@@ -1,0 +1,8 @@
+title: Easing functions (Penner set)
+summary: All 31 standard easing curves (sine to bounce, in/out/in-out) with name aliases, clamped evaluation, sampling and tweening for keyframes and text motion.
+subkind: easing
+domain: video
+tags: [video, motion, easing, animation, keyframes]
+step_kinds: [build, render]
+references: ["https://easings.net/"]
+examples: ["Ease a title slide-in with out_back", "Sample in_out_sine for a 30-frame zoom"]

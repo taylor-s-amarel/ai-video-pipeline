@@ -1,0 +1,7 @@
+title: Stepped timing and stop-motion holds
+summary: CSS steps() timing with all jump positions, plus on-twos/threes frame holds and an ffmpeg filter for a choppy hand-animated look.
+subkind: easing
+domain: video
+tags: [video, motion, steps, stop-motion, timing]
+step_kinds: [build, render]
+references: ["https://www.w3.org/TR/css-easing-1/"]

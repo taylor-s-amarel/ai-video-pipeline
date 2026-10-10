@@ -1,0 +1,6 @@
+title: Damped spring motion
+summary: Closed-form damped spring (under, critical, over) with overshoot and settle-time measurement and per-frame sampling, for springy text pops and entrances.
+subkind: easing
+domain: video
+tags: [video, motion, spring, overshoot, text-pop, physics]
+step_kinds: [build, render]
