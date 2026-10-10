@@ -648,7 +648,8 @@ def build_feeds(entries: list[dict], release: dict) -> None:
                 "date_published": _rfc3339(it.get("date_published") or it["verified_on"]),
                 "tags": it.get("tags", []) + [it["kind"]],
                 "_baltor": {k: it[k] for k in ("kind", "licence", "licence_url", "verified_on", "verification",
-                                                "notes", "cautions") if k in it},
+                                                "notes", "cautions", "feed_url", "feed_format", "poll_interval_h",
+                                                "auth", "vendor", "products", "change_types", "terms_note") if k in it},
             } for it in col["items"]],
         }
         _write_json(out_dir / f"{cid}.json", jf)
