@@ -1,0 +1,40 @@
+{
+  "film": "BOXED IN",
+  "evidence_stage": "delivered",
+  "creative_status": "rejected (story quality rejected by Taylor)",
+  "guide_statement": [
+    "A modest task can support excellent comedy, but it needs character behavior, surprising decisions, escalating consequences, and a satisfying reversal. Repeated unsuccessful attempts are not automatically an arc. Extending one small joke with polished textures and technically correct falls can make its thinness more obvious. The latest correction therefore changes the admission gate for a new film: evaluate the topic and storyboard before spending time on a full render.",
+    "The rejected film still demonstrates a complete 108-second pipeline, cardboard cutaway design, an authored character, narration and score, and a tested three-prop physics sequence. Preserve those reusable techniques without inheriting its premise as the standard for future stories. Do not rename a revised obstacle, swap the prop, and call the same repetition a new story."
+  ],
+  "latest_creative_direction": "The 108-second BOXED IN film was technically completed and delivered, but Taylor rejected its story quality. Its physics and export receipts remain useful engineering evidence; it is not a recommended example of successful entertainment.",
+  "library_identities": [
+    {
+      "role": "MP4",
+      "library_identity": "libfile_4453aed6dfbc8191914eded938ece6df",
+      "version": "v0"
+    },
+    {
+      "role": "source",
+      "library_identity": "libfile_b9bf57dd34888191ac51eebf12858e79",
+      "version": "v1"
+    },
+    {
+      "role": "QA",
+      "library_identity": "libfile_6e463736ec608191addc25359be6bd07",
+      "version": "v1"
+    }
+  ],
+  "sha256": {
+    "mp4": "1ed9c7ac83b183a8daccefe56c0d7930f50b5d11399c6c6dc9ba62888e359e4c",
+    "source_zip": "590ea120504a6476434f6dfc660f612b8e7b4317477ec5a6dfb2dd4353952aed"
+  },
+  "receipt_text": "The *BOXED IN* MP4 is 11,650,302 bytes, SHA-256 `1ed9c7ac83b183a8daccefe56c0d7930f50b5d11399c6c6dc9ba62888e359e4c`. Its source ZIP is 46,672,978 bytes, SHA-256 `590ea120504a6476434f6dfc660f612b8e7b4317477ec5a6dfb2dd4353952aed`. The final receipt records exact remote byte matches, full AV decode, archive integrity, 130 source files checked and 14 raw frames reproduced exactly. Final audio measured −18.35 LUFS and −1.46 dBTP with no clipped samples; AAC has 512 padding samples. Its bounded 32-question review recorded 24 scoped passes, five blocked checks and three not applicable. None of these observations overrides the story rejection or establishes independent listening.",
+  "film_row_text": "| BOXED IN | 108 seconds, portrait 720×1280, 24 fps, 2,592 frames | Technically delivered cardboard cutaway, score and Bella narration, first final-film Pymunk adoption for three props; **story quality rejected by Taylor** | MP4 `libfile_4453aed6dfbc8191914eded938ece6df` v0; source `libfile_b9bf57dd34888191ac51eebf12858e79` v1; QA `libfile_6e463736ec608191addc25359be6bd07` v1 |",
+  "guide": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "film_row_line": 1202,
+    "receipt_line": 1204,
+    "section": "Completed films and what they demonstrate",
+    "lesson_line": 79
+  }
+}

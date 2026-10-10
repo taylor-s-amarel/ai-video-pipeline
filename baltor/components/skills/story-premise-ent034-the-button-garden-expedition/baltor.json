@@ -1,0 +1,69 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "story_premise_ent034_the_button_garden_expedition",
+  "title": "Story premise ENT034: The Button Garden Expedition",
+  "kind": "skill",
+  "subkind": "premise",
+  "version": "1.0.0",
+  "summary": "Idea-stage fiction premise (miniature adventure). Hook: Every island has holes. One is a home. Takeaway/theme: A feature that looks like a gap can become the useful place.",
+  "description": "A thimble-sized gardener needs to plant one bright seed in a neglected button box, but the smooth button surfaces offer nowhere to root. They discover a thread-filled buttonhole, nest the seed in it, and grow a fictional thread-flower that ties the scattered buttons into a garden path.",
+  "domain": "story",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#ent034-the-button-garden-expedition"
+  },
+  "step_kinds": [
+    "plan",
+    "write"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "story",
+    "premise",
+    "fiction",
+    "miniature-adventure",
+    "fictional-demonstration",
+    "ent034"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "story_premise"
+    },
+    {
+      "identity": "story_contract_rules"
+    },
+    {
+      "identity": "story_tests"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/ref_stories.py",
+    "data": "generators/data/ref_stories",
+    "parameters": {
+      "id": "ENT034",
+      "treatment_group": 3,
+      "guide_line": 4814
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "considered",
+  "evidence_notes": "Idea from the 10 Oct 2026 creative catalogue (Creative Catalogue JSON Bundle 2026-10-10, Library libfile_ff6a4ae010508191b42073985cd7a4a1 v0, SHA-256 1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e), preserved in guide Appendix D line 4814. Not a completed script, not rendered, no audience study. Evidence class fictional_demonstration names the check a claim would need, not a check done. Its ten treatment addresses (R-ENT034-F06-A01 ...) are candidates, not screenplays."
+}

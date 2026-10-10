@@ -1,0 +1,304 @@
+{
+  "bank": "intros",
+  "title": "Creative catalogue: thirty visual intros",
+  "status": "proposal",
+  "status_note": "The following banks were materialized from the 10 October 2026 catalogue and are preserved here as usable text. They remain proposals. The catalogue's earlier statement that a second film was in progress and that zero twelve-style slots were qualified is a historical assembly snapshot; it is not today's completed-film ledger. This guide does not retroactively mark individual catalogue recipes rendered because a similarly named film exists.",
+  "columns": [
+    "ID",
+    "Intro",
+    "First frame",
+    "Action",
+    "Text seed",
+    "Sound",
+    "Fit"
+  ],
+  "keys": [
+    "id",
+    "intro",
+    "first_frame",
+    "action",
+    "text_seed",
+    "sound",
+    "fit"
+  ],
+  "count": 30,
+  "records": [
+    {
+      "id": "I01",
+      "intro": "Frozen consequence",
+      "first_frame": "A toppled original prop fills the frame.",
+      "action": "Hold briefly, trace back to the initiating contact.",
+      "text_seed": "What moved first?",
+      "sound": "One soft impact, then quiet.",
+      "fit": "Causality; fiction; troubleshooting"
+    },
+    {
+      "id": "I02",
+      "intro": "Two synchronized worlds",
+      "first_frame": "The same simple setup appears left and right.",
+      "action": "Both begin together; a single changed parameter is highlighted.",
+      "text_seed": "One change. Two outcomes.",
+      "sound": "Shared pulse with separate result accents.",
+      "fit": "Comparison"
+    },
+    {
+      "id": "I03",
+      "intro": "Traveling question",
+      "first_frame": "A small character crosses a richly rendered scene toward an obstacle.",
+      "action": "Camera tracks at walking speed and settles before the decision.",
+      "text_seed": "How will they get across?",
+      "sound": "Footsteps and low music bed.",
+      "fit": "Fiction; spatial explanation"
+    },
+    {
+      "id": "I04",
+      "intro": "Object silhouette",
+      "first_frame": "An honest silhouette appears on a textured stage.",
+      "action": "Light rotates slowly while the camera stays fixed.",
+      "text_seed": "What could this be?",
+      "sound": "Subtle light-switch sound.",
+      "fit": "Guessing"
+    },
+    {
+      "id": "I05",
+      "intro": "Peel to evidence",
+      "first_frame": "A complete scene is visible immediately.",
+      "action": "Two meaningful layers peel apart without hiding the subject.",
+      "text_seed": "What is this made of?",
+      "sound": "Two restrained paper sounds.",
+      "fit": "Anatomy; production"
+    },
+    {
+      "id": "I06",
+      "intro": "Marked token",
+      "first_frame": "A distinctive token begins at the first node of a network.",
+      "action": "Track it through one junction, then pause before the next.",
+      "text_seed": "Follow this piece.",
+      "sound": "Single pluck at each verified handoff.",
+      "fit": "Routes; processes"
+    },
+    {
+      "id": "I07",
+      "intro": "Wrong-sized tool",
+      "first_frame": "A character enters carrying an absurdly oversized tool.",
+      "action": "Their confident step stops at the tiny problem.",
+      "text_seed": "There may be an easier way.",
+      "sound": "Small comic stop and room tone.",
+      "fit": "Fiction"
+    },
+    {
+      "id": "I08",
+      "intro": "Checkpoint close-up",
+      "first_frame": "A physical indicator or step result is framed clearly.",
+      "action": "Pull back to show the action it checks.",
+      "text_seed": "How would you know it worked?",
+      "sound": "Neutral click matched to the indicator.",
+      "fit": "How-to; QA"
+    },
+    {
+      "id": "I09",
+      "intro": "Quiet warning",
+      "first_frame": "A sourced warning cue is visible in an otherwise calm scene.",
+      "action": "A bounded highlight draws attention, then stops.",
+      "text_seed": "Notice this before continuing.",
+      "sound": "Calm narration, no alarm sting.",
+      "fit": "Safety education"
+    },
+    {
+      "id": "I10",
+      "intro": "Map then ground",
+      "first_frame": "A fictional route is shown as a clean map.",
+      "action": "Dissolve to the same route in an original miniature scene.",
+      "text_seed": "The map leaves out one thing.",
+      "sound": "Ambient travel sound.",
+      "fit": "Spatial story"
+    },
+    {
+      "id": "I11",
+      "intro": "Countdown to choice",
+      "first_frame": "The scene and two options are already legible.",
+      "action": "A gentle progress bar begins after the rule appears.",
+      "text_seed": "Choose before the reveal.",
+      "sound": "Soft regular ticks, optional silent mode.",
+      "fit": "Low-risk puzzle"
+    },
+    {
+      "id": "I12",
+      "intro": "One missing part",
+      "first_frame": "An object sits with one clearly empty socket.",
+      "action": "A slow turn reveals the gap from a second view.",
+      "text_seed": "What belongs here?",
+      "sound": "Light mechanical room tone.",
+      "fit": "Anatomy; guessing"
+    },
+    {
+      "id": "I13",
+      "intro": "Sound makes shape",
+      "first_frame": "An original tap is paired with a visible waveform.",
+      "action": "The waveform settles into the moving object that made the sound.",
+      "text_seed": "What did you hear?",
+      "sound": "Original source sound with caption.",
+      "fit": "Audio learning"
+    },
+    {
+      "id": "I14",
+      "intro": "Stage entrance",
+      "first_frame": "A character steps out from behind an actual scene edge.",
+      "action": "Camera holds while they discover the central prop.",
+      "text_seed": "A simple job, surely.",
+      "sound": "Footstep, breath and small music motif.",
+      "fit": "Comedy"
+    },
+    {
+      "id": "I15",
+      "intro": "Match-cut scale",
+      "first_frame": "A circular everyday object fills the screen.",
+      "action": "Match cut to a different-scale system with the same silhouette.",
+      "text_seed": "Similar shape. Different scale.",
+      "sound": "Short transition note.",
+      "fit": "Analogy with scale labels"
+    },
+    {
+      "id": "I16",
+      "intro": "Transparent mechanism",
+      "first_frame": "The external object is visible against a calm background.",
+      "action": "A cutaway plane opens to show the interacting parts.",
+      "text_seed": "Inside the motion.",
+      "sound": "Gentle mechanical loop.",
+      "fit": "Mechanism"
+    },
+    {
+      "id": "I17",
+      "intro": "Pattern interruption",
+      "first_frame": "Three repeated actions establish a visual rhythm.",
+      "action": "A fourth object breaks one stated rule.",
+      "text_seed": "Find the break.",
+      "sound": "Three even taps and a held rest.",
+      "fit": "Pattern puzzle"
+    },
+    {
+      "id": "I18",
+      "intro": "Reverse breadcrumb",
+      "first_frame": "A final object rests beside three traces of its journey.",
+      "action": "The camera follows the traces backward without reversing physics.",
+      "text_seed": "How did it get here?",
+      "sound": "Music starts on the resolved chord then thins.",
+      "fit": "Mystery; reconstruction"
+    },
+    {
+      "id": "I19",
+      "intro": "Shared frame disagreement",
+      "first_frame": "Two characters look at the same object from different sides.",
+      "action": "A small orbit reveals why each saw something different.",
+      "text_seed": "They both saw part of it.",
+      "sound": "Two short vocal reactions, optional captions.",
+      "fit": "Perspective; fable"
+    },
+    {
+      "id": "I20",
+      "intro": "Hands before title",
+      "first_frame": "A tool begins one approved, safe action.",
+      "action": "The title arrives in empty space after the action is recognizable.",
+      "text_seed": "Watch the contact point.",
+      "sound": "Real or original matched tool sound.",
+      "fit": "Craft; how-to"
+    },
+    {
+      "id": "I21",
+      "intro": "Obstacle in foreground",
+      "first_frame": "An obstruction dominates near frame while the goal remains visible.",
+      "action": "Slow lateral move reveals a plausible path.",
+      "text_seed": "There is another route.",
+      "sound": "Ambient sound with one discovery accent.",
+      "fit": "Spatial fiction"
+    },
+    {
+      "id": "I22",
+      "intro": "Shape promise",
+      "first_frame": "A simple shape is drawn around the key object.",
+      "action": "The outline becomes a guide for the later explanation.",
+      "text_seed": "This outline matters.",
+      "sound": "One original draw-on sound.",
+      "fit": "Visual explanation"
+    },
+    {
+      "id": "I23",
+      "intro": "Small versus large",
+      "first_frame": "A tiny character stands beside a large, grounded object.",
+      "action": "Wide shot holds before a closer insert of their tool.",
+      "text_seed": "Small helper. Specific plan.",
+      "sound": "Subtle scale-aware footsteps.",
+      "fit": "Fiction; leverage model"
+    },
+    {
+      "id": "I24",
+      "intro": "Interface truth card",
+      "first_frame": "An authentic capture or labeled mockup opens at a known state.",
+      "action": "One highlight indicates the next action, not a fake cursor success.",
+      "text_seed": "Start from this state.",
+      "sound": "Clear spoken step and quiet click.",
+      "fit": "Software tutorial"
+    },
+    {
+      "id": "I25",
+      "intro": "Time strip",
+      "first_frame": "Three dated or explicitly fictional time panels sit together.",
+      "action": "The middle panel expands into the main scene.",
+      "text_seed": "What changed between these moments?",
+      "sound": "Three sparse notes.",
+      "fit": "Timeline"
+    },
+    {
+      "id": "I26",
+      "intro": "Question in negative space",
+      "first_frame": "The central action sits low in a spacious scene.",
+      "action": "A short question appears above without covering evidence.",
+      "text_seed": "What would you check first?",
+      "sound": "Narration with a brief pause.",
+      "fit": "Learning; observation"
+    },
+    {
+      "id": "I27",
+      "intro": "Contact-first comedy",
+      "first_frame": "Two objects are just about to touch.",
+      "action": "A character interrupts at the last moment and creates a new problem.",
+      "text_seed": "An excellent save. Almost.",
+      "sound": "Held note and soft comic release.",
+      "fit": "Fiction"
+    },
+    {
+      "id": "I28",
+      "intro": "World-rule demonstration",
+      "first_frame": "A character demonstrates the fictional rule once in plain view.",
+      "action": "A second attempt introduces the conflict.",
+      "text_seed": "Here, shadows arrive early.",
+      "sound": "One recurring world-rule sound motif.",
+      "fit": "Surreal worldbuilding"
+    },
+    {
+      "id": "I29",
+      "intro": "Honest result comparison",
+      "first_frame": "A real or clearly simulated failed result sits beside a corrected proposal.",
+      "action": "Camera moves to the single changed region.",
+      "text_seed": "What changed between these?",
+      "sound": "Neutral comparison narration.",
+      "fit": "Repair; model review"
+    },
+    {
+      "id": "I30",
+      "intro": "Warm background discovery",
+      "first_frame": "A foreground character starts a solitary task.",
+      "action": "Slow push keeps a helpful background action visible.",
+      "text_seed": "Someone has already started helping.",
+      "sound": "Gentle ambient music, no forced crescendo.",
+      "fit": "Warm fiction"
+    }
+  ],
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix C Creative banks and exact treatment addressing / Thirty visual intros",
+    "anchor": "thirty-visual-intros",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "story_doctor",
+  "title": "Story doctor",
+  "kind": "subagent",
+  "subkind": "review-lens",
+  "version": "1.0.0",
+  "summary": "Applies the story contract, causality and escalation checks, comedy/suspense mechanisms, storyboard gate and kill criteria to a draft and returns revise / ready-for-animatic / blocked, never approval.",
+  "domain": "story",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#story-quality-comes-before-production-scale"
+  },
+  "step_kinds": [
+    "review"
+  ],
+  "effects": {
+    "filesystem": "read",
+    "network": "none",
+    "executes": "shell",
+    "secrets": [],
+    "side_effects": [
+      "may run timed_storyboard_check.py"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "opencode",
+    "baltor-harness"
+  ],
+  "entry": "agent.md",
+  "tags": [
+    "story",
+    "review",
+    "subagent",
+    "story-contract",
+    "storyboard"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "story_contract_rules"
+    },
+    {
+      "identity": "storyboard_gate"
+    },
+    {
+      "identity": "comedy_mechanisms"
+    },
+    {
+      "identity": "suspense_rules"
+    },
+    {
+      "identity": "story_tests"
+    },
+    {
+      "identity": "timed_storyboard_check"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/ref_stories.py",
+    "data": "generators/data/ref_stories"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "considered",
+  "evidence_notes": "New agent definition written from the guide's story rules; it has not yet been run on a real draft. Its verdicts are editorial, not audience evidence."
+}

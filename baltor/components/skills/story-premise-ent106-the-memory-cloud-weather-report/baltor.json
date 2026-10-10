@@ -1,0 +1,69 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "story_premise_ent106_the_memory_cloud_weather_report",
+  "title": "Story premise ENT106: The Memory Cloud Weather Report",
+  "kind": "skill",
+  "subkind": "premise",
+  "version": "1.0.0",
+  "summary": "Idea-stage fiction premise (fantasy and science fiction). Hook: The forecast says scattered memories. Takeaway/theme: A specific cue can organize a fictional collection better than a vague category.",
+  "description": "A cloud archivist wants to retrieve one happy picnic memory from a fantasy sky cabinet, but all the cloud drawers look identical. They sort the clouds by the objects visible inside instead of by cloud shape, find the red picnic kite, and label the drawer with that distinctive detail.",
+  "domain": "story",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#ent106-the-memory-cloud-weather-report"
+  },
+  "step_kinds": [
+    "plan",
+    "write"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "story",
+    "premise",
+    "fiction",
+    "fantasy-and-science-fiction",
+    "fictional-demonstration",
+    "ent106"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "story_premise"
+    },
+    {
+      "identity": "story_contract_rules"
+    },
+    {
+      "identity": "story_tests"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/ref_stories.py",
+    "data": "generators/data/ref_stories",
+    "parameters": {
+      "id": "ENT106",
+      "treatment_group": 3,
+      "guide_line": 5836
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "considered",
+  "evidence_notes": "Idea from the 10 Oct 2026 creative catalogue (Creative Catalogue JSON Bundle 2026-10-10, Library libfile_ff6a4ae010508191b42073985cd7a4a1 v0, SHA-256 1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e), preserved in guide Appendix D line 5836. Not a completed script, not rendered, no audience study. Evidence class fictional_demonstration names the check a claim would need, not a check done. Its ten treatment addresses (R-ENT106-F06-A01 ...) are candidates, not screenplays."
+}

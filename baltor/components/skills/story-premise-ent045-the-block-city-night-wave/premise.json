@@ -1,0 +1,119 @@
+{
+  "id": "ENT045",
+  "title": "The Block City Night Wave",
+  "family": "fiction",
+  "category": "block-world chain reactions",
+  "premise": "A caretaker wants to dim a toy city at bedtime, but the control is on a roof across the map. A prearranged sequence of mechanical shutters closes one window and exposes a reflector to the next, carrying a visible dimming wave across the city while leaving a moonlit path home.",
+  "hook": "Bedtime is crossing town one window at a time.",
+  "visible_action": "Shutters descend; tiny reflectors rotate; the next latch releases; lighted windows fade along a serpentine route; a path remains lit.",
+  "intended_takeaway_or_theme": "A sequence can carry a signal while preserving one needed exception.",
+  "gate": "Use an internally defined optical-mechanical toy rule; not real electrical or building-safety guidance.",
+  "evidence_class": "fictional_demonstration",
+  "original_format_tags": [
+    "narrative_lesson",
+    "silent_visual",
+    "mechanism_cutaway"
+  ],
+  "status": "idea",
+  "treatment_group": 3,
+  "treatments": [
+    {
+      "address": "R-ENT045-F06-A01",
+      "format_id": "F06",
+      "approach_id": "A01",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT045-F06-A03",
+      "format_id": "F06",
+      "approach_id": "A03",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT045-F07-A01",
+      "format_id": "F07",
+      "approach_id": "A01",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT045-F07-A03",
+      "format_id": "F07",
+      "approach_id": "A03",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT045-F08-A01",
+      "format_id": "F08",
+      "approach_id": "A01",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT045-F08-A03",
+      "format_id": "F08",
+      "approach_id": "A03",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT045-F09-A01",
+      "format_id": "F09",
+      "approach_id": "A01",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT045-F09-A03",
+      "format_id": "F09",
+      "approach_id": "A03",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT045-F10-A01",
+      "format_id": "F10",
+      "approach_id": "A01",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    },
+    {
+      "address": "R-ENT045-F10-A03",
+      "format_id": "F10",
+      "approach_id": "A03",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    }
+  ],
+  "style_application": {
+    "id": "SU08",
+    "treatment": "Faceted night-wave city",
+    "view": "Isometric or perspective",
+    "geometry": "Faceted low-poly 3D",
+    "material": "Original block materials with soft practical light",
+    "aesthetic": "Cinematic miniature",
+    "layout": "Wide city to local inset",
+    "why": "Visible polygon facets and a coordinated wave make scale and sequence readable.",
+    "check": "Check geometry, consistent lights, nonflashing timing and the propagation rule."
+  },
+  "editorial_pick": {
+    "rank": 13,
+    "original_reason": "A city-wide night wave offers a satisfying visual payoff and reusable timing controls.",
+    "proposed_first_version": "A miniature block city passes one intentional evening signal from place to place. Let the camera reveal the larger pattern slowly.",
+    "gate": "Check the actual causal or fictional rule and avoid flashing lights or excessive brightness changes.",
+    "note": "These are the catalogue's historical editorial recommendations, not current owner-approved selections or guaranteed watchable stories. Reapply the latest comedy/suspense gate."
+  },
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix D All 240 story premises / Fiction block-world chain reactions",
+    "anchor": "ent045-the-block-city-night-wave",
+    "line": 4970,
+    "catalogue_artifact": "Creative Catalogue JSON Bundle 2026-10-10",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_version": "0",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  }
+}

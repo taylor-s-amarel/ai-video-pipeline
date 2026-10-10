@@ -1,0 +1,102 @@
+{
+  "id": "ENT059",
+  "title": "The Nine-Tile Mosaic",
+  "family": "fiction",
+  "category": "mechanical puzzles",
+  "premise": "An artist must fill a 3-by-3 board with nine tiles so each row shows one circle, one square, and one triangle. The first attempt repeats a circle; they rearrange rows as circle-square-triangle, square-triangle-circle, triangle-circle-square, producing rows and columns with one of each.",
+  "hook": "Every row wants all three shapes.",
+  "visible_action": "Tiles slide into nine cells; duplicate symbols flash; rows rotate into a Latin-square pattern; matching columns illuminate.",
+  "intended_takeaway_or_theme": "Check constraints in both directions when the puzzle promises both.",
+  "gate": "Verified 3×3 Latin square; each row and column contains C,S,T exactly once. If only rows are required, the displayed answer is valid but not unique.",
+  "evidence_class": "mathematically_checkable",
+  "original_format_tags": [
+    "narrative_lesson",
+    "prediction_quiz",
+    "step_by_step",
+    "side_by_side"
+  ],
+  "status": "idea",
+  "treatment_group": 3,
+  "treatments": [
+    {
+      "address": "R-ENT059-F06-A01",
+      "format_id": "F06",
+      "approach_id": "A01",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT059-F06-A03",
+      "format_id": "F06",
+      "approach_id": "A03",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT059-F07-A01",
+      "format_id": "F07",
+      "approach_id": "A01",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT059-F07-A03",
+      "format_id": "F07",
+      "approach_id": "A03",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT059-F08-A01",
+      "format_id": "F08",
+      "approach_id": "A01",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT059-F08-A03",
+      "format_id": "F08",
+      "approach_id": "A03",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT059-F09-A01",
+      "format_id": "F09",
+      "approach_id": "A01",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT059-F09-A03",
+      "format_id": "F09",
+      "approach_id": "A03",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT059-F10-A01",
+      "format_id": "F10",
+      "approach_id": "A01",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    },
+    {
+      "address": "R-ENT059-F10-A03",
+      "format_id": "F10",
+      "approach_id": "A03",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    }
+  ],
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix D All 240 story premises / Fiction mechanical puzzles",
+    "anchor": "ent059-the-nine-tile-mosaic",
+    "line": 5168,
+    "catalogue_artifact": "Creative Catalogue JSON Bundle 2026-10-10",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_version": "0",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  }
+}

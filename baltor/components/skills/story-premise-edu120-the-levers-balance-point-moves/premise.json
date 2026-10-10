@@ -1,0 +1,103 @@
+{
+  "id": "EDU120",
+  "title": "The Lever’s Balance Point Moves",
+  "family": "learning",
+  "category": "practical mechanisms",
+  "premise": "Two toy weights want to balance on a beam, but equal distances fail when one weight is twice as large. Sliding the smaller weight farther from the pivot produces equal opposing idealized moments.",
+  "hook": "Can the lighter block win by standing farther away?",
+  "visible_action": "A beam pivots while weight blocks slide along labeled distance marks; weight-times-distance counters align at balance.",
+  "intended_takeaway_or_theme": "Lever balance depends on both force and perpendicular distance from the pivot.",
+  "gate": "State negligible beam mass and vertical loads; no practical lifting or structural-capacity advice.",
+  "evidence_class": "mathematically_checkable",
+  "original_format_tags": [
+    "mechanism_cutaway",
+    "prediction_quiz",
+    "silent_visual",
+    "step_by_step",
+    "side_by_side"
+  ],
+  "status": "idea",
+  "treatment_group": 1,
+  "treatments": [
+    {
+      "address": "R-EDU120-F01-A01",
+      "format_id": "F01",
+      "approach_id": "A01",
+      "intro_id": "I26",
+      "motion_id": "M13"
+    },
+    {
+      "address": "R-EDU120-F01-A02",
+      "format_id": "F01",
+      "approach_id": "A02",
+      "intro_id": "I26",
+      "motion_id": "M13"
+    },
+    {
+      "address": "R-EDU120-F02-A01",
+      "format_id": "F02",
+      "approach_id": "A01",
+      "intro_id": "I26",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-EDU120-F02-A02",
+      "format_id": "F02",
+      "approach_id": "A02",
+      "intro_id": "I26",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-EDU120-F03-A01",
+      "format_id": "F03",
+      "approach_id": "A01",
+      "intro_id": "I08",
+      "motion_id": "M05"
+    },
+    {
+      "address": "R-EDU120-F03-A02",
+      "format_id": "F03",
+      "approach_id": "A02",
+      "intro_id": "I08",
+      "motion_id": "M05"
+    },
+    {
+      "address": "R-EDU120-F04-A01",
+      "format_id": "F04",
+      "approach_id": "A01",
+      "intro_id": "I02",
+      "motion_id": "M09"
+    },
+    {
+      "address": "R-EDU120-F04-A02",
+      "format_id": "F04",
+      "approach_id": "A02",
+      "intro_id": "I02",
+      "motion_id": "M09"
+    },
+    {
+      "address": "R-EDU120-F05-A01",
+      "format_id": "F05",
+      "approach_id": "A01",
+      "intro_id": "I18",
+      "motion_id": "M21"
+    },
+    {
+      "address": "R-EDU120-F05-A02",
+      "format_id": "F05",
+      "approach_id": "A02",
+      "intro_id": "I18",
+      "motion_id": "M21"
+    }
+  ],
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix D All 240 story premises / Learning practical mechanisms",
+    "anchor": "edu120-the-levers-balance-point-moves",
+    "line": 4330,
+    "catalogue_artifact": "Creative Catalogue JSON Bundle 2026-10-10",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_version": "0",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  }
+}

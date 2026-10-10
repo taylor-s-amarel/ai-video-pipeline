@@ -1,0 +1,50 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "creative_catalogue_editorial_formats",
+  "title": "Creative catalogue: twenty editorial formats",
+  "kind": "skill",
+  "subkind": "idea-bank",
+  "version": "1.0.0",
+  "summary": "Twenty editorial formats (F01-F20) with structure, fit, gate, original proposed duration and the editorial treatment rules.",
+  "domain": "story",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#twenty-editorial-formats"
+  },
+  "step_kinds": [
+    "plan",
+    "design"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "story",
+    "idea-bank",
+    "creative-catalogue",
+    "formats"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/ref_stories.py",
+    "data": "generators/data/ref_stories"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "considered",
+  "evidence_notes": "Proposal bank materialized from the 10 Oct 2026 catalogue (Creative Catalogue JSON Bundle 2026-10-10, Library libfile_ff6a4ae010508191b42073985cd7a4a1 v0, SHA-256 1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e). The guide does not retroactively mark catalogue recipes rendered because a similarly named film exists; no entry here is tested or used in a film by virtue of being listed."
+}

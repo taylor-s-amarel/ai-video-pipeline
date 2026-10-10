@@ -1,0 +1,49 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "treatment_address",
+  "title": "Creative-catalogue treatment address",
+  "kind": "contract-schema",
+  "subkind": "treatment",
+  "version": "1.0.0",
+  "summary": "JSON Schema for R-{story}-{format}-{approach} addresses: the four treatment groups are encoded exactly, so only the catalogue's 2,400 story/format/approach/intro/motion combinations validate.",
+  "domain": "story",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#exact-2400-treatment-address-map"
+  },
+  "step_kinds": [
+    "plan",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "schema.json",
+  "tags": [
+    "story",
+    "treatment",
+    "schema",
+    "catalogue",
+    "addressing"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/ref_stories.py",
+    "data": "generators/data/ref_stories"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

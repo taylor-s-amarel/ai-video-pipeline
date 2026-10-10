@@ -1,0 +1,119 @@
+{
+  "id": "ENT008",
+  "title": "The Polite Bowling Ball",
+  "family": "fiction",
+  "category": "physical comedy",
+  "premise": "A bowler needs to clear a lane, but their sentient ball refuses to bump into the pins. After failed pep talks, the ball offers each pin a tiny chair at the side, rolls peacefully to the end, and receives a handmade KINDNESS score instead of a strike.",
+  "hook": "This ball refuses to be rude.",
+  "visible_action": "Ball stops before the pins, gestures apologetically, rolls out ten miniature chairs, and escorts the pins sideways.",
+  "intended_takeaway_or_theme": "Sometimes the goal can be redefined without a collision.",
+  "gate": "Bowling equipment is personified; the ending intentionally does not follow real scoring rules.",
+  "evidence_class": "fictional_demonstration",
+  "original_format_tags": [
+    "narrative_lesson",
+    "silent_visual",
+    "interactive_branch"
+  ],
+  "status": "idea",
+  "treatment_group": 3,
+  "treatments": [
+    {
+      "address": "R-ENT008-F06-A01",
+      "format_id": "F06",
+      "approach_id": "A01",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT008-F06-A03",
+      "format_id": "F06",
+      "approach_id": "A03",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT008-F07-A01",
+      "format_id": "F07",
+      "approach_id": "A01",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT008-F07-A03",
+      "format_id": "F07",
+      "approach_id": "A03",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT008-F08-A01",
+      "format_id": "F08",
+      "approach_id": "A01",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT008-F08-A03",
+      "format_id": "F08",
+      "approach_id": "A03",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT008-F09-A01",
+      "format_id": "F09",
+      "approach_id": "A01",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT008-F09-A03",
+      "format_id": "F09",
+      "approach_id": "A03",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT008-F10-A01",
+      "format_id": "F10",
+      "approach_id": "A01",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    },
+    {
+      "address": "R-ENT008-F10-A03",
+      "format_id": "F10",
+      "approach_id": "A03",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    }
+  ],
+  "style_application": {
+    "id": "SU12",
+    "treatment": "Clay polite bowling ball",
+    "view": "Low eye-level perspective",
+    "geometry": "Smooth volumetric 3D",
+    "material": "Procedural clay-like surface",
+    "aesthetic": "Physical comedy",
+    "layout": "Single character path",
+    "why": "Weight, hesitation and small deformations communicate intention.",
+    "check": "Preserve volume, contact and intentional timing."
+  },
+  "editorial_pick": {
+    "rank": 6,
+    "original_reason": "A polite bowling ball can show intention through timing and trajectory without elaborate dialogue.",
+    "proposed_first_version": "Use one ball, a few original characters and a simple stage. Let hesitation and courteous detours carry the comedy.",
+    "gate": "Keep the physics visibly fictional where necessary and make the final objective readable.",
+    "note": "These are the catalogue's historical editorial recommendations, not current owner-approved selections or guaranteed watchable stories. Reapply the latest comedy/suspense gate."
+  },
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix D All 240 story premises / Fiction physical comedy",
+    "anchor": "ent008-the-polite-bowling-ball",
+    "line": 4444,
+    "catalogue_artifact": "Creative Catalogue JSON Bundle 2026-10-10",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_version": "0",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  }
+}

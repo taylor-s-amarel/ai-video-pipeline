@@ -1,0 +1,121 @@
+{
+  "id": "EDU013",
+  "title": "The Traveling Pulse",
+  "family": "learning",
+  "category": "everyday science",
+  "premise": "A messenger wants to send a signal along a row of spring-linked blocks, but assumes a marked block must travel to the receiver. The pulse arrives while the marked block oscillates near its starting position.",
+  "hook": "Does the messenger move, or does the message?",
+  "visible_action": "A colored block rocks locally as a compression pulse travels through a spring-linked row.",
+  "intended_takeaway_or_theme": "A wave can transfer a disturbance while local material moves differently.",
+  "gate": "Specify a longitudinal mechanical-wave model; do not generalize it to all waves.",
+  "evidence_class": "requires_primary_source_review",
+  "original_format_tags": [
+    "silent_visual",
+    "mechanism_cutaway",
+    "prediction_quiz",
+    "side_by_side",
+    "step_by_step"
+  ],
+  "status": "idea",
+  "treatment_group": 1,
+  "treatments": [
+    {
+      "address": "R-EDU013-F01-A01",
+      "format_id": "F01",
+      "approach_id": "A01",
+      "intro_id": "I26",
+      "motion_id": "M13"
+    },
+    {
+      "address": "R-EDU013-F01-A02",
+      "format_id": "F01",
+      "approach_id": "A02",
+      "intro_id": "I26",
+      "motion_id": "M13"
+    },
+    {
+      "address": "R-EDU013-F02-A01",
+      "format_id": "F02",
+      "approach_id": "A01",
+      "intro_id": "I26",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-EDU013-F02-A02",
+      "format_id": "F02",
+      "approach_id": "A02",
+      "intro_id": "I26",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-EDU013-F03-A01",
+      "format_id": "F03",
+      "approach_id": "A01",
+      "intro_id": "I08",
+      "motion_id": "M05"
+    },
+    {
+      "address": "R-EDU013-F03-A02",
+      "format_id": "F03",
+      "approach_id": "A02",
+      "intro_id": "I08",
+      "motion_id": "M05"
+    },
+    {
+      "address": "R-EDU013-F04-A01",
+      "format_id": "F04",
+      "approach_id": "A01",
+      "intro_id": "I02",
+      "motion_id": "M09"
+    },
+    {
+      "address": "R-EDU013-F04-A02",
+      "format_id": "F04",
+      "approach_id": "A02",
+      "intro_id": "I02",
+      "motion_id": "M09"
+    },
+    {
+      "address": "R-EDU013-F05-A01",
+      "format_id": "F05",
+      "approach_id": "A01",
+      "intro_id": "I18",
+      "motion_id": "M21"
+    },
+    {
+      "address": "R-EDU013-F05-A02",
+      "format_id": "F05",
+      "approach_id": "A02",
+      "intro_id": "I18",
+      "motion_id": "M21"
+    }
+  ],
+  "style_application": {
+    "id": "SU13",
+    "treatment": "Chalk traveling pulse",
+    "view": "Side-view 2D",
+    "geometry": "Flat vector 2D",
+    "material": "Original chalk-like stroke treatment",
+    "aesthetic": "Field-note science",
+    "layout": "Marked elements plus a trace",
+    "why": "Progressive drawing separates the disturbance from the motion of individual elements.",
+    "check": "Check the actual model and ensure texture does not change element positions."
+  },
+  "editorial_pick": {
+    "rank": 19,
+    "original_reason": "A traveling pulse can separate movement of a disturbance from movement of the material.",
+    "proposed_first_version": "Use marked elements in a visible row. Track a few elements while the pulse travels through the group.",
+    "gate": "Check the model and boundary conditions. Do not generalize one wave type to all waves.",
+    "note": "These are the catalogue's historical editorial recommendations, not current owner-approved selections or guaranteed watchable stories. Reapply the latest comedy/suspense gate."
+  },
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix D All 240 story premises / Learning everyday science",
+    "anchor": "edu013-the-traveling-pulse",
+    "line": 2812,
+    "catalogue_artifact": "Creative Catalogue JSON Bundle 2026-10-10",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_version": "0",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "id": "EDU048",
+  "title": "The Icon That Meant Two Things",
+  "family": "learning",
+  "category": "language/communication",
+  "premise": "A designer wants a button understood without explanation, but two viewers read the same star as favorite and rating. Pairing it with a clear label and checking the intended action resolves the prototype confusion.",
+  "hook": "Will this star save it, or score it?",
+  "visible_action": "One star button forks into two predicted outcomes; a text label snaps beneath the selected action.",
+  "intended_takeaway_or_theme": "An icon’s meaning may need context, labeling, and user checking.",
+  "gate": "Do not claim symbols are universally intuitive; real-interface accessibility needs review.",
+  "evidence_class": "fictional_demonstration",
+  "original_format_tags": [
+    "prediction_quiz",
+    "side_by_side",
+    "behind_the_scenes",
+    "interactive_branch",
+    "step_by_step"
+  ],
+  "status": "idea",
+  "treatment_group": 1,
+  "treatments": [
+    {
+      "address": "R-EDU048-F01-A01",
+      "format_id": "F01",
+      "approach_id": "A01",
+      "intro_id": "I26",
+      "motion_id": "M13"
+    },
+    {
+      "address": "R-EDU048-F01-A02",
+      "format_id": "F01",
+      "approach_id": "A02",
+      "intro_id": "I26",
+      "motion_id": "M13"
+    },
+    {
+      "address": "R-EDU048-F02-A01",
+      "format_id": "F02",
+      "approach_id": "A01",
+      "intro_id": "I26",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-EDU048-F02-A02",
+      "format_id": "F02",
+      "approach_id": "A02",
+      "intro_id": "I26",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-EDU048-F03-A01",
+      "format_id": "F03",
+      "approach_id": "A01",
+      "intro_id": "I08",
+      "motion_id": "M05"
+    },
+    {
+      "address": "R-EDU048-F03-A02",
+      "format_id": "F03",
+      "approach_id": "A02",
+      "intro_id": "I08",
+      "motion_id": "M05"
+    },
+    {
+      "address": "R-EDU048-F04-A01",
+      "format_id": "F04",
+      "approach_id": "A01",
+      "intro_id": "I02",
+      "motion_id": "M09"
+    },
+    {
+      "address": "R-EDU048-F04-A02",
+      "format_id": "F04",
+      "approach_id": "A02",
+      "intro_id": "I02",
+      "motion_id": "M09"
+    },
+    {
+      "address": "R-EDU048-F05-A01",
+      "format_id": "F05",
+      "approach_id": "A01",
+      "intro_id": "I18",
+      "motion_id": "M21"
+    },
+    {
+      "address": "R-EDU048-F05-A02",
+      "format_id": "F05",
+      "approach_id": "A02",
+      "intro_id": "I18",
+      "motion_id": "M21"
+    }
+  ],
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix D All 240 story premises / Learning language/communication",
+    "anchor": "edu048-the-icon-that-meant-two-things",
+    "line": 3308,
+    "catalogue_artifact": "Creative Catalogue JSON Bundle 2026-10-10",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_version": "0",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  }
+}

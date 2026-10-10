@@ -1,0 +1,103 @@
+{
+  "id": "EDU084",
+  "title": "The Motion Dial Keeps the Meaning",
+  "family": "learning",
+  "category": "accessibility/inclusion",
+  "premise": "A viewer wants the result of an interface action, but a long sweeping animation is uncomfortable or distracting. A reduced-motion version preserves the state change with a quieter transition and equivalent information.",
+  "hook": "Can this screen explain the change without the swoop?",
+  "visible_action": "A panel sweep is replaced by an immediate state change and a small status marker in parallel previews.",
+  "intended_takeaway_or_theme": "Motion can be optional while the underlying information and control remain available.",
+  "gate": "Review reduced-motion guidance; no flashing, simulated symptoms, or claims about all motion sensitivities.",
+  "evidence_class": "requires_primary_source_review",
+  "original_format_tags": [
+    "side_by_side",
+    "silent_visual",
+    "interactive_branch",
+    "behind_the_scenes",
+    "step_by_step"
+  ],
+  "status": "idea",
+  "treatment_group": 1,
+  "treatments": [
+    {
+      "address": "R-EDU084-F01-A01",
+      "format_id": "F01",
+      "approach_id": "A01",
+      "intro_id": "I26",
+      "motion_id": "M13"
+    },
+    {
+      "address": "R-EDU084-F01-A02",
+      "format_id": "F01",
+      "approach_id": "A02",
+      "intro_id": "I26",
+      "motion_id": "M13"
+    },
+    {
+      "address": "R-EDU084-F02-A01",
+      "format_id": "F02",
+      "approach_id": "A01",
+      "intro_id": "I26",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-EDU084-F02-A02",
+      "format_id": "F02",
+      "approach_id": "A02",
+      "intro_id": "I26",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-EDU084-F03-A01",
+      "format_id": "F03",
+      "approach_id": "A01",
+      "intro_id": "I08",
+      "motion_id": "M05"
+    },
+    {
+      "address": "R-EDU084-F03-A02",
+      "format_id": "F03",
+      "approach_id": "A02",
+      "intro_id": "I08",
+      "motion_id": "M05"
+    },
+    {
+      "address": "R-EDU084-F04-A01",
+      "format_id": "F04",
+      "approach_id": "A01",
+      "intro_id": "I02",
+      "motion_id": "M09"
+    },
+    {
+      "address": "R-EDU084-F04-A02",
+      "format_id": "F04",
+      "approach_id": "A02",
+      "intro_id": "I02",
+      "motion_id": "M09"
+    },
+    {
+      "address": "R-EDU084-F05-A01",
+      "format_id": "F05",
+      "approach_id": "A01",
+      "intro_id": "I18",
+      "motion_id": "M21"
+    },
+    {
+      "address": "R-EDU084-F05-A02",
+      "format_id": "F05",
+      "approach_id": "A02",
+      "intro_id": "I18",
+      "motion_id": "M21"
+    }
+  ],
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix D All 240 story premises / Learning accessibility/inclusion",
+    "anchor": "edu084-the-motion-dial-keeps-the-meaning",
+    "line": 3820,
+    "catalogue_artifact": "Creative Catalogue JSON Bundle 2026-10-10",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_version": "0",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "story_premise_ent063_the_camouflage_coat_check",
+  "title": "Story premise ENT063: The Camouflage Coat Check",
+  "kind": "skill",
+  "subkind": "premise",
+  "version": "1.0.0",
+  "summary": "Idea-stage fiction premise (perception and hidden objects). Hook: Your coat is here. So are you. Probably. Takeaway/theme: Changing the background can reveal the subject.",
+  "description": "A coat-check attendant must find a customer’s checkerboard coat, but it vanishes against the identical wall pattern. Instead of repainting anything, the attendant slides a plain screen behind the rack and every coat becomes visible; the customer had also blended into the opposite wall.",
+  "domain": "story",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#ent063-the-camouflage-coat-check"
+  },
+  "step_kinds": [
+    "plan",
+    "write"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "story",
+    "premise",
+    "fiction",
+    "perception-and-hidden-objects",
+    "fictional-demonstration",
+    "ent063"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "story_premise"
+    },
+    {
+      "identity": "story_contract_rules"
+    },
+    {
+      "identity": "story_tests"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/ref_stories.py",
+    "data": "generators/data/ref_stories",
+    "parameters": {
+      "id": "ENT063",
+      "treatment_group": 3,
+      "guide_line": 5226
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "considered",
+  "evidence_notes": "Idea from the 10 Oct 2026 creative catalogue (Creative Catalogue JSON Bundle 2026-10-10, Library libfile_ff6a4ae010508191b42073985cd7a4a1 v0, SHA-256 1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e), preserved in guide Appendix D line 5226. Not a completed script, not rendered, no audience study. Evidence class fictional_demonstration names the check a claim would need, not a check done. Its ten treatment addresses (R-ENT063-F06-A01 ...) are candidates, not screenplays."
+}

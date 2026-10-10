@@ -1,0 +1,103 @@
+{
+  "id": "EDU028",
+  "title": "The Disappearing Checkerboard",
+  "family": "learning",
+  "category": "computing/data",
+  "premise": "A camera robot wants to capture fine stripes, but its sparse sample points miss alternating details. Sliding the sampling grid changes the recorded pattern and exposes the ambiguity.",
+  "hook": "Why do the stripes vanish when the camera steps back?",
+  "visible_action": "A sampling lattice moves over a striped panel; selected points build a coarse image beside the original.",
+  "intended_takeaway_or_theme": "Sampling can lose detail or create misleading patterns when resolution is insufficient.",
+  "gate": "Define the synthetic pattern and sampler; real-camera optics need additional source review.",
+  "evidence_class": "mathematically_checkable",
+  "original_format_tags": [
+    "side_by_side",
+    "mechanism_cutaway",
+    "prediction_quiz",
+    "silent_visual",
+    "behind_the_scenes"
+  ],
+  "status": "idea",
+  "treatment_group": 1,
+  "treatments": [
+    {
+      "address": "R-EDU028-F01-A01",
+      "format_id": "F01",
+      "approach_id": "A01",
+      "intro_id": "I26",
+      "motion_id": "M13"
+    },
+    {
+      "address": "R-EDU028-F01-A02",
+      "format_id": "F01",
+      "approach_id": "A02",
+      "intro_id": "I26",
+      "motion_id": "M13"
+    },
+    {
+      "address": "R-EDU028-F02-A01",
+      "format_id": "F02",
+      "approach_id": "A01",
+      "intro_id": "I26",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-EDU028-F02-A02",
+      "format_id": "F02",
+      "approach_id": "A02",
+      "intro_id": "I26",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-EDU028-F03-A01",
+      "format_id": "F03",
+      "approach_id": "A01",
+      "intro_id": "I08",
+      "motion_id": "M05"
+    },
+    {
+      "address": "R-EDU028-F03-A02",
+      "format_id": "F03",
+      "approach_id": "A02",
+      "intro_id": "I08",
+      "motion_id": "M05"
+    },
+    {
+      "address": "R-EDU028-F04-A01",
+      "format_id": "F04",
+      "approach_id": "A01",
+      "intro_id": "I02",
+      "motion_id": "M09"
+    },
+    {
+      "address": "R-EDU028-F04-A02",
+      "format_id": "F04",
+      "approach_id": "A02",
+      "intro_id": "I02",
+      "motion_id": "M09"
+    },
+    {
+      "address": "R-EDU028-F05-A01",
+      "format_id": "F05",
+      "approach_id": "A01",
+      "intro_id": "I18",
+      "motion_id": "M21"
+    },
+    {
+      "address": "R-EDU028-F05-A02",
+      "format_id": "F05",
+      "approach_id": "A02",
+      "intro_id": "I18",
+      "motion_id": "M21"
+    }
+  ],
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix D All 240 story premises / Learning computing/data",
+    "anchor": "edu028-the-disappearing-checkerboard",
+    "line": 3024,
+    "catalogue_artifact": "Creative Catalogue JSON Bundle 2026-10-10",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_version": "0",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  }
+}

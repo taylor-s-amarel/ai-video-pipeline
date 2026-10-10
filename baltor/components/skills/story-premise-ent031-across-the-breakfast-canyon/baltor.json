@@ -1,0 +1,71 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "story_premise_ent031_across_the_breakfast_canyon",
+  "title": "Story premise ENT031: Across the Breakfast Canyon",
+  "kind": "skill",
+  "subkind": "premise",
+  "version": "1.0.0",
+  "summary": "Idea-stage fiction premise (miniature adventure). Hook: Breakfast is now a survival-sized map. Takeaway/theme: A familiar surface can become a new landscape at another scale.",
+  "description": "A crumb-sized explorer must return a fallen sugar crystal to a bowl, but a cereal bowl’s milk-filled moat blocks the route. The explorer sails in an empty oat shell, steers with a paper splinter, and uses a spoon already spanning the rim as a final ramp.",
+  "domain": "story",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#ent031-across-the-breakfast-canyon"
+  },
+  "step_kinds": [
+    "plan",
+    "write"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "story",
+    "premise",
+    "fiction",
+    "miniature-adventure",
+    "fictional-demonstration",
+    "ent031",
+    "style-application",
+    "editorial-pick"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "story_premise"
+    },
+    {
+      "identity": "story_contract_rules"
+    },
+    {
+      "identity": "story_tests"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/ref_stories.py",
+    "data": "generators/data/ref_stories",
+    "parameters": {
+      "id": "ENT031",
+      "treatment_group": 3,
+      "guide_line": 4772
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "considered",
+  "evidence_notes": "Idea from the 10 Oct 2026 creative catalogue (Creative Catalogue JSON Bundle 2026-10-10, Library libfile_ff6a4ae010508191b42073985cd7a4a1 v0, SHA-256 1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e), preserved in guide Appendix D line 4772. Not a completed script, not rendered, no audience study. Evidence class fictional_demonstration names the check a claim would need, not a check done. Its ten treatment addresses (R-ENT031-F06-A01 ...) are candidates, not screenplays."
+}

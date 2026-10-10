@@ -1,0 +1,50 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "story_contract",
+  "title": "Story contract",
+  "kind": "contract-schema",
+  "subkind": "story-template",
+  "version": "1.0.0",
+  "summary": "JSON Schema for the nine sentences written before drawing shots: want, stakes, constraint, choice, escalation, knowledge, plant, reversal, consequence; plus comedy mechanisms and the suspense question.",
+  "domain": "story",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#a-useful-story-contract"
+  },
+  "step_kinds": [
+    "plan",
+    "write",
+    "review"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "schema.json",
+  "tags": [
+    "story",
+    "story-contract",
+    "schema",
+    "comedy",
+    "suspense"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/ref_stories.py",
+    "data": "generators/data/ref_stories"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

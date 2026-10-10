@@ -1,0 +1,19 @@
+{
+  "id": "just-hold-the-sun",
+  "title": "Just Hold the Sun",
+  "board_type": "pitch",
+  "status": "proposed",
+  "opening_frame": "A tourist pretends to pinch the setting sun for a photograph. The peculiar camera clicks, and the sun actually drops into his fingers. The beach goes dark.",
+  "question_and_goals": "Can the photographer restore daylight before an approaching tour group discovers what happened? The tourist wants increasingly impressive pictures and is reluctant to surrender his new souvenir.",
+  "rule": "A forced-perspective illusion photographed by this camera becomes physically real. All repairs must use that same rule or straightforward handling of the already-transformed objects.",
+  "causal_escalation": "The photographer tries to frame the tourist tossing the sun back, but the tourist insists on another impressive pose. Their disagreement leaves the tiny sun in the foreground just as a child holding an ice-cream cone photobombs them. The camera catches an apparent extra scoop. Now the sun is perched on the cone. At midpoint, the photographer must work with the child, who is much more interested in finishing the snack than posing correctly. The tourist finally gives up directing his own glamorous image and helps line up a return shot.",
+  "plant_and_payoff": "The child's cone and repeated attempts to enter the photo appear before the accident. For the final shot, the child holds the cone under the horizon as though putting the sun back into the sky. Click: daylight returns, with one bite missing from the sun. The tourist has his spectacular sunset picture and an unmistakable record of his vanity.",
+  "visual_test": "Diagram every forced-perspective composition before boarding. If a transformation cannot be explained by the actual photograph, reject it. This is the highest-risk extra concept because an arbitrary camera effect would destroy the fairness of the ending.",
+  "editorial_note": "These are pitches, not approved productions or timed boards. Together with the three fully boarded films above, they make eight topics. They should be developed only if their central visual test works; a striking premise is not yet a finished film.",
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Five more distinct topics: an eight-story development slate",
+    "anchor": "7-just-hold-the-sun",
+    "line": 354
+  }
+}

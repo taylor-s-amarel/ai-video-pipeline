@@ -1,0 +1,69 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "story_premise_edu105_the_alarm_reminder_outlasts_the_beep",
+  "title": "Story premise EDU105: The Alarm Reminder Outlasts the Beep",
+  "kind": "skill",
+  "subkind": "premise",
+  "version": "1.0.0",
+  "summary": "Idea-stage learning premise (public safety/preparedness). Hook: Where did the instructions go after the alarm was installed? Takeaway/theme: Safety-device maintenance should follow the device’s instructions and applicable official guidance.",
+  "description": "A resident wants a reliable reminder to check household alarms, but forgets the manufacturer’s maintenance instructions after installation. A reviewed animation links the specific device instructions to a recurring check record without demonstrating repairs.",
+  "domain": "story",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#edu105-the-alarm-reminder-outlasts-the-beep"
+  },
+  "step_kinds": [
+    "plan",
+    "write"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "story",
+    "premise",
+    "learning",
+    "public-safety-preparedness",
+    "requires-primary-source-review",
+    "edu105"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "story_premise"
+    },
+    {
+      "identity": "story_contract_rules"
+    },
+    {
+      "identity": "story_tests"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/ref_stories.py",
+    "data": "generators/data/ref_stories",
+    "parameters": {
+      "id": "EDU105",
+      "treatment_group": 2,
+      "guide_line": 4118
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "considered",
+  "evidence_notes": "Idea from the 10 Oct 2026 creative catalogue (Creative Catalogue JSON Bundle 2026-10-10, Library libfile_ff6a4ae010508191b42073985cd7a4a1 v0, SHA-256 1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e), preserved in guide Appendix D line 4118. Not a completed script, not rendered, no audience study. Evidence class requires_primary_source_review names the check a claim would need, not a check done. Its ten treatment addresses (R-EDU105-F01-A01 ...) are candidates, not screenplays."
+}

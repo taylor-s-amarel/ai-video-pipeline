@@ -1,0 +1,69 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "story_premise_ent110_the_wish_that_needed_a_verb",
+  "title": "Story premise ENT110: The Wish That Needed a Verb",
+  "kind": "skill",
+  "subkind": "premise",
+  "version": "1.0.0",
+  "summary": "Idea-stage fiction premise (fantasy and science fiction). Hook: Better what? The wish is improvising. Takeaway/theme: A concrete goal is easier to act on than a vague improvement.",
+  "description": "A figure receives one wish token and asks for BETTER, causing a magical helper to improve random nearby objects while missing the real need. The figure replaces the vague word with HELP ME REACH THAT SHELF, and the helper grows one small stable-looking fantasy step so the figure can retrieve a cherished drawing.",
+  "domain": "story",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#ent110-the-wish-that-needed-a-verb"
+  },
+  "step_kinds": [
+    "plan",
+    "write"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "story",
+    "premise",
+    "fiction",
+    "fantasy-and-science-fiction",
+    "fictional-demonstration",
+    "ent110"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "story_premise"
+    },
+    {
+      "identity": "story_contract_rules"
+    },
+    {
+      "identity": "story_tests"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/ref_stories.py",
+    "data": "generators/data/ref_stories",
+    "parameters": {
+      "id": "ENT110",
+      "treatment_group": 3,
+      "guide_line": 5892
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "considered",
+  "evidence_notes": "Idea from the 10 Oct 2026 creative catalogue (Creative Catalogue JSON Bundle 2026-10-10, Library libfile_ff6a4ae010508191b42073985cd7a4a1 v0, SHA-256 1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e), preserved in guide Appendix D line 5892. Not a completed script, not rendered, no audience study. Evidence class fictional_demonstration names the check a claim would need, not a check done. Its ten treatment addresses (R-ENT110-F06-A01 ...) are candidates, not screenplays."
+}

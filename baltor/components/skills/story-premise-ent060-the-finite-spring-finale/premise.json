@@ -1,0 +1,108 @@
+{
+  "id": "ENT060",
+  "title": "The Finite Spring Finale",
+  "family": "fiction",
+  "category": "mechanical puzzles",
+  "premise": "A maker wants a toy theater to run forever on one wound spring, but the scene slows after each cycle. A cutaway shows the finite winding unwinding; the maker adds a visible audience hand crank and relabels the show HELP KEEP IT GOING, turning failure into participation.",
+  "hook": "The machine works forever. Until now.",
+  "visible_action": "Spring unwinds; stage carousel slows; winding indicator reaches zero; an external crank appears; audience turns it and the scene resumes.",
+  "intended_takeaway_or_theme": "Show the input that keeps a mechanism moving.",
+  "gate": "The energy-accounting lesson requires primary physics-source review before publication. Avoid numerical efficiency claims or treating this stylized model as a validated device.",
+  "evidence_class": "requires_primary_source_review",
+  "original_format_tags": [
+    "narrative_lesson",
+    "myth_check",
+    "mechanism_cutaway"
+  ],
+  "status": "idea",
+  "treatment_group": 3,
+  "treatments": [
+    {
+      "address": "R-ENT060-F06-A01",
+      "format_id": "F06",
+      "approach_id": "A01",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT060-F06-A03",
+      "format_id": "F06",
+      "approach_id": "A03",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT060-F07-A01",
+      "format_id": "F07",
+      "approach_id": "A01",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT060-F07-A03",
+      "format_id": "F07",
+      "approach_id": "A03",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT060-F08-A01",
+      "format_id": "F08",
+      "approach_id": "A01",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT060-F08-A03",
+      "format_id": "F08",
+      "approach_id": "A03",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT060-F09-A01",
+      "format_id": "F09",
+      "approach_id": "A01",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT060-F09-A03",
+      "format_id": "F09",
+      "approach_id": "A03",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT060-F10-A01",
+      "format_id": "F10",
+      "approach_id": "A01",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    },
+    {
+      "address": "R-ENT060-F10-A03",
+      "format_id": "F10",
+      "approach_id": "A03",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    }
+  ],
+  "editorial_pick": {
+    "rank": 17,
+    "original_reason": "A finite spring mechanism creates a built-in ending and a useful limit to the action.",
+    "proposed_first_version": "Show the stored-motion setup, a short sequence of consequences and the calm state after the energy is spent.",
+    "gate": "Keep it a fictional prop. If making real mechanics claims, validate the energy accounting and safe boundaries.",
+    "note": "These are the catalogue's historical editorial recommendations, not current owner-approved selections or guaranteed watchable stories. Reapply the latest comedy/suspense gate."
+  },
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix D All 240 story premises / Fiction mechanical puzzles",
+    "anchor": "ent060-the-finite-spring-finale",
+    "line": 5182,
+    "catalogue_artifact": "Creative Catalogue JSON Bundle 2026-10-10",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_version": "0",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  }
+}

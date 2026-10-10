@@ -1,0 +1,100 @@
+{
+  "id": "ENT093",
+  "title": "The Shopping List Origami",
+  "family": "fiction",
+  "category": "everyday microdramas",
+  "premise": "A shopper wants to remember three ordinary items, but their overfolded paper list has hidden each word behind another crease. They unfold it into an absurdly large paper shape, copy the three items onto one small clear card, and use the original as a bag-shaped prop for the walk home.",
+  "hook": "I made the list portable and the words inaccessible.",
+  "visible_action": "Folded paper rotates through many shapes; three words appear separately; a plain card is written; old list folds into a decorative bag shape.",
+  "intended_takeaway_or_theme": "Compression is useful only if the information stays accessible.",
+  "gate": "The folded paper bag is a stylized prop, not a claim that it can safely carry groceries.",
+  "evidence_class": "fictional_demonstration",
+  "original_format_tags": [
+    "narrative_lesson",
+    "silent_visual"
+  ],
+  "status": "idea",
+  "treatment_group": 4,
+  "treatments": [
+    {
+      "address": "R-ENT093-F06-A01",
+      "format_id": "F06",
+      "approach_id": "A01",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT093-F06-A04",
+      "format_id": "F06",
+      "approach_id": "A04",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT093-F07-A01",
+      "format_id": "F07",
+      "approach_id": "A01",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT093-F07-A04",
+      "format_id": "F07",
+      "approach_id": "A04",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT093-F08-A01",
+      "format_id": "F08",
+      "approach_id": "A01",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT093-F08-A04",
+      "format_id": "F08",
+      "approach_id": "A04",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT093-F09-A01",
+      "format_id": "F09",
+      "approach_id": "A01",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT093-F09-A04",
+      "format_id": "F09",
+      "approach_id": "A04",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT093-F10-A01",
+      "format_id": "F10",
+      "approach_id": "A01",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    },
+    {
+      "address": "R-ENT093-F10-A04",
+      "format_id": "F10",
+      "approach_id": "A04",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    }
+  ],
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix D All 240 story premises / Fiction everyday microdramas",
+    "anchor": "ent093-the-shopping-list-origami",
+    "line": 5652,
+    "catalogue_artifact": "Creative Catalogue JSON Bundle 2026-10-10",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_version": "0",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  }
+}

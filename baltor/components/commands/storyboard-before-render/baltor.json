@@ -1,0 +1,73 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "storyboard_before_render",
+  "title": "/storyboard-before-render",
+  "kind": "command",
+  "subkind": "workflow",
+  "version": "1.0.0",
+  "summary": "Slash command that gates a story before rendering: story contract, timed board and structure check, story doctor pass, gate questions, kill criteria, cheapest real review, then render only if it passes.",
+  "domain": "story",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#storyboard-gate-before-a-full-render"
+  },
+  "step_kinds": [
+    "plan",
+    "review",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "opencode",
+    "baltor-harness"
+  ],
+  "entry": "command.md",
+  "tags": [
+    "story",
+    "storyboard",
+    "command",
+    "workflow",
+    "gate"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "story_contract"
+    },
+    {
+      "identity": "timed_storyboard"
+    },
+    {
+      "identity": "timed_storyboard_check"
+    },
+    {
+      "identity": "story_doctor"
+    },
+    {
+      "identity": "storyboard_gate"
+    },
+    {
+      "identity": "story_tests"
+    },
+    {
+      "identity": "treatment_address_resolver"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/ref_stories.py",
+    "data": "generators/data/ref_stories"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "considered",
+  "evidence_notes": "New command written from the guide's storyboard gate; not yet run on a production story."
+}

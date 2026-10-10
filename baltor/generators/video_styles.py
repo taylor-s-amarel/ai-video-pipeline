@@ -1538,12 +1538,10 @@ INTENSITY = {"subtle": 0.5, "standard": 1.0, "strong": 1.6}
 def scaled_move(spec: dict, factor: float) -> dict:
     s = copy.deepcopy(spec)
     z0, z1 = s["zoom"]["from"], s["zoom"]["to"]
-    base = min(z0, z1)
     if z0 != z1:
         s["zoom"] = {"from": round(1 + (z0 - 1) * factor, 3), "to": round(1 + (z1 - 1) * factor, 3)}
     else:
         s["zoom"] = {"from": round(1 + (z0 - 1) * max(factor, 0.6), 3), "to": round(1 + (z1 - 1) * max(factor, 0.6), 3)}
-    del base
     (cx0, cy0), (cx1, cy1) = s["center"]["from"], s["center"]["to"]
     mx, my = (cx0 + cx1) / 2, (cy0 + cy1) / 2
     s["center"] = {"from": [round(mx + (cx0 - mx) * factor, 3), round(my + (cy0 - my) * factor, 3)],
@@ -1709,7 +1707,6 @@ def build_thumbnail(thid: str, pid: str | None = None, target: str = "youtube_16
     c = pal["colors"]
     W, H = tg["size"]
     t = spec["text"]
-    size = int(round(t["size_frac"] * min(W, H) * (1080 / min(W, H)) * (W / 1080 if W < 1080 else 1)))
     size = int(round(t["size_frac"] * W))
     stroke_w = int(round(t["stroke_frac"] * W))
     fill = c[t["fill_role"]]

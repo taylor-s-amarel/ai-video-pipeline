@@ -1,0 +1,100 @@
+{
+  "id": "ENT020",
+  "title": "The Most Modest Medal",
+  "family": "fiction",
+  "category": "two-person rivalry",
+  "premise": "Two rivals compete to be the most humble by awarding each other increasingly elaborate medals for modesty. Buried under ribbons, they quietly take the medals off and use the ribbon pile to wrap a gift for the event volunteer, who never entered the competition.",
+  "hook": "I insist you accept my award for not wanting awards.",
+  "visible_action": "Medals switch hands and multiply; ribbons coil around ankles; both unclip them; ribbons wrap one small present.",
+  "intended_takeaway_or_theme": "Recognition can turn outward instead of becoming another contest.",
+  "gate": "Original fictional characters and rules; do not present the gag as an empirical claim.",
+  "evidence_class": "fictional_demonstration",
+  "original_format_tags": [
+    "narrative_lesson",
+    "silent_visual"
+  ],
+  "status": "idea",
+  "treatment_group": 3,
+  "treatments": [
+    {
+      "address": "R-ENT020-F06-A01",
+      "format_id": "F06",
+      "approach_id": "A01",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT020-F06-A03",
+      "format_id": "F06",
+      "approach_id": "A03",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT020-F07-A01",
+      "format_id": "F07",
+      "approach_id": "A01",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT020-F07-A03",
+      "format_id": "F07",
+      "approach_id": "A03",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT020-F08-A01",
+      "format_id": "F08",
+      "approach_id": "A01",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT020-F08-A03",
+      "format_id": "F08",
+      "approach_id": "A03",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT020-F09-A01",
+      "format_id": "F09",
+      "approach_id": "A01",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT020-F09-A03",
+      "format_id": "F09",
+      "approach_id": "A03",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT020-F10-A01",
+      "format_id": "F10",
+      "approach_id": "A01",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    },
+    {
+      "address": "R-ENT020-F10-A03",
+      "format_id": "F10",
+      "approach_id": "A03",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    }
+  ],
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix D All 240 story premises / Fiction two-person rivalry",
+    "anchor": "ent020-the-most-modest-medal",
+    "line": 4614,
+    "catalogue_artifact": "Creative Catalogue JSON Bundle 2026-10-10",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_version": "0",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  }
+}

@@ -33,7 +33,6 @@ from __future__ import annotations
 import copy
 import json
 import re
-import shutil
 import sys
 from pathlib import Path
 
@@ -169,7 +168,7 @@ def clip(text: str, limit: int) -> str:
 
 
 def sentences(text: str) -> list[str]:
-    return [s.strip() for s in re.split(r"(?<=[.!?])\s+(?=[A-Z“\"'(])", text) if s.strip()]
+    return [s.strip() for s in re.split(r"(?<=[.!?])\s+(?=[A-Z“\"'(*])", text) if s.strip()]
 
 
 def md_table(columns: list[str], rows: list[list[str]]) -> str:
@@ -482,8 +481,8 @@ DECOY_CONTRACT = {
     "notes": ("Every sentence is quoted from the guide's board for The Decoy Job; only the arrangement into contract "
               "fields and the mechanism names were chosen by the generator. Board status: proposed, unrendered."),
 }
-for _quoted in ("The thief wants an effortless valuable score.", DECOY_CONTRACT["choice"],
-                DECOY_CONTRACT["knowledge"]["viewer"], DECOY_CONTRACT["consequence"]):
+for _quoted in ("The thief wants an effortless valuable score.", DECOY_CONTRACT["choice"], DECOY_CONTRACT["constraint"],
+                *DECOY_CONTRACT["knowledge"].values(), DECOY_CONTRACT["consequence"], DECOY_CONTRACT["plant"]):
     assert _quoted in json.dumps(_DECOY, ensure_ascii=False), _quoted
 
 ADDRESS_GROUPS = APPC["treatment_map"]["groups"]
@@ -747,7 +746,7 @@ BANK_SPECS = {
 
 BANK_GUIDANCE = {
     "approaches": ["Every treatment address names one approach. Learning stories use A01 and A02; fiction stories use "
-                   "A01 with A03 (groups 3) or A04 (group 4).",
+                   "A01 with A03 (group 3) or with A04 (group 4).",
                    "Each approach's gate is part of every treatment that uses it."],
     "hooks": ["Pick a hook for what it makes the viewer ask, then check its Guard against the chosen story. "
               "A hook whose guard fails for this story is not usable for it."],
@@ -1254,7 +1253,8 @@ with GeneratorRun(__file__, data=DATA_REL) as run:
         source=source(SQ["anchor"]),
         evidence_stage="considered",
         evidence_notes=CONSIDERED_RULE_NOTE + " BOXED IN itself: technically delivered, story rejected by Taylor "
-                       "(provenance.json keeps MP4 libfile_4453aed6dfbc8191914eded938ece6df, SHA-256 1ed9c7ac…e359e4c).",
+                       "(provenance.json keeps MP4 libfile_4453aed6dfbc8191914eded938ece6df, SHA-256 "
+                       f"{PROV['boxed_in_receipt']['sha256'][0]}).",
     )
     run.component(
         "rules", ID_GATE,
@@ -1382,7 +1382,7 @@ with GeneratorRun(__file__, data=DATA_REL) as run:
                          f"{b['dramatic_question']}", 240),
             subkind="storyboard", domain="story",
             files={"SKILL.md": skill_md(
-                kebab_name := ident.replace("_", "-"),
+                ident.replace("_", "-"),
                 clip(f"Use when developing, animatic-testing or rendering \"{b['title']}\", a proposed suspense/comedy "
                      f"film of about {b['approx_duration_s']} seconds. Opening: {b['opening_image']} Gives the full "
                      "timed storyboard, planted details, escalation chain, midpoint change, kill criteria and the "

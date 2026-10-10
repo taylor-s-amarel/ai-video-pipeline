@@ -1,0 +1,102 @@
+{
+  "id": "ENT055",
+  "title": "The One-Cell Traffic Jam",
+  "family": "fiction",
+  "category": "mechanical puzzles",
+  "premise": "Three labeled tiles A, B, C occupy slots 1, 2, 3 on a four-position ring with slot 4 empty. A caretaker must move A to slot 2 while retaining clockwise tile order; C slides to 4, B to 3, and A to 2, leaving the vacancy at slot 1 without any tile passing another.",
+  "hook": "Nobody can pass. One space can travel.",
+  "visible_action": "C slides from 3 to 4; B slides from 2 to 3; A slides from 1 to 2; the empty slot finishes at 1.",
+  "intended_takeaway_or_theme": "Moving the empty space can move the whole arrangement.",
+  "gate": "Use exactly the verified adjacent sequence C:3→4, B:2→3, A:1→2. The tiles preserve their cyclic order; no swapping or hidden lift is allowed.",
+  "evidence_class": "mathematically_checkable",
+  "original_format_tags": [
+    "narrative_lesson",
+    "prediction_quiz",
+    "step_by_step",
+    "mechanism_cutaway"
+  ],
+  "status": "idea",
+  "treatment_group": 3,
+  "treatments": [
+    {
+      "address": "R-ENT055-F06-A01",
+      "format_id": "F06",
+      "approach_id": "A01",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT055-F06-A03",
+      "format_id": "F06",
+      "approach_id": "A03",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT055-F07-A01",
+      "format_id": "F07",
+      "approach_id": "A01",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT055-F07-A03",
+      "format_id": "F07",
+      "approach_id": "A03",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT055-F08-A01",
+      "format_id": "F08",
+      "approach_id": "A01",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT055-F08-A03",
+      "format_id": "F08",
+      "approach_id": "A03",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT055-F09-A01",
+      "format_id": "F09",
+      "approach_id": "A01",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT055-F09-A03",
+      "format_id": "F09",
+      "approach_id": "A03",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT055-F10-A01",
+      "format_id": "F10",
+      "approach_id": "A01",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    },
+    {
+      "address": "R-ENT055-F10-A03",
+      "format_id": "F10",
+      "approach_id": "A03",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    }
+  ],
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix D All 240 story premises / Fiction mechanical puzzles",
+    "anchor": "ent055-the-one-cell-traffic-jam",
+    "line": 5112,
+    "catalogue_artifact": "Creative Catalogue JSON Bundle 2026-10-10",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_version": "0",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  }
+}

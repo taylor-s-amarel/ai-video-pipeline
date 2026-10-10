@@ -1,0 +1,450 @@
+{
+  "bank": "hooks",
+  "title": "Creative catalogue: sixty hook patterns",
+  "status": "proposal",
+  "status_note": "The following banks were materialized from the 10 October 2026 catalogue and are preserved here as usable text. They remain proposals. The catalogue's earlier statement that a second film was in progress and that zero twelve-style slots were qualified is a historical assembly snapshot; it is not today's completed-film ledger. This guide does not retroactively mark individual catalogue recipes rendered because a similarly named film exists.",
+  "columns": [
+    "ID",
+    "Pattern",
+    "Copy seed",
+    "Use",
+    "Guard"
+  ],
+  "keys": [
+    "id",
+    "pattern",
+    "copy_seed",
+    "use",
+    "guard"
+  ],
+  "count": 60,
+  "records": [
+    {
+      "id": "H01",
+      "pattern": "Visible contradiction",
+      "copy_seed": "These two objects look the same. Watch where they behave differently.",
+      "use": "Comparison",
+      "guard": "Use a real controlled difference; avoid unsupported universal claims."
+    },
+    {
+      "id": "H02",
+      "pattern": "Prediction pause",
+      "copy_seed": "Before this moves, where do you think it will stop?",
+      "use": "Prediction",
+      "guard": "Show all information needed for a fair prediction."
+    },
+    {
+      "id": "H03",
+      "pattern": "Hidden cause",
+      "copy_seed": "The clue is in the part that barely moves.",
+      "use": "Mechanism",
+      "guard": "The identified detail must actually explain the result."
+    },
+    {
+      "id": "H04",
+      "pattern": "Single change",
+      "copy_seed": "I changed one thing. Follow what happens next.",
+      "use": "Controlled test",
+      "guard": "Hold other relevant variables fixed or disclose them."
+    },
+    {
+      "id": "H05",
+      "pattern": "Result first",
+      "copy_seed": "Here is the finished result. Let us rewind one decision.",
+      "use": "Reconstruction",
+      "guard": "Do not conceal an essential step to create artificial mystery."
+    },
+    {
+      "id": "H06",
+      "pattern": "Scale surprise",
+      "copy_seed": "Zoom out once, and this problem changes.",
+      "use": "Scale",
+      "guard": "Label scale and preserve proportions."
+    },
+    {
+      "id": "H07",
+      "pattern": "Wrong turn",
+      "copy_seed": "This looks like the obvious move. What does it miss?",
+      "use": "Troubleshooting",
+      "guard": "Avoid demonstrating hazardous conduct as a usable shortcut."
+    },
+    {
+      "id": "H08",
+      "pattern": "Object viewpoint",
+      "copy_seed": "If this little hinge could tell the story, it would start here.",
+      "use": "Personification",
+      "guard": "Clearly separate narrative voice from factual explanation."
+    },
+    {
+      "id": "H09",
+      "pattern": "Missing piece",
+      "copy_seed": "One piece is absent. Can you tell what it was doing?",
+      "use": "Anatomy",
+      "guard": "The missing piece must be identifiable from visible evidence."
+    },
+    {
+      "id": "H10",
+      "pattern": "Count constraint",
+      "copy_seed": "You get three moves. Which one would you spend first?",
+      "use": "Puzzle",
+      "guard": "State legal moves and verify at least one valid solution."
+    },
+    {
+      "id": "H11",
+      "pattern": "Time reversal",
+      "copy_seed": "The mess is already here. Which moment caused it?",
+      "use": "Causality",
+      "guard": "Reverse presentation must not imply reversible real physics."
+    },
+    {
+      "id": "H12",
+      "pattern": "Small stakes story",
+      "copy_seed": "All this character wants is a quiet cup of tea.",
+      "use": "Fiction",
+      "guard": "Deliver a concrete conflict and payoff."
+    },
+    {
+      "id": "H13",
+      "pattern": "Alternative viewpoint",
+      "copy_seed": "We have seen the traveler. Now watch the route.",
+      "use": "Perspective",
+      "guard": "Keep identity and continuity clear."
+    },
+    {
+      "id": "H14",
+      "pattern": "Tradeoff",
+      "copy_seed": "Make this faster, and watch what else changes.",
+      "use": "Tradeoff",
+      "guard": "Name the conditions; do not invent numerical benefits."
+    },
+    {
+      "id": "H15",
+      "pattern": "Spatial question",
+      "copy_seed": "Which side of this wall is actually doing the work?",
+      "use": "Spatial mechanism",
+      "guard": "Use cutaways or labels so the answer can be checked."
+    },
+    {
+      "id": "H16",
+      "pattern": "Interrupted routine",
+      "copy_seed": "Everything follows the pattern until this one arrives.",
+      "use": "Pattern",
+      "guard": "The interruption must be visible and meaningful."
+    },
+    {
+      "id": "H17",
+      "pattern": "Quiet threat",
+      "copy_seed": "Nothing has broken yet. Find the warning sign.",
+      "use": "Safety observation",
+      "guard": "Use verified warning signs; no diagnostic certainty from a cartoon."
+    },
+    {
+      "id": "H18",
+      "pattern": "Limited resource",
+      "copy_seed": "There is enough for one attempt. What should they try?",
+      "use": "Dilemma",
+      "guard": "For real safety situations, replace guessing with approved guidance."
+    },
+    {
+      "id": "H19",
+      "pattern": "Delayed identity",
+      "copy_seed": "You have seen its shadow. Now meet the object.",
+      "use": "Reveal",
+      "guard": "Do not falsify a real object's silhouette."
+    },
+    {
+      "id": "H20",
+      "pattern": "Expectation swap",
+      "copy_seed": "They brought a ladder. The problem needed a bridge.",
+      "use": "Comic reversal",
+      "guard": "Keep the fictional solution coherent with the world."
+    },
+    {
+      "id": "H21",
+      "pattern": "One rule world",
+      "copy_seed": "In this town, every door opens somewhere slightly wrong.",
+      "use": "Worldbuilding",
+      "guard": "Establish the rule before exploiting an exception."
+    },
+    {
+      "id": "H22",
+      "pattern": "Tiny consequence",
+      "copy_seed": "One dropped button starts a very long journey.",
+      "use": "Chain reaction",
+      "guard": "Keep the chain causally legible."
+    },
+    {
+      "id": "H23",
+      "pattern": "Two clocks",
+      "copy_seed": "These two timers disagree. Both are measuring something real.",
+      "use": "Measurement",
+      "guard": "Define each quantity and unit."
+    },
+    {
+      "id": "H24",
+      "pattern": "Boundary case",
+      "copy_seed": "This works until we reach the edge.",
+      "use": "Limits",
+      "guard": "State the valid range and the boundary condition."
+    },
+    {
+      "id": "H25",
+      "pattern": "Constraint reveal",
+      "copy_seed": "The difficult part is that this corner cannot move.",
+      "use": "Engineering",
+      "guard": "Show the constraint explicitly and use a validated model."
+    },
+    {
+      "id": "H26",
+      "pattern": "Useful failure",
+      "copy_seed": "Watch the attempt that tells us what to change.",
+      "use": "Iteration",
+      "guard": "Show the observed failure without claiming unrun tests."
+    },
+    {
+      "id": "H27",
+      "pattern": "Common word clarified",
+      "copy_seed": "We call both of these strong. They resist different things.",
+      "use": "Vocabulary",
+      "guard": "Use sourced definitions rather than semantic tricks."
+    },
+    {
+      "id": "H28",
+      "pattern": "Invisible made visible",
+      "copy_seed": "The motion is easy to see. Here is the force we are representing.",
+      "use": "Model",
+      "guard": "Label arrows as representations, not direct measurements."
+    },
+    {
+      "id": "H29",
+      "pattern": "Comedic permission",
+      "copy_seed": "The machine asked for one simple thing. The character overdelivered.",
+      "use": "Fiction",
+      "guard": "The payoff should grow from the setup, not random spectacle."
+    },
+    {
+      "id": "H30",
+      "pattern": "Audience role",
+      "copy_seed": "You are the lookout. What changes first?",
+      "use": "Observation",
+      "guard": "Give enough stable viewing time and accessible cues."
+    },
+    {
+      "id": "H31",
+      "pattern": "Checkpoint question",
+      "copy_seed": "At this point, what would tell us it is working?",
+      "use": "How-to",
+      "guard": "The checkpoint needs a real observable criterion."
+    },
+    {
+      "id": "H32",
+      "pattern": "Order matters",
+      "copy_seed": "These are the same steps in a different order.",
+      "use": "Sequence",
+      "guard": "Verify that the claimed order effect holds."
+    },
+    {
+      "id": "H33",
+      "pattern": "Unexpected helper",
+      "copy_seed": "The smallest character has the only useful tool.",
+      "use": "Character story",
+      "guard": "Avoid a solution that appears without setup."
+    },
+    {
+      "id": "H34",
+      "pattern": "Trade places",
+      "copy_seed": "What if the helper and the obstacle exchanged jobs?",
+      "use": "Fiction counterfactual",
+      "guard": "Label imaginary rules; do not recast them as facts."
+    },
+    {
+      "id": "H35",
+      "pattern": "Map mismatch",
+      "copy_seed": "The line looks shortest. The journey says otherwise.",
+      "use": "Routes",
+      "guard": "Distinguish a fictional network from live travel information."
+    },
+    {
+      "id": "H36",
+      "pattern": "Layer peel",
+      "copy_seed": "The finished image hides five separate decisions.",
+      "use": "Production",
+      "guard": "Show actual source layers if claiming a real breakdown."
+    },
+    {
+      "id": "H37",
+      "pattern": "Sound clue",
+      "copy_seed": "Listen once, then watch the movement that made it.",
+      "use": "Audio mechanism",
+      "guard": "Use original or cleared audio and caption its key information."
+    },
+    {
+      "id": "H38",
+      "pattern": "Near miss",
+      "copy_seed": "They almost succeed. Look at the final contact point.",
+      "use": "Motion",
+      "guard": "Ensure failure is physically or narratively justified."
+    },
+    {
+      "id": "H39",
+      "pattern": "Empty space",
+      "copy_seed": "The most important part of this design is the gap.",
+      "use": "Design",
+      "guard": "Show the gap's purpose with a concrete comparison."
+    },
+    {
+      "id": "H40",
+      "pattern": "Wrong label",
+      "copy_seed": "The label says finished. The motion tells another story.",
+      "use": "Quality review",
+      "guard": "Use a fictional prop or verified defect; avoid deceptive claims."
+    },
+    {
+      "id": "H41",
+      "pattern": "Repetition with change",
+      "copy_seed": "The first two attempts teach you the rhythm. The third changes it.",
+      "use": "Comedy timing",
+      "guard": "The third beat must alter an expectation, not repeat a color change."
+    },
+    {
+      "id": "H42",
+      "pattern": "Perspective trap",
+      "copy_seed": "From here it fits. Let us look from the side.",
+      "use": "Geometry",
+      "guard": "Use consistent geometry across views."
+    },
+    {
+      "id": "H43",
+      "pattern": "Slow reveal",
+      "copy_seed": "We will uncover one layer at a time. Keep your first guess.",
+      "use": "Guessing",
+      "guard": "Avoid answer leaks in captions, thumbnails or audio."
+    },
+    {
+      "id": "H44",
+      "pattern": "Careful distinction",
+      "copy_seed": "This picture shows a possibility, not a measurement.",
+      "use": "Scientific model",
+      "guard": "Maintain that distinction throughout the episode."
+    },
+    {
+      "id": "H45",
+      "pattern": "Choice cost",
+      "copy_seed": "They can save the object or keep their promise. Which matters now?",
+      "use": "Moral fable",
+      "guard": "Show both costs without prescribing a universal moral."
+    },
+    {
+      "id": "H46",
+      "pattern": "Unknown setting",
+      "copy_seed": "The character knows the rule. You do not, yet.",
+      "use": "Mystery",
+      "guard": "Reveal enough evidence for a satisfying retrospective explanation."
+    },
+    {
+      "id": "H47",
+      "pattern": "Follow the token",
+      "copy_seed": "Keep your eye on the marked piece.",
+      "use": "Trace",
+      "guard": "Preserve object identity through occlusion and cuts."
+    },
+    {
+      "id": "H48",
+      "pattern": "Scale of effort",
+      "copy_seed": "A tiny movement here produces a larger movement there.",
+      "use": "Mechanism",
+      "guard": "Check geometry, leverage and any numerical claim."
+    },
+    {
+      "id": "H49",
+      "pattern": "Stop frame question",
+      "copy_seed": "Freeze this moment. What is touching what?",
+      "use": "Contact",
+      "guard": "Ensure visible contact agrees with the scene state."
+    },
+    {
+      "id": "H50",
+      "pattern": "Conflicting goals",
+      "copy_seed": "One character wants silence. The other runs a bell shop.",
+      "use": "Comedy",
+      "guard": "Give both characters understandable motives."
+    },
+    {
+      "id": "H51",
+      "pattern": "Model versus world",
+      "copy_seed": "Our model leaves something out. Here is where it matters.",
+      "use": "Scientific literacy",
+      "guard": "Specify the omitted effect and its consequences."
+    },
+    {
+      "id": "H52",
+      "pattern": "One object challenge",
+      "copy_seed": "Tell a whole story with this umbrella.",
+      "use": "Creative constraint",
+      "guard": "Use an original object design and genuinely changing action."
+    },
+    {
+      "id": "H53",
+      "pattern": "Repair evidence",
+      "copy_seed": "Here is the symptom. Here is the check that narrows it down.",
+      "use": "Troubleshooting",
+      "guard": "Do not leap from one symptom to a certain cause."
+    },
+    {
+      "id": "H54",
+      "pattern": "Hidden cooperation",
+      "copy_seed": "It looks like a race until you see what they are carrying.",
+      "use": "Story reveal",
+      "guard": "Plant evidence of cooperation before the reveal."
+    },
+    {
+      "id": "H55",
+      "pattern": "Two endings",
+      "copy_seed": "The same setup can end in two different ways.",
+      "use": "Branching",
+      "guard": "Label counterfactual branches and keep starting conditions consistent."
+    },
+    {
+      "id": "H56",
+      "pattern": "Rule inversion",
+      "copy_seed": "For one scene, gravity has a different job.",
+      "use": "Surreal animation",
+      "guard": "Make clear that this is a fictional physical rule."
+    },
+    {
+      "id": "H57",
+      "pattern": "Payoff promise",
+      "copy_seed": "By the final frame, this shape will explain the whole scene.",
+      "use": "Visual metaphor",
+      "guard": "Ensure the payoff actually resolves the opening promise."
+    },
+    {
+      "id": "H58",
+      "pattern": "Process clue",
+      "copy_seed": "Do not watch the tool. Watch the mark it leaves.",
+      "use": "Craft",
+      "guard": "Use genuine marks or clearly labeled illustrative animation."
+    },
+    {
+      "id": "H59",
+      "pattern": "Gentle reveal",
+      "copy_seed": "The character thinks they are alone. Look at the background.",
+      "use": "Warm fiction",
+      "guard": "Keep background evidence visible and avoid emotional manipulation."
+    },
+    {
+      "id": "H60",
+      "pattern": "Next useful question",
+      "copy_seed": "We know what changed. Now what would we check next?",
+      "use": "Learning",
+      "guard": "End with a bounded question rather than unsupported advice."
+    }
+  ],
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix C Creative banks and exact treatment addressing / Sixty hook patterns",
+    "anchor": "sixty-hook-patterns",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  }
+}

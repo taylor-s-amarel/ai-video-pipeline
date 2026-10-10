@@ -1,0 +1,10 @@
+{
+  "address": "R-EDU101-F02-A01",
+  "story_id": "EDU101",
+  "format_id": "F02",
+  "approach_id": "A01",
+  "intro_id": "I26",
+  "motion_id": "M13",
+  "treatment_group": 2,
+  "status": "addressable-candidate"
+}

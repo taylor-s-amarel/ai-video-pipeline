@@ -1,0 +1,102 @@
+{
+  "id": "ENT054",
+  "title": "The Five-Block Balance",
+  "family": "fiction",
+  "category": "mechanical puzzles",
+  "premise": "A maker must place blocks of weights 1, 2, 3, 4, and 5 on a toy balance while leaving exactly one block unused. They set 1+5 opposite 2+4, leaving 3 as the prize pedestal; both sides total 6 and the final block displays the answer.",
+  "hook": "Use four blocks. Leave one out. Make it level.",
+  "visible_action": "Numbered blocks move between pans; totals appear; 1 and 5 settle opposite 2 and 4; unused 3 rises as a pedestal.",
+  "intended_takeaway_or_theme": "Equal totals can come from different combinations.",
+  "gate": "Verified 1+5=2+4=6 with one unused block. Present this as one valid solution, not the only solution; ideal equal-arm balance model.",
+  "evidence_class": "mathematically_checkable",
+  "original_format_tags": [
+    "narrative_lesson",
+    "prediction_quiz",
+    "step_by_step",
+    "mechanism_cutaway"
+  ],
+  "status": "idea",
+  "treatment_group": 3,
+  "treatments": [
+    {
+      "address": "R-ENT054-F06-A01",
+      "format_id": "F06",
+      "approach_id": "A01",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT054-F06-A03",
+      "format_id": "F06",
+      "approach_id": "A03",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT054-F07-A01",
+      "format_id": "F07",
+      "approach_id": "A01",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT054-F07-A03",
+      "format_id": "F07",
+      "approach_id": "A03",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT054-F08-A01",
+      "format_id": "F08",
+      "approach_id": "A01",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT054-F08-A03",
+      "format_id": "F08",
+      "approach_id": "A03",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT054-F09-A01",
+      "format_id": "F09",
+      "approach_id": "A01",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT054-F09-A03",
+      "format_id": "F09",
+      "approach_id": "A03",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT054-F10-A01",
+      "format_id": "F10",
+      "approach_id": "A01",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    },
+    {
+      "address": "R-ENT054-F10-A03",
+      "format_id": "F10",
+      "approach_id": "A03",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    }
+  ],
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix D All 240 story premises / Fiction mechanical puzzles",
+    "anchor": "ent054-the-five-block-balance",
+    "line": 5098,
+    "catalogue_artifact": "Creative Catalogue JSON Bundle 2026-10-10",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_version": "0",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  }
+}

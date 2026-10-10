@@ -1,0 +1,100 @@
+{
+  "id": "ENT101",
+  "title": "The Moon’s Lost Appointment",
+  "family": "fiction",
+  "category": "fantasy and science fiction",
+  "premise": "A junior sky keeper must deliver a miniature moon to the evening sky, but the appointment card is written in shadows that disappear under the desk lamp. They read it by the moon’s own glow, find the correct slot, and slide the moon into place just as a paper owl clocks in.",
+  "hook": "The moon is late because its calendar is in shadow.",
+  "visible_action": "Desk lamp washes out dark marks; moon glow reveals them; a sky-panel slot opens; moon rises; owl-shaped clock flips to NIGHT.",
+  "intended_takeaway_or_theme": "Read a message under the conditions it was designed for.",
+  "gate": "All celestial mechanics and shadow-writing are explicit fantasy; not astronomy instruction.",
+  "evidence_class": "fictional_demonstration",
+  "original_format_tags": [
+    "narrative_lesson",
+    "silent_visual"
+  ],
+  "status": "idea",
+  "treatment_group": 3,
+  "treatments": [
+    {
+      "address": "R-ENT101-F06-A01",
+      "format_id": "F06",
+      "approach_id": "A01",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT101-F06-A03",
+      "format_id": "F06",
+      "approach_id": "A03",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT101-F07-A01",
+      "format_id": "F07",
+      "approach_id": "A01",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT101-F07-A03",
+      "format_id": "F07",
+      "approach_id": "A03",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT101-F08-A01",
+      "format_id": "F08",
+      "approach_id": "A01",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT101-F08-A03",
+      "format_id": "F08",
+      "approach_id": "A03",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT101-F09-A01",
+      "format_id": "F09",
+      "approach_id": "A01",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT101-F09-A03",
+      "format_id": "F09",
+      "approach_id": "A03",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT101-F10-A01",
+      "format_id": "F10",
+      "approach_id": "A01",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    },
+    {
+      "address": "R-ENT101-F10-A03",
+      "format_id": "F10",
+      "approach_id": "A03",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    }
+  ],
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix D All 240 story premises / Fiction fantasy and science fiction",
+    "anchor": "ent101-the-moons-lost-appointment",
+    "line": 5766,
+    "catalogue_artifact": "Creative Catalogue JSON Bundle 2026-10-10",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_version": "0",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  }
+}

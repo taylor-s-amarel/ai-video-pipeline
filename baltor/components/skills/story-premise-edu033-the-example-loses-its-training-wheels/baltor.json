@@ -1,0 +1,69 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "story_premise_edu033_the_example_loses_its_training_wheels",
+  "title": "Story premise EDU033: The Example Loses Its Training Wheels",
+  "kind": "skill",
+  "subkind": "premise",
+  "version": "1.0.0",
+  "summary": "Idea-stage learning premise (learning/study). Hook: This time, one step is missing. What belongs here? Takeaway/theme: Worked examples can become practice when support is deliberately reduced.",
+  "description": "A learner wants to solve a new worked problem, but copying every displayed step hides which choices are understood. Successively removing selected steps invites the learner to supply and check them.",
+  "domain": "story",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#edu033-the-example-loses-its-training-wheels"
+  },
+  "step_kinds": [
+    "plan",
+    "write"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "story",
+    "premise",
+    "learning",
+    "learning-study",
+    "requires-primary-source-review",
+    "edu033"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "story_premise"
+    },
+    {
+      "identity": "story_contract_rules"
+    },
+    {
+      "identity": "story_tests"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/ref_stories.py",
+    "data": "generators/data/ref_stories",
+    "parameters": {
+      "id": "EDU033",
+      "treatment_group": 1,
+      "guide_line": 3096
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "considered",
+  "evidence_notes": "Idea from the 10 Oct 2026 creative catalogue (Creative Catalogue JSON Bundle 2026-10-10, Library libfile_ff6a4ae010508191b42073985cd7a4a1 v0, SHA-256 1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e), preserved in guide Appendix D line 3096. Not a completed script, not rendered, no audience study. Evidence class requires_primary_source_review names the check a claim would need, not a check done. Its ten treatment addresses (R-EDU033-F01-A01 ...) are candidates, not screenplays."
+}

@@ -1,0 +1,71 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "story_premise_edu004_same_fence_different_garden",
+  "title": "Story premise EDU004: Same Fence, Different Garden",
+  "kind": "skill",
+  "subkind": "premise",
+  "version": "1.0.0",
+  "summary": "Idea-stage learning premise (basic math). Hook: They have the same fence. Do they get the same garden? Takeaway/theme: Perimeter measures a boundary; area measures the enclosed surface.",
+  "description": "Two gardeners each receive twelve fence segments and want the largest rectangular planting area. Their first rectangles enclose different tile counts; rearranging the same segments reveals why equal perimeters need not give equal areas.",
+  "domain": "story",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#edu004-same-fence-different-garden"
+  },
+  "step_kinds": [
+    "plan",
+    "write"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "story",
+    "premise",
+    "learning",
+    "basic-math",
+    "mathematically-checkable",
+    "edu004",
+    "style-application",
+    "editorial-pick"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "story_premise"
+    },
+    {
+      "identity": "story_contract_rules"
+    },
+    {
+      "identity": "story_tests"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/ref_stories.py",
+    "data": "generators/data/ref_stories",
+    "parameters": {
+      "id": "EDU004",
+      "treatment_group": 1,
+      "guide_line": 2684
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "considered",
+  "evidence_notes": "Idea from the 10 Oct 2026 creative catalogue (Creative Catalogue JSON Bundle 2026-10-10, Library libfile_ff6a4ae010508191b42073985cd7a4a1 v0, SHA-256 1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e), preserved in guide Appendix D line 2684. Not a completed script, not rendered, no audience study. Evidence class mathematically_checkable names the check a claim would need, not a check done. Its ten treatment addresses (R-EDU004-F01-A01 ...) are candidates, not screenplays."
+}

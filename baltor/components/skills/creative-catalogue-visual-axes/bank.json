@@ -1,0 +1,232 @@
+{
+  "bank": "axes",
+  "title": "Creative catalogue: twenty-five visual axes",
+  "status": "proposal",
+  "status_note": "The following banks were materialized from the 10 October 2026 catalogue and are preserved here as usable text. They remain proposals. The catalogue's earlier statement that a second film was in progress and that zero twelve-style slots were qualified is a historical assembly snapshot; it is not today's completed-film ledger. This guide does not retroactively mark individual catalogue recipes rendered because a similarly named film exists.",
+  "columns": [
+    "ID",
+    "Axis",
+    "Choice",
+    "Definition",
+    "Use",
+    "Check"
+  ],
+  "keys": [
+    "id",
+    "axis",
+    "choice",
+    "definition",
+    "use",
+    "check"
+  ],
+  "count": 25,
+  "records": [
+    {
+      "id": "AX01",
+      "axis": "Camera / projection",
+      "choice": "Top-down orthographic",
+      "definition": "Looks straight down without perspective convergence.",
+      "use": "Routes, layouts, traffic toys, mazes and procedural systems.",
+      "check": "Do not infer object height from a top view; label scale if meaningful."
+    },
+    {
+      "id": "AX02",
+      "axis": "Camera / projection",
+      "choice": "Side-view 2D",
+      "definition": "Action is staged along a clear horizontal or vertical plane.",
+      "use": "Character movement, levers, elevators and sequence lessons.",
+      "check": "Keep contacts visible and avoid accidental depth cues."
+    },
+    {
+      "id": "AX03",
+      "axis": "Camera / projection",
+      "choice": "Isometric or axonometric",
+      "definition": "A parallel-projection view exposes several axes at once.",
+      "use": "Workshops, city systems and compact multi-station stories.",
+      "check": "Use consistent projection and disclose decorative scale choices."
+    },
+    {
+      "id": "AX04",
+      "axis": "Camera / projection",
+      "choice": "Perspective eye-level",
+      "definition": "A camera sees the scene from a character-like vantage point.",
+      "use": "Embodied travel, obstacles, effort and cinematic story scenes.",
+      "check": "Maintain lens, horizon and spatial continuity."
+    },
+    {
+      "id": "AX05",
+      "axis": "Camera / projection",
+      "choice": "Multiple matched viewpoints",
+      "definition": "Two or more cameras show the same state and moment.",
+      "use": "Geometry checks, assembly, ambiguous silhouettes and mechanism teaching.",
+      "check": "Synchronize time, object identity and scale references."
+    },
+    {
+      "id": "AX06",
+      "axis": "Geometry",
+      "choice": "Flat vector 2D",
+      "definition": "Paths, shapes and articulated planar characters.",
+      "use": "Crisp causal diagrams and expressive economical stories.",
+      "check": "A pan or shadow does not turn it into volumetric 3D."
+    },
+    {
+      "id": "AX07",
+      "axis": "Geometry",
+      "choice": "Layered 2.5D planes",
+      "definition": "Cutouts occupy declared depth planes and move with parallax.",
+      "use": "Rich illustrated worlds, motion comics and quiet emotional scenes.",
+      "check": "Inspect masks and disoccluded gaps; depth is approximate."
+    },
+    {
+      "id": "AX08",
+      "axis": "Geometry",
+      "choice": "Faceted low-poly 3D",
+      "definition": "True volumes use deliberately visible polygonal faces.",
+      "use": "Toy terrain, expeditions and readable block-world action.",
+      "check": "Check real geometry and alternate angles; faceting is not a color filter."
+    },
+    {
+      "id": "AX09",
+      "axis": "Geometry",
+      "choice": "Smooth volumetric 3D",
+      "definition": "Modeled surfaces, real cameras, lights and object depth.",
+      "use": "Tactile characters, turntables and spatial mechanism stories.",
+      "check": "Check normals, contact, silhouette and native reopening."
+    },
+    {
+      "id": "AX10",
+      "axis": "Geometry",
+      "choice": "Sectioned or exploded volume",
+      "definition": "A true volume is cut or separated to expose its relationships.",
+      "use": "Product anatomy, architecture and machinery explanations.",
+      "check": "The section plane and part relationships must be geometrically valid."
+    },
+    {
+      "id": "AX11",
+      "axis": "Material / surface",
+      "choice": "Paper and card",
+      "definition": "Fibers, layered edges and soft cut-paper shadows.",
+      "use": "Editorial stories, maps and tactile explanation.",
+      "check": "Use original/procedural or individually cleared textures."
+    },
+    {
+      "id": "AX12",
+      "axis": "Material / surface",
+      "choice": "Cloth or felt",
+      "definition": "Soft fibers, stitched seams and diffuse light.",
+      "use": "Warm characters, care stories and miniature objects.",
+      "check": "Texture alone is not cloth simulation; verify deformations if claimed."
+    },
+    {
+      "id": "AX13",
+      "axis": "Material / surface",
+      "choice": "Clay",
+      "definition": "Soft sculpted forms, roughness and designed deformation.",
+      "use": "Character comedy, fables and tactile transformation.",
+      "check": "Label rendered clay-style work accurately; inspect volume preservation."
+    },
+    {
+      "id": "AX14",
+      "axis": "Material / surface",
+      "choice": "Chalk or graphite",
+      "definition": "Grainy strokes and drawn construction marks.",
+      "use": "Stepwise reasoning and field-note explanations.",
+      "check": "Keep geometry, text and contrast legible despite texture."
+    },
+    {
+      "id": "AX15",
+      "axis": "Material / surface",
+      "choice": "Wood / ceramic / metal",
+      "definition": "Distinct grain, glaze or specular response.",
+      "use": "Object fables and crafted mechanisms.",
+      "check": "Match lighting to material; do not claim physical authenticity."
+    },
+    {
+      "id": "AX16",
+      "axis": "Material / surface",
+      "choice": "Photographic texture",
+      "definition": "An individually cleared image contributes surface or setting detail.",
+      "use": "Rich environments and documentary illustration.",
+      "check": "Review each source's rights, provenance and spatial limits."
+    },
+    {
+      "id": "AX17",
+      "axis": "Aesthetic",
+      "choice": "Technical clarity",
+      "definition": "Restrained detail, explicit labels and clear relationships.",
+      "use": "Math, computing, mechanisms and demonstrations.",
+      "check": "A technical look does not establish factual accuracy."
+    },
+    {
+      "id": "AX18",
+      "axis": "Aesthetic",
+      "choice": "Warm miniature fiction",
+      "definition": "Small original worlds, grounded characters and intentional light.",
+      "use": "Cooperation, everyday microdrama and gentle adventure.",
+      "check": "Preserve a complete story rather than only attractive scenery."
+    },
+    {
+      "id": "AX19",
+      "axis": "Aesthetic",
+      "choice": "Graphic / print-inspired",
+      "definition": "Bold shapes, hatching, print texture and deliberate framing.",
+      "use": "Editorial learning and compact visual storytelling.",
+      "check": "Do not use texture or busy outlines to hide weak action."
+    },
+    {
+      "id": "AX20",
+      "axis": "Aesthetic",
+      "choice": "Cinematic / atmospheric",
+      "definition": "Lighting, depth and camera timing support mood.",
+      "use": "Character scenes and journeys.",
+      "check": "Readable action and honest source evidence remain required."
+    },
+    {
+      "id": "AX21",
+      "axis": "Composition",
+      "choice": "Single hero plus evidence",
+      "definition": "One main action with a small supporting diagram or label.",
+      "use": "Focused explanation and character-led teaching.",
+      "check": "Keep the evidence readable and do not let the host cover it."
+    },
+    {
+      "id": "AX22",
+      "axis": "Composition",
+      "choice": "Synchronized split-screen",
+      "definition": "Two states or views share one timeline.",
+      "use": "Controlled contrasts and multiple interpretations.",
+      "check": "State what changes and what is held fixed."
+    },
+    {
+      "id": "AX23",
+      "axis": "Composition",
+      "choice": "Multi-panel / multi-angle",
+      "definition": "A grid displays distinct views or moments.",
+      "use": "Character sheets, object inspection and perspective puzzles.",
+      "check": "Limit panels to phone-readable content; label moments versus viewpoints."
+    },
+    {
+      "id": "AX24",
+      "axis": "Composition",
+      "choice": "Cutaway / inset",
+      "definition": "The main object remains visible beside an internal view.",
+      "use": "Mechanisms and hidden relationships.",
+      "check": "Keep the inset tied to the same exact object and state."
+    },
+    {
+      "id": "AX25",
+      "axis": "Composition",
+      "choice": "Layer breakdown",
+      "definition": "Actual source contributions separate into inspectable passes.",
+      "use": "Production teaching and reusable component review.",
+      "check": "Count only active meaningful contributions; do not double-count nested groups."
+    }
+  ],
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix C Creative banks and exact treatment addressing / Twenty five independent visual axes",
+    "anchor": "twenty-five-independent-visual-axes",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  }
+}

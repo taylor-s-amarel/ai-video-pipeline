@@ -1,0 +1,64 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "storyboard_inventory_space",
+  "title": "Storyboard: Inventory Space",
+  "kind": "skill",
+  "subkind": "storyboard",
+  "version": "1.0.0",
+  "summary": "Proposed, unrendered 88-second timed storyboard (10 shots). Can these two background characters make a speedrunner take them along before their whole map is removed?",
+  "domain": "story",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#2-inventory-space"
+  },
+  "step_kinds": [
+    "plan",
+    "write",
+    "review"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "story",
+    "storyboard",
+    "comedy",
+    "suspense",
+    "timed-board",
+    "inventory-space"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "timed_storyboard"
+    },
+    {
+      "identity": "storyboard_gate"
+    },
+    {
+      "identity": "story_tests"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/ref_stories.py",
+    "data": "generators/data/ref_stories"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "considered",
+  "evidence_notes": "Proposed concept and unrendered timed storyboard (guide v1.1, 10 Oct 2026). Editorial recommendation only: no table read, animatic, render, audience result or owner acceptance is recorded. The earlier BOXED IN film's technical progress does not establish that a story works."
+}

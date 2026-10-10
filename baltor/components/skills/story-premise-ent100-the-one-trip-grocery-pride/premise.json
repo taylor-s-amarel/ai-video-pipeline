@@ -1,0 +1,100 @@
+{
+  "id": "ENT100",
+  "title": "The One-Trip Grocery Pride",
+  "family": "fiction",
+  "category": "everyday microdramas",
+  "premise": "A shopper insists on carrying every empty prop bag in one trip, turning into a wobbling tower of handles. They set everything down, make two easy trips, and discover that the dramatic ONE TRIP badge can be folded into a useful shelf label reading TWO IS FINE.",
+  "hook": "One trip. Seventeen handles. A questionable victory.",
+  "visible_action": "Bag handles collect along arms; tower sways; bags are set down; two small loads cross the frame; badge folds into a label.",
+  "intended_takeaway_or_theme": "A self-imposed rule can be dropped when it makes the task worse.",
+  "gate": "Use visibly lightweight empty bags; no lifting limits, injury claims, or unsafe-load demonstration.",
+  "evidence_class": "fictional_demonstration",
+  "original_format_tags": [
+    "narrative_lesson",
+    "silent_visual"
+  ],
+  "status": "idea",
+  "treatment_group": 4,
+  "treatments": [
+    {
+      "address": "R-ENT100-F06-A01",
+      "format_id": "F06",
+      "approach_id": "A01",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT100-F06-A04",
+      "format_id": "F06",
+      "approach_id": "A04",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT100-F07-A01",
+      "format_id": "F07",
+      "approach_id": "A01",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT100-F07-A04",
+      "format_id": "F07",
+      "approach_id": "A04",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT100-F08-A01",
+      "format_id": "F08",
+      "approach_id": "A01",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT100-F08-A04",
+      "format_id": "F08",
+      "approach_id": "A04",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT100-F09-A01",
+      "format_id": "F09",
+      "approach_id": "A01",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT100-F09-A04",
+      "format_id": "F09",
+      "approach_id": "A04",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT100-F10-A01",
+      "format_id": "F10",
+      "approach_id": "A01",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    },
+    {
+      "address": "R-ENT100-F10-A04",
+      "format_id": "F10",
+      "approach_id": "A04",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    }
+  ],
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix D All 240 story premises / Fiction everyday microdramas",
+    "anchor": "ent100-the-one-trip-grocery-pride",
+    "line": 5750,
+    "catalogue_artifact": "Creative Catalogue JSON Bundle 2026-10-10",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_version": "0",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "suspense_comedy_development_slate",
+  "title": "Suspense and comedy development slate",
+  "kind": "skill",
+  "subkind": "idea-bank",
+  "version": "1.0.0",
+  "summary": "Overview of the eight proposed development topics (three timed boards, five pitches) with the editorial recommendation to start with The Decoy Job and the story tests to run first.",
+  "domain": "story",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#new-suspense-and-comedy-storyboards"
+  },
+  "step_kinds": [
+    "plan"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "story",
+    "storyboard",
+    "slate",
+    "comedy",
+    "suspense",
+    "idea-bank"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "storyboard_the_decoy_job"
+    },
+    {
+      "identity": "storyboard_inventory_space"
+    },
+    {
+      "identity": "storyboard_the_extra"
+    },
+    {
+      "identity": "story_pitch_front_legs_back_legs"
+    },
+    {
+      "identity": "story_pitch_the_hiccup_concerto"
+    },
+    {
+      "identity": "story_pitch_a_very_long_sausage"
+    },
+    {
+      "identity": "story_pitch_just_hold_the_sun"
+    },
+    {
+      "identity": "story_pitch_who_woke_the_baby"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/ref_stories.py",
+    "data": "generators/data/ref_stories"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "considered",
+  "evidence_notes": "Proposed concepts, unrendered boards and pitches. Editorial ranking considers opening clarity, causal escalation, agency, earned surprise, visual comedy and production risk; it does not predict views or retention and is not owner acceptance."
+}

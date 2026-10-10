@@ -1,0 +1,50 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "suspense_rules",
+  "title": "Suspense rules",
+  "kind": "rules",
+  "subkind": "rule-set",
+  "version": "1.0.0",
+  "summary": "Suspense without empty delay: a concrete question, visible success and failure, narrowing choices, clocks that change decisions, escapes with a cost, legible geography and motivated sound.",
+  "domain": "story",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#suspense-without-empty-delay"
+  },
+  "step_kinds": [
+    "write",
+    "review"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "RULES.md",
+  "tags": [
+    "story",
+    "suspense",
+    "rules",
+    "tension"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/ref_stories.py",
+    "data": "generators/data/ref_stories"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "considered",
+  "evidence_notes": "Editorial guidance from the owner's guide, written after Taylor rejected BOXED IN's story quality. Its review methods (table read, silent animatic, owner storyboard choice) are proposed; nothing here is validated audience research."
+}

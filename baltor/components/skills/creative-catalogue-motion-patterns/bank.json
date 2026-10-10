@@ -1,0 +1,240 @@
+{
+  "bank": "motions",
+  "title": "Creative catalogue: thirty motion patterns",
+  "status": "proposal",
+  "status_note": "The following banks were materialized from the 10 October 2026 catalogue and are preserved here as usable text. They remain proposals. The catalogue's earlier statement that a second film was in progress and that zero twelve-style slots were qualified is a historical assembly snapshot; it is not today's completed-film ledger. This guide does not retroactively mark individual catalogue recipes rendered because a similarly named film exists.",
+  "columns": [
+    "ID",
+    "Motion",
+    "Mechanism",
+    "Fit",
+    "Check"
+  ],
+  "keys": [
+    "id",
+    "motion",
+    "mechanism",
+    "fit",
+    "check"
+  ],
+  "count": 30,
+  "records": [
+    {
+      "id": "M01",
+      "motion": "Gentle push",
+      "mechanism": "A slow, continuous move toward the causal detail.",
+      "fit": "Explanation; mystery",
+      "check": "Keep essential evidence and text in safe areas."
+    },
+    {
+      "id": "M02",
+      "motion": "Lateral reveal",
+      "mechanism": "Move sideways to uncover an occluded relationship.",
+      "fit": "Perspective; spatial story",
+      "check": "Use consistent geometry or disclose a 2.5D approximation."
+    },
+    {
+      "id": "M03",
+      "motion": "Locked evidence shot",
+      "mechanism": "Hold the camera while meaningful objects move.",
+      "fit": "Mechanism; prediction",
+      "check": "The frame may be calm; the action must remain legible."
+    },
+    {
+      "id": "M04",
+      "motion": "Follow the token",
+      "mechanism": "Track one identified object through a system.",
+      "fit": "Route; process",
+      "check": "Maintain identity through every cut and occlusion."
+    },
+    {
+      "id": "M05",
+      "motion": "Overhead workflow",
+      "mechanism": "Look down at a sequence of workstations or steps.",
+      "fit": "How-to; process",
+      "check": "Do not obscure contact points with labels."
+    },
+    {
+      "id": "M06",
+      "motion": "Quarter orbit",
+      "mechanism": "Rotate around an object far enough to reveal a hidden side.",
+      "fit": "Geometry; anatomy",
+      "check": "Requires true 3D or genuine alternate views."
+    },
+    {
+      "id": "M07",
+      "motion": "Cutaway slide",
+      "mechanism": "Move a section plane while the object stays fixed.",
+      "fit": "Mechanism; architecture",
+      "check": "Plane position must agree with visible parts."
+    },
+    {
+      "id": "M08",
+      "motion": "Exploded assembly",
+      "mechanism": "Separate related parts along meaningful axes.",
+      "fit": "Anatomy; product",
+      "check": "Keep connectors and parent-child relationships clear."
+    },
+    {
+      "id": "M09",
+      "motion": "Matched split-screen",
+      "mechanism": "Synchronize two views to a shared time authority.",
+      "fit": "Comparison",
+      "check": "Check identical starting state and duration."
+    },
+    {
+      "id": "M10",
+      "motion": "Scale ladder",
+      "mechanism": "Step through explicit scales with reference objects.",
+      "fit": "Science; design",
+      "check": "Show units and avoid arbitrary size jumps."
+    },
+    {
+      "id": "M11",
+      "motion": "Scene-space drift",
+      "mechanism": "Move background, characters, shadows and targets together.",
+      "fit": "Compositing",
+      "check": "Apply one shared transform and its inverse."
+    },
+    {
+      "id": "M12",
+      "motion": "Parallax planes",
+      "mechanism": "Move declared foreground and background planes differently.",
+      "fit": "2.5D story",
+      "check": "Inspect disocclusion gaps and do not call it metric 3D."
+    },
+    {
+      "id": "M13",
+      "motion": "Focus handoff",
+      "mechanism": "Shift emphasis from cause to effect through motion and light.",
+      "fit": "Explanation",
+      "check": "Keep both visible long enough to establish their relationship."
+    },
+    {
+      "id": "M14",
+      "motion": "Pose anticipation",
+      "mechanism": "A character shifts weight before the main action.",
+      "fit": "Performance",
+      "check": "Anchor the planted foot and use coherent mass transfer."
+    },
+    {
+      "id": "M15",
+      "motion": "Overshoot settle",
+      "mechanism": "A moving prop passes its target slightly and settles.",
+      "fit": "Comedy; interface illustration",
+      "check": "Use controlled easing; avoid implying real damping data."
+    },
+    {
+      "id": "M16",
+      "motion": "Pause at decision",
+      "mechanism": "Slow or hold immediately before the meaningful choice.",
+      "fit": "Puzzle; story",
+      "check": "Hold after the viewer has all necessary information."
+    },
+    {
+      "id": "M17",
+      "motion": "Trail history",
+      "mechanism": "Leave a fading trace of an object's path.",
+      "fit": "Trajectory; process",
+      "check": "Separate history from simultaneous object copies."
+    },
+    {
+      "id": "M18",
+      "motion": "Constraint demonstration",
+      "mechanism": "Move the free degrees of freedom while anchors stay fixed.",
+      "fit": "Engineering",
+      "check": "Check constraints numerically before claiming fidelity."
+    },
+    {
+      "id": "M19",
+      "motion": "Counter-motion",
+      "mechanism": "A secondary part moves against the primary mass.",
+      "fit": "Character; mechanics",
+      "check": "Keep joints and inertia narratively or physically coherent."
+    },
+    {
+      "id": "M20",
+      "motion": "Time panels",
+      "mechanism": "Show multiple labeled moments in a consistent composition.",
+      "fit": "Timeline; before-after",
+      "check": "Label time and avoid implying all states coexist."
+    },
+    {
+      "id": "M21",
+      "motion": "Reverse investigation",
+      "mechanism": "Visit earlier states in order with explicit time labels.",
+      "fit": "Mystery; causality",
+      "check": "Do not reverse the direction of a real process without a label."
+    },
+    {
+      "id": "M22",
+      "motion": "Ground-level tracking",
+      "mechanism": "Move at the character's height along their route.",
+      "fit": "Adventure",
+      "check": "Establish environment and avoid disorienting fast pans."
+    },
+    {
+      "id": "M23",
+      "motion": "Top-down to eye-level",
+      "mechanism": "Transition between plan view and embodied perspective.",
+      "fit": "Spatial learning",
+      "check": "Keep landmarks matched and use a true scene when claiming 3D."
+    },
+    {
+      "id": "M24",
+      "motion": "Slow reveal mask",
+      "mechanism": "Expose an object through a controlled, fair mask.",
+      "fit": "Guessing",
+      "check": "Check no unintended answer leaks or impossible ambiguity."
+    },
+    {
+      "id": "M25",
+      "motion": "Path drawing",
+      "mechanism": "Trace the actual contour or route in ordered segments.",
+      "fit": "Map; diagram",
+      "check": "Stroke order must match the explanation."
+    },
+    {
+      "id": "M26",
+      "motion": "Cause pulse",
+      "mechanism": "One restrained pulse marks the input before motion propagates.",
+      "fit": "Causality",
+      "check": "Never substitute flashing for a meaningful relationship."
+    },
+    {
+      "id": "M27",
+      "motion": "Camera stays character exits",
+      "mechanism": "Let a character leave while the consequence stays visible.",
+      "fit": "Comedy; fable",
+      "check": "The final frame must complete the narrative promise."
+    },
+    {
+      "id": "M28",
+      "motion": "Foreground crossing",
+      "mechanism": "A grounded object passes briefly in front of the subject.",
+      "fit": "Cinematic depth",
+      "check": "Do not hide essential puzzle evidence or a discontinuity."
+    },
+    {
+      "id": "M29",
+      "motion": "Repeated action escalation",
+      "mechanism": "Repeat an action with a new obstacle each time.",
+      "fit": "Comedy; learning",
+      "check": "Each repeat changes a causal or narrative condition."
+    },
+    {
+      "id": "M30",
+      "motion": "Closing tableau",
+      "mechanism": "Settle into a readable final arrangement and hold.",
+      "fit": "Any resolved story",
+      "check": "Keep the answer visible long enough and avoid abrupt cutoff."
+    }
+  ],
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix C Creative banks and exact treatment addressing / Thirty motion patterns",
+    "anchor": "thirty-motion-patterns",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  }
+}

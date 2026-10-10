@@ -1,0 +1,287 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/timed-storyboard",
+  "title": "Timed storyboard or story pitch",
+  "description": "A development board in the shape of the guide's suspense and comedy boards. board_type 'timed' needs the story fields and contiguous timed shots; board_type 'pitch' needs opening frame, question and goals, rule, causal escalation, plant and payoff and the visual test. Shot fields follow the storyboard gate: composition, duration, action, new information, decision, sound and the story reason for the cut. Contiguity is checked by the timed_storyboard_check module. Status beyond 'proposed' needs status_evidence.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "title",
+    "board_type",
+    "status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{1,80}$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 120
+    },
+    "board_type": {
+      "enum": [
+        "timed",
+        "pitch"
+      ]
+    },
+    "status": {
+      "enum": [
+        "proposed",
+        "owner-selected",
+        "animatic-reviewed",
+        "rendered",
+        "delivered",
+        "owner-accepted",
+        "rejected"
+      ]
+    },
+    "status_evidence": {
+      "type": "string",
+      "minLength": 10
+    },
+    "approx_duration_s": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "maximum": 900
+    },
+    "shot_count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "cast": {
+      "type": "string"
+    },
+    "format_text": {
+      "type": "string"
+    },
+    "opening_image": {
+      "type": "string",
+      "minLength": 10
+    },
+    "dramatic_question": {
+      "type": "string",
+      "minLength": 10
+    },
+    "characters_and_goals": {
+      "type": "string",
+      "minLength": 10
+    },
+    "world_rule": {
+      "type": "string",
+      "minLength": 10
+    },
+    "stakes": {
+      "type": "string",
+      "minLength": 10
+    },
+    "escalation_chain": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "string",
+        "minLength": 3
+      }
+    },
+    "planted_details": {
+      "type": "string",
+      "minLength": 10
+    },
+    "shots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "index",
+          "start_s",
+          "end_s",
+          "title",
+          "action"
+        ],
+        "properties": {
+          "index": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "start_s": {
+            "type": "number",
+            "minimum": 0
+          },
+          "end_s": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "title": {
+            "type": "string",
+            "minLength": 2
+          },
+          "action": {
+            "type": "string",
+            "minLength": 10
+          },
+          "composition": {
+            "type": "string"
+          },
+          "new_information": {
+            "type": "string"
+          },
+          "decision": {
+            "type": "string"
+          },
+          "sound": {
+            "type": "string"
+          },
+          "cut_reason": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "midpoint_change": {
+      "type": "string",
+      "minLength": 10
+    },
+    "why_watch_next_beat": {
+      "type": "string",
+      "minLength": 10
+    },
+    "alternate_ending": {
+      "type": "string",
+      "minLength": 10
+    },
+    "obvious_weakness": {
+      "type": "string",
+      "minLength": 10
+    },
+    "kill_criteria": {
+      "type": "string",
+      "minLength": 10
+    },
+    "opening_frame": {
+      "type": "string",
+      "minLength": 10
+    },
+    "question_and_goals": {
+      "type": "string",
+      "minLength": 10
+    },
+    "rule": {
+      "type": "string",
+      "minLength": 10
+    },
+    "causal_escalation": {
+      "type": "string",
+      "minLength": 10
+    },
+    "plant_and_payoff": {
+      "type": "string",
+      "minLength": 10
+    },
+    "visual_test": {
+      "type": "string",
+      "minLength": 10
+    },
+    "editorial_note": {
+      "type": "string"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "document"
+      ],
+      "properties": {
+        "document": {
+          "type": "string"
+        },
+        "section": {
+          "type": "string"
+        },
+        "anchor": {
+          "type": "string"
+        },
+        "line": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "board_type": {
+            "const": "timed"
+          }
+        },
+        "required": [
+          "board_type"
+        ]
+      },
+      "then": {
+        "required": [
+          "title",
+          "dramatic_question",
+          "characters_and_goals",
+          "stakes",
+          "escalation_chain",
+          "planted_details",
+          "shots",
+          "midpoint_change",
+          "kill_criteria"
+        ],
+        "properties": {
+          "shots": {
+            "minItems": 3
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "board_type": {
+            "const": "pitch"
+          }
+        },
+        "required": [
+          "board_type"
+        ]
+      },
+      "then": {
+        "required": [
+          "title",
+          "opening_frame",
+          "question_and_goals",
+          "rule",
+          "causal_escalation",
+          "plant_and_payoff",
+          "visual_test"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "not": {
+              "const": "proposed"
+            }
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "required": [
+          "status_evidence"
+        ]
+      }
+    }
+  ]
+}

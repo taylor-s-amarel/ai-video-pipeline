@@ -1,0 +1,50 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "timed_storyboard",
+  "title": "Timed storyboard or story pitch",
+  "kind": "contract-schema",
+  "subkind": "storyboard",
+  "version": "1.0.0",
+  "summary": "JSON Schema for a development board: timed boards need want/stakes/escalation/plants, contiguous timed shots and kill criteria; pitches need opening, question, rule, escalation, payoff and visual test.",
+  "domain": "story",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#new-suspense-and-comedy-storyboards"
+  },
+  "step_kinds": [
+    "plan",
+    "write",
+    "review"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "schema.json",
+  "tags": [
+    "story",
+    "storyboard",
+    "schema",
+    "shots",
+    "pitch"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/ref_stories.py",
+    "data": "generators/data/ref_stories"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

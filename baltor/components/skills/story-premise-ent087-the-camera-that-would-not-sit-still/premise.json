@@ -1,0 +1,102 @@
+{
+  "id": "ENT087",
+  "title": "The Camera That Would Not Sit Still",
+  "family": "fiction",
+  "category": "creative-work struggles",
+  "premise": "An animator wants a dramatic reveal but keeps orbiting the camera so quickly that the small character’s important gesture is invisible. They lock the camera for one clean shot, let the gesture finish, and reserve one slow move for the actual reveal of a huge birthday sign behind the character.",
+  "hook": "The camera is doing all the acting.",
+  "visible_action": "Camera-path rings spin around a still figure; motion freezes; hands complete a tiny action; one deliberate dolly reveals the sign.",
+  "intended_takeaway_or_theme": "Give the viewer time to read the action.",
+  "gate": "Editorial demonstration with original scene; avoid medical claims about motion sensitivity or attention.",
+  "evidence_class": "fictional_demonstration",
+  "original_format_tags": [
+    "narrative_lesson",
+    "silent_visual",
+    "side_by_side",
+    "behind_the_scenes"
+  ],
+  "status": "idea",
+  "treatment_group": 4,
+  "treatments": [
+    {
+      "address": "R-ENT087-F06-A01",
+      "format_id": "F06",
+      "approach_id": "A01",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT087-F06-A04",
+      "format_id": "F06",
+      "approach_id": "A04",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT087-F07-A01",
+      "format_id": "F07",
+      "approach_id": "A01",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT087-F07-A04",
+      "format_id": "F07",
+      "approach_id": "A04",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT087-F08-A01",
+      "format_id": "F08",
+      "approach_id": "A01",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT087-F08-A04",
+      "format_id": "F08",
+      "approach_id": "A04",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT087-F09-A01",
+      "format_id": "F09",
+      "approach_id": "A01",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT087-F09-A04",
+      "format_id": "F09",
+      "approach_id": "A04",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT087-F10-A01",
+      "format_id": "F10",
+      "approach_id": "A01",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    },
+    {
+      "address": "R-ENT087-F10-A04",
+      "format_id": "F10",
+      "approach_id": "A04",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    }
+  ],
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix D All 240 story premises / Fiction creative-work struggles",
+    "anchor": "ent087-the-camera-that-would-not-sit-still",
+    "line": 5566,
+    "catalogue_artifact": "Creative Catalogue JSON Bundle 2026-10-10",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_version": "0",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  }
+}

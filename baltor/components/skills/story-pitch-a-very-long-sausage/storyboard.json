@@ -1,0 +1,19 @@
+{
+  "id": "a-very-long-sausage",
+  "title": "A Very Long Sausage",
+  "board_type": "pitch",
+  "status": "proposed",
+  "opening_frame": "Two rival dogs grip opposite ends of one enormous sausage. A pigeon eyes its undefended center.",
+  "question_and_goals": "Will either dog get lunch before the pigeon takes it? Each dog wants the entire sausage; their owner wants to continue walking; the pigeon wants the easiest possible bite.",
+  "rule": "Neither dog will voluntarily release its end. Every tactic therefore moves or stretches the same connected object and pulls on their leads.",
+  "causal_escalation": "One dog backs away to claim more; the other circles a bollard to gain leverage. Their owner gets caught between the crossed leads. The pigeon advances each time both dogs focus on each other. At midpoint, they see the common threat and stop pulling against one another. They stretch the elastic cartoon sausage across the already-established bollards, wait for the pigeon to land in the center, and release tension together. The pigeon lands safely on a nearby bench, indignant and empty-beaked.",
+  "plant_and_payoff": "The sausage's ridiculous stretch and the bollards must be shown before they become a slingshot. The dogs then choose to break and share the sausage. The owner gives a relieved smile, tries to step forward, and discovers that the newly cooperative dogs have left him neatly gift-wrapped in their leads. End there; no multiplying flock or repeat of the earlier dog-fetch film.",
+  "visual_test": "This is the smallest-stakes pitch, so it should be short and almost entirely physical. It fails if the dog behavior is merely three interchangeable tugs or the owner seems genuinely injured.",
+  "editorial_note": "These are pitches, not approved productions or timed boards. Together with the three fully boarded films above, they make eight topics. They should be developed only if their central visual test works; a striking premise is not yet a finished film.",
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Five more distinct topics: an eight-story development slate",
+    "anchor": "6-a-very-long-sausage",
+    "line": 340
+  }
+}

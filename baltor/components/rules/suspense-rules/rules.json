@@ -1,0 +1,19 @@
+{
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Suspense without empty delay",
+    "anchor": "suspense-without-empty-delay"
+  },
+  "rules": [
+    "Give the viewer a concrete question: whether a delivery will arrive before the bridge folds, whether a decoy will fool the wrong pursuer, or whether two characters realize they are solving opposite halves of the same problem.",
+    "Show what success and failure look like.",
+    "Alternate action with short opportunities to understand new information.",
+    "Narrow the available choices as the film proceeds.",
+    "A time limit should change decisions.",
+    "A clock that never affects behavior is decoration.",
+    "An apparent escape should expose a meaningful cost or reveal a new relationship.",
+    "Keep geography legible; uncertainty about what happens next is useful, confusion about where everyone stands usually is not.",
+    "Let sound anticipate a threat only when the source and payoff make sense."
+  ],
+  "contract_note": "Suspense comes from uncertainty with understandable consequences, not merely dark music or a slowly opening door."
+}

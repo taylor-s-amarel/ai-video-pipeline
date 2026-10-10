@@ -1,0 +1,352 @@
+{
+  "bank": "styles",
+  "title": "Creative catalogue: forty visual styles",
+  "status": "proposal",
+  "status_note": "The following banks were materialized from the 10 October 2026 catalogue and are preserved here as usable text. They remain proposals. The catalogue's earlier statement that a second film was in progress and that zero twelve-style slots were qualified is a historical assembly snapshot; it is not today's completed-film ledger. This guide does not retroactively mark individual catalogue recipes rendered because a similarly named film exists.",
+  "columns": [
+    "ID",
+    "Style",
+    "Visual language",
+    "Value",
+    "Check",
+    "Approaches"
+  ],
+  "keys": [
+    "id",
+    "style",
+    "visual_language",
+    "value",
+    "check",
+    "approaches"
+  ],
+  "count": 40,
+  "records": [
+    {
+      "id": "S01",
+      "style": "Articulated ink characters",
+      "visual_language": "Expressive line characters on a rich original setting.",
+      "value": "Strong silhouette and readable intent.",
+      "check": "Keep joints coherent and feet grounded.",
+      "approaches": "vector"
+    },
+    {
+      "id": "S02",
+      "style": "Editorial cut-paper",
+      "visual_language": "Layered paper forms, visible fibers and restrained shadows.",
+      "value": "Makes grouping and cause easy to separate.",
+      "check": "Avoid false depth claims; inspect cutout edges.",
+      "approaches": "cutout"
+    },
+    {
+      "id": "S03",
+      "style": "Chalk mechanism",
+      "visual_language": "Dark textured board with precise staged strokes.",
+      "value": "Reveals reasoning in the order it is explained.",
+      "check": "Texture must not reduce label contrast.",
+      "approaches": "sketch"
+    },
+    {
+      "id": "S04",
+      "style": "Technical exploded view",
+      "visual_language": "Neutral materials, numbered parts and consistent perspective.",
+      "value": "Clarifies assembly and relationships.",
+      "check": "Verify labels, scale and separation directions.",
+      "approaches": "vector; block3d"
+    },
+    {
+      "id": "S05",
+      "style": "Miniature wooden world",
+      "visual_language": "Original wood-grain objects and toy-scale scenery.",
+      "value": "Turns abstract systems into tangible spatial relationships.",
+      "check": "Keep texture, scale and contact shadows consistent.",
+      "approaches": "block3d"
+    },
+    {
+      "id": "S06",
+      "style": "Clay performance",
+      "visual_language": "Soft sculpted forms with intentional hand-made variation.",
+      "value": "Makes effort and personality readable through deformation.",
+      "check": "Do not imply physical stop-motion capture.",
+      "approaches": "block3d"
+    },
+    {
+      "id": "S07",
+      "style": "Felt and thread",
+      "visual_language": "Plush surfaces with stitched boundaries and soft lighting.",
+      "value": "Friendly tactile characters for warm stories.",
+      "check": "Avoid excessive fibers that obscure eyes and joints.",
+      "approaches": "block3d"
+    },
+    {
+      "id": "S08",
+      "style": "Ceramic fable",
+      "visual_language": "Glazed figures on a restrained physical stage.",
+      "value": "Highlights fragility, care and deliberate movement.",
+      "check": "Control specular highlights and avoid unreadable white-on-white.",
+      "approaches": "block3d"
+    },
+    {
+      "id": "S09",
+      "style": "Architectural section",
+      "visual_language": "Cutaway walls and measured spaces.",
+      "value": "Explains hidden interior relationships.",
+      "check": "Keep the cutaway plane honest and distinct from a real inspection.",
+      "approaches": "block3d; vector"
+    },
+    {
+      "id": "S10",
+      "style": "Field notebook",
+      "visual_language": "Sketches, short annotations and observed-detail inserts.",
+      "value": "Shows curiosity and provisional learning.",
+      "check": "Label illustrations and unresolved facts explicitly.",
+      "approaches": "sketch"
+    },
+    {
+      "id": "S11",
+      "style": "Scientific diagram",
+      "visual_language": "Clear geometry and sparse units on a quiet field.",
+      "value": "Supports precise mechanisms without visual clutter.",
+      "check": "Mark idealizations and do not fake measurement precision.",
+      "approaches": "vector"
+    },
+    {
+      "id": "S12",
+      "style": "Blueprint to object",
+      "visual_language": "A measured drawing becomes a matching modeled object.",
+      "value": "Connects intent, geometry and result.",
+      "check": "Only claim exact correspondence after verification.",
+      "approaches": "vector; block3d"
+    },
+    {
+      "id": "S13",
+      "style": "Luminous wire sculpture",
+      "visual_language": "Thin lit edges describe original spatial forms.",
+      "value": "Reveals connectivity and motion paths.",
+      "check": "Do not let bloom hide intersections.",
+      "approaches": "block3d"
+    },
+    {
+      "id": "S14",
+      "style": "Botanical linework",
+      "visual_language": "Original stems, leaves and clean anatomical labels.",
+      "value": "Makes growth and structure readable.",
+      "check": "Species-specific claims require sourced references.",
+      "approaches": "sketch; vector"
+    },
+    {
+      "id": "S15",
+      "style": "Topographic paper",
+      "visual_language": "Stacked contour layers and a simple route marker.",
+      "value": "Communicates slope and elevation through layers.",
+      "check": "Label fictional terrain or verify elevation data.",
+      "approaches": "cutout; block3d"
+    },
+    {
+      "id": "S16",
+      "style": "Museum tabletop",
+      "visual_language": "Original artifacts staged with careful light and a quiet camera.",
+      "value": "Invites close observation and object storytelling.",
+      "check": "Avoid implying fabricated props are authentic artifacts.",
+      "approaches": "block3d"
+    },
+    {
+      "id": "S17",
+      "style": "Retro instruction sheet",
+      "visual_language": "Simple arrows, panels and warm print-like texture.",
+      "value": "Turns a procedure into distinct, memorable checkpoints.",
+      "check": "Use current verified steps; nostalgia is only surface treatment.",
+      "approaches": "vector"
+    },
+    {
+      "id": "S18",
+      "style": "Motion comic",
+      "visual_language": "Original illustrated panels with restrained parallax and acting.",
+      "value": "Supports dialogue and clear scene transitions.",
+      "check": "Keep reading order and character identity consistent.",
+      "approaches": "cutout; vector"
+    },
+    {
+      "id": "S19",
+      "style": "Silhouette theater",
+      "visual_language": "Strong foreground silhouettes with luminous depth.",
+      "value": "Makes action understandable with minimal detail.",
+      "check": "Do not hide essential physical evidence in shadow.",
+      "approaches": "cutout; vector"
+    },
+    {
+      "id": "S20",
+      "style": "Shadow-box diorama",
+      "visual_language": "Layered scenery inside a visible miniature stage.",
+      "value": "Makes framing and occlusion part of the story.",
+      "check": "Depth is approximate unless built as true 3D.",
+      "approaches": "cutout; block3d"
+    },
+    {
+      "id": "S21",
+      "style": "Graphic-novel mechanism",
+      "visual_language": "Bold shapes, limited hatching and evidence inserts.",
+      "value": "Combines dramatic stakes with readable explanation.",
+      "check": "Preserve factual distinctions despite dramatic styling.",
+      "approaches": "vector; sketch"
+    },
+    {
+      "id": "S22",
+      "style": "Ink-wash landscape",
+      "visual_language": "Soft original washes behind crisp foreground action.",
+      "value": "Creates atmosphere while the mechanism remains sharp.",
+      "check": "Do not wash out important text or targets.",
+      "approaches": "cutout; sketch"
+    },
+    {
+      "id": "S23",
+      "style": "Isometric workshop",
+      "visual_language": "Orthographic benches, objects and workers.",
+      "value": "Shows parallel operations in one readable space.",
+      "check": "Check occlusion and avoid claiming true scale from decorative isometry.",
+      "approaches": "block3d"
+    },
+    {
+      "id": "S24",
+      "style": "Low-poly expedition",
+      "visual_language": "Faceted original terrain and restrained material palette.",
+      "value": "Supports routes and spatial decisions efficiently.",
+      "check": "Use honest stylization rather than simulated documentary claims.",
+      "approaches": "block3d"
+    },
+    {
+      "id": "S25",
+      "style": "Stop-motion-inspired blocks",
+      "visual_language": "Discrete designed poses with smooth camera motion.",
+      "value": "Highlights tactile decisions and comedic timing.",
+      "check": "Do not claim real frame-by-frame photography.",
+      "approaches": "block3d"
+    },
+    {
+      "id": "S26",
+      "style": "Vector stage musical",
+      "visual_language": "Articulated geometric actors with coordinated movement.",
+      "value": "Makes rhythm and interaction the narrative.",
+      "check": "Use original or cleared music; vary choreography materially.",
+      "approaches": "vector"
+    },
+    {
+      "id": "S27",
+      "style": "Transparent acrylic",
+      "visual_language": "Clear shells, tinted interior parts and controlled refraction.",
+      "value": "Exposes nested mechanisms while preserving the object silhouette.",
+      "check": "Transparency can hide contacts; add readable edge cues.",
+      "approaches": "block3d"
+    },
+    {
+      "id": "S28",
+      "style": "Monochrome materials",
+      "visual_language": "One hue family with distinct roughness and lighting.",
+      "value": "Directs attention to form and surface behavior.",
+      "check": "A palette change alone is not a new story or capability.",
+      "approaches": "block3d"
+    },
+    {
+      "id": "S29",
+      "style": "Documentary illustration",
+      "visual_language": "Original diagrams over cleared real-world imagery.",
+      "value": "Connects explanation to a concrete setting.",
+      "check": "Keep image rights and source dates; illustration is not event footage.",
+      "approaches": "mixed"
+    },
+    {
+      "id": "S30",
+      "style": "Data sculpture",
+      "visual_language": "Quantities represented by measured original 3D elements.",
+      "value": "Makes size comparisons physically legible.",
+      "check": "Use proportional encodings and visible units.",
+      "approaches": "block3d"
+    },
+    {
+      "id": "S31",
+      "style": "Pixel stage",
+      "visual_language": "Original pixel characters and deliberate tiled scenery.",
+      "value": "Creates readable game-like rules and compact action.",
+      "check": "Avoid copying recognizable commercial sprites or interfaces.",
+      "approaches": "raster"
+    },
+    {
+      "id": "S32",
+      "style": "Mechanical brass theater",
+      "visual_language": "Original gears, polished fittings and warm practical lights.",
+      "value": "Gives linked movement a crafted, inspectable feel.",
+      "check": "Decorative gears must not pretend to explain real mechanics.",
+      "approaches": "block3d"
+    },
+    {
+      "id": "S33",
+      "style": "Underwater paper world",
+      "visual_language": "Layered aquatic shapes and slow particulate depth.",
+      "value": "Supports calm observation and environmental storytelling.",
+      "check": "Label fantasy biology and keep targets distinct from particles.",
+      "approaches": "cutout"
+    },
+    {
+      "id": "S34",
+      "style": "Night lantern garden",
+      "visual_language": "Rich original scene, grounded characters and localized lantern light.",
+      "value": "Creates warmth through depth, contact and shared action.",
+      "check": "Keep dark details readable and avoid flashing highlights.",
+      "approaches": "block3d; cutout"
+    },
+    {
+      "id": "S35",
+      "style": "Riso-inspired print",
+      "visual_language": "Offset texture and bold printed shapes.",
+      "value": "Gives simple comparisons an authored graphic identity.",
+      "check": "Misregistration must not distort evidence or tiny text.",
+      "approaches": "vector"
+    },
+    {
+      "id": "S36",
+      "style": "Schematic to tactile",
+      "visual_language": "A clean diagram alternates with a tangible original prop.",
+      "value": "Links symbolic understanding to spatial intuition.",
+      "check": "Keep identity and geometry matched across representations.",
+      "approaches": "mixed"
+    },
+    {
+      "id": "S37",
+      "style": "Macro object drama",
+      "visual_language": "Very close views of original everyday-scale surfaces.",
+      "value": "Turns small choices into legible visual stakes.",
+      "check": "Establish scale and preserve consistent material behavior.",
+      "approaches": "block3d"
+    },
+    {
+      "id": "S38",
+      "style": "Photographic cutout stage",
+      "visual_language": "Cleared background imagery with original animated performers.",
+      "value": "Combines rich setting with explicit character animation.",
+      "check": "Inspect masks, contact shadows and disocclusion; label compositing.",
+      "approaches": "cutout"
+    },
+    {
+      "id": "S39",
+      "style": "Gallery comparison",
+      "visual_language": "Matched objects under controlled camera and lighting.",
+      "value": "Makes a single design difference easy to judge.",
+      "check": "Record the variable that changed and what stayed fixed.",
+      "approaches": "block3d; vector"
+    },
+    {
+      "id": "S40",
+      "style": "Drawn-on evidence",
+      "visual_language": "A real or original scene with selectively animated annotations.",
+      "value": "Focuses attention without replacing the scene.",
+      "check": "Annotations must track the same object across motion.",
+      "approaches": "mixed; sketch"
+    }
+  ],
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix C Creative banks and exact treatment addressing / Forty visual styles",
+    "anchor": "forty-visual-styles",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  }
+}

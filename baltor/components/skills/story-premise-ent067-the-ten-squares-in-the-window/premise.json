@@ -1,0 +1,102 @@
+{
+  "id": "ENT067",
+  "title": "The Ten Squares in the Window",
+  "family": "fiction",
+  "category": "perception and hidden objects",
+  "premise": "A window cleaner must count every square in a 2-by-2 square window, but the label demanding TEN is wrong. They outline the four small squares and the single large square, replace TEN with FIVE, and reveal that the boss had accidentally counted the same window’s reflection too.",
+  "hook": "The sign says ten. Count the glass yourself.",
+  "visible_action": "Four cell outlines flash; the outer frame highlights; five counters appear; a reflected duplicate slides into view; incorrect sign is corrected.",
+  "intended_takeaway_or_theme": "Check what is being counted, including duplicates and larger shapes.",
+  "gate": "A 2×2 grid contains 4 unit squares plus 1 size-2 square, total 5. Reflection creates a second image, not five additional physical window squares; title is intentionally the mistaken claim.",
+  "evidence_class": "mathematically_checkable",
+  "original_format_tags": [
+    "narrative_lesson",
+    "prediction_quiz",
+    "step_by_step",
+    "side_by_side"
+  ],
+  "status": "idea",
+  "treatment_group": 3,
+  "treatments": [
+    {
+      "address": "R-ENT067-F06-A01",
+      "format_id": "F06",
+      "approach_id": "A01",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT067-F06-A03",
+      "format_id": "F06",
+      "approach_id": "A03",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT067-F07-A01",
+      "format_id": "F07",
+      "approach_id": "A01",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT067-F07-A03",
+      "format_id": "F07",
+      "approach_id": "A03",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT067-F08-A01",
+      "format_id": "F08",
+      "approach_id": "A01",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT067-F08-A03",
+      "format_id": "F08",
+      "approach_id": "A03",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT067-F09-A01",
+      "format_id": "F09",
+      "approach_id": "A01",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT067-F09-A03",
+      "format_id": "F09",
+      "approach_id": "A03",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT067-F10-A01",
+      "format_id": "F10",
+      "approach_id": "A01",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    },
+    {
+      "address": "R-ENT067-F10-A03",
+      "format_id": "F10",
+      "approach_id": "A03",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    }
+  ],
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix D All 240 story premises / Fiction perception and hidden objects",
+    "anchor": "ent067-the-ten-squares-in-the-window",
+    "line": 5282,
+    "catalogue_artifact": "Creative Catalogue JSON Bundle 2026-10-10",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_version": "0",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  }
+}

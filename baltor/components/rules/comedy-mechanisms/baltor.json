@@ -1,0 +1,50 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "comedy_mechanisms",
+  "title": "Comedy mechanisms",
+  "kind": "rules",
+  "subkind": "rule-set",
+  "version": "1.0.0",
+  "summary": "Ten comedy mechanisms (status reversal, dramatic irony, overcomplicated solution ... quiet button), how to make each playable and the failure that rejects it.",
+  "domain": "story",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#comedy-mechanisms-to-develop"
+  },
+  "step_kinds": [
+    "write",
+    "review"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "RULES.md",
+  "tags": [
+    "story",
+    "comedy",
+    "rules",
+    "gags"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/ref_stories.py",
+    "data": "generators/data/ref_stories"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "considered",
+  "evidence_notes": "Editorial guidance from the owner's guide, written after Taylor rejected BOXED IN's story quality. Its review methods (table read, silent animatic, owner storyboard choice) are proposed; nothing here is validated audience research."
+}

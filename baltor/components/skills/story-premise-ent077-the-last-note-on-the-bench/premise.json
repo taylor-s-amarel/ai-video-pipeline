@@ -1,0 +1,100 @@
+{
+  "id": "ENT077",
+  "title": "The Last Note on the Bench",
+  "family": "fiction",
+  "category": "silent emotional stories",
+  "premise": "A busker wants to finish a melody, but the single listener leaves before the final note. The busker plays it anyway; a folded paper bird left on the bench opens to show the listener’s drawing of the performance, and the busker places it beside the case.",
+  "hook": "The final note still belongs here.",
+  "visible_action": "Listener rises and exits; musician hesitates then plays; paper bird unfolds; drawing catches a small pool of light.",
+  "intended_takeaway_or_theme": "A moment can matter even when its ending is quiet.",
+  "gate": "Use an original melody and original drawing; do not infer a stranger’s feelings beyond the visible fictional gesture.",
+  "evidence_class": "fictional_demonstration",
+  "original_format_tags": [
+    "narrative_lesson",
+    "silent_visual"
+  ],
+  "status": "idea",
+  "treatment_group": 4,
+  "treatments": [
+    {
+      "address": "R-ENT077-F06-A01",
+      "format_id": "F06",
+      "approach_id": "A01",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT077-F06-A04",
+      "format_id": "F06",
+      "approach_id": "A04",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT077-F07-A01",
+      "format_id": "F07",
+      "approach_id": "A01",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT077-F07-A04",
+      "format_id": "F07",
+      "approach_id": "A04",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT077-F08-A01",
+      "format_id": "F08",
+      "approach_id": "A01",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT077-F08-A04",
+      "format_id": "F08",
+      "approach_id": "A04",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT077-F09-A01",
+      "format_id": "F09",
+      "approach_id": "A01",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT077-F09-A04",
+      "format_id": "F09",
+      "approach_id": "A04",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT077-F10-A01",
+      "format_id": "F10",
+      "approach_id": "A01",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    },
+    {
+      "address": "R-ENT077-F10-A04",
+      "format_id": "F10",
+      "approach_id": "A04",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    }
+  ],
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix D All 240 story premises / Fiction silent emotional stories",
+    "anchor": "ent077-the-last-note-on-the-bench",
+    "line": 5424,
+    "catalogue_artifact": "Creative Catalogue JSON Bundle 2026-10-10",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_version": "0",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  }
+}

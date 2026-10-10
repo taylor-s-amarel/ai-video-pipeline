@@ -1,0 +1,69 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "story_premise_edu028_the_disappearing_checkerboard",
+  "title": "Story premise EDU028: The Disappearing Checkerboard",
+  "kind": "skill",
+  "subkind": "premise",
+  "version": "1.0.0",
+  "summary": "Idea-stage learning premise (computing/data). Hook: Why do the stripes vanish when the camera steps back? Takeaway/theme: Sampling can lose detail or create misleading patterns when resolution is insufficient.",
+  "description": "A camera robot wants to capture fine stripes, but its sparse sample points miss alternating details. Sliding the sampling grid changes the recorded pattern and exposes the ambiguity.",
+  "domain": "story",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#edu028-the-disappearing-checkerboard"
+  },
+  "step_kinds": [
+    "plan",
+    "write"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "story",
+    "premise",
+    "learning",
+    "computing-data",
+    "mathematically-checkable",
+    "edu028"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "story_premise"
+    },
+    {
+      "identity": "story_contract_rules"
+    },
+    {
+      "identity": "story_tests"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/ref_stories.py",
+    "data": "generators/data/ref_stories",
+    "parameters": {
+      "id": "EDU028",
+      "treatment_group": 1,
+      "guide_line": 3024
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "considered",
+  "evidence_notes": "Idea from the 10 Oct 2026 creative catalogue (Creative Catalogue JSON Bundle 2026-10-10, Library libfile_ff6a4ae010508191b42073985cd7a4a1 v0, SHA-256 1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e), preserved in guide Appendix D line 3024. Not a completed script, not rendered, no audience study. Evidence class mathematically_checkable names the check a claim would need, not a check done. Its ten treatment addresses (R-EDU028-F01-A01 ...) are candidates, not screenplays."
+}

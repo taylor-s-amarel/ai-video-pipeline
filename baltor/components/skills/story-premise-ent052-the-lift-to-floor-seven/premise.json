@@ -1,0 +1,102 @@
+{
+  "id": "ENT052",
+  "title": "The Lift to Floor Seven",
+  "family": "fiction",
+  "category": "mechanical puzzles",
+  "premise": "A toy lift starts at floor 0 and must reach floor 7 using a +3 button and a -2 button, without leaving floors 0 through 9. The operator tries four moves in the order +3, +3, -2, +3, yielding 0, 3, 6, 4, 7; the lift opens to a tiny rooftop garden.",
+  "hook": "Up three. Down two. Can we land on seven?",
+  "visible_action": "Floor display changes 0 to 3 to 6 to 4 to 7; an on-screen path traces four presses; garden panels unfold.",
+  "intended_takeaway_or_theme": "Write the actual sequence before calling a route impossible.",
+  "gate": "Verified four-press route. Equation 3u-2d=7 has shortest nonnegative solution u=3,d=1; all listed floors stay within bounds.",
+  "evidence_class": "mathematically_checkable",
+  "original_format_tags": [
+    "narrative_lesson",
+    "prediction_quiz",
+    "step_by_step",
+    "mechanism_cutaway"
+  ],
+  "status": "idea",
+  "treatment_group": 3,
+  "treatments": [
+    {
+      "address": "R-ENT052-F06-A01",
+      "format_id": "F06",
+      "approach_id": "A01",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT052-F06-A03",
+      "format_id": "F06",
+      "approach_id": "A03",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT052-F07-A01",
+      "format_id": "F07",
+      "approach_id": "A01",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT052-F07-A03",
+      "format_id": "F07",
+      "approach_id": "A03",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT052-F08-A01",
+      "format_id": "F08",
+      "approach_id": "A01",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT052-F08-A03",
+      "format_id": "F08",
+      "approach_id": "A03",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT052-F09-A01",
+      "format_id": "F09",
+      "approach_id": "A01",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT052-F09-A03",
+      "format_id": "F09",
+      "approach_id": "A03",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT052-F10-A01",
+      "format_id": "F10",
+      "approach_id": "A01",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    },
+    {
+      "address": "R-ENT052-F10-A03",
+      "format_id": "F10",
+      "approach_id": "A03",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    }
+  ],
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix D All 240 story premises / Fiction mechanical puzzles",
+    "anchor": "ent052-the-lift-to-floor-seven",
+    "line": 5070,
+    "catalogue_artifact": "Creative Catalogue JSON Bundle 2026-10-10",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_version": "0",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  }
+}

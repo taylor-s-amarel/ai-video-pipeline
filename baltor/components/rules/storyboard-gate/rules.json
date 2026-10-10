@@ -1,0 +1,34 @@
+{
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Storyboard gate before a full render",
+    "anchor": "storyboard-gate-before-a-full-render"
+  },
+  "board_columns": [
+    "shot image or clear composition description",
+    "duration estimate",
+    "action",
+    "new information",
+    "character decision",
+    "dialogue or sound",
+    "the story reason for the cut"
+  ],
+  "intro": [
+    "Create a compact board with a shot image or clear composition description, duration estimate, action, new information, character decision, dialogue or sound, and the story reason for the cut. Then challenge it:"
+  ],
+  "questions": [
+    "Can the opening promise be understood without an explanatory paragraph?",
+    "Does something consequential happen before the viewer has merely watched a character travel?",
+    "Can every middle beat be connected by “because” or “therefore,” rather than only “and then”?",
+    "Does each attempt change the options, risk, relationship, or knowledge?",
+    "Is there a fair plant for the solution and a reason the character did not use it immediately?",
+    "Does the ending resolve the question raised at the beginning?",
+    "Is at least one surprise specific to this premise rather than a generic stumble or shrug?",
+    "Would removing a shot improve the film? Remove or rewrite shots with no new action, information, emotion, or rhythm.",
+    "Does the premise sustain the intended duration? Shorten it or deepen the conflict rather than adding filler.",
+    "Is the intended reaction evidenced by review, or merely hoped for? Keep that distinction visible."
+  ],
+  "after": [
+    "A table read, silent animatic, or owner storyboard choice can prevent a wasted full render. These are proposed review methods, not proof that a fresh audience has approved a premise. For the current direction, a stronger storyboard should be evaluated before another substantial film render."
+  ]
+}

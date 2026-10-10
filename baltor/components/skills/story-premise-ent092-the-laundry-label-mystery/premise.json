@@ -1,0 +1,101 @@
+{
+  "id": "ENT092",
+  "title": "The Laundry Label Mystery",
+  "family": "fiction",
+  "category": "everyday microdramas",
+  "premise": "A figure wants to pair socks from a basket, but every sock carries a confusing abstract tag. Instead of deciphering the tags, they lay the socks heel-to-heel and compare shape and length, making pairs; the final unmatched sock becomes a puppet who proudly introduces the basket.",
+  "hook": "Every sock has a label. None of them help.",
+  "visible_action": "Tags flap; socks fan across the floor; heels align; pairs fold together; lone sock rises as a speaking puppet.",
+  "intended_takeaway_or_theme": "Use the features that actually answer the immediate question.",
+  "gate": "This is a matching gag, not care-label or textile-cleaning advice.",
+  "evidence_class": "fictional_demonstration",
+  "original_format_tags": [
+    "narrative_lesson",
+    "silent_visual",
+    "step_by_step"
+  ],
+  "status": "idea",
+  "treatment_group": 4,
+  "treatments": [
+    {
+      "address": "R-ENT092-F06-A01",
+      "format_id": "F06",
+      "approach_id": "A01",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT092-F06-A04",
+      "format_id": "F06",
+      "approach_id": "A04",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT092-F07-A01",
+      "format_id": "F07",
+      "approach_id": "A01",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT092-F07-A04",
+      "format_id": "F07",
+      "approach_id": "A04",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT092-F08-A01",
+      "format_id": "F08",
+      "approach_id": "A01",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT092-F08-A04",
+      "format_id": "F08",
+      "approach_id": "A04",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT092-F09-A01",
+      "format_id": "F09",
+      "approach_id": "A01",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT092-F09-A04",
+      "format_id": "F09",
+      "approach_id": "A04",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT092-F10-A01",
+      "format_id": "F10",
+      "approach_id": "A01",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    },
+    {
+      "address": "R-ENT092-F10-A04",
+      "format_id": "F10",
+      "approach_id": "A04",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    }
+  ],
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix D All 240 story premises / Fiction everyday microdramas",
+    "anchor": "ent092-the-laundry-label-mystery",
+    "line": 5638,
+    "catalogue_artifact": "Creative Catalogue JSON Bundle 2026-10-10",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_version": "0",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "the-decoy-job",
+  "title": "The Decoy Job",
+  "board_type": "timed",
+  "status": "audience-approved",
+  "dramatic_question": "Can the thief avoid being caught after choosing the worst possible thing to steal?",
+  "shots": [
+    {
+      "index": 1,
+      "start_s": 0,
+      "end_s": 5,
+      "title": "The wrong target",
+      "action": "Medium-wide, slightly low: the thief hugs the gold figure around its waist and tries to lift it. One golden sneaker wedges against the pedestal. At the far side of the gallery, a guard's coffee cup and an empty chair imply a short absence. Sound: a tiny rubber-shoe squeak, strained breath. The thief squints at the stubborn statue. The resistance makes him try a different approach instead of leaving."
+    },
+    {
+      "index": 2,
+      "start_s": 5,
+      "end_s": 12,
+      "title": "It is resisting",
+      "action": "Side-on full-body composition: the thief leans backward with both arms around the statue; the performer leans imperceptibly forward. They form a ridiculous tug-of-war sculpture. The thief changes grip, and the performer smoothly changes pose to defeat it. A visitor passing the distant doorway briefly admires the tableau. Sound: one approving camera click. The thief freezes until the visitor passes, accidentally learning the value of looking like the exhibit."
+    }
+  ]
+}

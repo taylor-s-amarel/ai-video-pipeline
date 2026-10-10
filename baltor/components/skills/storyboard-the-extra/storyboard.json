@@ -1,0 +1,109 @@
+{
+  "id": "the-extra",
+  "title": "The Extra",
+  "board_type": "timed",
+  "status": "proposed",
+  "approx_duration_s": 72,
+  "shot_count": 10,
+  "cast": "a romantic movie set, the extra, a self-important lead, his scene partner and a director",
+  "format_text": "approximately 72 seconds; ten shots; a romantic movie set, the extra, a self-important lead, his scene partner and a director.",
+  "opening_image": "An extra in a waiter's uniform reaches for the crew bathroom while bouncing on his toes. An assistant places a tray in his hands and turns him toward the active set: “Rolling.”",
+  "dramatic_question": "Can a background actor get out of a one-take proposal scene before his private emergency becomes the performance?",
+  "characters_and_goals": "The extra needs the bathroom and wants to keep his job. The leading actor wants a magnificent, increasingly long proposal speech. The actress playing the bride wants to finish the scene and gets repeatedly denied her turn to answer. Their goals eventually align.",
+  "world_rule": "The movie scene is one continuous take that ends when the proposal is accepted. Our short may cut between the film camera, its monitor, and the off-camera crew; the movie-within-the-movie must remain continuous.",
+  "stakes": "Walking out ruins the take; staying makes his physical predicament worse. He must choose whether to stay deferential or intervene in a way that helps the scene.",
+  "escalation_chain": [
+    "His exit is interrupted by service",
+    "the lead hands him the ring and pulls him into the foreground",
+    "handing it back feeds another speech",
+    "the actress sees his problem and shares his wish to finish",
+    "the extra breaks the actor's control of the scene by offering the ring to her",
+    "her active acceptance completes the take",
+    "the extra finally leaves"
+  ],
+  "planted_details": "The bathroom sign and route; the scene's final storyboard panel showing the accepted ring; the ring on the tray; the actress's unused “Yes” line; the director's preference for a completed scene. The finish uses these exact things.",
+  "shots": [
+    {
+      "index": 1,
+      "start_s": 0,
+      "end_s": 5,
+      "title": "Too late to leave",
+      "action": "Medium profile: the extra almost reaches the clearly marked crew bathroom. His knees are pressed together. An assistant gently rotates him toward the set and loads a tray into his hands. Clapper: “PROPOSAL • FINAL TAKE.” In the background, the last storyboard panel shows a ring accepted and “END.” The extra gives the bathroom one anguished look as the film camera starts."
+    },
+    {
+      "index": 2,
+      "start_s": 5,
+      "end_s": 12,
+      "title": "Background becomes service",
+      "action": "Wide showing both the film frame and the safe off-camera exit. The leading actor begins an extravagantly heartfelt speech. The extra edges behind a plant toward the edge of frame. Without looking, the lead extends his glass: “Waiter.” The extra must return to pour. Sound: only a very short, overwrought phrase from the speech, not seven seconds of exposition. His attempt to leave has put him directly beside the couple."
+    },
+    {
+      "index": 3,
+      "start_s": 12,
+      "end_s": 20,
+      "title": "Service becomes responsibility",
+      "action": "Medium on the tray: the lead sets the ring box on it and places the extra exactly where the film camera can see him. “Keep that safe.” He moves away to deliver the next flourish. The extra cannot leave with the scene's essential prop. His trembling hands make the ring box inch toward the edge. The actress notices and steadies it with one finger."
+    },
+    {
+      "index": 4,
+      "start_s": 20,
+      "end_s": 27,
+      "title": "The helpful hint backfires",
+      "action": "The extra presents the ring box to the lead, hoping to accelerate the proposal. The lead picks it up, gazes into the distance, then absently returns it to the tray as he launches a new tangent: “My grandfather once said...” The actress starts to say “Yes”; the lead raises a finger for his dramatic pause and resumes speaking over her. She closes her mouth and exhales. The director starts to lean forward, then settles back. The extra's courteous solution has lengthened the scene."
+    },
+    {
+      "index": 5,
+      "start_s": 27,
+      "end_s": 35,
+      "title": "Find the person with the same problem",
+      "action": "Tight two-shot while the lead performs in soft focus behind them. The actress follows the extra's frantic glance to the bathroom sign. He gives a tiny, helpless nod. She glances at the final storyboard panel, then at the lead still talking. Her face says: I also need this to end. This is the alliance beat, played entirely in looks."
+    },
+    {
+      "index": 6,
+      "start_s": 35,
+      "end_s": 43,
+      "title": "A different recipient",
+      "action": "The extra starts to offer the ring back to the lead again, stops himself, and rotates the tray toward the actress instead. He takes one steadying breath and speaks in character: “I believe the lady has an answer.” This is his active, socially risky decision. The lead stops mid-flourish. The director lifts his head; the camera stays rolling."
+    },
+    {
+      "index": 7,
+      "start_s": 43,
+      "end_s": 51,
+      "title": "Let her finish it",
+      "action": "Medium close-up, ring and both faces in frame. The actress opens the box herself, holds it toward the lead and says a simple, emphatic “Yes.” When the lead inhales to resume his speech, she offers him her hand and a delighted, unmistakable look. He has to play the acceptance beat. The extra backs one careful step toward the exit while keeping the tray level."
+    },
+    {
+      "index": 8,
+      "start_s": 51,
+      "end_s": 59,
+      "title": "The longest last second",
+      "action": "The lead finally slides the ring onto her finger. The extra hears the tiny scrape as if it were an enormous mechanical lock. Cut to our view of the director's raised hand; he is enjoying the completed moment and has not called the cut yet. The extra freezes at the edge of frame, one foot poised outside it. The actress makes direct eye contact with the film camera's direction and gives the final happy beat. “Cut.” No new obstacle is added; this is the established acceptance finally landing."
+    },
+    {
+      "index": 9,
+      "start_s": 59,
+      "end_s": 66,
+      "title": "Exit achieved",
+      "action": "Wider off-camera view: the extra places the tray safely in the assistant's hands and disappears down the already-established bathroom route. The actress catches the ring box before the lead can begin an off-camera speech about his performance. She and the assistant exchange a relieved grin. The director checks the final frame and gives a satisfied wrap gesture. Both allies achieved their actual goal."
+    },
+    {
+      "index": 10,
+      "start_s": 66,
+      "end_s": 72,
+      "title": "The review",
+      "action": "Outside the now-occupied bathroom, the lead addresses the closed door with sincere professional admiration: “That desperation. How did you find it?” A brief beat, then the extra's dry voice from inside: “Preparation.” Cut before another speech. No bathroom sound effects, exposed body, or contraption reveal are needed."
+    }
+  ],
+  "midpoint_change": "The extra stops trying to disappear alone. He recognizes that the actress is also being kept from completing her part and helps her take the scene back. The film's ending and his personal goal become the same action.",
+  "why_watch_next_beat": "Each apparently polite escape gives him more responsibility. Once he intervenes, the uncertainty is whether the lead or director will reject it before the scene reaches its ending.",
+  "alternate_ending": "After the cut, the director calls, “Get him a bigger part.” The actress points toward the bathroom: “Give him five minutes.” Keep the extra safely inside and relieved. Avoid “One more take!” as the ending; that would cancel the achievement and repeat the same joke.",
+  "obvious_weakness": "Without strong eye-lines and physical acting, this can become a verbal sketch. The actress must visibly have attempted to speak before the alliance, so her acceptance feels like taking action rather than something she could inexplicably have done at any previous moment. The lead should be vain and oblivious, not a cruel villain.",
+  "kill_criteria": "Reject or rewrite if the viewer cannot tell when the movie camera is rolling; if the extra can simply leave the tray without consequence; if the lead's speeches become padding; if the actress's final acceptance is not visually a completed scene; or if the payoff depends only on the final spoken joke. The intervention and sprint to the bathroom should remain understandable with sound off.",
+  "editorial_note": "Status: proposed concepts and unrendered storyboards. These are editorial recommendations, not measured audience results or claims of user acceptance. The earlier BOXED IN film's technical progress does not establish that its story worked. The next production should pass a story test before final animation.",
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "New suspense and comedy storyboards",
+    "anchor": "3-the-extra",
+    "line": 257
+  }
+}

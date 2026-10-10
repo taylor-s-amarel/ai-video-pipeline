@@ -1,0 +1,54 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "story_premise",
+  "title": "Story premise record",
+  "kind": "contract-schema",
+  "subkind": "premise",
+  "version": "1.0.0",
+  "summary": "JSON Schema for one catalogue story premise as Appendix D structures it: premise, hook, visible action, takeaway or theme, gate, evidence class, format tags, ten treatment addresses and an honest status.",
+  "domain": "story",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#appendix-d-all-240-story-premises"
+  },
+  "step_kinds": [
+    "plan",
+    "write",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "schema.json",
+  "tags": [
+    "story",
+    "premise",
+    "schema",
+    "catalogue",
+    "evidence"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/ref_stories.py",
+    "data": "generators/data/ref_stories"
+  },
+  "examples": [
+    "Validate a premise.json before boarding it",
+    "Record a premise moving from idea to storyboarded with evidence"
+  ],
+  "review": {
+    "status": "unreviewed"
+  }
+}

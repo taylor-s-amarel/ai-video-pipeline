@@ -1,0 +1,121 @@
+{
+  "id": "EDU004",
+  "title": "Same Fence, Different Garden",
+  "family": "learning",
+  "category": "basic math",
+  "premise": "Two gardeners each receive twelve fence segments and want the largest rectangular planting area. Their first rectangles enclose different tile counts; rearranging the same segments reveals why equal perimeters need not give equal areas.",
+  "hook": "They have the same fence. Do they get the same garden?",
+  "visible_action": "Twelve boundary sticks hinge into one-by-five and three-by-three rectangles as unit squares fill the interiors.",
+  "intended_takeaway_or_theme": "Perimeter measures a boundary; area measures the enclosed surface.",
+  "gate": "Use unit-width fences with explicitly labeled idealized dimensions.",
+  "evidence_class": "mathematically_checkable",
+  "original_format_tags": [
+    "side_by_side",
+    "prediction_quiz",
+    "silent_visual",
+    "step_by_step",
+    "interactive_branch"
+  ],
+  "status": "idea",
+  "treatment_group": 1,
+  "treatments": [
+    {
+      "address": "R-EDU004-F01-A01",
+      "format_id": "F01",
+      "approach_id": "A01",
+      "intro_id": "I26",
+      "motion_id": "M13"
+    },
+    {
+      "address": "R-EDU004-F01-A02",
+      "format_id": "F01",
+      "approach_id": "A02",
+      "intro_id": "I26",
+      "motion_id": "M13"
+    },
+    {
+      "address": "R-EDU004-F02-A01",
+      "format_id": "F02",
+      "approach_id": "A01",
+      "intro_id": "I26",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-EDU004-F02-A02",
+      "format_id": "F02",
+      "approach_id": "A02",
+      "intro_id": "I26",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-EDU004-F03-A01",
+      "format_id": "F03",
+      "approach_id": "A01",
+      "intro_id": "I08",
+      "motion_id": "M05"
+    },
+    {
+      "address": "R-EDU004-F03-A02",
+      "format_id": "F03",
+      "approach_id": "A02",
+      "intro_id": "I08",
+      "motion_id": "M05"
+    },
+    {
+      "address": "R-EDU004-F04-A01",
+      "format_id": "F04",
+      "approach_id": "A01",
+      "intro_id": "I02",
+      "motion_id": "M09"
+    },
+    {
+      "address": "R-EDU004-F04-A02",
+      "format_id": "F04",
+      "approach_id": "A02",
+      "intro_id": "I02",
+      "motion_id": "M09"
+    },
+    {
+      "address": "R-EDU004-F05-A01",
+      "format_id": "F05",
+      "approach_id": "A01",
+      "intro_id": "I18",
+      "motion_id": "M21"
+    },
+    {
+      "address": "R-EDU004-F05-A02",
+      "format_id": "F05",
+      "approach_id": "A02",
+      "intro_id": "I18",
+      "motion_id": "M21"
+    }
+  ],
+  "style_application": {
+    "id": "SU17",
+    "treatment": "Two garden representations",
+    "view": "Top-down plus oblique view",
+    "geometry": "Exact vector plan and matching 3D blocks",
+    "material": "Original soil/paper surface treatment",
+    "aesthetic": "Technical miniature",
+    "layout": "Synchronized two-representation comparison",
+    "why": "The plan supports counting while the spatial view supports intuition.",
+    "check": "Verify identical perimeters, areas, units and source geometry."
+  },
+  "editorial_pick": {
+    "rank": 14,
+    "original_reason": "Equal fence length and different garden area create an inspectable geometric contrast.",
+    "proposed_first_version": "Rearrange the same boundary pieces into two original plots, then tile their interiors using a shared unit.",
+    "gate": "Verify perimeter and area independently. Keep units and any grid scale explicit.",
+    "note": "These are the catalogue's historical editorial recommendations, not current owner-approved selections or guaranteed watchable stories. Reapply the latest comedy/suspense gate."
+  },
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix D All 240 story premises / Learning basic math",
+    "anchor": "edu004-same-fence-different-garden",
+    "line": 2684,
+    "catalogue_artifact": "Creative Catalogue JSON Bundle 2026-10-10",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_version": "0",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  }
+}

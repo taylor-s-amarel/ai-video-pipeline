@@ -1,0 +1,210 @@
+{
+  "bank": "formats",
+  "title": "Creative catalogue: twenty editorial formats",
+  "status": "proposal",
+  "status_note": "The following banks were materialized from the 10 October 2026 catalogue and are preserved here as usable text. They remain proposals. The catalogue's earlier statement that a second film was in progress and that zero twelve-style slots were qualified is a historical assembly snapshot; it is not today's completed-film ledger. This guide does not retroactively mark individual catalogue recipes rendered because a similarly named film exists.",
+  "columns": [
+    "ID",
+    "Format",
+    "Structure",
+    "Fit",
+    "Gate",
+    "Original proposed duration"
+  ],
+  "keys": [
+    "id",
+    "format",
+    "structure",
+    "fit",
+    "gate",
+    "original_proposed_duration"
+  ],
+  "count": 20,
+  "records": [
+    {
+      "id": "F01",
+      "format": "One mechanism explained",
+      "structure": "A question, visible cause, resulting change, bounded takeaway.",
+      "fit": "Learning",
+      "gate": "Show a single causal chain and state model limits.",
+      "original_proposed_duration": "45–75 seconds"
+    },
+    {
+      "id": "F02",
+      "format": "Pause and predict",
+      "structure": "Setup, fair question, quiet thinking beat, result, explanation.",
+      "fit": "Learning",
+      "gate": "Do not use guessing to teach emergency response.",
+      "original_proposed_duration": "40–70 seconds"
+    },
+    {
+      "id": "F03",
+      "format": "Worked scenario",
+      "structure": "A concrete starting state, two or three decisions, checked outcome.",
+      "fit": "Learning",
+      "gate": "Verify every instructional step against the chosen source.",
+      "original_proposed_duration": "60–90 seconds"
+    },
+    {
+      "id": "F04",
+      "format": "Controlled contrast",
+      "structure": "Matched conditions, one stated difference, observed consequence.",
+      "fit": "Learning",
+      "gate": "Counterfactual outcomes remain hypotheses until validated.",
+      "original_proposed_duration": "45–75 seconds"
+    },
+    {
+      "id": "F05",
+      "format": "Trace the cause",
+      "structure": "Show an outcome, inspect clues backward, replay the verified chain.",
+      "fit": "Learning",
+      "gate": "Sequence must support causality rather than merely correlation.",
+      "original_proposed_duration": "50–80 seconds"
+    },
+    {
+      "id": "F06",
+      "format": "Character fable",
+      "structure": "A want, obstacle, choice, consequence and closing image.",
+      "fit": "Fiction",
+      "gate": "A lesson is a theme, not evidence for a general factual claim.",
+      "original_proposed_duration": "45–90 seconds"
+    },
+    {
+      "id": "F07",
+      "format": "Two-choice dilemma",
+      "structure": "The protagonist faces two costs and commits to one path.",
+      "fit": "Fiction",
+      "gate": "Both branches must be plausible within the established world.",
+      "original_proposed_duration": "45–75 seconds"
+    },
+    {
+      "id": "F08",
+      "format": "Dramatic irony",
+      "structure": "The viewer sees a clue the character misses until the payoff.",
+      "fit": "Fiction",
+      "gate": "Stage clues fairly and avoid a hidden last-second solution.",
+      "original_proposed_duration": "40–75 seconds"
+    },
+    {
+      "id": "F09",
+      "format": "Visual comedy chain",
+      "structure": "A simple task escalates through linked attempts and resolves.",
+      "fit": "Fiction",
+      "gate": "Every gag should follow from the previous action.",
+      "original_proposed_duration": "30–65 seconds"
+    },
+    {
+      "id": "F10",
+      "format": "Object's-eye retelling",
+      "structure": "Retell a causal scene from a prop or helper's perspective.",
+      "fit": "Fiction",
+      "gate": "Change information and emphasis, not merely narration wording.",
+      "original_proposed_duration": "45–75 seconds"
+    },
+    {
+      "id": "F11",
+      "format": "Layer breakdown",
+      "structure": "A finished original composition separates into actual useful layers.",
+      "fit": "Production",
+      "gate": "Only use source layers that really exist.",
+      "original_proposed_duration": "40–75 seconds"
+    },
+    {
+      "id": "F12",
+      "format": "Tiny world journey",
+      "structure": "A traveler crosses a coherent miniature environment.",
+      "fit": "Spatial story",
+      "gate": "Preserve scale, route continuity and contact.",
+      "original_proposed_duration": "45–90 seconds"
+    },
+    {
+      "id": "F13",
+      "format": "Guess the place",
+      "structure": "Progressive sourced visual clues lead to one defensible answer.",
+      "fit": "Geography",
+      "gate": "Use verified place identity and rights-cleared imagery.",
+      "original_proposed_duration": "45–75 seconds"
+    },
+    {
+      "id": "F14",
+      "format": "Repair clinic",
+      "structure": "A symptom, diagnostic check, change and rechecked result.",
+      "fit": "Troubleshooting",
+      "gate": "Distinguish observed repair from proposed fix.",
+      "original_proposed_duration": "60–90 seconds"
+    },
+    {
+      "id": "F15",
+      "format": "Myth and boundary",
+      "structure": "A bounded claim is tested and its exceptions are explained.",
+      "fit": "Fact review",
+      "gate": "Requires primary evidence; do not invent a popular myth.",
+      "original_proposed_duration": "60–90 seconds"
+    },
+    {
+      "id": "F16",
+      "format": "Sound-first story",
+      "structure": "Original audio establishes a pattern that visual action transforms.",
+      "fit": "Audio fiction",
+      "gate": "Rights, accessibility and mix are separate checks.",
+      "original_proposed_duration": "30–70 seconds"
+    },
+    {
+      "id": "F17",
+      "format": "One object anthology",
+      "structure": "A recurring prop appears in genuinely different original conflicts.",
+      "fit": "Fiction series",
+      "gate": "Each episode needs its own premise and resolution.",
+      "original_proposed_duration": "45–75 seconds"
+    },
+    {
+      "id": "F18",
+      "format": "Build and inspect",
+      "structure": "A modeled object is assembled, rotated and checked.",
+      "fit": "Making",
+      "gate": "Distinguish illustrative assembly from safe build instructions.",
+      "original_proposed_duration": "60–90 seconds"
+    },
+    {
+      "id": "F19",
+      "format": "Data question",
+      "structure": "A sourced dataset answers a bounded question with visible units.",
+      "fit": "Data learning",
+      "gate": "Check denominator, scope, date and interpolation.",
+      "original_proposed_duration": "45–90 seconds"
+    },
+    {
+      "id": "F20",
+      "format": "Two representations",
+      "structure": "The same mechanism alternates between schematic and tangible views.",
+      "fit": "Learning",
+      "gate": "Keep correspondences exact and disclose simplifications.",
+      "original_proposed_duration": "50–80 seconds"
+    }
+  ],
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix C Creative banks and exact treatment addressing / Twenty editorial formats",
+    "anchor": "twenty-editorial-formats",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  },
+  "editorial_treatment_rules": [
+    "F01 explains the relationship through the story's visible action and bounded takeaway.",
+    "F02 asks the story question before a fair thinking hold, then resolves it from visible evidence. It is excluded from the public-safety group.",
+    "F03 separates one worked case into setup, action and a checked checkpoint.",
+    "F04 compares initial and changed conditions while isolating one justified variable; no invented counterfactual result.",
+    "F05 starts at the outcome, inspects clues, then replays the supported chain forward without overstating causality.",
+    "F06 stages a want, obstacle, committed choice, consequence and the authored ending.",
+    "F07 makes the costs of two plausible choices visible; an unexecuted alternate branch stays labeled proposed.",
+    "F08 gives the viewer a fair advance clue before the protagonist notices it; no last-second coincidence.",
+    "F09 lets readable actions and reactions carry the story with sparse captions and purposeful sound.",
+    "F10 retells the same conflict from an existing prop/helper viewpoint without inventing a new solution.",
+    "F20 alternates schematic and tangible representations of one relationship. Practical guidance needs an approved factual script first."
+  ],
+  "combination_rules": {
+    "learning": "Learning combinations fail if their comparison has no controlled basis, their backward trace overstates causality, or factual verification removes the premise.",
+    "fiction": "Fiction combinations fail if their alternative choice, advance clue or object viewpoint requires a contrived new premise rather than illuminating the existing one.",
+    "every": "Every combination inherits the story risks, format gate, approach gate, rights review, caption readability, motion comfort, audio mix and exact-byte checks."
+  }
+}

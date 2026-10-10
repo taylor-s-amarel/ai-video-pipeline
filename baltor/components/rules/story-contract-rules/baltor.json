@@ -1,0 +1,52 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "story_contract_rules",
+  "title": "Story contract rules",
+  "kind": "rules",
+  "subkind": "rule-set",
+  "version": "1.0.0",
+  "summary": "The BOXED IN lesson and the nine-sentence story contract (want, stakes, constraint, choice, escalation, knowledge, plant, reversal, consequence) to write before drawing shots, with the longer-film scaffold.",
+  "domain": "story",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#story-quality-comes-before-production-scale"
+  },
+  "step_kinds": [
+    "plan",
+    "write",
+    "review"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "RULES.md",
+  "tags": [
+    "story",
+    "story-contract",
+    "rules",
+    "boxed-in",
+    "structure"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/ref_stories.py",
+    "data": "generators/data/ref_stories"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "considered",
+  "evidence_notes": "Editorial guidance from the owner's guide, written after Taylor rejected BOXED IN's story quality. Its review methods (table read, silent animatic, owner storyboard choice) are proposed; nothing here is validated audience research. BOXED IN itself: technically delivered, story rejected by Taylor (provenance.json keeps MP4 libfile_4453aed6dfbc8191914eded938ece6df, SHA-256 1ed9c7ac83b183a8daccefe56c0d7930f50b5d11399c6c6dc9ba62888e359e4c)."
+}

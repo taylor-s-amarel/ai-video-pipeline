@@ -1,0 +1,108 @@
+{
+  "id": "the-decoy-job",
+  "title": "The Decoy Job",
+  "board_type": "timed",
+  "status": "proposed",
+  "approx_duration_s": 76,
+  "shot_count": 10,
+  "cast": "a small gallery, two main characters, one guard and a visitor pair",
+  "format_text": "approximately 76 seconds; ten shots; a small gallery, two main characters, one guard and a visitor pair.",
+  "opening_image": "A masked thief tries to lift a gold statue. The statue's painted sneaker quietly braces against the pedestal.",
+  "dramatic_question": "Can the thief avoid being caught after choosing the worst possible thing to steal?",
+  "characters_and_goals": "The thief wants an effortless valuable score. The paid living-statue performer wants a break and refuses to be treated as an object. The approaching guard makes their disagreement urgent.",
+  "world_rule": "This gallery employs costumed living-statue performers. Someone doing the advertised act on the pedestal belongs there. No special alarm, unexplained recognition system, or invisibility rule is needed.",
+  "stakes": "The thief's attempted theft is about to be discovered. The performer can expose him, bargain with him, or let him embarrass himself.",
+  "escalation_chain": [
+    "Attempted theft reveals resistance",
+    "the thief doubles down",
+    "the statue reveals that it is a person",
+    "the guard's return makes bargaining necessary",
+    "the thief accepts the very labor he hoped to avoid",
+    "a genuine tip makes him choose to keep performing"
+  ],
+  "planted_details": "A gold-painted sneaker; a tip jar partly behind the pedestal; costume supplies below it; a small BREAK sign. Do not conceal these using impossible framing. The audience may realize the truth before the thief. Suspense then comes from anticipating his discovery and the guard's arrival.",
+  "shots": [
+    {
+      "index": 1,
+      "start_s": 0,
+      "end_s": 5,
+      "title": "The wrong target",
+      "action": "Medium-wide, slightly low: the thief hugs the gold figure around its waist and tries to lift it. One golden sneaker wedges against the pedestal. At the far side of the gallery, a guard's coffee cup and an empty chair imply a short absence. Sound: a tiny rubber-shoe squeak, strained breath. The thief squints at the stubborn statue. The resistance makes him try a different approach instead of leaving."
+    },
+    {
+      "index": 2,
+      "start_s": 5,
+      "end_s": 12,
+      "title": "It is resisting",
+      "action": "Side-on full-body composition: the thief leans backward with both arms around the statue; the performer leans imperceptibly forward. They form a ridiculous tug-of-war sculpture. The thief changes grip, and the performer smoothly changes pose to defeat it. A visitor passing the distant doorway briefly admires the tableau. Sound: one approving camera click. The thief freezes until the visitor passes, accidentally learning the value of looking like the exhibit."
+    },
+    {
+      "index": 3,
+      "start_s": 12,
+      "end_s": 19,
+      "title": "The clue becomes undeniable",
+      "action": "Tight on the thief's hands as he checks for a fastening. The statue's free hand slowly enters frame, holding the tip jar under his face. Pause for the thief to look from jar to face. The statue raises one painted eyebrow. No explanatory line is needed. The thief's plan to steal an object is now a negotiation with a person."
+    },
+    {
+      "index": 4,
+      "start_s": 19,
+      "end_s": 27,
+      "title": "Bargaining power changes",
+      "action": "Two-shot: the thief tries a tiny apologetic wave and edges away. Offscreen, the guard's keys and footsteps return. The performer lifts a hand to attract the guard, then pauses. The thief urgently signals, “Wait.” The performer points to his BREAK sign, then to the pedestal. The demand is visible: cover my break. The thief points at himself in offended disbelief."
+    },
+    {
+      "index": 5,
+      "start_s": 27,
+      "end_s": 35,
+      "title": "The expensive shortcut",
+      "action": "Hold the same geography. The performer gives the thief a choice with two gestures: pedestal, or call the guard. The thief looks toward the doorway, then accepts with a miserable handshake. The performer opens a shallow costume compartment already visible beneath the pedestal. Golden gloves and an oversized gold cape fall out. This transition follows the bargain; it is not a surprise new escape ability."
+    },
+    {
+      "index": 6,
+      "start_s": 35,
+      "end_s": 44,
+      "title": "A very bad promotion",
+      "action": "Brisk, readable medium shots within one beat: the thief pulls on gloves and cape; the performer dabs washable stage gold onto his cheeks; they exchange the statue's headpiece. Keep faces recognizable. The performer wipes his own face with a towel, revealing a plain staff shirt beneath the removable costume. The thief scrambles onto the pedestal and copies the pose. His discarded thief mask lands in the tip jar; the performer discreetly pockets it. Sound: costume rustle, approaching footsteps."
+    },
+    {
+      "index": 7,
+      "start_s": 44,
+      "end_s": 53,
+      "title": "The inspection",
+      "action": "Wide enough to show the guard, replacement performer, and original performer exiting in ordinary staff clothing. The guard nods to the departing worker, then looks at the replacement statue. The exhibit placard is now fully readable: “LIVING STATUE • TIPS WELCOME.” The guard sees an advertised performance, so his acceptance is legible. The thief's arm starts to shake. A huge painted grin does not conceal his panicked eyes."
+    },
+    {
+      "index": 8,
+      "start_s": 53,
+      "end_s": 62,
+      "title": "A professional hazard",
+      "action": "A small visitor points out a gold smear on the statue's cheek. The guard leans in; the thief must resist wiping his itchy nose. A drop of gold paint slowly creeps toward his nostril. He turns the impending sneeze into an exaggerated heroic pose at the last moment. The visitor laughs and applauds the apparent intentional movement. This is a new problem created by his disguise, not another attempt to solve the original theft."
+    },
+    {
+      "index": 9,
+      "start_s": 62,
+      "end_s": 70,
+      "title": "The first honest dollar",
+      "action": "The guard continues his rounds. The thief starts to step off the pedestal, relieved. Then the visitor drops a bill into the jar. The thief looks at it, then at the appreciative visitor. His greedy grin changes into a surprised, genuine one. He deliberately returns to the pedestal and invents an even sillier pose. He is now choosing the job, not merely being trapped in it."
+    },
+    {
+      "index": 10,
+      "start_s": 70,
+      "end_s": 76,
+      "title": "New business model",
+      "action": "Reverse wide: the original performer, now enjoying his break, sees the thief collect a second tip. The thief uses the gold cape for a comic flourish and has added a handwritten “PARTIES?” card beside the jar. The performer raises his coffee in amused approval; the thief returns a dignified gold salute. End on the thief trying to hold the grand pose while counting his tip with one furtive finger. One small coin sound is enough; no moral or explanatory narration."
+    }
+  ],
+  "midpoint_change": "At the bargain, the goal changes from “steal the statue” to “become the statue convincingly enough to survive this encounter.” The solution creates the second half's comic danger.",
+  "why_watch_next_beat": "We anticipate the statue revealing itself, then wonder what it will demand, whether the disguise will hold, and whether the thief will leave or accept the unexpected reward.",
+  "alternate_ending": "The original performer returns from his break to find the thief proudly posing beside a sign reading “ASSISTANT WANTED.” This is a more cynical punch line and needs a slightly longer time jump. Prefer the immediate, visual first-dollar ending for the first animatic.",
+  "obvious_weakness": "If the living-statue identity is too obvious, the reveal alone cannot carry the film. The bargain and role reversal must remain entertaining when the audience knows the truth early. The guard must visibly recognize a performance category, not implausibly overlook a known employee's different face.",
+  "kill_criteria": "Reject or rewrite if viewers cannot explain why the thief accepts the bargain; if changing into the costume takes longer than the interesting action; if the guard's reaction depends on a hidden rule; or if the ending only imprisons the thief rather than giving him a meaningful final choice.",
+  "editorial_note": "Status: proposed concepts and unrendered storyboards. These are editorial recommendations, not measured audience results or claims of user acceptance. The earlier BOXED IN film's technical progress does not establish that its story worked. The next production should pass a story test before final animation.",
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "New suspense and comedy storyboards",
+    "anchor": "1-the-decoy-job",
+    "line": 157
+  }
+}

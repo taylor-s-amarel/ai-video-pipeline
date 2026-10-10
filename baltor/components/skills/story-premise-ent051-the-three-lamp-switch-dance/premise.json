@@ -1,0 +1,109 @@
+{
+  "id": "ENT051",
+  "title": "The Three-Lamp Switch Dance",
+  "family": "fiction",
+  "category": "mechanical puzzles",
+  "premise": "A toy technician must turn three dark lamps on. Left toggles lamps 1 and 2, middle toggles 2 and 3, and right toggles 1 only; after noisy guesswork, the technician presses middle then right, lighting all three in exactly two presses and revealing a tiny stage.",
+  "hook": "Two presses. Three lamps. Which two?",
+  "visible_action": "Labeled switches depress; lamp states flip; a two-row state diagram appears; middle then right produces three lit bulbs.",
+  "intended_takeaway_or_theme": "Track the state changes rather than the switch names.",
+  "gate": "Verified from initial state 000: middle gives 011 and right gives 111; no single available switch lights all three. Show these exact toggle rules.",
+  "evidence_class": "mathematically_checkable",
+  "original_format_tags": [
+    "narrative_lesson",
+    "prediction_quiz",
+    "step_by_step",
+    "mechanism_cutaway"
+  ],
+  "status": "idea",
+  "treatment_group": 3,
+  "treatments": [
+    {
+      "address": "R-ENT051-F06-A01",
+      "format_id": "F06",
+      "approach_id": "A01",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT051-F06-A03",
+      "format_id": "F06",
+      "approach_id": "A03",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT051-F07-A01",
+      "format_id": "F07",
+      "approach_id": "A01",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT051-F07-A03",
+      "format_id": "F07",
+      "approach_id": "A03",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT051-F08-A01",
+      "format_id": "F08",
+      "approach_id": "A01",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT051-F08-A03",
+      "format_id": "F08",
+      "approach_id": "A03",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT051-F09-A01",
+      "format_id": "F09",
+      "approach_id": "A01",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT051-F09-A03",
+      "format_id": "F09",
+      "approach_id": "A03",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT051-F10-A01",
+      "format_id": "F10",
+      "approach_id": "A01",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    },
+    {
+      "address": "R-ENT051-F10-A03",
+      "format_id": "F10",
+      "approach_id": "A03",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    }
+  ],
+  "editorial_pick": {
+    "rank": 15,
+    "original_reason": "A finite lamp puzzle supports a real answer-checking fixture as well as an episode.",
+    "proposed_first_version": "Show the legal switch action, allow a fair prediction, then reveal the verified sequence in a calm repeat.",
+    "gate": "Exhaustively verify reachable states and the claimed solution. Avoid misleading electrical-wiring realism.",
+    "note": "These are the catalogue's historical editorial recommendations, not current owner-approved selections or guaranteed watchable stories. Reapply the latest comedy/suspense gate."
+  },
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix D All 240 story premises / Fiction mechanical puzzles",
+    "anchor": "ent051-the-three-lamp-switch-dance",
+    "line": 5056,
+    "catalogue_artifact": "Creative Catalogue JSON Bundle 2026-10-10",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_version": "0",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "story_pitch_the_hiccup_concerto",
+  "title": "Story pitch: The Hiccup Concerto",
+  "kind": "skill",
+  "subkind": "storyboard",
+  "version": "1.0.0",
+  "summary": "Proposed development pitch, not a timed board. In the expectant silence, a conductor hiccups, jerks his baton and produces one enormous orchestral blast.",
+  "domain": "story",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#5-the-hiccup-concerto"
+  },
+  "step_kinds": [
+    "plan",
+    "write"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "story",
+    "storyboard",
+    "pitch",
+    "comedy",
+    "the-hiccup-concerto"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "timed_storyboard"
+    },
+    {
+      "identity": "story_contract"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/ref_stories.py",
+    "data": "generators/data/ref_stories"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "considered",
+  "evidence_notes": "Pitch from the eight-story development slate (guide v1.1, 10 Oct 2026): not an approved production or timed board; to be developed only if its central visual test works."
+}

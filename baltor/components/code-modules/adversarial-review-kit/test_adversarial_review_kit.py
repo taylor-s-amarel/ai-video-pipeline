@@ -268,3 +268,19 @@ def test_cli_plan_and_validate(tmp_path, capsys):
     stale = [dict(observed(question_id="AVQ-029-001"), review_mode="machine")]
     out.write_text(json.dumps(stale))
     assert k.main(["validate", str(out), "--bank", str(bank), "--target", str(film)]) == 1
+
+
+def test_cli_plan_stage_does_not_drop_final_pixel_questions(tmp_path, capsys):
+    film = tmp_path / "board.pdf"
+    film.write_bytes(b"storyboard")
+    bank = tmp_path / "questions.json"
+    bank.write_text(json.dumps(list(BANK.values())))
+    passes = tmp_path / "passes.json"
+    passes.write_text(json.dumps(PASSES))
+    assert k.main(["plan", "--bank", str(bank), "--passes", str(passes), "--pass", "tiny",
+                   "--target", str(film), "--stage", "storyboard", "--modes", "visual,machine"]) == 0
+    plan = {r["question_id"]: r for r in json.loads(capsys.readouterr().out)}
+    assert sorted(plan) == ["AVQ-006-002", "AVQ-029-001"]
+    assert "remains untested during planning" in plan["AVQ-029-001"]["rationale"]
+    assert k.main(["select", "--bank", str(bank), "--stage", "storyboard"]) == 0
+    assert [q["id"] for q in json.loads(capsys.readouterr().out)] == ["AVQ-006-002"]

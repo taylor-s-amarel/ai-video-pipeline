@@ -1,0 +1,56 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "storyboard_gate",
+  "title": "Storyboard gate before a full render",
+  "kind": "rules",
+  "subkind": "checklist",
+  "version": "1.0.0",
+  "summary": "Compact board columns and the ten challenge questions a storyboard must survive before a substantial render: clear opening promise, because/therefore middle, fair plant, resolved question, no filler shots.",
+  "domain": "story",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#storyboard-gate-before-a-full-render"
+  },
+  "step_kinds": [
+    "review",
+    "plan"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "RULES.md",
+  "tags": [
+    "story",
+    "storyboard",
+    "gate",
+    "rules",
+    "review"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "timed_storyboard_check"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/ref_stories.py",
+    "data": "generators/data/ref_stories"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "considered",
+  "evidence_notes": "Editorial guidance from the owner's guide, written after Taylor rejected BOXED IN's story quality. Its review methods (table read, silent animatic, owner storyboard choice) are proposed; nothing here is validated audience research."
+}

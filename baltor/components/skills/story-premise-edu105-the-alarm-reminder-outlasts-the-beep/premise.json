@@ -1,0 +1,102 @@
+{
+  "id": "EDU105",
+  "title": "The Alarm Reminder Outlasts the Beep",
+  "family": "learning",
+  "category": "public safety/preparedness",
+  "premise": "A resident wants a reliable reminder to check household alarms, but forgets the manufacturer’s maintenance instructions after installation. A reviewed animation links the specific device instructions to a recurring check record without demonstrating repairs.",
+  "hook": "Where did the instructions go after the alarm was installed?",
+  "visible_action": "A generic alarm icon links to a manual card and dated maintenance record; unverified timing fields stay blank.",
+  "intended_takeaway_or_theme": "Safety-device maintenance should follow the device’s instructions and applicable official guidance.",
+  "gate": "Validate alarm type and local guidance; no electrical work, battery substitutions, disabling, or invented intervals. Do not ask viewers to guess an emergency response or choose an action in a simulated emergency; any response content must come from reviewed official guidance.",
+  "evidence_class": "requires_primary_source_review",
+  "original_format_tags": [
+    "step_by_step",
+    "behind_the_scenes",
+    "narrative_lesson",
+    "side_by_side"
+  ],
+  "status": "idea",
+  "treatment_group": 2,
+  "treatments": [
+    {
+      "address": "R-EDU105-F01-A01",
+      "format_id": "F01",
+      "approach_id": "A01",
+      "intro_id": "I26",
+      "motion_id": "M13"
+    },
+    {
+      "address": "R-EDU105-F01-A02",
+      "format_id": "F01",
+      "approach_id": "A02",
+      "intro_id": "I26",
+      "motion_id": "M13"
+    },
+    {
+      "address": "R-EDU105-F20-A01",
+      "format_id": "F20",
+      "approach_id": "A01",
+      "intro_id": "I06",
+      "motion_id": "M13"
+    },
+    {
+      "address": "R-EDU105-F20-A02",
+      "format_id": "F20",
+      "approach_id": "A02",
+      "intro_id": "I06",
+      "motion_id": "M13"
+    },
+    {
+      "address": "R-EDU105-F03-A01",
+      "format_id": "F03",
+      "approach_id": "A01",
+      "intro_id": "I08",
+      "motion_id": "M05"
+    },
+    {
+      "address": "R-EDU105-F03-A02",
+      "format_id": "F03",
+      "approach_id": "A02",
+      "intro_id": "I08",
+      "motion_id": "M05"
+    },
+    {
+      "address": "R-EDU105-F04-A01",
+      "format_id": "F04",
+      "approach_id": "A01",
+      "intro_id": "I02",
+      "motion_id": "M09"
+    },
+    {
+      "address": "R-EDU105-F04-A02",
+      "format_id": "F04",
+      "approach_id": "A02",
+      "intro_id": "I02",
+      "motion_id": "M09"
+    },
+    {
+      "address": "R-EDU105-F05-A01",
+      "format_id": "F05",
+      "approach_id": "A01",
+      "intro_id": "I18",
+      "motion_id": "M21"
+    },
+    {
+      "address": "R-EDU105-F05-A02",
+      "format_id": "F05",
+      "approach_id": "A02",
+      "intro_id": "I18",
+      "motion_id": "M21"
+    }
+  ],
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix D All 240 story premises / Learning public safety/preparedness",
+    "anchor": "edu105-the-alarm-reminder-outlasts-the-beep",
+    "line": 4118,
+    "catalogue_artifact": "Creative Catalogue JSON Bundle 2026-10-10",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_version": "0",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  }
+}

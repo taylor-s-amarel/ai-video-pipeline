@@ -22,7 +22,7 @@ Usage::
 
     python3 adversarial_review_kit.py select --bank DIR_OR_FILE... --pass default_32 [--stage edit] [--style fiction]
     python3 adversarial_review_kit.py plan --bank ... --pass sound --target final.mp4 --stage final-encode \
-        --modes visual,machine
+        --modes visual,machine     # --stage here is the target's stage; it does not drop questions
     python3 adversarial_review_kit.py validate results.json --bank ... [--target final.mp4]
     python3 adversarial_review_kit.py summary results.json
 
@@ -400,7 +400,9 @@ def main(argv: list[str] | None = None) -> int:
         p.add_argument("--passes", help="passes.json (default: the one next to this module)")
         p.add_argument("--pass", dest="pass_id")
         p.add_argument("--area")
-        p.add_argument("--stage", choices=STAGES)
+        p.add_argument("--stage", choices=STAGES,
+                       help="select: keep questions listed for this stage; plan: the stage of the target under review "
+                            "(questions are not dropped, final-pixel ones stay untested during planning)")
         p.add_argument("--style")
         p.add_argument("--min-severity", choices=list(SEVERITY_RANK))
         if name == "plan":
@@ -418,8 +420,8 @@ def main(argv: list[str] | None = None) -> int:
     if a.cmd in {"select", "plan"}:
         bank = load_bank(a.bank)
         passes = load_passes(a.passes) if a.pass_id else None
-        qs = select(bank, a.pass_id, passes=passes, area=a.area, stage=a.stage, style=a.style,
-                    min_severity=a.min_severity)
+        qs = select(bank, a.pass_id, passes=passes, area=a.area, stage=a.stage if a.cmd == "select" else None,
+                    style=a.style, min_severity=a.min_severity)
         if a.cmd == "select":
             print(json.dumps([{k: q.get(k) for k in ("id", "area", "question", "severity", "modes", "stages")}
                               for q in qs], indent=2, ensure_ascii=False))

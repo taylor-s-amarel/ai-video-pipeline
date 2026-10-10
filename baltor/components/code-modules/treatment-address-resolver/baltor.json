@@ -1,0 +1,56 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "treatment_address_resolver",
+  "title": "Treatment address resolver",
+  "kind": "code-module",
+  "subkind": "catalog-tool",
+  "version": "1.0.0",
+  "summary": "Validates and resolves R-{story}-{format}-{approach} catalogue addresses into story, format, approach, intro and motion records; lists a story's ten addresses; confirms the catalogue's 2,400.",
+  "domain": "story",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#exact-2400-treatment-address-map"
+  },
+  "step_kinds": [
+    "plan",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "read",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "treatment_address_resolver.py",
+  "tags": [
+    "story",
+    "treatment",
+    "catalogue",
+    "python",
+    "addressing"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "treatment_address"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/ref_stories.py",
+    "data": "generators/data/ref_stories"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "isolated-execution",
+  "evidence_notes": "Its pytest suite (8 tests: 2,400 unique addresses, ten per story, group-specific format and approach rules, malformed input) passed in the generator's container on 2026-10-10. Resolving an address joins proposal records; it does not make any treatment a screenplay or a render."
+}

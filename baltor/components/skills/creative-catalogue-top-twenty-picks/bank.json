@@ -1,0 +1,233 @@
+{
+  "bank": "top_picks",
+  "title": "Creative catalogue: original top twenty editorial picks",
+  "status": "proposal",
+  "status_note": "The following banks were materialized from the 10 October 2026 catalogue and are preserved here as usable text. They remain proposals. The catalogue's earlier statement that a second film was in progress and that zero twelve-style slots were qualified is a historical assembly snapshot; it is not today's completed-film ledger. This guide does not retroactively mark individual catalogue recipes rendered because a similarly named film exists.",
+  "columns": [
+    "Rank",
+    "Story",
+    "Title",
+    "Original reason",
+    "Proposed first version",
+    "Gate",
+    "Premise skill"
+  ],
+  "keys": [
+    "rank",
+    "story",
+    "title",
+    "original_reason",
+    "proposed_first_version",
+    "gate"
+  ],
+  "count": 20,
+  "records": [
+    {
+      "rank": "1",
+      "story": "EDU001",
+      "title": "The Half-Platform Problem",
+      "original_reason": "Equivalent fractions can be seen directly. A fixed reference rail makes the central comparison easy to inspect.",
+      "proposed_first_version": "Two original platform tiles slide onto one shared unit rail. Use a brief prediction, the reveal and a clear final hold.",
+      "gate": "Check all lengths and subdivisions mathematically. Keep one reference whole throughout.",
+      "story_title": "The Half-Platform Problem",
+      "premise_identity": "story_premise_edu001_the_half_platform_problem"
+    },
+    {
+      "rank": "2",
+      "story": "ENT001",
+      "title": "The Runaway Finish Line",
+      "original_reason": "A moving finish line is immediately understandable and gives the character a clear change of strategy.",
+      "proposed_first_version": "Articulated line runner, readable ribbon motion and three restrained camera setups. Finish on the quiet step through the anchored ribbon.",
+      "gate": "Check ribbon continuity, original character design and a safe cartoon tone.",
+      "story_title": "The Runaway Finish Line",
+      "premise_identity": "story_premise_ent001_the_runaway_finish_line"
+    },
+    {
+      "rank": "3",
+      "story": "EDU111",
+      "title": "The Gear Neighbors Turn Apart",
+      "original_reason": "Meshing neighbors supply a compact visible mechanism that is also useful for testing synchronized rotation.",
+      "proposed_first_version": "Two large labeled gears first, then one additional gear. Use a clean diagram before considering a tactile 3D version.",
+      "gate": "Check tooth engagement, rotation direction and gear-ratio claims. A decorative mesh is insufficient.",
+      "story_title": "The Gear Neighbors Turn Apart",
+      "premise_identity": "story_premise_edu111_the_gear_neighbors_turn_apart"
+    },
+    {
+      "rank": "4",
+      "story": "ENT025",
+      "title": "The Lantern Relay",
+      "original_reason": "The lantern gives a natural visual focus, a warm ending and a reusable handoff animation.",
+      "proposed_first_version": "A short chain of characters passes one original lantern through a richly staged scene. Keep the handoff visible.",
+      "gate": "Preserve object identity, contacts and lighting. Use fictional safe props rather than fire-handling instruction.",
+      "story_title": "The Lantern Relay",
+      "premise_identity": "story_premise_ent025_the_lantern_relay"
+    },
+    {
+      "rank": "5",
+      "story": "EDU002",
+      "title": "The Basement Delivery",
+      "original_reason": "The mistaken count is small, concrete and can be demonstrated without a complex asset set.",
+      "proposed_first_version": "An elevator travels on a clearly mathematical number line while a second counter exposes the off-by-one error.",
+      "gate": "Verify the signed arithmetic. Explain that floor labels are a model rather than a real building standard.",
+      "story_title": "The Basement Delivery",
+      "premise_identity": "story_premise_edu002_the_basement_delivery"
+    },
+    {
+      "rank": "6",
+      "story": "ENT008",
+      "title": "The Polite Bowling Ball",
+      "original_reason": "A polite bowling ball can show intention through timing and trajectory without elaborate dialogue.",
+      "proposed_first_version": "Use one ball, a few original characters and a simple stage. Let hesitation and courteous detours carry the comedy.",
+      "gate": "Keep the physics visibly fictional where necessary and make the final objective readable.",
+      "story_title": "The Polite Bowling Ball",
+      "premise_identity": "story_premise_ent008_the_polite_bowling_ball"
+    },
+    {
+      "rank": "7",
+      "story": "EDU021",
+      "title": "The Maze With a Waiting Line",
+      "original_reason": "A queue-based search can become a real visual trace rather than a vague coding analogy.",
+      "proposed_first_version": "Use one fixed maze, a visible waiting queue and an identified search token. Reveal the visited frontier in order.",
+      "gate": "Check the algorithm trace, legal connections and stopping rule against a deterministic reference.",
+      "story_title": "The Maze With a Waiting Line",
+      "premise_identity": "story_premise_edu021_the_maze_with_a_waiting_line"
+    },
+    {
+      "rank": "8",
+      "story": "ENT031",
+      "title": "Across the Breakfast Canyon",
+      "original_reason": "An everyday tabletop seen at miniature scale gives rich spatial stakes with a small reusable prop set.",
+      "proposed_first_version": "Build an original breakfast landscape. Establish scale, track the traveler and resolve the crossing with an earned choice.",
+      "gate": "Label the scene as fiction, check route continuity and avoid risky real-world imitation cues.",
+      "story_title": "Across the Breakfast Canyon",
+      "premise_identity": "story_premise_ent031_across_the_breakfast_canyon"
+    },
+    {
+      "rank": "9",
+      "story": "EDU027",
+      "title": "The Stripe Compressor Meets Confetti",
+      "original_reason": "Compressible stripes and noisy confetti make the difference in repeated structure visible.",
+      "proposed_first_version": "Show the same encoding rule applied to two small patterns. Keep a compact symbol count beside the action.",
+      "gate": "State the exact simplified encoding. Verify counts and avoid claiming all real compressors behave identically.",
+      "story_title": "The Stripe Compressor Meets Confetti",
+      "premise_identity": "story_premise_edu027_the_stripe_compressor_meets_confetti"
+    },
+    {
+      "rank": "10",
+      "story": "ENT021",
+      "title": "Two Ends of the Map",
+      "original_reason": "Split map knowledge supports a clear cooperation story and a useful matched-view composition.",
+      "proposed_first_version": "Start with each character holding one map portion. Reveal the combined route through shared action.",
+      "gate": "Keep the map geometry consistent and ensure cooperation, rather than a lucky coincidence, resolves the obstacle.",
+      "story_title": "Two Ends of the Map",
+      "premise_identity": "story_premise_ent021_two_ends_of_the_map"
+    },
+    {
+      "rank": "11",
+      "story": "EDU052",
+      "title": "The Narrowest Gate",
+      "original_reason": "A narrow gate is a tangible way to introduce a bottleneck and show why local speed is not enough.",
+      "proposed_first_version": "Animate tokens through three stations, change only the intended capacity, and show the resulting queue.",
+      "gate": "Define the toy process, rates and measurement interval. Do not generalize its result to every workplace.",
+      "story_title": "The Narrowest Gate",
+      "premise_identity": "story_premise_edu052_the_narrowest_gate"
+    },
+    {
+      "rank": "12",
+      "story": "EDU081",
+      "title": "The Caption That Lost the Speaker",
+      "original_reason": "Speaker attribution in captions creates a practical accessibility lesson that can be shown directly.",
+      "proposed_first_version": "Use two original voices or labeled characters. Compare ambiguous captions with a clearly attributed version.",
+      "gate": "Verify caption conventions and readable timing. Do not rely on color alone for speaker identity.",
+      "story_title": "The Caption That Lost the Speaker",
+      "premise_identity": "story_premise_edu081_the_caption_that_lost_the_speaker"
+    },
+    {
+      "rank": "13",
+      "story": "ENT045",
+      "title": "The Block City Night Wave",
+      "original_reason": "A city-wide night wave offers a satisfying visual payoff and reusable timing controls.",
+      "proposed_first_version": "A miniature block city passes one intentional evening signal from place to place. Let the camera reveal the larger pattern slowly.",
+      "gate": "Check the actual causal or fictional rule and avoid flashing lights or excessive brightness changes.",
+      "story_title": "The Block City Night Wave",
+      "premise_identity": "story_premise_ent045_the_block_city_night_wave"
+    },
+    {
+      "rank": "14",
+      "story": "EDU004",
+      "title": "Same Fence, Different Garden",
+      "original_reason": "Equal fence length and different garden area create an inspectable geometric contrast.",
+      "proposed_first_version": "Rearrange the same boundary pieces into two original plots, then tile their interiors using a shared unit.",
+      "gate": "Verify perimeter and area independently. Keep units and any grid scale explicit.",
+      "story_title": "Same Fence, Different Garden",
+      "premise_identity": "story_premise_edu004_same_fence_different_garden"
+    },
+    {
+      "rank": "15",
+      "story": "ENT051",
+      "title": "The Three-Lamp Switch Dance",
+      "original_reason": "A finite lamp puzzle supports a real answer-checking fixture as well as an episode.",
+      "proposed_first_version": "Show the legal switch action, allow a fair prediction, then reveal the verified sequence in a calm repeat.",
+      "gate": "Exhaustively verify reachable states and the claimed solution. Avoid misleading electrical-wiring realism.",
+      "story_title": "The Three-Lamp Switch Dance",
+      "premise_identity": "story_premise_ent051_the_three_lamp_switch_dance"
+    },
+    {
+      "rank": "16",
+      "story": "EDU063",
+      "title": "The Drawer That Counts Footprints",
+      "original_reason": "A drawer layout turns vague tidiness into a visible fit and access problem.",
+      "proposed_first_version": "Use accurately sized original silhouettes on an overhead tray. Show why a visually compact layout may obstruct retrieval.",
+      "gate": "Check dimensions and the chosen access rule. Present one example, not a universal organizing prescription.",
+      "story_title": "The Drawer That Counts Footprints",
+      "premise_identity": "story_premise_edu063_the_drawer_that_counts_footprints"
+    },
+    {
+      "rank": "17",
+      "story": "ENT060",
+      "title": "The Finite Spring Finale",
+      "original_reason": "A finite spring mechanism creates a built-in ending and a useful limit to the action.",
+      "proposed_first_version": "Show the stored-motion setup, a short sequence of consequences and the calm state after the energy is spent.",
+      "gate": "Keep it a fictional prop. If making real mechanics claims, validate the energy accounting and safe boundaries.",
+      "story_title": "The Finite Spring Finale",
+      "premise_identity": "story_premise_ent060_the_finite_spring_finale"
+    },
+    {
+      "rank": "18",
+      "story": "EDU008",
+      "title": "The Giant Three-Point Jump",
+      "original_reason": "A truncated chart can produce a strong before/after reveal without a large scene.",
+      "proposed_first_version": "Show the exact same three data points with two clearly labeled axis ranges, then inspect the apparent difference.",
+      "gate": "Use explicitly illustrative data, preserve the values and label axes. Do not manufacture an empirical claim.",
+      "story_title": "The Giant Three-Point Jump",
+      "premise_identity": "story_premise_edu008_the_giant_three_point_jump"
+    },
+    {
+      "rank": "19",
+      "story": "EDU013",
+      "title": "The Traveling Pulse",
+      "original_reason": "A traveling pulse can separate movement of a disturbance from movement of the material.",
+      "proposed_first_version": "Use marked elements in a visible row. Track a few elements while the pulse travels through the group.",
+      "gate": "Check the model and boundary conditions. Do not generalize one wave type to all waves.",
+      "story_title": "The Traveling Pulse",
+      "premise_identity": "story_premise_edu013_the_traveling_pulse"
+    },
+    {
+      "rank": "20",
+      "story": "EDU108",
+      "title": "The Flood Shortcut Stays Off the Map",
+      "original_reason": "A calm preparedness episode fits the survival/learning direction and avoids turning danger into a guessing game.",
+      "proposed_first_version": "After source approval, use a clearly labeled map illustration to explain why the proposed flood shortcut is removed.",
+      "gate": "Hold production until current authoritative flood-safety guidance is checked for the intended region. Do not stage a traversable flood-depth challenge.",
+      "story_title": "The Flood Shortcut Stays Off the Map",
+      "premise_identity": "story_premise_edu108_the_flood_shortcut_stays_off_the_map"
+    }
+  ],
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix C Creative banks and exact treatment addressing / Original top twenty editorial picks",
+    "anchor": "original-top-twenty-editorial-picks",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  }
+}

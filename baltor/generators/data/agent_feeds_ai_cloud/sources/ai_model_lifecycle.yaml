@@ -1,0 +1,126 @@
+collection:
+  id: updates-ai-model-lifecycle
+  title: "Model deprecations, retirements and lifecycle schedules"
+  description: "Every official page that announces when a hosted model or API is deprecated, put into legacy, or shut down: Anthropic, OpenAI, Gemini API, Vertex AI, Microsoft Foundry, Amazon Bedrock, Mistral, Cohere, Together, Groq and GitHub Copilot. An agent that pins model ids should check these daily and compare them with the model ids found in the project (see the upstream_impact_matcher module). Where the page's source lives on GitHub, the feed_url is the commit feed for that file, which was fetched on 2026-10-10."
+  tags: [ai, models, deprecation, retirement, lifecycle]
+  defaults: {terms: vendor-docs, poll: lifecycle, feed_format: html-diff, auth: none,
+             change_types: [deprecation, breaking-change]}
+
+items:
+  - id: anthropic-model-deprecations
+    title: "Anthropic model deprecations"
+    url: "https://platform.claude.com/docs/en/about-claude/model-deprecations"
+    summary: "Anthropic's deprecation and retirement table for Claude models with 'not sooner than' floors for active models, retirement dates and recommended replacements. Anthropic gives at least 60 days' notice before retiring a publicly released model; requests to retired models fail."
+    vendor: Anthropic
+    products: [Claude API]
+    verification: search-result
+    notes: "Markdown variant: https://platform.claude.com/docs/en/about-claude/model-deprecations.md. Search snapshots disagreed on dates, so always diff the live page."
+  - id: openai-deprecations
+    title: "OpenAI API deprecations"
+    url: "https://developers.openai.com/api/docs/deprecations"
+    summary: "OpenAI's deprecation table with shutdown dates and replacements for models, endpoints and products: the Assistants API (shut down 2026-08-26, replaced by Responses and Conversations), the Videos API and Sora 2 models (2026-09-24), Evals becoming read-only (2026-10-31) and the v1/prompts API (2026-11-30)."
+    vendor: OpenAI
+    products: [OpenAI API]
+    verification: search-result
+    notes: "platform.openai.com/docs/deprecations redirects here. Markdown variant seen in search: https://developers.openai.com/api/docs/deprecations.md. Rows have been seen to disappear and return; keep history."
+  - id: gemini-api-deprecations
+    title: "Gemini API deprecations"
+    url: "https://ai.google.dev/gemini-api/docs/deprecations"
+    summary: "Gemini API model shutdown table. Dates are the earliest possible shutdown; Google announces exact dates with notice. Lists the Gemini 2.0 Flash family (2026-06-01), Live API and embedding model shutdowns and their replacements."
+    vendor: Google
+    products: [Gemini API]
+    verification: search-result
+  - id: vertex-ai-model-versions
+    title: "Vertex AI model versions and lifecycle"
+    url: "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions"
+    summary: "Release and retirement dates for each Gemini model version on Vertex AI. New access is blocked one month before retirement and retired versions return 404, so agents must migrate before the listed date (for example gemini-2.5 models: 'not before 2026-10-16')."
+    vendor: Google Cloud
+    products: [Vertex AI]
+    verification: search-result
+  - id: gemini-cloud-feature-deprecations
+    title: "Gemini for Google Cloud feature deprecations"
+    url: "https://cloud.google.com/gemini/docs/deprecations/features"
+    summary: "Deprecation notices for Gemini features inside Google Cloud products (Gemini Code Assist, Gemini in BigQuery and others), separate from the API model table."
+    vendor: Google Cloud
+    products: [Gemini for Google Cloud, Gemini Code Assist]
+    verification: search-result
+  - id: microsoft-foundry-model-retirements
+    title: "Microsoft Foundry (Azure OpenAI) model retirements"
+    url: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirements"
+    gh: MicrosoftDocs/azure-ai-docs
+    feed: "path:main:articles/foundry/openai/concepts/model-retirements.md"
+    feed_format: atom
+    terms: github
+    summary: "Deprecation and retirement schedule for Azure OpenAI models in Microsoft Foundry by deployment type (Standard, Provisioned), with auto-upgrade dates and replacements. The feed is the commit history of the page's source file in MicrosoftDocs/azure-ai-docs."
+    vendor: Microsoft
+    products: [Azure OpenAI, Microsoft Foundry]
+    seen: "16 commits; newest 'review model retirement content' on 2026-07-24"
+    verification: fetched
+    cautions: ["The file moved from articles/ai-foundry/... to articles/foundry/... in February 2026; if this feed goes quiet for months, check whether it moved again."]
+  - id: aws-bedrock-model-lifecycle
+    title: "Amazon Bedrock model lifecycle"
+    url: "https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html"
+    summary: "Active, Legacy and End-of-Life states for Bedrock foundation models with EOL dates. A model stays on Bedrock at least 12 months after launch and at least six months in Legacy; dates can differ from the model provider's own dates."
+    vendor: Amazon Web Services
+    products: [Amazon Bedrock]
+    verification: search-result
+    notes: "Markdown variant: https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.md."
+  - id: aws-bedrock-model-lifecycle-legacy
+    title: "Amazon Bedrock model lifecycle (legacy models)"
+    url: "https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle-legacy.md"
+    summary: "Lifecycle table for Bedrock models launched before 2026-09-07, including public extended access periods; existing customers can lose access to Legacy models after 15 days of inactivity."
+    vendor: Amazon Web Services
+    products: [Amazon Bedrock]
+    verification: search-result
+  - id: mistral-models-overview
+    title: "Mistral models overview (available, deprecated, retired)"
+    url: "https://docs.mistral.ai/getting-started/models/models_overview"
+    summary: "Mistral's model table showing which models and '-latest' aliases are available, deprecated or retired; pin dated versions because alias targets move."
+    vendor: Mistral AI
+    products: [Mistral API, La Plateforme]
+    verification: search-result
+    cautions: ["A third-party report says a Leanstral 1.5 retirement on 2026-09-30 appeared in Mistral's changelog before the models page; check both."]
+  - id: cohere-deprecations
+    title: "Cohere deprecations"
+    url: "https://docs.cohere.com/docs/deprecations"
+    summary: "Cohere's lifecycle stages (Active, Legacy, Deprecated, Shutdown) and the dated list of deprecated models and endpoints with replacements (for example Embed v2.0 and Aya Expanse 8B on 2026-04-04)."
+    vendor: Cohere
+    products: [Cohere API]
+    verification: search-result
+    notes: "Versioned copy: https://docs.cohere.com/v2/docs/deprecations. An 'existing user' is anyone who used the model within 90 days of the announcement."
+  - id: together-deprecations
+    title: "Together AI deprecations"
+    url: "https://docs.together.ai/docs/deprecations"
+    summary: "Together AI's model lifecycle policy and deprecation table for serverless and dedicated endpoints: two to three weeks' notice for most models, preview models removable at short notice, email notice to users."
+    vendor: Together AI
+    products: [Together API]
+    verification: search-result
+    notes: "Markdown variant: https://docs.together.ai/docs/deprecations.md."
+  - id: groq-deprecations
+    title: "GroqCloud model deprecations"
+    url: "https://console.groq.com/docs/deprecations"
+    summary: "GroqCloud's list of deprecated models with shutdown dates and replacements; preview models can be discontinued at short notice while production models get email notice and a transition period."
+    vendor: Groq
+    products: [GroqCloud]
+    verification: search-result
+    cautions: ["Seen only as a link in third-party guides on 2026-10-10; the page itself was not returned by search."]
+  - id: github-copilot-supported-models
+    title: "GitHub Copilot supported models (source history)"
+    url: "https://docs.github.com/en/copilot/reference/ai-models/supported-models"
+    gh: github/docs
+    feed: "path:main:content/copilot/reference/ai-models/supported-models.md"
+    feed_format: atom
+    terms: github
+    summary: "Commit feed for the source of GitHub's Copilot supported-models page, which lists which models Copilot offers per plan and client and records model retirements. New models land as commits (for example 'Claude Haiku 5.5 model release' on 2026-10-07)."
+    vendor: GitHub
+    products: [GitHub Copilot]
+    seen: "'Claude Haiku 5.5 model release (#63734)' on 2026-10-07"
+    verification: fetched
+    change_types: [model-release, deprecation]
+  - id: deepseek-model-name-mapping
+    title: "DeepSeek API model name mapping (change log)"
+    url: "https://api-docs.deepseek.com/updates"
+    summary: "Same page as the DeepSeek change log, listed here for lifecycle tracking: DeepSeek repoints API model names to new model versions in place and retired deepseek-chat / deepseek-reasoner on 2026-07-24 in favour of deepseek-v4-flash and deepseek-v4-pro."
+    vendor: DeepSeek
+    products: [DeepSeek API]
+    verification: search-result

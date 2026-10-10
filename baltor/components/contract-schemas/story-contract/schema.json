@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/story-contract",
+  "title": "Story contract",
+  "description": "The nine sentences the guide asks for before drawing shots: want, stakes, constraint, choice, escalation, knowledge (viewer, character, still uncertain), plant, reversal and consequence. Optional fields name the comedy mechanisms in play and the suspense question. A complete contract is a writing gate, not evidence that the story works.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "want",
+    "stakes",
+    "constraint",
+    "choice",
+    "escalation",
+    "knowledge",
+    "plant",
+    "reversal",
+    "consequence"
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "minLength": 2
+    },
+    "premise_ref": {
+      "type": "string",
+      "description": "Catalogue id (EDU001), board id or path of the draft."
+    },
+    "want": {
+      "type": "string",
+      "minLength": 10,
+      "description": "What does the protagonist actively want before the film ends?"
+    },
+    "stakes": {
+      "type": "string",
+      "minLength": 10,
+      "description": "What visibly changes if they fail, and why should this particular character care?"
+    },
+    "constraint": {
+      "type": "string",
+      "minLength": 10,
+      "description": "What prevents the obvious solution? Establish it early enough to feel fair."
+    },
+    "choice": {
+      "type": "string",
+      "minLength": 10,
+      "description": "What does the character do that causes the next complication?"
+    },
+    "escalation": {
+      "type": "string",
+      "minLength": 10,
+      "description": "How does each attempt change the situation rather than reset it?"
+    },
+    "plant": {
+      "type": "string",
+      "minLength": 10,
+      "description": "Which visible detail will matter later? The viewer must have a fair chance to notice it."
+    },
+    "reversal": {
+      "type": "string",
+      "minLength": 10,
+      "description": "How does the final action use established information in a surprising way?"
+    },
+    "consequence": {
+      "type": "string",
+      "minLength": 10,
+      "description": "What final image shows that the character or situation has changed?"
+    },
+    "knowledge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "viewer",
+        "character",
+        "uncertain"
+      ],
+      "description": "What does the viewer know, what does the character know, and what is still uncertain?",
+      "properties": {
+        "viewer": {
+          "type": "string",
+          "minLength": 5
+        },
+        "character": {
+          "type": "string",
+          "minLength": 5
+        },
+        "uncertain": {
+          "type": "string",
+          "minLength": 5
+        }
+      }
+    },
+    "comedy_mechanisms": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "Status reversal",
+          "Dramatic irony",
+          "Overcomplicated solution",
+          "Literal interpretation",
+          "Opposed goals",
+          "Contagious solution",
+          "Competent improvisation",
+          "Delayed consequence",
+          "Scale mismatch",
+          "Quiet button"
+        ]
+      }
+    },
+    "suspense_question": {
+      "type": "string",
+      "minLength": 10
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

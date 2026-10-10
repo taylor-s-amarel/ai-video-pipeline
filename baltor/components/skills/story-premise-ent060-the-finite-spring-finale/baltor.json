@@ -1,0 +1,70 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "story_premise_ent060_the_finite_spring_finale",
+  "title": "Story premise ENT060: The Finite Spring Finale",
+  "kind": "skill",
+  "subkind": "premise",
+  "version": "1.0.0",
+  "summary": "Idea-stage fiction premise (mechanical puzzles). Hook: The machine works forever. Until now. Takeaway/theme: Show the input that keeps a mechanism moving.",
+  "description": "A maker wants a toy theater to run forever on one wound spring, but the scene slows after each cycle. A cutaway shows the finite winding unwinding; the maker adds a visible audience hand crank and relabels the show HELP KEEP IT GOING, turning failure into participation.",
+  "domain": "story",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#ent060-the-finite-spring-finale"
+  },
+  "step_kinds": [
+    "plan",
+    "write"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "story",
+    "premise",
+    "fiction",
+    "mechanical-puzzles",
+    "requires-primary-source-review",
+    "ent060",
+    "editorial-pick"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "story_premise"
+    },
+    {
+      "identity": "story_contract_rules"
+    },
+    {
+      "identity": "story_tests"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/ref_stories.py",
+    "data": "generators/data/ref_stories",
+    "parameters": {
+      "id": "ENT060",
+      "treatment_group": 3,
+      "guide_line": 5182
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "considered",
+  "evidence_notes": "Idea from the 10 Oct 2026 creative catalogue (Creative Catalogue JSON Bundle 2026-10-10, Library libfile_ff6a4ae010508191b42073985cd7a4a1 v0, SHA-256 1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e), preserved in guide Appendix D line 5182. Not a completed script, not rendered, no audience study. Evidence class requires_primary_source_review names the check a claim would need, not a check done. Its ten treatment addresses (R-ENT060-F06-A01 ...) are candidates, not screenplays."
+}

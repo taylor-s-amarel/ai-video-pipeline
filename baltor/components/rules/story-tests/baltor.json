@@ -1,0 +1,51 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "story_tests",
+  "title": "Production-independent story tests",
+  "kind": "rules",
+  "subkind": "checklist",
+  "version": "1.0.0",
+  "summary": "Seven clarity questions to ask people unfamiliar with a pitch after a rough animatic, plus the global kill criteria that no technically clean render can rescue.",
+  "domain": "story",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#production-independent-story-tests"
+  },
+  "step_kinds": [
+    "review",
+    "test"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "RULES.md",
+  "tags": [
+    "story",
+    "story-tests",
+    "animatic",
+    "kill-criteria",
+    "rules"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/ref_stories.py",
+    "data": "generators/data/ref_stories"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "considered",
+  "evidence_notes": "Editorial guidance from the owner's guide, written after Taylor rejected BOXED IN's story quality. Its review methods (table read, silent animatic, owner storyboard choice) are proposed; nothing here is validated audience research. The guide calls these clarity tests, not statistically meaningful audience research."
+}

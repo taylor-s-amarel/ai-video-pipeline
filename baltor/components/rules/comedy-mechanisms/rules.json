@@ -1,0 +1,59 @@
+{
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Comedy mechanisms to develop",
+    "anchor": "comedy-mechanisms-to-develop"
+  },
+  "mechanisms": [
+    {
+      "mechanism": "Status reversal",
+      "how_to_make_it_playable": "Establish who seems in control, then let their own choice reverse it",
+      "failure_to_reject": "An unexplained stronger character solves everything"
+    },
+    {
+      "mechanism": "Dramatic irony",
+      "how_to_make_it_playable": "Show the audience a clue the character misses; let behavior build the gap",
+      "failure_to_reject": "Concealing the only useful clue until the last frame"
+    },
+    {
+      "mechanism": "Overcomplicated solution",
+      "how_to_make_it_playable": "Each unnecessary improvement creates a new cost with visual consequences",
+      "failure_to_reject": "Three versions of the same failed push"
+    },
+    {
+      "mechanism": "Literal interpretation",
+      "how_to_make_it_playable": "Define an instruction clearly, then exploit a coherent second meaning",
+      "failure_to_reject": "Wordplay that the image cannot support"
+    },
+    {
+      "mechanism": "Opposed goals",
+      "how_to_make_it_playable": "Two characters pursue understandable incompatible goals in one space",
+      "failure_to_reject": "One character exists only to be arbitrarily foolish"
+    },
+    {
+      "mechanism": "Contagious solution",
+      "how_to_make_it_playable": "A local fix spreads into a larger problem",
+      "failure_to_reject": "Random chaos without object or causal continuity"
+    },
+    {
+      "mechanism": "Competent improvisation",
+      "how_to_make_it_playable": "A resourceful solution works, but changes the original objective",
+      "failure_to_reject": "Failure after failure with no learning or agency"
+    },
+    {
+      "mechanism": "Delayed consequence",
+      "how_to_make_it_playable": "A seemingly minor early action returns at the worst possible moment",
+      "failure_to_reject": "A new hazard appears with no plant"
+    },
+    {
+      "mechanism": "Scale mismatch",
+      "how_to_make_it_playable": "Ordinary objects become meaningful obstacles at a miniature scale",
+      "failure_to_reject": "Size changes between shots to force a gag"
+    },
+    {
+      "mechanism": "Quiet button",
+      "how_to_make_it_playable": "After a decisive climax, a short secondary beat reframes the result",
+      "failure_to_reject": "A long explanation after the joke already landed"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "story_premise_edu095_the_price_tag_has_a_second_floor",
+  "title": "Story premise EDU095: The Price Tag Has a Second Floor",
+  "kind": "skill",
+  "subkind": "premise",
+  "version": "1.0.0",
+  "summary": "Idea-stage learning premise (consumer digital literacy). Hook: Is the smaller number also the smaller total? Takeaway/theme: Compare the complete stated price and commitment, not just the headline number.",
+  "description": "A buyer wants to compare two fictional one-time offers, but one displayed price omits a mandatory fee shown later. Expanding both into itemized totals reveals the actual arithmetic before any purchase choice.",
+  "domain": "story",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#edu095-the-price-tag-has-a-second-floor"
+  },
+  "step_kinds": [
+    "plan",
+    "write"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "story",
+    "premise",
+    "learning",
+    "consumer-digital-literacy",
+    "mathematically-checkable",
+    "edu095"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "story_premise"
+    },
+    {
+      "identity": "story_contract_rules"
+    },
+    {
+      "identity": "story_tests"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/ref_stories.py",
+    "data": "generators/data/ref_stories",
+    "parameters": {
+      "id": "EDU095",
+      "treatment_group": 1,
+      "guide_line": 3976
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "considered",
+  "evidence_notes": "Idea from the 10 Oct 2026 creative catalogue (Creative Catalogue JSON Bundle 2026-10-10, Library libfile_ff6a4ae010508191b42073985cd7a4a1 v0, SHA-256 1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e), preserved in guide Appendix D line 3976. Not a completed script, not rendered, no audience study. Evidence class mathematically_checkable names the check a claim would need, not a check done. Its ten treatment addresses (R-EDU095-F01-A01 ...) are candidates, not screenplays."
+}

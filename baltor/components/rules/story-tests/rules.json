@@ -1,0 +1,32 @@
+{
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Production-independent story tests",
+    "anchor": "production-independent-story-tests"
+  },
+  "intro": [
+    "Before detailed rendering, test each board as a rough animatic with disposable poses and temp sound. Ask a few people unfamiliar with the pitch:"
+  ],
+  "questions": [
+    "What did the main character want by the first few seconds?",
+    "What would happen if they failed?",
+    "Which choice made the situation worse?",
+    "What changed halfway through?",
+    "What earlier detail made the ending possible?",
+    "Where did you first want the story to move faster?",
+    "What changed for the character by the final image?"
+  ],
+  "after": [
+    "Do not explain the intended answers before they respond. These are clarity tests, not statistically meaningful audience research. If the essential answers are missing, revise the story rather than polishing the same shots."
+  ],
+  "global_kill_criteria": [
+    "no concrete uncertainty in the opening",
+    "interchangeable failed attempts",
+    "a midpoint that only increases noise",
+    "an unplanted new rule solving the climax",
+    "an ending that is merely an object reveal",
+    "an achievement erased by an arbitrary reset",
+    "a punch line requiring narration to explain why it is funny"
+  ],
+  "global_kill_criteria_text": "Global kill criteria: no concrete uncertainty in the opening; interchangeable failed attempts; a midpoint that only increases noise; an unplanted new rule solving the climax; an ending that is merely an object reveal; an achievement erased by an arbitrary reset; or a punch line requiring narration to explain why it is funny. A technically clean render does not rescue any of these."
+}

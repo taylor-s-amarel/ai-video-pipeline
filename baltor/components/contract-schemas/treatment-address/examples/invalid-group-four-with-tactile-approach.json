@@ -1,0 +1,10 @@
+{
+  "address": "R-ENT072-F08-A03",
+  "story_id": "ENT072",
+  "format_id": "F08",
+  "approach_id": "A03",
+  "intro_id": "I30",
+  "motion_id": "M03",
+  "treatment_group": 4,
+  "status": "addressable-candidate"
+}

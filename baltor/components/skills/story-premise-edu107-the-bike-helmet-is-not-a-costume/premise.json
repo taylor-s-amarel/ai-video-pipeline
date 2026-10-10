@@ -1,0 +1,102 @@
+{
+  "id": "EDU107",
+  "title": "The Bike Helmet Is Not a Costume",
+  "family": "learning",
+  "category": "public safety/preparedness",
+  "premise": "A young character wants to use a helmet in a safety poster, but the illustration treats any headwear as equivalent. A reviewed version depicts an appropriate certified helmet and refers fit decisions to current official and manufacturer guidance.",
+  "hook": "What makes this safety gear more than a hat?",
+  "visible_action": "A costume hat silhouette separates from a helmet icon; certification, condition, and fit-review cards appear without adjustment instructions.",
+  "intended_takeaway_or_theme": "Protective equipment has intended uses and guidance that a decorative look cannot replace.",
+  "gate": "Require authoritative bicycle-helmet guidance; avoid unverified fitting steps, impact tests, or guarantees against injury. Do not ask viewers to guess an emergency response or choose an action in a simulated emergency; any response content must come from reviewed official guidance.",
+  "evidence_class": "requires_primary_source_review",
+  "original_format_tags": [
+    "myth_check",
+    "side_by_side",
+    "behind_the_scenes",
+    "narrative_lesson"
+  ],
+  "status": "idea",
+  "treatment_group": 2,
+  "treatments": [
+    {
+      "address": "R-EDU107-F01-A01",
+      "format_id": "F01",
+      "approach_id": "A01",
+      "intro_id": "I26",
+      "motion_id": "M13"
+    },
+    {
+      "address": "R-EDU107-F01-A02",
+      "format_id": "F01",
+      "approach_id": "A02",
+      "intro_id": "I26",
+      "motion_id": "M13"
+    },
+    {
+      "address": "R-EDU107-F20-A01",
+      "format_id": "F20",
+      "approach_id": "A01",
+      "intro_id": "I06",
+      "motion_id": "M13"
+    },
+    {
+      "address": "R-EDU107-F20-A02",
+      "format_id": "F20",
+      "approach_id": "A02",
+      "intro_id": "I06",
+      "motion_id": "M13"
+    },
+    {
+      "address": "R-EDU107-F03-A01",
+      "format_id": "F03",
+      "approach_id": "A01",
+      "intro_id": "I08",
+      "motion_id": "M05"
+    },
+    {
+      "address": "R-EDU107-F03-A02",
+      "format_id": "F03",
+      "approach_id": "A02",
+      "intro_id": "I08",
+      "motion_id": "M05"
+    },
+    {
+      "address": "R-EDU107-F04-A01",
+      "format_id": "F04",
+      "approach_id": "A01",
+      "intro_id": "I02",
+      "motion_id": "M09"
+    },
+    {
+      "address": "R-EDU107-F04-A02",
+      "format_id": "F04",
+      "approach_id": "A02",
+      "intro_id": "I02",
+      "motion_id": "M09"
+    },
+    {
+      "address": "R-EDU107-F05-A01",
+      "format_id": "F05",
+      "approach_id": "A01",
+      "intro_id": "I18",
+      "motion_id": "M21"
+    },
+    {
+      "address": "R-EDU107-F05-A02",
+      "format_id": "F05",
+      "approach_id": "A02",
+      "intro_id": "I18",
+      "motion_id": "M21"
+    }
+  ],
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix D All 240 story premises / Learning public safety/preparedness",
+    "anchor": "edu107-the-bike-helmet-is-not-a-costume",
+    "line": 4146,
+    "catalogue_artifact": "Creative Catalogue JSON Bundle 2026-10-10",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_version": "0",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  }
+}

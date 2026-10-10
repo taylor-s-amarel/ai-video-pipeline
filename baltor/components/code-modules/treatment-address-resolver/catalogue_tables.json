@@ -1,0 +1,2571 @@
+{
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix C Creative banks and exact treatment addressing",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  },
+  "count_contract": "There are 240 underlying premises, 120 learning and 120 fiction, and 2,400 addressable candidate treatments. There were zero independently written complete treatment scripts, zero catalogue recipe renders and zero audience studies in that catalogue. Factual checkability is not factual verification. Lexically distinct ideas are not proven novel against all historical work. Select one premise for a concrete viewer task, resolve its facts and rights, write an actual storyboard and test its risky action.",
+  "groups": [
+    {
+      "group": 1,
+      "stories": [
+        "EDU001",
+        "EDU002",
+        "EDU003",
+        "EDU004",
+        "EDU005",
+        "EDU006",
+        "EDU007",
+        "EDU008",
+        "EDU009",
+        "EDU010",
+        "EDU011",
+        "EDU012",
+        "EDU013",
+        "EDU014",
+        "EDU015",
+        "EDU016",
+        "EDU017",
+        "EDU018",
+        "EDU019",
+        "EDU020",
+        "EDU021",
+        "EDU022",
+        "EDU023",
+        "EDU024",
+        "EDU025",
+        "EDU026",
+        "EDU027",
+        "EDU028",
+        "EDU029",
+        "EDU030",
+        "EDU031",
+        "EDU032",
+        "EDU033",
+        "EDU034",
+        "EDU035",
+        "EDU036",
+        "EDU037",
+        "EDU038",
+        "EDU039",
+        "EDU040",
+        "EDU041",
+        "EDU042",
+        "EDU043",
+        "EDU044",
+        "EDU045",
+        "EDU046",
+        "EDU047",
+        "EDU048",
+        "EDU049",
+        "EDU050",
+        "EDU051",
+        "EDU052",
+        "EDU053",
+        "EDU054",
+        "EDU055",
+        "EDU056",
+        "EDU057",
+        "EDU058",
+        "EDU059",
+        "EDU060",
+        "EDU061",
+        "EDU062",
+        "EDU063",
+        "EDU064",
+        "EDU065",
+        "EDU066",
+        "EDU067",
+        "EDU068",
+        "EDU069",
+        "EDU070",
+        "EDU071",
+        "EDU072",
+        "EDU073",
+        "EDU074",
+        "EDU075",
+        "EDU076",
+        "EDU077",
+        "EDU078",
+        "EDU079",
+        "EDU080",
+        "EDU081",
+        "EDU082",
+        "EDU083",
+        "EDU084",
+        "EDU085",
+        "EDU086",
+        "EDU087",
+        "EDU088",
+        "EDU089",
+        "EDU090",
+        "EDU091",
+        "EDU092",
+        "EDU093",
+        "EDU094",
+        "EDU095",
+        "EDU096",
+        "EDU097",
+        "EDU098",
+        "EDU099",
+        "EDU100",
+        "EDU111",
+        "EDU112",
+        "EDU113",
+        "EDU114",
+        "EDU115",
+        "EDU116",
+        "EDU117",
+        "EDU118",
+        "EDU119",
+        "EDU120"
+      ],
+      "rows": [
+        {
+          "format": "F01",
+          "approach": "A01",
+          "intro": "I26",
+          "motion": "M13"
+        },
+        {
+          "format": "F01",
+          "approach": "A02",
+          "intro": "I26",
+          "motion": "M13"
+        },
+        {
+          "format": "F02",
+          "approach": "A01",
+          "intro": "I26",
+          "motion": "M16"
+        },
+        {
+          "format": "F02",
+          "approach": "A02",
+          "intro": "I26",
+          "motion": "M16"
+        },
+        {
+          "format": "F03",
+          "approach": "A01",
+          "intro": "I08",
+          "motion": "M05"
+        },
+        {
+          "format": "F03",
+          "approach": "A02",
+          "intro": "I08",
+          "motion": "M05"
+        },
+        {
+          "format": "F04",
+          "approach": "A01",
+          "intro": "I02",
+          "motion": "M09"
+        },
+        {
+          "format": "F04",
+          "approach": "A02",
+          "intro": "I02",
+          "motion": "M09"
+        },
+        {
+          "format": "F05",
+          "approach": "A01",
+          "intro": "I18",
+          "motion": "M21"
+        },
+        {
+          "format": "F05",
+          "approach": "A02",
+          "intro": "I18",
+          "motion": "M21"
+        }
+      ]
+    },
+    {
+      "group": 2,
+      "stories": [
+        "EDU101",
+        "EDU102",
+        "EDU103",
+        "EDU104",
+        "EDU105",
+        "EDU106",
+        "EDU107",
+        "EDU108",
+        "EDU109",
+        "EDU110"
+      ],
+      "rows": [
+        {
+          "format": "F01",
+          "approach": "A01",
+          "intro": "I26",
+          "motion": "M13"
+        },
+        {
+          "format": "F01",
+          "approach": "A02",
+          "intro": "I26",
+          "motion": "M13"
+        },
+        {
+          "format": "F20",
+          "approach": "A01",
+          "intro": "I06",
+          "motion": "M13"
+        },
+        {
+          "format": "F20",
+          "approach": "A02",
+          "intro": "I06",
+          "motion": "M13"
+        },
+        {
+          "format": "F03",
+          "approach": "A01",
+          "intro": "I08",
+          "motion": "M05"
+        },
+        {
+          "format": "F03",
+          "approach": "A02",
+          "intro": "I08",
+          "motion": "M05"
+        },
+        {
+          "format": "F04",
+          "approach": "A01",
+          "intro": "I02",
+          "motion": "M09"
+        },
+        {
+          "format": "F04",
+          "approach": "A02",
+          "intro": "I02",
+          "motion": "M09"
+        },
+        {
+          "format": "F05",
+          "approach": "A01",
+          "intro": "I18",
+          "motion": "M21"
+        },
+        {
+          "format": "F05",
+          "approach": "A02",
+          "intro": "I18",
+          "motion": "M21"
+        }
+      ]
+    },
+    {
+      "group": 3,
+      "stories": [
+        "ENT001",
+        "ENT002",
+        "ENT003",
+        "ENT004",
+        "ENT005",
+        "ENT006",
+        "ENT007",
+        "ENT008",
+        "ENT009",
+        "ENT010",
+        "ENT011",
+        "ENT012",
+        "ENT013",
+        "ENT014",
+        "ENT015",
+        "ENT016",
+        "ENT017",
+        "ENT018",
+        "ENT019",
+        "ENT020",
+        "ENT021",
+        "ENT022",
+        "ENT023",
+        "ENT024",
+        "ENT025",
+        "ENT026",
+        "ENT027",
+        "ENT028",
+        "ENT029",
+        "ENT030",
+        "ENT031",
+        "ENT032",
+        "ENT033",
+        "ENT034",
+        "ENT035",
+        "ENT036",
+        "ENT037",
+        "ENT038",
+        "ENT039",
+        "ENT040",
+        "ENT041",
+        "ENT042",
+        "ENT043",
+        "ENT044",
+        "ENT045",
+        "ENT046",
+        "ENT047",
+        "ENT048",
+        "ENT049",
+        "ENT050",
+        "ENT051",
+        "ENT052",
+        "ENT053",
+        "ENT054",
+        "ENT055",
+        "ENT056",
+        "ENT057",
+        "ENT058",
+        "ENT059",
+        "ENT060",
+        "ENT061",
+        "ENT062",
+        "ENT063",
+        "ENT064",
+        "ENT065",
+        "ENT066",
+        "ENT067",
+        "ENT068",
+        "ENT069",
+        "ENT070",
+        "ENT101",
+        "ENT102",
+        "ENT103",
+        "ENT104",
+        "ENT105",
+        "ENT106",
+        "ENT107",
+        "ENT108",
+        "ENT109",
+        "ENT110",
+        "ENT111",
+        "ENT112",
+        "ENT113",
+        "ENT114",
+        "ENT115",
+        "ENT116",
+        "ENT117",
+        "ENT118",
+        "ENT119",
+        "ENT120"
+      ],
+      "rows": [
+        {
+          "format": "F06",
+          "approach": "A01",
+          "intro": "I03",
+          "motion": "M14"
+        },
+        {
+          "format": "F06",
+          "approach": "A03",
+          "intro": "I03",
+          "motion": "M14"
+        },
+        {
+          "format": "F07",
+          "approach": "A01",
+          "intro": "I19",
+          "motion": "M16"
+        },
+        {
+          "format": "F07",
+          "approach": "A03",
+          "intro": "I19",
+          "motion": "M16"
+        },
+        {
+          "format": "F08",
+          "approach": "A01",
+          "intro": "I30",
+          "motion": "M03"
+        },
+        {
+          "format": "F08",
+          "approach": "A03",
+          "intro": "I30",
+          "motion": "M03"
+        },
+        {
+          "format": "F09",
+          "approach": "A01",
+          "intro": "I14",
+          "motion": "M29"
+        },
+        {
+          "format": "F09",
+          "approach": "A03",
+          "intro": "I14",
+          "motion": "M29"
+        },
+        {
+          "format": "F10",
+          "approach": "A01",
+          "intro": "I04",
+          "motion": "M04"
+        },
+        {
+          "format": "F10",
+          "approach": "A03",
+          "intro": "I04",
+          "motion": "M04"
+        }
+      ]
+    },
+    {
+      "group": 4,
+      "stories": [
+        "ENT071",
+        "ENT072",
+        "ENT073",
+        "ENT074",
+        "ENT075",
+        "ENT076",
+        "ENT077",
+        "ENT078",
+        "ENT079",
+        "ENT080",
+        "ENT081",
+        "ENT082",
+        "ENT083",
+        "ENT084",
+        "ENT085",
+        "ENT086",
+        "ENT087",
+        "ENT088",
+        "ENT089",
+        "ENT090",
+        "ENT091",
+        "ENT092",
+        "ENT093",
+        "ENT094",
+        "ENT095",
+        "ENT096",
+        "ENT097",
+        "ENT098",
+        "ENT099",
+        "ENT100"
+      ],
+      "rows": [
+        {
+          "format": "F06",
+          "approach": "A01",
+          "intro": "I03",
+          "motion": "M14"
+        },
+        {
+          "format": "F06",
+          "approach": "A04",
+          "intro": "I03",
+          "motion": "M14"
+        },
+        {
+          "format": "F07",
+          "approach": "A01",
+          "intro": "I19",
+          "motion": "M16"
+        },
+        {
+          "format": "F07",
+          "approach": "A04",
+          "intro": "I19",
+          "motion": "M16"
+        },
+        {
+          "format": "F08",
+          "approach": "A01",
+          "intro": "I30",
+          "motion": "M03"
+        },
+        {
+          "format": "F08",
+          "approach": "A04",
+          "intro": "I30",
+          "motion": "M03"
+        },
+        {
+          "format": "F09",
+          "approach": "A01",
+          "intro": "I14",
+          "motion": "M29"
+        },
+        {
+          "format": "F09",
+          "approach": "A04",
+          "intro": "I14",
+          "motion": "M29"
+        },
+        {
+          "format": "F10",
+          "approach": "A01",
+          "intro": "I04",
+          "motion": "M04"
+        },
+        {
+          "format": "F10",
+          "approach": "A04",
+          "intro": "I04",
+          "motion": "M04"
+        }
+      ]
+    }
+  ],
+  "stories": {
+    "EDU001": {
+      "title": "The Half-Platform Problem",
+      "family": "learning",
+      "category": "basic math",
+      "premise_identity": "story_premise_edu001_the_half_platform_problem"
+    },
+    "EDU002": {
+      "title": "The Basement Delivery",
+      "family": "learning",
+      "category": "basic math",
+      "premise_identity": "story_premise_edu002_the_basement_delivery"
+    },
+    "EDU003": {
+      "title": "The Ten-Token Gate",
+      "family": "learning",
+      "category": "basic math",
+      "premise_identity": "story_premise_edu003_the_ten_token_gate"
+    },
+    "EDU004": {
+      "title": "Same Fence, Different Garden",
+      "family": "learning",
+      "category": "basic math",
+      "premise_identity": "story_premise_edu004_same_fence_different_garden"
+    },
+    "EDU005": {
+      "title": "The Bag That Refuses a Promise",
+      "family": "learning",
+      "category": "basic math",
+      "premise_identity": "story_premise_edu005_the_bag_that_refuses_a_promise"
+    },
+    "EDU006": {
+      "title": "The Fair-Share Seesaw",
+      "family": "learning",
+      "category": "basic math",
+      "premise_identity": "story_premise_edu006_the_fair_share_seesaw"
+    },
+    "EDU007": {
+      "title": "The Purple-Paint Conveyor",
+      "family": "learning",
+      "category": "basic math",
+      "premise_identity": "story_premise_edu007_the_purple_paint_conveyor"
+    },
+    "EDU008": {
+      "title": "The Giant Three-Point Jump",
+      "family": "learning",
+      "category": "basic math",
+      "premise_identity": "story_premise_edu008_the_giant_three_point_jump"
+    },
+    "EDU009": {
+      "title": "The Mirror-Tile Repair",
+      "family": "learning",
+      "category": "basic math",
+      "premise_identity": "story_premise_edu009_the_mirror_tile_repair"
+    },
+    "EDU010": {
+      "title": "The Unpaired Umbrella",
+      "family": "learning",
+      "category": "basic math",
+      "premise_identity": "story_premise_edu010_the_unpaired_umbrella"
+    },
+    "EDU011": {
+      "title": "The Shadow That Outgrew Its Owner",
+      "family": "learning",
+      "category": "everyday science",
+      "premise_identity": "story_premise_edu011_the_shadow_that_outgrew_its_owner"
+    },
+    "EDU012": {
+      "title": "The Boat Made of a Sinking Block",
+      "family": "learning",
+      "category": "everyday science",
+      "premise_identity": "story_premise_edu012_the_boat_made_of_a_sinking_block"
+    },
+    "EDU013": {
+      "title": "The Traveling Pulse",
+      "family": "learning",
+      "category": "everyday science",
+      "premise_identity": "story_premise_edu013_the_traveling_pulse"
+    },
+    "EDU014": {
+      "title": "The Vanishing Puddle Ledger",
+      "family": "learning",
+      "category": "everyday science",
+      "premise_identity": "story_premise_edu014_the_vanishing_puddle_ledger"
+    },
+    "EDU015": {
+      "title": "The Glass With an Outside Leak",
+      "family": "learning",
+      "category": "everyday science",
+      "premise_identity": "story_premise_edu015_the_glass_with_an_outside_leak"
+    },
+    "EDU016": {
+      "title": "The Compass Delivery Route",
+      "family": "learning",
+      "category": "everyday science",
+      "premise_identity": "story_premise_edu016_the_compass_delivery_route"
+    },
+    "EDU017": {
+      "title": "The Air That Pushes Back",
+      "family": "learning",
+      "category": "everyday science",
+      "premise_identity": "story_premise_edu017_the_air_that_pushes_back"
+    },
+    "EDU018": {
+      "title": "The Bent Straw Detective",
+      "family": "learning",
+      "category": "everyday science",
+      "premise_identity": "story_premise_edu018_the_bent_straw_detective"
+    },
+    "EDU019": {
+      "title": "The Missing Return Path",
+      "family": "learning",
+      "category": "everyday science",
+      "premise_identity": "story_premise_edu019_the_missing_return_path"
+    },
+    "EDU020": {
+      "title": "The Marble That Cannot Climb Home",
+      "family": "learning",
+      "category": "everyday science",
+      "premise_identity": "story_premise_edu020_the_marble_that_cannot_climb_home"
+    },
+    "EDU021": {
+      "title": "The Maze With a Waiting Line",
+      "family": "learning",
+      "category": "computing/data",
+      "premise_identity": "story_premise_edu021_the_maze_with_a_waiting_line"
+    },
+    "EDU022": {
+      "title": "The Four-Bit Lantern",
+      "family": "learning",
+      "category": "computing/data",
+      "premise_identity": "story_premise_edu022_the_four_bit_lantern"
+    },
+    "EDU023": {
+      "title": "The Parcel Queue Remembers",
+      "family": "learning",
+      "category": "computing/data",
+      "premise_identity": "story_premise_edu023_the_parcel_queue_remembers"
+    },
+    "EDU024": {
+      "title": "The Crowded Hash Locker",
+      "family": "learning",
+      "category": "computing/data",
+      "premise_identity": "story_premise_edu024_the_crowded_hash_locker"
+    },
+    "EDU025": {
+      "title": "The Double-Counted Visitor",
+      "family": "learning",
+      "category": "computing/data",
+      "premise_identity": "story_premise_edu025_the_double_counted_visitor"
+    },
+    "EDU026": {
+      "title": "The Two Endings Merge",
+      "family": "learning",
+      "category": "computing/data",
+      "premise_identity": "story_premise_edu026_the_two_endings_merge"
+    },
+    "EDU027": {
+      "title": "The Stripe Compressor Meets Confetti",
+      "family": "learning",
+      "category": "computing/data",
+      "premise_identity": "story_premise_edu027_the_stripe_compressor_meets_confetti"
+    },
+    "EDU028": {
+      "title": "The Disappearing Checkerboard",
+      "family": "learning",
+      "category": "computing/data",
+      "premise_identity": "story_premise_edu028_the_disappearing_checkerboard"
+    },
+    "EDU029": {
+      "title": "The Last Search Arrives First",
+      "family": "learning",
+      "category": "computing/data",
+      "premise_identity": "story_premise_edu029_the_last_search_arrives_first"
+    },
+    "EDU030": {
+      "title": "The Recommendation Echo Room",
+      "family": "learning",
+      "category": "computing/data",
+      "premise_identity": "story_premise_edu030_the_recommendation_echo_room"
+    },
+    "EDU031": {
+      "title": "The Closed-Notebook Bridge",
+      "family": "learning",
+      "category": "learning/study",
+      "premise_identity": "story_premise_edu031_the_closed_notebook_bridge"
+    },
+    "EDU032": {
+      "title": "The Review Calendar Has Gaps",
+      "family": "learning",
+      "category": "learning/study",
+      "premise_identity": "story_premise_edu032_the_review_calendar_has_gaps"
+    },
+    "EDU033": {
+      "title": "The Example Loses Its Training Wheels",
+      "family": "learning",
+      "category": "learning/study",
+      "premise_identity": "story_premise_edu033_the_example_loses_its_training_wheels"
+    },
+    "EDU034": {
+      "title": "The Mixed-Tool Workshop",
+      "family": "learning",
+      "category": "learning/study",
+      "premise_identity": "story_premise_edu034_the_mixed_tool_workshop"
+    },
+    "EDU035": {
+      "title": "The Confidence Stamp Audit",
+      "family": "learning",
+      "category": "learning/study",
+      "premise_identity": "story_premise_edu035_the_confidence_stamp_audit"
+    },
+    "EDU036": {
+      "title": "The Museum of Useful Mistakes",
+      "family": "learning",
+      "category": "learning/study",
+      "premise_identity": "story_premise_edu036_the_museum_of_useful_mistakes"
+    },
+    "EDU037": {
+      "title": "The Assignment With No First Door",
+      "family": "learning",
+      "category": "learning/study",
+      "premise_identity": "story_premise_edu037_the_assignment_with_no_first_door"
+    },
+    "EDU038": {
+      "title": "The Explain-It Puppet",
+      "family": "learning",
+      "category": "learning/study",
+      "premise_identity": "story_premise_edu038_the_explain_it_puppet"
+    },
+    "EDU039": {
+      "title": "The Note With a Broken Tether",
+      "family": "learning",
+      "category": "learning/study",
+      "premise_identity": "story_premise_edu039_the_note_with_a_broken_tether"
+    },
+    "EDU040": {
+      "title": "The Practice Session Has a Finish Line",
+      "family": "learning",
+      "category": "learning/study",
+      "premise_identity": "story_premise_edu040_the_practice_session_has_a_finish_line"
+    },
+    "EDU041": {
+      "title": "The Pronoun With Two Owners",
+      "family": "learning",
+      "category": "language/communication",
+      "premise_identity": "story_premise_edu041_the_pronoun_with_two_owners"
+    },
+    "EDU042": {
+      "title": "The Listener Sends a Mirror",
+      "family": "learning",
+      "category": "language/communication",
+      "premise_identity": "story_premise_edu042_the_listener_sends_a_mirror"
+    },
+    "EDU043": {
+      "title": "The Comma Changes the Guest List",
+      "family": "learning",
+      "category": "language/communication",
+      "premise_identity": "story_premise_edu043_the_comma_changes_the_guest_list"
+    },
+    "EDU044": {
+      "title": "The Same Request Wears Two Coats",
+      "family": "learning",
+      "category": "language/communication",
+      "premise_identity": "story_premise_edu044_the_same_request_wears_two_coats"
+    },
+    "EDU045": {
+      "title": "The Idiom Meets a Literal Painter",
+      "family": "learning",
+      "category": "language/communication",
+      "premise_identity": "story_premise_edu045_the_idiom_meets_a_literal_painter"
+    },
+    "EDU046": {
+      "title": "The Directions Need a Landmark",
+      "family": "learning",
+      "category": "language/communication",
+      "premise_identity": "story_premise_edu046_the_directions_need_a_landmark"
+    },
+    "EDU047": {
+      "title": "The Interrupted Thought Queue",
+      "family": "learning",
+      "category": "language/communication",
+      "premise_identity": "story_premise_edu047_the_interrupted_thought_queue"
+    },
+    "EDU048": {
+      "title": "The Icon That Meant Two Things",
+      "family": "learning",
+      "category": "language/communication",
+      "premise_identity": "story_premise_edu048_the_icon_that_meant_two_things"
+    },
+    "EDU049": {
+      "title": "The Feedback Arrow Finds a Target",
+      "family": "learning",
+      "category": "language/communication",
+      "premise_identity": "story_premise_edu049_the_feedback_arrow_finds_a_target"
+    },
+    "EDU050": {
+      "title": "The Summary Drops Its Anchor",
+      "family": "learning",
+      "category": "language/communication",
+      "premise_identity": "story_premise_edu050_the_summary_drops_its_anchor"
+    },
+    "EDU051": {
+      "title": "The Handoff With No Handle",
+      "family": "learning",
+      "category": "work/process",
+      "premise_identity": "story_premise_edu051_the_handoff_with_no_handle"
+    },
+    "EDU052": {
+      "title": "The Narrowest Gate",
+      "family": "learning",
+      "category": "work/process",
+      "premise_identity": "story_premise_edu052_the_narrowest_gate"
+    },
+    "EDU053": {
+      "title": "The Checklist Remembers the Quiet Step",
+      "family": "learning",
+      "category": "work/process",
+      "premise_identity": "story_premise_edu053_the_checklist_remembers_the_quiet_step"
+    },
+    "EDU054": {
+      "title": "The Task That Waited on Tomorrow",
+      "family": "learning",
+      "category": "work/process",
+      "premise_identity": "story_premise_edu054_the_task_that_waited_on_tomorrow"
+    },
+    "EDU055": {
+      "title": "The Five Almost-Finished Posters",
+      "family": "learning",
+      "category": "work/process",
+      "premise_identity": "story_premise_edu055_the_five_almost_finished_posters"
+    },
+    "EDU056": {
+      "title": "The Reversible Door",
+      "family": "learning",
+      "category": "work/process",
+      "premise_identity": "story_premise_edu056_the_reversible_door"
+    },
+    "EDU057": {
+      "title": "The Request That Grew Extra Wheels",
+      "family": "learning",
+      "category": "work/process",
+      "premise_identity": "story_premise_edu057_the_request_that_grew_extra_wheels"
+    },
+    "EDU058": {
+      "title": "The Assumption Under the Floor",
+      "family": "learning",
+      "category": "work/process",
+      "premise_identity": "story_premise_edu058_the_assumption_under_the_floor"
+    },
+    "EDU059": {
+      "title": "The Definition-of-Done Turnstile",
+      "family": "learning",
+      "category": "work/process",
+      "premise_identity": "story_premise_edu059_the_definition_of_done_turnstile"
+    },
+    "EDU060": {
+      "title": "The Retrospective Rewinds One Frame",
+      "family": "learning",
+      "category": "work/process",
+      "premise_identity": "story_premise_edu060_the_retrospective_rewinds_one_frame"
+    },
+    "EDU061": {
+      "title": "The Cupboard Behind the Cupboard",
+      "family": "learning",
+      "category": "home organization",
+      "premise_identity": "story_premise_edu061_the_cupboard_behind_the_cupboard"
+    },
+    "EDU062": {
+      "title": "The Keys Arrive Before the Search",
+      "family": "learning",
+      "category": "home organization",
+      "premise_identity": "story_premise_edu062_the_keys_arrive_before_the_search"
+    },
+    "EDU063": {
+      "title": "The Drawer That Counts Footprints",
+      "family": "learning",
+      "category": "home organization",
+      "premise_identity": "story_premise_edu063_the_drawer_that_counts_footprints"
+    },
+    "EDU064": {
+      "title": "The Cable Name Travels to Both Ends",
+      "family": "learning",
+      "category": "home organization",
+      "premise_identity": "story_premise_edu064_the_cable_name_travels_to_both_ends"
+    },
+    "EDU065": {
+      "title": "The Maybe Box Has a Date",
+      "family": "learning",
+      "category": "home organization",
+      "premise_identity": "story_premise_edu065_the_maybe_box_has_a_date"
+    },
+    "EDU066": {
+      "title": "The Borrowed Stapler Leaves a Shadow",
+      "family": "learning",
+      "category": "home organization",
+      "premise_identity": "story_premise_edu066_the_borrowed_stapler_leaves_a_shadow"
+    },
+    "EDU067": {
+      "title": "The Pantry Echo Purchase",
+      "family": "learning",
+      "category": "home organization",
+      "premise_identity": "story_premise_edu067_the_pantry_echo_purchase"
+    },
+    "EDU068": {
+      "title": "The Floor Cleaned Too Soon",
+      "family": "learning",
+      "category": "home organization",
+      "premise_identity": "story_premise_edu068_the_floor_cleaned_too_soon"
+    },
+    "EDU069": {
+      "title": "The Paper Lands in One Inbox",
+      "family": "learning",
+      "category": "home organization",
+      "premise_identity": "story_premise_edu069_the_paper_lands_in_one_inbox"
+    },
+    "EDU070": {
+      "title": "The Cabinet Door Needs Its Own Space",
+      "family": "learning",
+      "category": "home organization",
+      "premise_identity": "story_premise_edu070_the_cabinet_door_needs_its_own_space"
+    },
+    "EDU071": {
+      "title": "The Raindrop Has a Downhill Address",
+      "family": "learning",
+      "category": "environment/ecology",
+      "premise_identity": "story_premise_edu071_the_raindrop_has_a_downhill_address"
+    },
+    "EDU072": {
+      "title": "The Pollinator Has More Than One Stop",
+      "family": "learning",
+      "category": "environment/ecology",
+      "premise_identity": "story_premise_edu072_the_pollinator_has_more_than_one_stop"
+    },
+    "EDU073": {
+      "title": "The Habitat Islands Need a Crossing",
+      "family": "learning",
+      "category": "environment/ecology",
+      "premise_identity": "story_premise_edu073_the_habitat_islands_need_a_crossing"
+    },
+    "EDU074": {
+      "title": "The Fallen Leaf Changes Teams",
+      "family": "learning",
+      "category": "environment/ecology",
+      "premise_identity": "story_premise_edu074_the_fallen_leaf_changes_teams"
+    },
+    "EDU075": {
+      "title": "The Food Web Loses One Knot",
+      "family": "learning",
+      "category": "environment/ecology",
+      "premise_identity": "story_premise_edu075_the_food_web_loses_one_knot"
+    },
+    "EDU076": {
+      "title": "The Two Seasonal Clocks",
+      "family": "learning",
+      "category": "environment/ecology",
+      "premise_identity": "story_premise_edu076_the_two_seasonal_clocks"
+    },
+    "EDU077": {
+      "title": "The Shade Moves Across the Square",
+      "family": "learning",
+      "category": "environment/ecology",
+      "premise_identity": "story_premise_edu077_the_shade_moves_across_the_square"
+    },
+    "EDU078": {
+      "title": "The Hitchhiking Seed Trail",
+      "family": "learning",
+      "category": "environment/ecology",
+      "premise_identity": "story_premise_edu078_the_hitchhiking_seed_trail"
+    },
+    "EDU079": {
+      "title": "The Shopping Bag’s Hidden Timeline",
+      "family": "learning",
+      "category": "environment/ecology",
+      "premise_identity": "story_premise_edu079_the_shopping_bags_hidden_timeline"
+    },
+    "EDU080": {
+      "title": "The Night Map Gains a Dimmer",
+      "family": "learning",
+      "category": "environment/ecology",
+      "premise_identity": "story_premise_edu080_the_night_map_gains_a_dimmer"
+    },
+    "EDU081": {
+      "title": "The Caption That Lost the Speaker",
+      "family": "learning",
+      "category": "accessibility/inclusion",
+      "premise_identity": "story_premise_edu081_the_caption_that_lost_the_speaker"
+    },
+    "EDU082": {
+      "title": "The Chart Cannot Spend Color Twice",
+      "family": "learning",
+      "category": "accessibility/inclusion",
+      "premise_identity": "story_premise_edu082_the_chart_cannot_spend_color_twice"
+    },
+    "EDU083": {
+      "title": "The Keyboard Cursor Goes Missing",
+      "family": "learning",
+      "category": "accessibility/inclusion",
+      "premise_identity": "story_premise_edu083_the_keyboard_cursor_goes_missing"
+    },
+    "EDU084": {
+      "title": "The Motion Dial Keeps the Meaning",
+      "family": "learning",
+      "category": "accessibility/inclusion",
+      "premise_identity": "story_premise_edu084_the_motion_dial_keeps_the_meaning"
+    },
+    "EDU085": {
+      "title": "The Page Reads in a Different Order",
+      "family": "learning",
+      "category": "accessibility/inclusion",
+      "premise_identity": "story_premise_edu085_the_page_reads_in_a_different_order"
+    },
+    "EDU086": {
+      "title": "The Tiny Button Has Neighbors",
+      "family": "learning",
+      "category": "accessibility/inclusion",
+      "premise_identity": "story_premise_edu086_the_tiny_button_has_neighbors"
+    },
+    "EDU087": {
+      "title": "The Image Description Has a Job",
+      "family": "learning",
+      "category": "accessibility/inclusion",
+      "premise_identity": "story_premise_edu087_the_image_description_has_a_job"
+    },
+    "EDU088": {
+      "title": "The Timer Erases an Unfinished Form",
+      "family": "learning",
+      "category": "accessibility/inclusion",
+      "premise_identity": "story_premise_edu088_the_timer_erases_an_unfinished_form"
+    },
+    "EDU089": {
+      "title": "The Route Has More Than One Sense",
+      "family": "learning",
+      "category": "accessibility/inclusion",
+      "premise_identity": "story_premise_edu089_the_route_has_more_than_one_sense"
+    },
+    "EDU090": {
+      "title": "The Instruction Card Opens One Step",
+      "family": "learning",
+      "category": "accessibility/inclusion",
+      "premise_identity": "story_premise_edu090_the_instruction_card_opens_one_step"
+    },
+    "EDU091": {
+      "title": "The Address Bar Costume Party",
+      "family": "learning",
+      "category": "consumer digital literacy",
+      "premise_identity": "story_premise_edu091_the_address_bar_costume_party"
+    },
+    "EDU092": {
+      "title": "The Reused Key Opens Too Many Doors",
+      "family": "learning",
+      "category": "consumer digital literacy",
+      "premise_identity": "story_premise_edu092_the_reused_key_opens_too_many_doors"
+    },
+    "EDU093": {
+      "title": "The Sign-In Prompt Nobody Started",
+      "family": "learning",
+      "category": "consumer digital literacy",
+      "premise_identity": "story_premise_edu093_the_sign_in_prompt_nobody_started"
+    },
+    "EDU094": {
+      "title": "The Flashlight Asks for a Guest List",
+      "family": "learning",
+      "category": "consumer digital literacy",
+      "premise_identity": "story_premise_edu094_the_flashlight_asks_for_a_guest_list"
+    },
+    "EDU095": {
+      "title": "The Price Tag Has a Second Floor",
+      "family": "learning",
+      "category": "consumer digital literacy",
+      "premise_identity": "story_premise_edu095_the_price_tag_has_a_second_floor"
+    },
+    "EDU096": {
+      "title": "The Search Result Wears a Sponsor Badge",
+      "family": "learning",
+      "category": "consumer digital literacy",
+      "premise_identity": "story_premise_edu096_the_search_result_wears_a_sponsor_badge"
+    },
+    "EDU097": {
+      "title": "The Photograph Loses Its Calendar",
+      "family": "learning",
+      "category": "consumer digital literacy",
+      "premise_identity": "story_premise_edu097_the_photograph_loses_its_calendar"
+    },
+    "EDU098": {
+      "title": "The Update Window Arrives by the Wrong Door",
+      "family": "learning",
+      "category": "consumer digital literacy",
+      "premise_identity": "story_premise_edu098_the_update_window_arrives_by_the_wrong_door"
+    },
+    "EDU099": {
+      "title": "The Helpful Stranger Wants a Code",
+      "family": "learning",
+      "category": "consumer digital literacy",
+      "premise_identity": "story_premise_edu099_the_helpful_stranger_wants_a_code"
+    },
+    "EDU100": {
+      "title": "The Cloud Mirror Deletes Both Copies",
+      "family": "learning",
+      "category": "consumer digital literacy",
+      "premise_identity": "story_premise_edu100_the_cloud_mirror_deletes_both_copies"
+    },
+    "EDU101": {
+      "title": "The Exit Plan Meets a Blocked Line",
+      "family": "learning",
+      "category": "public safety/preparedness",
+      "premise_identity": "story_premise_edu101_the_exit_plan_meets_a_blocked_line"
+    },
+    "EDU102": {
+      "title": "The Contact Plan Has an Offline Copy",
+      "family": "learning",
+      "category": "public safety/preparedness",
+      "premise_identity": "story_premise_edu102_the_contact_plan_has_an_offline_copy"
+    },
+    "EDU103": {
+      "title": "The Alert Has a Date Stamp",
+      "family": "learning",
+      "category": "public safety/preparedness",
+      "premise_identity": "story_premise_edu103_the_alert_has_a_date_stamp"
+    },
+    "EDU104": {
+      "title": "The Kit Inventory Finds an Empty Slot",
+      "family": "learning",
+      "category": "public safety/preparedness",
+      "premise_identity": "story_premise_edu104_the_kit_inventory_finds_an_empty_slot"
+    },
+    "EDU105": {
+      "title": "The Alarm Reminder Outlasts the Beep",
+      "family": "learning",
+      "category": "public safety/preparedness",
+      "premise_identity": "story_premise_edu105_the_alarm_reminder_outlasts_the_beep"
+    },
+    "EDU106": {
+      "title": "The Wet Floor Warning Needs a Route",
+      "family": "learning",
+      "category": "public safety/preparedness",
+      "premise_identity": "story_premise_edu106_the_wet_floor_warning_needs_a_route"
+    },
+    "EDU107": {
+      "title": "The Bike Helmet Is Not a Costume",
+      "family": "learning",
+      "category": "public safety/preparedness",
+      "premise_identity": "story_premise_edu107_the_bike_helmet_is_not_a_costume"
+    },
+    "EDU108": {
+      "title": "The Flood Shortcut Stays Off the Map",
+      "family": "learning",
+      "category": "public safety/preparedness",
+      "premise_identity": "story_premise_edu108_the_flood_shortcut_stays_off_the_map"
+    },
+    "EDU109": {
+      "title": "The Emergency Address Has a Missing Piece",
+      "family": "learning",
+      "category": "public safety/preparedness",
+      "premise_identity": "story_premise_edu109_the_emergency_address_has_a_missing_piece"
+    },
+    "EDU110": {
+      "title": "The Drill Includes the Quiet Participant",
+      "family": "learning",
+      "category": "public safety/preparedness",
+      "premise_identity": "story_premise_edu110_the_drill_includes_the_quiet_participant"
+    },
+    "EDU111": {
+      "title": "The Gear Neighbors Turn Apart",
+      "family": "learning",
+      "category": "practical mechanisms",
+      "premise_identity": "story_premise_edu111_the_gear_neighbors_turn_apart"
+    },
+    "EDU112": {
+      "title": "The Pulley Trades Distance for Force",
+      "family": "learning",
+      "category": "practical mechanisms",
+      "premise_identity": "story_premise_edu112_the_pulley_trades_distance_for_force"
+    },
+    "EDU113": {
+      "title": "The Cam Writes a Jump",
+      "family": "learning",
+      "category": "practical mechanisms",
+      "premise_identity": "story_premise_edu113_the_cam_writes_a_jump"
+    },
+    "EDU114": {
+      "title": "The Crank’s Straight-Line Secret",
+      "family": "learning",
+      "category": "practical mechanisms",
+      "premise_identity": "story_premise_edu114_the_cranks_straight_line_secret"
+    },
+    "EDU115": {
+      "title": "The Screw Unrolls Into a Ramp",
+      "family": "learning",
+      "category": "practical mechanisms",
+      "premise_identity": "story_premise_edu115_the_screw_unrolls_into_a_ramp"
+    },
+    "EDU116": {
+      "title": "The Ratchet Refuses a Rewind",
+      "family": "learning",
+      "category": "practical mechanisms",
+      "premise_identity": "story_premise_edu116_the_ratchet_refuses_a_rewind"
+    },
+    "EDU117": {
+      "title": "The Scissor Platform Changes Shape",
+      "family": "learning",
+      "category": "practical mechanisms",
+      "premise_identity": "story_premise_edu117_the_scissor_platform_changes_shape"
+    },
+    "EDU118": {
+      "title": "The Zipper Slider Makes Two Paths Meet",
+      "family": "learning",
+      "category": "practical mechanisms",
+      "premise_identity": "story_premise_edu118_the_zipper_slider_makes_two_paths_meet"
+    },
+    "EDU119": {
+      "title": "The Siphon Drawing Has a Missing Condition",
+      "family": "learning",
+      "category": "practical mechanisms",
+      "premise_identity": "story_premise_edu119_the_siphon_drawing_has_a_missing_condition"
+    },
+    "EDU120": {
+      "title": "The Lever’s Balance Point Moves",
+      "family": "learning",
+      "category": "practical mechanisms",
+      "premise_identity": "story_premise_edu120_the_levers_balance_point_moves"
+    },
+    "ENT001": {
+      "title": "The Runaway Finish Line",
+      "family": "fiction",
+      "category": "physical comedy",
+      "premise_identity": "story_premise_ent001_the_runaway_finish_line"
+    },
+    "ENT002": {
+      "title": "One Sock, Maximum Drama",
+      "family": "fiction",
+      "category": "physical comedy",
+      "premise_identity": "story_premise_ent002_one_sock_maximum_drama"
+    },
+    "ENT003": {
+      "title": "The Invisible Bench Audition",
+      "family": "fiction",
+      "category": "physical comedy",
+      "premise_identity": "story_premise_ent003_the_invisible_bench_audition"
+    },
+    "ENT004": {
+      "title": "The Pocket Full of Applause",
+      "family": "fiction",
+      "category": "physical comedy",
+      "premise_identity": "story_premise_ent004_the_pocket_full_of_applause"
+    },
+    "ENT005": {
+      "title": "The Umbrella Under the Rain",
+      "family": "fiction",
+      "category": "physical comedy",
+      "premise_identity": "story_premise_ent005_the_umbrella_under_the_rain"
+    },
+    "ENT006": {
+      "title": "The Long Scarf Shortcut",
+      "family": "fiction",
+      "category": "physical comedy",
+      "premise_identity": "story_premise_ent006_the_long_scarf_shortcut"
+    },
+    "ENT007": {
+      "title": "The Stubborn Confetti Cannon",
+      "family": "fiction",
+      "category": "physical comedy",
+      "premise_identity": "story_premise_ent007_the_stubborn_confetti_cannon"
+    },
+    "ENT008": {
+      "title": "The Polite Bowling Ball",
+      "family": "fiction",
+      "category": "physical comedy",
+      "premise_identity": "story_premise_ent008_the_polite_bowling_ball"
+    },
+    "ENT009": {
+      "title": "The Hat That Needed a Chair",
+      "family": "fiction",
+      "category": "physical comedy",
+      "premise_identity": "story_premise_ent009_the_hat_that_needed_a_chair"
+    },
+    "ENT010": {
+      "title": "The Overenthusiastic Echo",
+      "family": "fiction",
+      "category": "physical comedy",
+      "premise_identity": "story_premise_ent010_the_overenthusiastic_echo"
+    },
+    "ENT011": {
+      "title": "The Trophy Nobody Can Lift",
+      "family": "fiction",
+      "category": "two-person rivalry",
+      "premise_identity": "story_premise_ent011_the_trophy_nobody_can_lift"
+    },
+    "ENT012": {
+      "title": "The Quietest Drum Solo",
+      "family": "fiction",
+      "category": "two-person rivalry",
+      "premise_identity": "story_premise_ent012_the_quietest_drum_solo"
+    },
+    "ENT013": {
+      "title": "The Best Empty Frame",
+      "family": "fiction",
+      "category": "two-person rivalry",
+      "premise_identity": "story_premise_ent013_the_best_empty_frame"
+    },
+    "ENT014": {
+      "title": "The Queue-Cutting Chess Match",
+      "family": "fiction",
+      "category": "two-person rivalry",
+      "premise_identity": "story_premise_ent014_the_queue_cutting_chess_match"
+    },
+    "ENT015": {
+      "title": "The Shadow Race",
+      "family": "fiction",
+      "category": "two-person rivalry",
+      "premise_identity": "story_premise_ent015_the_shadow_race"
+    },
+    "ENT016": {
+      "title": "The Last Word Balloon",
+      "family": "fiction",
+      "category": "two-person rivalry",
+      "premise_identity": "story_premise_ent016_the_last_word_balloon"
+    },
+    "ENT017": {
+      "title": "The Perfect Snowman Symmetry War",
+      "family": "fiction",
+      "category": "two-person rivalry",
+      "premise_identity": "story_premise_ent017_the_perfect_snowman_symmetry_war"
+    },
+    "ENT018": {
+      "title": "The Rival Weather Forecasts",
+      "family": "fiction",
+      "category": "two-person rivalry",
+      "premise_identity": "story_premise_ent018_the_rival_weather_forecasts"
+    },
+    "ENT019": {
+      "title": "The Bigger Welcome Mat",
+      "family": "fiction",
+      "category": "two-person rivalry",
+      "premise_identity": "story_premise_ent019_the_bigger_welcome_mat"
+    },
+    "ENT020": {
+      "title": "The Most Modest Medal",
+      "family": "fiction",
+      "category": "two-person rivalry",
+      "premise_identity": "story_premise_ent020_the_most_modest_medal"
+    },
+    "ENT021": {
+      "title": "Two Ends of the Map",
+      "family": "fiction",
+      "category": "cooperation",
+      "premise_identity": "story_premise_ent021_two_ends_of_the_map"
+    },
+    "ENT022": {
+      "title": "The Table With Three Corners",
+      "family": "fiction",
+      "category": "cooperation",
+      "premise_identity": "story_premise_ent022_the_table_with_three_corners"
+    },
+    "ENT023": {
+      "title": "The Bridge of Pauses",
+      "family": "fiction",
+      "category": "cooperation",
+      "premise_identity": "story_premise_ent023_the_bridge_of_pauses"
+    },
+    "ENT024": {
+      "title": "The Giant Tiny Letter",
+      "family": "fiction",
+      "category": "cooperation",
+      "premise_identity": "story_premise_ent024_the_giant_tiny_letter"
+    },
+    "ENT025": {
+      "title": "The Lantern Relay",
+      "family": "fiction",
+      "category": "cooperation",
+      "premise_identity": "story_premise_ent025_the_lantern_relay"
+    },
+    "ENT026": {
+      "title": "The Orchestra of One Note Each",
+      "family": "fiction",
+      "category": "cooperation",
+      "premise_identity": "story_premise_ent026_the_orchestra_of_one_note_each"
+    },
+    "ENT027": {
+      "title": "The Painting Nobody Can See Whole",
+      "family": "fiction",
+      "category": "cooperation",
+      "premise_identity": "story_premise_ent027_the_painting_nobody_can_see_whole"
+    },
+    "ENT028": {
+      "title": "The Backpack Swap",
+      "family": "fiction",
+      "category": "cooperation",
+      "premise_identity": "story_premise_ent028_the_backpack_swap"
+    },
+    "ENT029": {
+      "title": "The Audience-Powered Curtain",
+      "family": "fiction",
+      "category": "cooperation",
+      "premise_identity": "story_premise_ent029_the_audience_powered_curtain"
+    },
+    "ENT030": {
+      "title": "The Last Patch of Shade",
+      "family": "fiction",
+      "category": "cooperation",
+      "premise_identity": "story_premise_ent030_the_last_patch_of_shade"
+    },
+    "ENT031": {
+      "title": "Across the Breakfast Canyon",
+      "family": "fiction",
+      "category": "miniature adventure",
+      "premise_identity": "story_premise_ent031_across_the_breakfast_canyon"
+    },
+    "ENT032": {
+      "title": "The Sweater Mountain Rescue",
+      "family": "fiction",
+      "category": "miniature adventure",
+      "premise_identity": "story_premise_ent032_the_sweater_mountain_rescue"
+    },
+    "ENT033": {
+      "title": "The Printer-Paper Waterfall",
+      "family": "fiction",
+      "category": "miniature adventure",
+      "premise_identity": "story_premise_ent033_the_printer_paper_waterfall"
+    },
+    "ENT034": {
+      "title": "The Button Garden Expedition",
+      "family": "fiction",
+      "category": "miniature adventure",
+      "premise_identity": "story_premise_ent034_the_button_garden_expedition"
+    },
+    "ENT035": {
+      "title": "The Library Shelf Migration",
+      "family": "fiction",
+      "category": "miniature adventure",
+      "premise_identity": "story_premise_ent035_the_library_shelf_migration"
+    },
+    "ENT036": {
+      "title": "The Teacup Lighthouse",
+      "family": "fiction",
+      "category": "miniature adventure",
+      "premise_identity": "story_premise_ent036_the_teacup_lighthouse"
+    },
+    "ENT037": {
+      "title": "The Pencil-Shaving Spiral",
+      "family": "fiction",
+      "category": "miniature adventure",
+      "premise_identity": "story_premise_ent037_the_pencil_shaving_spiral"
+    },
+    "ENT038": {
+      "title": "The Sock-Drawer Northern Lights",
+      "family": "fiction",
+      "category": "miniature adventure",
+      "premise_identity": "story_premise_ent038_the_sock_drawer_northern_lights"
+    },
+    "ENT039": {
+      "title": "The Record-Groove Express",
+      "family": "fiction",
+      "category": "miniature adventure",
+      "premise_identity": "story_premise_ent039_the_record_groove_express"
+    },
+    "ENT040": {
+      "title": "The Umbrella-Rib Observatory",
+      "family": "fiction",
+      "category": "miniature adventure",
+      "premise_identity": "story_premise_ent040_the_umbrella_rib_observatory"
+    },
+    "ENT041": {
+      "title": "The Staircase That Unpacks Itself",
+      "family": "fiction",
+      "category": "block-world chain reactions",
+      "premise_identity": "story_premise_ent041_the_staircase_that_unpacks_itself"
+    },
+    "ENT042": {
+      "title": "The Rain-Sorting Rooftops",
+      "family": "fiction",
+      "category": "block-world chain reactions",
+      "premise_identity": "story_premise_ent042_the_rain_sorting_rooftops"
+    },
+    "ENT043": {
+      "title": "The Festival of Falling Curtains",
+      "family": "fiction",
+      "category": "block-world chain reactions",
+      "premise_identity": "story_premise_ent043_the_festival_of_falling_curtains"
+    },
+    "ENT044": {
+      "title": "The Ice-Cube Post Office",
+      "family": "fiction",
+      "category": "block-world chain reactions",
+      "premise_identity": "story_premise_ent044_the_ice_cube_post_office"
+    },
+    "ENT045": {
+      "title": "The Block City Night Wave",
+      "family": "fiction",
+      "category": "block-world chain reactions",
+      "premise_identity": "story_premise_ent045_the_block_city_night_wave"
+    },
+    "ENT046": {
+      "title": "The Returning Picnic Table",
+      "family": "fiction",
+      "category": "block-world chain reactions",
+      "premise_identity": "story_premise_ent046_the_returning_picnic_table"
+    },
+    "ENT047": {
+      "title": "The Dandelion Launch Network",
+      "family": "fiction",
+      "category": "block-world chain reactions",
+      "premise_identity": "story_premise_ent047_the_dandelion_launch_network"
+    },
+    "ENT048": {
+      "title": "The Spiral Library Return",
+      "family": "fiction",
+      "category": "block-world chain reactions",
+      "premise_identity": "story_premise_ent048_the_spiral_library_return"
+    },
+    "ENT049": {
+      "title": "The Kite That Rebuilt the Skyline",
+      "family": "fiction",
+      "category": "block-world chain reactions",
+      "premise_identity": "story_premise_ent049_the_kite_that_rebuilt_the_skyline"
+    },
+    "ENT050": {
+      "title": "The Marble Museum Tour",
+      "family": "fiction",
+      "category": "block-world chain reactions",
+      "premise_identity": "story_premise_ent050_the_marble_museum_tour"
+    },
+    "ENT051": {
+      "title": "The Three-Lamp Switch Dance",
+      "family": "fiction",
+      "category": "mechanical puzzles",
+      "premise_identity": "story_premise_ent051_the_three_lamp_switch_dance"
+    },
+    "ENT052": {
+      "title": "The Lift to Floor Seven",
+      "family": "fiction",
+      "category": "mechanical puzzles",
+      "premise_identity": "story_premise_ent052_the_lift_to_floor_seven"
+    },
+    "ENT053": {
+      "title": "The Token Ferry",
+      "family": "fiction",
+      "category": "mechanical puzzles",
+      "premise_identity": "story_premise_ent053_the_token_ferry"
+    },
+    "ENT054": {
+      "title": "The Five-Block Balance",
+      "family": "fiction",
+      "category": "mechanical puzzles",
+      "premise_identity": "story_premise_ent054_the_five_block_balance"
+    },
+    "ENT055": {
+      "title": "The One-Cell Traffic Jam",
+      "family": "fiction",
+      "category": "mechanical puzzles",
+      "premise_identity": "story_premise_ent055_the_one_cell_traffic_jam"
+    },
+    "ENT056": {
+      "title": "Two Reversals Make a Return",
+      "family": "fiction",
+      "category": "mechanical puzzles",
+      "premise_identity": "story_premise_ent056_two_reversals_make_a_return"
+    },
+    "ENT057": {
+      "title": "The Two-Weight Elevator",
+      "family": "fiction",
+      "category": "mechanical puzzles",
+      "premise_identity": "story_premise_ent057_the_two_weight_elevator"
+    },
+    "ENT058": {
+      "title": "The Spiral Lock That Shows Its Work",
+      "family": "fiction",
+      "category": "mechanical puzzles",
+      "premise_identity": "story_premise_ent058_the_spiral_lock_that_shows_its_work"
+    },
+    "ENT059": {
+      "title": "The Nine-Tile Mosaic",
+      "family": "fiction",
+      "category": "mechanical puzzles",
+      "premise_identity": "story_premise_ent059_the_nine_tile_mosaic"
+    },
+    "ENT060": {
+      "title": "The Finite Spring Finale",
+      "family": "fiction",
+      "category": "mechanical puzzles",
+      "premise_identity": "story_premise_ent060_the_finite_spring_finale"
+    },
+    "ENT061": {
+      "title": "The Missing Circle Is a Hole",
+      "family": "fiction",
+      "category": "perception and hidden objects",
+      "premise_identity": "story_premise_ent061_the_missing_circle_is_a_hole"
+    },
+    "ENT062": {
+      "title": "The Giant Footprint Close-Up",
+      "family": "fiction",
+      "category": "perception and hidden objects",
+      "premise_identity": "story_premise_ent062_the_giant_footprint_close_up"
+    },
+    "ENT063": {
+      "title": "The Camouflage Coat Check",
+      "family": "fiction",
+      "category": "perception and hidden objects",
+      "premise_identity": "story_premise_ent063_the_camouflage_coat_check"
+    },
+    "ENT064": {
+      "title": "The Shadow With an Extra Arm",
+      "family": "fiction",
+      "category": "perception and hidden objects",
+      "premise_identity": "story_premise_ent064_the_shadow_with_an_extra_arm"
+    },
+    "ENT065": {
+      "title": "The Treasure Beneath the Caption",
+      "family": "fiction",
+      "category": "perception and hidden objects",
+      "premise_identity": "story_premise_ent065_the_treasure_beneath_the_caption"
+    },
+    "ENT066": {
+      "title": "The Four Rotations Portrait",
+      "family": "fiction",
+      "category": "perception and hidden objects",
+      "premise_identity": "story_premise_ent066_the_four_rotations_portrait"
+    },
+    "ENT067": {
+      "title": "The Ten Squares in the Window",
+      "family": "fiction",
+      "category": "perception and hidden objects",
+      "premise_identity": "story_premise_ent067_the_ten_squares_in_the_window"
+    },
+    "ENT068": {
+      "title": "The Vanishing Stripe Train",
+      "family": "fiction",
+      "category": "perception and hidden objects",
+      "premise_identity": "story_premise_ent068_the_vanishing_stripe_train"
+    },
+    "ENT069": {
+      "title": "The Lost Star in the Dance",
+      "family": "fiction",
+      "category": "perception and hidden objects",
+      "premise_identity": "story_premise_ent069_the_lost_star_in_the_dance"
+    },
+    "ENT070": {
+      "title": "The Arrow That Was a Fish",
+      "family": "fiction",
+      "category": "perception and hidden objects",
+      "premise_identity": "story_premise_ent070_the_arrow_that_was_a_fish"
+    },
+    "ENT071": {
+      "title": "The Empty Seat Sketch",
+      "family": "fiction",
+      "category": "silent emotional stories",
+      "premise_identity": "story_premise_ent071_the_empty_seat_sketch"
+    },
+    "ENT072": {
+      "title": "The Umbrella Left Open",
+      "family": "fiction",
+      "category": "silent emotional stories",
+      "premise_identity": "story_premise_ent072_the_umbrella_left_open"
+    },
+    "ENT073": {
+      "title": "The Line Across Two Windows",
+      "family": "fiction",
+      "category": "silent emotional stories",
+      "premise_identity": "story_premise_ent073_the_line_across_two_windows"
+    },
+    "ENT074": {
+      "title": "The Scuffed Dance Floor",
+      "family": "fiction",
+      "category": "silent emotional stories",
+      "premise_identity": "story_premise_ent074_the_scuffed_dance_floor"
+    },
+    "ENT075": {
+      "title": "The Tiny Birthday Candle",
+      "family": "fiction",
+      "category": "silent emotional stories",
+      "premise_identity": "story_premise_ent075_the_tiny_birthday_candle"
+    },
+    "ENT076": {
+      "title": "The Raincoat Patch",
+      "family": "fiction",
+      "category": "silent emotional stories",
+      "premise_identity": "story_premise_ent076_the_raincoat_patch"
+    },
+    "ENT077": {
+      "title": "The Last Note on the Bench",
+      "family": "fiction",
+      "category": "silent emotional stories",
+      "premise_identity": "story_premise_ent077_the_last_note_on_the_bench"
+    },
+    "ENT078": {
+      "title": "The Plant That Leaned Toward Two Desks",
+      "family": "fiction",
+      "category": "silent emotional stories",
+      "premise_identity": "story_premise_ent078_the_plant_that_leaned_toward_two_desks"
+    },
+    "ENT079": {
+      "title": "The Pocket-Sized Home",
+      "family": "fiction",
+      "category": "silent emotional stories",
+      "premise_identity": "story_premise_ent079_the_pocket_sized_home"
+    },
+    "ENT080": {
+      "title": "The Kite String That Stayed",
+      "family": "fiction",
+      "category": "silent emotional stories",
+      "premise_identity": "story_premise_ent080_the_kite_string_that_stayed"
+    },
+    "ENT081": {
+      "title": "The Draft That Ate the Deadline",
+      "family": "fiction",
+      "category": "creative-work struggles",
+      "premise_identity": "story_premise_ent081_the_draft_that_ate_the_deadline"
+    },
+    "ENT082": {
+      "title": "The Placeholder King",
+      "family": "fiction",
+      "category": "creative-work struggles",
+      "premise_identity": "story_premise_ent082_the_placeholder_king"
+    },
+    "ENT083": {
+      "title": "The Eraser’s Overtime",
+      "family": "fiction",
+      "category": "creative-work struggles",
+      "premise_identity": "story_premise_ent083_the_erasers_overtime"
+    },
+    "ENT084": {
+      "title": "The Soundtrack Before the Footstep",
+      "family": "fiction",
+      "category": "creative-work struggles",
+      "premise_identity": "story_premise_ent084_the_soundtrack_before_the_footstep"
+    },
+    "ENT085": {
+      "title": "The Reference Pile Avalanche",
+      "family": "fiction",
+      "category": "creative-work struggles",
+      "premise_identity": "story_premise_ent085_the_reference_pile_avalanche"
+    },
+    "ENT086": {
+      "title": "The Progress Bar Painter",
+      "family": "fiction",
+      "category": "creative-work struggles",
+      "premise_identity": "story_premise_ent086_the_progress_bar_painter"
+    },
+    "ENT087": {
+      "title": "The Camera That Would Not Sit Still",
+      "family": "fiction",
+      "category": "creative-work struggles",
+      "premise_identity": "story_premise_ent087_the_camera_that_would_not_sit_still"
+    },
+    "ENT088": {
+      "title": "The Font Committee",
+      "family": "fiction",
+      "category": "creative-work struggles",
+      "premise_identity": "story_premise_ent088_the_font_committee"
+    },
+    "ENT089": {
+      "title": "The Render Queue Picnic",
+      "family": "fiction",
+      "category": "creative-work struggles",
+      "premise_identity": "story_premise_ent089_the_render_queue_picnic"
+    },
+    "ENT090": {
+      "title": "The Sequel Before Scene One",
+      "family": "fiction",
+      "category": "creative-work struggles",
+      "premise_identity": "story_premise_ent090_the_sequel_before_scene_one"
+    },
+    "ENT091": {
+      "title": "The Mug Handle Treaty",
+      "family": "fiction",
+      "category": "everyday microdramas",
+      "premise_identity": "story_premise_ent091_the_mug_handle_treaty"
+    },
+    "ENT092": {
+      "title": "The Laundry Label Mystery",
+      "family": "fiction",
+      "category": "everyday microdramas",
+      "premise_identity": "story_premise_ent092_the_laundry_label_mystery"
+    },
+    "ENT093": {
+      "title": "The Shopping List Origami",
+      "family": "fiction",
+      "category": "everyday microdramas",
+      "premise_identity": "story_premise_ent093_the_shopping_list_origami"
+    },
+    "ENT094": {
+      "title": "The Elevator Button Courtesy Loop",
+      "family": "fiction",
+      "category": "everyday microdramas",
+      "premise_identity": "story_premise_ent094_the_elevator_button_courtesy_loop"
+    },
+    "ENT095": {
+      "title": "The Perfectly Timed Toast",
+      "family": "fiction",
+      "category": "everyday microdramas",
+      "premise_identity": "story_premise_ent095_the_perfectly_timed_toast"
+    },
+    "ENT096": {
+      "title": "The Key That Lived in the Other Pocket",
+      "family": "fiction",
+      "category": "everyday microdramas",
+      "premise_identity": "story_premise_ent096_the_key_that_lived_in_the_other_pocket"
+    },
+    "ENT097": {
+      "title": "The Plant-Watering Calendar Duel",
+      "family": "fiction",
+      "category": "everyday microdramas",
+      "premise_identity": "story_premise_ent097_the_plant_watering_calendar_duel"
+    },
+    "ENT098": {
+      "title": "The Blanket Border Negotiation",
+      "family": "fiction",
+      "category": "everyday microdramas",
+      "premise_identity": "story_premise_ent098_the_blanket_border_negotiation"
+    },
+    "ENT099": {
+      "title": "The Queue Number on the Wrong Side",
+      "family": "fiction",
+      "category": "everyday microdramas",
+      "premise_identity": "story_premise_ent099_the_queue_number_on_the_wrong_side"
+    },
+    "ENT100": {
+      "title": "The One-Trip Grocery Pride",
+      "family": "fiction",
+      "category": "everyday microdramas",
+      "premise_identity": "story_premise_ent100_the_one_trip_grocery_pride"
+    },
+    "ENT101": {
+      "title": "The Moon’s Lost Appointment",
+      "family": "fiction",
+      "category": "fantasy and science fiction",
+      "premise_identity": "story_premise_ent101_the_moons_lost_appointment"
+    },
+    "ENT102": {
+      "title": "The Robot Who Collected Exceptions",
+      "family": "fiction",
+      "category": "fantasy and science fiction",
+      "premise_identity": "story_premise_ent102_the_robot_who_collected_exceptions"
+    },
+    "ENT103": {
+      "title": "The Planet With a Pause Button",
+      "family": "fiction",
+      "category": "fantasy and science fiction",
+      "premise_identity": "story_premise_ent103_the_planet_with_a_pause_button"
+    },
+    "ENT104": {
+      "title": "The Dragon’s Paperwork Breeze",
+      "family": "fiction",
+      "category": "fantasy and science fiction",
+      "premise_identity": "story_premise_ent104_the_dragons_paperwork_breeze"
+    },
+    "ENT105": {
+      "title": "The Comet Tail Repair Shop",
+      "family": "fiction",
+      "category": "fantasy and science fiction",
+      "premise_identity": "story_premise_ent105_the_comet_tail_repair_shop"
+    },
+    "ENT106": {
+      "title": "The Memory Cloud Weather Report",
+      "family": "fiction",
+      "category": "fantasy and science fiction",
+      "premise_identity": "story_premise_ent106_the_memory_cloud_weather_report"
+    },
+    "ENT107": {
+      "title": "The Time Machine With a Receipt",
+      "family": "fiction",
+      "category": "fantasy and science fiction",
+      "premise_identity": "story_premise_ent107_the_time_machine_with_a_receipt"
+    },
+    "ENT108": {
+      "title": "The Alien Who Bought a Reflection",
+      "family": "fiction",
+      "category": "fantasy and science fiction",
+      "premise_identity": "story_premise_ent108_the_alien_who_bought_a_reflection"
+    },
+    "ENT109": {
+      "title": "The Space Station’s Missing Down",
+      "family": "fiction",
+      "category": "fantasy and science fiction",
+      "premise_identity": "story_premise_ent109_the_space_stations_missing_down"
+    },
+    "ENT110": {
+      "title": "The Wish That Needed a Verb",
+      "family": "fiction",
+      "category": "fantasy and science fiction",
+      "premise_identity": "story_premise_ent110_the_wish_that_needed_a_verb"
+    },
+    "ENT111": {
+      "title": "The Sign at Knee Height",
+      "family": "fiction",
+      "category": "positive public good",
+      "premise_identity": "story_premise_ent111_the_sign_at_knee_height"
+    },
+    "ENT112": {
+      "title": "The Shared Tool’s Return Ticket",
+      "family": "fiction",
+      "category": "positive public good",
+      "premise_identity": "story_premise_ent112_the_shared_tools_return_ticket"
+    },
+    "ENT113": {
+      "title": "The Bench With Room for the Bag",
+      "family": "fiction",
+      "category": "positive public good",
+      "premise_identity": "story_premise_ent113_the_bench_with_room_for_the_bag"
+    },
+    "ENT114": {
+      "title": "The Library Book That Came With a Map",
+      "family": "fiction",
+      "category": "positive public good",
+      "premise_identity": "story_premise_ent114_the_library_book_that_came_with_a_map"
+    },
+    "ENT115": {
+      "title": "The Repair Fair’s Little Waiting Chair",
+      "family": "fiction",
+      "category": "positive public good",
+      "premise_identity": "story_premise_ent115_the_repair_fairs_little_waiting_chair"
+    },
+    "ENT116": {
+      "title": "The Quiet Corner Flag",
+      "family": "fiction",
+      "category": "positive public good",
+      "premise_identity": "story_premise_ent116_the_quiet_corner_flag"
+    },
+    "ENT117": {
+      "title": "The Dropped Pencil Relay",
+      "family": "fiction",
+      "category": "positive public good",
+      "premise_identity": "story_premise_ent117_the_dropped_pencil_relay"
+    },
+    "ENT118": {
+      "title": "The Lost-and-Found Silhouette",
+      "family": "fiction",
+      "category": "positive public good",
+      "premise_identity": "story_premise_ent118_the_lost_and_found_silhouette"
+    },
+    "ENT119": {
+      "title": "The Sidewalk Chalk Detour",
+      "family": "fiction",
+      "category": "positive public good",
+      "premise_identity": "story_premise_ent119_the_sidewalk_chalk_detour"
+    },
+    "ENT120": {
+      "title": "The Community Noticeboard’s Empty Square",
+      "family": "fiction",
+      "category": "positive public good",
+      "premise_identity": "story_premise_ent120_the_community_noticeboards_empty_square"
+    }
+  },
+  "formats": {
+    "F01": {
+      "format": "One mechanism explained",
+      "structure": "A question, visible cause, resulting change, bounded takeaway.",
+      "fit": "Learning",
+      "gate": "Show a single causal chain and state model limits.",
+      "original_proposed_duration": "45–75 seconds"
+    },
+    "F02": {
+      "format": "Pause and predict",
+      "structure": "Setup, fair question, quiet thinking beat, result, explanation.",
+      "fit": "Learning",
+      "gate": "Do not use guessing to teach emergency response.",
+      "original_proposed_duration": "40–70 seconds"
+    },
+    "F03": {
+      "format": "Worked scenario",
+      "structure": "A concrete starting state, two or three decisions, checked outcome.",
+      "fit": "Learning",
+      "gate": "Verify every instructional step against the chosen source.",
+      "original_proposed_duration": "60–90 seconds"
+    },
+    "F04": {
+      "format": "Controlled contrast",
+      "structure": "Matched conditions, one stated difference, observed consequence.",
+      "fit": "Learning",
+      "gate": "Counterfactual outcomes remain hypotheses until validated.",
+      "original_proposed_duration": "45–75 seconds"
+    },
+    "F05": {
+      "format": "Trace the cause",
+      "structure": "Show an outcome, inspect clues backward, replay the verified chain.",
+      "fit": "Learning",
+      "gate": "Sequence must support causality rather than merely correlation.",
+      "original_proposed_duration": "50–80 seconds"
+    },
+    "F06": {
+      "format": "Character fable",
+      "structure": "A want, obstacle, choice, consequence and closing image.",
+      "fit": "Fiction",
+      "gate": "A lesson is a theme, not evidence for a general factual claim.",
+      "original_proposed_duration": "45–90 seconds"
+    },
+    "F07": {
+      "format": "Two-choice dilemma",
+      "structure": "The protagonist faces two costs and commits to one path.",
+      "fit": "Fiction",
+      "gate": "Both branches must be plausible within the established world.",
+      "original_proposed_duration": "45–75 seconds"
+    },
+    "F08": {
+      "format": "Dramatic irony",
+      "structure": "The viewer sees a clue the character misses until the payoff.",
+      "fit": "Fiction",
+      "gate": "Stage clues fairly and avoid a hidden last-second solution.",
+      "original_proposed_duration": "40–75 seconds"
+    },
+    "F09": {
+      "format": "Visual comedy chain",
+      "structure": "A simple task escalates through linked attempts and resolves.",
+      "fit": "Fiction",
+      "gate": "Every gag should follow from the previous action.",
+      "original_proposed_duration": "30–65 seconds"
+    },
+    "F10": {
+      "format": "Object's-eye retelling",
+      "structure": "Retell a causal scene from a prop or helper's perspective.",
+      "fit": "Fiction",
+      "gate": "Change information and emphasis, not merely narration wording.",
+      "original_proposed_duration": "45–75 seconds"
+    },
+    "F11": {
+      "format": "Layer breakdown",
+      "structure": "A finished original composition separates into actual useful layers.",
+      "fit": "Production",
+      "gate": "Only use source layers that really exist.",
+      "original_proposed_duration": "40–75 seconds"
+    },
+    "F12": {
+      "format": "Tiny world journey",
+      "structure": "A traveler crosses a coherent miniature environment.",
+      "fit": "Spatial story",
+      "gate": "Preserve scale, route continuity and contact.",
+      "original_proposed_duration": "45–90 seconds"
+    },
+    "F13": {
+      "format": "Guess the place",
+      "structure": "Progressive sourced visual clues lead to one defensible answer.",
+      "fit": "Geography",
+      "gate": "Use verified place identity and rights-cleared imagery.",
+      "original_proposed_duration": "45–75 seconds"
+    },
+    "F14": {
+      "format": "Repair clinic",
+      "structure": "A symptom, diagnostic check, change and rechecked result.",
+      "fit": "Troubleshooting",
+      "gate": "Distinguish observed repair from proposed fix.",
+      "original_proposed_duration": "60–90 seconds"
+    },
+    "F15": {
+      "format": "Myth and boundary",
+      "structure": "A bounded claim is tested and its exceptions are explained.",
+      "fit": "Fact review",
+      "gate": "Requires primary evidence; do not invent a popular myth.",
+      "original_proposed_duration": "60–90 seconds"
+    },
+    "F16": {
+      "format": "Sound-first story",
+      "structure": "Original audio establishes a pattern that visual action transforms.",
+      "fit": "Audio fiction",
+      "gate": "Rights, accessibility and mix are separate checks.",
+      "original_proposed_duration": "30–70 seconds"
+    },
+    "F17": {
+      "format": "One object anthology",
+      "structure": "A recurring prop appears in genuinely different original conflicts.",
+      "fit": "Fiction series",
+      "gate": "Each episode needs its own premise and resolution.",
+      "original_proposed_duration": "45–75 seconds"
+    },
+    "F18": {
+      "format": "Build and inspect",
+      "structure": "A modeled object is assembled, rotated and checked.",
+      "fit": "Making",
+      "gate": "Distinguish illustrative assembly from safe build instructions.",
+      "original_proposed_duration": "60–90 seconds"
+    },
+    "F19": {
+      "format": "Data question",
+      "structure": "A sourced dataset answers a bounded question with visible units.",
+      "fit": "Data learning",
+      "gate": "Check denominator, scope, date and interpolation.",
+      "original_proposed_duration": "45–90 seconds"
+    },
+    "F20": {
+      "format": "Two representations",
+      "structure": "The same mechanism alternates between schematic and tangible views.",
+      "fit": "Learning",
+      "gate": "Keep correspondences exact and disclose simplifications.",
+      "original_proposed_duration": "50–80 seconds"
+    }
+  },
+  "approaches": {
+    "A01": {
+      "approach": "Articulated vector evidence",
+      "construction": "Use original articulated line characters, crisp props and explicit highlights. Keep one causal relationship legible at a time.",
+      "communicative_difference": "Emphasizes symbolic relationships, exact matching and readable cause/effect without depth distractions.",
+      "gate": "Rig contacts, text layout and every diagram relationship must be checked; this is 2D animation."
+    },
+    "A02": {
+      "approach": "Sketch and cutaway explanation",
+      "construction": "Stage the same action as a drawn field-note sequence. Add traces, section views and short observations in the order they are needed.",
+      "communicative_difference": "Makes reasoning and uncertainty visible through progressive construction, rather than presenting only the final state.",
+      "gate": "Verify stroke order, annotation tracking and model limits. Rough strokes must never change factual geometry."
+    },
+    "A03": {
+      "approach": "Tactile miniature staging",
+      "construction": "Build the scene with original volumetric props and grounded characters, then use lighting, contact and a restrained camera to show the same conflict.",
+      "communicative_difference": "Emphasizes embodied effort, occlusion and spatial consequences that the diagrammatic view abstracts.",
+      "gate": "Requires a real 3D scene, alternate-angle check, contact/shadow review and source reopening. Blockbench is a research-only asset option."
+    },
+    "A04": {
+      "approach": "Layered 2.5D illustrated stage",
+      "construction": "Create original foreground, character, prop and background planes with meaningful depth order. Use gentle parallax, grounded articulation and explicit masks to stage the existing story.",
+      "communicative_difference": "Emphasizes layered attention, a rich setting and a gradual foreground/background discovery while retaining the readability of illustration.",
+      "gate": "This is 2.5D, not true volumetric 3D. Check masks, disocclusion gaps, foot anchors, occlusion order, scene-space transforms and every texture license."
+    }
+  },
+  "intros": {
+    "I01": {
+      "intro": "Frozen consequence",
+      "first_frame": "A toppled original prop fills the frame.",
+      "action": "Hold briefly, trace back to the initiating contact.",
+      "text_seed": "What moved first?",
+      "sound": "One soft impact, then quiet.",
+      "fit": "Causality; fiction; troubleshooting"
+    },
+    "I02": {
+      "intro": "Two synchronized worlds",
+      "first_frame": "The same simple setup appears left and right.",
+      "action": "Both begin together; a single changed parameter is highlighted.",
+      "text_seed": "One change. Two outcomes.",
+      "sound": "Shared pulse with separate result accents.",
+      "fit": "Comparison"
+    },
+    "I03": {
+      "intro": "Traveling question",
+      "first_frame": "A small character crosses a richly rendered scene toward an obstacle.",
+      "action": "Camera tracks at walking speed and settles before the decision.",
+      "text_seed": "How will they get across?",
+      "sound": "Footsteps and low music bed.",
+      "fit": "Fiction; spatial explanation"
+    },
+    "I04": {
+      "intro": "Object silhouette",
+      "first_frame": "An honest silhouette appears on a textured stage.",
+      "action": "Light rotates slowly while the camera stays fixed.",
+      "text_seed": "What could this be?",
+      "sound": "Subtle light-switch sound.",
+      "fit": "Guessing"
+    },
+    "I05": {
+      "intro": "Peel to evidence",
+      "first_frame": "A complete scene is visible immediately.",
+      "action": "Two meaningful layers peel apart without hiding the subject.",
+      "text_seed": "What is this made of?",
+      "sound": "Two restrained paper sounds.",
+      "fit": "Anatomy; production"
+    },
+    "I06": {
+      "intro": "Marked token",
+      "first_frame": "A distinctive token begins at the first node of a network.",
+      "action": "Track it through one junction, then pause before the next.",
+      "text_seed": "Follow this piece.",
+      "sound": "Single pluck at each verified handoff.",
+      "fit": "Routes; processes"
+    },
+    "I07": {
+      "intro": "Wrong-sized tool",
+      "first_frame": "A character enters carrying an absurdly oversized tool.",
+      "action": "Their confident step stops at the tiny problem.",
+      "text_seed": "There may be an easier way.",
+      "sound": "Small comic stop and room tone.",
+      "fit": "Fiction"
+    },
+    "I08": {
+      "intro": "Checkpoint close-up",
+      "first_frame": "A physical indicator or step result is framed clearly.",
+      "action": "Pull back to show the action it checks.",
+      "text_seed": "How would you know it worked?",
+      "sound": "Neutral click matched to the indicator.",
+      "fit": "How-to; QA"
+    },
+    "I09": {
+      "intro": "Quiet warning",
+      "first_frame": "A sourced warning cue is visible in an otherwise calm scene.",
+      "action": "A bounded highlight draws attention, then stops.",
+      "text_seed": "Notice this before continuing.",
+      "sound": "Calm narration, no alarm sting.",
+      "fit": "Safety education"
+    },
+    "I10": {
+      "intro": "Map then ground",
+      "first_frame": "A fictional route is shown as a clean map.",
+      "action": "Dissolve to the same route in an original miniature scene.",
+      "text_seed": "The map leaves out one thing.",
+      "sound": "Ambient travel sound.",
+      "fit": "Spatial story"
+    },
+    "I11": {
+      "intro": "Countdown to choice",
+      "first_frame": "The scene and two options are already legible.",
+      "action": "A gentle progress bar begins after the rule appears.",
+      "text_seed": "Choose before the reveal.",
+      "sound": "Soft regular ticks, optional silent mode.",
+      "fit": "Low-risk puzzle"
+    },
+    "I12": {
+      "intro": "One missing part",
+      "first_frame": "An object sits with one clearly empty socket.",
+      "action": "A slow turn reveals the gap from a second view.",
+      "text_seed": "What belongs here?",
+      "sound": "Light mechanical room tone.",
+      "fit": "Anatomy; guessing"
+    },
+    "I13": {
+      "intro": "Sound makes shape",
+      "first_frame": "An original tap is paired with a visible waveform.",
+      "action": "The waveform settles into the moving object that made the sound.",
+      "text_seed": "What did you hear?",
+      "sound": "Original source sound with caption.",
+      "fit": "Audio learning"
+    },
+    "I14": {
+      "intro": "Stage entrance",
+      "first_frame": "A character steps out from behind an actual scene edge.",
+      "action": "Camera holds while they discover the central prop.",
+      "text_seed": "A simple job, surely.",
+      "sound": "Footstep, breath and small music motif.",
+      "fit": "Comedy"
+    },
+    "I15": {
+      "intro": "Match-cut scale",
+      "first_frame": "A circular everyday object fills the screen.",
+      "action": "Match cut to a different-scale system with the same silhouette.",
+      "text_seed": "Similar shape. Different scale.",
+      "sound": "Short transition note.",
+      "fit": "Analogy with scale labels"
+    },
+    "I16": {
+      "intro": "Transparent mechanism",
+      "first_frame": "The external object is visible against a calm background.",
+      "action": "A cutaway plane opens to show the interacting parts.",
+      "text_seed": "Inside the motion.",
+      "sound": "Gentle mechanical loop.",
+      "fit": "Mechanism"
+    },
+    "I17": {
+      "intro": "Pattern interruption",
+      "first_frame": "Three repeated actions establish a visual rhythm.",
+      "action": "A fourth object breaks one stated rule.",
+      "text_seed": "Find the break.",
+      "sound": "Three even taps and a held rest.",
+      "fit": "Pattern puzzle"
+    },
+    "I18": {
+      "intro": "Reverse breadcrumb",
+      "first_frame": "A final object rests beside three traces of its journey.",
+      "action": "The camera follows the traces backward without reversing physics.",
+      "text_seed": "How did it get here?",
+      "sound": "Music starts on the resolved chord then thins.",
+      "fit": "Mystery; reconstruction"
+    },
+    "I19": {
+      "intro": "Shared frame disagreement",
+      "first_frame": "Two characters look at the same object from different sides.",
+      "action": "A small orbit reveals why each saw something different.",
+      "text_seed": "They both saw part of it.",
+      "sound": "Two short vocal reactions, optional captions.",
+      "fit": "Perspective; fable"
+    },
+    "I20": {
+      "intro": "Hands before title",
+      "first_frame": "A tool begins one approved, safe action.",
+      "action": "The title arrives in empty space after the action is recognizable.",
+      "text_seed": "Watch the contact point.",
+      "sound": "Real or original matched tool sound.",
+      "fit": "Craft; how-to"
+    },
+    "I21": {
+      "intro": "Obstacle in foreground",
+      "first_frame": "An obstruction dominates near frame while the goal remains visible.",
+      "action": "Slow lateral move reveals a plausible path.",
+      "text_seed": "There is another route.",
+      "sound": "Ambient sound with one discovery accent.",
+      "fit": "Spatial fiction"
+    },
+    "I22": {
+      "intro": "Shape promise",
+      "first_frame": "A simple shape is drawn around the key object.",
+      "action": "The outline becomes a guide for the later explanation.",
+      "text_seed": "This outline matters.",
+      "sound": "One original draw-on sound.",
+      "fit": "Visual explanation"
+    },
+    "I23": {
+      "intro": "Small versus large",
+      "first_frame": "A tiny character stands beside a large, grounded object.",
+      "action": "Wide shot holds before a closer insert of their tool.",
+      "text_seed": "Small helper. Specific plan.",
+      "sound": "Subtle scale-aware footsteps.",
+      "fit": "Fiction; leverage model"
+    },
+    "I24": {
+      "intro": "Interface truth card",
+      "first_frame": "An authentic capture or labeled mockup opens at a known state.",
+      "action": "One highlight indicates the next action, not a fake cursor success.",
+      "text_seed": "Start from this state.",
+      "sound": "Clear spoken step and quiet click.",
+      "fit": "Software tutorial"
+    },
+    "I25": {
+      "intro": "Time strip",
+      "first_frame": "Three dated or explicitly fictional time panels sit together.",
+      "action": "The middle panel expands into the main scene.",
+      "text_seed": "What changed between these moments?",
+      "sound": "Three sparse notes.",
+      "fit": "Timeline"
+    },
+    "I26": {
+      "intro": "Question in negative space",
+      "first_frame": "The central action sits low in a spacious scene.",
+      "action": "A short question appears above without covering evidence.",
+      "text_seed": "What would you check first?",
+      "sound": "Narration with a brief pause.",
+      "fit": "Learning; observation"
+    },
+    "I27": {
+      "intro": "Contact-first comedy",
+      "first_frame": "Two objects are just about to touch.",
+      "action": "A character interrupts at the last moment and creates a new problem.",
+      "text_seed": "An excellent save. Almost.",
+      "sound": "Held note and soft comic release.",
+      "fit": "Fiction"
+    },
+    "I28": {
+      "intro": "World-rule demonstration",
+      "first_frame": "A character demonstrates the fictional rule once in plain view.",
+      "action": "A second attempt introduces the conflict.",
+      "text_seed": "Here, shadows arrive early.",
+      "sound": "One recurring world-rule sound motif.",
+      "fit": "Surreal worldbuilding"
+    },
+    "I29": {
+      "intro": "Honest result comparison",
+      "first_frame": "A real or clearly simulated failed result sits beside a corrected proposal.",
+      "action": "Camera moves to the single changed region.",
+      "text_seed": "What changed between these?",
+      "sound": "Neutral comparison narration.",
+      "fit": "Repair; model review"
+    },
+    "I30": {
+      "intro": "Warm background discovery",
+      "first_frame": "A foreground character starts a solitary task.",
+      "action": "Slow push keeps a helpful background action visible.",
+      "text_seed": "Someone has already started helping.",
+      "sound": "Gentle ambient music, no forced crescendo.",
+      "fit": "Warm fiction"
+    }
+  },
+  "motions": {
+    "M01": {
+      "motion": "Gentle push",
+      "mechanism": "A slow, continuous move toward the causal detail.",
+      "fit": "Explanation; mystery",
+      "check": "Keep essential evidence and text in safe areas."
+    },
+    "M02": {
+      "motion": "Lateral reveal",
+      "mechanism": "Move sideways to uncover an occluded relationship.",
+      "fit": "Perspective; spatial story",
+      "check": "Use consistent geometry or disclose a 2.5D approximation."
+    },
+    "M03": {
+      "motion": "Locked evidence shot",
+      "mechanism": "Hold the camera while meaningful objects move.",
+      "fit": "Mechanism; prediction",
+      "check": "The frame may be calm; the action must remain legible."
+    },
+    "M04": {
+      "motion": "Follow the token",
+      "mechanism": "Track one identified object through a system.",
+      "fit": "Route; process",
+      "check": "Maintain identity through every cut and occlusion."
+    },
+    "M05": {
+      "motion": "Overhead workflow",
+      "mechanism": "Look down at a sequence of workstations or steps.",
+      "fit": "How-to; process",
+      "check": "Do not obscure contact points with labels."
+    },
+    "M06": {
+      "motion": "Quarter orbit",
+      "mechanism": "Rotate around an object far enough to reveal a hidden side.",
+      "fit": "Geometry; anatomy",
+      "check": "Requires true 3D or genuine alternate views."
+    },
+    "M07": {
+      "motion": "Cutaway slide",
+      "mechanism": "Move a section plane while the object stays fixed.",
+      "fit": "Mechanism; architecture",
+      "check": "Plane position must agree with visible parts."
+    },
+    "M08": {
+      "motion": "Exploded assembly",
+      "mechanism": "Separate related parts along meaningful axes.",
+      "fit": "Anatomy; product",
+      "check": "Keep connectors and parent-child relationships clear."
+    },
+    "M09": {
+      "motion": "Matched split-screen",
+      "mechanism": "Synchronize two views to a shared time authority.",
+      "fit": "Comparison",
+      "check": "Check identical starting state and duration."
+    },
+    "M10": {
+      "motion": "Scale ladder",
+      "mechanism": "Step through explicit scales with reference objects.",
+      "fit": "Science; design",
+      "check": "Show units and avoid arbitrary size jumps."
+    },
+    "M11": {
+      "motion": "Scene-space drift",
+      "mechanism": "Move background, characters, shadows and targets together.",
+      "fit": "Compositing",
+      "check": "Apply one shared transform and its inverse."
+    },
+    "M12": {
+      "motion": "Parallax planes",
+      "mechanism": "Move declared foreground and background planes differently.",
+      "fit": "2.5D story",
+      "check": "Inspect disocclusion gaps and do not call it metric 3D."
+    },
+    "M13": {
+      "motion": "Focus handoff",
+      "mechanism": "Shift emphasis from cause to effect through motion and light.",
+      "fit": "Explanation",
+      "check": "Keep both visible long enough to establish their relationship."
+    },
+    "M14": {
+      "motion": "Pose anticipation",
+      "mechanism": "A character shifts weight before the main action.",
+      "fit": "Performance",
+      "check": "Anchor the planted foot and use coherent mass transfer."
+    },
+    "M15": {
+      "motion": "Overshoot settle",
+      "mechanism": "A moving prop passes its target slightly and settles.",
+      "fit": "Comedy; interface illustration",
+      "check": "Use controlled easing; avoid implying real damping data."
+    },
+    "M16": {
+      "motion": "Pause at decision",
+      "mechanism": "Slow or hold immediately before the meaningful choice.",
+      "fit": "Puzzle; story",
+      "check": "Hold after the viewer has all necessary information."
+    },
+    "M17": {
+      "motion": "Trail history",
+      "mechanism": "Leave a fading trace of an object's path.",
+      "fit": "Trajectory; process",
+      "check": "Separate history from simultaneous object copies."
+    },
+    "M18": {
+      "motion": "Constraint demonstration",
+      "mechanism": "Move the free degrees of freedom while anchors stay fixed.",
+      "fit": "Engineering",
+      "check": "Check constraints numerically before claiming fidelity."
+    },
+    "M19": {
+      "motion": "Counter-motion",
+      "mechanism": "A secondary part moves against the primary mass.",
+      "fit": "Character; mechanics",
+      "check": "Keep joints and inertia narratively or physically coherent."
+    },
+    "M20": {
+      "motion": "Time panels",
+      "mechanism": "Show multiple labeled moments in a consistent composition.",
+      "fit": "Timeline; before-after",
+      "check": "Label time and avoid implying all states coexist."
+    },
+    "M21": {
+      "motion": "Reverse investigation",
+      "mechanism": "Visit earlier states in order with explicit time labels.",
+      "fit": "Mystery; causality",
+      "check": "Do not reverse the direction of a real process without a label."
+    },
+    "M22": {
+      "motion": "Ground-level tracking",
+      "mechanism": "Move at the character's height along their route.",
+      "fit": "Adventure",
+      "check": "Establish environment and avoid disorienting fast pans."
+    },
+    "M23": {
+      "motion": "Top-down to eye-level",
+      "mechanism": "Transition between plan view and embodied perspective.",
+      "fit": "Spatial learning",
+      "check": "Keep landmarks matched and use a true scene when claiming 3D."
+    },
+    "M24": {
+      "motion": "Slow reveal mask",
+      "mechanism": "Expose an object through a controlled, fair mask.",
+      "fit": "Guessing",
+      "check": "Check no unintended answer leaks or impossible ambiguity."
+    },
+    "M25": {
+      "motion": "Path drawing",
+      "mechanism": "Trace the actual contour or route in ordered segments.",
+      "fit": "Map; diagram",
+      "check": "Stroke order must match the explanation."
+    },
+    "M26": {
+      "motion": "Cause pulse",
+      "mechanism": "One restrained pulse marks the input before motion propagates.",
+      "fit": "Causality",
+      "check": "Never substitute flashing for a meaningful relationship."
+    },
+    "M27": {
+      "motion": "Camera stays character exits",
+      "mechanism": "Let a character leave while the consequence stays visible.",
+      "fit": "Comedy; fable",
+      "check": "The final frame must complete the narrative promise."
+    },
+    "M28": {
+      "motion": "Foreground crossing",
+      "mechanism": "A grounded object passes briefly in front of the subject.",
+      "fit": "Cinematic depth",
+      "check": "Do not hide essential puzzle evidence or a discontinuity."
+    },
+    "M29": {
+      "motion": "Repeated action escalation",
+      "mechanism": "Repeat an action with a new obstacle each time.",
+      "fit": "Comedy; learning",
+      "check": "Each repeat changes a causal or narrative condition."
+    },
+    "M30": {
+      "motion": "Closing tableau",
+      "mechanism": "Settle into a readable final arrangement and hold.",
+      "fit": "Any resolved story",
+      "check": "Keep the answer visible long enough and avoid abrupt cutoff."
+    }
+  },
+  "editorial_rules": {
+    "F01": "F01 explains the relationship through the story's visible action and bounded takeaway.",
+    "F02": "F02 asks the story question before a fair thinking hold, then resolves it from visible evidence. It is excluded from the public-safety group.",
+    "F03": "F03 separates one worked case into setup, action and a checked checkpoint.",
+    "F04": "F04 compares initial and changed conditions while isolating one justified variable; no invented counterfactual result.",
+    "F05": "F05 starts at the outcome, inspects clues, then replays the supported chain forward without overstating causality.",
+    "F06": "F06 stages a want, obstacle, committed choice, consequence and the authored ending.",
+    "F07": "F07 makes the costs of two plausible choices visible; an unexecuted alternate branch stays labeled proposed.",
+    "F08": "F08 gives the viewer a fair advance clue before the protagonist notices it; no last-second coincidence.",
+    "F09": "F09 lets readable actions and reactions carry the story with sparse captions and purposeful sound.",
+    "F10": "F10 retells the same conflict from an existing prop/helper viewpoint without inventing a new solution.",
+    "F20": "F20 alternates schematic and tangible representations of one relationship. Practical guidance needs an approved factual script first."
+  },
+  "combination_rules": {
+    "learning": "Learning combinations fail if their comparison has no controlled basis, their backward trace overstates causality, or factual verification removes the premise.",
+    "fiction": "Fiction combinations fail if their alternative choice, advance clue or object viewpoint requires a contrived new premise rather than illuminating the existing one.",
+    "every": "Every combination inherits the story risks, format gate, approach gate, rights review, caption readability, motion comfort, audio mix and exact-byte checks."
+  }
+}

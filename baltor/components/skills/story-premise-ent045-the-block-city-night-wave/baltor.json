@@ -1,0 +1,71 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "story_premise_ent045_the_block_city_night_wave",
+  "title": "Story premise ENT045: The Block City Night Wave",
+  "kind": "skill",
+  "subkind": "premise",
+  "version": "1.0.0",
+  "summary": "Idea-stage fiction premise (block-world chain reactions). Hook: Bedtime is crossing town one window at a time. Takeaway/theme: A sequence can carry a signal while preserving one needed exception.",
+  "description": "A caretaker wants to dim a toy city at bedtime, but the control is on a roof across the map. A prearranged sequence of mechanical shutters closes one window and exposes a reflector to the next, carrying a visible dimming wave across the city while leaving a moonlit path home.",
+  "domain": "story",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline",
+    "upstream": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md#ent045-the-block-city-night-wave"
+  },
+  "step_kinds": [
+    "plan",
+    "write"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "story",
+    "premise",
+    "fiction",
+    "block-world-chain-reactions",
+    "fictional-demonstration",
+    "ent045",
+    "style-application",
+    "editorial-pick"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "story_premise"
+    },
+    {
+      "identity": "story_contract_rules"
+    },
+    {
+      "identity": "story_tests"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/ref_stories.py",
+    "data": "generators/data/ref_stories",
+    "parameters": {
+      "id": "ENT045",
+      "treatment_group": 3,
+      "guide_line": 4970
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "considered",
+  "evidence_notes": "Idea from the 10 Oct 2026 creative catalogue (Creative Catalogue JSON Bundle 2026-10-10, Library libfile_ff6a4ae010508191b42073985cd7a4a1 v0, SHA-256 1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e), preserved in guide Appendix D line 4970. Not a completed script, not rendered, no audience study. Evidence class fictional_demonstration names the check a claim would need, not a check done. Its ten treatment addresses (R-ENT045-F06-A01 ...) are candidates, not screenplays."
+}

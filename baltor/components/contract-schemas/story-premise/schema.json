@@ -1,0 +1,319 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/story-premise",
+  "title": "Story premise",
+  "description": "One premise record in the shape Appendix D of the Animation and Video Production Master Guide uses: authored premise, hook, visible action, intended takeaway or theme, gate, evidence class and original format tags, plus its ten treatment addresses. Status starts at 'idea'; any later status needs status_evidence. An evidence class is a checkability label, not verification.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "title",
+    "family",
+    "category",
+    "premise",
+    "hook",
+    "visible_action",
+    "intended_takeaway_or_theme",
+    "gate",
+    "evidence_class",
+    "original_format_tags",
+    "status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^(EDU|ENT)[0-9]{3}$",
+      "description": "Stable catalogue id: EDU for learning, ENT for fiction."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 120
+    },
+    "family": {
+      "enum": [
+        "learning",
+        "fiction"
+      ]
+    },
+    "category": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 80
+    },
+    "premise": {
+      "type": "string",
+      "minLength": 40,
+      "description": "The authored premise paragraph: who wants what, what stands in the way and how it resolves."
+    },
+    "hook": {
+      "type": "string",
+      "minLength": 5
+    },
+    "visible_action": {
+      "type": "string",
+      "minLength": 10
+    },
+    "intended_takeaway_or_theme": {
+      "type": "string",
+      "minLength": 5
+    },
+    "gate": {
+      "type": "string",
+      "minLength": 10,
+      "description": "The premise's own risk gate, satisfied before production."
+    },
+    "evidence_class": {
+      "enum": [
+        "fictional_demonstration",
+        "mathematically_checkable",
+        "requires_primary_source_review"
+      ]
+    },
+    "original_format_tags": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "behind_the_scenes",
+          "interactive_branch",
+          "mechanism_cutaway",
+          "myth_check",
+          "narrative_lesson",
+          "prediction_quiz",
+          "serial_challenge",
+          "side_by_side",
+          "silent_visual",
+          "step_by_step"
+        ]
+      }
+    },
+    "status": {
+      "enum": [
+        "idea",
+        "selected",
+        "contract-written",
+        "storyboarded",
+        "animatic-reviewed",
+        "rendered",
+        "delivered",
+        "owner-accepted",
+        "rejected",
+        "rewritten"
+      ]
+    },
+    "status_evidence": {
+      "type": "string",
+      "minLength": 10,
+      "description": "What was observed to justify a status beyond 'idea' (who, when, which bytes)."
+    },
+    "treatment_group": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4
+    },
+    "treatments": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "address",
+          "format_id",
+          "approach_id",
+          "intro_id",
+          "motion_id"
+        ],
+        "properties": {
+          "address": {
+            "type": "string",
+            "pattern": "^R-(EDU|ENT)[0-9]{3}-F[0-9]{2}-A0[1-4]$"
+          },
+          "format_id": {
+            "type": "string",
+            "pattern": "^F[0-9]{2}$"
+          },
+          "approach_id": {
+            "enum": [
+              "A01",
+              "A02",
+              "A03",
+              "A04"
+            ]
+          },
+          "intro_id": {
+            "type": "string",
+            "pattern": "^I[0-9]{2}$"
+          },
+          "motion_id": {
+            "type": "string",
+            "pattern": "^M[0-9]{2}$"
+          }
+        }
+      }
+    },
+    "style_application": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "treatment"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "treatment": {
+          "type": "string"
+        },
+        "view": {
+          "type": "string"
+        },
+        "geometry": {
+          "type": "string"
+        },
+        "material": {
+          "type": "string"
+        },
+        "aesthetic": {
+          "type": "string"
+        },
+        "layout": {
+          "type": "string"
+        },
+        "why": {
+          "type": "string"
+        },
+        "check": {
+          "type": "string"
+        }
+      }
+    },
+    "editorial_pick": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rank",
+        "note"
+      ],
+      "properties": {
+        "rank": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20
+        },
+        "original_reason": {
+          "type": "string"
+        },
+        "proposed_first_version": {
+          "type": "string"
+        },
+        "gate": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "document",
+        "section"
+      ],
+      "properties": {
+        "document": {
+          "type": "string"
+        },
+        "section": {
+          "type": "string"
+        },
+        "anchor": {
+          "type": "string"
+        },
+        "line": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "catalogue_artifact": {
+          "type": "string"
+        },
+        "catalogue_library_identity": {
+          "type": "string",
+          "pattern": "^libfile_[0-9a-f]{32}$"
+        },
+        "catalogue_version": {
+          "type": "string"
+        },
+        "catalogue_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "family": {
+            "const": "learning"
+          }
+        },
+        "required": [
+          "family"
+        ]
+      },
+      "then": {
+        "properties": {
+          "id": {
+            "pattern": "^EDU"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "family": {
+            "const": "fiction"
+          }
+        },
+        "required": [
+          "family"
+        ]
+      },
+      "then": {
+        "properties": {
+          "id": {
+            "pattern": "^ENT"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "not": {
+              "const": "idea"
+            }
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "required": [
+          "status_evidence"
+        ]
+      }
+    }
+  ]
+}

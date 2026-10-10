@@ -1,0 +1,19 @@
+{
+  "id": "the-hiccup-concerto",
+  "title": "The Hiccup Concerto",
+  "board_type": "pitch",
+  "status": "proposed",
+  "opening_frame": "In the expectant silence, a conductor hiccups, jerks his baton and produces one enormous orchestral blast.",
+  "question_and_goals": "Can he finish the performance without being exposed as out of control? He wants dignified precision; the first violin sees that the audience loves the accidental rhythm and wants him to embrace it.",
+  "rule": "The orchestra follows the baton. The music is a visible result of his movement, rather than a magical response to any noise in the room.",
+  "causal_escalation": "He conceals a hiccup behind a sweeping gesture, which makes the brass swell. The violinist answers it as a phrase. His attempt to take water creates a tiny pause the percussionist fills. His effort to stop the emerging piece makes a dramatic silence, and the audience leans forward. At midpoint, he sees that the violinist is offering a repeatable pattern, not mocking him. He chooses to conduct the pattern deliberately.",
+  "plant_and_payoff": "A visiting composer's stern face stays fixed while one shoe starts tapping early. At the finish, that composer leads the applause and asks for an encore. The conductor no longer has hiccups. Rather than try to summon them, he confidently reproduces the once-accidental movements, with the violinist as his partner. Final visual joke: he carefully moves the fizzy water far beyond his reach before the downbeat.",
+  "visual_test": "The first blast must be funny with almost no setup, and the music must genuinely follow the movements. Reject an ending that depends on a scare conveniently causing a hiccup.",
+  "editorial_note": "These are pitches, not approved productions or timed boards. Together with the three fully boarded films above, they make eight topics. They should be developed only if their central visual test works; a striking premise is not yet a finished film.",
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Five more distinct topics: an eight-story development slate",
+    "anchor": "5-the-hiccup-concerto",
+    "line": 326
+  }
+}

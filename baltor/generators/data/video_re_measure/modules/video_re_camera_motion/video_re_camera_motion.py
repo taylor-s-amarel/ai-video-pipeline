@@ -156,6 +156,32 @@ def label_for(pan_x, pan_y, zoom, thr: float = LABEL_THRESHOLD) -> str:
     return "+".join(parts) or "static"
 
 
+def phase_correlate_batch(a: np.ndarray, b: np.ndarray, win: np.ndarray) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """phase_correlate for stacks of equally sized patches (n, h, w), in one FFT call per stack."""
+    n, h, w = a.shape
+    fa = np.fft.fft2((a - a.mean(axis=(1, 2), keepdims=True)) * win, axes=(1, 2))
+    fb = np.fft.fft2((b - b.mean(axis=(1, 2), keepdims=True)) * win, axes=(1, 2))
+    r = np.conj(fa) * fb
+    r /= np.abs(r) + 1e-9
+    corr = np.fft.ifft2(r, axes=(1, 2)).real
+    flat = corr.reshape(n, -1).argmax(axis=1)
+    py, px = np.unravel_index(flat, (h, w))
+    idx = np.arange(n)
+    c0 = corr[idx, py, px]
+
+    def refine(cm, cp):
+        den = cm - 2 * c0 + cp
+        return np.where(np.abs(den) < 1e-12, 0.0, 0.5 * (cm - cp) / np.where(np.abs(den) < 1e-12, 1.0, den))
+
+    sx = refine(corr[idx, py, (px - 1) % w], corr[idx, py, (px + 1) % w])
+    sy = refine(corr[idx, (py - 1) % h, px], corr[idx, (py + 1) % h, px])
+    dx = px + sx
+    dy = py + sy
+    dx = np.where(dx > w / 2, dx - w, dx)
+    dy = np.where(dy > h / 2, dy - h, dy)
+    return dx, dy, c0
+
+
 def block_vectors(a: np.ndarray, b: np.ndarray, block: int = 64, step: int = 32, min_std: float = 4.0,
                   min_peak: float = 0.1) -> np.ndarray:
     """Phase-correlation displacement of every textured block: rows (x_off, y_off, dx, dy, peak) with
@@ -164,20 +190,22 @@ def block_vectors(a: np.ndarray, b: np.ndarray, block: int = 64, step: int = 32,
     block = min(block, h, w) // 2 * 2
     win = np.outer(np.hanning(block), np.hanning(block))
     cy, cx = (h - 1) / 2.0, (w - 1) / 2.0
-    ys = list(range(0, h - block + 1, step)) or [0]
-    xs = list(range(0, w - block + 1, step)) or [0]
-    out = []
-    for y in ys:
-        for x in xs:
-            pa = a[y:y + block, x:x + block]
-            pb = b[y:y + block, x:x + block]
-            if pa.std() < min_std or pb.std() < min_std:
+    pos, pa, pb = [], [], []
+    for y in list(range(0, h - block + 1, step)) or [0]:
+        for x in list(range(0, w - block + 1, step)) or [0]:
+            ba = a[y:y + block, x:x + block]
+            bb = b[y:y + block, x:x + block]
+            if ba.std() < min_std or bb.std() < min_std:
                 continue
-            dx, dy, peak = phase_correlate(pa, pb, win)
-            if peak < min_peak or abs(dx) > block / 4 or abs(dy) > block / 4:
-                continue
-            out.append((x + block / 2 - cx, y + block / 2 - cy, dx, dy, peak))
-    return np.asarray(out, dtype=np.float64).reshape(-1, 5)
+            pos.append((x + block / 2 - cx, y + block / 2 - cy))
+            pa.append(ba)
+            pb.append(bb)
+    if not pos:
+        return np.zeros((0, 5))
+    dx, dy, peak = phase_correlate_batch(np.asarray(pa, dtype=np.float64), np.asarray(pb, dtype=np.float64), win)
+    pos_a = np.asarray(pos)
+    ok = (peak >= min_peak) & (np.abs(dx) <= block / 4) & (np.abs(dy) <= block / 4)
+    return np.column_stack([pos_a[ok, 0], pos_a[ok, 1], dx[ok], dy[ok], peak[ok]])
 
 
 def _solve(px, py, dx, dy, w):

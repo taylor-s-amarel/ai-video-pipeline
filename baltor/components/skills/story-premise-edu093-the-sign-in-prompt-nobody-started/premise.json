@@ -1,0 +1,103 @@
+{
+  "id": "EDU093",
+  "title": "The Sign-In Prompt Nobody Started",
+  "family": "learning",
+  "category": "consumer digital literacy",
+  "premise": "A user wants to respond to a sudden approval prompt, but assumes every notification means an action they initiated. A timeline checks for a matching sign-in and routes the unexplained prompt to official account guidance.",
+  "hook": "Did you start the sign-in this prompt is asking about?",
+  "visible_action": "A login event and approval prompt seek a matching timestamp; an unmatched prompt stops before an approval gate.",
+  "intended_takeaway_or_theme": "Unexpected authentication prompts deserve verification rather than automatic approval.",
+  "gate": "Follow current provider-specific guidance; no codes, recovery credentials, or bypass instructions.",
+  "evidence_class": "requires_primary_source_review",
+  "original_format_tags": [
+    "interactive_branch",
+    "prediction_quiz",
+    "step_by_step",
+    "narrative_lesson",
+    "mechanism_cutaway"
+  ],
+  "status": "idea",
+  "treatment_group": 1,
+  "treatments": [
+    {
+      "address": "R-EDU093-F01-A01",
+      "format_id": "F01",
+      "approach_id": "A01",
+      "intro_id": "I26",
+      "motion_id": "M13"
+    },
+    {
+      "address": "R-EDU093-F01-A02",
+      "format_id": "F01",
+      "approach_id": "A02",
+      "intro_id": "I26",
+      "motion_id": "M13"
+    },
+    {
+      "address": "R-EDU093-F02-A01",
+      "format_id": "F02",
+      "approach_id": "A01",
+      "intro_id": "I26",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-EDU093-F02-A02",
+      "format_id": "F02",
+      "approach_id": "A02",
+      "intro_id": "I26",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-EDU093-F03-A01",
+      "format_id": "F03",
+      "approach_id": "A01",
+      "intro_id": "I08",
+      "motion_id": "M05"
+    },
+    {
+      "address": "R-EDU093-F03-A02",
+      "format_id": "F03",
+      "approach_id": "A02",
+      "intro_id": "I08",
+      "motion_id": "M05"
+    },
+    {
+      "address": "R-EDU093-F04-A01",
+      "format_id": "F04",
+      "approach_id": "A01",
+      "intro_id": "I02",
+      "motion_id": "M09"
+    },
+    {
+      "address": "R-EDU093-F04-A02",
+      "format_id": "F04",
+      "approach_id": "A02",
+      "intro_id": "I02",
+      "motion_id": "M09"
+    },
+    {
+      "address": "R-EDU093-F05-A01",
+      "format_id": "F05",
+      "approach_id": "A01",
+      "intro_id": "I18",
+      "motion_id": "M21"
+    },
+    {
+      "address": "R-EDU093-F05-A02",
+      "format_id": "F05",
+      "approach_id": "A02",
+      "intro_id": "I18",
+      "motion_id": "M21"
+    }
+  ],
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix D All 240 story premises / Learning consumer digital literacy",
+    "anchor": "edu093-the-sign-in-prompt-nobody-started",
+    "line": 3948,
+    "catalogue_artifact": "Creative Catalogue JSON Bundle 2026-10-10",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_version": "0",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  }
+}

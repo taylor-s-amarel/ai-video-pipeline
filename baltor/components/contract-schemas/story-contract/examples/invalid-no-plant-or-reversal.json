@@ -1,0 +1,21 @@
+{
+  "title": "The Decoy Job",
+  "premise_ref": "the-decoy-job",
+  "want": "The thief wants an effortless valuable score.",
+  "stakes": "The thief's attempted theft is about to be discovered. The performer can expose him, bargain with him, or let him embarrass himself.",
+  "constraint": "The paid living-statue performer wants a break and refuses to be treated as an object. The approaching guard makes their disagreement urgent.",
+  "choice": "The thief looks toward the doorway, then accepts with a miserable handshake.",
+  "escalation": "Attempted theft reveals resistance → the thief doubles down → the statue reveals that it is a person → the guard's return makes bargaining necessary → the thief accepts the very labor he hoped to avoid → a genuine tip makes him choose to keep performing.",
+  "knowledge": {
+    "viewer": "The audience may realize the truth before the thief.",
+    "character": "The thief's plan to steal an object is now a negotiation with a person."
+  },
+  "consequence": "End on the thief trying to hold the grand pose while counting his tip with one furtive finger.",
+  "comedy_mechanisms": [
+    "Dramatic irony",
+    "Opposed goals",
+    "Status reversal"
+  ],
+  "suspense_question": "Can the thief avoid being caught after choosing the worst possible thing to steal?",
+  "notes": "Every sentence is quoted from the guide's board for The Decoy Job; only the arrangement into contract fields and the mechanism names were chosen by the generator. Board status: proposed, unrendered."
+}

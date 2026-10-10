@@ -1,0 +1,111 @@
+{
+  "id": "ENT072",
+  "title": "The Umbrella Left Open",
+  "family": "fiction",
+  "category": "silent emotional stories",
+  "premise": "A figure wants to hurry home after rain, but notices a shivering paper bird beneath a dripping bench. They leave their umbrella open as a shelter and walk away; the next morning a neat row of paper feathers marks the route to the returned umbrella.",
+  "hook": "Someone still needs the shelter.",
+  "visible_action": "Figure stops mid-stride; umbrella lowers over bird; footsteps leave; morning feathers lead back to a dry folded umbrella.",
+  "intended_takeaway_or_theme": "A small kindness can be shown without a speech.",
+  "gate": "The paper bird is a fictional creature; no wildlife rescue or animal-care instructions.",
+  "evidence_class": "fictional_demonstration",
+  "original_format_tags": [
+    "narrative_lesson",
+    "silent_visual"
+  ],
+  "status": "idea",
+  "treatment_group": 4,
+  "treatments": [
+    {
+      "address": "R-ENT072-F06-A01",
+      "format_id": "F06",
+      "approach_id": "A01",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT072-F06-A04",
+      "format_id": "F06",
+      "approach_id": "A04",
+      "intro_id": "I03",
+      "motion_id": "M14"
+    },
+    {
+      "address": "R-ENT072-F07-A01",
+      "format_id": "F07",
+      "approach_id": "A01",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT072-F07-A04",
+      "format_id": "F07",
+      "approach_id": "A04",
+      "intro_id": "I19",
+      "motion_id": "M16"
+    },
+    {
+      "address": "R-ENT072-F08-A01",
+      "format_id": "F08",
+      "approach_id": "A01",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT072-F08-A04",
+      "format_id": "F08",
+      "approach_id": "A04",
+      "intro_id": "I30",
+      "motion_id": "M03"
+    },
+    {
+      "address": "R-ENT072-F09-A01",
+      "format_id": "F09",
+      "approach_id": "A01",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT072-F09-A04",
+      "format_id": "F09",
+      "approach_id": "A04",
+      "intro_id": "I14",
+      "motion_id": "M29"
+    },
+    {
+      "address": "R-ENT072-F10-A01",
+      "format_id": "F10",
+      "approach_id": "A01",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    },
+    {
+      "address": "R-ENT072-F10-A04",
+      "format_id": "F10",
+      "approach_id": "A04",
+      "intro_id": "I04",
+      "motion_id": "M04"
+    }
+  ],
+  "style_application": {
+    "id": "SU05",
+    "treatment": "Layered umbrella story",
+    "view": "Perspective-inspired shallow camera",
+    "geometry": "Layered 2.5D planes",
+    "material": "Original cut-paper raincoat and background textures",
+    "aesthetic": "Warm miniature fiction",
+    "layout": "Foreground action with background clue",
+    "why": "Gentle parallax and a visible background gesture support the emotional reveal.",
+    "check": "Inspect cutout halos, disocclusion gaps, grounding and clue visibility."
+  },
+  "source": {
+    "document": "docs/reference/Animation_and_Video_Production_Master_Guide_2026-10-10.md",
+    "section": "Appendix D All 240 story premises / Fiction silent emotional stories",
+    "anchor": "ent072-the-umbrella-left-open",
+    "line": 5354,
+    "catalogue_artifact": "Creative Catalogue JSON Bundle 2026-10-10",
+    "catalogue_library_identity": "libfile_ff6a4ae010508191b42073985cd7a4a1",
+    "catalogue_version": "0",
+    "catalogue_sha256": "1e47bfd4a4d4b1ef27c47e0be5205b14df75a289be245c9a388ffdf2c733b55e"
+  }
+}

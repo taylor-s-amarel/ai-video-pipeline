@@ -1,0 +1,19 @@
+title: Kubernetes workload lint (resources, probes, restricted Pod Security)
+summary: Lints Kubernetes/Helm-rendered manifests for missing requests/limits and probes, Pod Security 'restricted' violations, host access, literal secrets in env, single replicas and missing PDBs.
+subkind: kubernetes
+tags: [kubernetes, k8s, helm, pod-security, manifests, lint, reliability]
+step_kinds: [review, verify, secure]
+effects: {filesystem: read, executes: python}
+depends_on:
+  - {identity: pyyaml, external: true}
+description: >-
+  Reads multi-document YAML (PyYAML, imported lazily) or JSON, including `kind: List`, and walks Pod, Deployment,
+  StatefulSet, DaemonSet, ReplicaSet, Job and CronJob pod specs (init and app containers). Rules K001-K026 cover
+  image tags/digests, CPU/memory requests and memory limits, readiness/liveness probes on long-running workloads,
+  the restricted Pod Security Standard (privileged, allowPrivilegeEscalation, runAsNonRoot, capabilities drop ALL,
+  seccomp RuntimeDefault, host namespaces/hostPath/hostPort), read-only root filesystem, service-account token
+  automount, literal secrets in env, single-replica Deployments, Deployments without a matching PodDisruptionBudget,
+  external Service types and namespaces without a pod-security enforce label. Pipe `helm template` output into it.
+examples:
+  - "helm template ./chart | python k8s_workload_lint.py - --fail-on medium"
+evidence_notes: pytest suite passes, including a hardened Deployment/PDB/Namespace example; not run against a live API server or PSA admission.

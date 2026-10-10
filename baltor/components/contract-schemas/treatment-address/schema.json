@@ -1,0 +1,1018 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/treatment-address",
+  "title": "Creative-catalogue treatment address",
+  "description": "One of the 2,400 addressable candidate treatments: R-{story_id}-{format_id}-{approach_id}, with the intro and motion the story's treatment group assigns. The oneOf branches encode the four treatment groups exactly, so a format or approach a group does not use fails. That the address string agrees with its parts is checked by the treatment_address_resolver module. A compatible combination is still not a screenplay.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "address",
+    "story_id",
+    "format_id",
+    "approach_id",
+    "intro_id",
+    "motion_id",
+    "status"
+  ],
+  "properties": {
+    "address": {
+      "type": "string",
+      "pattern": "^R-(EDU|ENT)[0-9]{3}-F[0-9]{2}-A0[1-4]$"
+    },
+    "story_id": {
+      "type": "string",
+      "pattern": "^(EDU|ENT)[0-9]{3}$"
+    },
+    "format_id": {
+      "type": "string",
+      "pattern": "^F[0-9]{2}$"
+    },
+    "approach_id": {
+      "enum": [
+        "A01",
+        "A02",
+        "A03",
+        "A04"
+      ]
+    },
+    "intro_id": {
+      "type": "string",
+      "pattern": "^I[0-3][0-9]$"
+    },
+    "motion_id": {
+      "type": "string",
+      "pattern": "^M[0-3][0-9]$"
+    },
+    "treatment_group": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4
+    },
+    "status": {
+      "enum": [
+        "addressable-candidate",
+        "selected",
+        "scripted",
+        "storyboarded",
+        "rendered",
+        "rejected"
+      ],
+      "description": "Every catalogue address starts as addressable-candidate."
+    },
+    "status_evidence": {
+      "type": "string",
+      "minLength": 10
+    }
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "story_id": {
+          "enum": [
+            "EDU001",
+            "EDU002",
+            "EDU003",
+            "EDU004",
+            "EDU005",
+            "EDU006",
+            "EDU007",
+            "EDU008",
+            "EDU009",
+            "EDU010",
+            "EDU011",
+            "EDU012",
+            "EDU013",
+            "EDU014",
+            "EDU015",
+            "EDU016",
+            "EDU017",
+            "EDU018",
+            "EDU019",
+            "EDU020",
+            "EDU021",
+            "EDU022",
+            "EDU023",
+            "EDU024",
+            "EDU025",
+            "EDU026",
+            "EDU027",
+            "EDU028",
+            "EDU029",
+            "EDU030",
+            "EDU031",
+            "EDU032",
+            "EDU033",
+            "EDU034",
+            "EDU035",
+            "EDU036",
+            "EDU037",
+            "EDU038",
+            "EDU039",
+            "EDU040",
+            "EDU041",
+            "EDU042",
+            "EDU043",
+            "EDU044",
+            "EDU045",
+            "EDU046",
+            "EDU047",
+            "EDU048",
+            "EDU049",
+            "EDU050",
+            "EDU051",
+            "EDU052",
+            "EDU053",
+            "EDU054",
+            "EDU055",
+            "EDU056",
+            "EDU057",
+            "EDU058",
+            "EDU059",
+            "EDU060",
+            "EDU061",
+            "EDU062",
+            "EDU063",
+            "EDU064",
+            "EDU065",
+            "EDU066",
+            "EDU067",
+            "EDU068",
+            "EDU069",
+            "EDU070",
+            "EDU071",
+            "EDU072",
+            "EDU073",
+            "EDU074",
+            "EDU075",
+            "EDU076",
+            "EDU077",
+            "EDU078",
+            "EDU079",
+            "EDU080",
+            "EDU081",
+            "EDU082",
+            "EDU083",
+            "EDU084",
+            "EDU085",
+            "EDU086",
+            "EDU087",
+            "EDU088",
+            "EDU089",
+            "EDU090",
+            "EDU091",
+            "EDU092",
+            "EDU093",
+            "EDU094",
+            "EDU095",
+            "EDU096",
+            "EDU097",
+            "EDU098",
+            "EDU099",
+            "EDU100",
+            "EDU111",
+            "EDU112",
+            "EDU113",
+            "EDU114",
+            "EDU115",
+            "EDU116",
+            "EDU117",
+            "EDU118",
+            "EDU119",
+            "EDU120"
+          ]
+        },
+        "treatment_group": {
+          "const": 1
+        }
+      },
+      "anyOf": [
+        {
+          "properties": {
+            "format_id": {
+              "const": "F01"
+            },
+            "approach_id": {
+              "const": "A01"
+            },
+            "intro_id": {
+              "const": "I26"
+            },
+            "motion_id": {
+              "const": "M13"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F01"
+            },
+            "approach_id": {
+              "const": "A02"
+            },
+            "intro_id": {
+              "const": "I26"
+            },
+            "motion_id": {
+              "const": "M13"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F02"
+            },
+            "approach_id": {
+              "const": "A01"
+            },
+            "intro_id": {
+              "const": "I26"
+            },
+            "motion_id": {
+              "const": "M16"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F02"
+            },
+            "approach_id": {
+              "const": "A02"
+            },
+            "intro_id": {
+              "const": "I26"
+            },
+            "motion_id": {
+              "const": "M16"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F03"
+            },
+            "approach_id": {
+              "const": "A01"
+            },
+            "intro_id": {
+              "const": "I08"
+            },
+            "motion_id": {
+              "const": "M05"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F03"
+            },
+            "approach_id": {
+              "const": "A02"
+            },
+            "intro_id": {
+              "const": "I08"
+            },
+            "motion_id": {
+              "const": "M05"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F04"
+            },
+            "approach_id": {
+              "const": "A01"
+            },
+            "intro_id": {
+              "const": "I02"
+            },
+            "motion_id": {
+              "const": "M09"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F04"
+            },
+            "approach_id": {
+              "const": "A02"
+            },
+            "intro_id": {
+              "const": "I02"
+            },
+            "motion_id": {
+              "const": "M09"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F05"
+            },
+            "approach_id": {
+              "const": "A01"
+            },
+            "intro_id": {
+              "const": "I18"
+            },
+            "motion_id": {
+              "const": "M21"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F05"
+            },
+            "approach_id": {
+              "const": "A02"
+            },
+            "intro_id": {
+              "const": "I18"
+            },
+            "motion_id": {
+              "const": "M21"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "properties": {
+        "story_id": {
+          "enum": [
+            "EDU101",
+            "EDU102",
+            "EDU103",
+            "EDU104",
+            "EDU105",
+            "EDU106",
+            "EDU107",
+            "EDU108",
+            "EDU109",
+            "EDU110"
+          ]
+        },
+        "treatment_group": {
+          "const": 2
+        }
+      },
+      "anyOf": [
+        {
+          "properties": {
+            "format_id": {
+              "const": "F01"
+            },
+            "approach_id": {
+              "const": "A01"
+            },
+            "intro_id": {
+              "const": "I26"
+            },
+            "motion_id": {
+              "const": "M13"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F01"
+            },
+            "approach_id": {
+              "const": "A02"
+            },
+            "intro_id": {
+              "const": "I26"
+            },
+            "motion_id": {
+              "const": "M13"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F20"
+            },
+            "approach_id": {
+              "const": "A01"
+            },
+            "intro_id": {
+              "const": "I06"
+            },
+            "motion_id": {
+              "const": "M13"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F20"
+            },
+            "approach_id": {
+              "const": "A02"
+            },
+            "intro_id": {
+              "const": "I06"
+            },
+            "motion_id": {
+              "const": "M13"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F03"
+            },
+            "approach_id": {
+              "const": "A01"
+            },
+            "intro_id": {
+              "const": "I08"
+            },
+            "motion_id": {
+              "const": "M05"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F03"
+            },
+            "approach_id": {
+              "const": "A02"
+            },
+            "intro_id": {
+              "const": "I08"
+            },
+            "motion_id": {
+              "const": "M05"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F04"
+            },
+            "approach_id": {
+              "const": "A01"
+            },
+            "intro_id": {
+              "const": "I02"
+            },
+            "motion_id": {
+              "const": "M09"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F04"
+            },
+            "approach_id": {
+              "const": "A02"
+            },
+            "intro_id": {
+              "const": "I02"
+            },
+            "motion_id": {
+              "const": "M09"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F05"
+            },
+            "approach_id": {
+              "const": "A01"
+            },
+            "intro_id": {
+              "const": "I18"
+            },
+            "motion_id": {
+              "const": "M21"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F05"
+            },
+            "approach_id": {
+              "const": "A02"
+            },
+            "intro_id": {
+              "const": "I18"
+            },
+            "motion_id": {
+              "const": "M21"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "properties": {
+        "story_id": {
+          "enum": [
+            "ENT001",
+            "ENT002",
+            "ENT003",
+            "ENT004",
+            "ENT005",
+            "ENT006",
+            "ENT007",
+            "ENT008",
+            "ENT009",
+            "ENT010",
+            "ENT011",
+            "ENT012",
+            "ENT013",
+            "ENT014",
+            "ENT015",
+            "ENT016",
+            "ENT017",
+            "ENT018",
+            "ENT019",
+            "ENT020",
+            "ENT021",
+            "ENT022",
+            "ENT023",
+            "ENT024",
+            "ENT025",
+            "ENT026",
+            "ENT027",
+            "ENT028",
+            "ENT029",
+            "ENT030",
+            "ENT031",
+            "ENT032",
+            "ENT033",
+            "ENT034",
+            "ENT035",
+            "ENT036",
+            "ENT037",
+            "ENT038",
+            "ENT039",
+            "ENT040",
+            "ENT041",
+            "ENT042",
+            "ENT043",
+            "ENT044",
+            "ENT045",
+            "ENT046",
+            "ENT047",
+            "ENT048",
+            "ENT049",
+            "ENT050",
+            "ENT051",
+            "ENT052",
+            "ENT053",
+            "ENT054",
+            "ENT055",
+            "ENT056",
+            "ENT057",
+            "ENT058",
+            "ENT059",
+            "ENT060",
+            "ENT061",
+            "ENT062",
+            "ENT063",
+            "ENT064",
+            "ENT065",
+            "ENT066",
+            "ENT067",
+            "ENT068",
+            "ENT069",
+            "ENT070",
+            "ENT101",
+            "ENT102",
+            "ENT103",
+            "ENT104",
+            "ENT105",
+            "ENT106",
+            "ENT107",
+            "ENT108",
+            "ENT109",
+            "ENT110",
+            "ENT111",
+            "ENT112",
+            "ENT113",
+            "ENT114",
+            "ENT115",
+            "ENT116",
+            "ENT117",
+            "ENT118",
+            "ENT119",
+            "ENT120"
+          ]
+        },
+        "treatment_group": {
+          "const": 3
+        }
+      },
+      "anyOf": [
+        {
+          "properties": {
+            "format_id": {
+              "const": "F06"
+            },
+            "approach_id": {
+              "const": "A01"
+            },
+            "intro_id": {
+              "const": "I03"
+            },
+            "motion_id": {
+              "const": "M14"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F06"
+            },
+            "approach_id": {
+              "const": "A03"
+            },
+            "intro_id": {
+              "const": "I03"
+            },
+            "motion_id": {
+              "const": "M14"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F07"
+            },
+            "approach_id": {
+              "const": "A01"
+            },
+            "intro_id": {
+              "const": "I19"
+            },
+            "motion_id": {
+              "const": "M16"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F07"
+            },
+            "approach_id": {
+              "const": "A03"
+            },
+            "intro_id": {
+              "const": "I19"
+            },
+            "motion_id": {
+              "const": "M16"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F08"
+            },
+            "approach_id": {
+              "const": "A01"
+            },
+            "intro_id": {
+              "const": "I30"
+            },
+            "motion_id": {
+              "const": "M03"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F08"
+            },
+            "approach_id": {
+              "const": "A03"
+            },
+            "intro_id": {
+              "const": "I30"
+            },
+            "motion_id": {
+              "const": "M03"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F09"
+            },
+            "approach_id": {
+              "const": "A01"
+            },
+            "intro_id": {
+              "const": "I14"
+            },
+            "motion_id": {
+              "const": "M29"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F09"
+            },
+            "approach_id": {
+              "const": "A03"
+            },
+            "intro_id": {
+              "const": "I14"
+            },
+            "motion_id": {
+              "const": "M29"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F10"
+            },
+            "approach_id": {
+              "const": "A01"
+            },
+            "intro_id": {
+              "const": "I04"
+            },
+            "motion_id": {
+              "const": "M04"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F10"
+            },
+            "approach_id": {
+              "const": "A03"
+            },
+            "intro_id": {
+              "const": "I04"
+            },
+            "motion_id": {
+              "const": "M04"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "properties": {
+        "story_id": {
+          "enum": [
+            "ENT071",
+            "ENT072",
+            "ENT073",
+            "ENT074",
+            "ENT075",
+            "ENT076",
+            "ENT077",
+            "ENT078",
+            "ENT079",
+            "ENT080",
+            "ENT081",
+            "ENT082",
+            "ENT083",
+            "ENT084",
+            "ENT085",
+            "ENT086",
+            "ENT087",
+            "ENT088",
+            "ENT089",
+            "ENT090",
+            "ENT091",
+            "ENT092",
+            "ENT093",
+            "ENT094",
+            "ENT095",
+            "ENT096",
+            "ENT097",
+            "ENT098",
+            "ENT099",
+            "ENT100"
+          ]
+        },
+        "treatment_group": {
+          "const": 4
+        }
+      },
+      "anyOf": [
+        {
+          "properties": {
+            "format_id": {
+              "const": "F06"
+            },
+            "approach_id": {
+              "const": "A01"
+            },
+            "intro_id": {
+              "const": "I03"
+            },
+            "motion_id": {
+              "const": "M14"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F06"
+            },
+            "approach_id": {
+              "const": "A04"
+            },
+            "intro_id": {
+              "const": "I03"
+            },
+            "motion_id": {
+              "const": "M14"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F07"
+            },
+            "approach_id": {
+              "const": "A01"
+            },
+            "intro_id": {
+              "const": "I19"
+            },
+            "motion_id": {
+              "const": "M16"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F07"
+            },
+            "approach_id": {
+              "const": "A04"
+            },
+            "intro_id": {
+              "const": "I19"
+            },
+            "motion_id": {
+              "const": "M16"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F08"
+            },
+            "approach_id": {
+              "const": "A01"
+            },
+            "intro_id": {
+              "const": "I30"
+            },
+            "motion_id": {
+              "const": "M03"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F08"
+            },
+            "approach_id": {
+              "const": "A04"
+            },
+            "intro_id": {
+              "const": "I30"
+            },
+            "motion_id": {
+              "const": "M03"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F09"
+            },
+            "approach_id": {
+              "const": "A01"
+            },
+            "intro_id": {
+              "const": "I14"
+            },
+            "motion_id": {
+              "const": "M29"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F09"
+            },
+            "approach_id": {
+              "const": "A04"
+            },
+            "intro_id": {
+              "const": "I14"
+            },
+            "motion_id": {
+              "const": "M29"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F10"
+            },
+            "approach_id": {
+              "const": "A01"
+            },
+            "intro_id": {
+              "const": "I04"
+            },
+            "motion_id": {
+              "const": "M04"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format_id": {
+              "const": "F10"
+            },
+            "approach_id": {
+              "const": "A04"
+            },
+            "intro_id": {
+              "const": "I04"
+            },
+            "motion_id": {
+              "const": "M04"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "if": {
+    "properties": {
+      "status": {
+        "not": {
+          "const": "addressable-candidate"
+        }
+      }
+    },
+    "required": [
+      "status"
+    ]
+  },
+  "then": {
+    "required": [
+      "status_evidence"
+    ]
+  }
+}
