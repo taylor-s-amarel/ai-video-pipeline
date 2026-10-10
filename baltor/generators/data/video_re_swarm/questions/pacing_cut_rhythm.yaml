@@ -1,0 +1,315 @@
+- id: pacing_cut_rhythm-001
+  question: "What is the median shot length over the whole video?"
+  why: "Fills timeline.median_shot_s, the main pacing parameter."
+  how: "Read evidence.shot_stats.median_s (video_re_shot_stats); report evidence.shot_stats.count in the note."
+  evidence: ["evidence.shot_stats.median_s", "evidence.shot_stats.count"]
+  ir_path: "/timeline/median_shot_s"
+  type: seconds
+  challenge: "Recompute the median from evidence.shots[].duration_s; check F11 scene scores for missed dissolves which would lengthen shots."
+
+- id: pacing_cut_rhythm-002
+  question: "What is the cut rate in cuts per minute?"
+  why: "Fills timeline.cut_rate_per_min."
+  how: "Read evidence.shot_stats.cut_rate_per_min; equivalently (count - 1) / duration_s x 60."
+  evidence: ["evidence.shot_stats.cut_rate_per_min", "evidence.source.duration_s"]
+  ir_path: "/timeline/cut_rate_per_min"
+  type: number
+  challenge: "Recompute from count and duration; a mismatch above 5% means one of the fields is stale."
+
+- id: pacing_cut_rhythm-003
+  question: "What is the median shot length in the first 10 seconds versus the rest of the video?"
+  why: "Captures front-loaded pacing as a two-speed rule."
+  how: "Split evidence.shots[] by start_s < 10; report both medians and their ratio."
+  evidence: ["evidence.shots[].start_s", "evidence.shots[].duration_s"]
+  ir_path: "/generation_rules/-"
+  type: object
+  challenge: "With fewer than 4 shots in the first 10 s, the first median is weak; say so."
+
+- id: pacing_cut_rhythm-004
+  question: "What is the shot-length distribution (p10, median, p90) and its coefficient of variation?"
+  why: "Sets the allowed spread around the target median in the compiler."
+  how: "Compute from evidence.shots[].duration_s."
+  evidence: ["evidence.shots[].duration_s"]
+  ir_path: "/timeline/median_shot_s"
+  type: distribution
+  challenge: "Recompute; exclude a first or last shot that is a leader or end card and report the difference."
+
+- id: pacing_cut_rhythm-005
+  question: "Do shots get shorter or longer over the course of the video (slope of shot length against time)?"
+  why: "Becomes an acceleration rule or confirms constant pacing."
+  how: "Fit duration_s against start_s with least squares; report slope in seconds of shot length per minute and the first-third versus last-third medians."
+  evidence: ["evidence.shots[]"]
+  ir_path: "/generation_rules/-"
+  type: object
+  challenge: "Check that a long end card is not driving the slope."
+
+- id: pacing_cut_rhythm-006
+  question: "What share of cuts land on a detected musical beat?"
+  why: "Fills audio.cuts_on_beat_ratio."
+  how: "Read evidence.audio.cuts_on_beat_ratio (video_re_cut_beat_alignment); report the tolerance it used and evidence.audio.tempo_bpm."
+  evidence: ["evidence.audio.cuts_on_beat_ratio", "evidence.audio.tempo_bpm"]
+  ir_path: "/audio/cuts_on_beat_ratio"
+  type: ratio
+  challenge: "Compute the chance rate: tolerance window x 2 / beat period. A ratio near chance does not support 'cuts on beat'."
+
+- id: pacing_cut_rhythm-007
+  question: "What share of cuts fall within 150 ms of the end of a speech segment (cutting on pauses)?"
+  why: "Becomes a rule to cut on speech pauses or not."
+  how: "For each cut time (shots[].start_s, excluding 0), find the nearest speech segment end in audio.speech_segments; report the share within 150 ms."
+  evidence: ["evidence.shots[]", "evidence.audio.speech_segments"]
+  ir_path: "/generation_rules/-"
+  type: ratio
+  challenge: "Compare with the share for randomly shifted cut times (shift all cuts by 0.7 s) to show the effect is not chance."
+
+- id: pacing_cut_rhythm-008
+  question: "What share of cuts happen in the middle of a word (speech continues across the cut)?"
+  why: "Tells the editor whether picture changes are tied to words."
+  how: "A cut is mid-speech if it falls inside a speech segment more than 100 ms from both ends; report the share."
+  evidence: ["evidence.shots[]", "evidence.audio.speech_segments"]
+  ir_path: "/generation_rules/-"
+  type: ratio
+  challenge: "Speech segments merge short pauses; check two flagged cuts on an A1 spectrogram."
+
+- id: pacing_cut_rhythm-009
+  question: "Where is the longest shot, how long is it, and what happens during it (reveal, text-heavy explanation, end card)?"
+  why: "Shows where the format deliberately holds."
+  how: "Max of shots[].duration_s; inspect F2 bursts across it."
+  evidence: ["evidence.shots[]", "frames: F2 across the longest shot"]
+  ir_path: "/generation_rules/-"
+  type: object
+  challenge: "Check with F11 that the longest shot is not two shots joined by a missed dissolve."
+
+- id: pacing_cut_rhythm-010
+  question: "Are there flash shots shorter than 0.25 s, how many, and what are they used for?"
+  why: "Adds flash accents to the effect list if deliberate."
+  how: "Filter shots[] by duration_s < 0.25; inspect each with F8."
+  evidence: ["evidence.shots[]", "frames: F8 at each flash"]
+  ir_path: "/motion/transitions/-"
+  type: object
+  challenge: "Encoder artefacts and detector double-triggers produce fake short shots; each must be seen on F8."
+
+- id: pacing_cut_rhythm-011
+  question: "Do shot lengths alternate (long-short-long) or follow another repeating rhythm?"
+  why: "Becomes a rhythm pattern in the generation rules."
+  how: "Compute the lag-1 autocorrelation of shot durations; negative values suggest alternation. Also write the first 12 durations rounded to 0.1 s."
+  evidence: ["evidence.shots[].duration_s"]
+  ir_path: "/generation_rules/-"
+  type: object
+  challenge: "Autocorrelation on fewer than 15 shots is noisy; report n and keep confidence low."
+
+- id: pacing_cut_rhythm-012
+  question: "What is the median shot length per beat role (hook, items, outro)?"
+  why: "Lets the compiler pace each beat role differently."
+  how: "Assign each shot to a beat using the structure lens boundaries; compute medians per role."
+  evidence: ["evidence.shots[]", "timeline beats"]
+  ir_path: "/generation_rules/-"
+  type: object
+  challenge: "Shots straddling a boundary must be assigned by majority overlap; check the rule was applied."
+
+- id: pacing_cut_rhythm-013
+  question: "How many visual events per second occur when counting cuts plus text appearances plus distinct zoom or colour jumps?"
+  why: "Captures total visual change rate, which cut rate alone misses."
+  how: "Merge event times: shots[].start_s, distinct text_regions t_s where a new region appears, and jumps seen on F2 bursts at 5 sampled points; divide by duration."
+  evidence: ["evidence.shots[]", "evidence.text_regions[]", "frames: F2 samples"]
+  ir_path: "/timeline/retention_devices/-"
+  type: number
+  challenge: "Make sure the same event is not counted twice when a cut and a caption change coincide."
+
+- id: pacing_cut_rhythm-014
+  question: "What is the longest stretch without any visual change (no cut, no new text, no visible motion change)?"
+  why: "Becomes a max_static_s constraint."
+  how: "From the merged event list (013) find the largest gap; confirm with F5 full-frame difference that motion is low during it."
+  evidence: ["merged event times", "F5 over the gap"]
+  ir_path: "/generation_rules/-"
+  type: seconds
+  challenge: "A continuous camera move is a change; check F5 values during the gap."
+
+- id: pacing_cut_rhythm-015
+  question: "What share of caption changes coincide with a cut (within 100 ms)?"
+  why: "Decides whether captions and cuts are scheduled together."
+  how: "Compare captions[].start_s with shots[].start_s."
+  evidence: ["evidence.captions[]", "evidence.shots[]"]
+  ir_path: "/generation_rules/-"
+  type: ratio
+  challenge: "If captions come from transcription, they are not on-screen timings; use text_regions instead or lower confidence."
+
+- id: pacing_cut_rhythm-016
+  question: "Are cuts made on action (movement continues across the cut) or on stillness?"
+  choices: [on-action, on-stillness, mixed, not-applicable-stills]
+  why: "Becomes an editing rule for motion footage."
+  how: "Use F5 full-frame difference values in the 3 frames before each of 6 sampled cuts; high values mean on-action."
+  evidence: ["F5 around sampled cuts", "frames: F8 at sampled cuts"]
+  ir_path: "/generation_rules/-"
+  type: enum
+  challenge: "Virtual zooms on stills always show motion; use not-applicable-stills for photo montages."
+
+- id: pacing_cut_rhythm-017
+  question: "How many jump cuts are there (cut between two shots with the same framing and subject)?"
+  why: "Adds jump cuts as a technique for presenter-led formats."
+  how: "F10 SSIM between the last frame of each shot and the first frame of the next; values above 0.8 with a cut indicate a jump cut."
+  evidence: ["frames: F10 across cuts", "evidence.shots[]"]
+  ir_path: "/motion/transitions/-"
+  type: integer
+  challenge: "A punch-in zoom changes framing and lowers SSIM; check flagged and unflagged pairs by eye."
+
+- id: pacing_cut_rhythm-018
+  question: "On average, how many spoken phrases does one shot cover (shots per phrase)?"
+  why: "Becomes a rule tying shot count to script phrases."
+  how: "Count speech segments (or caption cards) and shots; ratio = shots / phrases."
+  evidence: ["evidence.shots[]", "evidence.audio.speech_segments", "evidence.captions[]"]
+  ir_path: "/generation_rules/-"
+  type: number
+  challenge: "Say which unit was used for phrases; the two give different ratios."
+
+- id: pacing_cut_rhythm-019
+  question: "What is the median shot length measured in musical beats at the detected tempo?"
+  why: "Gives a tempo-relative pacing rule that transfers to new music."
+  how: "median_s x tempo_bpm / 60."
+  evidence: ["evidence.shot_stats.median_s", "evidence.audio.tempo_bpm"]
+  ir_path: "/generation_rules/-"
+  type: number
+  challenge: "If tempo_bpm is null or the music has no clear pulse (check A1), answer 'not determinable'."
+
+- id: pacing_cut_rhythm-020
+  question: "What are the median and maximum gaps between speech segments?"
+  why: "Sets narration pause lengths in the TTS plan."
+  how: "Compute gaps between consecutive audio.speech_segments."
+  evidence: ["evidence.audio.speech_segments"]
+  ir_path: "/audio/narration/pause_ms"
+  type: distribution
+  challenge: "Check two long gaps with A4 silencedetect; music-filled gaps may be missed by VAD."
+
+- id: pacing_cut_rhythm-021
+  question: "Does pacing slow down before the payoff (longer shots or pauses in the last 25% before the reveal)?"
+  why: "Becomes a pre-payoff hold rule."
+  how: "Compare median shot length in the 10 s before the payoff beat with the item median."
+  evidence: ["evidence.shots[]", "timeline beats"]
+  ir_path: "/generation_rules/-"
+  type: boolean
+  challenge: "Require a change of at least 25% to call it a slow-down."
+
+- id: pacing_cut_rhythm-022
+  question: "What share of shot changes use a transition (dissolve, wipe, zoom) rather than a hard cut?"
+  why: "Sets the hard-cut default and transition frequency."
+  how: "Use F11 scene scores: hard cuts are single-frame spikes; transitions spread over several frames. Sample at least 10 boundaries with F8."
+  evidence: ["F11 scene scores", "frames: F8 at sampled boundaries"]
+  ir_path: "/motion/transitions/-"
+  type: ratio
+  challenge: "Report the sample size; extrapolating from 3 boundaries is over-generalisation."
+
+- id: pacing_cut_rhythm-023
+  question: "Is the first shot of each item longer than the item's other shots (a pacing reset at item start)?"
+  why: "Becomes a rule for item-opening shots."
+  how: "Compare first-shot duration with the median of other shots per item."
+  evidence: ["evidence.shots[]", "item beat boundaries"]
+  ir_path: "/generation_rules/-"
+  type: boolean
+  challenge: "Count how many items follow the pattern; under two thirds means false."
+
+- id: pacing_cut_rhythm-024
+  question: "Write the shot-count rule for a beat in terms of parameters (for example shots = ceil(beat_s / target_median_shot_s))."
+  why: "Gives the compiler a procedural shot plan."
+  how: "Fit the observed shots per beat against beat duration; propose the rule and report its error on each beat."
+  evidence: ["evidence.shots[]", "timeline beats"]
+  ir_path: "/generation_rules/-"
+  type: rule
+  challenge: "Recompute shots for each observed beat from the rule; errors of more than one shot on more than a third of beats reject it."
+
+- id: pacing_cut_rhythm-025
+  question: "What range should target_median_shot_s have, justified by the spread observed in this video?"
+  why: "Turns one observation into a parameter with an evidence-based range."
+  how: "Default = observed median; min/max = p25 and p75 of item shot lengths; derived_from = pacing_cut_rhythm-001 and -004."
+  evidence: ["evidence.shots[].duration_s"]
+  ir_path: "/parameters/-"
+  type: parameter
+  challenge: "Any range wider than the observed p10-p90 must be marked assumed."
+
+- id: pacing_cut_rhythm-026
+  question: "Does the picture change before the new sentence starts, and by how many milliseconds (cut lead)?"
+  why: "Sets the cut-to-voice offset in the editing rule."
+  how: "For cuts within 400 ms of a speech segment start, compute start_speech - cut_time; report median (positive = picture leads)."
+  evidence: ["evidence.shots[]", "evidence.audio.speech_segments"]
+  ir_path: "/generation_rules/-"
+  type: ms
+  challenge: "Speech segment onsets can lag the true onset; check two on A1."
+
+- id: pacing_cut_rhythm-027
+  question: "What is the micro-timing inside an item start (for example cut at +0 ms, label at +150 ms, number at +400 ms, voice at +300 ms)?"
+  why: "Gives frame-accurate offsets for the per-item template."
+  how: "F8 frame steps over the first 0.5 s of three items; convert frame indices to ms with source.fps; report the median offset per event."
+  evidence: ["frames: F8 at three item starts", "evidence.source.fps"]
+  ir_path: "/generation_rules/-"
+  type: object
+  challenge: "Check the fps used for conversion matches A7 stream r_frame_rate."
+
+- id: pacing_cut_rhythm-028
+  question: "What does the cut density look like across the video in 10-second windows?"
+  why: "Shows pacing shape (flat, peaks at items, burst in hook) for the compiler."
+  how: "Count shot starts per 10 s window; list counts in order."
+  evidence: ["evidence.shots[].start_s"]
+  ir_path: "/timeline/cut_rate_per_min"
+  type: list
+  challenge: "The last window is usually partial; normalise it or mark it."
+
+- id: pacing_cut_rhythm-029
+  question: "Are there freeze frames or speed ramps, and where?"
+  why: "Adds time-manipulation effects to the motion list."
+  how: "F5 full-frame difference near zero for more than 0.5 s inside moving footage indicates a freeze; frame steps (F8) show ramps."
+  evidence: ["F5", "frames: F8"]
+  ir_path: "/motion/camera_moves/-"
+  type: timestamps
+  challenge: "Stills with no Ken Burns also show zero difference; a freeze must follow moving footage in the same shot."
+
+- id: pacing_cut_rhythm-030
+  question: "How many of the detected cuts are false positives (flashes, fast pans, text pops) when 10 are spot-checked?"
+  why: "Calibrates trust in shot_stats for this video."
+  how: "Pick 10 cuts at random from evidence.shots[]; inspect F8 at each; count those that are not real shot changes."
+  evidence: ["evidence.shots[]", "frames: F8 at 10 cuts"]
+  ir_path: "/timeline/cut_rate_per_min"
+  type: object
+  challenge: "Report which cuts were sampled so the check can be repeated."
+
+- id: pacing_cut_rhythm-031
+  question: "What is the ratio of text-change rate to cut rate?"
+  why: "Tells the compiler how many caption or label changes to schedule per shot."
+  how: "Number of distinct on-screen text changes (from text_regions) per minute divided by cut_rate_per_min."
+  evidence: ["evidence.text_regions[]", "evidence.shot_stats.cut_rate_per_min"]
+  ir_path: "/generation_rules/-"
+  type: number
+  challenge: "text_regions are sampled; a change between samples may be missed. State the sampling interval."
+
+- id: pacing_cut_rhythm-032
+  question: "Does pacing differ between narrated stretches and stretches with no narration?"
+  why: "Becomes a rule for music-only segments."
+  how: "Median shot length for shots mostly inside speech segments versus mostly outside."
+  evidence: ["evidence.shots[]", "evidence.audio.speech_segments"]
+  ir_path: "/generation_rules/-"
+  type: object
+  challenge: "If narration covers more than 90% of the runtime, the second group is too small; say so."
+
+- id: pacing_cut_rhythm-033
+  question: "How long is the final shot?"
+  why: "Sets the end hold."
+  how: "Last element of evidence.shots[] duration_s."
+  evidence: ["evidence.shots[-1].duration_s"]
+  ir_path: "/generation_rules/-"
+  type: seconds
+  challenge: "Check against the dead-tail answer in the structure lens."
+
+- id: pacing_cut_rhythm-034
+  question: "Is the median cut interval close to an integer multiple of the music beat period?"
+  why: "Becomes a rule to quantise shot lengths to beats."
+  how: "Compute cut intervals modulo the beat period (60 / tempo_bpm); report the share within 15% of a beat of a multiple."
+  evidence: ["evidence.shots[]", "evidence.audio.tempo_bpm"]
+  ir_path: "/generation_rules/-"
+  type: ratio
+  challenge: "Report the chance rate for the same tolerance (0.3 for 15% either side); a share near it is not evidence."
+
+- id: pacing_cut_rhythm-035
+  question: "What is the minimum time any text card stays on screen per word shown on it (ms per word)?"
+  why: "Sets a readability floor for text holds."
+  how: "For caption or label cards, divide on-screen duration (text_regions first to last t_s, or captions[] end_s - start_s) by word count; report min and median."
+  evidence: ["evidence.text_regions[]", "evidence.captions[]"]
+  ir_path: "/generation_rules/-"
+  type: distribution
+  challenge: "Word-by-word highlighted captions keep the card while words change; use card duration, not word duration."

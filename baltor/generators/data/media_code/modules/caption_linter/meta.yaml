@@ -1,0 +1,6 @@
+title: Caption house-rule linter
+summary: Lints caption cues for word and line limits, duration bounds, overlaps, empty text, section labels or progress bars inside captions, and sync within 150 ms of spoken words.
+subkind: qa-check
+domain: captions
+tags: [captions, lint, qa, house-rules, sync]
+step_kinds: [verify, review]

@@ -111,9 +111,10 @@ def zoom_frames(n: int, size: tuple[int, int], rate_per_frame: float = 0.005, se
 
     w, h = size
     big = Image.fromarray(texture(w * 2, h * 2, seed))
+    s_min = min(float(np.exp(rate_per_frame * i)) for i in range(n))
     for i in range(n):
-        s = float(np.exp(rate_per_frame * i))
-        cw, ch = (2 * w) / (1.25 * s), (2 * h) / (1.25 * s)
+        s = float(np.exp(rate_per_frame * i)) / s_min  # >= 1, so the crop always fits in the texture
+        cw, ch = (2 * w) / s, (2 * h) / s
         cx, cy = w, h
         box = (cx - cw / 2, cy - ch / 2, cx + cw / 2, cy + ch / 2)
         yield np.asarray(big.resize((w, h), Image.BILINEAR, box=box))

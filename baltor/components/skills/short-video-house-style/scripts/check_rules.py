@@ -26,8 +26,8 @@ def problems(spec: dict) -> list[str]:
         if not any(l.get("kind", "").startswith(("background-video", "grid-2x2")) for l in scene.get("layers", [])):
             out.append(f"scene {i + 1}: no moving background layer")
     for c in spec.get("captions", []):
-        if len(c.get("text", "").split()) > RULES["captions"]["max_words"]:
-            out.append(f"caption '{c['text']}' is longer than {RULES['captions']['max_words']} words")
+        if not c.get("text", "").strip():
+            out.append(f"caption at {c.get('start_s')}s is empty; captions must be faithful to the narration")
     return out
 
 

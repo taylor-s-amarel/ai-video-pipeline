@@ -107,7 +107,7 @@ items:
   - id: ambientcg-wood-026
     title: "ambientCG: Wood 026 material"
     url: https://ambientcg.com/view?id=Wood026
-    summary: "Example material page showing the map set (colour, normal GL/DX, roughness, displacement) and resolution options."
+    summary: "Example material page with downloadable map sets at several resolutions."
     licence_url: https://docs.ambientcg.com/license/
     tags: [ambientcg, wood, example]
   - id: cgbookcase-home

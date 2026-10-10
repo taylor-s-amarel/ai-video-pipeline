@@ -1,0 +1,7 @@
+title: Chapter markers (YouTube and FFMETADATA)
+summary: Renders YouTube description chapter timestamps with rule checks (00:00 start, three or more ascending, minimum length) and FFMETADATA1 chapter files that ffmpeg muxes into MP4.
+domain: video
+tags: [video, chapters, youtube, ffmetadata, publishing]
+step_kinds: [publish, render]
+depends_on: [ffmpeg]
+references: ["https://support.google.com/youtube/answer/9884579", "https://ffmpeg.org/ffmpeg-formats.html#Metadata-2"]

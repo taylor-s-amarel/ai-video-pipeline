@@ -1,0 +1,139 @@
+id: assets-news-creators-communities
+title: "Asset news, creator channels and community lists"
+description: >-
+  Where new free kits, licence changes and Godot/Blender asset news show up: engine announcements,
+  gamedev news sites, the Godot Digest newsletter, Blender community news, Lospec articles and curated
+  GitHub lists. Creators are listed through their public professional channels only.
+tags: [news, community, creators, godot, blender]
+defaults:
+  kind: article
+  verification: search-result
+items:
+  - id: godot-introducing-asset-store
+    title: "Godot blog: Introducing the Godot Asset Store"
+    url: https://godotengine.org/article/introducing-the-godot-asset-store/
+    summary: "Godot Foundation announcement: the Asset Store is live and stable after beta, to be integrated in Godot 4.7; buying and selling is the most requested next feature."
+    licence: "Article (Godot Foundation)"
+    licence_url: https://godotengine.org/article/introducing-the-godot-asset-store/
+    tags: [godot, store, announcement]
+  - id: gamefromscratch-godot-asset-store-live
+    title: "GameFromScratch: The Godot Asset Store is Live"
+    url: https://gamefromscratch.com/the-godot-asset-store-is-live/
+    summary: "News coverage of the Asset Store going live, including that the old Asset Library is being deprecated and will become read-only."
+    licence: "Article"
+    licence_url: https://gamefromscratch.com/the-godot-asset-store-is-live/
+    tags: [godot, news]
+  - id: gamefromscratch-godot-asset-store-launched
+    title: "GameFromScratch: Godot Asset Store Launched (beta)"
+    url: https://gamefromscratch.com/godot-asset-store-launched/
+    summary: "Coverage of the beta launch; useful history of what the store did and did not support at launch."
+    licence: "Article"
+    licence_url: https://gamefromscratch.com/godot-asset-store-launched/
+    tags: [godot, news]
+  - id: gameworldobserver-godot-store-beta
+    title: "Game World Observer: Godot Asset Store beta released (June 2025)"
+    url: https://gameworldobserver.com/2025/06/26/the-beta-version-of-the-asset-store-for-the-godot-engine-has-been-released
+    summary: "June 2025 report: the beta store opened with a little over 50 assets, all free."
+    licence: "Article"
+    licence_url: https://gameworldobserver.com/2025/06/26/the-beta-version-of-the-asset-store-for-the-godot-engine-has-been-released
+    tags: [godot, news]
+  - id: godot-digest-46
+    title: "Godot Digest #46 (newsletter)"
+    url: https://godotdigest.substack.com/p/godot-digest-46
+    summary: "Issue of the Godot Digest newsletter covering the Asset Store launch; subscribe for a regular roundup of Godot releases, addons and assets."
+    licence: "Newsletter issue"
+    licence_url: https://godotdigest.substack.com/p/godot-digest-46
+    tags: [godot, newsletter]
+  - id: blendernation-sharetextures-1000
+    title: "BlenderNation: 1000+ free PBR textures by ShareTextures (2021)"
+    url: https://www.blendernation.com/2021/07/08/1000-pbr-textures-by-sharetextures/
+    summary: "Community news post on ShareTextures passing 1,000 textures; BlenderNation is a long-running Blender news site where free asset releases are announced."
+    licence: "Article"
+    licence_url: https://www.blendernation.com/2021/07/08/1000-pbr-textures-by-sharetextures/
+    tags: [blender, textures, news]
+  - id: blendernation-cgbookcase-250
+    title: "BlenderNation: 250 free CC0 PBR textures from cgbookcase (2018)"
+    url: https://www.blendernation.com/2018/09/14/250-free-cc0-high-quality-pbr-textures-from-cgbookcase-com/
+    summary: "Creator post confirming cgbookcase textures are CC0."
+    licence: "Article"
+    licence_url: https://www.blendernation.com/2018/09/14/250-free-cc0-high-quality-pbr-textures-from-cgbookcase-com/
+    tags: [blender, textures, cc0]
+  - id: blendernation-cc0-stylized-textures-2025
+    title: "BlenderNation: CC0 stylized textures (November 2025)"
+    url: https://www.blendernation.com/2025/11/04/cc0-stylized-textures/
+    summary: "Announcement of a CC0 stylised texture library (basecolor, normal, roughness, metallic, AO, height at 4K)."
+    licence: "Article"
+    licence_url: https://www.blendernation.com/2025/11/04/cc0-stylized-textures/
+    tags: [blender, stylized, textures]
+    cautions: ["Follow the link to the library and confirm its licence page before use."]
+  - id: blendernation-pbr-cc0-2022
+    title: "BlenderNation: Free PBR textures under the CC0 licence (October 2022)"
+    url: https://www.blendernation.com/2022/10/04/free-pbr-textures-under-the-cc-0-license/
+    summary: "News post about another CC0 PBR texture source."
+    licence: "Article"
+    licence_url: https://www.blendernation.com/2022/10/04/free-pbr-textures-under-the-cc-0-license/
+    tags: [blender, textures]
+  - id: eighty-lv-bandai-namco-dataset
+    title: "80.lv: Bandai Namco published a repository with motion datasets"
+    url: https://80.lv/articles/bandai-namco-published-a-repository-with-motion-datasets/
+    summary: "Industry news on the Bandai Namco Research motion datasets (non-commercial licence)."
+    licence: "Article"
+    licence_url: https://80.lv/articles/bandai-namco-published-a-repository-with-motion-datasets/
+    tags: [mocap, news]
+  - id: eighty-lv-100-free-pbr
+    title: "80.lv: 100 free PBR textures"
+    url: https://80.lv/articles/100-free-pbr-textures
+    summary: "80.lv article on a free PBR texture release; 80.lv covers game-art tools and free asset drops."
+    licence: "Article"
+    licence_url: https://80.lv/articles/100-free-pbr-textures
+    tags: [textures, news]
+  - id: cgchannel-free-pbr-cc0-textures
+    title: "CG Channel: 90+ free PBR textures from CC0 Textures"
+    url: https://www.cgchannel.com/?p=93194
+    summary: "CG Channel news on the early CC0 Textures library (the project that became ambientCG); CG Channel regularly reports free CG asset releases."
+    licence: "Article"
+    licence_url: https://www.cgchannel.com/?p=93194
+    tags: [textures, news, history]
+  - id: lospec-articles
+    title: "Lospec articles"
+    url: https://lospec.com/articles/
+    summary: "Pixel-art articles and palette roundups (including which palettes are used most on the site)."
+    licence: "Articles"
+    licence_url: https://lospec.com/articles/
+    tags: [pixel-art, palettes]
+  - id: awesome-godot
+    title: "godotengine/awesome-godot"
+    url: https://github.com/godotengine/awesome-godot
+    summary: "Curated list of Godot games, templates, demos, plugins, modules, themes and websites (Asset Library, Asset Store, Godot Shaders); CC-BY-4.0."
+    licence: CC-BY-4.0
+    licence_url: https://github.com/godotengine/awesome-godot
+    kind: repository
+    verification: fetched
+    tags: [godot, curated-list]
+  - id: godot-4-awesome-help
+    title: "mogoh/godot-4-awesome-help"
+    url: https://github.com/mogoh/godot-4-awesome-help
+    summary: "Community-curated list of Godot 4 tutorials, resources and help channels."
+    licence: "See repository"
+    licence_url: https://github.com/mogoh/godot-4-awesome-help
+    kind: repository
+    tags: [godot, curated-list, tutorials]
+  - id: kenney-github
+    title: "Kenney on GitHub (KenneyNL)"
+    url: https://github.com/KenneyNL
+    summary: "Kenney's public repositories: Godot starter kits, 70 Godot splash screens, and the Adobe-Alternatives list; watch releases to catch new kits."
+    licence: "Per repository"
+    licence_url: https://kenney.nl/support
+    kind: repository
+    verification: fetched
+    tags: [kenney, creator, godot]
+  - id: kenney-godot-splashscreens
+    title: "KenneyNL/Godot-SplashScreens"
+    url: https://github.com/KenneyNL/Godot-SplashScreens
+    summary: "70 4K splash screens, 18 vector logos and 1 animation for Godot projects; Kenney's derivative logos are CC0."
+    licence: "CC0-1.0 (Kenney's derivatives); original Godot logo CC-BY-4.0"
+    licence_url: https://github.com/KenneyNL/Godot-SplashScreens
+    kind: repository
+    verification: fetched
+    tags: [kenney, godot, splash]
+    cautions: ["The original Godot logo (by Andrea Calabro) is CC-BY-4.0: credit it, and follow the Godot logo/trademark guidelines."]

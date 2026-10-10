@@ -1,0 +1,8 @@
+title: Subtitle burn-in filter builder
+summary: Builds ffmpeg ass/subtitles burn-in filters with force_style overrides and two-level escaping that is safe against filter injection through file names or style values.
+subkind: ffmpeg-filter
+domain: captions
+tags: [captions, ffmpeg, burn-in, subtitles, libass, security]
+step_kinds: [render, secure]
+depends_on: [ffmpeg]
+references: ["https://ffmpeg.org/ffmpeg-filters.html#subtitles-1"]

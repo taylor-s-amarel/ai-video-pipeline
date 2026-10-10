@@ -1,0 +1,5 @@
+title: Cues to transcript
+summary: Converts caption cues into a paragraph transcript, removing rolling auto-caption repetition and splitting on pauses, with optional [mm:ss] timestamps.
+domain: captions
+tags: [captions, transcript, accessibility, seo, text]
+step_kinds: [write, publish]

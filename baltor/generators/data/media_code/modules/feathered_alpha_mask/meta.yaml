@@ -1,0 +1,6 @@
+title: Feathered alpha masks
+summary: Signed-distance rounded-rectangle and ellipse masks with even soft feathers, edge fades, mask combining and Pillow output, capped at 98% so no layer has a hard cutout or full opacity.
+subkind: layer-stack
+domain: video
+tags: [video, mask, feather, alpha, compositing, numpy]
+step_kinds: [build, render]

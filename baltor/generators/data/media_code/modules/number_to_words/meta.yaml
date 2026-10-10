@@ -1,0 +1,6 @@
+title: Number to words for TTS
+summary: Spells cardinals, negatives, decimals, ordinals and years the way they are spoken ("nineteen seventy", "twenty-first", "three point one four") for text-to-speech input.
+subkind: voice-preset
+domain: audio
+tags: [audio, tts, numbers, text-normalisation, narration]
+step_kinds: [write, build]

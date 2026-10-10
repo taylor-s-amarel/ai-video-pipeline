@@ -1,0 +1,451 @@
+# The 36 background layers. Every one has a procedural ffmpeg recipe (in video_styles.py, keyed by
+# id) so it renders with no downloads; footage-first layers also say how to find real footage with a
+# licence that allows reuse. stops: gray value -> colour for the recipe's gradient map.
+# recolor: ramp (map through a palette's five-stop ramp), overlay (black -> palette light colour),
+# two_tone (palette background -> accent), none (colours are part of the look).
+# role: where the layer usually sits in a stack (base, background-video, texture, light, particles,
+# haze, grain, vignette, overlay, grid-2x2).
+
+ocean_waves:
+  name: Ocean waves
+  category: footage
+  role: background-video
+  default_opacity: 0.92
+  default_blend: normal
+  recolor: ramp
+  mood: [nature, calm, house]
+  stops: [[0, "#04223F"], [110, "#0B5E8A"], [170, "#2FA4C8"], [230, "#C8F1FF"], [255, "#FFFFFF"]]
+  footage: {search_terms: [ocean waves aerial, sea surface waves loop, waves top down], prefer: slow rolling swell, no people or logos}
+  look: Rolling blue swell with bright foam crests drifting across the frame.
+  use_when: [House-style facts, sea and travel topics, calm narration]
+
+meadow_wind:
+  name: Meadow in the wind
+  category: footage
+  role: background-video
+  default_opacity: 0.92
+  default_blend: normal
+  recolor: none
+  mood: [nature, calm, animals, relationships]
+  stops: [[0, "#173A12"], [90, "#3F7A22"], [150, "#9CCB4A"], [195, "#DDEEB0"], [205, "#CFE8F7"], [255, "#8EC9F0"]]
+  footage: {search_terms: [grass meadow wind, wheat field wind, wildflowers breeze], prefer: steady breeze, low horizon}
+  look: Green grass blades swaying under a pale sky, with slow gusts rolling across.
+  use_when: [Nature, pets, gentle relationship topics]
+
+sunlit_water:
+  name: Sunlit water caustics
+  category: footage
+  role: background-video
+  default_opacity: 0.9
+  default_blend: normal
+  recolor: ramp
+  mood: [nature, calm, house, science]
+  stops: [[0, "#073B4C"], [120, "#118AB2"], [200, "#7FDBEA"], [255, "#F2FFFF"]]
+  footage: {search_terms: [pool caustics, sunlight water surface, shallow water light patterns], prefer: top-down, no swimmers}
+  look: Bright caustic light lines wobbling over turquoise water.
+  use_when: [Underwater, summer and science-of-light topics]
+
+coastal_aerial:
+  name: Coastal shoreline aerial
+  category: footage
+  role: background-video
+  default_opacity: 0.92
+  default_blend: normal
+  recolor: none
+  mood: [nature, calm, history]
+  stops: [[0, "#062C4C"], [70, "#0E6C8C"], [125, "#3CC3C8"], [150, "#E2CD9B"], [200, "#F0DFB7"], [255, "#FFFFFF"]]
+  footage: {search_terms: [coastline aerial drone, beach shoreline top down, waves on sand aerial], prefer: diagonal shoreline}
+  look: A diagonal shoreline seen from above with foam washing up the sand.
+  use_when: [Travel, geography and coastal history]
+
+cloud_timelapse:
+  name: Cloud time-lapse
+  category: footage
+  role: background-video
+  default_opacity: 0.9
+  default_blend: normal
+  recolor: none
+  mood: [calm, nature, science]
+  stops: [[0, "#3C7CC4"], [120, "#6FA8DC"], [150, "#DCE9F5"], [255, "#FFFFFF"]]
+  footage: {search_terms: [cloud timelapse blue sky, clouds moving time lapse], prefer: no sun flare, no aircraft}
+  look: White clouds streaming across a blue sky.
+  use_when: [Weather, aviation, calm openers]
+
+rain_on_glass:
+  name: Rain on glass
+  category: footage
+  role: background-video
+  default_opacity: 0.9
+  default_blend: normal
+  recolor: ramp
+  mood: [calm, relationships, documentary]
+  stops: [[0, "#0B1018"], [60, "#26324A"], [130, "#6E7FA0"], [200, "#C9D4E6"], [255, "#FFFFFF"]]
+  footage: {search_terms: [rain on window night, raindrops glass bokeh], prefer: blurred city lights behind}
+  look: Drops running down a window over blurred night lights.
+  use_when: [Reflective relationship topics, cosy stories]
+
+city_night_bokeh:
+  name: City night bokeh
+  category: footage
+  role: background-video
+  default_opacity: 0.9
+  default_blend: normal
+  recolor: ramp
+  mood: [energetic, relationships, tech, news]
+  stops: [[0, "#07070F"], [80, "#3B1F4A"], [170, "#FF9F45"], [255, "#FFF1C9"]]
+  footage: {search_terms: [city lights bokeh night, defocused traffic lights], prefer: strong defocus, slow drift}
+  look: Warm out-of-focus city lights drifting sideways.
+  use_when: [Night-time stories, urban topics]
+
+forest_sunbeams:
+  name: Forest sunbeams
+  category: footage
+  role: background-video
+  default_opacity: 0.9
+  default_blend: normal
+  recolor: none
+  mood: [nature, calm, animals]
+  stops: [[0, "#0B1A0E"], [60, "#20402A"], [140, "#6E8F3C"], [220, "#F3E3A0"], [255, "#FFF8DC"]]
+  footage: {search_terms: [sunbeams forest, god rays trees, light through forest canopy], prefer: slow camera, mist}
+  look: Soft beams of light slanting through a dark green canopy.
+  use_when: [Forest, wildlife, mindful topics]
+
+ink_in_water:
+  name: Ink in water
+  category: footage
+  role: background-video
+  default_opacity: 0.9
+  default_blend: normal
+  recolor: ramp
+  mood: [calm, science, history]
+  stops: [[0, "#F5F2EA"], [120, "#C9CFE0"], [180, "#4B5D8C"], [255, "#0E1736"]]
+  footage: {search_terms: [ink in water macro, ink drop water slow motion], prefer: white background, slow swirls}
+  look: Dark ink clouds curling through clear water.
+  use_when: [Chemistry, art history, reflective openers]
+
+campfire_embers:
+  name: Campfire embers
+  category: footage
+  role: particles
+  default_opacity: 0.85
+  default_blend: screen
+  recolor: none
+  mood: [history, calm, energetic]
+  stops: [[0, "#0B0503"], [80, "#5A1A06"], [160, "#E0560F"], [220, "#FFB347"], [255, "#FFF1B8"]]
+  footage: {search_terms: [embers rising black background, campfire sparks night], prefer: black background so it screens cleanly}
+  look: Orange sparks rising out of a warm glow at the bottom of the frame.
+  use_when: [Battles, legends and storytelling nights]
+
+neon_grid:
+  name: Neon synthwave grid
+  category: procedural-scene
+  role: background-video
+  default_opacity: 0.92
+  default_blend: normal
+  recolor: ramp
+  mood: [tech, retro, energetic]
+  stops: [[0, "#0B0221"], [60, "#2B0A4F"], [140, "#7A1FA2"], [200, "#FF2E97"], [255, "#FFE8F5"]]
+  look: A glowing perspective grid racing toward the viewer under a striped sunset sun.
+  use_when: [AI and tech explainers, retro gaming]
+
+warm_paper:
+  name: Warm paper texture
+  category: procedural-texture
+  role: texture
+  default_opacity: 0.9
+  default_blend: normal
+  recolor: ramp
+  mood: [history, documentary, calm]
+  stops: [[0, "#7A5C3E"], [120, "#CDB792"], [190, "#EFE3CC"], [255, "#FFF9EE"]]
+  look: Fibrous warm paper with a slow drifting light across it.
+  use_when: [Archive, letters, sketch and blueprint looks on light palettes]
+
+light_leaks:
+  name: Light leaks
+  category: procedural-light
+  role: light
+  default_opacity: 0.32
+  default_blend: screen
+  recolor: overlay
+  mood: [calm, relationships, energetic, house, nature, history]
+  stops: [[0, "#000000"], [120, "#B3261E"], [200, "#FF8A00"], [255, "#FFE7B0"]]
+  look: Large soft warm blobs of light drifting over the frame like film light leaks.
+  use_when: [Any stack that needs warmth and movement; screen it at 20-40%]
+
+dust_particles:
+  name: Floating dust particles
+  category: procedural-particles
+  role: particles
+  default_opacity: 0.35
+  default_blend: screen
+  recolor: overlay
+  mood: [calm, history, nature, house, documentary]
+  stops: [[0, "#000000"], [200, "#D8CBB0"], [255, "#FFFFFF"]]
+  look: Small soft motes rising slowly at two depths.
+  use_when: [Adds depth to almost any stack; keep under 40%]
+
+atmospheric_haze:
+  name: Atmospheric haze
+  category: procedural-texture
+  role: haze
+  default_opacity: 0.22
+  default_blend: screen
+  recolor: overlay
+  mood: [calm, nature, space, house, science]
+  stops: [[0, "#000000"], [128, "#7F93A8"], [255, "#E8F0F7"]]
+  look: Low-contrast mist drifting sideways in two directions.
+  use_when: [Softening busy footage behind text; depth between layers]
+
+bokeh_drift:
+  name: Bokeh drift
+  category: procedural-particles
+  role: particles
+  default_opacity: 0.3
+  default_blend: screen
+  recolor: overlay
+  mood: [relationships, calm, energetic, house]
+  stops: [[0, "#000000"], [140, "#5C4B8A"], [220, "#F2B8C6"], [255, "#FFFFFF"]]
+  look: Large out-of-focus discs floating upward at two depths.
+  use_when: [Feelings, celebrations, dreamy looks]
+
+film_grain:
+  name: Film grain
+  category: overlay
+  role: grain
+  default_opacity: 0.1
+  default_blend: overlay
+  recolor: none
+  mood: [history, documentary, calm, house, relationships, nature]
+  stops: [[0, "#000000"], [255, "#FFFFFF"]]
+  look: Fine moving monochrome grain around mid-grey.
+  use_when: [Unifying mixed sources; keep at 6-14% in overlay or soft-light]
+
+motion_grid_2x2:
+  name: 2x2 motion grid
+  category: composite
+  role: grid-2x2
+  default_opacity: 0.35
+  default_blend: screen
+  recolor: none
+  mood: [house, nature, calm, energetic]
+  stops: [[0, "#0B1220"], [255, "#1F4E79"]]
+  look: Four different moving loops in a feathered 2x2 grid over a dark gradient.
+  use_when: [House stacks (layer 4), busy energetic intros]
+  grid: grid_2x2_even_feathered
+  cells: [ocean_waves, meadow_wind, sunlit_water, coastal_aerial]
+
+starfield_drift:
+  name: Starfield drift
+  category: procedural-particles
+  role: background-video
+  default_opacity: 0.92
+  default_blend: normal
+  recolor: ramp
+  mood: [space, science, calm]
+  stops: [[0, "#02030A"], [60, "#141B3A"], [150, "#5D6BB0"], [255, "#FFFFFF"]]
+  look: Two depths of stars drifting sideways over a faint nebula.
+  use_when: [Space and astronomy, night openers]
+
+aurora_ribbons:
+  name: Aurora ribbons
+  category: procedural-light
+  role: background-video
+  default_opacity: 0.9
+  default_blend: normal
+  recolor: ramp
+  mood: [space, nature, calm]
+  stops: [[0, "#020812"], [80, "#0B3B3C"], [170, "#13C29B"], [230, "#9DFFD8"], [255, "#E9FFF6"]]
+  look: Green curtains of light rippling across a night sky.
+  use_when: [Polar, space-weather and calm night topics]
+
+gradient_drift:
+  name: Two-tone gradient drift
+  category: procedural-texture
+  role: base
+  default_opacity: 0.98
+  default_blend: normal
+  recolor: two_tone
+  mood: [house, calm, science, tech, news, relationships, nature, history, documentary, space, energetic, retro, comic, animals, education]
+  stops: [[0, "#0B1220"], [255, "#1F4E79"]]
+  look: A slow diagonal blend between two palette colours.
+  use_when: [The bottom layer of every stack]
+
+underwater_rays:
+  name: Underwater light rays
+  category: procedural-light
+  role: background-video
+  default_opacity: 0.9
+  default_blend: normal
+  recolor: ramp
+  mood: [nature, calm, house, science]
+  stops: [[0, "#012235"], [70, "#03506F"], [150, "#0A8DB0"], [230, "#9FE7F5"], [255, "#E8FCFF"]]
+  look: Shafts of light swaying down from the surface into blue water.
+  use_when: [Ocean science, diving, Sylvia Earle style facts]
+
+snowfall:
+  name: Snowfall
+  category: procedural-particles
+  role: particles
+  default_opacity: 0.85
+  default_blend: screen
+  recolor: ramp
+  mood: [calm, nature, history]
+  stops: [[0, "#1B2735"], [90, "#3B5068"], [200, "#C9D6E3"], [255, "#FFFFFF"]]
+  look: Three depths of snowflakes falling at different speeds.
+  use_when: [Winter, polar and holiday topics]
+
+fireflies:
+  name: Fireflies
+  category: procedural-particles
+  role: particles
+  default_opacity: 0.8
+  default_blend: screen
+  recolor: overlay
+  mood: [nature, calm, relationships]
+  stops: [[0, "#050A05"], [40, "#0E1F0E"], [150, "#8DB33A"], [255, "#F7FF9C"]]
+  look: Sparse glowing dots wandering and blinking in the dark.
+  use_when: [Summer nights, gentle stories]
+
+blueprint_grid:
+  name: Blueprint grid
+  category: procedural-texture
+  role: background-video
+  default_opacity: 0.92
+  default_blend: normal
+  recolor: ramp
+  mood: [science, tech, education]
+  stops: [[0, "#0F2C4C"], [110, "#3D6A99"], [255, "#E6F0FF"]]
+  look: Minor and major grid lines panning diagonally on blueprint blue.
+  use_when: [Engineering, how-it-works, sketch/blueprint animation style]
+
+chalkboard_dust:
+  name: Chalkboard dust
+  category: procedural-texture
+  role: background-video
+  default_opacity: 0.92
+  default_blend: normal
+  recolor: none
+  mood: [education, history, science]
+  stops: [[0, "#16231D"], [90, "#2E4238"], [170, "#6F8478"], [255, "#E3E9E5"]]
+  look: Smudged green-black board with chalk dust drifting.
+  use_when: [Lessons, maths and classroom explainers]
+
+halftone_drift:
+  name: Halftone dot drift
+  category: procedural-texture
+  role: texture
+  default_opacity: 0.9
+  default_blend: normal
+  recolor: two_tone
+  mood: [comic, energetic, retro]
+  stops: [[0, "#FFF4D6"], [255, "#E63946"]]
+  look: Comic halftone dots growing and shrinking in a moving diagonal wave.
+  use_when: [Comic and pop-art looks, cel-shaded animation style]
+
+topographic_lines:
+  name: Topographic contour lines
+  category: procedural-texture
+  role: background-video
+  default_opacity: 0.9
+  default_blend: normal
+  recolor: none
+  mood: [history, nature, science, documentary]
+  stops: [[0, "#F3EBDD"], [140, "#C8A97E"], [255, "#5B4636"]]
+  look: Map-style contour lines flowing and reshaping on parchment.
+  use_when: [Battles, expeditions, geography]
+
+smoke_wisps:
+  name: Smoke wisps
+  category: procedural-texture
+  role: haze
+  default_opacity: 0.3
+  default_blend: screen
+  recolor: overlay
+  mood: [history, energetic, documentary]
+  stops: [[0, "#000000"], [140, "#6E6E7A"], [255, "#E6E6F0"]]
+  look: Grey smoke curling upward.
+  use_when: [Battles, mysteries, dramatic reveals]
+
+silk_waves:
+  name: Silk waves
+  category: procedural-texture
+  role: background-video
+  default_opacity: 0.9
+  default_blend: normal
+  recolor: ramp
+  mood: [relationships, calm, energetic]
+  stops: [[0, "#3B1E2B"], [120, "#9C4F6B"], [200, "#E8B4C4"], [255, "#FFF0F3"]]
+  look: Smooth glossy bands rippling like fabric.
+  use_when: [Beauty, feelings, soft brand looks]
+
+crt_scanlines:
+  name: CRT scanlines
+  category: overlay
+  role: overlay
+  default_opacity: 0.18
+  default_blend: overlay
+  recolor: ramp
+  mood: [retro, tech]
+  stops: [[0, "#031A12"], [80, "#0B4D33"], [170, "#1FA968"], [255, "#B6FFD9"]]
+  look: Fine horizontal scanlines with a bright band rolling down the screen.
+  use_when: [Retro gaming and terminal looks, over pixel art]
+
+comic_sunburst:
+  name: Comic sunburst
+  category: procedural-scene
+  role: background-video
+  default_opacity: 0.92
+  default_blend: normal
+  recolor: two_tone
+  mood: [comic, energetic, animals]
+  stops: [[0, "#FF9F1C"], [255, "#FFD21F"]]
+  look: Two-tone rays rotating from a point above centre.
+  use_when: [Reveals, cartoons, ridiculous stories]
+
+pixel_sky_parallax:
+  name: Pixel sky parallax
+  category: procedural-scene
+  role: background-video
+  default_opacity: 0.92
+  default_blend: normal
+  recolor: none
+  mood: [retro, energetic, comic]
+  stops: [[0, "#2E1F14"], [70, "#2F6B2F"], [120, "#5FA052"], [200, "#6EC6F0"], [230, "#9ADCF7"], [255, "#FFFFFF"]]
+  look: Blocky clouds and two layers of hills scrolling at different speeds, scaled with nearest-neighbour.
+  use_when: [Pixel-art stories and game explainers]
+
+lava_blobs:
+  name: Lava lamp blobs
+  category: procedural-scene
+  role: background-video
+  default_opacity: 0.9
+  default_blend: normal
+  recolor: ramp
+  mood: [retro, energetic, science]
+  stops: [[0, "#2A0845"], [110, "#6A1B6E"], [180, "#FF4E50"], [255, "#FFC371"]]
+  look: Soft metaball blobs merging and splitting.
+  use_when: [Chemistry, 70s retro, playful explainers]
+
+vignette_breathe:
+  name: Breathing vignette
+  category: overlay
+  role: vignette
+  default_opacity: 0.5
+  default_blend: multiply
+  recolor: none
+  mood: [house, calm, history, documentary, nature, relationships, science, space]
+  stops: [[0, "#FFFFFF"], [255, "#000000"]]
+  look: Dark edges that slowly widen and narrow, pulling the eye to the centre.
+  use_when: [Near the top of almost every stack in multiply at 35-60%]
+
+lowpoly_facets:
+  name: Low-poly facets
+  category: procedural-scene
+  role: background-video
+  default_opacity: 0.92
+  default_blend: normal
+  recolor: ramp
+  mood: [tech, calm, science, retro]
+  stops: [[0, "#0F2027"], [120, "#203A43"], [200, "#2C5364"], [255, "#6DD5FA"]]
+  look: Flat-shaded triangles whose shades breathe slowly.
+  use_when: [Faceted low-poly animation style, geometric tech looks]

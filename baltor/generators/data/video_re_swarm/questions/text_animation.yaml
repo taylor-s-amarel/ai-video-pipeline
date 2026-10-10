@@ -1,0 +1,293 @@
+- id: text_animation-001
+  question: "How do captions enter (scale pop, fade, slide, typewriter, mask wipe, no animation)?"
+  choices: [scale-pop, fade, slide, typewriter, mask-wipe, none, mixed]
+  why: "Adds the caption entrance to motion.text_animations."
+  how: "F8 frame steps over the first 0.3 s of 4 caption cards; look at size, opacity and position per frame."
+  evidence: ["frames: F8 at 4 caption starts"]
+  ir_path: "/motion/text_animations/-"
+  type: enum
+  challenge: "Check at least 4 cards; one dramatic card is not the rule."
+
+- id: text_animation-002
+  question: "How long does a caption entrance take (ms from first visible frame to settled)?"
+  why: "Fills the entrance duration parameter."
+  how: "Count frames on F8 steps from first visible to stable size/position; ms = frames x 1000 / fps."
+  evidence: ["frames: F8", "evidence.source.fps"]
+  ir_path: "/motion/text_animations/-"
+  type: ms
+  challenge: "Use the real fps from A7; report frames and ms."
+
+- id: text_animation-003
+  question: "Does the entrance overshoot (scale above final size, then settle), and what is the peak scale?"
+  why: "Fills pop_scale_peak; springy overshoot was a liked reference trait in this project."
+  how: "Measure text block height on each F8 frame; peak scale = max height / settled height."
+  evidence: ["frames: F8"]
+  ir_path: "/motion/text_animations/-"
+  type: number
+  challenge: "Report the height series; camera zoom during the same frames would contaminate it."
+
+- id: text_animation-004
+  question: "How do captions exit (cut, fade, scale down, slide out), and how long does it take?"
+  why: "Fills the exit animation."
+  how: "F8 steps over the last 0.3 s before 4 caption changes."
+  evidence: ["frames: F8 at caption ends"]
+  ir_path: "/motion/text_animations/-"
+  type: object
+  challenge: "If the next caption replaces the old one on the same frame, the exit is a cut."
+
+- id: text_animation-005
+  question: "When a key word pops, how many ms after (or before) the spoken word does the pop start?"
+  why: "Sets the keyword pop sync offset."
+  how: "F8 at emphasised words versus the word onset on A1 spectrogram."
+  evidence: ["frames: F8", "A1"]
+  ir_path: "/motion/text_animations/-"
+  type: ms
+  challenge: "Report n and spread; the word onset must be read from audio, not caption timing."
+
+- id: text_animation-006
+  question: "How does the title enter and how long does its entrance take?"
+  why: "Adds title entrance details."
+  how: "F8 at the title's first appearance."
+  evidence: ["frames: F8"]
+  ir_path: "/motion/text_animations/-"
+  type: object
+  challenge: "Compare with hook_first_seconds-015; disagreements must be explained."
+
+- id: text_animation-007
+  question: "How do item labels (for example FACT N) enter (slam with scale-down, slide, flip, pop, fade)?"
+  choices: [slam, slide, flip, pop, fade, none]
+  why: "Adds label entrance."
+  how: "F8 at 3 label appearances."
+  evidence: ["frames: F8"]
+  ir_path: "/motion/text_animations/-"
+  type: enum
+  challenge: "Check all 3 match."
+
+- id: text_animation-008
+  question: "How are key numbers revealed (count-up, flip, scale pop, typewriter, static)?"
+  choices: [count-up, flip, scale-pop, typewriter, static]
+  why: "Adds a number reveal animation."
+  how: "F8 over the number's first 0.6 s; a count-up shows intermediate values."
+  evidence: ["frames: F8"]
+  ir_path: "/motion/text_animations/-"
+  type: enum
+  challenge: "Intermediate values must be visible on at least 2 frames for count-up."
+
+- id: text_animation-009
+  question: "Is there a stagger between words or lines entering, and how many ms apart?"
+  why: "Fills stagger_ms."
+  how: "F8 steps across multi-word entrances; time between successive word appearances."
+  evidence: ["frames: F8"]
+  ir_path: "/motion/text_animations/-"
+  type: ms
+  challenge: "Word-by-word captions timed to speech are not a stagger; a stagger is faster than speech."
+
+- id: text_animation-010
+  question: "What easing curve does the text motion follow (spring with overshoot, ease-out-back, ease-out, linear)?"
+  choices: [spring, ease-out-back, ease-out, ease-in-out, linear]
+  why: "Fills motion.easing for text."
+  how: "Plot the scale or position series from F8 steps; overshoot then settle with oscillation = spring; single overshoot = ease-out-back."
+  evidence: ["frames: F8 series"]
+  ir_path: "/motion/easing"
+  type: enum
+  challenge: "Report the series values; the curve name must match them."
+
+- id: text_animation-011
+  question: "Does text move while it is on screen (idle float, breathing scale, wobble)?"
+  why: "Adds idle motion."
+  how: "Compare text bbox across F1 frames 0.5 s apart within one card."
+  evidence: ["frames: F1 within a card"]
+  ir_path: "/motion/text_animations/-"
+  type: object
+  challenge: "A camera move that includes the text layer must be excluded; check if the background shifts the same way."
+
+- id: text_animation-012
+  question: "Is motion blur or squash-and-stretch applied to moving text?"
+  why: "Adds stylistic deformation."
+  how: "F8 frames mid-animation; look for smeared or non-uniformly scaled glyphs."
+  evidence: ["frames: F8"]
+  ir_path: "/motion/text_animations/-"
+  type: boolean
+  challenge: "Compression smear is not motion blur; it appears as blocks."
+
+- id: text_animation-013
+  question: "What share of text entrances land within 80 ms of a music onset?"
+  why: "Becomes a beat-sync rule for text."
+  how: "Compare entrance times (from F8 or text_regions) with evidence.audio.onsets_s."
+  evidence: ["entrance times", "evidence.audio.onsets_s"]
+  ir_path: "/generation_rules/-"
+  type: ratio
+  challenge: "Compare with the chance rate given onset density."
+
+- id: text_animation-014
+  question: "Are text entrances accompanied by a sound effect (pop, click, whoosh)?"
+  why: "Couples text animation with sfx."
+  how: "A1 spectrogram with highpass around 4 entrances."
+  evidence: ["A1 highpassed"]
+  ir_path: "/audio/sfx/-"
+  type: ratio
+  challenge: "Speech consonants are transient; the sfx must not coincide with a word onset."
+
+- id: text_animation-015
+  question: "Are there highlight sweeps, underlines being drawn, or boxes drawing around words?"
+  why: "Adds annotation animations."
+  how: "F8 at emphasised moments."
+  evidence: ["frames: F8"]
+  ir_path: "/motion/text_animations/-"
+  type: list
+  challenge: "List timestamps for each."
+
+- id: text_animation-016
+  question: "Are mask reveals used (text wiping in behind an edge)?"
+  why: "Adds a mask-reveal entrance."
+  how: "F8 steps: partial letters cut by a straight edge."
+  evidence: ["frames: F8"]
+  ir_path: "/motion/text_animations/-"
+  type: boolean
+  challenge: "A slide from outside the frame is not a mask reveal."
+
+- id: text_animation-017
+  question: "Is rotation used in text entrances, and by how many degrees?"
+  why: "Adds rotation range."
+  how: "Measure baseline angle on F8 frames."
+  evidence: ["frames: F8"]
+  ir_path: "/motion/text_animations/-"
+  type: number
+  challenge: "Report the angle per frame."
+
+- id: text_animation-018
+  question: "What share of text elements animate at all?"
+  why: "Tells the generator whether to animate everything or only key elements."
+  how: "Classify 10 text appearances as animated or not."
+  evidence: ["frames: F8 at 10 appearances"]
+  ir_path: "/generation_rules/-"
+  type: ratio
+  challenge: "Report the sample."
+
+- id: text_animation-019
+  question: "What fraction of a caption card's time is spent animating versus static and readable?"
+  why: "Becomes a readability constraint for animation length."
+  how: "(entrance ms + exit ms) / card duration for 5 cards."
+  evidence: ["entrance and exit durations", "card durations"]
+  ir_path: "/generation_rules/-"
+  type: ratio
+  challenge: "Use the same cards for all terms."
+
+- id: text_animation-020
+  question: "Is the text itself the main visual (kinetic typography) for any section?"
+  why: "Adds a kinetic-type beat option."
+  how: "Find shots where text covers more than 30% of the frame and moves in layout (F2)."
+  evidence: ["evidence.text_regions[].area_ratio", "frames: F2"]
+  ir_path: "/visual/style_family"
+  type: segments
+  challenge: "A large static title card is not kinetic typography."
+
+- id: text_animation-021
+  question: "Is the same animation used for the same element type throughout (consistency)?"
+  why: "Becomes a consistency rule."
+  how: "Compare entrance type per element role across 3 instances each."
+  evidence: ["frames: F8"]
+  ir_path: "/generation_rules/-"
+  type: boolean
+  challenge: "Report which instances were compared."
+
+- id: text_animation-022
+  question: "How does one caption card give way to the next (instant replace, cross-fade, push, exit then enter with a gap)?"
+  choices: [instant-replace, cross-fade, push, exit-then-enter]
+  why: "Fills caption-to-caption transition."
+  how: "F8 across 4 caption changes."
+  evidence: ["frames: F8"]
+  ir_path: "/motion/text_animations/-"
+  type: enum
+  challenge: "Check 4 changes."
+
+- id: text_animation-023
+  question: "How many frames does a typical text entrance take at the source frame rate?"
+  why: "Gives a frame-exact value for renderers working in frames."
+  how: "Frame count from F8 steps; report fps."
+  evidence: ["frames: F8", "A7 r_frame_rate"]
+  ir_path: "/motion/text_animations/-"
+  type: integer
+  challenge: "Variable frame rate sources make frame counts unreliable; check A7 for avg vs real frame rate."
+
+- id: text_animation-024
+  question: "Is there a shine or glint pass across the title or labels?"
+  why: "Adds a shine effect."
+  how: "F8 on the title: a bright band moving across letters."
+  evidence: ["frames: F8"]
+  ir_path: "/motion/text_animations/-"
+  type: boolean
+  challenge: "A light-leak layer over everything is not a text shine."
+
+- id: text_animation-025
+  question: "Is text shaken or vibrated for emphasis, and with what amplitude?"
+  why: "Adds a shake emphasis."
+  how: "Track text bbox position across F8 frames."
+  evidence: ["frames: F8"]
+  ir_path: "/motion/text_animations/-"
+  type: object
+  challenge: "Report px amplitude."
+
+- id: text_animation-026
+  question: "What should pop_scale_peak and pop_ms be as parameters, with ranges from the evidence?"
+  why: "Turns observed animation into parameters."
+  how: "Default = observed medians (003, 002); range = observed min/max."
+  evidence: ["text animation measurements"]
+  ir_path: "/parameters/-"
+  type: parameter
+  challenge: "Ranges wider than observed must be marked assumed."
+
+- id: text_animation-027
+  question: "Write the caption animation rule (entrance, keyword pop, exit) in terms of parameters."
+  why: "Gives the compiler a procedural animation."
+  how: "Combine 001-005, for example 'enter: scale 0.85 to pop_scale_peak to 1.0 over pop_ms with ease-out-back; key word pops 1.0 to 1.12 to 1.0 over 180 ms at word onset; exit: cut'."
+  evidence: ["text animation answers"]
+  ir_path: "/generation_rules/-"
+  type: rule
+  challenge: "Every number in the rule must come from a measurement or be marked as a default."
+
+- id: text_animation-028
+  question: "Do text elements enter from a consistent direction or along a consistent axis?"
+  why: "Becomes a direction rule."
+  how: "From F8 steps, note entrance direction for 6 elements."
+  evidence: ["frames: F8"]
+  ir_path: "/generation_rules/-"
+  type: object
+  challenge: "Report the counts per direction."
+
+- id: text_animation-029
+  question: "Does the backing panel animate separately from the text (panel first, text after), and with what offset?"
+  why: "Adds panel/text sequencing."
+  how: "F8 steps at caption or title starts."
+  evidence: ["frames: F8"]
+  ir_path: "/motion/text_animations/-"
+  type: ms
+  challenge: "Report frames and ms."
+
+- id: text_animation-030
+  question: "Is animation applied per character, per word, or per line?"
+  choices: [character, word, line, block]
+  why: "Fills animation granularity."
+  how: "F8 steps: see which units move independently."
+  evidence: ["frames: F8"]
+  ir_path: "/motion/text_animations/-"
+  type: enum
+  challenge: "Check one long caption."
+
+- id: text_animation-031
+  question: "Is there a gap or overlap between one caption leaving and the next appearing (ms)?"
+  why: "Fills the caption gap timing."
+  how: "F8 across 4 changes: frames with no caption (gap) or two captions (overlap)."
+  evidence: ["frames: F8"]
+  ir_path: "/motion/text_animations/-"
+  type: ms
+  challenge: "Report the sign convention and n."
+
+- id: text_animation-032
+  question: "Is there anticipation before a pop (a brief scale-down before the scale-up)?"
+  why: "Adds anticipation to the pop curve."
+  how: "Height series from F8 just before emphasised words."
+  evidence: ["frames: F8"]
+  ir_path: "/motion/text_animations/-"
+  type: boolean
+  challenge: "Report the height series."

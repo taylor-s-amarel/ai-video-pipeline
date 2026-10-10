@@ -1,0 +1,6 @@
+title: TTS engine interface and fallback chain
+summary: Common Speech/TTSEngine interface for local TTS adapters, a fallback chain that reports which engine was used and why others failed, and 16-bit WAV read/write.
+subkind: tts-engine
+domain: audio
+tags: [audio, tts, interface, fallback, narration, wav]
+step_kinds: [build, render]

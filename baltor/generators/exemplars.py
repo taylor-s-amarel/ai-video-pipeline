@@ -12,37 +12,88 @@ import json
 
 from _lib import GeneratorRun, agent_md, command_md, dumps, effects, skill_md
 
+# Current photographic contract (Creative Media and Game Production Reference, 10 Oct 2026, sections 4-7, 11).
 HOUSE_RULES = {
+    "contract": "photographic-pair-v8",
     "min_duration_s": 60,
+    "complete_arc_required": True,
     "aspect": "9:16",
     "resolution": [1080, 1920],
     "max_layer_opacity": 0.98,
+    "max_layer_alpha_8bit": 249,
+    "imagery": "realistic, large photography covering most of the frame; illustrated treatments are opt-in only",
+    "photo": {
+        "bounds": [54, 96, 1026, 1824],
+        "size": [972, 1728],
+        "inset_fraction_per_side": 0.05,
+        "never_shrink_for_title": True,
+        "protect": ["faces", "eyes", "hands", "props"],
+    },
+    "border": {"exposed_fraction": 0.05, "moving_from_first_to_last_frame": True},
     "title": {
         "first_frame": True,
-        "position": "upper third, overlaid on the main photo",
-        "center_y_max_fraction": 0.40,
+        "position": "short bold editorial title overlaid on the upper photograph",
+        "glyph_center_y_px": 320,
+        "center_y_fraction_range": [0.12, 0.22],
         "color": "#FFD21F",
         "weight": "bold",
-        "backing": "frosted glass: blurred background, 55-75% tint, feathered edges",
+        "font_px": 72,
+        "outline": "dark outline with a controlled shadow",
+        "hold_s": [3.5, 4.0],
+        "distinct_from_captions": True,
+        "backing": "genuine frosted glass (sampled and blurred composite)",
+    },
+    "frosted_glass": {
+        "sample_margin_px": 48,
+        "gaussian_blur_radius_px": 18,
+        "tint": "restrained dark/cool tint plus a small pearl lift",
+        "mask": "rounded, 2.2 px feather",
+        "rim": "faint softened rim",
+        "applies_to": ["opening title", "captions", "music credits"],
+        "translucent_solid_box_is_not_glass": True,
     },
     "captions": {
-        "lines_on_screen": 1,
-        "max_words": 7,
-        "sync_tolerance_ms": 150,
+        "faithful_to_narration": True,
+        "alignment": "phrase-aligned from measured narration",
+        "lines_on_screen_max": 2,
+        "onset_tolerance_frames": 3,
+        "trailing_hold_max_s": 0.5,
         "keyword_pop": "scale 1.0 -> 1.12 -> 1.0 over 180 ms on the key word",
-        "backing": "frosted glass",
-        "forbidden": ["progress bars", "stacked label panels", "repeated section labels"],
+        "backing": "genuine frosted glass",
+        "forbidden": ["progress bars", "stacked label panels", "repeated section labels",
+                      "restarting a numbered badge during a continuation phrase"],
     },
     "background": {
         "moving": True,
-        "min_mean_frame_diff": 0.6,
+        "foundation_layers": [
+            {"z": 1, "role": "continuous full-frame background movie", "max_alpha_8bit": 247},
+            {"z": 2, "role": "translucent blurred moving layer", "max_alpha_8bit": 51},
+            {"z": 3, "role": "animated perspective grid", "max_alpha_8bit": 31},
+            {"z": 4, "role": "slow colour haze", "max_alpha_8bit": 31},
+            {"z": 5, "role": "drifting particles", "max_alpha_8bit": 63},
+        ],
+        "panels_2x2": {
+            "seam_feather_px": 28,
+            "panel_max_alpha_8bit": 122,
+            "panels": [
+                {"rect": [0, 0, 540, 960], "effect": "flowing wave field", "clock_scale": 0.64, "offset_s": 0.0},
+                {"rect": [540, 0, 540, 960], "effect": "moving depth grid", "clock_scale": 0.91, "offset_s": 3.7},
+                {"rect": [0, 960, 540, 960], "effect": "drifting defocused lights", "clock_scale": 0.53, "offset_s": 8.4, "seed": 509},
+                {"rect": [540, 960, 540, 960], "effect": "ribbon and particle flow", "clock_scale": 1.07, "offset_s": 13.2},
+            ],
+        },
         "layers_min": 5,
+        "seekable_independent_clocks": True,
         "edges": "feathered, no hard rectangular cutouts",
+        "min_mean_frame_diff": 0.6,
     },
-    "photo": {"min_frame_width_fraction": 0.80, "never_shrink_for_title": True},
     "facts": {"label": "FACT N", "numbers_required": True, "sources_required": True},
-    "audio": {"narration": "neural TTS timed to captions", "music": "real instruments, credited when CC-BY",
-              "music_under_voice_db": -18},
+    "audio": {
+        "narration": "Kokoro af_heart at native speed 1.0, measured phrases, no time-stretching",
+        "music": "cleared recording or original score; credit track, creator, licence and edits",
+        "music_under_voice_db": -18,
+        "listening_review": "state explicitly whether a listening pass was performed",
+    },
 }
 
 CHECK_MP4 = r'''"""Check an exported MP4 against measurable short-video house rules using ffprobe.
@@ -330,7 +381,7 @@ with GeneratorRun(__file__) as run:
     run.component(
         "skill", "short_video_house_style",
         title="Short-video house style",
-        summary="The settled look for 60+ second vertical shorts: bold yellow hook over the photo, frosted text, moving layered background, synced one-line captions.",
+        summary="Current photographic contract for 60+ s vertical shorts: 972x1728 photo, moving 5% border, yellow hook at y~320, genuine frosted glass, layers <= 249/255, faithful captions.",
         subkind="style-preset", domain="video",
         files={
             "SKILL.md": skill_md(
@@ -338,42 +389,65 @@ with GeneratorRun(__file__) as run:
                 "Use when planning, rendering or reviewing a vertical short (Reels, Shorts, TikTok) for this project. "
                 "Gives the measurable house rules for title, captions, layers, background motion, narration and music.",
                 """
-# Short-video house style
+# Short-video house style (photographic contract v8)
 
 Apply every rule below unless the user changes one explicitly. Each rule has a
-measurable check so a render can be verified before it is sent.
+measurable check so a render can be verified before it is sent. Source: the
+Creative Media and Game Production Reference (10 Oct 2026), sections 4-7 and 11.
 
 ## Deliver
-- Full videos only: at least 60 seconds, 1080x1920, H.264 + AAC. No short previews unless asked.
-- Never resend an older video as new work.
+- Complete films only: at least 60 seconds with a complete arc (hook, context, turn, payoff),
+  1080x1920, H.264 + AAC. A loop, sampler or 6-second test is labelled as such, never sent as a film.
+- Never resend an older video as new work. Keep the master; check a compact copy separately.
+
+## Imagery and geometry
+- Realistic, large photography is the default. Illustrated treatments only when explicitly chosen.
+- Photo bounds are exactly (54,96) to (1026,1824): 972x1728, a 5% inset per side, 90% of width and height.
+- The exposed 5% border keeps moving from the first frame to the last.
+- Never shrink or move the photo to make room for text. Keep faces, eyes, hands and props clear in every crop state.
 
 ## Title hook (first frame)
-- Bold yellow (`#FFD21F`), on the first frame, placed in the **upper third and overlaid on the main photo**.
-  Never shrink or move the photo to make room for it.
-- Behind it: a frosted-glass panel (blurred background, 55-75% tint, feathered edges).
-- The title is its own short hook (2-7 words), not a copy of the first caption.
+- Short, bold yellow (`#FFD21F`) editorial title overlaid on the upper photograph, glyph centre near y=320
+  (about 72 px bold, dark outline, controlled shadow), held about 3.5-4 s.
+- The title is its own hook, distinct from the faithful narration captions.
+
+## Genuine frosted glass (title, captions, music credits)
+1. Measure the real glyph rectangle without moving the text; pad and clamp it inside the composition.
+2. Sample the current composite underneath with a 48 px margin; Gaussian blur radius 18 px.
+3. Crop back, add a restrained dark/cool tint and a small pearl lift.
+4. Rounded mask with 2.2 px feather, then apply the layer opacity cap; faint softened rim; sharp text on top.
+A translucent solid rectangle is not frosted glass.
 
 ## Captions
-- One synced line at a time, at most 7 words, frosted backing, within 150 ms of the spoken words.
-- A small pop on the key word (scale 1.0 -> 1.12 -> 1.0 over 180 ms).
-- No progress bars, stacked label panels or repeated section labels.
+- Faithful to every spoken phrase, phrase-aligned from measured narration; onset within 3 frames,
+  trailing hold at most 0.5 s (project limits, not an accessibility standard).
+- A small pop on the key word. No progress bars, stacked label panels or repeated section labels;
+  do not restart a numbered badge during a continuation phrase.
 - `FACT N` / `TIP N` labels pop in when a new item starts; the key number sits under the label.
 
 ## Layers and background
-- At least five layers; the background visibly moves for the whole video (video loop, 2x2 motion grid, light, particles, texture).
-- No visual layer is fully opaque: every layer is at most 98% opacity.
+- Every authored layer stays at or below 98% opacity (8-bit cap 249/255).
+- Five-layer foundation, back to front: full-frame moving background movie (alpha <= 247), blurred moving layer (<= 51),
+  animated perspective grid (<= 31), slow colour haze (<= 31), drifting particles (<= 63).
+- Four independent 2x2 panels below the photo with 28 px feathered seams and panel alpha <= 122: wave field
+  (clock 0.64), depth grid (0.91, +3.7 s), defocused lights (0.53, +8.4 s, seed 509), ribbons and particles (1.07, +13.2 s).
+- Clocks are seekable and independent: rendering frame 100 before frame 10 changes neither frame.
 - Feathered edges; never a hard rectangular cutout.
-- The main photo stays large: at least 80% of the frame width.
 
 ## Audio
-- Neural narration (for example Kokoro) at 140-160 words per minute, captions timed from the speech.
-- Real music (recorded or well-arranged instruments) about 18 dB under the voice. Credit CC-BY music in the post text.
+- Kokoro `af_heart` at native speed 1.0, separate measured phrases, never time-stretched to fit.
+- Real recorded music or an original score about 18 dB under the voice; credit track, creator, licence and edits,
+  and follow the creator's usage guidance (for Scott Buckley: description credit, no isolated redistribution or Content ID).
+- Say whether a listening pass was performed; numeric checks do not replace listening.
 
 ## Content
-- Lead with a specific, curiosity-creating hook. Use real numbers, dates and outcomes, each with a source.
+- Specific, curiosity-creating hook; real numbers, dates and outcomes, each with a source in a claim ledger.
+- Concrete observable actions over universal claims about genders or diagnoses.
 
 ## Verify before sending
 Run `scripts/check_rules.py spec.json` on the render spec and the `mp4_qa_probe` module on the export.
+Decode the actual encoded file; check first and last frames, every caption transition, the brightest background,
+the largest title line and the ending. Record what was and was not checked.
 """,
             ),
             "rules.json": dumps(HOUSE_RULES),
@@ -405,8 +479,8 @@ def problems(spec: dict) -> list[str]:
         if not any(l.get("kind", "").startswith(("background-video", "grid-2x2")) for l in scene.get("layers", [])):
             out.append(f"scene {i + 1}: no moving background layer")
     for c in spec.get("captions", []):
-        if len(c.get("text", "").split()) > RULES["captions"]["max_words"]:
-            out.append(f"caption '{c['text']}' is longer than {RULES['captions']['max_words']} words")
+        if not c.get("text", "").strip():
+            out.append(f"caption at {c.get('start_s')}s is empty; captions must be faithful to the narration")
     return out
 
 
@@ -553,19 +627,20 @@ Make one complete short about: $ARGUMENTS
         subkind="rule-set", domain="video",
         files={
             "RULES.md": """
-# Short-video standing rules
+# Short-video standing rules (photographic contract v8)
 
-1. Full video, 60 s or longer. Check: ffprobe duration >= 60.
-2. Bold yellow hook title on the first frame, upper third, over the photo. Check: title box centre y <= 40% of height.
-3. Frosted-glass backing behind the title and captions. Check: backing layer has blur > 0 and opacity 0.55-0.75.
-4. No visual layer above 98% opacity. Check: every spec layer opacity <= 0.98.
-5. Background visibly moves throughout. Check: mean absolute frame difference in a background region > 0.6 (0-255 scale) for every 2 s window.
-6. One caption line at a time, <= 7 words, synced within 150 ms. Check: caption start vs word timestamp.
-7. Key word pops; no progress bars or stacked labels. Check: spec has no progress/label layers.
-8. Photo stays large: >= 80% of frame width; never shrunk for the title.
-9. Feathered edges; no hard rectangular cutouts. Check: visual review of frames at 0 s and every 5 s.
-10. Real numbers with sources for every fact. Check: each FACT scene has key_number and a source URL.
-11. Music is real and credited when CC-BY. Check: spec.music.attribution present for CC-BY.
+1. Complete film, 60 s or longer, with a full arc. Check: ffprobe duration >= 60 and a storyboard with hook, turn and payoff.
+2. Realistic large photo at exactly (54,96)-(1026,1824), 972x1728. Check: photo layer rect in the spec; never shrunk for text.
+3. Exposed 5% border moves from first to last frame. Check: frame difference in the border region > 0.6 (0-255) in every 2 s window.
+4. Bold yellow #FFD21F editorial title over the upper photo, glyph centre near y=320. Check: title bbox centre y in 12-22% of height.
+5. Genuine frosted glass behind title, captions and credits: sampled composite, 48 px margin, blur radius 18, rounded 2.2 px feather. Check: backing pixels differ from an unblurred sample and follow the scene underneath.
+6. No authored layer above 98% opacity (8-bit cap 249). Check: every spec layer opacity <= 0.98; rendered layer alpha <= 249.
+7. Five-layer foundation plus four independently clocked 2x2 panels with 28 px feathered seams. Check: frozen-foreground control shows each panel moving.
+8. Captions faithful to every spoken phrase, onset within 3 frames, trailing hold <= 0.5 s. Check: caption starts vs measured phrase starts.
+9. Key-word pop; no progress bars, stacked labels or restarted badges mid-phrase. Check: spec has no such layers.
+10. Feathered edges; no hard rectangular cutouts. Check: visual review of frames at 0 s, every caption transition and the ending.
+11. Real numbers with sources for every fact. Check: each FACT scene has key_number and a claim-ledger source.
+12. Kokoro af_heart at native speed, never time-stretched; music ~18 dB under voice, credited per the creator's terms. Check: recipe settings and credit text; listening pass recorded as performed or not.
 """,
             "rules.json": dumps(HOUSE_RULES),
         },

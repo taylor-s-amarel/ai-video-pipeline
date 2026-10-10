@@ -1,40 +1,170 @@
 {
+  "contract": "photographic-pair-v8",
   "min_duration_s": 60,
+  "complete_arc_required": true,
   "aspect": "9:16",
   "resolution": [
     1080,
     1920
   ],
   "max_layer_opacity": 0.98,
+  "max_layer_alpha_8bit": 249,
+  "imagery": "realistic, large photography covering most of the frame; illustrated treatments are opt-in only",
+  "photo": {
+    "bounds": [
+      54,
+      96,
+      1026,
+      1824
+    ],
+    "size": [
+      972,
+      1728
+    ],
+    "inset_fraction_per_side": 0.05,
+    "never_shrink_for_title": true,
+    "protect": [
+      "faces",
+      "eyes",
+      "hands",
+      "props"
+    ]
+  },
+  "border": {
+    "exposed_fraction": 0.05,
+    "moving_from_first_to_last_frame": true
+  },
   "title": {
     "first_frame": true,
-    "position": "upper third, overlaid on the main photo",
-    "center_y_max_fraction": 0.4,
+    "position": "short bold editorial title overlaid on the upper photograph",
+    "glyph_center_y_px": 320,
+    "center_y_fraction_range": [
+      0.12,
+      0.22
+    ],
     "color": "#FFD21F",
     "weight": "bold",
-    "backing": "frosted glass: blurred background, 55-75% tint, feathered edges"
+    "font_px": 72,
+    "outline": "dark outline with a controlled shadow",
+    "hold_s": [
+      3.5,
+      4.0
+    ],
+    "distinct_from_captions": true,
+    "backing": "genuine frosted glass (sampled and blurred composite)"
+  },
+  "frosted_glass": {
+    "sample_margin_px": 48,
+    "gaussian_blur_radius_px": 18,
+    "tint": "restrained dark/cool tint plus a small pearl lift",
+    "mask": "rounded, 2.2 px feather",
+    "rim": "faint softened rim",
+    "applies_to": [
+      "opening title",
+      "captions",
+      "music credits"
+    ],
+    "translucent_solid_box_is_not_glass": true
   },
   "captions": {
-    "lines_on_screen": 1,
-    "max_words": 7,
-    "sync_tolerance_ms": 150,
+    "faithful_to_narration": true,
+    "alignment": "phrase-aligned from measured narration",
+    "lines_on_screen_max": 2,
+    "onset_tolerance_frames": 3,
+    "trailing_hold_max_s": 0.5,
     "keyword_pop": "scale 1.0 -> 1.12 -> 1.0 over 180 ms on the key word",
-    "backing": "frosted glass",
+    "backing": "genuine frosted glass",
     "forbidden": [
       "progress bars",
       "stacked label panels",
-      "repeated section labels"
+      "repeated section labels",
+      "restarting a numbered badge during a continuation phrase"
     ]
   },
   "background": {
     "moving": true,
-    "min_mean_frame_diff": 0.6,
+    "foundation_layers": [
+      {
+        "z": 1,
+        "role": "continuous full-frame background movie",
+        "max_alpha_8bit": 247
+      },
+      {
+        "z": 2,
+        "role": "translucent blurred moving layer",
+        "max_alpha_8bit": 51
+      },
+      {
+        "z": 3,
+        "role": "animated perspective grid",
+        "max_alpha_8bit": 31
+      },
+      {
+        "z": 4,
+        "role": "slow colour haze",
+        "max_alpha_8bit": 31
+      },
+      {
+        "z": 5,
+        "role": "drifting particles",
+        "max_alpha_8bit": 63
+      }
+    ],
+    "panels_2x2": {
+      "seam_feather_px": 28,
+      "panel_max_alpha_8bit": 122,
+      "panels": [
+        {
+          "rect": [
+            0,
+            0,
+            540,
+            960
+          ],
+          "effect": "flowing wave field",
+          "clock_scale": 0.64,
+          "offset_s": 0.0
+        },
+        {
+          "rect": [
+            540,
+            0,
+            540,
+            960
+          ],
+          "effect": "moving depth grid",
+          "clock_scale": 0.91,
+          "offset_s": 3.7
+        },
+        {
+          "rect": [
+            0,
+            960,
+            540,
+            960
+          ],
+          "effect": "drifting defocused lights",
+          "clock_scale": 0.53,
+          "offset_s": 8.4,
+          "seed": 509
+        },
+        {
+          "rect": [
+            540,
+            960,
+            540,
+            960
+          ],
+          "effect": "ribbon and particle flow",
+          "clock_scale": 1.07,
+          "offset_s": 13.2
+        }
+      ]
+    },
     "layers_min": 5,
-    "edges": "feathered, no hard rectangular cutouts"
-  },
-  "photo": {
-    "min_frame_width_fraction": 0.8,
-    "never_shrink_for_title": true
+    "seekable_independent_clocks": true,
+    "edges": "feathered, no hard rectangular cutouts",
+    "min_mean_frame_diff": 0.6
   },
   "facts": {
     "label": "FACT N",
@@ -42,8 +172,9 @@
     "sources_required": true
   },
   "audio": {
-    "narration": "neural TTS timed to captions",
-    "music": "real instruments, credited when CC-BY",
-    "music_under_voice_db": -18
+    "narration": "Kokoro af_heart at native speed 1.0, measured phrases, no time-stretching",
+    "music": "cleared recording or original score; credit track, creator, licence and edits",
+    "music_under_voice_db": -18,
+    "listening_review": "state explicitly whether a listening pass was performed"
   }
 }

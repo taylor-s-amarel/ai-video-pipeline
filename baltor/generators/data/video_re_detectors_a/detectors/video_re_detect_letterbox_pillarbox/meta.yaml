@@ -1,0 +1,17 @@
+title: Detect letterbox and pillarbox bars
+summary: Finds solid or blurred-fill bars on each frame edge of a video and reports their size in source pixels, colour, style and the content rectangle, as a detection envelope.
+description: >-
+  Scans rows and columns inwards from each edge of sampled frames. Solid bars are lines whose pixels stay within a
+  colour tolerance of the bar colour; static titles inside a bar are allowed when the bar resumes after them.
+  Blurred-fill bars (a blurred copy of the video behind a fitted clip) are low-gradient edge regions that change
+  over time. Thickness uses a low percentile across frames so dark scenes do not widen the bar.
+tags: [letterbox, pillarbox, bars, aspect]
+examples:
+  - "python3 video_re_detect_letterbox_pillarbox.py short.mp4 --out letterbox.json"
+limits:
+  - Content whose edge matches the bar colour in every sampled frame is counted as bar.
+  - Gradient or patterned fills that never move are reported as static-texture, not as a fill method.
+  - Sizes are measured at the analysis width (default 480 px) and scaled; px_precision gives the step.
+contract:
+  title: Letterbox / pillarbox payload
+  summary: JSON Schema for the letterbox/pillarbox detector payload: bar kind, per-side thickness in source px, colour, solid vs blurred-fill style and the content rectangle.

@@ -1,0 +1,280 @@
+- id: transitions_effects-001
+  question: "Which transition types occur between shots (hard cut, dissolve, whip, zoom-through, slide, wipe, glitch, flash, dip to black, morph), with counts?"
+  why: "Fills motion.transitions with a weighted vocabulary."
+  how: "For every shot boundary in evidence.shots[] (or a sample of 15), inspect F8 frame steps 0.25 s either side and F11 scene scores; classify each."
+  evidence: ["evidence.shots[]", "frames: F8 across boundaries", "F11 scene scores"]
+  ir_path: "/motion/transitions/-"
+  type: object
+  challenge: "Re-inspect 3 boundaries labelled as something other than hard cuts; each needs at least 2 intermediate frames."
+
+- id: transitions_effects-002
+  question: "How long do non-cut transitions last (median ms, range)?"
+  why: "Fills transition_ms."
+  how: "Count intermediate frames on F8 steps; ms = frames x 1000 / fps."
+  evidence: ["frames: F8", "evidence.source.fps"]
+  ir_path: "/motion/transitions/-"
+  type: distribution
+  challenge: "Report frames and fps for each measured transition."
+
+- id: transitions_effects-003
+  question: "Do transitions at item boundaries differ from transitions inside items?"
+  why: "Becomes separate rules for between-item and within-item transitions."
+  how: "Compare transition types (001) at beat boundaries versus other boundaries."
+  evidence: ["transition classification", "timeline beats"]
+  ir_path: "/generation_rules/-"
+  type: object
+  challenge: "Report counts in both groups."
+
+- id: transitions_effects-004
+  question: "How many white or colour flash frames are used, and how long is each?"
+  why: "Adds flash transitions with duration."
+  how: "F6 YAVG per frame: spikes of 1-3 frames; confirm on F8."
+  evidence: ["F6 series", "frames: F8"]
+  ir_path: "/motion/transitions/-"
+  type: object
+  challenge: "Bright content cuts are not flashes; the flash frame must be near-uniform."
+
+- id: transitions_effects-005
+  question: "Are zoom-through (scale-up into next shot) transitions used?"
+  why: "Adds zoom transitions."
+  how: "F8 across boundaries: outgoing shot scales up rapidly over 2+ frames before the new shot."
+  evidence: ["frames: F8"]
+  ir_path: "/motion/transitions/-"
+  type: boolean
+  challenge: "A Ken Burns zoom ending at a cut is not a zoom transition unless it accelerates."
+
+- id: transitions_effects-006
+  question: "Are glitch, RGB split or digital distortion effects used, and where?"
+  why: "Adds glitch effects."
+  how: "F8 for horizontal displacement bands or colour channel offsets."
+  evidence: ["frames: F8"]
+  ir_path: "/motion/transitions/-"
+  type: timestamps
+  challenge: "Decoder errors look like glitches; they would also appear in a fresh decode only if in the file. Re-extract to confirm."
+
+- id: transitions_effects-007
+  question: "Are light-leak or burn transitions used?"
+  why: "Adds light-leak transitions."
+  how: "F8 across boundaries with warm bright washes covering the cut."
+  evidence: ["frames: F8"]
+  ir_path: "/motion/transitions/-"
+  type: boolean
+  challenge: "Must cover the cut point, not appear mid-shot."
+
+- id: transitions_effects-008
+  question: "What share of transitions have a whoosh or swish sound aligned with them (within 100 ms)?"
+  why: "Couples transitions with sfx."
+  how: "A1 spectrograms with highpass=f=3000 around 6 transitions; look for rising or falling noise sweeps."
+  evidence: ["A1 highpassed around transitions"]
+  ir_path: "/audio/sfx/-"
+  type: ratio
+  challenge: "Report the sample; music hi-hats are not whooshes."
+
+- id: transitions_effects-009
+  question: "What share of transitions fall on a music onset (within 80 ms)?"
+  why: "Becomes a transition sync rule."
+  how: "Compare transition midpoints with evidence.audio.onsets_s."
+  evidence: ["transition times", "evidence.audio.onsets_s"]
+  ir_path: "/generation_rules/-"
+  type: ratio
+  challenge: "Compare with chance for the onset density."
+
+- id: transitions_effects-010
+  question: "Do slides and wipes move in a consistent direction?"
+  why: "Becomes a direction rule."
+  how: "Record the direction of each slide or wipe from F8."
+  evidence: ["frames: F8"]
+  ir_path: "/generation_rules/-"
+  type: object
+  challenge: "Report counts per direction."
+
+- id: transitions_effects-011
+  question: "Are shape or mask wipes used (circle, diagonal, brush, shape of an object)?"
+  why: "Adds mask wipes."
+  how: "F8 across boundaries; describe the mask shape."
+  evidence: ["frames: F8"]
+  ir_path: "/motion/transitions/-"
+  type: list
+  challenge: "Name the ffmpeg xfade transition that matches, if one exists (for example circleopen, wipeleft, diagtl)."
+
+- id: transitions_effects-012
+  question: "Are speed ramps used around transitions (shot accelerates into the cut)?"
+  why: "Adds speed-ramp transitions."
+  how: "Compare motion speed in the last 0.3 s of a shot against earlier on F8."
+  evidence: ["frames: F8"]
+  ir_path: "/motion/transitions/-"
+  type: boolean
+  challenge: "Report the speed change."
+
+- id: transitions_effects-013
+  question: "Are there persistent overlay effects throughout (dust, scratches, scan lines, frame border)?"
+  why: "Adds always-on overlay effects."
+  how: "F2 bursts at 5 times across the video."
+  evidence: ["frames: F2"]
+  ir_path: "/visual/layers/-"
+  type: list
+  challenge: "Must appear at all 5 sampled times to be persistent."
+
+- id: transitions_effects-014
+  question: "Is screen shake used on impacts or reveals, and how strong?"
+  why: "Adds shake on impact."
+  how: "Track a fixed element over F8 at reveal moments."
+  evidence: ["frames: F8"]
+  ir_path: "/motion/camera_moves/-"
+  type: object
+  challenge: "Report px amplitude and duration."
+
+- id: transitions_effects-015
+  question: "Are freeze frames combined with an effect (desaturate, outline, label) to call out a moment?"
+  why: "Adds a freeze-callout effect."
+  how: "F5 near-zero difference plus a visual change on F1."
+  evidence: ["F5", "frames: F1"]
+  ir_path: "/motion/transitions/-"
+  type: timestamps
+  challenge: "Stills with no motion are not freezes."
+
+- id: transitions_effects-016
+  question: "Are particle bursts or confetti used on reveals?"
+  why: "Adds particle accents."
+  how: "F2 bursts at reveal times."
+  evidence: ["frames: F2"]
+  ir_path: "/visual/layers/-"
+  type: timestamps
+  challenge: "Ambient particles present all the time are not bursts."
+
+- id: transitions_effects-017
+  question: "Are blur transitions (defocus out, refocus in) used?"
+  why: "Adds blur transitions."
+  how: "F8 across boundaries; sharpness drops then recovers."
+  evidence: ["frames: F8"]
+  ir_path: "/motion/transitions/-"
+  type: boolean
+  challenge: "Compare edge sharpness on the frames (F3)."
+
+- id: transitions_effects-018
+  question: "What share of all shot changes use any transition effect at all?"
+  why: "Sets the transition frequency parameter."
+  how: "From 001: non-cut transitions / all boundaries."
+  evidence: ["transition classification"]
+  ir_path: "/generation_rules/-"
+  type: ratio
+  challenge: "Report the denominator."
+
+- id: transitions_effects-019
+  question: "Are effects denser in the hook than in the body?"
+  why: "Becomes a hook effect-density rule."
+  how: "Effects per 10 s in the hook versus body."
+  evidence: ["effect timestamps"]
+  ir_path: "/generation_rules/-"
+  type: object
+  challenge: "Report both rates."
+
+- id: transitions_effects-020
+  question: "What happens at the very end (outro transition: fade, slide to end card, cut)?"
+  choices: [fade-out, slide-to-end-card, hard-cut, zoom-out, other]
+  why: "Fills the ending transition."
+  how: "F8 over the last 1.5 s."
+  evidence: ["frames: F8"]
+  ir_path: "/motion/transitions/-"
+  type: enum
+  challenge: "Cross-check with structure_beats-031."
+
+- id: transitions_effects-021
+  question: "Which ffmpeg xfade transition and duration reproduce the main transition (for example fade 0.25 s, slideleft 0.3 s, circleopen 0.4 s)?"
+  why: "Gives the compiler a concrete, reproducible recipe."
+  how: "Pick from xfade's built-in list (check ffmpeg -h filter=xfade) the closest match to 001; render a 2 s test with testsrc2 and compare frame steps."
+  evidence: ["transition classification", "test render"]
+  ir_path: "/generation_rules/-"
+  type: rule
+  challenge: "The named transition must exist in the installed ffmpeg; run the test render."
+
+- id: transitions_effects-022
+  question: "Which transition parameters should a new video set (kinds and weights, duration, sfx coupling)?"
+  why: "Feeds the parameteriser."
+  how: "Collect 001, 002 and 008."
+  evidence: ["transition answers"]
+  ir_path: "/parameters/-"
+  type: list
+  challenge: "Each parameter needs derived_from."
+
+- id: transitions_effects-023
+  question: "How many effect events (transitions, flashes, shakes, bursts) happen per minute?"
+  why: "Bounds effect density."
+  how: "Count all effect timestamps / duration x 60."
+  evidence: ["effect timestamps"]
+  ir_path: "/generation_rules/-"
+  type: number
+  challenge: "Do not double-count an effect listed under two names."
+
+- id: transitions_effects-024
+  question: "Do transitions cover jump cuts or continuity breaks (for example a flash placed on a jump cut)?"
+  why: "Adds a rule for when to use cover transitions."
+  how: "Check whether transitions coincide with jump cuts found by pacing_cut_rhythm-017."
+  evidence: ["jump cut times", "transition times"]
+  ir_path: "/generation_rules/-"
+  type: ratio
+  challenge: "If there are no jump cuts, answer not determinable."
+
+- id: transitions_effects-025
+  question: "Are match or morph transitions used (shape in outgoing shot becomes shape in incoming shot)?"
+  why: "Adds match transitions."
+  how: "F8 across boundaries; look for aligned shapes that persist through the cut."
+  evidence: ["frames: F8"]
+  ir_path: "/motion/transitions/-"
+  type: timestamps
+  challenge: "Coincidental alignment must be ruled out; check the shapes are deliberately positioned."
+
+- id: transitions_effects-026
+  question: "Do flash colours come from the palette (accent colour) or are they white?"
+  choices: [white, accent, other]
+  why: "Fills flash colour."
+  how: "F9 on flash frames."
+  evidence: ["F9"]
+  ir_path: "/motion/transitions/-"
+  type: enum
+  challenge: "If there are no flashes, answer not determinable."
+
+- id: transitions_effects-027
+  question: "Is a camera-flash or shutter effect used when photos appear?"
+  why: "Adds a photo reveal effect."
+  how: "F8 at photo appearances; A1 for a click."
+  evidence: ["frames: F8", "A1"]
+  ir_path: "/motion/transitions/-"
+  type: boolean
+  challenge: "Requires both a brightness spike and a photo appearance."
+
+- id: transitions_effects-028
+  question: "Are lens distortion or fisheye effects used?"
+  why: "Adds a distortion effect."
+  how: "F3 crops: straight lines bend near edges during effect moments."
+  evidence: ["frames: F3"]
+  ir_path: "/visual/layers/-"
+  type: timestamps
+  challenge: "Wide-angle footage bends lines naturally; check graphics."
+
+- id: transitions_effects-029
+  question: "Are transitions frame-clean (no stray single frames from the wrong shot at boundaries)?"
+  why: "A quality rule for the rebuild (avoid stray frames)."
+  how: "F8 at 10 boundaries; count stray frames."
+  evidence: ["frames: F8"]
+  ir_path: "/generation_rules/-"
+  type: integer
+  challenge: "Report the boundaries checked."
+
+- id: transitions_effects-030
+  question: "Do any effects pass over text and reduce its legibility?"
+  why: "Becomes a legibility rule (effects stay below text or avoid text moments)."
+  how: "F8 at effect moments where text is on screen."
+  evidence: ["frames: F8", "evidence.text_regions[]"]
+  ir_path: "/generation_rules/-"
+  type: boolean
+  challenge: "Name the moments."
+
+- id: transitions_effects-031
+  question: "Are there dips to black or white between sections, and how long are they?"
+  why: "Adds dip transitions with duration."
+  how: "F12 blackdetect; F6 YMIN high for white dips."
+  evidence: ["F12", "F6"]
+  ir_path: "/motion/transitions/-"
+  type: segments
+  challenge: "Exclude the first and last second."

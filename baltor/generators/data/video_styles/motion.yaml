@@ -1,0 +1,496 @@
+# Transitions, camera moves and text animations.
+
+transitions:
+  hard_cut_on_beat:
+    name: Hard cut on the beat
+    method: cut
+    duration_ms: 0
+    use_when: [Default between shots, Every 1.5-3 s in fast edits, On a music beat or a sentence break]
+    avoid_when: [Two shots that are nearly identical (looks like a glitch)]
+  crossfade_soft:
+    name: Soft crossfade
+    method: xfade
+    xfade: fade
+    duration_ms: 400
+    use_when: [Calm narration, Changing topic within a story]
+    avoid_when: [Fast edits (blurs the rhythm)]
+  dissolve_film:
+    name: Film dissolve
+    method: xfade
+    xfade: dissolve
+    duration_ms: 500
+    use_when: [Archive and history looks, Passing time]
+    avoid_when: [Text-heavy frames (dissolve noise breaks letters)]
+  dip_to_black:
+    name: Dip to black
+    method: xfade
+    xfade: fadeblack
+    duration_ms: 600
+    use_when: [End of a chapter, Before a serious reveal]
+    avoid_when: [Within the first 3 seconds]
+  impact_flash_white:
+    name: Impact flash to white
+    method: xfade
+    xfade: fadewhite
+    duration_ms: 240
+    use_when: [Punchlines, Big numbers, Cut to a reveal photo]
+    avoid_when: [Viewers sensitive to flashes: keep to one flash per few seconds and never strobe]
+  whip_pan_left:
+    name: Whip pan left
+    method: xfade
+    xfade: smoothleft
+    duration_ms: 180
+    use_when: [Energetic edits, Moving to the next item in a list]
+    avoid_when: [Calm looks]
+  whip_pan_up:
+    name: Whip pan up
+    method: xfade
+    xfade: smoothup
+    duration_ms: 180
+    use_when: [Vertical shorts (matches the swipe direction), Next fact]
+    avoid_when: [Calm looks]
+  slide_push_up:
+    name: Slide push up
+    method: xfade
+    xfade: slideup
+    duration_ms: 300
+    use_when: [Step-by-step tutorials, Lists]
+    avoid_when: [Footage with strong horizontal motion]
+  zoom_into_next:
+    name: Zoom into the next shot
+    method: xfade
+    xfade: zoomin
+    duration_ms: 350
+    use_when: [Going deeper into a detail, Hype intros]
+    avoid_when: [Back-to-back use (feels repetitive)]
+  circle_reveal:
+    name: Circle reveal
+    method: xfade
+    xfade: circleopen
+    duration_ms: 450
+    use_when: [Cartoon and comic looks, Revealing an answer]
+    avoid_when: [Documentary tone]
+  radial_wipe:
+    name: Radial clock wipe
+    method: xfade
+    xfade: radial
+    duration_ms: 500
+    use_when: [Time passing, Before and after]
+    avoid_when: [More than once per video]
+  pixelize_glitch:
+    name: Pixelize
+    method: xfade
+    xfade: pixelize
+    duration_ms: 300
+    use_when: [Pixel-art and game looks, Tech glitches]
+    avoid_when: [Photos of people (looks like censoring)]
+  horizontal_blur:
+    name: Horizontal blur
+    method: xfade
+    xfade: hblur
+    duration_ms: 300
+    use_when: [Smooth energetic edits, Motion-matched cuts]
+    avoid_when: [Text on screen during the transition]
+  diagonal_wipe:
+    name: Diagonal wipe
+    method: xfade
+    xfade: diagtl
+    duration_ms: 400
+    use_when: [Comparisons, Graphic looks]
+    avoid_when: [Calm nature edits]
+  cover_up:
+    name: Cover up
+    method: xfade
+    xfade: coverup
+    duration_ms: 350
+    min_ffmpeg: "6.1"
+    use_when: [Card-stack feel in lists, Vertical shorts]
+    avoid_when: [FFmpeg builds older than the tested 6.1.1 that lack the cover/reveal family]
+  squeeze_vertical:
+    name: Vertical squeeze
+    method: xfade
+    xfade: squeezev
+    duration_ms: 350
+    use_when: [Playful cartoon edits]
+    avoid_when: [Serious topics]
+  light_leak_burn:
+    name: Light-leak burn
+    method: xfade+overlay
+    xfade: fadewhite
+    duration_ms: 320
+    overlay: {source: bg_layer_light_leaks, peak_opacity: 0.6, blend: screen, ramp_ms: 320}
+    use_when: [Warm, nostalgic and relationship looks, Chapter changes]
+    avoid_when: [Cool blueprint or neon looks]
+
+camera_moves:
+  ken_burns_slow_in_center:
+    name: Ken Burns slow push, centred
+    kind: ken-burns
+    duration_s: 6
+    zoom: {from: 1.0, to: 1.1}
+    center: {from: [0.5, 0.5], to: [0.5, 0.5]}
+    easing: sine-in-out
+    renderer: zoompan
+    family: ken-burns
+    use_when: [Default for any still photo, Calm narration]
+  ken_burns_in_upper_third:
+    name: Ken Burns push toward the upper third
+    kind: ken-burns
+    duration_s: 6
+    zoom: {from: 1.0, to: 1.12}
+    center: {from: [0.5, 0.5], to: [0.5, 0.38]}
+    easing: sine-in-out
+    renderer: zoompan
+    family: ken-burns
+    use_when: [Portraits (drifts toward faces), Photos under a house title]
+  ken_burns_out_reveal:
+    name: Ken Burns pull out to reveal
+    kind: ken-burns
+    duration_s: 6
+    zoom: {from: 1.18, to: 1.0}
+    center: {from: [0.5, 0.45], to: [0.5, 0.5]}
+    easing: sine-in-out
+    renderer: zoompan
+    family: ken-burns
+    use_when: [Reveal context after a detail, Ending a section]
+  pan_left_to_right:
+    name: Pan left to right
+    kind: pan
+    duration_s: 6
+    zoom: {from: 1.18, to: 1.18}
+    center: {from: [0.4, 0.5], to: [0.6, 0.5]}
+    easing: sine-in-out
+    renderer: zoompan
+    family: ken-burns
+    use_when: [Wide landscape photos in vertical frames, Group photos]
+  pan_right_to_left:
+    name: Pan right to left
+    kind: pan
+    duration_s: 6
+    zoom: {from: 1.18, to: 1.18}
+    center: {from: [0.6, 0.5], to: [0.4, 0.5]}
+    easing: sine-in-out
+    renderer: zoompan
+    family: ken-burns
+    use_when: [Alternate with left-to-right on consecutive photos]
+  tilt_down_reveal:
+    name: Tilt down reveal
+    kind: tilt
+    duration_s: 6
+    zoom: {from: 1.18, to: 1.18}
+    center: {from: [0.5, 0.38], to: [0.5, 0.62]}
+    easing: sine-in-out
+    renderer: zoompan
+    family: ken-burns
+    use_when: [Tall subjects (towers, rockets, people), Top-to-bottom stories]
+  tilt_up_rise:
+    name: Tilt up
+    kind: tilt
+    duration_s: 6
+    zoom: {from: 1.18, to: 1.18}
+    center: {from: [0.5, 0.62], to: [0.5, 0.38]}
+    easing: sine-in-out
+    renderer: zoompan
+    family: ken-burns
+    use_when: [Launches, growth, hopeful endings]
+  diagonal_drift:
+    name: Diagonal drift with slight push
+    kind: drift
+    duration_s: 6
+    zoom: {from: 1.08, to: 1.14}
+    center: {from: [0.44, 0.44], to: [0.56, 0.56]}
+    easing: sine-in-out
+    renderer: zoompan
+    family: ken-burns
+    use_when: [Maps and documents, Variety between Ken Burns shots]
+  push_in_fast:
+    name: Fast push-in
+    kind: push-in
+    duration_s: 1.2
+    zoom: {from: 1.0, to: 1.25}
+    center: {from: [0.5, 0.5], to: [0.5, 0.45]}
+    easing: ease-in-out
+    renderer: zoompan
+    use_when: [Emphasis on a detail or number, Building tension]
+  pull_back_reveal:
+    name: Pull-back reveal
+    kind: pull-back
+    duration_s: 1.5
+    zoom: {from: 1.35, to: 1.0}
+    center: {from: [0.5, 0.45], to: [0.5, 0.5]}
+    easing: ease-out
+    renderer: zoompan
+    use_when: [Show the bigger picture after a close detail]
+  whip_pan:
+    name: Whip pan across the photo
+    kind: whip
+    duration_s: 0.25
+    zoom: {from: 1.3, to: 1.3}
+    center: {from: [0.3, 0.5], to: [0.7, 0.5]}
+    easing: ease-in-out
+    renderer: zoompan
+    motion_blur: "tmix=frames=3:weights='1 2 1'"
+    use_when: [Bridging two shots, Energetic edits]
+  impact_punch_in:
+    name: Impact punch-in
+    kind: punch-in
+    duration_s: 1.0
+    zoom: {from: 1.0, to: 1.1}
+    zoom_keyframes: [{t: 0, zoom: 1.0}, {t: 0.08, zoom: 1.15, ease: ease-out}, {t: 0.4, zoom: 1.1, ease: ease-in-out}, {t: 1.0, zoom: 1.1}]
+    center: {from: [0.5, 0.45], to: [0.5, 0.45]}
+    easing: linear
+    renderer: zoompan
+    use_when: [Punchlines and big numbers, In sync with a kick drum or keyword pop]
+  alternating_zoom_pair:
+    name: Alternating zoom pair
+    kind: alternating
+    duration_s: 3
+    zoom: {from: 1.0, to: 1.08}
+    center: {from: [0.5, 0.5], to: [0.5, 0.46]}
+    easing: sine-in-out
+    renderer: zoompan
+    pair: {zoom: {from: 1.08, to: 1.0}, center: {from: [0.5, 0.46], to: [0.5, 0.5]}}
+    use_when: [Quick cuts where consecutive shots alternate in and out, Keeping stills alive without repetition]
+  slow_rotate_drift:
+    name: Slow rotate drift
+    kind: rotate
+    duration_s: 6
+    zoom: {from: 1.12, to: 1.12}
+    center: {from: [0.5, 0.5], to: [0.5, 0.5]}
+    rotation_deg: {from: -1.5, to: 1.5}
+    easing: sine-in-out
+    renderer: pillow
+    use_when: [Dreamy and relationship looks, Paper and collage looks]
+  handheld_micro_shake:
+    name: Handheld micro shake
+    kind: shake
+    duration_s: 6
+    zoom: {from: 1.06, to: 1.06}
+    center: {from: [0.5, 0.5], to: [0.5, 0.5]}
+    shake: {amplitude: 0.004, frequency_hz: 1.2}
+    easing: linear
+    renderer: pillow
+    use_when: [Documentary feel on stills, News looks]
+  parallax_dolly:
+    name: Parallax dolly (2.5D)
+    kind: parallax-dolly
+    duration_s: 6
+    zoom: {from: 1.0, to: 1.06}
+    center: {from: [0.47, 0.5], to: [0.53, 0.5]}
+    easing: sine-in-out
+    renderer: overlay-expr
+    layers: [{name: background, speed: 0.3, zoom_extra: 0.02}, {name: midground, speed: 0.6, zoom_extra: 0.04}, {name: subject, speed: 1.0, zoom_extra: 0.06}]
+    use_when: [Photos cut into layers (sky, middle, subject), Layered 2.5D animation style]
+
+text_animations:
+  springy_pop_overshoot:
+    name: Springy pop with overshoot
+    unit: word
+    stagger_ms: 60
+    duration_ms: 450
+    spring: {stiffness: 300, damping: 18, mass: 1}
+    from: {scale: 0.0, opacity: 0.0}
+    to: {scale: 1.0, opacity: 1.0}
+    use_when: [Captions and labels that should feel lively]
+  keyword_pop_house:
+    name: House keyword pop
+    unit: word
+    stagger_ms: 0
+    duration_ms: 180
+    keyframes: [{t: 0, scale: 1.0}, {t: 0.4, scale: 1.12, ease: ease-out}, {t: 1.0, scale: 1.0, ease: ease-in-out}]
+    use_when: [The key word of each house caption]
+  settle_in:
+    name: Settle in (visible from frame 0)
+    unit: text
+    stagger_ms: 0
+    duration_ms: 300
+    keyframes: [{t: 0, scale: 1.04, opacity: 1.0}, {t: 1.0, scale: 1.0, opacity: 1.0, ease: ease-out}]
+    use_when: [First-frame titles that must be readable at 0.0 s]
+  typewriter:
+    name: Typewriter
+    unit: character
+    stagger_ms: 55
+    duration_ms: 1
+    keyframes: [{t: 0, opacity: 0.0}, {t: 1.0, opacity: 1.0, ease: step}]
+    use_when: [Archive documents, dates, code]
+  word_by_word_reveal:
+    name: Word-by-word reveal
+    unit: word
+    stagger_ms: 220
+    duration_ms: 140
+    keyframes: [{t: 0, opacity: 0.0, dy_px: 10}, {t: 1.0, opacity: 1.0, dy_px: 0, ease: ease-out}]
+    timing_source: word timestamps when available, otherwise stagger_ms
+    use_when: [Quotes, read-along narration]
+  kinetic_slam:
+    name: Kinetic slam
+    unit: text
+    stagger_ms: 0
+    duration_ms: 220
+    keyframes: [{t: 0, scale: 2.4, opacity: 0.0}, {t: 0.2, opacity: 1.0}, {t: 0.7, scale: 0.94, ease: ease-in}, {t: 1.0, scale: 1.0, ease: ease-out}]
+    shake: {amplitude_px: 6, frames: 3}
+    use_when: [Hooks, rank numbers, punchlines]
+  mask_reveal_up:
+    name: Mask reveal from the baseline
+    unit: line
+    stagger_ms: 80
+    duration_ms: 350
+    keyframes: [{t: 0, reveal: 0.0, dy_px: 24}, {t: 1.0, reveal: 1.0, dy_px: 0, ease: ease-out}]
+    use_when: [Lower thirds, elegant captions]
+  fade_up_soft:
+    name: Soft fade up
+    unit: line
+    stagger_ms: 0
+    duration_ms: 260
+    keyframes: [{t: 0, opacity: 0.0, dy_px: 18}, {t: 1.0, opacity: 1.0, dy_px: 0, ease: ease-out}]
+    use_when: [Default caption entry]
+  letter_cascade:
+    name: Letter cascade
+    unit: character
+    stagger_ms: 30
+    duration_ms: 250
+    keyframes: [{t: 0, opacity: 0.0, dy_px: -40}, {t: 1.0, opacity: 1.0, dy_px: 0, ease: ease-out-back}]
+    use_when: [Short titles of 3-12 letters]
+  bounce_in_from_below:
+    name: Bounce in from below
+    unit: text
+    stagger_ms: 0
+    duration_ms: 600
+    spring: {stiffness: 220, damping: 12, mass: 1}
+    from: {dy_px: 120.0, opacity: 0.0}
+    to: {dy_px: 0.0, opacity: 1.0}
+    use_when: [Stickers, cartoon labels]
+  highlight_sweep:
+    name: Highlighter sweep
+    unit: word
+    stagger_ms: 0
+    duration_ms: 300
+    keyframes: [{t: 0, reveal: 0.0}, {t: 1.0, reveal: 1.0, ease: ease-out}]
+    applies_to: highlight box behind the keyword (reveal = box width fraction)
+    use_when: [Tutorials and handwritten looks]
+  count_up_number:
+    name: Count-up number
+    unit: text
+    stagger_ms: 0
+    duration_ms: 700
+    keyframes: [{t: 0, opacity: 1.0}, {t: 1.0, opacity: 1.0}]
+    count: {from: 0, easing: ease-out}
+    use_when: [Key numbers under FACT labels (14 DAYS, 50 FEET)]
+  blur_in_focus:
+    name: Blur in to focus
+    unit: text
+    stagger_ms: 0
+    duration_ms: 350
+    keyframes: [{t: 0, opacity: 0.0, blur_px: 12, scale: 1.06}, {t: 1.0, opacity: 1.0, blur_px: 0, scale: 1.0, ease: ease-out}]
+    use_when: [Calm and cinematic titles, neon looks]
+  shake_emphasis:
+    name: Shake emphasis
+    unit: word
+    stagger_ms: 0
+    duration_ms: 240
+    keyframes: [{t: 0, rotation_deg: 0}, {t: 0.25, rotation_deg: 3, ease: ease-out}, {t: 0.5, rotation_deg: -3, ease: ease-in-out}, {t: 0.75, rotation_deg: 2, ease: ease-in-out}, {t: 1.0, rotation_deg: 0, ease: ease-out}]
+    use_when: [Warnings, surprises]
+
+grids:
+  even_feathered:
+    name: Even feathered 2x2
+    gutter_px: 24
+    margin_px: 0
+    feather_px: 32
+    corner_radius_px: 0
+    opacity: [0.35, 0.35, 0.35, 0.35]
+    placement: background-layer
+    blend: screen
+    use_when: [House stacks (layer 4), Any background that needs four kinds of motion]
+  rounded_cards:
+    name: Rounded card grid
+    gutter_px: 28
+    margin_px: 36
+    feather_px: 10
+    corner_radius_px: 36
+    opacity: [0.45, 0.45, 0.45, 0.45]
+    placement: background-layer
+    blend: normal
+    use_when: [Modern clean looks, Comparing four clips]
+  full_bleed_seamless:
+    name: Full-bleed seamless 2x2
+    gutter_px: 0
+    margin_px: 0
+    feather_px: 64
+    corner_radius_px: 0
+    opacity: [0.4, 0.4, 0.4, 0.4]
+    placement: background-layer
+    blend: screen
+    use_when: [Dreamy backgrounds where cells should melt together]
+  staggered_reveal:
+    name: Staggered reveal
+    gutter_px: 20
+    margin_px: 24
+    feather_px: 24
+    corner_radius_px: 20
+    opacity: [0.4, 0.4, 0.4, 0.4]
+    reveal_delay_s: [0.0, 0.25, 0.5, 0.75]
+    start_offset_s: [0.0, 1.0, 2.0, 3.0]
+    placement: background-layer
+    blend: normal
+    use_when: [Intros (cells appear one by one), List openers]
+  mirror_kaleido:
+    name: Mirrored kaleidoscope
+    gutter_px: 0
+    margin_px: 0
+    feather_px: 24
+    corner_radius_px: 0
+    opacity: [0.38, 0.38, 0.38, 0.38]
+    mirror: ["", h, v, hv]
+    same_source: true
+    placement: background-layer
+    blend: screen
+    use_when: [Abstract energy from a single loop, Symmetric patterns]
+  diagonal_emphasis:
+    name: Diagonal emphasis
+    gutter_px: 20
+    margin_px: 0
+    feather_px: 28
+    corner_radius_px: 12
+    opacity: [0.5, 0.25, 0.25, 0.5]
+    placement: background-layer
+    blend: screen
+    use_when: [Two main loops with two quieter ones]
+  multi_viewpoint_split:
+    name: Multi-viewpoint split screen
+    gutter_px: 12
+    margin_px: 0
+    feather_px: 4
+    corner_radius_px: 8
+    opacity: [0.96, 0.96, 0.96, 0.96]
+    placement: main-content
+    blend: normal
+    views: [top, front, side, perspective]
+    use_when: [Showing one object or scene from four synced viewpoints, Explainers and builds]
+  tight_mosaic:
+    name: Tight mosaic
+    gutter_px: 8
+    margin_px: 16
+    feather_px: 6
+    corner_radius_px: 12
+    opacity: [0.55, 0.55, 0.55, 0.55]
+    placement: background-layer
+    blend: normal
+    use_when: [Busy energetic intros, Montage of four clips]
+  soft_vignette_grid:
+    name: Soft vignette grid
+    gutter_px: 16
+    margin_px: 0
+    feather_px: 110
+    corner_radius_px: 0
+    opacity: [0.3, 0.3, 0.3, 0.3]
+    placement: background-layer
+    blend: screen
+    use_when: [Very soft dreamy motion under text]
+
+grid_cell_sets:
+  nature: [ocean_waves, meadow_wind, sunlit_water, coastal_aerial]
+  night: [city_night_bokeh, starfield_drift, fireflies, aurora_ribbons]
+  warm: [light_leaks, campfire_embers, warm_paper, bokeh_drift]
+  graphic: [blueprint_grid, topographic_lines, halftone_drift, lowpoly_facets]
+  calm: [cloud_timelapse, silk_waves, atmospheric_haze, underwater_rays]
+  retro: [neon_grid, crt_scanlines, pixel_sky_parallax, lava_blobs]

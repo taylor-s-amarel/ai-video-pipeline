@@ -13,42 +13,42 @@ items:
   - id: kenney-pixel-platformer
     title: "Kenney Pixel Platformer (200 assets, 18x18 tiles)"
     url: https://kenney.nl/assets/pixel-platformer
-    summary: "Side-view pixel tiles, characters and items on an 18x18 grid; the pack page lists 200 assets under CC0."
+    summary: "Pixel platformer pack on an 18x18 tile grid; the pack page lists 200 assets under CC0."
     licence: CC0-1.0
     licence_url: https://kenney.nl/support
     tags: [platformer, pixel-art, tiles]
   - id: kenney-pixel-platformer-blocks
     title: "Kenney Pixel Platformer Blocks"
     url: https://kenney.nl/assets/pixel-platformer-blocks
-    summary: "Companion block tiles for the Pixel Platformer style, CC0."
+    summary: "Block tiles listed in the Platformer Pack series alongside Pixel Platformer, CC0."
     licence: CC0-1.0
     licence_url: https://kenney.nl/support
     tags: [platformer, pixel-art, tiles]
   - id: kenney-new-platformer-pack
     title: "Kenney New Platformer Pack (440 assets, 2025)"
     url: https://kenney.nl/assets/new-platformer-pack
-    summary: "Vector-style platformer characters, tiles, enemies and backgrounds; listed as 440 assets, released 2025, CC0."
+    summary: "Platformer pack listed as 440 assets, released 2025, CC0."
     licence: CC0-1.0
     licence_url: https://kenney.nl/support
     tags: [platformer, vector, tiles, characters]
   - id: kenney-platformer-pack-remastered
     title: "Kenney Platformer Pack Remastered (360 assets)"
     url: https://kenney.nl/assets/platformer-pack-remastered
-    summary: "Remastered classic Kenney platformer art: tiles, characters, items and HUD; 360 assets, CC0."
+    summary: "Remastered version of Kenney's classic platformer art, 360 assets, CC0."
     licence: CC0-1.0
     licence_url: https://kenney.nl/support
     tags: [platformer, vector]
   - id: kenney-platformer-art-pixel
     title: "Kenney Platformer Art Pixel"
     url: https://kenney.nl/assets/platformer-art-pixel
-    summary: "Pixel redraw of the platformer art set for low-resolution side-scrollers, CC0."
+    summary: "Pixel-art platformer pack in the Platformer Pack series, CC0."
     licence: CC0-1.0
     licence_url: https://kenney.nl/support
     tags: [platformer, pixel-art]
   - id: kenney-1-bit-platformer-pack
     title: "Kenney 1-Bit Platformer Pack"
     url: https://kenney.nl/assets/1-bit-platformer-pack
-    summary: "Monochrome platformer tiles and characters that recolour with a single palette swap, CC0."
+    summary: "Monochrome (1-bit) platformer pack, CC0."
     licence: CC0-1.0
     licence_url: https://kenney.nl/support
     tags: [platformer, 1-bit, pixel-art]
@@ -76,49 +76,49 @@ items:
   - id: kenney-tiny-battle
     title: "Kenney Tiny Battle"
     url: https://kenney.nl/assets/tiny-battle
-    summary: "16x16 tactics/war-game tiles and units in the Tiny style, CC0."
+    summary: "Battle-themed pack in the 16x16 Tiny series, CC0."
     licence: CC0-1.0
     licence_url: https://kenney.nl/support
     tags: [top-down, strategy]
   - id: kenney-tiny-factory
     title: "Kenney Tiny Factory"
     url: https://kenney.nl/assets/tiny-factory
-    summary: "16x16 factory/automation tiles (belts, machines) in the Tiny style, CC0."
+    summary: "Factory-themed pack in the 16x16 Tiny series, CC0."
     licence: CC0-1.0
     licence_url: https://kenney.nl/support
     tags: [top-down, factory]
   - id: kenney-micro-roguelike
     title: "Kenney Micro Roguelike (8x8, 320 assets)"
     url: https://kenney.nl/assets/micro-roguelike
-    summary: "320 tiny 8x8 roguelike tiles and characters; scales cleanly to 1080x1920 with integer nearest-neighbour scaling. CC0."
+    summary: "320 assets on an 8x8 grid; scale with integer nearest-neighbour steps for 1080x1920 video. CC0."
     licence: CC0-1.0
     licence_url: https://kenney.nl/support
     tags: [roguelike, pixel-art, 8x8]
   - id: kenney-roguelike-rpg-pack
     title: "Kenney Roguelike/RPG pack (1,700 assets, 16x16)"
     url: https://kenney.nl/assets/roguelike-rpg-pack
-    summary: "1,700 16x16 tiles for RPG maps: terrain, buildings, characters, items. CC0."
+    summary: "1,700 assets on a 16x16 grid for top-down RPG maps, CC0."
     licence: CC0-1.0
     licence_url: https://kenney.nl/support
     tags: [rpg, top-down, tiles]
   - id: kenney-roguelike-caves-dungeons
     title: "Kenney Roguelike Caves & Dungeons (520 assets)"
     url: https://kenney.nl/assets/roguelike-caves-dungeons
-    summary: "Cave and dungeon tiles matching the Roguelike/RPG pack, 520 assets, CC0."
+    summary: "Cave and dungeon pack, 520 assets, CC0."
     licence: CC0-1.0
     licence_url: https://kenney.nl/support
     tags: [dungeon, top-down, tiles]
   - id: kenney-rpg-urban-pack
     title: "Kenney RPG Urban Pack"
     url: https://kenney.nl/assets/rpg-urban-pack
-    summary: "Modern-city top-down tiles (roads, buildings, vehicles, people) for urban RPG or explainer maps, CC0."
+    summary: "Urban RPG pack for modern top-down city maps, CC0."
     licence: CC0-1.0
     licence_url: https://kenney.nl/support
     tags: [top-down, city, modern]
   - id: kenney-top-down-shooter
     title: "Kenney Top-down Shooter (580 assets)"
     url: https://kenney.nl/assets/top-down-shooter
-    summary: "580 top-down characters, weapons and tiles; a pixel variant is also listed on the site. CC0."
+    summary: "580-asset top-down shooter pack; a pixel variant is also listed on the site. CC0."
     licence: CC0-1.0
     licence_url: https://kenney.nl/support
     tags: [top-down, characters]
@@ -139,7 +139,7 @@ items:
   - id: kenney-pirate-pack
     title: "Kenney Pirate Pack"
     url: https://kenney.nl/assets/pirate-pack
-    summary: "2D pirate ships, islands and water tiles, CC0."
+    summary: "Pirate-themed asset pack, CC0."
     licence: CC0-1.0
     licence_url: https://kenney.nl/support
     tags: [pirate, top-down, ships]

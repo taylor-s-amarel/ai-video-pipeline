@@ -1,0 +1,7 @@
+title: xstack grid layout builder
+summary: Computes rows x columns grids with gutters and margins (even cell sizes) and the matching ffmpeg xstack filter with cover-cropped cells and padded full-frame output.
+subkind: grid-system
+domain: video
+tags: [video, ffmpeg, xstack, grid, layout, compositing]
+step_kinds: [build, render]
+depends_on: [ffmpeg]

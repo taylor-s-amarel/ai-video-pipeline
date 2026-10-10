@@ -1,0 +1,12 @@
+title: Whisper word timestamps adapter
+summary: Normalises word timestamps from faster-whisper (run locally, lazily imported) and openai-whisper results into one monotonic word list for caption timing.
+subkind: api-client
+domain: captions
+tags: [captions, asr, whisper, faster-whisper, word-timestamps, alignment]
+step_kinds: [build, render]
+effects:
+  filesystem: write
+  hosts: [huggingface.co]
+  side_effects: ["faster-whisper downloads model weights from the Hugging Face Hub on first use and caches them locally"]
+depends_on: [faster_whisper]
+references: ["https://github.com/SYSTRAN/faster-whisper", "https://github.com/openai/whisper"]

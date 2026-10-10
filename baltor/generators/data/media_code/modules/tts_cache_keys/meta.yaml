@@ -1,0 +1,9 @@
+title: TTS content-addressed cache
+summary: Caches synthesized speech under SHA-256 keys of engine, model, voice, speed and exact text, with atomic writes so crashed renders never leave reusable half files.
+subkind: tts-engine
+domain: audio
+tags: [audio, tts, cache, sha256, reproducibility]
+step_kinds: [build, render]
+effects:
+  filesystem: write
+  side_effects: ["creates cache directories and WAV files under the given root"]

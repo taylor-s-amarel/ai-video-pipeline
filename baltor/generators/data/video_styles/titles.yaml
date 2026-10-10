@@ -1,0 +1,206 @@
+# Title and label styles. Colours are palette roles. Sizes at a 1080 px wide reference.
+# House titles must be #FFD21F, bold, visible on the first frame, centred no lower than 40% of
+# the height (upper third), overlaid on the main photo, with a frosted backing at 55-75% tint.
+
+house_yellow_hook:
+  name: House yellow hook over the photo
+  house: true
+  default_palette: house_yellow_night
+  font: {family: Montserrat, weight: 900, size_px: 92, min_size_px: 72, case: upper, letter_spacing_em: 0.0}
+  fill_role: title
+  stroke: {role: stroke, width_px: 3}
+  shadow: {opacity: 0.45, blur_px: 12, offset_px: [0, 4]}
+  backing: {type: frosted-glass, tint_role: panel_tint, opacity: 0.62, blur_px: 28, radius_px: 32, padding_px: [26, 40], feather_px: 24}
+  position: {region: upper-third, center_y_fraction: 0.24, over: photo, max_width_fraction: 0.88}
+  text: {min_words: 2, max_words: 7, max_lines: 2}
+  timing: {first_frame: true, hold_s: 2.4}
+  animation_in: text_anim_settle_in
+  use_when: [The first frame of every house-style short]
+  avoid_when: [Never move the photo or shrink it to make room; place the title over it]
+  notes: >-
+    Montserrat at weight 900 is a true bold, so the 3:1 large-bold contrast threshold applies. The hook
+    is its own 2-7 word line, not a copy of the first caption. It is fully visible at 0.0 s; the
+    settle-in animation only scales 1.04 -> 1.0.
+
+fact_number_label:
+  name: FACT N label with key number
+  house: false
+  label_house: true
+  default_palette: house_yellow_night
+  font: {family: Montserrat, weight: 900, size_px: 54, min_size_px: 44, case: upper, letter_spacing_em: 0.06}
+  fill_role: keyword
+  stroke: {role: stroke, width_px: 0}
+  backing: {type: frosted-glass, tint_role: panel_tint, blur_px: 24, radius_px: 999, padding_px: [14, 30], feather_px: 10}
+  position: {region: upper-third, center_y_fraction: 0.30, over: photo, max_width_fraction: 0.6}
+  text: {template: "FACT {n}", min_words: 2, max_words: 2, max_lines: 1}
+  secondary: {font: {family: Anton, weight: 400, size_px: 120, case: upper}, fill_role: text, gap_px: 12, content: key number with unit, animation: text_anim_count_up_number}
+  timing: {first_frame: false, hold_s: 3.0}
+  animation_in: text_anim_springy_pop_overshoot
+  use_when: [Numbered fact, tip or step shorts, Each time a new item starts]
+  avoid_when: [Repeating the same label on every caption (one label per item)]
+  notes: The label pops in when a new item starts and the key number (for example "14 DAYS") sits under it.
+
+top_n_rank:
+  name: Top-N rank number
+  default_palette: news_contrast
+  font: {family: Anton, weight: 400, size_px: 220, min_size_px: 160, case: upper}
+  fill_role: keyword
+  stroke: {role: stroke, width_px: 8}
+  backing: {type: none}
+  position: {region: upper-third, center_y_fraction: 0.26, over: background, max_width_fraction: 0.5}
+  text: {template: "#{n}", min_words: 1, max_words: 1, max_lines: 1}
+  secondary: {font: {family: Montserrat, weight: 800, size_px: 56, case: upper}, fill_role: text, gap_px: 8, content: item name}
+  timing: {first_frame: false, hold_s: 2.0}
+  animation_in: text_anim_kinetic_slam
+  use_when: [Countdowns and rankings]
+  avoid_when: [Lists where order means nothing]
+
+stacked_two_line_hook:
+  name: Two-line stacked hook
+  default_palette: house_yellow_night
+  font: {family: Oswald, weight: 700, size_px: 104, min_size_px: 80, case: upper}
+  fill_role: title
+  stroke: {role: stroke, width_px: 3}
+  backing: {type: frosted-glass, tint_role: panel_tint, blur_px: 28, radius_px: 32, padding_px: [24, 40], feather_px: 22}
+  position: {region: upper-third, center_y_fraction: 0.25, over: photo, max_width_fraction: 0.88}
+  text: {min_words: 3, max_words: 8, max_lines: 2}
+  secondary: {font: {family: Montserrat, weight: 800, size_px: 54, case: upper}, fill_role: text, gap_px: 6, content: setup line above the hook, placement: above}
+  timing: {first_frame: true, hold_s: 2.6}
+  animation_in: text_anim_settle_in
+  use_when: [Hooks that need a short setup ("SHE SPENT", "14 DAYS UNDERWATER")]
+  avoid_when: [Hooks that fit in one line]
+
+question_hook:
+  name: Question hook
+  default_palette: sunset_coral
+  font: {family: Montserrat, weight: 900, size_px: 84, min_size_px: 64, case: upper}
+  fill_role: title
+  stroke: {role: stroke, width_px: 0}
+  backing: {type: frosted-glass, tint_role: panel_tint, blur_px: 28, radius_px: 30, padding_px: [24, 38], feather_px: 20}
+  position: {region: upper-third, center_y_fraction: 0.24, over: photo, max_width_fraction: 0.88}
+  text: {min_words: 3, max_words: 8, max_lines: 2, ends_with: "?"}
+  timing: {first_frame: true, hold_s: 2.4}
+  animation_in: text_anim_settle_in
+  use_when: [Curiosity hooks ("WHY DO CATS KNEAD?"), Quiz shorts]
+  avoid_when: [Questions the video does not answer]
+
+date_stamp_history:
+  name: On-this-day date stamp
+  default_palette: warm_paper_sepia
+  font: {family: Special Elite, weight: 400, size_px: 58, min_size_px: 46, case: upper, letter_spacing_em: 0.04}
+  fill_role: title
+  stroke: {role: stroke, width_px: 0}
+  backing: {type: solid, tint_role: panel_tint, blur_px: 0, radius_px: 4, padding_px: [14, 28], feather_px: 2, rotation_deg: -1.5}
+  position: {region: upper-third, center_y_fraction: 0.18, over: photo, max_width_fraction: 0.7}
+  text: {template: "ON THIS DAY · {date}", min_words: 3, max_words: 6, max_lines: 1}
+  secondary: {font: {family: Playfair Display, weight: 800, size_px: 76, case: as-written}, fill_role: text, gap_px: 16, content: the event headline}
+  timing: {first_frame: true, hold_s: 2.8}
+  animation_in: text_anim_typewriter
+  use_when: [Today-in-history and anniversary shorts]
+  avoid_when: [Dates you have not verified against a source]
+
+step_card_center:
+  name: STEP N card
+  default_palette: okabe_ito_safe
+  font: {family: Atkinson Hyperlegible, weight: 700, size_px: 64, min_size_px: 52, case: upper, letter_spacing_em: 0.04}
+  fill_role: title
+  stroke: {role: stroke, width_px: 0}
+  backing: {type: frosted-glass, tint_role: panel_tint, blur_px: 24, radius_px: 24, padding_px: [18, 34], feather_px: 12}
+  position: {region: upper-third, center_y_fraction: 0.28, over: photo, max_width_fraction: 0.6}
+  text: {template: "STEP {n}", min_words: 2, max_words: 2, max_lines: 1}
+  secondary: {font: {family: Atkinson Hyperlegible, weight: 700, size_px: 56, case: as-written}, fill_role: text, gap_px: 10, content: the action in 2-5 words}
+  timing: {first_frame: false, hold_s: 2.4}
+  animation_in: text_anim_springy_pop_overshoot
+  use_when: [Tutorials and how-tos]
+  avoid_when: [Fact lists (use FACT N)]
+
+kinetic_slam_hook:
+  name: Kinetic slam hook (no panel)
+  default_palette: house_yellow_night
+  font: {family: Anton, weight: 400, size_px: 120, min_size_px: 90, case: upper}
+  fill_role: title
+  stroke: {role: stroke, width_px: 9}
+  shadow: {opacity: 0.6, blur_px: 16, offset_px: [0, 8]}
+  backing: {type: none}
+  position: {region: upper-third, center_y_fraction: 0.26, over: photo, max_width_fraction: 0.9}
+  text: {min_words: 1, max_words: 4, max_lines: 2}
+  timing: {first_frame: true, hold_s: 1.8}
+  animation_in: text_anim_kinetic_slam
+  use_when: [Hype hooks, Sports and action]
+  avoid_when: [House shorts (they require the frosted backing)]
+  notes: Visible on frame 0 at its slam start size; the 9 px outline carries contrast.
+
+news_lower_third:
+  name: News lower third
+  default_palette: news_contrast
+  font: {family: Roboto Slab, weight: 800, size_px: 52, min_size_px: 42, case: as-written}
+  fill_role: text
+  stroke: {role: stroke, width_px: 0}
+  backing: {type: solid, tint_role: panel_tint, blur_px: 0, radius_px: 0, padding_px: [16, 28], feather_px: 0}
+  position: {region: lower-third-bar, center_y_fraction: 0.80, over: background, max_width_fraction: 0.92}
+  text: {min_words: 2, max_words: 10, max_lines: 1}
+  secondary: {font: {family: Roboto, weight: 700, size_px: 34, case: upper}, fill_role: text, bar_role: accent, gap_px: 0, content: kicker label such as BRIEFING, placement: above}
+  timing: {first_frame: false, hold_s: 4.0}
+  animation_in: text_anim_mask_reveal_up
+  use_when: [Briefings, explainers and landscape (16:9) edits]
+  avoid_when: [Vertical shorts where the bottom area is covered by platform UI]
+
+quote_card:
+  name: Quote card
+  default_palette: history_archive
+  font: {family: Playfair Display, weight: 700, size_px: 64, min_size_px: 50, case: as-written}
+  fill_role: text
+  stroke: {role: stroke, width_px: 0}
+  backing: {type: frosted-glass, tint_role: panel_tint, blur_px: 30, radius_px: 28, padding_px: [34, 44], feather_px: 22}
+  position: {region: center, center_y_fraction: 0.42, over: photo, max_width_fraction: 0.86}
+  text: {min_words: 4, max_words: 24, max_lines: 4}
+  secondary: {font: {family: Source Sans 3, weight: 700, size_px: 40, case: as-written}, fill_role: keyword, gap_px: 18, content: "attribution: name, year, source"}
+  timing: {first_frame: false, hold_s: 4.5}
+  animation_in: text_anim_word_by_word_reveal
+  use_when: [Verified quotations with a source]
+  avoid_when: [Quotes you cannot attribute to a primary or reputable source]
+
+minimal_serif_white:
+  name: Minimal serif title
+  default_palette: forest_canopy
+  font: {family: Playfair Display, weight: 800, size_px: 84, min_size_px: 64, case: as-written}
+  fill_role: text
+  stroke: {role: stroke, width_px: 0}
+  shadow: {opacity: 0.5, blur_px: 18, offset_px: [0, 4]}
+  backing: {type: frosted-glass, tint_role: panel_tint, blur_px: 30, radius_px: 30, padding_px: [24, 40], feather_px: 24}
+  position: {region: upper-third, center_y_fraction: 0.24, over: photo, max_width_fraction: 0.86}
+  text: {min_words: 2, max_words: 7, max_lines: 2}
+  timing: {first_frame: true, hold_s: 2.4}
+  animation_in: text_anim_blur_in_focus
+  use_when: [Calm nature, biography and quote shorts]
+  avoid_when: [Hype edits]
+
+neon_sign_hook:
+  name: Neon sign hook
+  default_palette: neon_night
+  font: {family: Orbitron, weight: 800, size_px: 80, min_size_px: 60, case: upper, letter_spacing_em: 0.03}
+  fill_role: title
+  stroke: {role: stroke, width_px: 0}
+  shadow: {role: accent, opacity: 0.9, blur_px: 22, offset_px: [0, 0]}
+  backing: {type: frosted-glass, tint_role: panel_tint, blur_px: 30, radius_px: 24, padding_px: [24, 36], feather_px: 20}
+  position: {region: upper-third, center_y_fraction: 0.24, over: photo, max_width_fraction: 0.9}
+  text: {min_words: 2, max_words: 6, max_lines: 2}
+  timing: {first_frame: true, hold_s: 2.4}
+  animation_in: text_anim_blur_in_focus
+  use_when: [AI, gaming and tech hooks]
+  avoid_when: [Light palettes]
+
+comic_burst_hook:
+  name: Comic burst hook
+  default_palette: comic_primary
+  font: {family: Bangers, weight: 400, size_px: 112, min_size_px: 84, case: upper, letter_spacing_em: 0.02}
+  fill_role: title
+  stroke: {role: surface, width_px: 8}
+  backing: {type: sticker, tint_role: accent_2, opacity: 0.95, blur_px: 0, radius_px: 0, padding_px: [28, 44], feather_px: 0, rotation_deg: -3, shape: starburst}
+  position: {region: upper-third, center_y_fraction: 0.25, over: photo, max_width_fraction: 0.9}
+  text: {min_words: 1, max_words: 5, max_lines: 2}
+  timing: {first_frame: true, hold_s: 2.2}
+  animation_in: text_anim_springy_pop_overshoot
+  use_when: [Ridiculous stories, cartoons and comic looks]
+  avoid_when: [Serious topics]
+  notes: Red title with a white outline on a yellow starburst card; the contrast check measures the fill against the card.

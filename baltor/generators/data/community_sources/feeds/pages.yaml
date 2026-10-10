@@ -1,0 +1,690 @@
+# Individually researched sources (official feeds, policy pages, aggregators, topic feeds, PA programmes).
+# Each item records how it was confirmed on 2026-10-10 in `notes`. Most hosts here could not be
+# fetched from the research network, so verification is 'search-result' (URL seen in web search
+# results or in an official/source document found that way) unless stated otherwise.
+# Fields: collection, id, title, url, kind, summary, verification, licence, licence_url, notes, cautions, tags.
+
+verified_on: "2026-10-10"
+
+collection_meta:
+  community-ai-oss-voices:
+    title: "AI engineering, agent practitioners and open-source maintainers"
+    description: "Blogs, newsletters and official news feeds from people and labs whose public work shapes coding agents and LLM practice, plus open-source maintainers whose posts affect the tools agents depend on. Feed URLs are given where confirmed; otherwise the publication page is listed with a note."
+    tags: [ai, coding-agents, open-source, voices]
+  community-gamedev-3d-educators:
+    title: "Game dev, Godot, Blender, graphics and animation educators and news"
+    description: "Official engine news, game-industry news and educators' channels and blogs for Godot, Blender, graphics, pixel art and animation. YouTube items use the channel Atom feed with a channel ID confirmed in search results."
+    tags: [gamedev, godot, blender, graphics, animation, education]
+  community-creator-marketing-security-voices:
+    title: "Creator platform policy, creator economy, marketing and security sources"
+    description: "Official YouTube, Meta and TikTok policy sources that decide whether faceless and AI-assisted channels can monetise, creator-economy publications, search-marketing news and defensive security feeds."
+    tags: [creators, policy, marketing, seo, security]
+  community-aggregators-forums:
+    title: "Aggregators, research listings and official forums"
+    description: "Hacker News, arXiv category listings, Discourse forums for Godot, Blender, Hugging Face and others, and the Kagi Small Web feed. Patterns (arXiv, Discourse, hnrss) come from each platform's documentation found in search results."
+    tags: [aggregators, forums, research, arxiv, hacker-news]
+  community-topic-mining-feeds:
+    title: "Topic mining feeds for facts, history, science and trends"
+    description: "Feeds that surface dated, citable topics for fact-led shorts: Wikipedia featured feeds and on-this-day data, NASA and APOD, ScienceDaily, Smithsonian and Google Trends. Use them to pick topics, then cite the primary source in the video description."
+    tags: [topics, facts, history, science, trends]
+
+items:
+  # ------------------------------------------------------------------ AI / OSS voices (non-Kagi)
+  - collection: community-ai-oss-voices
+    id: simon-willison
+    title: "Simon Willison's Weblog (everything feed)"
+    url: "https://simonwillison.net/atom/everything/"
+    kind: article
+    summary: "Daily notes on LLM tools, prompt injection, agent tooling and open-source releases; one of the fastest practitioner sources for new model and tool behaviour."
+    verification: search-result
+    licence: "All rights reserved by the author unless stated"
+    notes: "Feed URL confirmed in search results (an OPML subscription list and a 30 April 2026 post about changes to /atom/everything/) and listed in the Kagi Small Web index."
+    tags: [llm, coding-agents, prompt-injection]
+  - collection: community-ai-oss-voices
+    id: openai-news
+    title: "OpenAI News RSS"
+    url: "https://openai.com/news/rss.xml"
+    kind: service
+    summary: "Every post on OpenAI's news page: product launches, research, safety updates and company news."
+    verification: search-result
+    licence: "OpenAI terms; posts are OpenAI's copyright"
+    notes: "Feed directories in search results agree on this URL; the older /blog/rss.xml forwards to it."
+    tags: [openai, official]
+  - collection: community-ai-oss-voices
+    id: openai-engineering-news
+    title: "OpenAI engineering news RSS"
+    url: "https://openai.com/news/engineering/rss.xml"
+    kind: service
+    summary: "OpenAI's engineering posts only."
+    verification: search-result
+    licence: "OpenAI terms"
+    notes: "Listed in a directory of openai.com feeds in search results; not fetched."
+    tags: [openai, official, engineering]
+  - collection: community-ai-oss-voices
+    id: openai-release-notes
+    title: "OpenAI product release notes RSS"
+    url: "https://openai.com/products/release-notes/rss.xml"
+    kind: service
+    summary: "Product release notes for OpenAI products."
+    verification: search-result
+    licence: "OpenAI terms"
+    notes: "Listed in a directory of openai.com feeds in search results; not fetched."
+    tags: [openai, official, changelog]
+  - collection: community-ai-oss-voices
+    id: google-deepmind-blog
+    title: "Google DeepMind blog RSS"
+    url: "https://deepmind.google/blog/rss.xml"
+    kind: service
+    summary: "Research and model news from Google DeepMind, including Gemini."
+    verification: search-result
+    licence: "Google terms"
+    notes: "Listed by a Feeder AI-news guide updated 4 October 2026 and its AI feeds directory."
+    tags: [deepmind, gemini, official]
+  - collection: community-ai-oss-voices
+    id: github-changelog
+    title: "GitHub Changelog"
+    url: "https://github.blog/changelog/feed/"
+    kind: service
+    summary: "Every GitHub product change as it ships, including Copilot coding agent and Actions changes."
+    verification: search-result
+    licence: "GitHub terms"
+    notes: "Feed listed in a feed directory in search results; github.blog could not be fetched."
+    tags: [github, changelog, official]
+  - collection: community-ai-oss-voices
+    id: anthropic-news
+    title: "Anthropic news (no official feed)"
+    url: "https://www.anthropic.com/news"
+    kind: service
+    summary: "Anthropic's announcements page. No native RSS feed was found: feed directories report /news/rss.xml as not found and a July 2026 guide recommends the email subscription."
+    verification: search-result
+    licence: "Anthropic terms"
+    notes: "Check the page directly or subscribe by email; third-party generated feeds (RSSHub routes, Feeder) depend on page layout and can break."
+    cautions: ["Do not scrape the page at high frequency; once a day is enough for announcements."]
+    tags: [anthropic, official, no-feed]
+  - collection: community-ai-oss-voices
+    id: latent-space
+    title: "Latent Space (newsletter and podcast)"
+    url: "https://www.latent.space/"
+    kind: article
+    summary: "AI engineering newsletter and podcast with interviews of people building agents and models."
+    verification: search-result
+    licence: "All rights reserved by the publisher"
+    notes: "Substack publication. Search results disagreed on a native feed: one directory reported no feed and a comment on the site points to a separate audio RSS host. Use feed autodiscovery on the page before polling."
+    tags: [ai-engineering, podcast, newsletter]
+  - collection: community-ai-oss-voices
+    id: interconnects
+    title: "Interconnects (Nathan Lambert)"
+    url: "https://www.interconnects.ai/"
+    kind: article
+    summary: "Newsletter on frontier and open models, post-training methods and the open-model ecosystem; one to three posts a week per its about page."
+    verification: search-result
+    licence: "All rights reserved by the author"
+    notes: "Substack-distributed publication. Substack exposes RSS at /feed unless a publication disables it (Feedly help docs); confirm with autodiscovery before polling."
+    tags: [open-models, research, newsletter]
+  - collection: community-ai-oss-voices
+    id: one-useful-thing
+    title: "One Useful Thing (Ethan Mollick)"
+    url: "https://www.oneusefulthing.org/"
+    kind: article
+    summary: "Research-based writing on the practical implications of AI for work and education by a Wharton professor."
+    verification: search-result
+    licence: "All rights reserved by the author"
+    notes: "Substack publication; Substack exposes RSS at /feed unless disabled. Confirm with autodiscovery before polling."
+    tags: [ai, work, newsletter]
+  - collection: community-ai-oss-voices
+    id: import-ai
+    title: "Import AI (Jack Clark)"
+    url: "https://importai.substack.com/"
+    kind: article
+    summary: "Weekly newsletter analysing AI research, written by an Anthropic co-founder."
+    verification: search-result
+    licence: "All rights reserved by the author"
+    notes: "Substack publication; a feed directory reported no native feed and generates one from jack-clark.net. Confirm with autodiscovery before polling."
+    tags: [research, newsletter]
+
+  # ------------------------------------------------------------------ gamedev / 3D / animation
+  - collection: community-gamedev-3d-educators
+    id: godot-blog
+    title: "Godot Engine blog RSS"
+    url: "https://godotengine.org/rss.xml"
+    kind: service
+    summary: "Official Godot news: releases, dev snapshots, foundation news and showcase posts. The site also publishes /rss.json and /atom.xml."
+    verification: search-result
+    licence: "Godot website content: see godotengine.org; engine is MIT"
+    notes: "The permalinks /rss.xml, /rss.json and /atom.xml are defined in the godotengine/godot-website source (pages/ directory, fetched 2026-10-10); a Godot forum answer also points to /rss.xml. godotengine.org itself could not be fetched."
+    tags: [godot, official]
+  - collection: community-gamedev-3d-educators
+    id: blender-news
+    title: "Blender.org news feed"
+    url: "https://www.blender.org/feed/"
+    kind: service
+    summary: "Official Blender news: releases, Blender Studio and foundation updates."
+    verification: unverified
+    licence: "Blender Foundation site terms"
+    notes: "The only evidence found is a 2014 Blender web-team mailing-list reply naming blender.org/feed; the current path was not confirmed. Verify with autodiscovery on blender.org before polling. For releases, the Blender tags feed in community-releases-game-3d-2d was fetched."
+    tags: [blender, official]
+  - collection: community-gamedev-3d-educators
+    id: game-developer
+    title: "Game Developer (formerly Gamasutra) RSS"
+    url: "https://www.gamedeveloper.com/rss.xml"
+    kind: service
+    summary: "Game industry news and in-depth analysis; founded in 1997 as Gamasutra."
+    verification: search-result
+    licence: "Publisher terms"
+    notes: "Listed in FeedSpot's game development feeds directory in search results."
+    tags: [industry, news]
+  - collection: community-gamedev-3d-educators
+    id: gamefromscratch
+    title: "GameFromScratch"
+    url: "https://gamefromscratch.com/feed"
+    kind: article
+    summary: "Indie game-development news: engines, art tools and free asset releases; a quick way to hear about new Godot and Blender tools."
+    verification: search-result
+    licence: "Publisher terms"
+    notes: "Listed in FeedSpot's game development feeds directory in search results."
+    tags: [news, engines, tools]
+  - collection: community-gamedev-3d-educators
+    id: yt-gdquest
+    title: "GDQuest (YouTube channel feed)"
+    url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCxboW7x0jZqFdvMdCFKTMsQ"
+    kind: service
+    summary: "Godot tutorials and courses from GDQuest; uploads are irregular."
+    verification: search-result
+    licence: "Standard YouTube licence unless a video states otherwise"
+    notes: "Channel ID confirmed by links from the Godot forum and the Godot Japanese documentation in search results."
+    cautions: ["YouTube channel feeds have had intermittent 404s since December 2025 (third-party report); fall back to the channel page."]
+    tags: [godot, youtube, tutorials]
+  - collection: community-gamedev-3d-educators
+    id: yt-brackeys
+    title: "Brackeys (YouTube channel feed)"
+    url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCYbK_tjZ2OrIZFBvU6CCMiA"
+    kind: service
+    summary: "Game development tutorials; the channel's newer videos cover Godot."
+    verification: search-result
+    licence: "Standard YouTube licence unless a video states otherwise"
+    notes: "Channel ID confirmed by a channel-stats page and a podcast page linking the channel in search results."
+    cautions: ["YouTube channel feeds have had intermittent 404s since December 2025 (third-party report)."]
+    tags: [godot, youtube, tutorials]
+  - collection: community-gamedev-3d-educators
+    id: yt-sebastian-lague
+    title: "Sebastian Lague (YouTube channel feed)"
+    url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCmtyQOKKmrMVaKuRXz02jbQ"
+    kind: service
+    summary: "'Coding Adventures' videos on procedural generation, simulation and graphics."
+    verification: search-result
+    licence: "Standard YouTube licence unless a video states otherwise"
+    notes: "Channel ID confirmed by a single itch.io page linking the channel in search results."
+    cautions: ["YouTube channel feeds have had intermittent 404s since December 2025 (third-party report)."]
+    tags: [procedural, youtube]
+  - collection: community-gamedev-3d-educators
+    id: yt-blender
+    title: "Blender (official YouTube channel feed)"
+    url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCSMOQeBJ2RAnuFungnQOxLg"
+    kind: service
+    summary: "Blender's official channel: release overviews, Blender Studio films and conference talks."
+    verification: search-result
+    licence: "Per video; many Blender Studio works are CC-BY, check each video"
+    notes: "Channel ID confirmed by a channel-stats page describing it as Blender's official channel."
+    cautions: ["YouTube channel feeds have had intermittent 404s since December 2025 (third-party report)."]
+    tags: [blender, youtube, official]
+  - collection: community-gamedev-3d-educators
+    id: yt-blender-guru
+    title: "Blender Guru (YouTube channel feed)"
+    url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCOKHwx1VCdgnxwbjyb9Iu1g"
+    kind: service
+    summary: "Andrew Price's Blender tutorials, including the long-running donut series."
+    verification: search-result
+    licence: "Standard YouTube licence unless a video states otherwise"
+    notes: "Channel ID confirmed via channel mirror pages in search results."
+    cautions: ["YouTube channel feeds have had intermittent 404s since December 2025 (third-party report)."]
+    tags: [blender, youtube, tutorials]
+  - collection: community-gamedev-3d-educators
+    id: yt-3blue1brown
+    title: "3Blue1Brown (YouTube channel feed)"
+    url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCYO_jab_esuFRV4b17AJtAw"
+    kind: service
+    summary: "Grant Sanderson's math explainers; the visual reference for Manim-style explainer shorts."
+    verification: search-result
+    licence: "Standard YouTube licence unless a video states otherwise"
+    notes: "Channel ID confirmed by Numberphile and FindAChannel pages in search results."
+    cautions: ["Use as style reference only; never reuse footage."]
+    tags: [math, explainers, manim, youtube]
+
+  # ------------------------------------------------------------------ creator / platform policy / marketing / security
+  - collection: community-creator-marketing-security-voices
+    id: youtube-monetization-policies
+    title: "YouTube channel monetization policies (inauthentic and reused content)"
+    url: "https://support.google.com/youtube/answer/1311392"
+    kind: guidance
+    summary: "Official YouTube Partner Program policy. On 15 July 2025 'repetitious content' was renamed 'inauthentic content' and clarified to cover mass-produced or repetitive uploads; it applies channel-wide and regardless of whether AI was used. Reused-content rules (clips, compilations, reactions) were unchanged."
+    verification: search-result
+    licence: "YouTube Help content"
+    licence_url: "https://support.google.com/youtube/answer/1311392"
+    notes: "Official page returned in search results; summary combines the page and coverage quoting it. Re-read before each new series format."
+    cautions: ["A faceless series must differ visibly from video to video (topic, script, visuals); near-identical narrated slideshows can cost monetisation for the whole channel."]
+    tags: [youtube, policy, monetization, faceless]
+  - collection: community-creator-marketing-security-voices
+    id: youtube-altered-synthetic-disclosure
+    title: "YouTube: disclosing use of altered or synthetic content"
+    url: "https://support.google.com/youtube/answer/14328491"
+    kind: guidance
+    summary: "Official help page: creators must disclose realistic altered or synthetic content (a real person saying something they did not, altered real events, realistic invented scenes). Clearly unrealistic, animated or effects content and production assistance are exempt."
+    verification: search-result
+    licence: "YouTube Help content"
+    licence_url: "https://support.google.com/youtube/answer/14328491"
+    notes: "Official page returned in search results; introduced March 2024. A May 2026 labelling update was mentioned by a third party but not confirmed."
+    cautions: ["Repeated non-disclosure can lead to removal or YouTube Partner Program suspension."]
+    tags: [youtube, policy, ai-disclosure]
+  - collection: community-creator-marketing-security-voices
+    id: youtube-blog-ai-disclosure
+    title: "YouTube Official Blog: how we're helping creators disclose altered or synthetic content"
+    url: "https://blog.youtube/news-and-events/disclosing-ai-generated-content"
+    kind: article
+    summary: "YouTube's announcement of the altered or synthetic content disclosure tool."
+    verification: search-result
+    licence: "YouTube blog content"
+    notes: "Returned in search results. A native YouTube blog feed could not be confirmed (sources conflicted)."
+    tags: [youtube, policy, ai-disclosure]
+  - collection: community-creator-marketing-security-voices
+    id: meta-unoriginal-content
+    title: "Meta for Creators: combating unoriginal content on Facebook"
+    url: "https://creators.facebook.com/blog/combating-unoriginal-content"
+    kind: guidance
+    summary: "Meta's 14 July 2025 announcement: accounts that repeatedly repost others' videos, photos or text without credit or meaningful changes lose monetisation access for a period and get reduced distribution; reshares with commentary or a unique take remain welcome."
+    verification: search-result
+    licence: "Meta content"
+    notes: "Post URL appeared in search results; details come from press coverage quoting it (Tubefilter, Medianama)."
+    cautions: ["Applies to Facebook monetisation; credit and transform any third-party material, or better, use only your own and licensed media."]
+    tags: [facebook, meta, policy, monetization]
+  - collection: community-creator-marketing-security-voices
+    id: tubefilter-meta-unoriginal
+    title: "Tubefilter: the fight against unoriginal content is coming to Facebook"
+    url: "https://www.tubefilter.com/2025/07/15/ai-slop-unoriginal-repetitive-content-monetization-facebook-meta/"
+    kind: article
+    summary: "Coverage of Meta's unoriginal-content policy and its link to YouTube's inauthentic-content change."
+    verification: search-result
+    licence: "Publisher terms"
+    tags: [facebook, policy, creator-economy]
+  - collection: community-creator-marketing-security-voices
+    id: tiktok-ai-labels-smt
+    title: "Social Media Today: TikTok launches labels for AI-generated content"
+    url: "https://www.socialmediatoday.com/news/tiktok-officially-launches-new-stream-labels-ai-generated-content/694154/"
+    kind: article
+    summary: "Coverage of TikTok's AI-generated content label (launched September 2023); TikTok's guidelines require labelling realistic AI depictions of people or scenes and it auto-labels some content via C2PA Content Credentials."
+    verification: search-result
+    licence: "Publisher terms"
+    notes: "TikTok's own support article was not found in search results; check TikTok's Support Center for the current rule."
+    tags: [tiktok, policy, ai-disclosure]
+  - collection: community-creator-marketing-security-voices
+    id: tubefilter-creator-economy
+    title: "Tubefilter: creator economy section"
+    url: "https://www.tubefilter.com/category/creator-economy/"
+    kind: article
+    summary: "Near-daily creator-economy news (founded 2007): platform deals, creator funds, monetisation changes."
+    verification: search-result
+    licence: "Publisher terms"
+    notes: "Category page confirmed in search results; the feed URL was not confirmed, so use autodiscovery."
+    tags: [creator-economy, news]
+  - collection: community-creator-marketing-security-voices
+    id: publish-press
+    title: "The Publish Press (Colin and Samir)"
+    url: "https://news.thepublishpress.com/"
+    kind: article
+    summary: "Creator-economy newsletter from Colin and Samir, published several times a week since May 2021, hosted on beehiiv."
+    verification: search-result
+    licence: "All rights reserved by the publisher"
+    notes: "Publication pages confirmed in search results; no feed URL confirmed."
+    tags: [creator-economy, newsletter, youtube-strategy]
+  - collection: community-creator-marketing-security-voices
+    id: colin-samir-new-rules-youtube
+    title: "Colin and Samir: the new rules of YouTube from Paddy Galloway"
+    url: "https://www.colinandsamir.com/resources/the-new-rules-of-youtube-from-paddy-galloway"
+    kind: article
+    summary: "Resource page on YouTube strategy from a widely cited YouTube strategist; useful for packaging (titles, thumbnails) and niche strategy."
+    verification: search-result
+    licence: "All rights reserved by the publisher"
+    tags: [youtube-strategy]
+  - collection: community-creator-marketing-security-voices
+    id: creator-science
+    title: "Creator Science podcast (Jay Clouse)"
+    url: "https://podcast.creatorscience.com/about/"
+    kind: article
+    summary: "Interview podcast with working creators on growth and business (formerly Creative Elements)."
+    verification: search-result
+    licence: "All rights reserved by the publisher"
+    notes: "Site confirmed in search results; podcast RSS URL not confirmed (check the site's RSS link)."
+    tags: [creator-economy, podcast]
+  - collection: community-creator-marketing-security-voices
+    id: search-engine-land
+    title: "Search Engine Land RSS"
+    url: "https://searchengineland.com/feed"
+    kind: service
+    summary: "Search marketing news: Google updates, SEO and paid search."
+    verification: search-result
+    licence: "Publisher terms"
+    notes: "Feed directory in search results lists this URL (a FeedBurner address also exists)."
+    tags: [seo, news]
+  - collection: community-creator-marketing-security-voices
+    id: search-engine-roundtable
+    title: "Search Engine Roundtable RSS"
+    url: "https://www.seroundtable.com/index.xml"
+    kind: service
+    summary: "Daily coverage of search-engine ranking changes and Google statements; a full-text feed is also offered."
+    verification: search-result
+    licence: "Publisher terms"
+    notes: "URL listed on the site's own subscribe page in search results (full feed: index-full.rdf)."
+    tags: [seo, news]
+  - collection: community-creator-marketing-security-voices
+    id: google-search-central-blog
+    title: "Google Search Central Blog"
+    url: "https://developers.google.com/search/blog"
+    kind: guidance
+    summary: "Official Google Search announcements: ranking updates, structured data and spam policies."
+    verification: search-result
+    licence: "Google Developers site terms"
+    notes: "The page says it offers an RSS feed; the exact feed URL was not confirmed, so use autodiscovery."
+    tags: [seo, official]
+  - collection: community-creator-marketing-security-voices
+    id: krebs-on-security
+    title: "Krebs on Security"
+    url: "https://krebsonsecurity.com/feed/"
+    kind: article
+    summary: "Investigative security journalism on breaches and cybercrime."
+    verification: search-result
+    licence: "All rights reserved by the author"
+    notes: "Feed listed by FeedSpot, Feeder and Harvard's TagTeam hub in search results."
+    tags: [security, news]
+  - collection: community-creator-marketing-security-voices
+    id: cisa-advisories
+    title: "CISA cybersecurity advisories (all)"
+    url: "https://www.cisa.gov/cybersecurity-advisories/all.xml"
+    kind: service
+    summary: "All CISA cybersecurity advisories; related feeds cover alerts, ICS advisories and Known Exploited Vulnerabilities updates."
+    verification: search-result
+    licence: "Public domain (US Government work) unless marked"
+    notes: "Listed by several feed directories in search results; old us-cert.cisa.gov feeds reportedly redirect."
+    tags: [security, advisories, official]
+
+  # ------------------------------------------------------------------ aggregators and forums
+  - collection: community-aggregators-forums
+    id: hacker-news-front-page
+    title: "Hacker News front page (official RSS)"
+    url: "https://news.ycombinator.com/rss"
+    kind: service
+    summary: "Official RSS of the Hacker News front page."
+    verification: search-result
+    licence: "Y Combinator / submitters' terms; linked articles keep their own rights"
+    notes: "Consistently reported as the official front-page feed in search results."
+    tags: [hacker-news]
+  - collection: community-aggregators-forums
+    id: hnrss-frontpage
+    title: "hnrss.org front page"
+    url: "https://hnrss.org/frontpage"
+    kind: service
+    summary: "Community-run Hacker News feed service: front page with points and comment links."
+    verification: search-result
+    licence: "Third-party service; HN content terms apply"
+    notes: "hnrss.org is community-maintained, not run by Y Combinator."
+    tags: [hacker-news, third-party]
+  - collection: community-aggregators-forums
+    id: hnrss-show
+    title: "hnrss.org Show HN"
+    url: "https://hnrss.org/show"
+    kind: service
+    summary: "Show HN launches: new tools and projects, often agent and media tools."
+    verification: search-result
+    licence: "Third-party service; HN content terms apply"
+    tags: [hacker-news, launches, third-party]
+  - collection: community-aggregators-forums
+    id: hnrss-newest-godot-blender
+    title: "hnrss.org keyword feed: Godot OR Blender"
+    url: "https://hnrss.org/newest?q=godot+OR+blender"
+    kind: service
+    summary: "Newest HN submissions matching Godot or Blender; the q parameter takes OR-joined keywords, so the same pattern works for any watchlist topic."
+    verification: search-result
+    licence: "Third-party service; HN content terms apply"
+    notes: "Keyword pattern newest?q=KEYWORD1+OR+KEYWORD2 documented in search results."
+    tags: [hacker-news, keyword-feed, godot, blender]
+  - collection: community-aggregators-forums
+    id: kagi-small-web-feed
+    title: "Kagi Small Web feed"
+    url: "https://kagi.com/api/v1/smallweb/feed"
+    kind: service
+    summary: "Recent posts from personal blogs in the Kagi Small Web index."
+    verification: search-result
+    licence: "Posts belong to their authors"
+    notes: "URL published in the kagisearch/smallweb README (fetched from GitHub 2026-10-10)."
+    tags: [blogs, discovery]
+  - collection: community-aggregators-forums
+    id: kagi-small-web-opml
+    title: "Kagi Small Web OPML"
+    url: "https://kagi.com/smallweb/opml"
+    kind: dataset
+    summary: "OPML of the sites behind the Kagi Small Web feed; import into a reader or filter by keyword."
+    verification: search-result
+    licence: "Index list is MIT (kagisearch/smallweb); posts belong to their authors"
+    notes: "URL published in the kagisearch/smallweb README (fetched from GitHub 2026-10-10)."
+    tags: [blogs, opml, discovery]
+
+  # ------------------------------------------------------------------ topic mining
+  - collection: community-topic-mining-feeds
+    id: wikipedia-on-this-day-feed
+    title: "English Wikipedia 'On this day' featured feed (Atom)"
+    url: "https://en.wikipedia.org/w/api.php?action=featuredfeed&feed=onthisday&feedformat=atom"
+    kind: service
+    summary: "Daily 'On this day' selections from the Main Page; a steady source of dated history topics."
+    verification: search-result
+    licence: "CC-BY-SA-4.0 (text); images per file"
+    notes: "The featuredfeed API module comes from the MediaWiki FeaturedFeeds extension (documentation in search results); the same URL pattern was listed for German Wikipedia. The English URL was not fetched."
+    cautions: ["Wikipedia text is CC BY-SA: paraphrase facts and cite the underlying sources rather than reading the text verbatim; credit and share-alike apply if you reuse text."]
+    tags: [wikipedia, history, on-this-day]
+  - collection: community-topic-mining-feeds
+    id: wikipedia-featured-article-feed
+    title: "English Wikipedia featured article feed (Atom)"
+    url: "https://en.wikipedia.org/w/api.php?action=featuredfeed&feed=featured&feedformat=atom"
+    kind: service
+    summary: "Today's featured article: one well-sourced long article a day."
+    verification: search-result
+    licence: "CC-BY-SA-4.0 (text); images per file"
+    notes: "Same FeaturedFeeds API pattern as the on-this-day feed; not fetched."
+    cautions: ["Follow the article's references for facts and numbers."]
+    tags: [wikipedia, featured]
+  - collection: community-topic-mining-feeds
+    id: wikipedia-picture-of-the-day-feed
+    title: "English Wikipedia picture of the day feed (Atom)"
+    url: "https://en.wikipedia.org/w/api.php?action=featuredfeed&feed=potd&feedformat=atom"
+    kind: media-source
+    summary: "Daily featured picture with caption."
+    verification: search-result
+    licence: "Per file (check the file page on Wikimedia Commons)"
+    notes: "Same FeaturedFeeds API pattern; a Phabricator task notes POTD feeds carry no licence information, so open each file page."
+    cautions: ["Licence and credit are per image and not included in the feed."]
+    tags: [wikipedia, images]
+  - collection: community-topic-mining-feeds
+    id: wikipedia-onthisday-rest
+    title: "Wikimedia REST 'onthisday' endpoint (example: events on 15 January)"
+    url: "https://en.wikipedia.org/api/rest_v1/feed/onthisday/events/01/15"
+    kind: service
+    summary: "JSON list of events for a month/day (/feed/onthisday/{type}/{mm}/{dd}); easier to parse than the Atom feed."
+    verification: search-result
+    licence: "CC-BY-SA-4.0 (text)"
+    notes: "Endpoint shape from Wikimedia Phabricator tickets in search results; the service was being moved from RESTBase to wikifeeds, so check the current path."
+    cautions: ["Send a descriptive User-Agent with contact details, as Wikimedia's API etiquette asks."]
+    tags: [wikipedia, api, on-this-day]
+  - collection: community-topic-mining-feeds
+    id: nasa-rss-index
+    title: "NASA RSS feeds index"
+    url: "https://www.nasa.gov/rss-feeds"
+    kind: guidance
+    summary: "NASA's official list of feeds, including Image of the Day and news releases."
+    verification: search-result
+    licence: "NASA media generally not copyrighted; follow NASA media usage guidelines and per-item credits"
+    notes: "Official page returned in search results."
+    tags: [nasa, space, official]
+  - collection: community-topic-mining-feeds
+    id: nasa-image-of-the-day
+    title: "NASA Image of the Day feed"
+    url: "https://www.nasa.gov/feeds/iotd-feed/"
+    kind: media-source
+    summary: "Daily NASA image with caption."
+    verification: search-result
+    licence: "NASA media generally not copyrighted; check credits (some images are from partners)"
+    notes: "URL given by a feed directory; the official index lists an Image of the Day feed."
+    cautions: ["Images credited to non-NASA partners can carry other rights; NASA logos and insignia are restricted."]
+    tags: [nasa, images]
+  - collection: community-topic-mining-feeds
+    id: nasa-news-releases
+    title: "NASA news releases feed"
+    url: "https://www.nasa.gov/news-release/feed/"
+    kind: service
+    summary: "Recent NASA news releases."
+    verification: search-result
+    licence: "Public domain (US Government work) unless noted"
+    notes: "A feed directory reports the old breaking-news feed redirects here."
+    tags: [nasa, news]
+  - collection: community-topic-mining-feeds
+    id: nasa-all-content
+    title: "NASA all-content feed"
+    url: "https://www.nasa.gov/feed/"
+    kind: service
+    summary: "Everything NASA publishes on nasa.gov."
+    verification: search-result
+    licence: "Public domain (US Government work) unless noted"
+    notes: "URL from a feed directory in search results."
+    tags: [nasa]
+  - collection: community-topic-mining-feeds
+    id: apod
+    title: "Astronomy Picture of the Day RSS"
+    url: "https://apod.nasa.gov/apod.rss"
+    kind: media-source
+    summary: "Daily astronomy image with an expert explanation, since 1995."
+    verification: search-result
+    licence: "Per image: many APOD images are copyrighted by their photographers"
+    notes: "Listed by Harvard's TagTeam feed hub (last change recorded 19 December 2025); older APOD pages give an antwrp.gsfc.nasa.gov address for the same feed."
+    cautions: ["APOD images are often not NASA's: check the credit line and get permission for copyrighted images."]
+    tags: [space, images]
+  - collection: community-topic-mining-feeds
+    id: google-trends-us
+    title: "Google Trends: trending now (US) RSS"
+    url: "https://trends.google.com/trending/rss?geo=US"
+    kind: service
+    summary: "Currently trending US searches with approximate traffic and related news links; change geo= for other countries."
+    verification: search-result
+    licence: "Google terms"
+    notes: "Used by several third-party tools in search results; Google offers no official API for this list and may change it without notice."
+    cautions: ["Trends show attention, not facts: research each topic from primary sources before scripting."]
+    tags: [trends, topics]
+  - collection: community-topic-mining-feeds
+    id: sciencedaily-all
+    title: "ScienceDaily: all news"
+    url: "https://www.sciencedaily.com/rss/all.xml"
+    kind: service
+    summary: "All ScienceDaily research news summaries, updated as often as hourly."
+    verification: search-result
+    licence: "Custom: headlines may be integrated with attribution and a link; no full-text reposting"
+    licence_url: "https://www.sciencedaily.com/newsfeeds.htm"
+    notes: "Listed on ScienceDaily's own newsfeeds page in search results."
+    cautions: ["Summaries are press releases: read the linked paper before using any number."]
+    tags: [science, news]
+  - collection: community-topic-mining-feeds
+    id: smithsonian-latest
+    title: "Smithsonian Magazine: latest articles"
+    url: "https://www.smithsonianmag.com/rss/latest_articles/"
+    kind: article
+    summary: "Latest Smithsonian Magazine articles on history, science and culture."
+    verification: search-result
+    licence: "Publisher terms (Smithsonian Magazine)"
+    notes: "Listed by a feed directory in search results."
+    tags: [history, science]
+  - collection: community-topic-mining-feeds
+    id: smithsonian-smart-news
+    title: "Smithsonian Magazine: Smart News"
+    url: "https://www.smithsonianmag.com/rss/smart-news/"
+    kind: article
+    summary: "Short daily science and history news items; well suited to 60-second fact topics."
+    verification: search-result
+    licence: "Publisher terms (Smithsonian Magazine)"
+    notes: "Listed by a feed directory in search results."
+    tags: [history, science, news]
+  - collection: community-topic-mining-feeds
+    id: smithsonian-science-nature
+    title: "Smithsonian Magazine: Science & Nature"
+    url: "https://www.smithsonianmag.com/rss/science-nature/"
+    kind: article
+    summary: "Science and nature articles."
+    verification: search-result
+    licence: "Publisher terms (Smithsonian Magazine)"
+    notes: "Listed by a feed directory in search results."
+    tags: [science]
+  - collection: community-topic-mining-feeds
+    id: smithsonian-arts-culture
+    title: "Smithsonian Magazine: Arts & Culture"
+    url: "https://www.smithsonianmag.com/rss/arts-culture/"
+    kind: article
+    summary: "Arts, culture and history articles."
+    verification: search-result
+    licence: "Publisher terms (Smithsonian Magazine)"
+    notes: "Listed by a feed directory in search results."
+    tags: [history, culture]
+
+  # ------------------------------------------------------------------ Pennsylvania programmes
+  - collection: community-pennsylvania-startups
+    id: ben-franklin-big-idea-2026
+    title: "Ben Franklin TP of Central and Northern PA: $50,000 Big Idea Contest call"
+    url: "https://cnp.benfranklin.org/if-big-ideas-grow-in-wild-places-you-could-win-up-to-50000/"
+    kind: guidance
+    summary: "2026 call for the Big Idea Contest: entrepreneurs and early-stage companies in the 32-county footprint apply by Friday 16 October 2026; links to the eligible-county list."
+    verification: search-result
+    licence: "Publisher terms"
+    notes: "Announcement returned in search results. The rules page named in this project's context (benfranklin.psu.edu/bf/BigIdea/Select/syllabus?sessionname=2026+32-County) was not re-checked today."
+    cautions: ["An earlier cycle's rules (Penn State article) capped sales revenue at $500,000 and excluded prior Ben Franklin funding or contest wins; confirm the 2026 thresholds on the official page before applying."]
+    tags: [pennsylvania, contest, deadline]
+  - collection: community-pennsylvania-startups
+    id: psu-news-big-idea
+    title: "Penn State News: win $50,000 in the Ben Franklin Big Idea Contest"
+    url: "https://www.psu.edu/news/impact/story/win-50000-ben-franklin-big-idea-contest"
+    kind: article
+    summary: "Penn State coverage of an earlier Big Idea cycle, with eligibility rules at that time."
+    verification: search-result
+    licence: "Publisher terms"
+    notes: "Earlier-cycle article (deadline then was in August); use for background only."
+    tags: [pennsylvania, contest]
+  - collection: community-pennsylvania-startups
+    id: cpbj-big-idea-finalists
+    title: "Central Penn Business Journal: 11 finalists compete in Big Idea business contest"
+    url: "https://www.cpbj.com/11-finalists-compete-in-big-idea-business-contest"
+    kind: article
+    summary: "Past-cycle finalist coverage; shows the kinds of ventures that reached the finale."
+    verification: search-result
+    licence: "Publisher terms (may be paywalled)"
+    tags: [pennsylvania, contest]
+  - collection: community-pennsylvania-startups
+    id: invent-penn-state-newsletter
+    title: "Invent Penn State: entrepreneurship newsletter"
+    url: "https://invent.psu.edu/newsletter-sign-up/"
+    kind: service
+    summary: "Monthly e-letter with Penn State startup news and pitch-competition results; Invent Penn State runs LaunchBox sites across the state."
+    verification: search-result
+    licence: "Publisher terms"
+    notes: "Sign-up page confirmed in search results; no feed URL confirmed (LaunchBox sites mirror Penn State news at /rss_news/ pages)."
+    tags: [pennsylvania, startups, penn-state]
+  - collection: community-pennsylvania-startups
+    id: technically-pittsburgh-newsletter
+    title: "Technical.ly Pittsburgh newsletter"
+    url: "https://technical.ly/newsletters/pittsburgh/"
+    kind: service
+    summary: "Weekly Pittsburgh tech and startup newsletter (Thursdays); Technical.ly also covers Philadelphia."
+    verification: search-result
+    licence: "Publisher terms"
+    notes: "No current RSS URL confirmed; the newsletter is the documented route."
+    tags: [pennsylvania, pittsburgh, tech-news]
+  - collection: community-pennsylvania-startups
+    id: dced-small-business-week
+    title: "PA DCED: Pennsylvania Small Business Week posts"
+    url: "https://dced.pa.gov/tag/pennsylvania-small-business-week/"
+    kind: guidance
+    summary: "Pennsylvania Department of Community and Economic Development posts tagged Small Business Week (including the May 2026 proclamation); a starting point for state programmes."
+    verification: search-result
+    licence: "Pennsylvania government website terms"
+    notes: "No DCED press-release feed was confirmed."
+    tags: [pennsylvania, government, small-business]

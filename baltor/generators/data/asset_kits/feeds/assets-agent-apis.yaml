@@ -1,0 +1,125 @@
+id: assets-agent-apis
+title: "Machine-readable asset APIs and agent-ready fetch tools"
+description: >-
+  Endpoints and tools an agent can call to search and download assets with licence metadata attached,
+  instead of scraping web pages: Poly Haven API, ambientCG API v2/v3 and AssetFetch, Iconify, batch
+  downloaders and an MCP-style Poly Haven provider. Each entry notes the request etiquette.
+tags: [api, agents, automation, assets]
+defaults:
+  kind: service
+  verification: search-result
+items:
+  - id: polyhaven-api
+    title: "Poly Haven API"
+    url: https://polyhaven.com/our-api
+    summary: "Public JSON API listing every HDRI, texture and model with tags, categories, authors, dimensions, download URLs, hashes and file sizes (e.g. api.polyhaven.com/assets?type=hdris). Free for everyone including commercial use."
+    licence: "API free to use; assets CC0"
+    licence_url: https://polyhaven.com/our-api
+    tags: [polyhaven, api, hdri, textures]
+    cautions: ["Poly Haven asks that you make it clear to your users that the assets came from Poly Haven.", "Cache responses and download only what you use; use the hashes the API returns to verify files."]
+  - id: ambientcg-api-about
+    title: "ambientCG: About the API"
+    url: https://docs.ambientcg.com/api/
+    summary: "Overview of ambientCG's public API versions; v2 is frozen and new projects should use v3."
+    licence: "Assets CC0"
+    licence_url: https://docs.ambientcg.com/license/
+    kind: guidance
+    tags: [ambientcg, api]
+  - id: ambientcg-api-v2-home
+    title: "ambientCG API v2"
+    url: https://docs.ambientcg.com/api/v2/
+    summary: "Documentation home of the (frozen) v2 API."
+    licence: "Assets CC0"
+    licence_url: https://docs.ambientcg.com/license/
+    kind: guidance
+    tags: [ambientcg, api]
+  - id: ambientcg-api-v2-full-json
+    title: "ambientCG API v2: /full_json"
+    url: https://docs.ambientcg.com/api/v2/full_json/
+    summary: "Metadata and downloadable files for all assets as JSON; parameters q, type, method, sort, id, date, limit, offset, include (statisticsData, labelData, relationshipData, fileData, previewData, technicalData)."
+    licence: "Assets CC0"
+    licence_url: https://docs.ambientcg.com/license/
+    kind: guidance
+    tags: [ambientcg, api, json]
+    cautions: ["The zipContent field on downloads now always returns an empty array."]
+  - id: ambientcg-api-v2-categories
+    title: "ambientCG API v2: /categories_json"
+    url: https://docs.ambientcg.com/api/v2/categories_json/
+    summary: "Category listing endpoint for building filtered queries."
+    licence: "Assets CC0"
+    licence_url: https://docs.ambientcg.com/license/
+    kind: guidance
+    tags: [ambientcg, api]
+  - id: ambientcg-assetfetch-endpoint
+    title: "ambientCG: AssetFetch endpoint for materials"
+    url: https://www.docs.ambientcg.com/updates/2024/06/07/assetfetch-endpoint-for-ambientcg-materials/
+    summary: "2024 update announcing an AssetFetch-protocol endpoint so DCC tools can browse and import ambientCG materials directly."
+    licence: "Assets CC0"
+    licence_url: https://docs.ambientcg.com/license/
+    kind: article
+    tags: [ambientcg, assetfetch]
+  - id: ambientcg-technical-updates
+    title: "ambientCG technical updates"
+    url: https://docs.ambientcg.com/updates/
+    summary: "Changelog of API and site changes (v3 rollout, field removals); watch it before relying on response shapes."
+    licence: "Assets CC0"
+    licence_url: https://docs.ambientcg.com/license/
+    kind: article
+    tags: [ambientcg, changelog]
+  - id: assetfetch-spec
+    title: "AssetFetch specification"
+    url: https://github.com/AssetFetch/spec
+    summary: "Vendor-neutral HTTP/JSON protocol for browsing and importing assets (models, textures) from external providers into creative software; MIT."
+    licence: MIT
+    licence_url: https://github.com/AssetFetch/spec
+    kind: standard
+    verification: fetched
+    tags: [protocol, assetfetch, interoperability]
+  - id: iconify-api
+    title: "Iconify API server"
+    url: https://github.com/iconify/api
+    summary: "Self-hostable Node.js server that serves icon data, generates SVGs and offers icon search (/search, /collections, /collection?prefix=...). MIT; hosted icons keep their own licences."
+    licence: "MIT (server); icons per set"
+    licence_url: https://github.com/iconify/api
+    kind: library
+    verification: fetched
+    tags: [icons, api, svg]
+    cautions: ["The server licence does not cover the icons; look up each set's licence."]
+  - id: polydown
+    title: "polydown (Poly Haven batch downloader)"
+    url: https://github.com/agmmnn/polydown
+    summary: "pip-installable CLI to batch-download Poly Haven HDRIs, textures and models at chosen sizes (e.g. 'polydown hdris -f folder -s 2k 4k'); MIT."
+    licence: MIT
+    licence_url: https://github.com/agmmnn/polydown
+    kind: tool
+    verification: fetched
+    tags: [polyhaven, downloader, cli]
+    cautions: ["Download only what a project needs; bulk mirroring wastes Poly Haven's donated bandwidth."]
+  - id: dcc-asset-polyhaven
+    title: "dcc-asset-polyhaven (agent asset-provider skill)"
+    url: https://github.com/dcc-mcp/dcc-asset-polyhaven
+    summary: "MIT agent skill that searches and downloads Poly Haven CC0 assets and returns an asset_descriptor (local file, source URL, CC0 licence, dependencies) for DCC import."
+    licence: MIT
+    licence_url: https://github.com/dcc-mcp/dcc-asset-polyhaven
+    kind: tool
+    verification: fetched
+    tags: [agents, polyhaven, descriptor]
+  - id: poly-pizza-press-api
+    title: "Poly Pizza press page (API notes)"
+    url: https://poly.pizza/docs/press
+    summary: "Poly Pizza press page describing an API to search, filter and download models (free for hobby use, pay-as-you-go commercially, Unity integration)."
+    licence: "Per model (CC0 or CC-BY)"
+    licence_url: https://poly.pizza/
+    kind: article
+    tags: [poly-pizza, api]
+    cautions: ["The page is several years old; check current API docs and pricing before building on it."]
+  - id: game-icons-raw-svg
+    title: "game-icons raw SVG files on GitHub"
+    url: https://raw.githubusercontent.com/game-icons/icons/master/lorc/crossed-swords.svg
+    summary: "Example of a directly fetchable icon (512x512 viewBox) by path <author>/<icon>.svg; credit the author folder name."
+    licence: CC-BY-3.0
+    licence_url: https://game-icons.net/about.html
+    kind: media-source
+    verification: fetched
+    tags: [icons, raw, github]
+    cautions: ["Credit: 'Icon by Lorc, game-icons.net, CC BY 3.0'."]

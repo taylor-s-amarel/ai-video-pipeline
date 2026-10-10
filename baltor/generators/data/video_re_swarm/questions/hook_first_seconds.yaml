@@ -1,0 +1,329 @@
+- id: hook_first_seconds-001
+  question: "How many words of on-screen text are visible on the frame at exactly 0.0 s?"
+  why: "Sets the first-frame title word budget (title_max_words)."
+  how: "Extract F1 at T=0 (not a keyframe from evidence, which may be later); crop the text with F3 enlarged 2x; count words without copying them beyond a 6-word locating note."
+  evidence: ["frames: F1 at 0.0 s", "frames: F3 crop of text"]
+  ir_path: "/typography/title/first_frame_words"
+  type: integer
+  challenge: "Re-extract with -ss after -i (accurate seek) to rule out a seek to the wrong frame; count again."
+
+- id: hook_first_seconds-002
+  question: "Where is the title's bounding box on the first frame (centre y as a fraction of height, centre x, width as a fraction of frame width)?"
+  why: "Fills the title placement used by every rendered variant."
+  how: "Use evidence.text_regions[] entries with t_s nearest 0 (bbox and y_center_ratio); confirm on F1 at 0.0 s and measure the box by pixel coordinates on a crop."
+  evidence: ["evidence.text_regions[] near t=0", "frames: F1 at 0.0 s"]
+  ir_path: "/typography/title/placement"
+  type: object
+  challenge: "Check that the region is the title and not a caption or watermark; compare the bbox with a manual measurement on the frame (tolerance 3% of height)."
+
+- id: hook_first_seconds-003
+  question: "Does the title overlap the main subject or photo, sit in empty space beside it, or sit on a separate band?"
+  choices: [over-subject, over-photo-not-subject, empty-space, separate-band, no-title]
+  why: "Captures whether the format layers the title over the photo (a recurring house preference) or reserves space."
+  how: "On F1 at 0.0 s and 1.0 s, compare the title bbox with the subject region; a subject is the largest face, person or object in focus."
+  evidence: ["frames: F1 at 0.0 and 1.0 s", "evidence.text_regions[] near t=0"]
+  ir_path: "/typography/title/overlaps_subject"
+  type: enum
+  challenge: "Ask whether the 'subject' is actually a background element; if two readings are possible, lower confidence and name both."
+
+- id: hook_first_seconds-004
+  question: "How many seconds after the start is the first spoken word?"
+  why: "Sets the voice lead-in in the hook timing rule."
+  how: "Read the first evidence.audio.speech_segments[0].start_s; confirm the onset on an A1 spectrogram of 0-2 s (voiced harmonics)."
+  evidence: ["evidence.audio.speech_segments[0]", "A1 over 0-2 s"]
+  ir_path: "/audio/narration/first_word_s"
+  type: seconds
+  challenge: "Music with vocals can be detected as speech; check the spectrogram for a narration voice rather than sung notes."
+
+- id: hook_first_seconds-005
+  question: "When is the first cut, in seconds?"
+  why: "Tells the generator how long the opening shot holds before the first visual change."
+  how: "Take evidence.shots[0].end_s; verify with F11 scene scores over 0-5 s that no earlier dissolve or cut was missed."
+  evidence: ["evidence.shots[0].end_s", "F11 scene scores 0-5 s"]
+  ir_path: "/timeline/retention_devices/-"
+  type: seconds
+  challenge: "If the opening shot is a fast zoom, detectors may report a false cut; inspect F1 either side."
+
+- id: hook_first_seconds-006
+  question: "What type of hook is used: question, bold claim, specific number, contradiction or myth, direct 'you' address, visual shock, mid-action cold open, unfinished sentence, or a promise of a list?"
+  choices: [question, bold-claim, specific-number, contradiction, direct-address, visual-shock, cold-open, unfinished-sentence, list-promise, other]
+  why: "Fills hook_pattern so new videos can be written with the same opening move."
+  how: "Read the first caption cards (evidence.captions with start_s < 5, analysis only) and the title crop; classify by the dominant move. Do not copy the line."
+  evidence: ["evidence.captions[] start_s < 5 (analysis only)", "frames: F3 title crop"]
+  ir_path: "/script/hook_pattern"
+  type: enum
+  challenge: "If two types apply (number inside a question), require the note to name the secondary type and justify the primary."
+
+- id: hook_first_seconds-007
+  question: "What is the hook's slot pattern with content words replaced (for example '{number} {things} that {surprising verb}')?"
+  why: "Turns the opening line into a reusable template."
+  how: "From the first sentence (captions, analysis only) keep function words and structure, replace every noun, number, name and verb with a typed slot. Keep at most the structure, never the content."
+  evidence: ["evidence.captions[] first sentence (analysis only)"]
+  ir_path: "/script/hook_pattern"
+  type: pattern
+  challenge: "Check that no content word from the source survives in the pattern; any copied distinctive phrase is a rejection."
+
+- id: hook_first_seconds-008
+  question: "Is the spoken hook the same as the on-screen title, a paraphrase of it, or different information?"
+  choices: [same-words, paraphrase, different-information, no-spoken-hook, no-title]
+  why: "Decides whether title and first line are generated together or separately."
+  how: "Compare the title crop (F3 at 0.5 s) with the first caption/transcribed sentence; judge overlap of key content words without writing them down."
+  evidence: ["frames: F3 title crop", "evidence.captions[] first sentence (analysis only)"]
+  ir_path: "/typography/title/relation_to_voice"
+  type: enum
+  challenge: "Transcription errors can make a same-words title look like a paraphrase; check the audio timing alignment too."
+
+- id: hook_first_seconds-009
+  question: "How many distinct visual changes (cuts, text appearances, zoom jumps, colour flashes) happen in the first 3 seconds?"
+  why: "Sets the opening event density for the hook rule."
+  how: "Count cuts (evidence.shots with start_s < 3), new text regions (text_regions t_s < 3) and visible jumps on F2 burst sheets for 0-1, 1-2, 2-3 s."
+  evidence: ["evidence.shots[]", "evidence.text_regions[]", "frames: F2 at 0, 1, 2 s"]
+  ir_path: "/timeline/retention_devices/-"
+  type: integer
+  challenge: "Make sure a single animated title is not counted once per frame; each element counts once per appearance."
+
+- id: hook_first_seconds-010
+  question: "Is there visible motion from the very first frame, or does the video open on a still?"
+  why: "Becomes a rule that the opening frame must already move (or may hold)."
+  how: "Use F5 (full frame) for the first 1 s and report mean frame difference; inspect F2 at 0 s."
+  evidence: ["F5 over 0-1 s", "evidence.shots[0].motion_energy", "frames: F2 at 0 s"]
+  ir_path: "/timeline/retention_devices/-"
+  type: boolean
+  challenge: "A mean difference below about 0.5 can be compression noise; verify by eye on the burst."
+
+- id: hook_first_seconds-011
+  question: "How long is the silence (or near-silence) before any audio starts?"
+  why: "Sets audio lead-in; a silent first second changes autoplay behaviour."
+  how: "Run A4 over the first 2 s and A3 momentary loudness; report ms until loudness rises above -40 LUFS."
+  evidence: ["A4 silences", "A3 momentary loudness"]
+  ir_path: "/audio/narration/lead_in_ms"
+  type: ms
+  challenge: "A3 momentary loudness uses a 400 ms window, so values are smeared; confirm with A6 RMS."
+
+- id: hook_first_seconds-012
+  question: "Is there a sound effect (hit, whoosh, riser, pop) within the first second?"
+  why: "Adds an opening sfx slot to the audio recipe."
+  how: "A1 spectrogram 0-1.5 s with and without highpass=f=3000; look for broadband transients or sweeps not aligned with speech; cross-check evidence.audio.onsets_s < 1."
+  evidence: ["A1 0-1.5 s", "evidence.audio.onsets_s"]
+  ir_path: "/audio/sfx/-"
+  type: boolean
+  challenge: "A plosive at the first word or a music downbeat is not a sound effect; the transient must stand apart from both."
+
+- id: hook_first_seconds-013
+  question: "Does music start at 0 s, under the hook voice, or only after the hook ends?"
+  choices: [from-start, under-hook, after-hook, no-music]
+  why: "Fills audio.music.entry for the mix recipe."
+  how: "Compare A5 side-channel loudness (stereo) and A1 spectrogram over 0-5 s for sustained tonal or rhythmic content."
+  evidence: ["A5 side loudness 0-5 s", "A1 0-5 s"]
+  ir_path: "/audio/music/entry"
+  type: enum
+  challenge: "Side-channel loudness is meaningless on mono audio (check A7 channels); then rely on the spectrogram and lower confidence."
+
+- id: hook_first_seconds-014
+  question: "How long does the title stay on screen, and how does it leave (cut away, fade, shrink to corner, stays all video)?"
+  why: "Fills title hold_s and exit behaviour."
+  how: "Track the title region in evidence.text_regions[] from first to last t_s; inspect F8 frames around the disappearance."
+  evidence: ["evidence.text_regions[]", "frames: F8 at title exit"]
+  ir_path: "/typography/title/hold_s"
+  type: seconds
+  challenge: "Check whether the 'title' that persists is actually a series tag or watermark."
+
+- id: hook_first_seconds-015
+  question: "How does the title enter in its first 500 ms (pop with overshoot, scale-up, slide, type-on, fade, already present)?"
+  choices: [pop-overshoot, scale-up, slide, type-on, fade, already-present, other]
+  why: "Adds the title entrance to motion.text_animations."
+  how: "F8 frame steps over 0-0.5 s; measure the title box height per frame on the stepped images."
+  evidence: ["frames: F8 over 0-0.5 s"]
+  ir_path: "/motion/text_animations/-"
+  type: enum
+  challenge: "If the title is present on frame 0 at full size, the answer must be already-present, whatever happens later."
+
+- id: hook_first_seconds-016
+  question: "What colour is the title text, and what is behind it (none, solid plate, frosted blur panel, stroke, drop shadow)?"
+  why: "Fills title colour and backing, both common parameters."
+  how: "F9 average colour on a crop inside a letter stroke (choose a thick stroke, 3x3 px), and F3 crop of the backing; compare the backing region in two frames with different backgrounds to tell blur from a solid plate."
+  evidence: ["frames: F9 text colour", "frames: F3 backing crop"]
+  ir_path: "/typography/title/color"
+  type: object
+  challenge: "Anti-aliased edges and compression shift colour; resample in two other letters and report the spread."
+
+- id: hook_first_seconds-017
+  question: "How tall is the title text block relative to the frame height?"
+  why: "Fills title size_ratio for rendering at any resolution."
+  how: "bbox height from evidence.text_regions[] near t=0 divided by source.height; for multi-line titles also report lines and per-line height from an F3 crop."
+  evidence: ["evidence.text_regions[]", "evidence.source.height", "frames: F3"]
+  ir_path: "/typography/title/size_ratio"
+  type: ratio
+  challenge: "A bbox that includes the backing panel overstates text size; measure letters directly on the crop."
+
+- id: hook_first_seconds-018
+  question: "Does the opening show the end result or payoff first (a visual promise) before explaining it?"
+  why: "Becomes a 'show the payoff first' rule for the hook."
+  how: "Compare the first shot keyframe with later keyframes using F10 SSIM; a match above 0.7 with a shot in the final third indicates a flash-forward."
+  evidence: ["evidence.shots[].keyframe", "frames: F10 comparisons"]
+  ir_path: "/script/hook_pattern"
+  type: boolean
+  challenge: "A shared background or template layout gives high SSIM without being the same shot; inspect the pair by eye."
+
+- id: hook_first_seconds-019
+  question: "Does the first frame stay legible as a thumbnail (title readable when the frame is scaled to 20% width)?"
+  why: "Records whether the first frame doubles as the thumbnail."
+  how: "Scale F1 at 0.0 s to 216 px wide (ffmpeg -vf scale=216:-2) and inspect whether the title words are distinguishable."
+  evidence: ["frames: F1 at 0.0 s scaled to 216 px"]
+  ir_path: "/typography/title/thumbnail_legible"
+  type: boolean
+  challenge: "Legibility is a judgement; require the note to state the scaled text height in pixels."
+
+- id: hook_first_seconds-020
+  question: "What is the approximate contrast ratio between the title colour and the colour directly behind it?"
+  why: "Sets a minimum contrast constraint for generated titles."
+  how: "Take text colour and backing colour from F9 samples; compute WCAG relative luminance contrast (L1 + 0.05) / (L2 + 0.05)."
+  evidence: ["frames: F9 text and backing samples"]
+  ir_path: "/typography/title/contrast_ratio"
+  type: number
+  challenge: "Recompute from the reported RGB values; with a blurred photo behind the text, sample three background points and report the worst."
+
+- id: hook_first_seconds-021
+  question: "Is a face visible in the first frame, and what fraction of the frame height does it occupy?"
+  why: "Becomes a hook framing rule (face-first or object-first)."
+  how: "Inspect F1 at 0.0 s; measure the face box height in pixels divided by frame height. Do not identify the person."
+  evidence: ["frames: F1 at 0.0 s"]
+  ir_path: "/visual/subject_framing"
+  type: ratio
+  challenge: "Answers that name or describe the identity of a person are rejected; only size and position are allowed."
+
+- id: hook_first_seconds-022
+  question: "Is the first shot shorter or longer than the video's median shot (ratio first shot / median)?"
+  why: "Tells the generator whether the hook is front-loaded with faster cuts or a longer hold."
+  how: "evidence.shots[0].duration_s divided by evidence.shot_stats.median_s."
+  evidence: ["evidence.shots[0].duration_s", "evidence.shot_stats.median_s"]
+  ir_path: "/generation_rules/-"
+  type: number
+  challenge: "Recompute the division; check that shot 0 is not a 1-frame black leader."
+
+- id: hook_first_seconds-023
+  question: "What is the speech rate in the first 5 seconds compared with the whole video (words per minute in both)?"
+  why: "Captures whether the hook is delivered faster or slower than the body."
+  how: "Count caption words with start_s < 5 (analysis only) divided by speech time inside 0-5 s (speech_segments); compare with evidence.audio.speech_wpm."
+  evidence: ["evidence.captions[]", "evidence.audio.speech_segments", "evidence.audio.speech_wpm"]
+  ir_path: "/audio/narration/hook_wpm"
+  type: object
+  challenge: "With fewer than 8 words in the window, the rate is unstable; confidence must stay below 0.5."
+
+- id: hook_first_seconds-024
+  question: "How much louder or quieter are the first 3 seconds than the integrated loudness of the whole video (dB)?"
+  why: "Sets a hook loudness offset in the mix recipe."
+  how: "Mean of A3 momentary loudness over 0-3 s minus evidence.audio.integrated_lufs."
+  evidence: ["A3 momentary loudness", "evidence.audio.integrated_lufs"]
+  ir_path: "/audio/narration/hook_loudness_delta_db"
+  type: number
+  challenge: "Averaging LUFS values arithmetically is approximate; note it, and check the sign against A6 RMS."
+
+- id: hook_first_seconds-025
+  question: "What information is withheld by the hook (a curiosity gap), and at what timestamp is it resolved?"
+  why: "Becomes an open-loop retention device with a resolution time."
+  how: "Describe the withheld element as a slot (for example 'the identity of {item 1}'), then find where captions or labels resolve it. Give both timestamps."
+  evidence: ["evidence.captions[] (analysis only)", "evidence.text_regions[]"]
+  ir_path: "/timeline/retention_devices/-"
+  type: object
+  challenge: "If the 'gap' is just the topic of the video, it is not an open loop; reject or downgrade."
+
+- id: hook_first_seconds-026
+  question: "Does the hook state a specific number or quantity, on screen or in the voice?"
+  why: "Becomes a constraint for the hook template (must contain a number)."
+  how: "Check the title crop and first two caption cards for digits or number words; record only that a number exists and its type (count, year, measurement)."
+  evidence: ["frames: F3 title crop", "evidence.captions[] (analysis only)"]
+  ir_path: "/script/hook_pattern"
+  type: boolean
+  challenge: "Ordinals in a label (FACT 1) do not count as a hook number."
+
+- id: hook_first_seconds-027
+  question: "How many seconds long is the hook segment before the body begins?"
+  why: "Fills the hook beat length."
+  how: "Use the first non-hook beat start from structure_beats-001 or, independently, the first label appearance or first topic change; report both if they differ."
+  evidence: ["timeline beats", "evidence.text_regions[]"]
+  ir_path: "/timeline/beats/*/end_ratio"
+  type: seconds
+  challenge: "Compare with the structure lens; a difference above 0.5 s must be explained in the note."
+
+- id: hook_first_seconds-028
+  question: "Is a series name, recurring tag or brand mark shown in the hook?"
+  why: "Adds a series_tag slot that a new format must fill with its own name."
+  how: "Look for a small persistent text or logo region in evidence.text_regions[] near frame edges during 0-3 s; crop it with F3."
+  evidence: ["evidence.text_regions[]", "frames: F3 corners"]
+  ir_path: "/typography/labels/series_tag"
+  type: boolean
+  challenge: "Platform watermarks and usernames are not series tags; classify them for the rights lens instead."
+
+- id: hook_first_seconds-029
+  question: "Is the first frame visually distinct from the rest (different grade, a frame border, a flash, a still title card)?"
+  why: "Decides whether frame 0 is a designed cover frame."
+  how: "Compare F6 statistics (YAVG, SATAVG) of frame 0 against the video median; inspect F1 at 0.0 and 1.0 s."
+  evidence: ["F6 stats", "frames: F1 at 0.0 and 1.0 s"]
+  ir_path: "/typography/title/cover_frame"
+  type: boolean
+  challenge: "A fade-in from black makes frame 0 distinct by accident; check frames 0-5 with F8."
+
+- id: hook_first_seconds-030
+  question: "Is there a zoom or punch-in on the subject during the first second, and by how much does the scale change?"
+  why: "Adds the opening camera move to motion.camera_moves."
+  how: "Measure the width of a fixed feature on F1 at 0.0 s and at 1.0 s (same shot); ratio = later width / earlier width. Cross-check evidence.shots[0].camera.zoom."
+  evidence: ["frames: F1 at 0.0 and 1.0 s", "evidence.shots[0].camera.zoom"]
+  ir_path: "/motion/camera_moves/-"
+  type: number
+  challenge: "Make sure a cut did not occur between the two frames (check shots[0].end_s)."
+
+- id: hook_first_seconds-031
+  question: "Which hook elements are fixed format and which must become parameters (title text, title colour, hero image, hook line pattern, sound hit)?"
+  why: "Feeds the parameteriser with the hook's slots."
+  how: "Combine answers 001-030: anything that carries content (words, image) is a parameter; style that a series would keep (placement, entrance, colour) is fixed or a parameter with a default."
+  evidence: ["hook lens answers"]
+  ir_path: "/parameters/-"
+  type: list
+  challenge: "Each proposed parameter must point to the question that observed it (derived_from)."
+
+- id: hook_first_seconds-032
+  question: "Write the hook timing rule (title appear and hold, voice start, first cut, first item start) in terms of parameters."
+  why: "Gives the compiler a reproducible opening."
+  how: "Use measured times from 004, 005, 014 and 027, scaled where sensible (for example 'title at 0.0 s, holds title_hold_s; voice at 0.3 s; first cut at 0.8-1.2 s; first item at 0.1 x duration')."
+  evidence: ["hook lens answers"]
+  ir_path: "/generation_rules/-"
+  type: rule
+  challenge: "Re-derive the source's opening times from the rule; any mismatch over 0.3 s must be fixed or explained."
+
+- id: hook_first_seconds-033
+  question: "When does the first caption appear, and is it on screen at the same time as the title?"
+  why: "Decides whether captions wait for the title or overlap it."
+  how: "First evidence.captions[] start_s (or first text region in the caption area) compared with the title hold window."
+  evidence: ["evidence.captions[0]", "evidence.text_regions[]"]
+  ir_path: "/typography/captions/first_caption_s"
+  type: object
+  challenge: "If captions come from transcription (not burned in), on-screen overlap cannot be measured from them; check frames."
+
+- id: hook_first_seconds-034
+  question: "Is the opening a flash-forward excerpt from later in the video (a cold-open teaser)?"
+  why: "Adds a teaser beat option to the format."
+  how: "F10 SSIM of each shot in the first 3 s against all later keyframes; list matches over 0.75 with their timestamps."
+  evidence: ["evidence.shots[].keyframe", "frames: F10"]
+  ir_path: "/timeline/retention_devices/-"
+  type: timestamps
+  challenge: "Matches inside the same template background are false positives; the subject must match too."
+
+- id: hook_first_seconds-035
+  question: "What fraction of the frame area is covered by text during the first 3 seconds (peak)?"
+  why: "Sets a text-density limit for generated hooks."
+  how: "Max of sum(area_ratio) over evidence.text_regions[] grouped by t_s < 3."
+  evidence: ["evidence.text_regions[].area_ratio"]
+  ir_path: "/typography/title/area_ratio"
+  type: ratio
+  challenge: "Check whether backing panels were counted as text by the detector; compare with a manual crop."
+
+- id: hook_first_seconds-036
+  question: "Does the hook frame use the upper third, centre or lower third for its main text, and is the photo kept full size underneath?"
+  choices: [upper-third-photo-full, centre-photo-full, lower-third-photo-full, photo-shrunk-for-text, no-photo]
+  why: "Captures the title-over-photo layout that is cheap to get wrong in variants."
+  how: "From title y_center_ratio (002) and the photo layer width on F1 at 0.0 s compared with its width at 3 s."
+  evidence: ["evidence.text_regions[]", "frames: F1 at 0.0 and 3.0 s"]
+  ir_path: "/typography/title/layout"
+  type: enum
+  challenge: "Check the photo width in pixels at both times; 'photo-full' requires the same width within 5%."

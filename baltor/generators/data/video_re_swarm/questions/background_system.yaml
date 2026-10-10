@@ -1,0 +1,294 @@
+- id: background_system-001
+  question: "What is the background made of (looping video, still image, gradient, procedural pattern, blurred copy of the foreground, solid colour)?"
+  choices: [video-loop, still, gradient, procedural-pattern, blurred-foreground-copy, solid, mixed]
+  why: "Fills the bottom layer kind."
+  how: "Inspect border regions on F1 frames across beats and F2 bursts; a blurred copy mirrors foreground colours and shapes."
+  evidence: ["frames: F1 per beat", "frames: F2 bursts"]
+  ir_path: "/visual/layers/-"
+  type: enum
+  challenge: "Compare background regions with the foreground at the same time (F10 on downscaled crops) before calling it a blurred copy."
+
+- id: background_system-002
+  question: "Does the background move during every shot?"
+  why: "Checks the moving-background rule."
+  how: "F5 on the top 15% and bottom 15% bands (regions without text); a shot passes when the mean difference exceeds 0.6 (0-255 scale) for every 2 s window. Also read evidence.shots[].motion_energy.border."
+  evidence: ["F5 on border bands", "evidence.shots[].motion_energy.border"]
+  ir_path: "/motion/background_motion_level"
+  type: boolean
+  challenge: "Make sure the measured band contains no text, subject or camera zoom; a zoom on a photo moves the band too."
+
+- id: background_system-003
+  question: "What is the background motion level (mean absolute frame difference in background regions, median over shots)?"
+  why: "Fills background_motion_level as a measurable number."
+  how: "Median of the F5 border-band means per shot, or evidence.shots[].motion_energy.border if it uses the same definition."
+  evidence: ["F5", "evidence.shots[].motion_energy.border"]
+  ir_path: "/motion/background_motion_level"
+  type: number
+  challenge: "State the definition and scale; motion_energy may be normalised differently from F5."
+
+- id: background_system-004
+  question: "Does the background change per beat, per shot, or stay the same for the whole video?"
+  choices: [per-shot, per-beat, constant, mixed]
+  why: "Becomes the background_per_beat parameter."
+  how: "F10 SSIM between background crops at the start of each beat."
+  evidence: ["frames: F10 on background crops"]
+  ir_path: "/parameters/-"
+  type: enum
+  challenge: "A looping video gives different frames over time; compare the same loop phase or judge by content."
+
+- id: background_system-005
+  question: "What are the background's dominant colours?"
+  why: "Adds background colours to the palette."
+  how: "F9 average colour of background crops in 5 shots, or evidence.shots[].palette when the background dominates the frame."
+  evidence: ["frames: F9", "evidence.shots[].palette"]
+  ir_path: "/visual/palette"
+  type: palette
+  challenge: "Palettes from whole frames include the photo; use background-only crops."
+
+- id: background_system-006
+  question: "How much darker or lighter is the background than the foreground subject (luma difference)?"
+  why: "Becomes a separation rule."
+  how: "F6 YAVG on a background crop versus a subject crop in 5 shots."
+  evidence: ["F6 on crops"]
+  ir_path: "/generation_rules/-"
+  type: number
+  challenge: "Report all 5 pairs; one bright shot can dominate a mean."
+
+- id: background_system-007
+  question: "How blurred is the background (sharp, soft, heavy blur)?"
+  choices: [sharp, soft, heavy]
+  why: "Sets background blur strength."
+  how: "F3 enlarged crops of the background; heavy blur shows no edges finer than about 2% of frame width."
+  evidence: ["frames: F3"]
+  ir_path: "/visual/layers/*/motion"
+  type: enum
+  challenge: "Compare with a known sharp edge in the same frame."
+
+- id: background_system-008
+  question: "Is there a repeating grid, dot or line pattern, and what is its spacing in px?"
+  why: "Adds a grid layer with spacing."
+  how: "F3 crop of the background; measure distance between repeated lines."
+  evidence: ["frames: F3"]
+  ir_path: "/visual/layers/-"
+  type: object
+  challenge: "Report spacing and line width; check that it is not a compression artefact."
+
+- id: background_system-009
+  question: "Does the background loop, and what is the loop period in seconds?"
+  why: "Sets the loop length for a background asset."
+  how: "F10 SSIM between a background crop at time t and later times; the first time with SSIM above 0.95 (excluding t+0) gives the period."
+  evidence: ["frames: F10 over time"]
+  ir_path: "/visual/layers/*/motion"
+  type: seconds
+  challenge: "Foreground elements change the crop; use a band with background only."
+
+- id: background_system-010
+  question: "Which way does the background move (drift up, down, sideways, radial, rotating, turbulent)?"
+  choices: [up, down, sideways, radial, rotating, turbulent, none]
+  why: "Fills the background motion direction."
+  how: "Track a background feature over F2 bursts."
+  evidence: ["frames: F2"]
+  ir_path: "/visual/layers/*/motion"
+  type: enum
+  challenge: "Track at least two features; say if they disagree."
+
+- id: background_system-011
+  question: "How many sub-layers make up the background (for example gradient plus texture plus particles plus light)?"
+  why: "Sets background layer depth."
+  how: "Separate elements by different motion or blend behaviour on F2 bursts."
+  evidence: ["frames: F2"]
+  ir_path: "/visual/layers"
+  type: integer
+  challenge: "Require one observable cue per sub-layer."
+
+- id: background_system-012
+  question: "Does the background react to the audio (pulses or flashes on beats or onsets)?"
+  why: "Adds an audio-reactive rule."
+  how: "Correlate F5 background-band differences or F6 YAVG per frame with evidence.audio.onsets_s; check peaks within 80 ms of onsets."
+  evidence: ["F5 or F6 series", "evidence.audio.onsets_s"]
+  ir_path: "/generation_rules/-"
+  type: boolean
+  challenge: "Compare against random time shifts; reaction must beat chance clearly."
+
+- id: background_system-013
+  question: "Does the background hue shift over time, and how fast (degrees per second)?"
+  why: "Adds a hue-cycle parameter."
+  how: "F6 HUEMED on background-only crops sampled every 2 s."
+  evidence: ["F6 HUEMED series"]
+  ir_path: "/visual/layers/*/motion"
+  type: number
+  challenge: "Shot changes cause jumps; measure within long shots."
+
+- id: background_system-014
+  question: "Is the background less saturated than the foreground, and by how much (SATAVG ratio)?"
+  why: "Becomes a saturation separation rule."
+  how: "F6 SATAVG on background versus subject crops."
+  evidence: ["F6 on crops"]
+  ir_path: "/generation_rules/-"
+  type: number
+  challenge: "Report all measured pairs."
+
+- id: background_system-015
+  question: "Is the background thematically tied to the topic (for example water for an ocean topic) or generic?"
+  choices: [topic-themed, generic, mixed]
+  why: "Becomes the background_theme parameter (asset search hint or generic default)."
+  how: "Compare background content with the item subjects on F1 frames."
+  evidence: ["frames: F1"]
+  ir_path: "/parameters/-"
+  type: enum
+  challenge: "Method must be observed; one themed shot does not make the system themed."
+
+- id: background_system-016
+  question: "What share of the frame shows background (not covered by the main visual or text)?"
+  why: "Tells the generator how visible the background is."
+  how: "1 - main visual coverage - text area, measured on F1 frames in 5 shots."
+  evidence: ["frames: F1", "evidence.text_regions[].area_ratio"]
+  ir_path: "/visual/layers/*/frame_coverage"
+  type: ratio
+  challenge: "Semi-transparent foreground layers still let background show; say how they were counted."
+
+- id: background_system-017
+  question: "Is the background derived from the foreground image (a zoomed, blurred copy)?"
+  why: "Selects a cheap, always-matching background method."
+  how: "Compare colours and large shapes of the background with the foreground image at the same time."
+  evidence: ["frames: F1", "frames: F9"]
+  ir_path: "/visual/layers/-"
+  type: boolean
+  challenge: "When the foreground changes, a derived background must change at the same frame."
+
+- id: background_system-018
+  question: "Are there light sweeps or rays crossing the background, and how often?"
+  why: "Adds a light-sweep sub-layer with period."
+  how: "F2 bursts and F6 YAVG series on background bands; periodic bright passes indicate sweeps."
+  evidence: ["frames: F2", "F6 series"]
+  ir_path: "/visual/layers/-"
+  type: object
+  challenge: "Give the period from at least two passes."
+
+- id: background_system-019
+  question: "How fast does background content drift, in px per second at full resolution?"
+  why: "Sets the background speed parameter."
+  how: "Track a feature across F1 frames 1 s apart."
+  evidence: ["frames: F1 1 s apart"]
+  ir_path: "/visual/layers/*/motion"
+  type: range
+  challenge: "Track two features; report both."
+
+- id: background_system-020
+  question: "Does the background brightness pulse or flicker, and with what amplitude?"
+  why: "Adds a pulse parameter or confirms a steady background."
+  how: "F6 YAVG per frame on a background band; report peak-to-peak range within shots."
+  evidence: ["F6 series"]
+  ir_path: "/visual/layers/*/motion"
+  type: number
+  challenge: "Exclude frames at cuts."
+
+- id: background_system-021
+  question: "Do background changes line up with item beat boundaries?"
+  why: "Becomes a sync rule between structure and background."
+  how: "Background change times (from 004) compared with beat starts; share within 0.3 s."
+  evidence: ["background change times", "timeline beats"]
+  ir_path: "/generation_rules/-"
+  type: ratio
+  challenge: "If the background never changes, answer not applicable in the note and ratio 0 with low confidence."
+
+- id: background_system-022
+  question: "What procedural recipe would reproduce the background (for example gradient plus noise plus drifting particles), expressed as ffmpeg filters or a renderer recipe?"
+  why: "Lets new videos generate the background without sourcing footage."
+  how: "From 001, 008, 010, 013 and 019, write a recipe using real ffmpeg sources and filters (for example gradients, noise, geq, hue, scroll) or the project's renderer, with measured parameters."
+  evidence: ["background answers"]
+  ir_path: "/generation_rules/-"
+  type: rule
+  challenge: "Every filter named must exist in ffmpeg (check with ffmpeg -filters); render 2 s and compare motion level with 003."
+
+- id: background_system-023
+  question: "What background parameters should a new video set (kind, asset or recipe, speed, colours, per-beat change)?"
+  why: "Feeds the parameteriser."
+  how: "Collect 001, 003, 004, 005 and 019 into typed parameters with ranges from the observed spread."
+  evidence: ["background answers"]
+  ir_path: "/parameters/-"
+  type: list
+  challenge: "Each parameter must cite derived_from."
+
+- id: background_system-024
+  question: "Is the background kept calm behind text (less detail or motion where captions and titles sit)?"
+  why: "Becomes a legibility rule for background placement."
+  how: "Compare edge density and F5 motion in the caption band against other bands."
+  evidence: ["F5 by band", "frames: F3 caption band"]
+  ir_path: "/generation_rules/-"
+  type: boolean
+  challenge: "A frosted panel already calms the area; say whether the background itself is calmer."
+
+- id: background_system-025
+  question: "How busy is the background directly behind the captions (edge density or local contrast)?"
+  why: "Gives a measurable busyness limit for caption areas."
+  how: "On F3 crops of the caption band without text, run an edge filter (ffmpeg -vf edgedetect) and report the share of edge pixels."
+  evidence: ["frames: F3 with edgedetect"]
+  ir_path: "/generation_rules/-"
+  type: ratio
+  challenge: "Report crop coordinates so the measurement can be repeated."
+
+- id: background_system-026
+  question: "Are there depth cues inside the background (bokeh circles, haze, perspective lines)?"
+  why: "Adds depth elements to the background recipe."
+  how: "Inspect F3 background crops."
+  evidence: ["frames: F3"]
+  ir_path: "/visual/layers/-"
+  type: list
+  challenge: "Name the timestamp for each cue."
+
+- id: background_system-027
+  question: "Is the background in the hook different from the body background?"
+  why: "Becomes a hook-specific background option."
+  how: "F10 SSIM and F9 colour comparison between hook and first item background crops."
+  evidence: ["frames: F10", "frames: F9"]
+  ir_path: "/generation_rules/-"
+  type: boolean
+  challenge: "Compare against variation between two body items; the hook difference must exceed it."
+
+- id: background_system-028
+  question: "Is the background footage vertical-native or cropped from horizontal footage?"
+  choices: [vertical-native, cropped-horizontal, generated, not-footage]
+  why: "Tells the asset step which footage orientation to source."
+  how: "Look for cropped subjects at the sides, upscaling softness (F3), and composition centred for 16:9."
+  evidence: ["frames: F3"]
+  ir_path: "/visual/layers/*/source_slot"
+  type: enum
+  challenge: "Mark as inferred unless an edge cut-off is visible."
+
+- id: background_system-029
+  question: "What is the temporal character of background motion: slow drift (under one cycle per 5 s), moderate, or busy (several changes per second)?"
+  choices: [slow-drift, moderate, busy]
+  why: "Gives a qualitative speed class tied to a number."
+  how: "Use 003 and 019; classify with the stated boundaries and report the numbers."
+  evidence: ["background motion numbers"]
+  ir_path: "/motion/background_motion_level"
+  type: enum
+  challenge: "The class must be consistent with the measured values."
+
+- id: background_system-030
+  question: "Does the background motion level stay steady or spike at transitions?"
+  why: "Becomes a rule for transition energy versus steady motion."
+  how: "Plot F5 border-band means over time (list values per second); compare values within 0.5 s of cuts to the rest."
+  evidence: ["F5 series", "evidence.shots[]"]
+  ir_path: "/generation_rules/-"
+  type: object
+  challenge: "Cuts themselves create a one-frame spike in F5; exclude the cut frame."
+
+- id: background_system-031
+  question: "What is the background's luminance range across shots (YAVG min and max)?"
+  why: "Bounds background brightness in the grade."
+  how: "F6 YAVG on background bands per shot; report min, median and max."
+  evidence: ["F6 per shot"]
+  ir_path: "/visual/grade"
+  type: range
+  challenge: "Report which shots were measured."
+
+- id: background_system-032
+  question: "Does the background ever drop to plain black or white (dips), and for how long?"
+  why: "Adds dips as transition devices or rules them out."
+  how: "F12 blackdetect for black; F6 YMIN above 235 across a frame for white."
+  evidence: ["F12", "F6"]
+  ir_path: "/motion/transitions/-"
+  type: segments
+  challenge: "Fade-ins at the start and end are separate from mid-video dips."

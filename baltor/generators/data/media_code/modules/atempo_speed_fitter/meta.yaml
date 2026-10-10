@@ -1,0 +1,8 @@
+title: atempo speed fitter
+summary: Computes the tempo factor that fits narration to a target length (refusing audible over-stretching) and builds pitch-preserving ffmpeg atempo chains within 0.5-2.0 per stage.
+subkind: mix-preset
+domain: audio
+tags: [audio, narration, atempo, ffmpeg, timing, time-stretch]
+step_kinds: [render]
+depends_on: [ffmpeg]
+references: ["https://ffmpeg.org/ffmpeg-filters.html#atempo"]

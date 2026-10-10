@@ -1,0 +1,7 @@
+title: Pronunciation lexicon for TTS
+summary: Fixes mispronounced names with whole-word, case-aware respelling before synthesis and exports W3C PLS 1.0 lexicons (alias or IPA) plus JSON for reuse across projects.
+subkind: voice-preset
+domain: audio
+tags: [audio, tts, pronunciation, lexicon, pls, names]
+step_kinds: [write, build]
+references: ["https://www.w3.org/TR/pronunciation-lexicon/"]

@@ -96,7 +96,7 @@ items:
   - id: quaternius-ultimate-animated-character
     title: "Quaternius Ultimate Animated Character Pack"
     url: https://quaternius.com/packs/ultimatedanimatedcharacter.html
-    summary: "Low-poly animated people (casual, workers, adventurers) with built-in animations, CC0."
+    summary: "Low-poly animated character pack, CC0."
     licence: CC0-1.0
     licence_url: https://quaternius.com/packs/ultimatedanimatedcharacter.html
     tags: [characters, animated, quaternius]
@@ -117,7 +117,7 @@ items:
   - id: quaternius-ultimate-animated-animals
     title: "Quaternius Ultimate Animated Animal Pack"
     url: https://quaternius.com/packs/ultimateanimatedanimals.html
-    summary: "Animated low-poly animals (including dogs) for animal-crowd and nature stories, CC0."
+    summary: "Animated low-poly animal pack for animal and nature stories, CC0."
     licence: CC0-1.0
     licence_url: https://quaternius.com/packs/ultimateanimatedanimals.html
     tags: [animals, animated, quaternius]
@@ -187,7 +187,7 @@ items:
   - id: kenney-modular-characters-2d
     title: "Kenney Modular Characters (2D, 425 assets)"
     url: https://kenney.nl/assets/modular-characters
-    summary: "425 2D body parts, faces and outfits to assemble flat characters for explainer scenes or Skeleton2D rigs, CC0."
+    summary: "425-asset modular character pack (listed under 2D) for assembling flat explainer characters or Skeleton2D rigs, CC0."
     licence: CC0-1.0
     licence_url: https://kenney.nl/support
     tags: [characters, 2d, modular, kenney]

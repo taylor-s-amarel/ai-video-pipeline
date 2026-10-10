@@ -1,0 +1,296 @@
+- id: characters_animation_style-001
+  question: "Which visual style family fits best (live-action, photo montage, 2D flat vector, stick figure, cut-out, layered 2.5D, low-poly 3D, textured 3D, pixel art, voxel, whiteboard or sketch, kinetic type, screen capture)?"
+  choices: [live-action, photo-montage, flat-vector-2d, stick-figure, cut-out, layered-2-5d, low-poly-3d, textured-3d, pixel-art, voxel, whiteboard-sketch, kinetic-type, screen-capture, mixed]
+  why: "Fills visual.style_family, which picks the renderer."
+  how: "Classify from the F4 contact sheet and 5 F1 frames; give the share of runtime per family if mixed."
+  evidence: ["frames: F4", "frames: F1 samples"]
+  ir_path: "/visual/style_family"
+  type: enum
+  challenge: "A stylised filter over footage is still live-action; check for photographic texture on F3 crops."
+
+- id: characters_animation_style-002
+  question: "Are there characters (people, animals, mascots, objects with faces), and how many distinct ones?"
+  why: "Decides whether the format needs character rigs."
+  how: "Count distinct characters on the contact sheet; describe each by construction only (no identities)."
+  evidence: ["frames: F4"]
+  ir_path: "/visual/layers/-"
+  type: integer
+  challenge: "Do not count real people in photos as characters; they belong to shot_list_framing."
+
+- id: characters_animation_style-003
+  question: "How are characters constructed (stick lines, flat shapes, rigged cut-out parts, frame-by-frame drawings, 3D models)?"
+  choices: [stick-lines, flat-shapes, rigged-cut-out, frame-by-frame, 3d-model, none]
+  why: "Selects a character rig type."
+  how: "F3 crops at joints: hinged parts that rotate rigidly indicate cut-out rigs; redrawn shapes per frame indicate frame-by-frame."
+  evidence: ["frames: F3 at joints", "frames: F8"]
+  ir_path: "/visual/layers/-"
+  type: enum
+  challenge: "Check two different poses of the same character."
+
+- id: characters_animation_style-004
+  question: "At what rate do drawings or poses change (on ones, twos, threes, or held poses) relative to the video frame rate?"
+  choices: [ones, twos, threes, held-poses, mixed]
+  why: "Fills animation_fps."
+  how: "F8 steps over 0.5 s of character motion; count frames where the character changes; compare with fps."
+  evidence: ["frames: F8", "evidence.source.fps"]
+  ir_path: "/render_binding/mapping/animation_fps"
+  type: enum
+  challenge: "Camera moves change every frame regardless; measure on a section with a still camera."
+
+- id: characters_animation_style-005
+  question: "What line style is used (stroke weight in px, outline colour, clean or sketchy)?"
+  why: "Fills line style parameters."
+  how: "F3 enlarged crops; measure stroke width at full resolution."
+  evidence: ["frames: F3"]
+  ir_path: "/render_binding/mapping/line_style"
+  type: object
+  challenge: "Report px measurements."
+
+- id: characters_animation_style-006
+  question: "How are shapes filled (flat colour, gradient, texture, cel-shaded with shadow bands)?"
+  choices: [flat, gradient, textured, cel-shaded, unfilled]
+  why: "Fills fill style."
+  how: "F3 crops of filled areas."
+  evidence: ["frames: F3"]
+  ir_path: "/render_binding/mapping/fill_style"
+  type: enum
+  challenge: "Compression banding on gradients is not cel shading."
+
+- id: characters_animation_style-007
+  question: "What are character proportions (head height to body height ratio)?"
+  why: "Fills a rig proportion parameter."
+  how: "Measure on F3 crops of a standing pose."
+  evidence: ["frames: F3"]
+  ir_path: "/render_binding/mapping/proportions"
+  type: number
+  challenge: "Use a neutral standing pose; foreshortening skews it."
+
+- id: characters_animation_style-008
+  question: "How many facial expression states are used, and how are they drawn (none, dots and lines, full faces)?"
+  why: "Sets the expression set size for a rig."
+  how: "Collect distinct face states on F3 crops across the video."
+  evidence: ["frames: F3"]
+  ir_path: "/render_binding/mapping/expressions"
+  type: object
+  challenge: "List timestamps per state."
+
+- id: characters_animation_style-009
+  question: "Is there lip sync, and of what kind (none, open/close flap, viseme shapes)?"
+  choices: [none, flap, visemes]
+  why: "Decides whether a lip-sync tool (for example Rhubarb Lip Sync) is needed."
+  how: "F8 on a speaking character; count distinct mouth shapes and compare with speech timing."
+  evidence: ["frames: F8", "evidence.audio.speech_segments"]
+  ir_path: "/render_binding/mapping/lip_sync"
+  type: enum
+  challenge: "Mouth movement without speech alignment is not lip sync."
+
+- id: characters_animation_style-010
+  question: "Do characters blink, and how often?"
+  why: "Adds a blink rate to idle animation."
+  how: "Count blinks over 10 s of on-screen character time using F2 bursts."
+  evidence: ["frames: F2"]
+  ir_path: "/render_binding/mapping/blink_per_min"
+  type: number
+  challenge: "Report the observation window."
+
+- id: characters_animation_style-011
+  question: "Are walk or run cycles used, and how many frames is one cycle?"
+  why: "Fills locomotion cycle length."
+  how: "F8 over 1 s of walking; find the frame where the pose repeats."
+  evidence: ["frames: F8"]
+  ir_path: "/render_binding/mapping/walk_cycle_frames"
+  type: integer
+  challenge: "A sliding character with no leg motion has no cycle."
+
+- id: characters_animation_style-012
+  question: "Is there secondary motion (follow-through on hair, clothing, tails, props)?"
+  why: "Adds secondary motion to the rig spec."
+  how: "F8 after a character stops: parts that keep moving."
+  evidence: ["frames: F8"]
+  ir_path: "/render_binding/mapping/secondary_motion"
+  type: boolean
+  challenge: "Name the part and timestamp."
+
+- id: characters_animation_style-013
+  question: "Is squash and stretch used on characters or props?"
+  why: "Adds deformation to the animation style."
+  how: "F8 on impacts and jumps; measure height/width changes."
+  evidence: ["frames: F8"]
+  ir_path: "/render_binding/mapping/squash_stretch"
+  type: object
+  challenge: "Report measured ratio change."
+
+- id: characters_animation_style-014
+  question: "How do characters enter the scene (pop in, walk in, draw on, fade, already present)?"
+  choices: [pop-in, walk-in, draw-on, fade, already-present]
+  why: "Fills character entrance."
+  how: "F8 at first appearances."
+  evidence: ["frames: F8"]
+  ir_path: "/render_binding/mapping/character_entrance"
+  type: enum
+  challenge: "Check 2 entrances."
+
+- id: characters_animation_style-015
+  question: "Do props and environments share the characters' style (line weight, fill, palette)?"
+  why: "Becomes a consistency rule for asset generation."
+  how: "Compare F3 crops of props with characters."
+  evidence: ["frames: F3"]
+  ir_path: "/generation_rules/-"
+  type: boolean
+  challenge: "List one mismatch if found."
+
+- id: characters_animation_style-016
+  question: "From which viewpoint is the scene shown (side view, top-down, isometric, front, three-quarter)?"
+  choices: [side, top-down, isometric, front, three-quarter, mixed]
+  why: "Fills the projection for 2D or 3D renderers."
+  how: "Inspect floor lines and object faces on F1 frames."
+  evidence: ["frames: F1"]
+  ir_path: "/render_binding/mapping/projection"
+  type: enum
+  challenge: "Isometric shows parallel receding lines at about 30 degrees; measure one."
+
+- id: characters_animation_style-017
+  question: "Do falling or bouncing objects follow plausible gravity (accelerating falls, decaying bounces)?"
+  why: "Decides whether a physics engine (for example Pymunk) is needed."
+  how: "Track an object's height over F8 frames; check for increasing per-frame displacement while falling."
+  evidence: ["frames: F8"]
+  ir_path: "/render_binding/mapping/physics"
+  type: boolean
+  challenge: "Report the displacement series."
+
+- id: characters_animation_style-018
+  question: "How many distinct poses does each character use?"
+  why: "Sizes a pose library."
+  how: "Group F3 crops of a character by pose."
+  evidence: ["frames: F3"]
+  ir_path: "/render_binding/mapping/pose_count"
+  type: integer
+  challenge: "Mirrored poses count once; say how mirrors were treated."
+
+- id: characters_animation_style-019
+  question: "Does the background art match the character style or contrast with it (for example photo backgrounds behind drawn characters)?"
+  choices: [matching, contrasting-photo, contrasting-other]
+  why: "Fills background/character style relation."
+  how: "Compare F3 crops."
+  evidence: ["frames: F3"]
+  ir_path: "/visual/style_family"
+  type: enum
+  challenge: "Check two scenes."
+
+- id: characters_animation_style-020
+  question: "Do characters cast contact shadows on the ground?"
+  why: "Adds contact shadows to the scene recipe."
+  how: "F3 crops at feet."
+  evidence: ["frames: F3"]
+  ir_path: "/render_binding/mapping/contact_shadow"
+  type: boolean
+  challenge: "Give a timestamp."
+
+- id: characters_animation_style-021
+  question: "Is the motion snappy (fast moves with holds) or floaty (continuous slow easing)?"
+  choices: [snappy, floaty, mixed]
+  why: "Sets the animation easing style."
+  how: "From F8 series, compare move duration with hold duration."
+  evidence: ["frames: F8"]
+  ir_path: "/motion/easing"
+  type: enum
+  challenge: "Report move and hold durations."
+
+- id: characters_animation_style-022
+  question: "How long are holds between key poses (ms)?"
+  why: "Fills pose-to-pose hold timing."
+  how: "F8 series: count frames where the pose does not change between moves."
+  evidence: ["frames: F8"]
+  ir_path: "/render_binding/mapping/hold_ms"
+  type: distribution
+  challenge: "Report n and fps."
+
+- id: characters_animation_style-023
+  question: "Are motion lines, smears or impact frames used?"
+  why: "Adds stylised motion cues."
+  how: "F8 on fast actions."
+  evidence: ["frames: F8"]
+  ir_path: "/render_binding/mapping/motion_cues"
+  type: list
+  challenge: "Timestamp each cue."
+
+- id: characters_animation_style-024
+  question: "Is each character colour-coded (one dominant colour per character)?"
+  why: "Becomes a character palette rule."
+  how: "F9 on each character's main area."
+  evidence: ["F9"]
+  ir_path: "/generation_rules/-"
+  type: boolean
+  challenge: "Report colours per character."
+
+- id: characters_animation_style-025
+  question: "For 2.5D scenes, how many depth planes are there and how do their parallax speeds compare?"
+  why: "Fills depth plane count and parallax ratios."
+  how: "Track features on each plane between two frames of a move."
+  evidence: ["frames: F1 pairs"]
+  ir_path: "/visual/layers"
+  type: object
+  challenge: "Planes moving by animation (not camera) must be excluded."
+
+- id: characters_animation_style-026
+  question: "Which open-source tools could reproduce this style (for example Motion Canvas, Manim, Blender, Godot, Synfig, OpenToonz, Pymunk for physics)?"
+  why: "Gives the render binding a renderer hint; always inferred."
+  how: "Map style features (vector vs 3D, rigging, physics) to tools known to support them; mark method inferred and do not claim the source used them."
+  evidence: ["style answers"]
+  ir_path: "/render_binding/mapping/renderer_hint"
+  type: list
+  challenge: "Any statement that the source was made with a named tool is rejected unless the video shows it."
+
+- id: characters_animation_style-027
+  question: "Which character and style parameters should a new video set (style family, rig asset, palette, line weight, fps)?"
+  why: "Feeds the parameteriser."
+  how: "Collect 001, 003, 004, 005 and 024."
+  evidence: ["style answers"]
+  ir_path: "/parameters/-"
+  type: list
+  challenge: "Each parameter needs derived_from."
+
+- id: characters_animation_style-028
+  question: "Do character actions follow the narration (a gesture or action when the key word is spoken)?"
+  why: "Becomes a narration-to-action sync rule."
+  how: "Compare action start times (F8) with word onsets (A1) for 4 actions."
+  evidence: ["frames: F8", "A1"]
+  ir_path: "/generation_rules/-"
+  type: ms
+  challenge: "Report offsets for each action."
+
+- id: characters_animation_style-029
+  question: "Is text integrated into the scene (signs, labels attached to objects, speech bubbles)?"
+  why: "Adds diegetic text to the style."
+  how: "Inspect F1 frames for text attached to objects."
+  evidence: ["frames: F1"]
+  ir_path: "/typography/labels/diegetic"
+  type: boolean
+  challenge: "Captions placed near objects are not diegetic unless attached and moving with them."
+
+- id: characters_animation_style-030
+  question: "Does a character's appearance stay consistent between shots (same proportions, colours, features)?"
+  why: "Tells the pipeline it needs a fixed character sheet or reusable rig."
+  how: "F10 and F3 comparisons of the same character in different shots."
+  evidence: ["frames: F3", "frames: F10"]
+  ir_path: "/generation_rules/-"
+  type: boolean
+  challenge: "List the shots compared and any differences found."
+
+- id: characters_animation_style-031
+  question: "How many scenes (distinct environments) does each item use?"
+  why: "Sizes scene assets per item."
+  how: "Group shots per item by environment."
+  evidence: ["frames: F4", "item beat boundaries"]
+  ir_path: "/timeline/beats/*/content_slot"
+  type: integer
+  challenge: "Report the median and range."
+
+- id: characters_animation_style-032
+  question: "Before a comedic or dramatic impact, how long is the pause (ms) between set-up and impact?"
+  why: "Fills a comic timing parameter."
+  how: "F8 and A1 around 3 impacts; time from the last set-up motion to impact."
+  evidence: ["frames: F8", "A1"]
+  ir_path: "/render_binding/mapping/impact_pause_ms"
+  type: distribution
+  challenge: "If the video has no impacts, answer not determinable."

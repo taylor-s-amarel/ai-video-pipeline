@@ -1,0 +1,12 @@
+title: Kokoro ONNX TTS adapter
+summary: Adapter for Kokoro-82M speech through kokoro-onnx (lazy import, model loaded once, clear errors for missing model files) returning mono float32 samples for the TTS interface.
+subkind: tts-engine
+domain: audio
+tags: [audio, tts, kokoro, onnx, narration, local]
+step_kinds: [render]
+effects:
+  filesystem: read
+  side_effects: ["loads ONNX model and voices files from local disk"]
+depends_on: [kokoro_onnx]
+references: ["https://github.com/thewh1teagle/kokoro-onnx", "https://huggingface.co/hexgrad/Kokoro-82M"]
+description: "kokoro-onnx is MIT licensed and the Kokoro model is Apache-2.0 (per the kokoro-onnx README, checked 2026-10-10). The model files are not shipped here; download them from the kokoro-onnx releases page."

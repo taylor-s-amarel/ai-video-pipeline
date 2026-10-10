@@ -1,0 +1,12 @@
+title: Piper TTS adapter
+summary: Adapter for Piper speech via its Python API (speed through length_scale) or a shell-free CLI argv, with lazy import, clear voice-file errors and mono float32 output.
+subkind: tts-engine
+domain: audio
+tags: [audio, tts, piper, onnx, narration, local]
+step_kinds: [render]
+effects:
+  filesystem: read
+  side_effects: ["loads a Piper voice model from local disk", "cli_argv output, when run, starts a Python subprocess"]
+depends_on: [piper_tts]
+references: ["https://github.com/OHF-Voice/piper1-gpl"]
+description: "Piper (piper1-gpl) is GPL-3.0 per its repository (checked 2026-10-10). This MIT adapter does not include or link Piper code; it imports the separately installed package at run time."

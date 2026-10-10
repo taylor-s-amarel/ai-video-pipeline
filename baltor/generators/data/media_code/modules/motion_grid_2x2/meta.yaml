@@ -1,0 +1,7 @@
+title: 2x2 motion grid compositor
+summary: ffmpeg filter_complex for four drifting, feather-masked panels in a 2x2 grid laid over a background at capped opacity, so a grid layer always moves and never shows hard rectangles.
+subkind: grid-system
+domain: video
+tags: [video, ffmpeg, grid, 2x2, background, compositing, motion]
+step_kinds: [build, render]
+depends_on: [ffmpeg]

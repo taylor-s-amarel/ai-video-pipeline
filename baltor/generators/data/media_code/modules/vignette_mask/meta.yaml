@@ -1,0 +1,7 @@
+title: Vignette masks and filter
+summary: Aspect-aware smooth vignette multiplier masks in numpy with an apply helper, plus a validated ffmpeg vignette filter builder (lens angle, centre, per-frame evaluation).
+subkind: overlay
+domain: video
+tags: [video, vignette, mask, grading, ffmpeg, numpy]
+step_kinds: [build, render]
+depends_on: [ffmpeg]

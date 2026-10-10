@@ -1,0 +1,6 @@
+title: TTS sentence chunker
+summary: Splits narration into TTS-sized chunks of whole sentences (abbreviation, decimal and initial aware), splitting over-long sentences at clause marks and tagging paragraph boundaries for pauses.
+subkind: voice-preset
+domain: audio
+tags: [audio, tts, sentences, chunking, narration]
+step_kinds: [build, render]

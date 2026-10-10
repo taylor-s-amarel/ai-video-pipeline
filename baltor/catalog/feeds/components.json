@@ -3,7 +3,7 @@
   "title": "Baltor components in this repository",
   "home_page_url": "https://github.com/taylor-s-amarel/ai-video-pipeline/tree/main/baltor",
   "feed_url": "https://github.com/taylor-s-amarel/ai-video-pipeline/blob/main/baltor/catalog/feeds/components.json",
-  "description": "Base components in release d3a2ca9a86f4 (12 items; variants omitted).",
+  "description": "Base components in release 3ae8b538466f (12 items; variants omitted).",
   "items": [
     {
       "id": "components/baltor-public-good-marketplace",
@@ -145,8 +145,8 @@
       "id": "components/short-video-house-style",
       "url": "https://github.com/taylor-s-amarel/ai-video-pipeline/tree/main/baltor/components/skills/short-video-house-style",
       "title": "Short-video house style",
-      "content_text": "The settled look for 60+ second vertical shorts: bold yellow hook over the photo, frosted text, moving layered background, synced one-line captions.",
-      "summary": "The settled look for 60+ second vertical shorts: bold yellow hook over the photo, frosted text, moving layered background, synced one-line captions.",
+      "content_text": "Current photographic contract for 60+ s vertical shorts: 972x1728 photo, moving 5% border, yellow hook at y~320, genuine frosted glass, layers <= 249/255, faithful captions.",
+      "summary": "Current photographic contract for 60+ s vertical shorts: 972x1728 photo, moving 5% border, yellow hook at y~320, genuine frosted glass, layers <= 249/255, faithful captions.",
       "date_published": "2026-10-10T00:00:00Z",
       "tags": [
         "skill",

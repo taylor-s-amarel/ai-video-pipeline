@@ -1,6 +1,6 @@
 # Baltor components in this repository
 
-Base components in release d3a2ca9a86f4 (12 items; variants omitted).
+Base components in release 3ae8b538466f (12 items; variants omitted).
 
 Updated 2026-10-10. 12 items.
 
@@ -12,7 +12,7 @@ Updated 2026-10-10. 12 items.
 | [Claude Code settings for a media project](https://github.com/taylor-s-amarel/ai-video-pipeline/tree/main/baltor/components/harness-settings/claude-code-media-project-settings) | repository | MIT | Project settings that allow ffmpeg/ffprobe and the catalogue tool, deny reading .env and credentials, and wire the secrets hook. |
 | [MP4 QA probe](https://github.com/taylor-s-amarel/ai-video-pipeline/tree/main/baltor/components/code-modules/mp4-qa-probe) | repository | MIT | Checks an exported MP4 with ffprobe: minimum duration, 1080x1920, H.264/yuv420p, AAC audio present. Exit 1 on any failure. |
 | [/render-short](https://github.com/taylor-s-amarel/ai-video-pipeline/tree/main/baltor/components/commands/render-short) | repository | MIT | Slash command that turns a topic into a full 60+ second house-style short: script with sources, spec, render, QA, then delivery. |
-| [Short-video house style](https://github.com/taylor-s-amarel/ai-video-pipeline/tree/main/baltor/components/skills/short-video-house-style) | repository | MIT | The settled look for 60+ second vertical shorts: bold yellow hook over the photo, frosted text, moving layered background, synced one-line captions. |
+| [Short-video house style](https://github.com/taylor-s-amarel/ai-video-pipeline/tree/main/baltor/components/skills/short-video-house-style) | repository | MIT | Current photographic contract for 60+ s vertical shorts: 972x1728 photo, moving 5% border, yellow hook at y~320, genuine frosted glass, layers <= 249/255, faithful captions. |
 | [Short-video rules reviewer](https://github.com/taylor-s-amarel/ai-video-pipeline/tree/main/baltor/components/subagents/short-video-rules-reviewer) | repository | MIT | Reviews a rendered short and its spec against the house rules and returns pass/fail per rule with frame timestamps. |
 | [Short video spec](https://github.com/taylor-s-amarel/ai-video-pipeline/tree/main/baltor/components/contract-schemas/short-video-spec) | repository | MIT | JSON Schema for one vertical short: hook title, 60+ s duration, scenes with layers capped at 98% opacity, captions, narration and credited music. |
 | [Short-video standing rules](https://github.com/taylor-s-amarel/ai-video-pipeline/tree/main/baltor/components/rules/short-video-standing-rules) | repository | MIT | Numbered, testable rule set for shorts with machine-readable thresholds (duration, opacity cap, title placement, caption sync). |

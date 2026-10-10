@@ -4,105 +4,362 @@
   "title": "Baltor component manifest (baltor.json)",
   "type": "object",
   "additionalProperties": false,
-  "required": ["spec", "identity", "title", "kind", "version", "summary", "licence", "source",
-               "step_kinds", "effects", "harnesses", "entry", "tags", "collection"],
+  "required": [
+    "spec",
+    "identity",
+    "title",
+    "kind",
+    "version",
+    "summary",
+    "licence",
+    "source",
+    "step_kinds",
+    "effects",
+    "harnesses",
+    "entry",
+    "tags",
+    "collection"
+  ],
   "properties": {
-    "spec": { "const": "baltor.component/v1" },
-    "identity": { "type": "string", "pattern": "^[a-z][a-z0-9]*(_[a-z0-9]+)*$", "minLength": 3, "maxLength": 96 },
-    "title": { "type": "string", "minLength": 3, "maxLength": 120 },
-    "kind": {
-      "enum": ["skill", "instruction-file", "rules", "subagent", "command", "hook", "plugin-manifest",
-               "plugin-marketplace", "protocol-server-configuration", "harness-settings",
-               "contract-schema", "code-module"]
+    "spec": {
+      "const": "baltor.component/v1"
     },
-    "subkind": { "type": "string", "pattern": "^[a-z][a-z0-9-]{1,40}$",
-                 "description": "Optional finer grouping. Known values are listed in subkinds.json; unknown values produce a warning." },
-    "version": { "type": "string", "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$" },
-    "summary": { "type": "string", "minLength": 10, "maxLength": 240 },
-    "description": { "type": "string", "maxLength": 4000 },
-    "domain": { "type": "string", "pattern": "^[a-z][a-z0-9-]{1,40}$" },
-    "licence": { "type": "string", "minLength": 2, "maxLength": 120,
-                 "description": "SPDX licence expression, e.g. MIT, Apache-2.0, CC0-1.0, CC-BY-4.0" },
-    "attribution": { "type": "string", "maxLength": 1000 },
+    "identity": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(_[a-z0-9]+)*$",
+      "minLength": 3,
+      "maxLength": 96
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 120
+    },
+    "kind": {
+      "enum": [
+        "skill",
+        "instruction-file",
+        "rules",
+        "subagent",
+        "command",
+        "hook",
+        "plugin-manifest",
+        "plugin-marketplace",
+        "protocol-server-configuration",
+        "harness-settings",
+        "contract-schema",
+        "code-module"
+      ]
+    },
+    "subkind": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{1,40}$",
+      "description": "Optional finer grouping. Known values are listed in subkinds.json; unknown values produce a warning."
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 240
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 4000
+    },
+    "domain": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{1,40}$"
+    },
+    "licence": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 120,
+      "description": "SPDX licence expression, e.g. MIT, Apache-2.0, CC0-1.0, CC-BY-4.0"
+    },
+    "attribution": {
+      "type": "string",
+      "maxLength": 1000
+    },
     "source": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["type"],
+      "required": [
+        "type"
+      ],
       "properties": {
-        "type": { "enum": ["original", "derived", "third-party"] },
-        "url": { "type": "string", "format": "uri" },
-        "upstream": { "type": "string", "maxLength": 500 },
-        "retrieved": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
-        "notes": { "type": "string", "maxLength": 1000 }
+        "type": {
+          "enum": [
+            "original",
+            "derived",
+            "third-party"
+          ]
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "upstream": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "retrieved": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "notes": {
+          "type": "string",
+          "maxLength": 1000
+        }
       }
     },
     "step_kinds": {
-      "type": "array", "minItems": 1, "uniqueItems": true,
-      "items": { "enum": ["research", "plan", "write", "build", "test", "verify", "review", "render",
-                          "publish", "operate", "learn", "design", "measure", "secure"] }
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "research",
+          "plan",
+          "write",
+          "build",
+          "test",
+          "verify",
+          "review",
+          "render",
+          "publish",
+          "operate",
+          "learn",
+          "design",
+          "measure",
+          "secure"
+        ]
+      }
     },
     "effects": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["filesystem", "network", "executes", "secrets"],
+      "required": [
+        "filesystem",
+        "network",
+        "executes",
+        "secrets"
+      ],
       "properties": {
-        "filesystem": { "enum": ["none", "read", "write"] },
-        "network": { "enum": ["none", "declared"] },
-        "hosts": { "type": "array", "items": { "type": "string", "pattern": "^[a-z0-9*.-]+(:[0-9]+)?$" }, "uniqueItems": true },
-        "executes": { "enum": ["none", "python", "node", "shell", "gdscript", "blender-python", "sql", "other"] },
-        "secrets": { "type": "array", "items": { "type": "string", "pattern": "^[A-Z][A-Z0-9_]*$" }, "uniqueItems": true },
-        "side_effects": { "type": "array", "items": { "type": "string", "maxLength": 200 } }
-      }
-    },
-    "harnesses": {
-      "type": "array", "minItems": 1, "uniqueItems": true,
-      "items": { "enum": ["claude-code", "codex", "opencode", "pi", "baltor-harness", "gemini-cli", "cursor", "any"] }
-    },
-    "entry": { "type": "string", "minLength": 1, "maxLength": 200 },
-    "tags": { "type": "array", "minItems": 1, "maxItems": 24, "uniqueItems": true,
-              "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9+.-]{0,40}$" } },
-    "collection": { "enum": ["public-good", "library"] },
-    "depends_on": {
-      "type": "array",
-      "items": {
-        "type": "object", "additionalProperties": false, "required": ["identity"],
-        "properties": {
-          "identity": { "type": "string", "pattern": "^[a-z][a-z0-9]*(_[a-z0-9]+)*$" },
-          "version": { "type": "string", "maxLength": 40 },
-          "external": { "type": "boolean", "description": "true for a package outside this catalogue, e.g. a PyPI or npm package" }
+        "filesystem": {
+          "enum": [
+            "none",
+            "read",
+            "write"
+          ]
+        },
+        "network": {
+          "enum": [
+            "none",
+            "declared"
+          ]
+        },
+        "hosts": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9*.-]+(:[0-9]+)?$"
+          },
+          "uniqueItems": true
+        },
+        "executes": {
+          "enum": [
+            "none",
+            "python",
+            "node",
+            "shell",
+            "gdscript",
+            "blender-python",
+            "sql",
+            "other"
+          ]
+        },
+        "secrets": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Z][A-Z0-9_]*$"
+          },
+          "uniqueItems": true
+        },
+        "side_effects": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 200
+          }
         }
       }
     },
-    "variant_of": { "type": "string", "pattern": "^[a-z][a-z0-9]*(_[a-z0-9]+)*$" },
+    "harnesses": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "claude-code",
+          "codex",
+          "opencode",
+          "pi",
+          "baltor-harness",
+          "gemini-cli",
+          "cursor",
+          "any"
+        ]
+      }
+    },
+    "entry": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "tags": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 24,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9][a-z0-9+.-]{0,40}$"
+      }
+    },
+    "collection": {
+      "enum": [
+        "public-good",
+        "library"
+      ]
+    },
+    "depends_on": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "identity"
+        ],
+        "properties": {
+          "identity": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9]*(_[a-z0-9]+)*$"
+          },
+          "version": {
+            "type": "string",
+            "maxLength": 40
+          },
+          "external": {
+            "type": "boolean",
+            "description": "true for a package outside this catalogue, e.g. a PyPI or npm package"
+          }
+        }
+      }
+    },
+    "variant_of": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(_[a-z0-9]+)*$"
+    },
     "provenance": {
-      "type": "object", "additionalProperties": false,
+      "type": "object",
+      "additionalProperties": false,
       "properties": {
-        "generator": { "type": "string", "maxLength": 200 },
-        "data": { "type": "string", "maxLength": 200 },
-        "parameters": { "type": "object" }
+        "generator": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "data": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "parameters": {
+          "type": "object"
+        }
       }
     },
     "review": {
-      "type": "object", "additionalProperties": false,
-      "required": ["status"],
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status"
+      ],
       "properties": {
-        "status": { "enum": ["unreviewed", "automated-passed", "human-reviewed", "withdrawn"] },
-        "checked": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
-        "notes": { "type": "string", "maxLength": 1000 }
+        "status": {
+          "enum": [
+            "unreviewed",
+            "automated-passed",
+            "human-reviewed",
+            "withdrawn"
+          ]
+        },
+        "checked": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "notes": {
+          "type": "string",
+          "maxLength": 1000
+        }
       }
     },
     "install": {
       "type": "object",
       "description": "Per-harness placement overrides: {harness: {path: target, files: [package paths]}}",
       "additionalProperties": {
-        "type": "object", "additionalProperties": false,
+        "type": "object",
+        "additionalProperties": false,
         "properties": {
-          "path": { "type": "string", "maxLength": 200 },
-          "files": { "type": "array", "items": { "type": "string" } },
-          "merge_into": { "type": "string", "maxLength": 200 }
+          "path": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "files": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "merge_into": {
+            "type": "string",
+            "maxLength": 200
+          }
         }
       }
     },
-    "examples": { "type": "array", "items": { "type": "string", "maxLength": 300 }, "maxItems": 10 }
+    "examples": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 300
+      },
+      "maxItems": 10
+    },
+    "evidence_stage": {
+      "description": "Strongest evidence actually established for this item, using the project's status language: considered < source-inspected < installed < isolated-execution < headless-tested < graphically-checked < encoded-and-decoded < sampled-visual-review < delivered < owner-accepted. 'rejected', 'blocked' and 'rights-unknown' record holds. Never claim a stage that was not observed.",
+      "enum": [
+        "considered",
+        "source-inspected",
+        "installed",
+        "isolated-execution",
+        "headless-tested",
+        "graphically-checked",
+        "encoded-and-decoded",
+        "sampled-visual-review",
+        "delivered",
+        "owner-accepted",
+        "rejected",
+        "blocked",
+        "rights-unknown"
+      ]
+    },
+    "evidence_notes": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "What the evidence_stage does and does not establish for this item"
+    }
   }
 }

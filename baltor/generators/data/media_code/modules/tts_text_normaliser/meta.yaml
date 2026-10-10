@@ -1,0 +1,7 @@
+title: TTS text normaliser
+summary: Rewrites money, percentages, ranges, ordinals, years, clock times, temperatures, units, abbreviations and symbols into words so TTS voices read narration correctly.
+subkind: voice-preset
+domain: audio
+tags: [audio, tts, text-normalisation, numbers, narration]
+step_kinds: [write, build]
+examples: ["Prepare 'cost: $2.5M (86%)' for Kokoro", "Make sure 1970 is read as a year"]

@@ -142,7 +142,8 @@ class GeneratorRun:
                   effects_: dict | None = None, harnesses: list[str] | None = None, entry: str | None = None,
                   source: dict | None = None, collection: str = "public-good", depends_on: list[dict] | None = None,
                   variant_of: str | None = None, parameters: dict | None = None, install: dict | None = None,
-                  examples: list[str] | None = None, version: str = "1.0.0", review: dict | None = None) -> Path:
+                  examples: list[str] | None = None, version: str = "1.0.0", review: dict | None = None,
+                  evidence_stage: str | None = None, evidence_notes: str | None = None) -> Path:
         if identity in self.identities:
             raise ValueError(f"{self.generator}: identity '{identity}' written twice")
         self.identities.add(identity)
@@ -202,6 +203,10 @@ class GeneratorRun:
         if examples:
             manifest["examples"] = examples
         manifest["review"] = review or {"status": "unreviewed"}
+        if evidence_stage:
+            manifest["evidence_stage"] = evidence_stage
+        if evidence_notes:
+            manifest["evidence_notes"] = evidence_notes
         for rel, content in files.items():
             dest = pkg / rel
             dest.parent.mkdir(parents=True, exist_ok=True)

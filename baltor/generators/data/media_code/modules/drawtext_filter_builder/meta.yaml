@@ -1,0 +1,8 @@
+title: drawtext filter builder
+summary: Builds ffmpeg drawtext filters that render any literal text safely (expansion off, two-level escaping) with colour/opacity, border, shadow, backing box, time window and alpha fades.
+subkind: ffmpeg-filter
+domain: video
+tags: [video, ffmpeg, drawtext, titles, text, security]
+step_kinds: [build, render]
+depends_on: [ffmpeg]
+references: ["https://ffmpeg.org/ffmpeg-filters.html#drawtext-1"]

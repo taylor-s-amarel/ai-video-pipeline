@@ -1,0 +1,8 @@
+title: ffmpeg filter value escaping
+summary: Two-level escaping for ffmpeg filter option values and filtergraphs, plus safe option/chain/label builders, so file names and text can never inject extra filters.
+subkind: ffmpeg-filter
+domain: video
+tags: [video, ffmpeg, escaping, security, filtergraph]
+step_kinds: [build, render, secure]
+depends_on: [ffmpeg]
+references: ["https://ffmpeg.org/ffmpeg-utils.html#Quoting-and-escaping", "https://ffmpeg.org/ffmpeg-filters.html#Notes-on-filtergraph-escaping"]

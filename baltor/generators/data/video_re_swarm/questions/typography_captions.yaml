@@ -1,0 +1,333 @@
+- id: typography_captions-001
+  question: "Where do captions sit vertically (median y centre as a fraction of frame height)?"
+  why: "Fills caption y position."
+  how: "Median y_center_ratio of evidence.text_regions[] entries in the caption role (recurring regions that change with speech); confirm on 3 F1 frames."
+  evidence: ["evidence.text_regions[].y_center_ratio", "frames: F1 samples"]
+  ir_path: "/typography/captions/y_center_ratio"
+  type: ratio
+  challenge: "Separate titles and labels from captions before taking the median; report how regions were assigned."
+
+- id: typography_captions-002
+  question: "What is the maximum number of caption lines on screen at once?"
+  why: "Fills caption lines_max."
+  how: "Inspect F3 crops of the caption area at 6 times; count lines."
+  evidence: ["frames: F3 caption crops"]
+  ir_path: "/typography/captions/lines_max"
+  type: integer
+  challenge: "Check the longest caption cards; maximums hide there."
+
+- id: typography_captions-003
+  question: "What is the maximum number of words on screen in one caption card?"
+  why: "Fills words_on_screen_max."
+  how: "Word counts of caption cards (evidence.captions[] when burned-in OCR exists, otherwise F3 crops at 6 times); report max and median."
+  evidence: ["evidence.captions[]", "frames: F3"]
+  ir_path: "/typography/words_on_screen_max"
+  type: integer
+  challenge: "Word-by-word captions show one word at a time; distinguish card words from highlighted words."
+
+- id: typography_captions-004
+  question: "What font class do captions use (geometric sans, grotesque sans, condensed sans, rounded sans, serif, slab, handwritten, display)?"
+  choices: [geometric-sans, grotesque-sans, condensed-sans, rounded-sans, serif, slab, handwritten, display]
+  why: "Gives a font class the renderer can map to an open font."
+  how: "Enlarged F3 crops: check letter shapes (round 'o' and 'e' for geometric; narrow letters for condensed; serifs)."
+  evidence: ["frames: F3 enlarged"]
+  ir_path: "/typography/captions/font_class"
+  type: enum
+  challenge: "Never name a specific commercial font as fact; a named font must be marked inferred."
+
+- id: typography_captions-005
+  question: "What weight are captions (regular, medium, bold, black)?"
+  choices: [regular, medium, bold, black]
+  why: "Fills caption weight."
+  how: "Stroke thickness relative to letter height on F3 crops: stem width / cap height above about 0.18 is bold, above 0.24 black."
+  evidence: ["frames: F3 enlarged"]
+  ir_path: "/typography/captions/weight"
+  type: enum
+  challenge: "Outline strokes add apparent weight; measure the fill only."
+
+- id: typography_captions-006
+  question: "What case do captions use (all caps, sentence case, title case, lower case)?"
+  choices: [all-caps, sentence, title, lower, mixed]
+  why: "Fills caption case."
+  how: "F3 crops at 6 times."
+  evidence: ["frames: F3"]
+  ir_path: "/typography/captions/case"
+  type: enum
+  challenge: "Check at least one caption with a proper noun."
+
+- id: typography_captions-007
+  question: "What colour is caption text, and what colour marks highlighted or key words?"
+  why: "Fills caption colour and highlight colour."
+  how: "F9 average colour inside thick strokes (3x3 px) of normal and highlighted words."
+  evidence: ["frames: F9"]
+  ir_path: "/typography/captions/colors"
+  type: object
+  challenge: "Sample three letters for each and report the spread."
+
+- id: typography_captions-008
+  question: "What backing do captions have (none, stroke, drop shadow, solid box, frosted panel)?"
+  choices: [none, stroke, shadow, solid-box, frosted-panel, stroke-and-shadow]
+  why: "Fills caption backing."
+  how: "F3 crops around letters and panel edges over busy and calm backgrounds."
+  evidence: ["frames: F3"]
+  ir_path: "/typography/captions/backing"
+  type: enum
+  challenge: "Compare two frames with different backgrounds to tell a frosted panel from a solid box."
+
+- id: typography_captions-009
+  question: "If captions have an outline stroke, how thick is it relative to letter height?"
+  why: "Fills stroke width ratio."
+  how: "On an enlarged F3 crop, measure the stroke width in px / cap height in px."
+  evidence: ["frames: F3 at 4x"]
+  ir_path: "/typography/captions/stroke_ratio"
+  type: ratio
+  challenge: "Anti-aliasing adds a pixel; report the measurement method."
+
+- id: typography_captions-010
+  question: "How tall are caption letters as a fraction of frame height (cap height)?"
+  why: "Fills caption size."
+  how: "Measure the cap height of an upper-case letter in px on an F3 crop / source.height."
+  evidence: ["frames: F3", "evidence.source.height"]
+  ir_path: "/typography/captions/size_ratio"
+  type: ratio
+  challenge: "Text bboxes include descenders and padding; use letter measurements."
+
+- id: typography_captions-011
+  question: "What is the mean offset between caption appearance and the matching spoken word (ms; negative = caption early)?"
+  why: "Fills caption sync; a common house rule is within 150 ms."
+  how: "For 10 caption cards, compare the on-screen appearance time (F8 at caption changes, or text_regions t_s) with the speech onset of the first word (A1 spectrogram or speech_segments)."
+  evidence: ["frames: F8 at caption changes", "evidence.audio.speech_segments", "A1"]
+  ir_path: "/typography/captions/sync_offset_ms"
+  type: ms
+  challenge: "Transcribed captions are not on-screen timings; only burned-in text can measure on-screen sync. Report n and spread."
+
+- id: typography_captions-012
+  question: "Do captions appear before, on, or after the spoken word?"
+  choices: [before, on, after, varies]
+  why: "Summarises sync behaviour for the caption timing rule."
+  how: "From 011: 'on' when the mean is within +/-100 ms and the spread is under 150 ms."
+  evidence: ["sync offsets"]
+  ir_path: "/typography/captions/sync_offset_ms"
+  type: enum
+  challenge: "Must agree with the numbers in 011."
+
+- id: typography_captions-013
+  question: "Are captions shown as phrase cards, word-by-word reveals, or karaoke-style highlighting within a card?"
+  choices: [phrase-cards, word-by-word, karaoke-highlight, none]
+  why: "Fills caption mode."
+  how: "F8 frame steps across a caption: watch whether words appear one at a time or highlights move."
+  evidence: ["frames: F8"]
+  ir_path: "/typography/captions/mode"
+  type: enum
+  challenge: "Check two cards; mixed behaviour must be reported."
+
+- id: typography_captions-014
+  question: "How are key words emphasised (colour change, scale pop, weight change, underline, box)?"
+  why: "Fills emphasis style."
+  how: "Compare emphasised and normal words on F3 crops and F8 steps."
+  evidence: ["frames: F3", "frames: F8"]
+  ir_path: "/typography/captions/emphasis"
+  type: list
+  challenge: "Each listed method needs one timestamp."
+
+- id: typography_captions-015
+  question: "How long does a caption card stay on screen (median, min, max)?"
+  why: "Sets caption card duration."
+  how: "From burned-in caption changes (text_regions in caption area) or evidence.captions[] when they represent the burned-in captions."
+  evidence: ["evidence.text_regions[]", "evidence.captions[]"]
+  ir_path: "/typography/captions/card_s"
+  type: distribution
+  challenge: "Say which source the timings came from."
+
+- id: typography_captions-016
+  question: "Are captions on screen during speech pauses, or do they clear when nobody is speaking?"
+  choices: [clear-in-pauses, hold-through-pauses, mixed]
+  why: "Becomes a caption gap rule."
+  how: "Check frames inside speech gaps over 0.5 s (speech_segments) for caption text."
+  evidence: ["evidence.audio.speech_segments", "frames: F1 inside gaps"]
+  ir_path: "/typography/captions/gap_behaviour"
+  type: enum
+  challenge: "Check at least 4 gaps."
+
+- id: typography_captions-017
+  question: "How are captions aligned horizontally, and what is their maximum width as a fraction of the frame?"
+  why: "Fills alignment and max width."
+  how: "evidence.text_regions[] bbox x and width for caption regions; report alignment and max width ratio."
+  evidence: ["evidence.text_regions[].bbox"]
+  ir_path: "/typography/captions/max_width_ratio"
+  type: object
+  challenge: "Left-aligned and centred look alike for one-line captions; check multi-line cards."
+
+- id: typography_captions-018
+  question: "What font class and weight does the title use, and is it the same family as captions?"
+  why: "Fills title font class."
+  how: "Compare enlarged F3 crops of title and captions."
+  evidence: ["frames: F3 title and caption crops"]
+  ir_path: "/typography/title/font_class"
+  type: object
+  challenge: "Same weight but different family is a common confusion; compare 'a', 'g', 'R'."
+
+- id: typography_captions-019
+  question: "What colour is title text across title appearances?"
+  why: "Fills title colour."
+  how: "F9 inside title strokes in each title appearance."
+  evidence: ["frames: F9"]
+  ir_path: "/typography/title/color"
+  type: color
+  challenge: "Report the spread over appearances; one sample is not enough."
+
+- id: typography_captions-020
+  question: "What case and letter spacing does the title use?"
+  why: "Fills title case and tracking."
+  how: "F3 crops; tracking judged from gap between letters relative to stem width."
+  evidence: ["frames: F3"]
+  ir_path: "/typography/title/case"
+  type: object
+  challenge: "Give measured gap/stem values."
+
+- id: typography_captions-021
+  question: "Where does the title sit when it appears (y centre ratio, alignment), across all title appearances?"
+  why: "Fills title placement beyond the first frame."
+  how: "evidence.text_regions[] for the title role."
+  evidence: ["evidence.text_regions[]"]
+  ir_path: "/typography/title/y_center_ratio"
+  type: ratio
+  challenge: "Compare with the hook lens answer for the first frame; differences must be explained."
+
+- id: typography_captions-022
+  question: "How are item labels styled (font class, weight, colour, size ratio, backing, position)?"
+  why: "Fills typography.labels."
+  how: "F3 and F9 on labels in 3 items; evidence.text_regions[] for position."
+  evidence: ["frames: F3", "frames: F9", "evidence.text_regions[]"]
+  ir_path: "/typography/labels/style"
+  type: object
+  challenge: "All fields must be consistent across the 3 items or reported as varying."
+
+- id: typography_captions-023
+  question: "How large are key numbers compared with caption text (height ratio)?"
+  why: "Fills the number size ratio for reveals."
+  how: "Number glyph height / caption cap height on F3 crops."
+  evidence: ["frames: F3"]
+  ir_path: "/typography/labels/number_size_ratio"
+  type: number
+  challenge: "Measure at the number's settled size, not during its entrance animation."
+
+- id: typography_captions-024
+  question: "What are the minimum text margins from the frame edges (fraction of width and height)?"
+  why: "Fills safe margins for text."
+  how: "Min of bbox distances to each edge over evidence.text_regions[]."
+  evidence: ["evidence.text_regions[].bbox"]
+  ir_path: "/typography/captions/margins"
+  type: object
+  challenge: "Exclude watermark regions; they are not format text."
+
+- id: typography_captions-025
+  question: "How often does text overlap faces or the main subject?"
+  why: "Becomes a placement constraint or confirms text-over-subject style."
+  how: "For 10 frames with text and a subject, count overlaps."
+  evidence: ["frames: F1 samples", "evidence.text_regions[]"]
+  ir_path: "/typography/captions/overlaps_subject"
+  type: ratio
+  challenge: "Report n; do not identify faces."
+
+- id: typography_captions-026
+  question: "Are emoji or icons used in captions or labels?"
+  why: "Becomes an emoji rule."
+  how: "F3 crops of captions and labels."
+  evidence: ["frames: F3"]
+  ir_path: "/typography/captions/emoji"
+  type: boolean
+  challenge: "Check 6 or more cards."
+
+- id: typography_captions-027
+  question: "How is punctuation handled in captions (kept, stripped, only question marks)?"
+  choices: [kept, stripped, partial]
+  why: "Becomes a caption text cleaning rule."
+  how: "Inspect F3 crops of cards at sentence ends."
+  evidence: ["frames: F3"]
+  ir_path: "/typography/captions/punctuation"
+  type: enum
+  challenge: "Check at least 3 sentence-final cards."
+
+- id: typography_captions-028
+  question: "What is the maximum number of characters per caption line, and are lines balanced in length?"
+  why: "Becomes the line-breaking rule."
+  how: "Count characters per line on F3 crops of the 5 longest cards."
+  evidence: ["frames: F3"]
+  ir_path: "/typography/captions/max_chars_per_line"
+  type: integer
+  challenge: "Report counts per card."
+
+- id: typography_captions-029
+  question: "What is the approximate contrast ratio between caption text and its immediate backing?"
+  why: "Sets a minimum contrast for generated captions."
+  how: "WCAG ratio from F9 samples of text fill and backing (or background next to the stroke)."
+  evidence: ["frames: F9"]
+  ir_path: "/typography/captions/contrast_ratio"
+  type: number
+  challenge: "Report the worst of 3 samples over different backgrounds."
+
+- id: typography_captions-030
+  question: "How many distinct text styles appear in the whole video (title, caption, label, number, source line, CTA)?"
+  why: "Bounds the style count of the type system."
+  how: "Group F3 crops of all text roles by font class, weight, colour and size."
+  evidence: ["frames: F3"]
+  ir_path: "/typography/evidence"
+  type: integer
+  challenge: "Differences only in size count as one style."
+
+- id: typography_captions-031
+  question: "Is letter spacing tight, normal or wide in captions?"
+  choices: [tight, normal, wide]
+  why: "Fills tracking."
+  how: "Gap between letters relative to stem width on F3 crops; tight below 0.5, wide above 1.2."
+  evidence: ["frames: F3"]
+  ir_path: "/typography/captions/tracking"
+  type: enum
+  challenge: "Report measured ratios."
+
+- id: typography_captions-032
+  question: "Do captions stay clear of the bottom 20% and the right-hand 15% of the frame where vertical-video apps often draw controls?"
+  why: "Becomes a placement constraint; the exact zones vary by app and must be confirmed per platform."
+  how: "Check caption bboxes in evidence.text_regions[] against those bands; read evidence.safe_area.violations for the template used."
+  evidence: ["evidence.text_regions[]", "evidence.safe_area.violations"]
+  ir_path: "/typography/captions/safe_area_ok"
+  type: boolean
+  challenge: "Name the safe-area template the probe used; percentages are a working assumption, not a platform specification."
+
+- id: typography_captions-033
+  question: "Are captions burned into the picture, supplied as a separate subtitle track, or absent?"
+  choices: [burned-in, subtitle-track, both, none]
+  why: "Tells the pipeline which caption source to emit."
+  how: "A7 stream list for subtitle streams; F1 frames for burned-in text; evidence.captions[] source as reported by video_re_caption_track."
+  evidence: ["A7 streams", "frames: F1", "evidence.tools"]
+  ir_path: "/typography/captions/source"
+  type: enum
+  challenge: "evidence.captions[] may come from transcription; it proves speech, not on-screen captions."
+
+- id: typography_captions-034
+  question: "What caption style parameters should a new video set (font class, colours, highlight, max words, position)?"
+  why: "Feeds the parameteriser."
+  how: "Collect answers 001-014 into typed parameters with observed defaults."
+  evidence: ["typography answers"]
+  ir_path: "/parameters/-"
+  type: list
+  challenge: "Each parameter needs derived_from."
+
+- id: typography_captions-035
+  question: "Write the caption chunking and timing rule (max words, break points, minimum hold, sync source)."
+  why: "Gives the compiler a procedural caption plan."
+  how: "From 003, 011, 015 and 028, for example 'cards of at most N words, break at punctuation, hold at least X ms, time from word timestamps, never time-stretch speech'."
+  evidence: ["typography answers"]
+  ir_path: "/generation_rules/-"
+  type: rule
+  challenge: "Apply the rule to 3 observed captions; the predicted card breaks should match at least 2."
+
+- id: typography_captions-036
+  question: "What is the largest share of the frame area covered by text at any moment?"
+  why: "Becomes a text density limit."
+  how: "Max over t of sum(area_ratio) from evidence.text_regions[] grouped by t_s."
+  evidence: ["evidence.text_regions[].area_ratio"]
+  ir_path: "/typography/captions/max_area_ratio"
+  type: ratio
+  challenge: "Backing panels may be included in bboxes; state whether they were."

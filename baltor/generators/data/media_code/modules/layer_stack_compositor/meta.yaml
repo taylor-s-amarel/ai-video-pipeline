@@ -1,0 +1,8 @@
+title: Layer-stack compositor (ffmpeg)
+summary: Turns a list of layers into one ffmpeg filter_complex with the 0.98 opacity cap enforced, positioned normal overlays, RGB-correct blend modes (screen, multiply, overlay...) and time windows.
+subkind: layer-stack
+domain: video
+tags: [video, ffmpeg, compositing, layers, blend-modes, opacity]
+step_kinds: [build, render]
+depends_on: [ffmpeg]
+references: ["https://ffmpeg.org/ffmpeg-filters.html#blend-1"]

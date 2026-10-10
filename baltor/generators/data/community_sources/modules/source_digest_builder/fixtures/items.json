@@ -1,0 +1,194 @@
+{
+  "items": [
+    {
+      "id": "id1",
+      "guid": "",
+      "title": "Godot 4.7.2 stable released",
+      "url": "https://github.com/godotengine/godot/releases/tag/4.7.2-stable",
+      "published": "2026-10-08T12:00:00Z",
+      "updated": null,
+      "authors": [],
+      "summary": "",
+      "tags": [
+        "godot"
+      ],
+      "enclosures": [],
+      "source": {
+        "feed_url": "https://github.com/godotengine/godot/releases.atom",
+        "feed_title": "Release notes from godot",
+        "format": "atom"
+      },
+      "also_in": []
+    },
+    {
+      "id": "id2",
+      "guid": "",
+      "title": "Tile map layers in Godot 4.7 are great",
+      "url": "https://www.reddit.com/r/godot/comments/a1/",
+      "published": "2026-10-09T09:00:00Z",
+      "updated": null,
+      "authors": [],
+      "summary": "",
+      "tags": [],
+      "enclosures": [],
+      "source": {
+        "feed_url": "https://www.reddit.com/r/godot/.rss",
+        "feed_title": "r/godot",
+        "format": "atom"
+      },
+      "also_in": []
+    },
+    {
+      "id": "id3",
+      "guid": "",
+      "title": "Show HN: Gaussian splatting viewer for Godot",
+      "url": "https://news.example.com/item?id=1",
+      "published": "2026-10-09T15:00:00Z",
+      "updated": null,
+      "authors": [],
+      "summary": "",
+      "tags": [],
+      "enclosures": [],
+      "source": {
+        "feed_url": "https://hnrss.org/newest?q=godot+OR+blender",
+        "feed_title": "Hacker News: godot OR blender",
+        "format": "atom"
+      },
+      "also_in": []
+    },
+    {
+      "id": "id4",
+      "guid": "",
+      "title": "Gaussian splatting in Blender 5.2 add-on",
+      "url": "https://www.reddit.com/r/blender/comments/b2/",
+      "published": "2026-10-07T10:00:00Z",
+      "updated": null,
+      "authors": [],
+      "summary": "",
+      "tags": [],
+      "enclosures": [],
+      "source": {
+        "feed_url": "https://www.reddit.com/r/blender/.rss",
+        "feed_title": "r/blender",
+        "format": "atom"
+      },
+      "also_in": []
+    },
+    {
+      "id": "id5",
+      "guid": "",
+      "title": "Claude Code hooks for Godot projects",
+      "url": "https://www.reddit.com/r/ClaudeCode/comments/c3/",
+      "published": "2026-10-06T20:00:00Z",
+      "updated": null,
+      "authors": [],
+      "summary": "Using PreToolUse hooks to run headless Godot tests",
+      "tags": [],
+      "enclosures": [],
+      "source": {
+        "feed_url": "https://www.reddit.com/r/ClaudeCode/.rss",
+        "feed_title": "r/ClaudeCode",
+        "format": "atom"
+      },
+      "also_in": []
+    },
+    {
+      "id": "id6",
+      "guid": "",
+      "title": "Unity pricing drama again",
+      "url": "https://www.reddit.com/r/godot/comments/d4/",
+      "published": "2026-10-08T08:00:00Z",
+      "updated": null,
+      "authors": [],
+      "summary": "Off-topic engine politics",
+      "tags": [],
+      "enclosures": [],
+      "source": {
+        "feed_url": "https://www.reddit.com/r/godot/.rss",
+        "feed_title": "r/godot",
+        "format": "atom"
+      },
+      "also_in": []
+    },
+    {
+      "id": "id7",
+      "guid": "",
+      "title": "Old news: Godot 4.6 released",
+      "url": "https://github.com/godotengine/godot/releases/tag/4.6-stable",
+      "published": "2026-09-25T12:00:00Z",
+      "updated": null,
+      "authors": [],
+      "summary": "",
+      "tags": [
+        "godot"
+      ],
+      "enclosures": [],
+      "source": {
+        "feed_url": "https://github.com/godotengine/godot/releases.atom",
+        "feed_title": "Release notes from godot",
+        "format": "atom"
+      },
+      "also_in": []
+    },
+    {
+      "id": "id8",
+      "guid": "",
+      "title": "Gaussian splatting tutorial",
+      "url": "https://www.reddit.com/r/blender/comments/e5/",
+      "published": "2026-10-05T12:00:00Z",
+      "updated": null,
+      "authors": [],
+      "summary": "",
+      "tags": [],
+      "enclosures": [],
+      "source": {
+        "feed_url": "https://www.reddit.com/r/blender/.rss",
+        "feed_title": "r/blender",
+        "format": "atom"
+      },
+      "also_in": []
+    },
+    {
+      "id": "id9",
+      "guid": "",
+      "title": "Blender 5.2 geometry nodes tips",
+      "url": "https://www.reddit.com/r/blender/comments/f6/",
+      "published": "2026-09-28T12:00:00Z",
+      "updated": null,
+      "authors": [],
+      "summary": "",
+      "tags": [],
+      "enclosures": [],
+      "source": {
+        "feed_url": "https://www.reddit.com/r/blender/.rss",
+        "feed_title": "r/blender",
+        "format": "atom"
+      },
+      "also_in": []
+    },
+    {
+      "id": "id10",
+      "guid": "",
+      "title": "Undated post about Godot",
+      "url": "https://example.org/undated",
+      "published": null,
+      "updated": null,
+      "authors": [],
+      "summary": "",
+      "tags": [],
+      "enclosures": [],
+      "source": {
+        "feed_url": "https://hnrss.org/newest?q=godot+OR+blender",
+        "feed_title": "Hacker News: godot OR blender",
+        "format": "atom"
+      },
+      "also_in": []
+    }
+  ],
+  "errors": [
+    {
+      "feed_url": "https://example.org/broken.xml",
+      "error": "HTTP 404"
+    }
+  ]
+}

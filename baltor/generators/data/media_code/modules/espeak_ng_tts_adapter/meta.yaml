@@ -1,0 +1,10 @@
+title: espeak-ng TTS adapter
+summary: Runs espeak-ng without a shell (text on stdin, validated voice, speed, pitch, amplitude, optional SSML) as a dependable fallback voice, returning float32 samples.
+subkind: tts-engine
+domain: audio
+tags: [audio, tts, espeak-ng, fallback, narration, local]
+step_kinds: [render]
+effects:
+  side_effects: ["runs the espeak-ng binary as a subprocess"]
+depends_on: [espeak_ng]
+references: ["https://github.com/espeak-ng/espeak-ng"]

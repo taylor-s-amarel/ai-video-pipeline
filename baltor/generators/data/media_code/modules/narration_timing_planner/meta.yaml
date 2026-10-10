@@ -1,0 +1,6 @@
+title: Narration timing planner
+summary: Estimates narration length from words per minute and sentence pauses, solves the rate for a target length and tells you how many words to add or cut to land 60-90 s.
+subkind: voice-preset
+domain: audio
+tags: [audio, narration, wpm, planning, timing, script]
+step_kinds: [plan, write]

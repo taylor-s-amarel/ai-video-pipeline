@@ -1,0 +1,5 @@
+title: Word timing estimator
+summary: Estimates per-word times inside a timed segment from English syllable counts, number readings and punctuation pauses when no forced aligner is available.
+domain: captions
+tags: [captions, timing, syllables, alignment, estimation]
+step_kinds: [build, render]

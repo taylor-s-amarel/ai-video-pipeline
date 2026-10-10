@@ -1,0 +1,43 @@
+# Feeds built from a platform's documented URL pattern for hosts confirmed in search results on 2026-10-10.
+verified_on: "2026-10-10"
+
+arxiv:
+  collection: community-aggregators-forums
+  pattern: "https://rss.arxiv.org/rss/{cat}"
+  licence: "arXiv metadata; each paper has its own licence"
+  licence_url: "https://info.arxiv.org/help/rss.html"
+  notes: "URL pattern from arXiv's official RSS help page (info.arxiv.org/help/rss.html), found in search results: append the category to https://rss.arxiv.org/rss/ (or /atom/); combine categories with '+'. Feeds update daily around midnight US Eastern, with no weekend announcements."
+  cautions:
+    - "Review arXiv's Terms of Use for APIs before automated use; poll once a day after the announcement, not more."
+    - "Listings are preprints, not peer-reviewed; check versions and licences (many are arXiv's non-exclusive licence, not CC) before reusing figures."
+  categories:
+    - ["cs.AI", "Artificial Intelligence", "New AI papers: agents, planning, reasoning.", [ai, agents]]
+    - ["cs.CL", "Computation and Language", "Language-model and NLP papers.", [llm, nlp]]
+    - ["cs.LG", "Machine Learning", "Machine-learning methods; very high volume.", [ml]]
+    - ["cs.SE", "Software Engineering", "Papers on coding agents, program repair and code generation benchmarks.", [coding-agents, software-engineering]]
+    - ["cs.MA", "Multiagent Systems", "Multi-agent coordination and agent-system papers.", [agents, multi-agent]]
+    - ["cs.CR", "Cryptography and Security", "Security papers, including prompt injection and LLM security.", [security]]
+    - ["cs.GR", "Graphics", "Computer graphics: rendering, geometry, animation and 3D generation.", [graphics, 3d, animation]]
+    - ["cs.CV", "Computer Vision and Pattern Recognition", "Vision papers including video and 3D generation; very high volume.", [vision, video-generation]]
+    - ["cs.SD", "Sound", "Sound and music computing, including TTS and music generation.", [audio, tts, music]]
+    - ["eess.AS", "Audio and Speech Processing", "Speech synthesis, recognition and audio processing.", [audio, speech, tts]]
+    - ["cs.MM", "Multimedia", "Multimedia systems and video understanding.", [multimedia, video]]
+    - ["cs.HC", "Human-Computer Interaction", "HCI papers on interfaces, creators and human-AI interaction.", [hci]]
+
+discourse:
+  collection: community-aggregators-forums
+  pattern: "https://{host}/latest.rss"
+  licence: "Posts belong to their authors; forum terms apply"
+  notes: "Host runs Discourse (topic URLs of the form /t/<slug>/<id> appeared in search results). /latest.rss lists topics by latest reply; /top.rss, /hot.rss and /c/<slug>/<id>.rss also exist, per Discourse's 'Finding Discourse RSS feeds' guide on meta.discourse.org."
+  cautions:
+    - "Forum posts belong to their authors; link and summarise, do not republish."
+  forums:
+    - ["forum.godotengine.org", "Godot Forum", "Official Godot community forum: help threads, add-on announcements and engine discussion.", [godot]]
+    - ["blenderartists.org", "Blender Artists", "Long-running Blender community forum: add-ons, artwork and help.", [blender]]
+    - ["devtalk.blender.org", "Blender Developer Talk", "Blender developers' forum: feature design, module meetings and add-on API changes.", [blender, development]]
+    - ["discuss.huggingface.co", "Hugging Face Forums", "Hugging Face community forum: models, datasets, Spaces and libraries.", [huggingface]]
+    - ["community.openhab.org", "openHAB Community", "openHAB home-automation forum.", [home-automation]]
+    - ["discourse.threejs.org", "three.js Forum", "three.js community forum: web 3D questions and showcases.", [3d, web]]
+    - ["forum.gdevelop.io", "GDevelop Forum", "GDevelop no-code game engine forum.", [gamedev]]
+    - ["discourse.processing.org", "Processing Forum", "Processing and p5.js creative-coding forum.", [creative-coding]]
+    - ["meta.discourse.org", "Discourse Meta", "Discourse's own community: platform changes that affect every forum feed above.", [discourse, platform]]

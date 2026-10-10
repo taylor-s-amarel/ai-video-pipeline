@@ -1,0 +1,8 @@
+{
+  "handling": "remove",
+  "regions": [
+    { "bbox": [270, 12, 38, 22], "bbox_ratio": [0.8438, 0.0667, 0.1188, 0.1222], "area_ratio": 0.0145, "t_start_s": 0.0, "t_end_s": 31.0, "kind": "logo", "opacity_estimate": 1.3, "position": "top-right", "mean_color": "#1E1E5A", "edge_coherence": 0.97 }
+  ],
+  "windows_analysed": 14,
+  "windows_skipped_static": 1
+}

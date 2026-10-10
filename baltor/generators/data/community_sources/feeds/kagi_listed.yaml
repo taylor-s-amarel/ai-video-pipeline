@@ -1,0 +1,81 @@
+# Personal blogs whose feed URLs are listed in the Kagi Small Web index
+# (https://github.com/kagisearch/smallweb, smallweb.txt fetched from raw.githubusercontent.com on 2026-10-10).
+# The index admits English personal blogs with a post in the previous 12 months, no ads and no
+# LLM content automation (per its README, fetched the same day). The feeds themselves could not be
+# fetched from the research network (DNS blocked for these hosts), so verification is 'search-result'.
+# Entry: [collection, id, title, feed_url, summary, tags]
+# Only public professional writing is listed; the summary describes the site's subject, not the person.
+
+verified_on: "2026-10-10"
+verification: search-result
+licence: "All rights reserved by the author unless the site states otherwise"
+note: "Feed URL listed in the Kagi Small Web index (kagisearch/smallweb smallweb.txt, fetched 2026-10-10); the feed itself was not fetched from the research network."
+common_cautions:
+  - "Personal writing: link and quote briefly with attribution; do not republish posts or feed full text into a public product."
+common_tags: [blog, personal-site, rss]
+
+entries:
+  # AI engineering and agent practitioners
+  - [community-ai-oss-voices, simon-willison-til, "Simon Willison: TIL", "https://til.simonwillison.net/tils/feed.atom", "Short 'today I learned' notes on tools, SQLite, Python and LLM utilities; frequent and practical.", [llm, tools]]
+  - [community-ai-oss-voices, eugene-yan, "Eugene Yan", "https://eugeneyan.com/rss/", "Applied machine learning and LLM systems: evaluation, recommendation and production patterns.", [llm, evals]]
+  - [community-ai-oss-voices, chip-huyen, "Chip Huyen", "https://huyenchip.com/feed.xml", "Machine learning systems and AI engineering essays.", [ml-systems, ai-engineering]]
+  - [community-ai-oss-voices, hamel-husain, "Hamel Husain", "https://hamel.dev/index.xml", "LLM evaluation, error analysis and fine-tuning practice.", [evals, llm]]
+  - [community-ai-oss-voices, lilian-weng, "Lilian Weng: Lil'Log", "https://lilianweng.github.io/index.xml", "Long-form explainers of machine learning research topics such as agents, hallucination and reward hacking.", [research, explainers]]
+  - [community-ai-oss-voices, andrej-karpathy-bearblog, "Andrej Karpathy (bearblog)", "https://karpathy.bearblog.dev/feed/", "Andrej Karpathy's current blog on neural networks, LLMs and software.", [llm, education]]
+  - [community-ai-oss-voices, sebastian-raschka, "Sebastian Raschka", "https://sebastianraschka.com/rss_feed.xml", "LLM architectures, training and from-scratch implementations.", [llm, research]]
+  - [community-ai-oss-voices, armin-ronacher, "Armin Ronacher", "https://lucumr.pocoo.org/feed.atom", "Essays on Python, Rust and working with coding agents in practice.", [coding-agents, python]]
+  - [community-ai-oss-voices, mitchell-hashimoto, "Mitchell Hashimoto", "https://mitchellh.com/feed.xml", "Notes on building software, terminals and AI-assisted development.", [coding-agents, tools]]
+  - [community-ai-oss-voices, mario-zechner, "Mario Zechner", "https://mariozechner.at/rss.xml", "Writing by the author of the Pi coding agent (a Baltor target harness), including harness and tool design.", [pi, coding-agents]]
+  - [community-ai-oss-voices, thorsten-ball, "Thorsten Ball", "https://thorstenball.com/atom.xml", "Programming and agentic coding essays.", [coding-agents]]
+  - [community-ai-oss-voices, drew-breunig, "Drew Breunig", "https://www.dbreunig.com/feed.xml", "Context engineering, LLM products and data.", [context-engineering, llm]]
+  - [community-ai-oss-voices, harper-reed, "Harper Reed", "https://harper.blog/index.xml", "Hands-on posts about LLM code-generation workflows.", [coding-agents]]
+  - [community-ai-oss-voices, geoffrey-litt, "Geoffrey Litt", "https://www.geoffreylitt.com/feed.xml", "Malleable software and end-user programming with AI.", [hci, ai]]
+  - [community-ai-oss-voices, swyx, "swyx", "https://swyx.io/rss.xml", "AI engineering and developer-tools essays.", [ai-engineering]]
+  - [community-ai-oss-voices, addy-osmani, "Addy Osmani", "https://addyosmani.com/rss.xml", "AI-assisted software engineering and web performance.", [coding-agents, web]]
+  - [community-ai-oss-voices, martin-fowler, "Martin Fowler", "https://martinfowler.com/feed.atom", "Software design articles, including a series on generative AI in software delivery.", [software-design]]
+  - [community-ai-oss-voices, zvi-mowshowitz, "Zvi Mowshowitz: Don't Worry About the Vase", "https://thezvi.wordpress.com/feed/", "Very long weekly AI news roundups with commentary.", [ai-news]]
+  - [community-ai-oss-voices, jason-liu, "Jason Liu", "https://jxnl.co/feed_rss_created.xml", "RAG, structured outputs and consulting lessons for LLM products.", [rag, llm]]
+  - [community-ai-oss-voices, embrace-the-red, "Embrace The Red (Johann Rehberger)", "https://embracethered.com/blog/index.xml", "Security research on LLM applications and coding agents, including prompt injection and data exfiltration.", [security, prompt-injection]]
+  # Open-source maintainers and systems writers
+  - [community-ai-oss-voices, julia-evans, "Julia Evans", "https://jvns.ca/atom.xml", "Clear explanations of systems, networking and command-line tools.", [explainers, tools]]
+  - [community-ai-oss-voices, jeff-geerling, "Jeff Geerling", "https://www.jeffgeerling.com/blog.xml", "Raspberry Pi, homelab and open-source maintenance.", [hardware, open-source]]
+  - [community-ai-oss-voices, daniel-stenberg, "Daniel Stenberg", "https://daniel.haxx.se/blog/feed/", "The curl maintainer's blog on curl development and open-source maintenance.", [open-source, curl]]
+  - [community-ai-oss-voices, antirez, "antirez", "https://antirez.com/rss", "Programming essays from the creator of Redis, including LLM-assisted coding.", [programming]]
+  - [community-ai-oss-voices, hynek-schlawack, "Hynek Schlawack", "https://hynek.me/index.xml", "Python packaging, tooling and maintenance.", [python, open-source]]
+  - [community-ai-oss-voices, drew-devault, "Drew DeVault", "https://drewdevault.com/blog/index.xml", "Free software and its sustainability.", [open-source]]
+  - [community-ai-oss-voices, matklad, "matklad", "https://matklad.github.io/feed.xml", "Programming-language tooling and systems engineering.", [rust, zig]]
+  - [community-ai-oss-voices, fasterthanlime, "fasterthanli.me", "https://fasterthanli.me/index.xml", "Long-form Rust and systems deep dives.", [rust]]
+  - [community-ai-oss-voices, xe-iaso, "Xe Iaso", "https://xeiaso.net/blog.rss", "Infrastructure, self-hosting and writing about AI.", [infrastructure]]
+  - [community-ai-oss-voices, brendan-gregg, "Brendan Gregg", "https://www.brendangregg.com/blog/rss.xml", "Systems performance engineering.", [performance]]
+  - [community-ai-oss-voices, dan-luu, "Dan Luu", "https://danluu.com/atom.xml", "Essays on engineering practice and data.", [engineering]]
+  # Game development, graphics, 3D, 2D and animation
+  - [community-gamedev-3d-educators, catlike-coding-godot, "Catlike Coding: Godot tutorials", "https://catlikecoding.com/godot/feed.atom", "In-depth Godot tutorial series from Catlike Coding.", [godot, tutorials]]
+  - [community-gamedev-3d-educators, red-blob-games, "Red Blob Games", "https://www.redblobgames.com/blog/posts.xml", "Interactive explanations of game algorithms: grids, pathfinding, map generation.", [algorithms, procedural]]
+  - [community-gamedev-3d-educators, aras-p, "Aras Pranckevicius", "https://aras-p.info/atom.xml", "Graphics and performance writing, including work on Blender.", [graphics, blender]]
+  - [community-gamedev-3d-educators, deepnight, "Deepnight", "https://deepnight.net/feed/", "Indie game developer's posts on game feel, tools and design.", [game-design]]
+  - [community-gamedev-3d-educators, daniel-ilett, "Daniel Ilett", "https://danielilett.com/feed.xml", "Shader and visual-effects tutorials for game engines.", [shaders, vfx]]
+  - [community-gamedev-3d-educators, slynyrd, "Slynyrd: pixel art tutorials", "https://www.slynyrd.com/blog?format=rss", "Pixel art tutorials and palettes.", [pixel-art, tutorials]]
+  - [community-gamedev-3d-educators, the-orange-duck, "The Orange Duck (Daniel Holden)", "https://theorangeduck.com/feeds/pages", "Character animation and motion-matching research and code.", [animation, research]]
+  - [community-gamedev-3d-educators, stuff-with-stuff, "journal.stuffwithstuff.com (Robert Nystrom)", "https://journal.stuffwithstuff.com/atom.xml", "Programming-language and game-programming essays by the author of Game Programming Patterns.", [game-programming]]
+  - [community-gamedev-3d-educators, bartosz-ciechanowski, "Bartosz Ciechanowski", "https://ciechanow.ski/atom.xml", "Interactive visual explainers of mechanical and physical systems; a reference for explainer-video visuals.", [explainers, interactive]]
+  - [community-gamedev-3d-educators, acko-net, "Acko.net (Steven Wittens)", "https://acko.net/atom.xml", "Graphics, math visualisation and GPU programming.", [graphics, math]]
+  - [community-gamedev-3d-educators, josh-comeau, "Josh W. Comeau", "https://www.joshwcomeau.com/rss.xml", "Interactive tutorials on CSS, animation and web motion.", [animation, web]]
+  - [community-gamedev-3d-educators, lexaloffle-bbs, "Lexaloffle BBS (PICO-8)", "https://www.lexaloffle.com/bbs/feed.php", "Forum feed of the PICO-8 fantasy console community: small games, carts and techniques.", [pico-8, retro]]
+  - [community-gamedev-3d-educators, jendrik-illner, "Jendrik Illner: Graphics Programming weekly", "https://www.jendrikillner.com/index.xml", "Weekly curated links on graphics programming.", [graphics, digest]]
+  - [community-gamedev-3d-educators, fabien-sanglard, "Fabien Sanglard", "https://fabiensanglard.net/rss.xml", "Deep dives into game engines and hardware history.", [game-engines, history]]
+  - [community-gamedev-3d-educators, zeux, "zeux.io (Arseny Kapoulkine)", "https://zeux.io/feed/", "Mesh optimisation and GPU performance; author of meshoptimizer.", [mesh, graphics]]
+  - [community-gamedev-3d-educators, matt-keeter, "Matt Keeter", "https://www.mattkeeter.com/atom.xml", "Implicit-surface CAD, rendering and tools.", [cad, graphics]]
+  - [community-gamedev-3d-educators, tom-looman, "Tom Looman", "https://tomlooman.com/feed.xml", "Unreal Engine C++ and game-programming tutorials.", [unreal, tutorials]]
+  - [community-gamedev-3d-educators, lisyarus, "lisyarus blog", "https://lisyarus.github.io/blog/feed.xml", "Graphics and game-development devlogs and explanations.", [graphics, devlog]]
+  - [community-gamedev-3d-educators, interplay-of-light, "Interplay of Light", "https://interplayoflight.wordpress.com/feed/", "Real-time rendering techniques.", [rendering]]
+  - [community-gamedev-3d-educators, garry-newman, "Garry Newman", "https://garry.net/posts/rss", "Posts from the creator of Garry's Mod on game development.", [game-development]]
+  - [community-gamedev-3d-educators, ask-a-game-dev, "Ask a Game Dev", "https://askagamedev.tumblr.com/rss", "Q&A about how the game industry and game development work.", [industry]]
+  - [community-gamedev-3d-educators, blendo-games, "Blendo Games news", "https://blendogames.com/news/index.xml", "News from a one-person indie studio.", [indie]]
+  - [community-gamedev-3d-educators, cyriak-animation, "Cyriak: animation", "http://cyriak.co.uk/animation/feed/", "Surreal animation work by an independent animator.", [animation]]
+  # Marketing, strategy and security writers
+  - [community-creator-marketing-security-voices, seth-godin, "Seth Godin", "https://seths.blog/feed/atom/", "Short daily posts on marketing and creative work.", [marketing]]
+  - [community-creator-marketing-security-voices, benedict-evans, "Benedict Evans", "https://www.ben-evans.com/benedictevans?format=rss", "Technology strategy essays and presentations.", [strategy]]
+  - [community-creator-marketing-security-voices, schneier, "Schneier on Security", "https://www.schneier.com/feed/atom/", "Security and policy commentary.", [security]]
+  - [community-creator-marketing-security-voices, troy-hunt, "Troy Hunt", "https://www.troyhunt.com/rss/", "Data breaches and web security from the creator of Have I Been Pwned.", [security, breaches]]
+  - [community-creator-marketing-security-voices, filippo-valsorda, "Filippo Valsorda", "https://words.filippo.io/rss/", "Cryptography engineering and Go security.", [security, cryptography]]
+  - [community-creator-marketing-security-voices, matthew-green, "Matthew Green: A Few Thoughts on Cryptographic Engineering", "https://blog.cryptographyengineering.com/feed/", "Applied cryptography commentary.", [security, cryptography]]

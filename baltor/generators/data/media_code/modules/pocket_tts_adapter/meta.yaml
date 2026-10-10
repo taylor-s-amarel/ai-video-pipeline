@@ -1,0 +1,13 @@
+title: Pocket TTS adapter
+summary: Adapter for Kyutai Pocket TTS (lazy import, model loaded once, voice states cached) returning mono float32 audio; lists the English built-in voice names.
+subkind: tts-engine
+domain: audio
+tags: [audio, tts, pocket-tts, kyutai, narration, local]
+step_kinds: [render]
+effects:
+  filesystem: write
+  hosts: [huggingface.co]
+  side_effects: ["pocket-tts may download model weights and voices from the Hugging Face Hub on first use and cache them"]
+depends_on: [pocket_tts]
+references: ["https://github.com/kyutai-labs/pocket-tts"]
+description: "Pocket TTS code is MIT per its repository (checked 2026-10-10); the README links model and voice licences separately and they were not verified here. Check them before publishing."

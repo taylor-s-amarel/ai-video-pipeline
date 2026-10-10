@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/video-re-contract-static-overlay-regions",
+  "title": "Static overlay regions payload",
+  "description": "Payload of video_re_detect_static_overlay_regions inside the detection envelope: regions whose edges stay put while the picture moves (logos, watermarks, frames, UI). Detection only: consumers must never use it to remove, mask or inpaint a logo or watermark. Pixel values refer to the analysed frame (envelope params analysis_width/analysis_height); bbox_ratio is resolution independent.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["handling", "regions", "windows_analysed", "windows_skipped_static"],
+  "$defs": {
+    "bbox": { "type": "array", "items": { "type": "number", "minimum": 0 }, "minItems": 4, "maxItems": 4, "description": "x, y, w, h in analysed-frame pixels" },
+    "ratio_box": { "type": "array", "items": { "type": "number", "minimum": 0, "maximum": 1 }, "minItems": 4, "maxItems": 4, "description": "x, y, w, h divided by frame width/height" },
+    "hex": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" }
+  },
+  "properties": {
+    "handling": { "const": "detect-only", "description": "Fixed policy marker: the regions are reported, never removed." },
+    "regions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["bbox", "bbox_ratio", "area_ratio", "t_start_s", "t_end_s", "kind", "opacity_estimate", "position", "mean_color", "edge_coherence"],
+        "properties": {
+          "bbox": { "$ref": "#/$defs/bbox" },
+          "bbox_ratio": { "$ref": "#/$defs/ratio_box" },
+          "area_ratio": { "type": "number", "minimum": 0, "maximum": 1 },
+          "t_start_s": { "type": "number", "minimum": 0 },
+          "t_end_s": { "type": "number", "minimum": 0 },
+          "kind": { "enum": ["opaque", "translucent"], "description": "opaque: the region's own pixels do not change; translucent: moving content shows through (alpha-blended watermark)" },
+          "opacity_estimate": { "type": "number", "minimum": 0, "maximum": 1, "description": "1 - (low-quantile temporal std inside / median std of moving pixels); 1.0 for opaque" },
+          "position": { "enum": ["top-left", "top", "top-right", "left", "center", "right", "bottom-left", "bottom", "bottom-right"] },
+          "mean_color": { "$ref": "#/$defs/hex", "description": "median colour of the region box over the window (box includes some background)" },
+          "edge_coherence": { "type": "number", "minimum": 0, "maximum": 1, "description": "mean |time-averaged gradient| / mean |gradient| over the region's structure pixels" }
+        }
+      }
+    },
+    "windows_analysed": { "type": "integer", "minimum": 0 },
+    "windows_skipped_static": { "type": "integer", "minimum": 0, "description": "windows where too little of the picture moved to separate overlays from content" }
+  }
+}

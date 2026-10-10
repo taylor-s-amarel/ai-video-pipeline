@@ -1,0 +1,23 @@
+{
+  "spec": "baltor.showcase-fairness-rules/v1",
+  "min_trials_per_arm": 3,
+  "preferred_trials_per_arm": 5,
+  "alpha": 0.05,
+  "ci_level": 0.95,
+  "min_bootstrap_resamples": 2000,
+  "default_bootstrap_resamples": 10000,
+  "cliffs_delta_thresholds": {"negligible": 0.147, "small": 0.33, "medium": 0.474},
+  "max_prompt_addendum_chars": 1200,
+  "identical_arm_fields": ["harness", "harness_version", "model", "allowed_tools", "extra_args", "isolation", "command", "transcript_format"],
+  "baseline_catalogue_mode": "none",
+  "catalogue_markers": ["baltor_catalog.py", "intelligence_search", "provisioning_read", "mcp__baltor", "baltor.ai/mcp",
+                         ".baltor/", "step.lock.json", "showcase_catalogue_gateway", "/baltor/components/", "/baltor/catalog/"],
+  "min_matching_file_bytes": 200,
+  "failure_statuses": ["not-run"],
+  "over_budget_statuses": ["timeout", "budget-exceeded"],
+  "banned_claim_phrases": ["prove", "proves", "proven", "guarantee", "guarantees", "always", "never fails", "best-in-class",
+                            "dramatic", "dramatically", "revolutionary", "game-changing", "10x", "100x", "massively"],
+  "conflict_of_interest": "The Baltor components available to the treatment arm, the tasks, the evaluators and this report were all produced by the same team. Treat results as vendor-run evidence until an independent party reproduces them.",
+  "judge_evidence_note": "Metrics scored by an LLM judge (even blind, order-randomised and rubric-based) are weaker evidence than deterministic tests: judges have position, length and style biases, and anonymisation cannot remove every trace of an arm.",
+  "small_n_note": "With 3 trials per arm an exact two-sided permutation test cannot reach p < 0.05 (smallest possible p is 0.10); such comparisons are reported as insufficient data. Use 5 or more trials per arm."
+}

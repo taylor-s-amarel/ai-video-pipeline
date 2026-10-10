@@ -1,0 +1,7 @@
+title: Narration assembly planner
+summary: Places TTS chunks on one timeline with sentence, paragraph and section pauses, shifts chunk word times to global caption times and builds the ffmpeg adelay+amix command.
+subkind: voice-preset
+domain: audio
+tags: [audio, tts, narration, timeline, ffmpeg, captions]
+step_kinds: [build, render]
+depends_on: [ffmpeg]

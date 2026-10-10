@@ -1,27 +1,17 @@
 {
   "spec": "baltor.release/v1",
-  "release": "d3a2ca9a86f4",
-  "previous": null,
+  "release": "3ae8b538466f",
+  "previous": "d3a2ca9a86f4",
   "created": "2026-10-10",
   "packages": 12,
   "files": 36,
   "distinct_files": 35,
-  "bytes": 46178,
-  "added": [
-    "baltor_public_good_marketplace",
-    "baltor_service_mcp",
-    "block_staged_secrets",
-    "claude_code_media_project_settings",
-    "mp4_qa_probe",
-    "render_short",
+  "bytes": 55024,
+  "added": [],
+  "changed": [
     "short_video_house_style",
-    "short_video_rules_reviewer",
-    "short_video_spec",
-    "short_video_standing_rules",
-    "short_video_studio_plugin",
-    "video_render_step_instructions"
+    "short_video_standing_rules"
   ],
-  "changed": [],
   "withdrawn": [],
   "withdrawn_all": [],
   "by_kind": {

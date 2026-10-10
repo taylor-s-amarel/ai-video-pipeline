@@ -259,14 +259,14 @@ items:
   - id: kenney-pixel-ui-pack
     title: "Kenney Pixel UI Pack"
     url: https://kenney.nl/assets/pixel-ui-pack
-    summary: "Pixel-art panels, buttons and bars for retro HUDs and pixel caption boxes, CC0."
+    summary: "Pixel-art UI pack for retro HUDs and pixel caption boxes, CC0."
     licence: CC0-1.0
     licence_url: https://kenney.nl/support
     tags: [ui, pixel, kenney]
   - id: kenney-pattern-pack-pixel
     title: "Kenney Pattern Pack Pixel"
     url: https://kenney.nl/assets/pattern-pack-pixel
-    summary: "Tileable pixel patterns for scrolling backgrounds and texture layers, CC0."
+    summary: "Pixel pattern pack for scrolling backgrounds and texture layers, CC0."
     licence: CC0-1.0
     licence_url: https://kenney.nl/support
     tags: [patterns, background, pixel]

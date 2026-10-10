@@ -491,7 +491,8 @@ def grid_2x2_filter(grid: dict, width: int, height: int, fps: int = 30,
     """Overlay four moving sources as a feathered 2x2 grid on ``[base_label]``.
 
     ``grid`` follows the grid-system contract (gutter_px, margin_px, feather_px, corner_radius_px,
-    cells[].opacity, cells[].mirror, cells[].start_offset_s). Masks are rendered once and reused.
+    cells[].opacity, cells[].mirror, cells[].start_offset_s, cells[].reveal_delay_s). Masks are
+    rendered once and reused; a reveal delay fades that cell in over 0.4 s.
     """
     rects = grid_2x2_rects(width, height, grid.get("gutter_px", 24), grid.get("margin_px", 0))
     parts, label = [], base_label
@@ -507,7 +508,9 @@ def grid_2x2_filter(grid: dict, width: int, height: int, fps: int = 30,
                      f"fps={fps},format=yuva420p[s{i}]")
         parts.append(f"color=c=black:s={w}x{h}:r={fps}:d=1,trim=end_frame=1,format=gray,geq=lum='{mask}',"
                      f"loop=loop=-1:size=1:start=0,setpts=N/({fps}*TB)[m{i}]")
-        parts.append(f"[s{i}][m{i}]alphamerge[a{i}]")
+        reveal = float(cell.get("reveal_delay_s", 0) or 0)
+        fade = f",fade=t=in:st={reveal:g}:d=0.4:alpha=1" if reveal else ""
+        parts.append(f"[s{i}][m{i}]alphamerge{fade}[a{i}]")
         nxt = out_label if i == 3 else f"g{i}"
         parts.append(f"[{label}][a{i}]overlay=x={x}:y={y}:shortest=1[{nxt}]")
         label = nxt
@@ -692,21 +695,28 @@ def render_caption_preview(frame, words: Sequence[str], style: dict, keyword_ind
     img = frame.convert("RGB")
     ref_w = style.get("reference_size", [1080, 1920])[0]
     k = img.width / ref_w
-    size = max(8, int(round(style["font"]["size_px"] * k)))
-    font = _font(font_path, size)
-    draw = ImageDraw.Draw(img)
+    margins = margins or {"top": 0.08, "bottom": 0.12, "left": 0.04, "right": 0.04}
+    sx0, _, sx1, _ = safe_rect(img.width, img.height, margins)
+    max_w = min(sx1 - sx0, int(style["layout"].get("max_width_fraction", 1.0) * img.width))
     stroke = style.get("stroke", {})
     sw = int(round(stroke.get("width_px", 0) * k))
-    space = draw.textlength(" ", font=font)
-    widths = [draw.textlength(w, font=font) for w in words]
-    line_w = int(sum(widths) + space * (len(words) - 1)) + 2 * sw
-    asc, desc = font.getmetrics() if hasattr(font, "getmetrics") else (size, size // 4)
-    line_h = asc + desc + 2 * sw
     backing = style.get("backing", {})
     pad_y, pad_x = [int(round(p * k)) for p in backing.get("padding_px", [20, 32])]
+    size = max(8, int(round(style["font"]["size_px"] * k)))
+    min_size = max(8, int(round(style["font"].get("min_size_px", style["font"]["size_px"]) * k)))
+    draw = ImageDraw.Draw(img)
+    while True:  # shrink toward min_size_px until the line fits the safe width
+        font = _font(font_path, size)
+        space = draw.textlength(" ", font=font)
+        widths = [draw.textlength(w, font=font) for w in words]
+        line_w = int(sum(widths) + space * (len(words) - 1)) + 2 * sw
+        if line_w + 2 * pad_x <= max_w or size <= min_size:
+            break
+        size -= 1
+    asc, desc = font.getmetrics() if hasattr(font, "getmetrics") else (size, size // 4)
+    line_h = asc + desc + 2 * sw
     box_w, box_h = line_w + 2 * pad_x, line_h + 2 * pad_y
-    x, y = place_box(box_w, box_h, style["layout"]["center_y_fraction"], img.width, img.height,
-                     margins or {"top": 0.08, "bottom": 0.12, "left": 0.04, "right": 0.04})
+    x, y = place_box(box_w, box_h, style["layout"]["center_y_fraction"], img.width, img.height, margins)
     kind = backing.get("type", "none")
     if kind in ("frosted-glass", "solid", "pill", "scrim"):
         blur = backing.get("blur_px", 0) * k if kind == "frosted-glass" else 0
@@ -728,7 +738,10 @@ def render_caption_preview(frame, words: Sequence[str], style: dict, keyword_ind
             scale = 1 + (peak - 1) * (math.sin(math.pi * u) if u < 1 else 0.0)
             if abs(scale - 1) > 1e-3:
                 wfont = _font(font_path, max(8, int(round(size * scale))))
-        draw.text((cx, y + pad_y + sw), word, font=wfont, fill=fill,
+        # scale about the word's own centre so neighbouring words do not move during the pop
+        ww = draw.textlength(word, font=wfont)
+        dy = (wfont.size - font.size) / 2 if hasattr(wfont, "size") and hasattr(font, "size") else 0
+        draw.text((cx + (w - ww) / 2, y + pad_y + sw - dy), word, font=wfont, fill=fill,
                   stroke_width=sw, stroke_fill=stroke.get("color", "#000000"))
         cx += w + space
     return img

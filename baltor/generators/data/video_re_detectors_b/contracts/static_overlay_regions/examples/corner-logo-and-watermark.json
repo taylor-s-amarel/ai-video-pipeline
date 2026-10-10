@@ -1,0 +1,9 @@
+{
+  "handling": "detect-only",
+  "regions": [
+    { "bbox": [270, 12, 38, 22], "bbox_ratio": [0.8438, 0.0667, 0.1188, 0.1222], "area_ratio": 0.0145, "t_start_s": 0.0, "t_end_s": 31.0, "kind": "opaque", "opacity_estimate": 1.0, "position": "top-right", "mean_color": "#1E1E5A", "edge_coherence": 0.97 },
+    { "bbox": [14, 152, 52, 16], "bbox_ratio": [0.0438, 0.8444, 0.1625, 0.0889], "area_ratio": 0.0144, "t_start_s": 2.0, "t_end_s": 31.0, "kind": "translucent", "opacity_estimate": 0.42, "position": "bottom-left", "mean_color": "#8C8A86", "edge_coherence": 0.71 }
+  ],
+  "windows_analysed": 14,
+  "windows_skipped_static": 1
+}

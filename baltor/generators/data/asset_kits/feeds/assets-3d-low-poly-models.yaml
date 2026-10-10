@@ -19,25 +19,25 @@ items:
   - id: kenney-platformer-kit
     title: "Kenney Platformer Kit (3D, 150 assets)"
     url: https://kenney.nl/assets/platformer-kit
-    summary: "150 chunky 3D platforming blocks, props and characters; pairs with Kenney's Godot 3D platformer starter kit."
+    summary: "150-asset 3D platformer kit, CC0; the same visual family as Kenney's Godot 3D platformer starter kit."
     licence_url: https://kenney.nl/support
     tags: [platformer, kenney, diorama]
   - id: kenney-prototype-kit
     title: "Kenney Prototype Kit (145 assets)"
     url: https://kenney.nl/assets/prototype-kit
-    summary: "145 grey-box shapes, doors, figures and arrows (with animation) for blocking out scenes before final art."
+    summary: "145-asset prototyping kit (includes animation) for blocking out scenes before final art."
     licence_url: https://kenney.nl/support
     tags: [prototype, greybox, kenney]
   - id: kenney-nature-kit
     title: "Kenney Nature Kit (330 files)"
     url: https://kenney.nl/assets/nature-kit
-    summary: "Trees, rocks, plants, cliffs, paths and campsite props (page lists 330 files, first released 2020)."
+    summary: "3D nature kit (page lists 330 files, first released 2020), CC0."
     licence_url: https://kenney.nl/support
     tags: [nature, diorama, kenney]
   - id: kenney-tower-defense-kit
     title: "Kenney Tower Defense Kit"
     url: https://kenney.nl/assets/tower-defense-kit
-    summary: "Tiles, paths, towers and enemies for tile-based 3D boards (page lists 160 files; older index 140)."
+    summary: "Tower-defense kit for tile-based 3D boards (page lists 160 files; an older index says 140)."
     licence_url: https://kenney.nl/support
     tags: [tiles, board, kenney]
   - id: kenney-graveyard-kit
@@ -55,31 +55,31 @@ items:
   - id: kenney-fantasy-town-kit
     title: "Kenney Fantasy Town Kit"
     url: https://kenney.nl/assets/fantasy-town-kit
-    summary: "Modular medieval/fantasy town walls, roofs, stalls and props for a low-poly village diorama."
+    summary: "Fantasy town kit for a low-poly village diorama, CC0."
     licence_url: https://kenney.nl/support
     tags: [town, fantasy, kenney]
   - id: kenney-retro-fantasy-kit
     title: "Kenney Retro Fantasy Kit"
     url: https://kenney.nl/assets/retro-fantasy-kit
-    summary: "Retro-styled fantasy buildings and props in Kenney's 3D style."
+    summary: "Retro fantasy kit in Kenney's 3D style, CC0."
     licence_url: https://kenney.nl/support
     tags: [fantasy, retro, kenney]
   - id: kenney-castle-kit
     title: "Kenney Castle Kit"
     url: https://kenney.nl/assets/castle-kit
-    summary: "Castle walls, towers, gates and siege props for medieval history scenes."
+    summary: "Castle kit for medieval scenes, CC0."
     licence_url: https://kenney.nl/support
     tags: [castle, medieval, history, kenney]
   - id: kenney-city-kit-suburban
     title: "Kenney City Kit (Suburban, 40 assets)"
     url: https://kenney.nl/assets/city-kit-suburban
-    summary: "40 suburban houses, fences, trees and driveways; combine with the Roads kit for an isometric town."
+    summary: "40-asset suburban city kit; combine with the Roads kit for an isometric town. CC0."
     licence_url: https://kenney.nl/support
     tags: [city, town, isometric, kenney]
   - id: kenney-city-kit-commercial
     title: "Kenney City Kit (Commercial, 50 assets)"
     url: https://kenney.nl/assets/city-kit-commercial
-    summary: "50 shops, offices and skyscrapers for a low-poly downtown."
+    summary: "50-asset commercial city kit (tagged skyscrapers, buildings), CC0."
     licence_url: https://kenney.nl/support
     tags: [city, skyscrapers, kenney]
   - id: kenney-city-kit-roads
@@ -91,43 +91,43 @@ items:
   - id: kenney-city-kit-industrial
     title: "Kenney City Kit (Industrial, 40 assets)"
     url: https://kenney.nl/assets/city-kit-industrial
-    summary: "40 factories, tanks and chimneys to round out a town board."
+    summary: "40-asset industrial city kit, CC0."
     licence_url: https://kenney.nl/support
     tags: [city, industrial, kenney]
   - id: kenney-building-kit
     title: "Kenney Building Kit (80 assets)"
     url: https://kenney.nl/assets/building-kit
-    summary: "80 modular wall, floor, window and roof pieces for custom buildings."
+    summary: "80-asset modular building kit, CC0."
     licence_url: https://kenney.nl/support
     tags: [modular, buildings, kenney]
   - id: kenney-furniture-kit
     title: "Kenney Furniture Kit (140 assets)"
     url: https://kenney.nl/assets/furniture-kit
-    summary: "140 indoor furniture and appliance models for room dioramas and explainer sets."
+    summary: "140-asset furniture kit for room dioramas and explainer sets, CC0."
     licence_url: https://kenney.nl/support
     tags: [interior, furniture, kenney]
   - id: kenney-car-kit
     title: "Kenney Car Kit (45 assets)"
     url: https://kenney.nl/assets/car-kit
-    summary: "45 low-poly cars, trucks and emergency vehicles."
+    summary: "45-asset low-poly car kit, CC0."
     licence_url: https://kenney.nl/support
     tags: [vehicles, cars, kenney]
   - id: kenney-space-kit
     title: "Kenney Space Kit (150 assets)"
     url: https://kenney.nl/assets/space-kit
-    summary: "150 space-base modules, rockets, rovers, astronauts and terrain for sci-fi or space explainers."
+    summary: "150-asset space kit for sci-fi or space explainers, CC0."
     licence_url: https://kenney.nl/support
     tags: [space, sci-fi, kenney]
   - id: kenney-food-kit
     title: "Kenney Food Kit (200 files)"
     url: https://kenney.nl/assets/food-kit
-    summary: "200 food and kitchen models; handy for recipe, nutrition and 'this vs that' comparison shorts."
+    summary: "200-file food kit; handy for recipe, nutrition and 'this vs that' comparison shorts. CC0."
     licence_url: https://kenney.nl/support
     tags: [food, props, kenney]
   - id: kenney-factory-kit
     title: "Kenney Factory Kit"
     url: https://kenney.nl/assets/factory-kit
-    summary: "Conveyor belts, machines and pipes for manufacturing explainers."
+    summary: "Factory kit for manufacturing explainers, CC0."
     licence_url: https://kenney.nl/support
     tags: [factory, manufacturing, kenney]
   - id: quaternius-home
@@ -159,7 +159,7 @@ items:
   - id: quaternius-simple-nature
     title: "Quaternius Simple Nature Pack"
     url: https://quaternius.com/packs/simplenature.html
-    summary: "Minimal nature set for very light scenes."
+    summary: "Simple low-poly nature pack, CC0."
     licence_url: https://quaternius.com/packs/simplenature.html
     tags: [nature, quaternius]
   - id: quaternius-textured-fantasy-nature
@@ -171,7 +171,7 @@ items:
   - id: quaternius-ultimate-crops
     title: "Quaternius Ultimate Crops Pack"
     url: https://quaternius.com/packs/ultimatecrops.html
-    summary: "Crop plants at growth stages; useful for farm and agriculture explainers."
+    summary: "Crop models for farm and agriculture explainers, CC0."
     licence_url: https://quaternius.com/packs/ultimatecrops.html
     tags: [farm, crops, quaternius]
   - id: quaternius-farm-buildings
@@ -189,13 +189,13 @@ items:
   - id: quaternius-ultimate-modular-ruins
     title: "Quaternius Ultimate Modular Ruins Pack"
     url: https://quaternius.com/packs/ultimatemodularruins.html
-    summary: "Modular ruined walls, columns and arches for history and fantasy scenes."
+    summary: "Modular ruins pack for history and fantasy scenes, CC0."
     licence_url: https://quaternius.com/packs/ultimatemodularruins.html
     tags: [ruins, history, modular, quaternius]
   - id: quaternius-ultimate-fantasy-rts
     title: "Quaternius Ultimate Fantasy RTS"
     url: https://quaternius.com/packs/ultimatefantasyrts.html
-    summary: "Fantasy RTS buildings, units and resources for top-down strategy boards."
+    summary: "Fantasy RTS pack for top-down strategy boards, CC0."
     licence_url: https://quaternius.com/packs/ultimatefantasyrts.html
     tags: [rts, fantasy, quaternius]
   - id: quaternius-medieval-village
@@ -214,7 +214,7 @@ items:
   - id: quaternius-modular-medieval-buildings
     title: "Quaternius Modular Medieval Building Pack"
     url: https://quaternius.com/packs/modularmedievalbuildings.html
-    summary: "Modular medieval walls, roofs and timber framing for custom buildings."
+    summary: "Modular medieval building pieces, CC0."
     licence_url: https://quaternius.com/packs/modularmedievalbuildings.html
     tags: [medieval, modular, quaternius]
   - id: quaternius-downtown-city-megakit
@@ -245,7 +245,7 @@ items:
   - id: quaternius-scifi-essentials
     title: "Quaternius Sci-Fi Essentials Kit"
     url: https://quaternius.com/packs/scifiessentialskit.html
-    summary: "Core sci-fi props and pieces for quick space-station scenes."
+    summary: "Sci-fi essentials kit for quick space-station scenes, CC0."
     licence_url: https://quaternius.com/packs/scifiessentialskit.html
     tags: [sci-fi, props, quaternius]
   - id: kaykit-itch-home
@@ -277,7 +277,7 @@ items:
   - id: kaykit-prototype-bits
     title: "KayKit Prototype Bits"
     url: https://kaylousberg.itch.io/prototype-bits
-    summary: "Prototyping blocks, targets and markers in KayKit style."
+    summary: "Prototyping pieces in KayKit style, CC0."
     licence_url: https://creativecommons.org/publicdomain/zero/1.0/deed.en
     tags: [prototype, kaykit]
   - id: kaykit-block-bits
@@ -289,13 +289,13 @@ items:
   - id: kaykit-furniture-bits
     title: "KayKit Furniture Bits"
     url: https://kaylousberg.itch.io/furniture-bits
-    summary: "Stylised furniture for room dioramas."
+    summary: "Stylised KayKit furniture set for room dioramas, CC0."
     licence_url: https://creativecommons.org/publicdomain/zero/1.0/deed.en
     tags: [interior, furniture, kaykit]
   - id: kaykit-resource-bits
     title: "KayKit Resource Bits"
     url: https://kaylousberg.itch.io/resource-bits
-    summary: "Resource props (wood, stone, ore, crates) for strategy and builder scenes."
+    summary: "Resource props for strategy and builder scenes, CC0."
     licence_url: https://creativecommons.org/publicdomain/zero/1.0/deed.en
     tags: [resources, props, kaykit]
   - id: kaykit-city-builder-bits-github

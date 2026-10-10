@@ -1,0 +1,300 @@
+- id: layers_compositing-001
+  question: "How many distinct visual layers are stacked in a typical item shot?"
+  why: "Sets n_layers and checks a layered-look requirement."
+  how: "On F1 frames from 3 item shots, list separable elements back to front (background, grid or texture, light, particles, photo, panel, text, vignette); confirm separate layers by different motion on an F2 burst."
+  evidence: ["frames: F1 in 3 item shots", "frames: F2 bursts"]
+  ir_path: "/visual/layers"
+  type: integer
+  challenge: "Elements that never move independently and have no transparency could be one baked image; require a motion or opacity cue per counted layer."
+
+- id: layers_compositing-002
+  question: "What is the layer stack from back to front, with each layer's kind?"
+  why: "Fills visual.layers, the core of the composite recipe."
+  how: "Order layers by occlusion: whatever covers another is above it. Use F3 crops where elements overlap."
+  evidence: ["frames: F1 samples", "frames: F3 overlap crops"]
+  ir_path: "/visual/layers"
+  type: layers
+  challenge: "Check each ordering claim at one overlap crop; a layer above text must actually cover text."
+
+- id: layers_compositing-003
+  question: "Which layers are semi-transparent, and what is each one's estimated opacity?"
+  why: "Fills opacity per layer; a common rule caps every layer below 100%."
+  how: "Sample a layer's colour (F9) at the same spot over two different underlying backgrounds; with known background colours B1, B2 and observed O1, O2, opacity a = 1 - (O1 - O2)/(B1 - B2) per channel. Report per layer."
+  evidence: ["frames: F9 samples over two backgrounds", "evidence.overlay.semi_transparent_ratio"]
+  ir_path: "/visual/layers/*/opacity"
+  type: layers
+  challenge: "If the background did not change under the layer, opacity cannot be measured; method must drop to observed or inferred."
+
+- id: layers_compositing-004
+  question: "What does the overlay transparency probe report, and does frame inspection agree?"
+  why: "Ties the measured semi_transparent_ratio to specific layers."
+  how: "Read evidence.overlay.semi_transparent_ratio (video_re_overlay_transparency_probe); compare with the layers judged semi-transparent in 003."
+  evidence: ["evidence.overlay.semi_transparent_ratio"]
+  ir_path: "/visual/layers/*/opacity"
+  type: ratio
+  challenge: "Read the probe's definition before interpreting the ratio; never treat it as an opacity value."
+
+- id: layers_compositing-005
+  question: "Which blend modes are visible (screen-like brightening, multiply-like darkening, overlay contrast, plain alpha)?"
+  why: "Fills blend per layer."
+  how: "For light, haze and texture layers, check whether dark areas stay dark under them (screen/add) or light areas stay light (multiply), on F3 crops."
+  evidence: ["frames: F3 crops of light and texture layers"]
+  ir_path: "/visual/layers/*/blend"
+  type: layers
+  challenge: "Anything not demonstrated by such a test must be 'unknown'."
+
+- id: layers_compositing-006
+  question: "How is depth implied (blur on far layers, scale difference, parallax, drop shadows, haze, overlap)?"
+  why: "Becomes depth rules for the compositor."
+  how: "List cues seen on F1 frames and F2 bursts, each with a timestamp."
+  evidence: ["frames: F1 and F2"]
+  ir_path: "/generation_rules/-"
+  type: list
+  challenge: "Each cue needs a timestamp where it is visible."
+
+- id: layers_compositing-007
+  question: "How are the edges of inset media treated (feathered, hard, rounded, stroked, shadowed)?"
+  choices: [feathered, hard, rounded, stroked, shadowed, mixed]
+  why: "Fills edge treatment; hard rectangular cut-outs are a known failure in this project."
+  how: "F3 enlarged crops at the edges of the main photo in 3 shots."
+  evidence: ["frames: F3 edge crops"]
+  ir_path: "/visual/layers/*/feather_px"
+  type: enum
+  challenge: "Check all four edges in one shot; feathering only at the bottom is a gradient mask, not a feather."
+
+- id: layers_compositing-008
+  question: "How wide is the feather (soft edge) in pixels at full resolution?"
+  why: "Fills feather_px."
+  how: "On an F3 crop across an edge, count pixels from where the photo starts to fade to where the background is fully visible."
+  evidence: ["frames: F3 edge crops at full resolution"]
+  ir_path: "/visual/layers/*/feather_px"
+  type: number
+  challenge: "Measure on two edges; report both values."
+
+- id: layers_compositing-009
+  question: "Is there a frosted or blurred panel behind text, and how strong are its blur and tint?"
+  why: "Adds a frosted-panel layer with parameters."
+  how: "F3 crop of the panel: blurred background detail visible through it indicates frosted glass; estimate tint opacity with the method from 003."
+  evidence: ["frames: F3 panel crops", "frames: F9"]
+  ir_path: "/visual/layers/-"
+  type: object
+  challenge: "A solid plate has no visible background detail; check over a busy background."
+
+- id: layers_compositing-010
+  question: "How is the frame filled when media does not cover it (blurred copy, gradient, solid colour, pattern)?"
+  choices: [blurred-copy, gradient, solid, pattern, video, not-needed]
+  why: "Becomes the fill strategy."
+  how: "Inspect the areas outside the main media on F1 frames."
+  evidence: ["frames: F1 samples"]
+  ir_path: "/visual/layers/-"
+  type: enum
+  challenge: "Make sure the fill is not a separate background system (answered by that lens)."
+
+- id: layers_compositing-011
+  question: "Is there a vignette, and how much darker are the corners than the centre?"
+  why: "Adds a vignette layer with strength."
+  how: "F9 average colour of a 5% corner crop versus the central 20% on a frame with even content; report the luma ratio."
+  evidence: ["frames: F9 corner and centre"]
+  ir_path: "/visual/layers/-"
+  type: number
+  challenge: "Content that is naturally dark at the edges can fake a vignette; check two different shots."
+
+- id: layers_compositing-012
+  question: "Is there a grain or noise overlay, and is it static or animated?"
+  why: "Adds a grain layer."
+  how: "F3 crop of a flat area enlarged 4x on two consecutive frames (F8); animated grain changes per frame."
+  evidence: ["frames: F3 and F8 on a flat region"]
+  ir_path: "/visual/layers/-"
+  type: object
+  challenge: "Compression noise is blocky and follows macroblocks; true grain is fine and uniform."
+
+- id: layers_compositing-013
+  question: "Are light leaks, flares or light sweeps overlaid, and how often?"
+  why: "Adds a light layer with frequency."
+  how: "Find warm or bright moving patches not tied to scene content on F2 bursts; list timestamps."
+  evidence: ["frames: F2 bursts"]
+  ir_path: "/visual/layers/-"
+  type: timestamps
+  challenge: "A real sun flare in footage is not an overlay; it must also cover graphics or text-only frames."
+
+- id: layers_compositing-014
+  question: "Is there a particle, dust or bokeh layer, and how dense and fast is it?"
+  why: "Adds a particles layer."
+  how: "F2 bursts on a darker region; count particles per frame and estimate drift speed."
+  evidence: ["frames: F2 bursts"]
+  ir_path: "/visual/layers/-"
+  type: object
+  challenge: "Report a count; 'some particles' is not an answer."
+
+- id: layers_compositing-015
+  question: "Is any visual layer fully opaque over the whole frame for more than a second?"
+  why: "Checks the opacity cap rule; full-frame opaque layers hide the background system."
+  how: "Look for frames where nothing from the background shows through (F1); check border motion (F5) during those times."
+  evidence: ["frames: F1", "F5 on borders"]
+  ir_path: "/generation_rules/-"
+  type: boolean
+  challenge: "Full-bleed photos are opaque by nature; say whether the format places them full-frame."
+
+- id: layers_compositing-016
+  question: "Do cut-out subjects or panels cast drop shadows, and what are the offset and blur?"
+  why: "Adds shadow parameters."
+  how: "F3 crop under a cut-out; measure shadow offset and blur radius in px."
+  evidence: ["frames: F3 shadow crops"]
+  ir_path: "/visual/layers/*/feather_px"
+  type: object
+  challenge: "Report px values; a 'soft shadow' alone is incomplete."
+
+- id: layers_compositing-017
+  question: "Are subjects cut out from their backgrounds or shown as rectangular images?"
+  choices: [cut-out, rectangular, both]
+  why: "Decides whether background removal is part of the pipeline."
+  how: "Inspect subject edges on F3 crops."
+  evidence: ["frames: F3"]
+  ir_path: "/visual/layers/*/source_slot"
+  type: enum
+  challenge: "Feathered rectangles are not cut-outs; cut-outs follow the subject's outline."
+
+- id: layers_compositing-018
+  question: "What mask shapes are used (circle, rounded rectangle, gradient fade, custom shape)?"
+  why: "Adds mask types to the layer recipe."
+  how: "Inspect inset media and reveals on F1 and F3."
+  evidence: ["frames: F1 and F3"]
+  ir_path: "/visual/layers/-"
+  type: list
+  challenge: "List one timestamp per mask type."
+
+- id: layers_compositing-019
+  question: "Does the number or type of layers change between beats (for example more overlays in the hook)?"
+  why: "Becomes a per-beat layer rule."
+  how: "Repeat the layer count (001) on hook, item and outro frames."
+  evidence: ["frames: F1 per beat role"]
+  ir_path: "/generation_rules/-"
+  type: object
+  challenge: "Count per beat role, not per shot."
+
+- id: layers_compositing-020
+  question: "Are there colour tint overlays (a solid colour at low opacity over everything)?"
+  why: "Adds a tint layer and its colour."
+  how: "Compare neutral elements (white text, grey areas) for a uniform colour shift using F9."
+  evidence: ["frames: F9 on neutral elements"]
+  ir_path: "/visual/layers/-"
+  type: object
+  challenge: "A grade and a tint overlay look similar; a tint also affects text drawn above the grade only if it sits above the text."
+
+- id: layers_compositing-021
+  question: "Is there a grid of moving panels (for example 2x2) behind or around the main visual?"
+  why: "Adds a grid-2x2 layer kind."
+  how: "Look for repeated rectangles with independent motion on F2 bursts."
+  evidence: ["frames: F2 bursts"]
+  ir_path: "/visual/layers/-"
+  type: object
+  challenge: "Static grid lines belong to a grid layer, not a panel grid; check that panels move independently."
+
+- id: layers_compositing-022
+  question: "Is there glow or bloom around bright elements or text?"
+  why: "Adds a glow effect."
+  how: "F3 crop around bright text; a halo of raised brightness beyond the stroke indicates glow."
+  evidence: ["frames: F3"]
+  ir_path: "/visual/layers/-"
+  type: boolean
+  challenge: "Compression ringing produces thin halos; glow is wider (several px) and smooth."
+
+- id: layers_compositing-023
+  question: "What compositing artefacts appear (halo edges, aliasing, hard rectangular patches, banding) that a rebuild must avoid?"
+  why: "Becomes negative rules (things the compositor must not do)."
+  how: "Inspect F3 crops at edges and gradients; list artefacts with timestamps."
+  evidence: ["frames: F3"]
+  ir_path: "/generation_rules/-"
+  type: list
+  challenge: "Every artefact needs a timestamp and region."
+
+- id: layers_compositing-024
+  question: "Which layers move during a shot and which are static?"
+  why: "Fills motion per layer."
+  how: "Compare F2 burst frames: elements whose position or content changes move."
+  evidence: ["frames: F2 bursts"]
+  ir_path: "/visual/layers/*/motion"
+  type: layers
+  challenge: "Camera moves move everything; describe per-layer motion relative to the frame."
+
+- id: layers_compositing-025
+  question: "Does any text sit behind a subject (subject occludes text) for a depth effect?"
+  why: "Adds an occlusion option to the layer order."
+  how: "Look for frames where part of the title or label is covered by a subject's outline (F3)."
+  evidence: ["frames: F3"]
+  ir_path: "/visual/layers"
+  type: boolean
+  challenge: "Text cropped by a panel edge is not occlusion by a subject."
+
+- id: layers_compositing-026
+  question: "Are there border or frame layers (film frame, polaroid, phone mock-up, outline)?"
+  why: "Adds a border layer."
+  how: "Inspect frame edges and inset media on F1."
+  evidence: ["frames: F1"]
+  ir_path: "/visual/layers/-"
+  type: object
+  challenge: "Say whether the frame is constant or changes per item."
+
+- id: layers_compositing-027
+  question: "Which layers are fixed for the whole video and which change per item (slots)?"
+  why: "Separates template layers from content layers for the parameteriser."
+  how: "Compare the layer list (002) across items."
+  evidence: ["layer lists per item"]
+  ir_path: "/generation_rules/-"
+  type: object
+  challenge: "A layer whose asset changes but whose style stays is a slot, not fixed."
+
+- id: layers_compositing-028
+  question: "What should max_layer_opacity and n_layers be as parameters, with ranges from the evidence?"
+  why: "Turns observed values into parameters."
+  how: "Use the maximum observed opacity (003) and the layer count range across beats (019)."
+  evidence: ["layer answers"]
+  ir_path: "/parameters/-"
+  type: parameter
+  challenge: "The parameter default must equal an observed value."
+
+- id: layers_compositing-029
+  question: "What is the estimated opacity of text backing panels?"
+  why: "Fills panel opacity for captions and titles."
+  how: "Apply the two-background method from 003 to the caption panel at two times with different underlying images."
+  evidence: ["frames: F9 panel samples at two times"]
+  ir_path: "/visual/layers/*/opacity"
+  type: ratio
+  challenge: "If the panel is blurred (frosted), the blur changes the underlying colour; sample flat areas."
+
+- id: layers_compositing-030
+  question: "Do layers align to consistent margins (for example all insets 64 px from the frame edge)?"
+  why: "Adds margin constants to the render binding."
+  how: "Measure insets' distances to the frame edges on 4 frames."
+  evidence: ["frames: F1"]
+  ir_path: "/render_binding/mapping/margins_px"
+  type: object
+  challenge: "Report measured px; consistency needs at most 2% spread."
+
+- id: layers_compositing-031
+  question: "Is the composite built as 2.5D (layers separated in depth with perspective or scale by depth)?"
+  why: "Selects a 2.5D compositor or plain 2D stacking."
+  how: "Look for layers that scale or shift differently during moves (F1 start/end) and for perspective distortion."
+  evidence: ["frames: F1 start/end"]
+  ir_path: "/visual/style_family"
+  type: boolean
+  challenge: "Independent animations are not depth; depth needs a consistent relation between scale and motion."
+
+- id: layers_compositing-032
+  question: "Are chromatic aberration, RGB split or scanline overlays used, and where?"
+  why: "Adds stylised overlay effects."
+  how: "F3 crops at high-contrast edges for colour fringes; F2 bursts for flicker."
+  evidence: ["frames: F3", "frames: F2"]
+  ir_path: "/visual/layers/-"
+  type: timestamps
+  challenge: "Lens fringing in footage is not an effect; it must also appear on graphics."
+
+- id: layers_compositing-033
+  question: "Do overlays (light, particles, grain) sit above or below the text?"
+  choices: [above-text, below-text, mixed]
+  why: "Fixes the z-order of overlays relative to text."
+  how: "Check whether overlay elements cross over letters on F3 crops."
+  evidence: ["frames: F3 text crops"]
+  ir_path: "/visual/layers"
+  type: enum
+  challenge: "Find one frame where an overlay element and a letter overlap; without it the answer is not determinable."

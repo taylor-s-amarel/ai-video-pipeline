@@ -1,0 +1,88 @@
+# Aspect formats and publishing targets. Safe margins are fractions of the frame that text and
+# key subjects should stay out of. They are this library's conservative house margins, chosen to
+# clear typical on-screen controls; they are NOT platform specifications. Platforms change their
+# interfaces, so preview on the platform (or its official template) before publishing.
+
+margin_basis: >-
+  House margins (not a platform specification). Chosen to keep text clear of typical top bars,
+  right-hand action buttons and bottom description areas. Not verified against platform
+  documentation on 2026-10-10; preview on the platform before publishing.
+
+encoding:
+  source: https://support.google.com/youtube/answer/1722171
+  summary: >-
+    YouTube's recommended upload settings list progressive scan, H.264 High Profile, 2 consecutive
+    B frames, closed GOP of half the frame rate, CABAC, variable bitrate, 4:2:0 chroma subsampling,
+    an MP4 container with the moov atom at the front (faststart) and AAC-LC (or Opus) audio at 48 kHz.
+  ffmpeg: "-c:v libx264 -profile:v high -pix_fmt yuv420p -bf 2 -g {gop} -flags +cgop -crf 18 -preset slow -c:a aac -ar 48000 -b:a 192k -movflags +faststart"
+
+aspects:
+  "9x16":
+    ratio: "9:16"
+    size: [1080, 1920]
+    margins: {top: 0.08, bottom: 0.20, left: 0.06, right: 0.06}
+    title_center_y: 0.24
+    caption_center_y: 0.72
+    photo_rect: {x: 0.05, y: 0.16, w: 0.90, h: 0.52}
+    use: Vertical shorts and stories.
+  "4x5":
+    ratio: "4:5"
+    size: [1080, 1350]
+    margins: {top: 0.06, bottom: 0.08, left: 0.06, right: 0.06}
+    title_center_y: 0.20
+    caption_center_y: 0.80
+    photo_rect: {x: 0.06, y: 0.10, w: 0.88, h: 0.62}
+    use: Feed posts that take more vertical space than a square.
+  "1x1":
+    ratio: "1:1"
+    size: [1080, 1080]
+    margins: {top: 0.06, bottom: 0.08, left: 0.06, right: 0.06}
+    title_center_y: 0.18
+    caption_center_y: 0.82
+    photo_rect: {x: 0.08, y: 0.08, w: 0.84, h: 0.66}
+    use: Square feed posts and carousels.
+  "16x9":
+    ratio: "16:9"
+    size: [1920, 1080]
+    margins: {top: 0.07, bottom: 0.10, left: 0.05, right: 0.05}
+    title_center_y: 0.20
+    caption_center_y: 0.84
+    photo_rect: {x: 0.10, y: 0.08, w: 0.80, h: 0.70}
+    use: Landscape video players and presentations.
+
+targets:
+  generic_9x16:
+    aspect: "9x16"
+    platform: generic
+    label: Vertical 9:16 (generic)
+    margins: {top: 0.08, bottom: 0.20, left: 0.06, right: 0.06}
+  shorts:
+    aspect: "9x16"
+    platform: youtube-shorts
+    label: YouTube Shorts 9:16
+    margins: {top: 0.10, bottom: 0.24, left: 0.06, right: 0.14}
+  reels:
+    aspect: "9x16"
+    platform: instagram-reels
+    label: Instagram Reels 9:16
+    margins: {top: 0.12, bottom: 0.30, left: 0.06, right: 0.12}
+  tiktok:
+    aspect: "9x16"
+    platform: tiktok
+    label: TikTok 9:16
+    margins: {top: 0.12, bottom: 0.28, left: 0.06, right: 0.16}
+  feed_4x5:
+    aspect: "4x5"
+    platform: instagram-feed
+    label: Feed 4:5
+    margins: {top: 0.06, bottom: 0.08, left: 0.06, right: 0.06}
+  square_1x1:
+    aspect: "1x1"
+    platform: generic
+    label: Square 1:1
+    margins: {top: 0.06, bottom: 0.08, left: 0.06, right: 0.06}
+  landscape_16x9:
+    aspect: "16x9"
+    platform: youtube
+    label: Landscape 16:9
+    margins: {top: 0.07, bottom: 0.10, left: 0.05, right: 0.05}

@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/video-re-contract-letterbox-pillarbox",
+  "title": "Letterbox / pillarbox payload",
+  "description": "Payload of video_re_detect_letterbox_pillarbox inside the detection envelope. Pixel values are source pixels (analysis pixels x analysis scale); px_precision says how coarse they are.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["kind", "bars", "content_rect", "content_aspect", "frames_analysed", "px_precision"],
+  "properties": {
+    "kind": { "enum": ["letterbox", "pillarbox", "windowbox", "single-side", "none"], "description": "letterbox = top and bottom bars; pillarbox = left and right; windowbox = all four" },
+    "bars": {
+      "type": "array", "maxItems": 4,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["side", "px", "color", "style", "consistency", "overlay_in_bar"],
+        "properties": {
+          "side": { "enum": ["top", "bottom", "left", "right"] },
+          "px": { "type": "integer", "minimum": 1, "description": "bar thickness in source pixels" },
+          "color": { "type": "string", "pattern": "^#[0-9A-F]{6}$", "description": "bar colour (solid) or mean colour (blurred-fill / static-texture)" },
+          "style": { "enum": ["solid", "blurred-fill", "static-texture"] },
+          "consistency": { "type": "number", "minimum": 0, "maximum": 1, "description": "share of sampled frames whose own bar run is within 2 analysis px of px" },
+          "overlay_in_bar": { "type": "boolean", "description": "static text or graphics were found inside the bar" }
+        }
+      }
+    },
+    "content_rect": {
+      "type": "object", "additionalProperties": false, "required": ["x", "y", "w", "h"],
+      "properties": { "x": { "type": "integer", "minimum": 0 }, "y": { "type": "integer", "minimum": 0 }, "w": { "type": "integer", "minimum": 0 }, "h": { "type": "integer", "minimum": 0 } }
+    },
+    "content_aspect": { "type": ["number", "null"], "exclusiveMinimum": 0, "description": "content width / height" },
+    "frames_analysed": { "type": "integer", "minimum": 1 },
+    "px_precision": { "type": "number", "minimum": 1 }
+  }
+}

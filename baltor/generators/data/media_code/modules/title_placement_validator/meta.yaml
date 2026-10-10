@@ -1,0 +1,6 @@
+title: Title placement validator
+summary: Checks first-frame title boxes against house rules (centre in the upper 40%, overlaid on the photo, photo >= 80% width and never shrunk, inside margins, legible size) and suggests a compliant box.
+subkind: qa-check
+domain: video
+tags: [video, title, layout, qa, house-rules, first-frame]
+step_kinds: [verify, render]

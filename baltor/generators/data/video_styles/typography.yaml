@@ -1,0 +1,141 @@
+# Typography pairings. Only families listed in fonts.json (Google Fonts, OFL-1.1 or Apache-2.0,
+# verified 2026-10-10). Sizes are pixels at a 1080 px wide 9:16 frame; the generator scales them for
+# other formats. display = hooks and labels, text = captions, numbers = key numbers (optional).
+
+montserrat_inter:
+  name: Montserrat Black + Inter (house)
+  display: {family: Montserrat, weight: 900, case: upper}
+  text: {family: Inter, weight: 800}
+  numbers: {family: Anton, weight: 400}
+  sizes: {title_px: 92, caption_px: 60, min_caption_px: 48, label_px: 54, number_px: 120}
+  mood: [house, science, history, nature, space]
+  why: Montserrat 900 is a true bold for the yellow hook (so the 3:1 large-bold contrast rule applies); Inter 800 stays crisp at caption size; Anton gives tall key numbers.
+anton_inter:
+  name: Anton + Inter
+  display: {family: Anton, weight: 400, case: upper}
+  text: {family: Inter, weight: 800}
+  numbers: {family: Anton, weight: 400}
+  sizes: {title_px: 96, caption_px: 60, min_caption_px: 48, label_px: 54, number_px: 120}
+  mood: [news, energetic, comic]
+  why: Anton is a heavy condensed display face (one regular-weight style, so pair it with an outline or a 4.5:1 background) that fits long hooks in the upper third; Inter at 800 stays crisp at caption size.
+montserrat_black:
+  name: Montserrat Black + Montserrat Bold
+  display: {family: Montserrat, weight: 900, case: upper}
+  text: {family: Montserrat, weight: 700}
+  sizes: {title_px: 84, caption_px: 58, min_caption_px: 46, label_px: 52, number_px: 110}
+  mood: [house, energetic, relationships, news]
+  why: One geometric family keeps the look tidy; the 900 weight gives hooks punch without a second font.
+bebas_barlow:
+  name: Bebas Neue + Barlow SemiBold
+  display: {family: Bebas Neue, weight: 400, case: upper}
+  text: {family: Barlow, weight: 600}
+  sizes: {title_px: 110, caption_px: 60, min_caption_px: 48, label_px: 60, number_px: 140}
+  mood: [energetic, news, tech]
+  why: Bebas Neue is tall and narrow (all caps); Barlow's slightly rounded grotesque balances it in captions.
+fredoka_nunito:
+  name: Fredoka + Nunito
+  display: {family: Fredoka, weight: 600, case: as-written}
+  text: {family: Nunito, weight: 800}
+  sizes: {title_px: 88, caption_px: 58, min_caption_px: 46, label_px: 52, number_px: 110}
+  mood: [relationships, animals, calm, comic]
+  why: Rounded terminals feel friendly for pets, feelings and kids topics.
+playfair_sourcesans:
+  name: Playfair Display + Source Sans 3
+  display: {family: Playfair Display, weight: 800, case: as-written}
+  text: {family: Source Sans 3, weight: 700}
+  sizes: {title_px: 84, caption_px: 56, min_caption_px: 46, label_px: 48, number_px: 110}
+  mood: [history, documentary, relationships, calm]
+  why: High-contrast serif headlines with a plain humanist sans for captions; good for biographies and quotes.
+robotoslab_roboto:
+  name: Roboto Slab + Roboto
+  display: {family: Roboto Slab, weight: 800, case: as-written}
+  text: {family: Roboto, weight: 700}
+  sizes: {title_px: 80, caption_px: 54, min_caption_px: 44, label_px: 46, number_px: 104}
+  mood: [news, documentary, education]
+  why: Slab serif headlines read as news without looking like any one outlet; Roboto captions are neutral.
+spacegrotesk_jetbrains:
+  name: Space Grotesk + JetBrains Mono
+  display: {family: Space Grotesk, weight: 700, case: as-written}
+  text: {family: Space Grotesk, weight: 700}
+  numbers: {family: JetBrains Mono, weight: 700}
+  sizes: {title_px: 84, caption_px: 58, min_caption_px: 46, label_px: 44, number_px: 100}
+  mood: [tech, science, education]
+  why: A slightly quirky grotesque for AI and tech explainers; monospaced numbers and labels feel like code.
+bangers_nunito:
+  name: Bangers + Nunito Black
+  display: {family: Bangers, weight: 400, case: upper}
+  text: {family: Nunito, weight: 900}
+  sizes: {title_px: 112, caption_px: 60, min_caption_px: 48, label_px: 56, number_px: 140}
+  mood: [comic, energetic, animals]
+  why: Comic-book lettering for hooks with a sturdy rounded sans for captions that must stay readable.
+pixel_pair:
+  name: Press Start 2P + Pixelify Sans
+  display: {family: Press Start 2P, weight: 400, case: upper}
+  text: {family: Pixelify Sans, weight: 700}
+  sizes: {title_px: 56, caption_px: 56, min_caption_px: 44, label_px: 40, number_px: 72}
+  mood: [retro, energetic]
+  why: Press Start 2P is very wide (about 1 em per character) so keep hooks to 2-3 short words; Pixelify Sans is easier to read in captions.
+marker_patrickhand:
+  name: Permanent Marker + Patrick Hand
+  display: {family: Permanent Marker, weight: 400, case: as-written}
+  text: {family: Patrick Hand, weight: 400}
+  sizes: {title_px: 84, caption_px: 64, min_caption_px: 52, label_px: 56, number_px: 110}
+  mood: [comic, education, relationships]
+  why: Hand-made look for stick-figure, doodle and whiteboard stories.
+sharetech_plex:
+  name: Share Tech Mono + IBM Plex Sans
+  display: {family: Share Tech Mono, weight: 400, case: upper}
+  text: {family: IBM Plex Sans, weight: 700}
+  sizes: {title_px: 76, caption_px: 56, min_caption_px: 44, label_px: 44, number_px: 96}
+  mood: [science, tech, education]
+  why: Technical drawing feel for blueprint and engineering looks.
+atkinson_hyperlegible:
+  name: Atkinson Hyperlegible (bold + regular)
+  display: {family: Atkinson Hyperlegible, weight: 700, case: as-written}
+  text: {family: Atkinson Hyperlegible, weight: 700}
+  sizes: {title_px: 80, caption_px: 56, min_caption_px: 46, label_px: 50, number_px: 104}
+  mood: [education, news, house]
+  why: Designed for readers with low vision; letters that are easy to confuse (I/l/1, O/0) are distinct.
+typewriter_archive:
+  name: Special Elite + Courier Prime
+  display: {family: Special Elite, weight: 400, case: upper}
+  text: {family: Courier Prime, weight: 700}
+  sizes: {title_px: 72, caption_px: 50, min_caption_px: 42, label_px: 48, number_px: 96}
+  mood: [history, documentary]
+  why: Worn typewriter headlines with a clean monospaced body for dates and documents.
+orbitron_titillium:
+  name: Orbitron + Titillium Web
+  display: {family: Orbitron, weight: 800, case: upper}
+  text: {family: Titillium Web, weight: 700}
+  sizes: {title_px: 76, caption_px: 58, min_caption_px: 46, label_px: 44, number_px: 100}
+  mood: [space, tech, retro]
+  why: Wide geometric display for space and sci-fi hooks; Titillium is compact enough for captions.
+oswald_barlowcondensed:
+  name: Oswald + Barlow Condensed
+  display: {family: Oswald, weight: 700, case: upper}
+  text: {family: Barlow Condensed, weight: 700}
+  sizes: {title_px: 96, caption_px: 64, min_caption_px: 52, label_px: 56, number_px: 130}
+  mood: [energetic, news, history]
+  why: Condensed sports-poster feel; fits more words per line in narrow frames.
+noto_multilingual:
+  name: Noto Sans + Noto Serif
+  display: {family: Noto Sans, weight: 800, case: as-written}
+  text: {family: Noto Sans, weight: 700}
+  numbers: {family: Noto Serif, weight: 700}
+  sizes: {title_px: 80, caption_px: 56, min_caption_px: 46, label_px: 48, number_px: 104}
+  mood: [education, news, documentary]
+  why: The Noto families aim at broad script coverage, so translated captions keep one look. Check the exact Noto family for each script you need.
+righteous_rubik:
+  name: Righteous + Rubik
+  display: {family: Righteous, weight: 400, case: as-written}
+  text: {family: Rubik, weight: 700}
+  sizes: {title_px: 84, caption_px: 58, min_caption_px: 46, label_px: 50, number_px: 110}
+  mood: [retro, tech, energetic]
+  why: Rounded retro display with a friendly geometric sans; works for neon and 80s looks.
+archivo_worksans:
+  name: Archivo Black + Work Sans
+  display: {family: Archivo Black, weight: 400, case: upper}
+  text: {family: Work Sans, weight: 600}
+  sizes: {title_px: 80, caption_px: 58, min_caption_px: 46, label_px: 50, number_px: 110}
+  mood: [news, energetic, house]
+  why: Wide grotesque hooks that feel like posters; Work Sans keeps captions open and light.

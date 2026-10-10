@@ -1,0 +1,143 @@
+id: assets-prep-tools
+title: "Asset preparation tools: sprites, tiles, voxels, textures and glTF"
+description: >-
+  Open tools an agent or artist uses between 'downloaded a pack' and 'imported into Godot/Blender':
+  sprite and tile editors, sprite packers, normal-map and texture tools, voxel editors, retopology,
+  and glTF conversion/validation/optimisation. Licences cover the tools, not your output, except where
+  noted (Aseprite is source-available under an EULA).
+tags: [tools, sprites, tiles, gltf, textures, voxels]
+defaults:
+  kind: tool
+  verification: fetched
+items:
+  - id: pixelorama
+    title: "Pixelorama (pixel-art multitool, made with Godot)"
+    url: https://github.com/Orama-Interactive/Pixelorama
+    summary: "Open pixel-art editor with animation timeline and sprite-sheet export, built in Godot (requires Godot 4.7.2 to build); MIT."
+    licence: MIT
+    licence_url: https://github.com/Orama-Interactive/Pixelorama
+    tags: [pixel-art, sprites, godot]
+  - id: libresprite
+    title: "LibreSprite"
+    url: https://github.com/LibreSprite/LibreSprite
+    summary: "Animated sprite editor forked from the last GPLv2 commit of Aseprite; GPL-2.0."
+    licence: GPL-2.0
+    licence_url: https://github.com/LibreSprite/LibreSprite
+    tags: [pixel-art, sprites]
+  - id: aseprite-source
+    title: "Aseprite (source-available)"
+    url: https://github.com/aseprite/aseprite
+    summary: "Popular sprite editor whose source and official binaries are under an EULA (not open source); some modules (laf, clip, undo, observable, ui) are MIT."
+    licence: "Aseprite EULA (source-available)"
+    licence_url: https://github.com/aseprite/aseprite
+    tags: [pixel-art, sprites, eula]
+    cautions: ["Not open source: do not redistribute builds or bundle Aseprite in a pipeline image; read EULA.txt.", "Its JSON sprite-sheet export is a de facto format; the Baltor slicer can read it without Aseprite installed."]
+  - id: blockbench
+    title: "Blockbench (low-poly 3D model editor)"
+    url: https://github.com/JannisX11/blockbench
+    summary: "Low-poly/boxy 3D modeller with texture painting and animation, exports glTF/OBJ; GPL-3.0 (plugins and themes using its API are excepted)."
+    licence: GPL-3.0
+    licence_url: https://github.com/JannisX11/blockbench
+    tags: [3d, low-poly, modelling]
+  - id: tiled
+    title: "Tiled map editor"
+    url: https://github.com/mapeditor/tiled
+    summary: "Flexible 2D level editor for orthogonal, isometric and hex tile maps (TMX/JSON); repo ships GPL, BSD and Apache licence files for its parts."
+    licence: "GPL-2.0 and Apache-2.0/BSD parts (see repo)"
+    licence_url: https://github.com/mapeditor/tiled
+    tags: [tiles, level-editor, isometric]
+  - id: ldtk
+    title: "LDtk (Level Designer Toolkit)"
+    url: https://github.com/deepnight/ldtk
+    summary: "Modern lightweight 2D level editor with auto-layers and JSON output; MIT."
+    licence: MIT
+    licence_url: https://github.com/deepnight/ldtk
+    tags: [tiles, level-editor, json]
+  - id: free-tex-packer
+    title: "Free Texture Packer"
+    url: https://github.com/odrick/free-tex-packer
+    summary: "Sprite-sheet packer with export presets including Godot, Pixi.js, Phaser, Cocos2d, JSON, XML and CSS; MIT."
+    licence: MIT
+    licence_url: https://github.com/odrick/free-tex-packer
+    tags: [atlas, sprites, godot]
+  - id: laigter
+    title: "Laigter (normal maps for sprites)"
+    url: https://github.com/azagaya/laigter
+    summary: "Automatic normal/specular/parallax map generator for 2D sprites so Light2D can shade them; GPL-3.0."
+    licence: GPL-3.0
+    licence_url: https://github.com/azagaya/laigter
+    tags: [normal-maps, 2d-lighting]
+  - id: material-maker
+    title: "Material Maker"
+    url: https://github.com/RodZill4/material-maker
+    summary: "Procedural texture authoring and 3D model painting tool built on Godot (GraphEdit node UI); MIT unless stated."
+    licence: MIT
+    licence_url: https://github.com/RodZill4/material-maker
+    tags: [procedural, textures, godot]
+  - id: armortools
+    title: "ArmorTools / ArmorPaint"
+    url: https://github.com/armory3d/armortools
+    summary: "3D PBR texture painting; source under the zlib licence, while distributed binaries are paid to fund the project."
+    licence: Zlib
+    licence_url: https://raw.githubusercontent.com/armory3d/armortools/main/license.md
+    tags: [texture-painting, pbr]
+    cautions: ["Official binaries are paid; build from source if you need a free copy."]
+  - id: goxel
+    title: "Goxel voxel editor"
+    url: https://github.com/guillaumechereau/goxel
+    summary: "Free voxel editor exporting OBJ, PLY, PNG slices, MagicaVoxel .vox and Qubicle; GPL-3.0 (commercial licence on request)."
+    licence: GPL-3.0
+    licence_url: https://github.com/guillaumechereau/goxel
+    tags: [voxel, modelling]
+  - id: magicavoxel-vox-format
+    title: "ephtracy/voxel-model (MagicaVoxel .vox format and test models)"
+    url: https://github.com/ephtracy/voxel-model
+    summary: "MagicaVoxel test models plus the .vox file-format documents (base and extension); MIT."
+    licence: MIT
+    licence_url: https://github.com/ephtracy/voxel-model
+    kind: standard
+    tags: [voxel, format, magicavoxel]
+  - id: instant-meshes
+    title: "Instant Meshes (retopology)"
+    url: https://github.com/wjakob/instant-meshes
+    summary: "Interactive field-aligned quad remesher for cleaning scans and sculpts before rigging; BSD 3-Clause."
+    licence: BSD-3-Clause
+    licence_url: https://raw.githubusercontent.com/wjakob/instant-meshes/master/LICENSE.txt
+    tags: [retopology, scans, mesh]
+  - id: gltf-transform
+    title: "glTF-Transform (SDK and CLI)"
+    url: https://github.com/donmccurdy/glTF-Transform
+    summary: "glTF 2.0 SDK and CLI for Node and web: optimize, draco, resize, webp and more (npm install --global @gltf-transform/cli); MIT."
+    licence: MIT
+    licence_url: https://github.com/donmccurdy/glTF-Transform
+    tags: [gltf, optimisation, cli]
+  - id: gltf-validator
+    title: "Khronos glTF-Validator"
+    url: https://github.com/KhronosGroup/glTF-Validator
+    summary: "Validates glTF/GLB against the 2.0 spec and writes a JSON report; CLI plus an in-browser drag-and-drop validator; Apache-2.0."
+    licence: Apache-2.0
+    licence_url: https://github.com/KhronosGroup/glTF-Validator
+    tags: [gltf, validation]
+  - id: meshoptimizer-gltfpack
+    title: "meshoptimizer and gltfpack"
+    url: https://github.com/zeux/meshoptimizer
+    summary: "Mesh optimisation library; gltfpack is its CLI that automatically optimises glTF files (prebuilt binaries or npm); MIT."
+    licence: MIT
+    licence_url: https://github.com/zeux/meshoptimizer
+    tags: [gltf, optimisation]
+    cautions: ["gltfpack can emit EXT_meshopt_compression; confirm your target engine supports the extensions it writes."]
+  - id: obj2gltf
+    title: "obj2gltf (CesiumGS)"
+    url: https://github.com/CesiumGS/obj2gltf
+    summary: "Converts OBJ (+MTL, textures) to glTF/GLB: 'obj2gltf -i model.obj -o model.glb'; Apache-2.0."
+    licence: Apache-2.0
+    licence_url: https://github.com/CesiumGS/obj2gltf
+    tags: [obj, gltf, conversion]
+  - id: fbx2gltf-godot
+    title: "godotengine/FBX2glTF (legacy)"
+    url: https://github.com/godotengine/FBX2glTF
+    summary: "FBX to glTF converter (tool BSD-3; prebuilt binaries include the proprietary Autodesk FBX SDK). Legacy: Godot 4.3+ imports FBX with the built-in ufbx library."
+    licence: "BSD-3-Clause (tool); Autodesk FBX SDK licence (binaries)"
+    licence_url: https://github.com/godotengine/FBX2glTF
+    tags: [fbx, gltf, legacy]
+    cautions: ["Unmaintained; using the binaries means accepting Autodesk's FBX SDK terms."]

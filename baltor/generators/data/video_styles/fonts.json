@@ -1,0 +1,743 @@
+{
+ "retrieved": "2026-10-10",
+ "method": "Family name and licence read from each family's METADATA.pb in github.com/google/fonts (main branch); file_url and licence_url returned HTTP 200 on the retrieval date; average advance widths measured with Pillow 12.3 at the listed weight on the sample sentences below.",
+ "samples": {
+  "mixed": "In 1970, five scientists lived underwater for two weeks",
+  "caps": "SHE LIVED UNDERWATER FOR 14 DAYS"
+ },
+ "fonts": {
+  "Anton": {
+   "family": "Anton",
+   "licence": "OFL-1.1",
+   "category": "display",
+   "google_fonts_dir": "ofl/anton",
+   "file": "Anton-Regular.ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/anton/Anton-Regular.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/anton/OFL.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Anton",
+   "variable_axes": {},
+   "metrics": {
+    "avg_char_em_mixed": 0.399,
+    "avg_char_em_caps": 0.419,
+    "ascent_em": 1.18,
+    "descent_em": 0.33
+   }
+  },
+  "Inter": {
+   "family": "Inter",
+   "licence": "OFL-1.1",
+   "category": "sans-serif",
+   "google_fonts_dir": "ofl/inter",
+   "file": "Inter[opsz,wght].ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/inter/Inter%5Bopsz%2Cwght%5D.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/inter/OFL.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Inter",
+   "variable_axes": {
+    "opsz": [
+     14.0,
+     32.0
+    ],
+    "wght": [
+     100.0,
+     900.0
+    ]
+   },
+   "metrics": {
+    "avg_char_em_mixed": 0.487,
+    "avg_char_em_caps": 0.597,
+    "weight_measured": 800,
+    "ascent_em": 0.97,
+    "descent_em": 0.25
+   }
+  },
+  "Montserrat": {
+   "family": "Montserrat",
+   "licence": "OFL-1.1",
+   "category": "sans-serif",
+   "google_fonts_dir": "ofl/montserrat",
+   "file": "Montserrat[wght].ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/montserrat/Montserrat%5Bwght%5D.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/montserrat/OFL.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Montserrat",
+   "variable_axes": {
+    "wght": [
+     100.0,
+     900.0
+    ]
+   },
+   "metrics": {
+    "avg_char_em_mixed": 0.525,
+    "avg_char_em_caps": 0.648,
+    "weight_measured": 800,
+    "ascent_em": 0.97,
+    "descent_em": 0.26
+   }
+  },
+  "Bebas Neue": {
+   "family": "Bebas Neue",
+   "licence": "OFL-1.1",
+   "category": "display",
+   "google_fonts_dir": "ofl/bebasneue",
+   "file": "BebasNeue-Regular.ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/bebasneue/BebasNeue-Regular.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/bebasneue/OFL.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Bebas+Neue",
+   "variable_axes": {},
+   "metrics": {
+    "avg_char_em_mixed": 0.338,
+    "avg_char_em_caps": 0.348,
+    "ascent_em": 0.9,
+    "descent_em": 0.3
+   }
+  },
+  "Barlow": {
+   "family": "Barlow",
+   "licence": "OFL-1.1",
+   "category": "sans-serif",
+   "google_fonts_dir": "ofl/barlow",
+   "file": "Barlow-SemiBold.ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/barlow/Barlow-SemiBold.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/barlow/OFL.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Barlow",
+   "variable_axes": {},
+   "metrics": {
+    "avg_char_em_mixed": 0.428,
+    "avg_char_em_caps": 0.523,
+    "ascent_em": 1.0,
+    "descent_em": 0.2
+   }
+  },
+  "Fredoka": {
+   "family": "Fredoka",
+   "licence": "OFL-1.1",
+   "category": "sans-serif",
+   "google_fonts_dir": "ofl/fredoka",
+   "file": "Fredoka[wdth,wght].ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/fredoka/Fredoka%5Bwdth%2Cwght%5D.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/fredoka/OFL.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Fredoka",
+   "variable_axes": {
+    "wdth": [
+     75.0,
+     125.0
+    ],
+    "wght": [
+     300.0,
+     700.0
+    ]
+   },
+   "metrics": {
+    "avg_char_em_mixed": 0.44,
+    "avg_char_em_caps": 0.55,
+    "weight_measured": 600,
+    "ascent_em": 0.98,
+    "descent_em": 0.24
+   }
+  },
+  "Nunito": {
+   "family": "Nunito",
+   "licence": "OFL-1.1",
+   "category": "sans-serif",
+   "google_fonts_dir": "ofl/nunito",
+   "file": "Nunito[wght].ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/nunito/Nunito%5Bwght%5D.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/nunito/OFL.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Nunito",
+   "variable_axes": {
+    "wght": [
+     200.0,
+     1000.0
+    ]
+   },
+   "metrics": {
+    "avg_char_em_mixed": 0.473,
+    "avg_char_em_caps": 0.611,
+    "weight_measured": 800,
+    "ascent_em": 1.02,
+    "descent_em": 0.36
+   }
+  },
+  "Playfair Display": {
+   "family": "Playfair Display",
+   "licence": "OFL-1.1",
+   "category": "serif",
+   "google_fonts_dir": "ofl/playfairdisplay",
+   "file": "PlayfairDisplay[wght].ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/playfairdisplay/PlayfairDisplay%5Bwght%5D.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/playfairdisplay/OFL.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Playfair+Display",
+   "variable_axes": {
+    "wght": [
+     400.0,
+     900.0
+    ]
+   },
+   "metrics": {
+    "avg_char_em_mixed": 0.45,
+    "avg_char_em_caps": 0.593,
+    "weight_measured": 800,
+    "ascent_em": 1.09,
+    "descent_em": 0.26
+   }
+  },
+  "Source Sans 3": {
+   "family": "Source Sans 3",
+   "licence": "OFL-1.1",
+   "category": "sans-serif",
+   "google_fonts_dir": "ofl/sourcesans3",
+   "file": "SourceSans3[wght].ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/sourcesans3/SourceSans3%5Bwght%5D.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/sourcesans3/OFL.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Source+Sans+3",
+   "variable_axes": {
+    "wght": [
+     200.0,
+     900.0
+    ]
+   },
+   "metrics": {
+    "avg_char_em_mixed": 0.434,
+    "avg_char_em_caps": 0.519,
+    "weight_measured": 700,
+    "ascent_em": 1.03,
+    "descent_em": 0.4
+   }
+  },
+  "Roboto Slab": {
+   "family": "Roboto Slab",
+   "licence": "Apache-2.0",
+   "category": "serif",
+   "google_fonts_dir": "apache/robotoslab",
+   "file": "RobotoSlab[wght].ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/apache/robotoslab/RobotoSlab%5Bwght%5D.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/apache/robotoslab/LICENSE.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Roboto+Slab",
+   "variable_axes": {
+    "wght": [
+     100.0,
+     900.0
+    ]
+   },
+   "metrics": {
+    "avg_char_em_mixed": 0.472,
+    "avg_char_em_caps": 0.601,
+    "weight_measured": 800,
+    "ascent_em": 1.05,
+    "descent_em": 0.28
+   }
+  },
+  "Roboto": {
+   "family": "Roboto",
+   "licence": "OFL-1.1",
+   "category": "sans-serif",
+   "google_fonts_dir": "ofl/roboto",
+   "file": "Roboto[wdth,wght].ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/roboto/Roboto%5Bwdth%2Cwght%5D.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/roboto/OFL.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Roboto",
+   "variable_axes": {
+    "wdth": [
+     75.0,
+     100.0
+    ],
+    "wght": [
+     100.0,
+     900.0
+    ]
+   },
+   "metrics": {
+    "avg_char_em_mixed": 0.444,
+    "avg_char_em_caps": 0.557,
+    "weight_measured": 700,
+    "ascent_em": 0.93,
+    "descent_em": 0.25
+   }
+  },
+  "Space Grotesk": {
+   "family": "Space Grotesk",
+   "licence": "OFL-1.1",
+   "category": "sans-serif",
+   "google_fonts_dir": "ofl/spacegrotesk",
+   "file": "SpaceGrotesk[wght].ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/spacegrotesk/SpaceGrotesk%5Bwght%5D.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/spacegrotesk/OFL.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Space+Grotesk",
+   "variable_axes": {
+    "wght": [
+     300.0,
+     700.0
+    ]
+   },
+   "metrics": {
+    "avg_char_em_mixed": 0.475,
+    "avg_char_em_caps": 0.547,
+    "weight_measured": 700,
+    "ascent_em": 0.99,
+    "descent_em": 0.3
+   }
+  },
+  "JetBrains Mono": {
+   "family": "JetBrains Mono",
+   "licence": "OFL-1.1",
+   "category": "monospace",
+   "google_fonts_dir": "ofl/jetbrainsmono",
+   "file": "JetBrainsMono[wght].ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/jetbrainsmono/JetBrainsMono%5Bwght%5D.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/jetbrainsmono/OFL.txt",
+   "specimen_url": "https://fonts.google.com/specimen/JetBrains+Mono",
+   "variable_axes": {
+    "wght": [
+     100.0,
+     800.0
+    ]
+   },
+   "metrics": {
+    "avg_char_em_mixed": 0.6,
+    "avg_char_em_caps": 0.6,
+    "weight_measured": 700,
+    "ascent_em": 1.02,
+    "descent_em": 0.3
+   }
+  },
+  "Bangers": {
+   "family": "Bangers",
+   "licence": "OFL-1.1",
+   "category": "display",
+   "google_fonts_dir": "ofl/bangers",
+   "file": "Bangers-Regular.ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/bangers/Bangers-Regular.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/bangers/OFL.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Bangers",
+   "variable_axes": {},
+   "metrics": {
+    "avg_char_em_mixed": 0.359,
+    "avg_char_em_caps": 0.368,
+    "ascent_em": 0.89,
+    "descent_em": 0.19
+   }
+  },
+  "Press Start 2P": {
+   "family": "Press Start 2P",
+   "licence": "OFL-1.1",
+   "category": "display",
+   "google_fonts_dir": "ofl/pressstart2p",
+   "file": "PressStart2P-Regular.ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/pressstart2p/PressStart2P-Regular.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/pressstart2p/OFL.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Press+Start+2P",
+   "variable_axes": {},
+   "metrics": {
+    "avg_char_em_mixed": 0.982,
+    "avg_char_em_caps": 1.0,
+    "ascent_em": 1.0,
+    "descent_em": 0.0
+   }
+  },
+  "Pixelify Sans": {
+   "family": "Pixelify Sans",
+   "licence": "OFL-1.1",
+   "category": "display",
+   "google_fonts_dir": "ofl/pixelifysans",
+   "file": "PixelifySans[wght].ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/pixelifysans/PixelifySans%5Bwght%5D.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/pixelifysans/OFL.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Pixelify+Sans",
+   "variable_axes": {
+    "wght": [
+     400.0,
+     700.0
+    ]
+   },
+   "metrics": {
+    "avg_char_em_mixed": 0.501,
+    "avg_char_em_caps": 0.528,
+    "weight_measured": 700,
+    "ascent_em": 0.92,
+    "descent_em": 0.28
+   }
+  },
+  "Permanent Marker": {
+   "family": "Permanent Marker",
+   "licence": "Apache-2.0",
+   "category": "handwriting",
+   "google_fonts_dir": "apache/permanentmarker",
+   "file": "PermanentMarker-Regular.ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/apache/permanentmarker/PermanentMarker-Regular.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/apache/permanentmarker/LICENSE.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Permanent+Marker",
+   "variable_axes": {},
+   "metrics": {
+    "avg_char_em_mixed": 0.494,
+    "avg_char_em_caps": 0.582,
+    "ascent_em": 1.11,
+    "descent_em": 0.32
+   }
+  },
+  "Patrick Hand": {
+   "family": "Patrick Hand",
+   "licence": "OFL-1.1",
+   "category": "handwriting",
+   "google_fonts_dir": "ofl/patrickhand",
+   "file": "PatrickHand-Regular.ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/patrickhand/PatrickHand-Regular.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/patrickhand/OFL.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Patrick+Hand",
+   "variable_axes": {},
+   "metrics": {
+    "avg_char_em_mixed": 0.35,
+    "avg_char_em_caps": 0.422,
+    "ascent_em": 1.05,
+    "descent_em": 0.32
+   }
+  },
+  "Share Tech Mono": {
+   "family": "Share Tech Mono",
+   "licence": "OFL-1.1",
+   "category": "monospace",
+   "google_fonts_dir": "ofl/sharetechmono",
+   "file": "ShareTechMono-Regular.ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/sharetechmono/ShareTechMono-Regular.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/sharetechmono/OFL.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Share+Tech+Mono",
+   "variable_axes": {},
+   "metrics": {
+    "avg_char_em_mixed": 0.54,
+    "avg_char_em_caps": 0.54,
+    "ascent_em": 0.89,
+    "descent_em": 0.25
+   }
+  },
+  "IBM Plex Sans": {
+   "family": "IBM Plex Sans",
+   "licence": "OFL-1.1",
+   "category": "sans-serif",
+   "google_fonts_dir": "ofl/ibmplexsans",
+   "file": "IBMPlexSans[wdth,wght].ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/ibmplexsans/IBMPlexSans%5Bwdth%2Cwght%5D.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/ibmplexsans/OFL.txt",
+   "specimen_url": "https://fonts.google.com/specimen/IBM+Plex+Sans",
+   "variable_axes": {
+    "wdth": [
+     75.0,
+     100.0
+    ],
+    "wght": [
+     100.0,
+     700.0
+    ]
+   },
+   "metrics": {
+    "avg_char_em_mixed": 0.469,
+    "avg_char_em_caps": 0.578,
+    "weight_measured": 700,
+    "ascent_em": 1.03,
+    "descent_em": 0.28
+   }
+  },
+  "Atkinson Hyperlegible": {
+   "family": "Atkinson Hyperlegible",
+   "licence": "OFL-1.1",
+   "category": "sans-serif",
+   "google_fonts_dir": "ofl/atkinsonhyperlegible",
+   "file": "AtkinsonHyperlegible-Bold.ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/atkinsonhyperlegible/AtkinsonHyperlegible-Bold.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/atkinsonhyperlegible/OFL.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Atkinson+Hyperlegible",
+   "variable_axes": {},
+   "metrics": {
+    "avg_char_em_mixed": 0.471,
+    "avg_char_em_caps": 0.581,
+    "ascent_em": 0.95,
+    "descent_em": 0.29
+   }
+  },
+  "Special Elite": {
+   "family": "Special Elite",
+   "licence": "Apache-2.0",
+   "category": "display",
+   "google_fonts_dir": "apache/specialelite",
+   "file": "SpecialElite-Regular.ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/apache/specialelite/SpecialElite-Regular.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/apache/specialelite/LICENSE.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Special+Elite",
+   "variable_axes": {},
+   "metrics": {
+    "avg_char_em_mixed": 0.523,
+    "avg_char_em_caps": 0.557,
+    "ascent_em": 0.71,
+    "descent_em": 0.3
+   }
+  },
+  "Courier Prime": {
+   "family": "Courier Prime",
+   "licence": "OFL-1.1",
+   "category": "monospace",
+   "google_fonts_dir": "ofl/courierprime",
+   "file": "CourierPrime-Bold.ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/courierprime/CourierPrime-Bold.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/courierprime/OFL.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Courier+Prime",
+   "variable_axes": {},
+   "metrics": {
+    "avg_char_em_mixed": 0.6,
+    "avg_char_em_caps": 0.6,
+    "ascent_em": 0.79,
+    "descent_em": 0.35
+   }
+  },
+  "Orbitron": {
+   "family": "Orbitron",
+   "licence": "OFL-1.1",
+   "category": "sans-serif",
+   "google_fonts_dir": "ofl/orbitron",
+   "file": "Orbitron[wght].ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/orbitron/Orbitron%5Bwght%5D.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/orbitron/OFL.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Orbitron",
+   "variable_axes": {
+    "wght": [
+     400.0,
+     900.0
+    ]
+   },
+   "metrics": {
+    "avg_char_em_mixed": 0.561,
+    "avg_char_em_caps": 0.711,
+    "weight_measured": 800,
+    "ascent_em": 1.02,
+    "descent_em": 0.25
+   }
+  },
+  "Titillium Web": {
+   "family": "Titillium Web",
+   "licence": "OFL-1.1",
+   "category": "sans-serif",
+   "google_fonts_dir": "ofl/titilliumweb",
+   "file": "TitilliumWeb-Bold.ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/titilliumweb/TitilliumWeb-Bold.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/titilliumweb/OFL.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Titillium+Web",
+   "variable_axes": {},
+   "metrics": {
+    "avg_char_em_mixed": 0.432,
+    "avg_char_em_caps": 0.53,
+    "ascent_em": 1.14,
+    "descent_em": 0.39
+   }
+  },
+  "Oswald": {
+   "family": "Oswald",
+   "licence": "OFL-1.1",
+   "category": "sans-serif",
+   "google_fonts_dir": "ofl/oswald",
+   "file": "Oswald[wght].ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/oswald/Oswald%5Bwght%5D.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/oswald/OFL.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Oswald",
+   "variable_axes": {
+    "wght": [
+     200.0,
+     700.0
+    ]
+   },
+   "metrics": {
+    "avg_char_em_mixed": 0.4,
+    "avg_char_em_caps": 0.475,
+    "weight_measured": 700,
+    "ascent_em": 1.2,
+    "descent_em": 0.29
+   }
+  },
+  "Barlow Condensed": {
+   "family": "Barlow Condensed",
+   "licence": "OFL-1.1",
+   "category": "sans-serif",
+   "google_fonts_dir": "ofl/barlowcondensed",
+   "file": "BarlowCondensed-Bold.ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/barlowcondensed/BarlowCondensed-Bold.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/barlowcondensed/OFL.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Barlow+Condensed",
+   "variable_axes": {},
+   "metrics": {
+    "avg_char_em_mixed": 0.357,
+    "avg_char_em_caps": 0.409,
+    "ascent_em": 1.0,
+    "descent_em": 0.2
+   }
+  },
+  "Noto Sans": {
+   "family": "Noto Sans",
+   "licence": "OFL-1.1",
+   "category": "sans-serif",
+   "google_fonts_dir": "ofl/notosans",
+   "file": "NotoSans[wdth,wght].ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/notosans/NotoSans%5Bwdth%2Cwght%5D.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/notosans/OFL.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Noto+Sans",
+   "variable_axes": {
+    "wdth": [
+     62.5,
+     100.0
+    ],
+    "wght": [
+     100.0,
+     900.0
+    ]
+   },
+   "metrics": {
+    "avg_char_em_mixed": 0.503,
+    "avg_char_em_caps": 0.587,
+    "weight_measured": 800,
+    "ascent_em": 1.07,
+    "descent_em": 0.3
+   }
+  },
+  "Noto Serif": {
+   "family": "Noto Serif",
+   "licence": "OFL-1.1",
+   "category": "serif",
+   "google_fonts_dir": "ofl/notoserif",
+   "file": "NotoSerif[wdth,wght].ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/notoserif/NotoSerif%5Bwdth%2Cwght%5D.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/notoserif/OFL.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Noto+Serif",
+   "variable_axes": {
+    "wdth": [
+     62.5,
+     100.0
+    ],
+    "wght": [
+     100.0,
+     900.0
+    ]
+   },
+   "metrics": {
+    "avg_char_em_mixed": 0.499,
+    "avg_char_em_caps": 0.619,
+    "weight_measured": 700,
+    "ascent_em": 1.07,
+    "descent_em": 0.3
+   }
+  },
+  "Righteous": {
+   "family": "Righteous",
+   "licence": "OFL-1.1",
+   "category": "display",
+   "google_fonts_dir": "ofl/righteous",
+   "file": "Righteous-Regular.ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/righteous/Righteous-Regular.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/righteous/OFL.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Righteous",
+   "variable_axes": {},
+   "metrics": {
+    "avg_char_em_mixed": 0.458,
+    "avg_char_em_caps": 0.561,
+    "ascent_em": 0.99,
+    "descent_em": 0.26
+   }
+  },
+  "Rubik": {
+   "family": "Rubik",
+   "licence": "OFL-1.1",
+   "category": "sans-serif",
+   "google_fonts_dir": "ofl/rubik",
+   "file": "Rubik[wght].ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/rubik/Rubik%5Bwght%5D.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/rubik/OFL.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Rubik",
+   "variable_axes": {
+    "wght": [
+     300.0,
+     900.0
+    ]
+   },
+   "metrics": {
+    "avg_char_em_mixed": 0.488,
+    "avg_char_em_caps": 0.588,
+    "weight_measured": 700,
+    "ascent_em": 0.94,
+    "descent_em": 0.25
+   }
+  },
+  "Archivo Black": {
+   "family": "Archivo Black",
+   "licence": "OFL-1.1",
+   "category": "sans-serif",
+   "google_fonts_dir": "ofl/archivoblack",
+   "file": "ArchivoBlack-Regular.ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/archivoblack/ArchivoBlack-Regular.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/archivoblack/OFL.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Archivo+Black",
+   "variable_axes": {},
+   "metrics": {
+    "avg_char_em_mixed": 0.544,
+    "avg_char_em_caps": 0.676,
+    "ascent_em": 0.88,
+    "descent_em": 0.21
+   }
+  },
+  "Work Sans": {
+   "family": "Work Sans",
+   "licence": "OFL-1.1",
+   "category": "sans-serif",
+   "google_fonts_dir": "ofl/worksans",
+   "file": "WorkSans[wght].ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/worksans/WorkSans%5Bwght%5D.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/worksans/OFL.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Work+Sans",
+   "variable_axes": {
+    "wght": [
+     100.0,
+     900.0
+    ]
+   },
+   "metrics": {
+    "avg_char_em_mixed": 0.488,
+    "avg_char_em_caps": 0.594,
+    "weight_measured": 600,
+    "ascent_em": 0.93,
+    "descent_em": 0.25
+   }
+  },
+  "Lilita One": {
+   "family": "Lilita One",
+   "licence": "OFL-1.1",
+   "category": "display",
+   "google_fonts_dir": "ofl/lilitaone",
+   "file": "LilitaOne-Regular.ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/lilitaone/LilitaOne-Regular.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/lilitaone/OFL.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Lilita+One",
+   "variable_axes": {},
+   "metrics": {
+    "avg_char_em_mixed": 0.425,
+    "avg_char_em_caps": 0.515,
+    "ascent_em": 0.93,
+    "descent_em": 0.22
+   }
+  },
+  "Teko": {
+   "family": "Teko",
+   "licence": "OFL-1.1",
+   "category": "sans-serif",
+   "google_fonts_dir": "ofl/teko",
+   "file": "Teko[wght].ttf",
+   "file_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/teko/Teko%5Bwght%5D.ttf",
+   "licence_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/teko/OFL.txt",
+   "specimen_url": "https://fonts.google.com/specimen/Teko",
+   "variable_axes": {
+    "wght": [
+     300.0,
+     700.0
+    ]
+   },
+   "metrics": {
+    "avg_char_em_mixed": 0.348,
+    "avg_char_em_caps": 0.406,
+    "weight_measured": 600,
+    "ascent_em": 0.96,
+    "descent_em": 0.48
+   }
+  }
+ }
+}

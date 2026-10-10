@@ -1,0 +1,8 @@
+title: Frosted-glass panel filtergraph
+summary: Builds an ffmpeg filter_complex for a live frosted-glass panel (crop, gblur/boxblur, 55-75% colour tint, feathered rounded alpha, opacity capped at 0.98) behind titles and captions.
+subkind: ffmpeg-filter
+domain: video
+tags: [video, ffmpeg, frosted-glass, captions, titles, blur, compositing]
+step_kinds: [build, render]
+depends_on: [ffmpeg]
+examples: ["Put a frosted panel behind the yellow first-frame title", "Back one-line captions with live blurred glass"]

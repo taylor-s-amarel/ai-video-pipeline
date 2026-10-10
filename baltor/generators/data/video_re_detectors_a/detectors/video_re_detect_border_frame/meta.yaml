@@ -1,0 +1,14 @@
+title: Detect a decorative border frame
+summary: Measures a static border or padding frame around moving video content - width per side in source px, solid/gradient/textured colour and the inner corner radius.
+description: >-
+  Separates the static frame from the moving content with per-pixel temporal standard deviation, scans each side
+  inwards, describes the border colour (solid, linear gradient with angle, or textured) and fits a circular radius
+  to the inner corners of the content rectangle.
+tags: [border, frame, padding, corner-radius]
+limits:
+  - Needs moving content; still images return status partial.
+  - A static title or logo spanning a whole side reads as border.
+  - Only the inner corner radius is measured, not rounding of the outer frame.
+contract:
+  title: Border frame payload
+  summary: JSON Schema for the border frame detector payload - per-side widths in source px, style, colour or gradient, inner corner radius and content rectangle.

@@ -40,7 +40,7 @@ IDENTITY = "video_re_detect_shots"
 VERSION = "1.0.0"
 
 DEFAULTS = {"width": 96, "min_score": 0.12, "adaptive_ratio": 3.0, "window_s": 0.5, "min_shot_s": 0.2,
-            "gradual": True, "gradual_window_s": 0.5, "gradual_min": 0.3, "max_gradual_s": 2.0}
+            "gradual": True, "gradual_window_s": 0.5, "gradual_min": 0.3, "max_gradual_s": 2.0, "merge_s": 0.6}
 
 
 def frame_features(rgb: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
@@ -155,14 +155,41 @@ def find_gradual(hists: np.ndarray, greys: np.ndarray, scores: np.ndarray, cuts:
             continue  # change happened in one frame
         if window.sum() < 0.5 * d[peak]:
             continue  # change did not accumulate frame by frame
-        centre = int(round(peak - k / 2.0))
-        out.append((centre, float(d[peak]), start, end))
+        # the region where frame t differs from frame t-k is about (transition + k) long and centred
+        # k/2 after the transition's centre
+        centre = int(round((s + e - 1) / 2.0 - k / 2.0))
+        out.append((centre, float(d[peak]), max(0, s - k), e - 1))
     min_gap = max(1, int(round(min_shot_s * fps)))
     kept: list[tuple[int, float, int, int]] = []
     for g in out:
         if all(abs(g[0] - c) >= min_gap for c in cuts) and all(abs(g[0] - x[0]) >= min_gap for x in kept):
             kept.append(g)
     return kept
+
+
+def merge_transitional(bounds: list[dict], scores: np.ndarray, greys: np.ndarray, fps: float,
+                       merge_s: float = 0.6) -> list[dict]:
+    """Merge boundaries less than ``merge_s`` apart when every frame between them is transitional
+    (still changing, or flat such as a black frame in a fade). A fade through black then reads as one
+    gradual transition instead of two cuts around a 'shot' of black frames."""
+    if not bounds:
+        return []
+    flat = greys.reshape(len(greys), -1).std(axis=1) < 4.0
+    base = float(np.median(scores[1:])) if len(scores) > 1 else 0.0
+    elevated = scores > max(0.03, 3.0 * base)
+    out: list[dict] = []
+    for b in sorted(bounds, key=lambda x: x["frame"]):
+        if out and b["frame"] - out[-1]["frame"] <= merge_s * fps:
+            a = out[-1]
+            between = range(a["frame"] + 1, b["frame"])
+            if all(elevated[i] or flat[i] for i in between):
+                lo = min(a.get("span", [a["frame"]])[0], a["frame"] - 1)
+                hi = max(b.get("span", [b["frame"], b["frame"]])[-1], b["frame"])
+                out[-1] = {"frame": int(round((lo + hi) / 2.0)), "type": "gradual",
+                           "score": max(a["score"] or 0, b["score"] or 0), "span": [lo, hi]}
+                continue
+        out.append(b)
+    return out
 
 
 def shots_from_boundaries(boundaries: list[dict], n_frames: int, fps: float) -> list[dict]:
@@ -190,6 +217,7 @@ def detect_frames(video: str, **params) -> dict:
         for centre, s, a, b in find_gradual(hists, greys, scores, [t for t, _ in cuts], fps, p["gradual_window_s"],
                                             p["gradual_min"], p["max_gradual_s"], p["min_score"], p["min_shot_s"]):
             bounds.append({"frame": centre, "type": "gradual", "score": s, "span": [a, b]})
+    bounds = merge_transitional(bounds, scores, greys, fps, p["merge_s"])
     n = len(hists)
     shots = shots_from_boundaries(bounds, n, fps)
     return {"fps": fps, "frame_count": n, "duration_s": n / fps, "shots": shots,

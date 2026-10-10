@@ -1,0 +1,7 @@
+title: SSML builder
+summary: Builds valid, escaped SSML 1.1 (speak, break, prosody, emphasis, say-as, sub, phoneme) with value validation, plus a stripper that turns SSML back into plain text for engines without SSML.
+subkind: voice-preset
+domain: audio
+tags: [audio, tts, ssml, xml, narration]
+step_kinds: [write, build]
+references: ["https://www.w3.org/TR/speech-synthesis11/"]

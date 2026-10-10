@@ -1,0 +1,107 @@
+id: assets-sfx-packs
+title: "Sound-effect packs and procedural SFX generators"
+description: >-
+  UI clicks, impacts, footsteps, coins and whooshes for shorts and Godot scenes: Kenney's CC0 audio
+  packs, CC0 retro packs on OpenGameArt, and open-source generators (ZzFX, jsfxr, rFXGen, Bfxr) that let
+  an agent synthesise original effects with no third-party sample in the chain.
+tags: [audio, sfx, sound-effects, procedural]
+defaults:
+  kind: media-source
+  verification: search-result
+items:
+  - id: kenney-audio-category
+    title: "Kenney audio packs (category)"
+    url: https://kenney.nl/assets/category:Audio
+    summary: "All Kenney audio packs: Casino Audio, Sci-fi Sounds, Interface Sounds, Impact Sounds, Voiceover Pack, Music Jingles, RPG Audio, Digital Audio, UI Audio. All CC0."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [kenney, index, cc0]
+  - id: kenney-interface-sounds
+    title: "Kenney Interface Sounds"
+    url: https://kenney.nl/assets/interface-sounds
+    summary: "Clicks, toggles, confirmations and errors for UI and caption pops, CC0."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [ui, clicks, kenney]
+  - id: kenney-rpg-audio
+    title: "Kenney RPG Audio (50 files)"
+    url: https://kenney.nl/assets/rpg-audio
+    summary: "50 foley sounds: footsteps, weapons, doors, coins (released 2014), CC0."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [foley, footsteps, kenney]
+  - id: kenney-casino-audio
+    title: "Kenney Casino Audio"
+    url: https://kenney.nl/assets/casino-audio
+    summary: "Card, chip and dice sounds for game-show and 'this vs that' reveal moments, CC0."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [casino, cards, dice, kenney]
+  - id: kenney-voiceover-pack
+    title: "Kenney Voiceover Pack"
+    url: https://kenney.nl/assets/voiceover-pack
+    summary: "Announcer-style spoken game words (start, go, game over ...), CC0."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [voice, announcer, kenney]
+  - id: kenney-voiceover-pack-fighter
+    title: "Kenney Voiceover Pack (Fighter)"
+    url: https://kenney.nl/assets/voiceover-pack-fighter
+    summary: "Fighting-game announcer callouts, CC0."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [voice, fighter, kenney]
+  - id: oga-512-sound-effects-8bit
+    title: "512 Sound Effects (8-bit style) by SubspaceAudio"
+    url: https://opengameart.org/content/512-sound-effects-8-bit-style
+    summary: "512 NES/C64-style retro effects (part of the 1000 Retro Sound Effects pack sold on itch.io), CC0 on OpenGameArt."
+    licence: CC0-1.0
+    licence_url: https://opengameart.org/content/512-sound-effects-8-bit-style
+    tags: [retro, 8-bit, chiptune]
+  - id: oga-8-bit-sound-effect-pack
+    title: "8-Bit Sound Effect Pack (OpenGameArt)"
+    url: https://opengameart.org/content/8-bit-sound-effect-pack
+    summary: "Another retro sound-effect pack on OpenGameArt."
+    licence: "See page (per-asset licence on OpenGameArt)"
+    licence_url: https://opengameart.org/content/faq
+    tags: [retro, 8-bit]
+    cautions: ["Licence not confirmed in search results; read the page before use."]
+  - id: zzfx
+    title: "ZzFX (tiny JavaScript sound FX system)"
+    url: https://github.com/KilledByAPixel/ZzFX
+    summary: "Under-1 KB JS synth with 20 parameters per sound (zzfx(...params)); MIT. An agent can store a parameter array instead of an audio file and render it offline."
+    licence: MIT
+    licence_url: https://github.com/KilledByAPixel/ZzFX
+    kind: library
+    verification: fetched
+    tags: [procedural, synth, javascript]
+  - id: jsfxr
+    title: "jsfxr (sfxr in JavaScript)"
+    url: https://github.com/chr15m/jsfxr
+    summary: "Quick game sound-effect generator (pickup, laser, explosion, jump ...) usable in the browser or as a library; Unlicense."
+    licence: Unlicense
+    licence_url: https://github.com/chr15m/jsfxr
+    kind: tool
+    verification: fetched
+    tags: [procedural, sfxr, javascript]
+    cautions: ["The repo licence covers the code; it does not state terms for generated sounds. Generated output from your own parameters is normally treated as yours, but record the generator and parameters."]
+  - id: rfxgen
+    title: "rFXGen (raylib sound FX generator)"
+    url: https://github.com/raysan5/rfxgen
+    summary: "Desktop/web sfx generator with a CLI: presets (coin, laser, explosion, powerup, hit, jump, blip), batch .rfx to WAV, 22.05/44.1 kHz, 8/16/32-bit; source under zlib/libpng."
+    licence: Zlib
+    licence_url: https://github.com/raysan5/rfxgen
+    kind: tool
+    verification: fetched
+    tags: [procedural, cli, wav]
+    cautions: ["Licence covers the software; terms for generated sounds are not stated on the page."]
+  - id: bfxr
+    title: "Bfxr (sfxr-based effects generator)"
+    url: https://github.com/increpare/bfxr
+    summary: "Flash/AIR sound-effect generator based on sfxr; Apache 2.0."
+    licence: Apache-2.0
+    licence_url: https://github.com/increpare/bfxr
+    kind: tool
+    verification: fetched
+    tags: [procedural, sfxr]
+    cautions: ["Legacy Flash/AIR codebase; prefer jsfxr or rFXGen for automated pipelines."]

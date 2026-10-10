@@ -1,0 +1,206 @@
+# Colour palettes for vertical shorts. The generator computes WCAG contrast for every
+# text/background pair (worst case over unknown video for semi-transparent panels) and only
+# emits pairs that reach 4.5:1, or 3:1 for text that is both >= 24 px and bold.
+# Roles: background (deepest base), surface (cards), panel_tint (frosted panel colour),
+# text (captions), title (hook), keyword (emphasis), accent, accent_2, stroke (outlines),
+# light (light leaks / glows), particle (dust, bokeh). ramp: five stops dark -> light used to
+# recolour procedural backgrounds. mood decides which backgrounds and looks it suits.
+
+house_yellow_night:
+  name: House yellow on night glass
+  mode: dark
+  mood: [house, calm, science, history, space, nature]
+  panel_opacity: 0.62
+  colors: {background: "#0B1220", surface: "#162033", panel_tint: "#0B1220", text: "#FFFFFF", title: "#FFD21F",
+           keyword: "#FFD21F", accent: "#2EC4B6", accent_2: "#FF7A59", stroke: "#000000", light: "#FFB347", particle: "#FFE8A3"}
+  gradient: ["#0B1220", "#1F4E79"]
+  ramp: ["#060B14", "#0B1220", "#1F4E79", "#2EC4B6", "#E8F7FF"]
+  notes: The house default. Bold yellow hook (#FFD21F) and keyword pops over a dark navy frosted panel.
+
+ocean_deep:
+  name: Ocean deep
+  mode: dark
+  mood: [nature, calm, science, house]
+  panel_opacity: 0.64
+  colors: {background: "#03141F", surface: "#082A3D", panel_tint: "#041C2C", text: "#FFFFFF", title: "#FFD21F",
+           keyword: "#7FF0FF", accent: "#18A0C8", accent_2: "#FFB703", stroke: "#00111A", light: "#9FE7F5", particle: "#D8FBFF"}
+  gradient: ["#03141F", "#0B5E8A"]
+  ramp: ["#021019", "#04223F", "#0B5E8A", "#2FA4C8", "#C8F1FF"]
+  notes: Sea and underwater topics. Cyan keyword, house yellow title.
+
+meadow_morning:
+  name: Meadow morning (light)
+  mode: light
+  mood: [nature, calm, relationships, animals]
+  panel_opacity: 0.80
+  colors: {background: "#EEF6E2", surface: "#FFFFFF", panel_tint: "#FFFFFF", text: "#10230F", title: "#1F5E14",
+           keyword: "#1E5E12", accent: "#6BA539", accent_2: "#E8A33D", stroke: "#FFFFFF", light: "#FFF3C4", particle: "#FFFFFF"}
+  gradient: ["#CFE8B4", "#EEF6E2"]
+  ramp: ["#173A12", "#3F7A22", "#9CCB4A", "#DDEEB0", "#F7FBEF"]
+  notes: Light frosted panels with dark green text. Use for gentle nature and pet topics.
+
+warm_paper_sepia:
+  name: Warm paper sepia (light)
+  mode: light
+  mood: [history, documentary, calm]
+  panel_opacity: 0.78
+  colors: {background: "#F3EBDD", surface: "#FFF8EC", panel_tint: "#FFF8EC", text: "#2B1D12", title: "#7A2E0E",
+           keyword: "#9E3510", accent: "#8C6239", accent_2: "#3E5C76", stroke: "#FFF8EC", light: "#FFE7B0", particle: "#FFFFFF"}
+  gradient: ["#E9DCC3", "#F3EBDD"]
+  ramp: ["#5B4636", "#8C6239", "#CDB792", "#EFE3CC", "#FFF9EE"]
+  notes: Archive and today-in-history looks on paper textures.
+
+neon_night:
+  name: Neon night
+  mode: dark
+  mood: [tech, retro, energetic]
+  panel_opacity: 0.66
+  colors: {background: "#0B0221", surface: "#1A0838", panel_tint: "#12062B", text: "#FFFFFF", title: "#FFE45E",
+           keyword: "#00F0FF", accent: "#FF2E97", accent_2: "#7A1FA2", stroke: "#0B0221", light: "#FF2E97", particle: "#FFB3E1"}
+  gradient: ["#0B0221", "#2B0A4F"]
+  ramp: ["#0B0221", "#2B0A4F", "#7A1FA2", "#FF2E97", "#FFE8F5"]
+  notes: AI explainers and synthwave looks.
+
+sunset_coral:
+  name: Sunset coral
+  mode: dark
+  mood: [relationships, calm, energetic, nature]
+  panel_opacity: 0.70
+  colors: {background: "#2B1B3D", surface: "#3D2654", panel_tint: "#1E1230", text: "#FFFFFF", title: "#FFC857",
+           keyword: "#FFB4B4", accent: "#F9844A", accent_2: "#C05299", stroke: "#1E1230", light: "#FF9F45", particle: "#FFD6A5"}
+  gradient: ["#2B1B3D", "#7A3B69"]
+  ramp: ["#1E1230", "#3D2654", "#7A3B69", "#F9844A", "#FFE3C2"]
+  notes: Warm evening tones for feelings and relationship topics.
+
+forest_canopy:
+  name: Forest canopy
+  mode: dark
+  mood: [nature, calm, animals]
+  panel_opacity: 0.64
+  colors: {background: "#0D1F12", surface: "#173322", panel_tint: "#0A1A0F", text: "#F4FBEF", title: "#E9F5A1",
+           keyword: "#A7E163", accent: "#3E8E41", accent_2: "#F3E3A0", stroke: "#06110A", light: "#F3E3A0", particle: "#EAF7C9"}
+  gradient: ["#0D1F12", "#20402A"]
+  ramp: ["#0B1A0E", "#20402A", "#3E6B2F", "#A7E163", "#F6F9E8"]
+  notes: Woods, wildlife and calm nature facts.
+
+desert_dune:
+  name: Desert dune
+  mode: dark
+  mood: [history, nature, documentary]
+  panel_opacity: 0.70
+  colors: {background: "#3B2414", surface: "#5A3820", panel_tint: "#2A190D", text: "#FFF4E6", title: "#FFD08A",
+           keyword: "#FFC27F", accent: "#D9822B", accent_2: "#7FB7BE", stroke: "#1C1007", light: "#FFC97A", particle: "#FFE9C7"}
+  gradient: ["#3B2414", "#8A5A2B"]
+  ramp: ["#1C1007", "#3B2414", "#8A5A2B", "#D9A15E", "#FFF1DC"]
+  notes: Ancient history, deserts, exploration.
+
+arctic_ice:
+  name: Arctic ice (light)
+  mode: light
+  mood: [science, calm, nature]
+  panel_opacity: 0.74
+  colors: {background: "#E8F4FA", surface: "#FFFFFF", panel_tint: "#FFFFFF", text: "#0B2537", title: "#0B4F75",
+           keyword: "#005A8C", accent: "#4CB5E0", accent_2: "#9C6ADE", stroke: "#FFFFFF", light: "#FFFFFF", particle: "#FFFFFF"}
+  gradient: ["#CDE7F3", "#F4FAFD"]
+  ramp: ["#0B2537", "#1F5F86", "#7FC1E3", "#CDE7F3", "#FFFFFF"]
+  notes: Clean science and weather topics on a bright base.
+
+history_archive:
+  name: History archive
+  mode: dark
+  mood: [history, documentary]
+  panel_opacity: 0.72
+  colors: {background: "#1E1710", surface: "#2E241A", panel_tint: "#19130C", text: "#F5ECD9", title: "#E8C27A",
+           keyword: "#F6B878", accent: "#B08D57", accent_2: "#6E8B9C", stroke: "#0E0A06", light: "#F3D9A4", particle: "#F5ECD9"}
+  gradient: ["#1E1710", "#4A3A28"]
+  ramp: ["#0E0A06", "#1E1710", "#4A3A28", "#B08D57", "#F5ECD9"]
+  notes: Battles, eras and biographies with a dark sepia base.
+
+science_blueprint:
+  name: Science blueprint
+  mode: dark
+  mood: [science, tech, education]
+  panel_opacity: 0.66
+  colors: {background: "#0F2C4C", surface: "#163A61", panel_tint: "#0A1F36", text: "#FFFFFF", title: "#9FE7FF",
+           keyword: "#FFD21F", accent: "#3D6A99", accent_2: "#FF8A5B", stroke: "#06182B", light: "#BFE9FF", particle: "#E6F0FF"}
+  gradient: ["#0F2C4C", "#1F4E79"]
+  ramp: ["#06182B", "#0F2C4C", "#3D6A99", "#9FE7FF", "#E6F0FF"]
+  notes: Explainers, how-it-works and engineering topics.
+
+relationship_blush:
+  name: Relationship blush (light)
+  mode: light
+  mood: [relationships, calm]
+  panel_opacity: 0.74
+  colors: {background: "#FBEFF1", surface: "#FFFFFF", panel_tint: "#FFFFFF", text: "#3A1E2B", title: "#8E2450",
+           keyword: "#A3154C", accent: "#E8B4C4", accent_2: "#6D8B74", stroke: "#FFFFFF", light: "#FFE0E8", particle: "#FFFFFF"}
+  gradient: ["#F6D7DE", "#FBEFF1"]
+  ramp: ["#3B1E2B", "#9C4F6B", "#E8B4C4", "#F6D7DE", "#FFF5F7"]
+  notes: Soft looks for trust, communication and feelings topics.
+
+news_contrast:
+  name: News high contrast
+  mode: dark
+  mood: [news, documentary, energetic]
+  panel_opacity: 0.74
+  colors: {background: "#0E0E10", surface: "#1C1C20", panel_tint: "#000000", text: "#FFFFFF", title: "#FFFFFF",
+           keyword: "#FFCC00", accent: "#E03A3E", accent_2: "#3A7BD5", stroke: "#000000", light: "#FFFFFF", particle: "#FFFFFF"}
+  gradient: ["#0E0E10", "#2A2A30"]
+  ramp: ["#000000", "#0E0E10", "#2A2A30", "#8A8A96", "#FFFFFF"]
+  notes: Briefings and explainers where text must read at a glance. Red is for bars and accents, not small text.
+
+comic_primary:
+  name: Comic primary (light)
+  mode: light
+  mood: [comic, energetic, animals]
+  panel_opacity: 0.86
+  colors: {background: "#FFF4D6", surface: "#FFFFFF", panel_tint: "#FFFFFF", text: "#111111", title: "#B3121F",
+           keyword: "#1D4ED8", accent: "#E63946", accent_2: "#FFD21F", stroke: "#111111", light: "#FFFFFF", particle: "#FFFFFF"}
+  gradient: ["#FFE9A8", "#FFF4D6"]
+  ramp: ["#111111", "#E63946", "#FF9F1C", "#FFD21F", "#FFF4D6"]
+  notes: Ridiculous stories, cartoons and comic panels.
+
+pixel_retro:
+  name: Pixel retro
+  mode: dark
+  mood: [retro, tech, energetic]
+  panel_opacity: 0.7
+  colors: {background: "#1B1B2F", surface: "#2C2C4A", panel_tint: "#14142A", text: "#F4F4F4", title: "#FFC85C",
+           keyword: "#9CEB6B", accent: "#4AA8F0", accent_2: "#E05A6D", stroke: "#0B0B18", light: "#FFC85C", particle: "#F4F4F4"}
+  gradient: ["#1B1B2F", "#2C2C4A"]
+  ramp: ["#0B0B18", "#1B1B2F", "#3B5DC9", "#4AA8F0", "#F4F4F4"]
+  notes: Pixel-art and game-style stories; pairs with nearest-neighbour scaling.
+
+okabe_ito_safe:
+  name: Okabe-Ito colour-vision-friendly
+  mode: dark
+  mood: [science, education, news, house]
+  panel_opacity: 0.66
+  colors: {background: "#101010", surface: "#1E1E1E", panel_tint: "#000000", text: "#FFFFFF", title: "#F0E442",
+           keyword: "#56B4E9", accent: "#E69F00", accent_2: "#009E73", stroke: "#000000", light: "#E69F00", particle: "#FFFFFF"}
+  gradient: ["#101010", "#1E1E1E"]
+  ramp: ["#000000", "#101010", "#0072B2", "#56B4E9", "#F0E442"]
+  source: {name: "Okabe-Ito palette hex values (lab reference table)", url: "https://siegal.bio.nyu.edu/color-palette/"}
+  notes: Accent hues from the Okabe-Ito set, which is designed to stay distinguishable for common colour-vision deficiencies. Use when colour carries meaning.
+
+mono_high_contrast:
+  name: Monochrome high contrast
+  mode: dark
+  mood: [news, documentary, education, house]
+  panel_opacity: 0.75
+  colors: {background: "#000000", surface: "#161616", panel_tint: "#000000", text: "#FFFFFF", title: "#FFFFFF",
+           keyword: "#FFE600", accent: "#BDBDBD", accent_2: "#FFFFFF", stroke: "#000000", light: "#FFFFFF", particle: "#FFFFFF"}
+  gradient: ["#000000", "#262626"]
+  ramp: ["#000000", "#161616", "#3A3A3A", "#9E9E9E", "#FFFFFF"]
+  notes: Maximum legibility; one yellow keyword colour.
+
+space_violet:
+  name: Space violet
+  mode: dark
+  mood: [space, science, calm, house]
+  panel_opacity: 0.72
+  colors: {background: "#05040F", surface: "#120F2B", panel_tint: "#0B0820", text: "#FFFFFF", title: "#FFD21F",
+           keyword: "#CBB8FF", accent: "#6C63FF", accent_2: "#4FD1C5", stroke: "#03020A", light: "#B69CFF", particle: "#FFFFFF"}
+  gradient: ["#05040F", "#1C1645"]
+  ramp: ["#02030A", "#141B3A", "#3B2F8F", "#6C63FF", "#E9E6FF"]
+  notes: Space, astronomy and women-in-space facts with the house yellow hook.
