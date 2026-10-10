@@ -1,0 +1,330 @@
+id: assets-icons-fonts-palettes
+title: "Icons, emoji, fonts and pixel-art palettes for captions, UI and thumbnails"
+description: >-
+  Open icon sets, emoji artwork, display and pixel fonts, and Lospec palettes for caption styling,
+  lower thirds, 'this vs that' comparison boards and pixel-art scenes. Licences differ sharply: ISC/MIT
+  icon sets need nothing but the notice in code, CC-BY sets (game-icons.net, Twemoji, Font Awesome
+  icons) need a visible credit, OpenMoji is share-alike, and OFL fonts may not be sold on their own.
+tags: [icons, emoji, fonts, palettes, captions, ui]
+defaults:
+  kind: media-source
+  verification: search-result
+items:
+  - id: game-icons-net
+    title: "game-icons.net (SVG game icons)"
+    url: https://game-icons.net/about.html
+    summary: "Large set of single-colour SVG game icons by many authors (Lorc, Delapouite ...). Credit line suggested by the site: 'Icons made by {author}. Available on https://game-icons.net'."
+    licence: CC-BY-3.0
+    licence_url: https://creativecommons.org/licenses/by/3.0/deed.en
+    tags: [icons, svg, game]
+    cautions: ["Attribution required per icon author, not just the site.", "A third-party post quotes a CC BY 4.0 footer; record the licence shown when you download."]
+  - id: game-icons-github
+    title: "game-icons/icons (GitHub)"
+    url: https://github.com/game-icons/icons
+    summary: "Source SVGs in one folder per author (lorc/, delapouite/, various-artists/ ...) plus colourise/rasterise scripts; licence file names CC-BY."
+    licence: CC-BY-3.0
+    licence_url: https://game-icons.net/about.html
+    verification: fetched
+    kind: repository
+    tags: [icons, svg, github]
+    cautions: ["The author is the folder name: use it in the credit line."]
+  - id: iconify-game-icons
+    title: "Iconify: Game Icons set"
+    url: https://icon-sets.iconify.design/game-icons/
+    summary: "game-icons.net served through Iconify (search, SVG per icon); Iconify lists it as CC BY 3.0, attribution required, commercial use allowed."
+    licence: CC-BY-3.0
+    licence_url: https://game-icons.net/about.html
+    tags: [icons, iconify]
+  - id: iconify-icon-sets
+    title: "iconify/icon-sets (200+ open icon sets as JSON)"
+    url: https://github.com/iconify/icon-sets
+    summary: "200+ open-source icon sets normalised to IconifyJSON; licences are listed per set in collections.md/collections.json, and some sets require attribution."
+    licence: "Per icon set"
+    licence_url: https://github.com/iconify/icon-sets
+    verification: fetched
+    kind: repository
+    tags: [icons, json, index]
+    cautions: ["Look up each set's licence in collections.json before use; mixing sets mixes obligations."]
+  - id: lucide-icons
+    title: "Lucide icons"
+    url: https://github.com/lucide-icons/lucide
+    summary: "1,600+ consistent stroke SVG icons with packages for JS, React, Vue, Svelte and static SVG; ISC licence."
+    licence: ISC
+    licence_url: https://github.com/lucide-icons/lucide
+    verification: fetched
+    kind: repository
+    tags: [icons, svg, ui]
+  - id: tabler-icons
+    title: "Tabler Icons"
+    url: https://github.com/tabler/tabler-icons
+    summary: "6,238 icons (5,184 outline + 1,054 filled) as SVG, sprite, webfont, PNG, PDF and EPS; MIT."
+    licence: MIT
+    licence_url: https://github.com/tabler/tabler-icons
+    verification: fetched
+    kind: repository
+    tags: [icons, svg, ui]
+  - id: phosphor-icons-core
+    title: "Phosphor Icons (core)"
+    url: https://github.com/phosphor-icons/core
+    summary: "Flexible icon family grouped by weight (thin to duotone) as raw SVG with a catalogue of names, categories and tags; MIT."
+    licence: MIT
+    licence_url: https://github.com/phosphor-icons/core
+    verification: fetched
+    kind: repository
+    tags: [icons, svg, weights]
+  - id: material-design-icons
+    title: "Google Material Symbols and Icons"
+    url: https://github.com/google/material-design-icons
+    summary: "Material Symbols variable fonts (Outlined/Rounded/Sharp; weight, grade, fill, optical size axes) plus the classic Material Icons; Apache 2.0, attribution appreciated not required."
+    licence: Apache-2.0
+    licence_url: https://github.com/google/material-design-icons
+    verification: fetched
+    kind: repository
+    tags: [icons, variable-font, ui]
+  - id: font-awesome-free-licence
+    title: "Font Awesome Free licence"
+    url: https://fontawesome.com/license/free
+    summary: "Free icons (.svg/.js) are CC BY 4.0, font files SIL OFL 1.1, other code MIT; keep the embedded attribution comments."
+    licence: "CC-BY-4.0 (icons), OFL-1.1 (fonts), MIT (code)"
+    licence_url: https://fontawesome.com/license/free
+    kind: guidance
+    tags: [icons, licensing]
+    cautions: ["Pro icons are commercial; an SVG copied from the website may carry a Pro licence header. Use the Free package only."]
+  - id: openmoji
+    title: "OpenMoji"
+    url: https://github.com/hfg-gmuend/openmoji
+    summary: "Open-source emoji artwork (SVG/PNG) in a flat outline style; graphics CC BY-SA 4.0, helper code LGPL-3.0."
+    licence: CC-BY-SA-4.0
+    licence_url: https://creativecommons.org/licenses/by-sa/4.0/deed.en
+    verification: fetched
+    kind: repository
+    tags: [emoji, svg]
+    cautions: ["Share-alike: modified emoji must be released under CC BY-SA 4.0; credit OpenMoji with a link and the licence."]
+  - id: twemoji-jdecked
+    title: "Twemoji (jdecked fork)"
+    url: https://github.com/jdecked/twemoji
+    summary: "Maintained fork of Twitter's emoji set; graphics CC-BY 4.0, code MIT. The project accepts a credit in a README, About section or footer."
+    licence: "CC-BY-4.0 (graphics), MIT (code)"
+    licence_url: https://creativecommons.org/licenses/by/4.0/deed.en
+    verification: fetched
+    kind: repository
+    tags: [emoji, svg]
+    cautions: ["Put the credit in the video description or end card when emoji appear on screen."]
+  - id: noto-emoji
+    title: "Noto Emoji (Google)"
+    url: https://github.com/googlefonts/noto-emoji
+    summary: "Noto colour emoji: fonts under OFL 1.1, tools and most images Apache 2.0; flag images are public domain or otherwise exempt."
+    licence: "OFL-1.1 (fonts), Apache-2.0 (images, tools)"
+    licence_url: https://github.com/googlefonts/noto-emoji
+    verification: fetched
+    kind: repository
+    tags: [emoji, font, png, svg]
+  - id: fluentui-emoji
+    title: "Microsoft Fluent UI Emoji"
+    url: https://github.com/microsoft/fluentui-emoji
+    summary: "Microsoft's friendly emoji collection (art and assets folders); repository licensed MIT."
+    licence: MIT
+    licence_url: https://github.com/microsoft/fluentui-emoji
+    verification: fetched
+    kind: repository
+    tags: [emoji, 3d-style]
+    cautions: ["Check the licence file covers the artwork you use; Microsoft trademarks are not licensed."]
+  - id: google-fonts-repo
+    title: "google/fonts (every Google Fonts family)"
+    url: https://github.com/google/fonts
+    summary: "Font files grouped by licence folder (ofl/, apache/, ufl/); most families are SIL OFL 1.1. Each family folder has METADATA.pb and its licence file."
+    licence: "OFL-1.1 (most), Apache-2.0, UFL-1.0"
+    licence_url: https://openfontlicense.org/open-font-license-official-text/
+    verification: fetched
+    kind: repository
+    tags: [fonts, ofl, github]
+    cautions: ["Fonts may be bundled with software or videos but never sold on their own; modified fonts may not use Reserved Font Names."]
+  - id: google-fonts-faq
+    title: "Google Fonts FAQ (licensing)"
+    url: https://developers.google.com/fonts/faq?tid=311165647
+    summary: "Fonts can be used commercially, including in products that are sold; conditions are in each font's licence (mostly OFL). Images of text are not fonts."
+    licence: "Per font (mostly OFL-1.1)"
+    licence_url: https://openfontlicense.org/open-font-license-official-text/
+    kind: guidance
+    tags: [fonts, licensing]
+  - id: ofl-official-text
+    title: "SIL Open Font License 1.1 (official text)"
+    url: https://openfontlicense.org/open-font-license-official-text/
+    summary: "OFL 1.1: fonts may be used, embedded and redistributed with software; not sold by themselves; documents made with the font are not bound by the licence."
+    licence: OFL-1.1
+    licence_url: https://openfontlicense.org/open-font-license-official-text/
+    kind: standard
+    tags: [fonts, licence]
+  - id: gf-bebas-neue
+    title: "Bebas Neue (Google Fonts)"
+    url: https://fonts.google.com/specimen/Bebas%2BNeue
+    summary: "Condensed all-caps display face by Ryoichi Tsunekawa for headlines and captions; the classic bold hook-title font."
+    licence: OFL-1.1
+    licence_url: https://github.com/google/fonts/tree/main/ofl/bebasneue
+    tags: [fonts, display, captions]
+  - id: gf-anton
+    title: "Anton (Google Fonts)"
+    url: https://fonts.google.com/specimen/Anton?preview.text=Bebas+Neue+Regular&preview.text_type=custom
+    summary: "Reworked advertising sans by Vernon Adams; heavy condensed caption and thumbnail face."
+    licence: OFL-1.1
+    licence_url: https://github.com/google/fonts/tree/main/ofl/anton
+    tags: [fonts, display, thumbnails]
+  - id: gf-montserrat-licence
+    title: "Montserrat (Google Fonts licence page)"
+    url: https://fonts.google.com/specimen/Montserrat/license
+    summary: "Geometric sans in nine weights (Thin to Black); widely used for bold short-video captions. Licence tab of the specimen page."
+    licence: OFL-1.1
+    licence_url: https://github.com/google/fonts/tree/main/ofl/montserrat
+    tags: [fonts, captions, sans]
+  - id: gf-poppins
+    title: "Poppins (Google Fonts)"
+    url: https://fonts.google.com/specimen/Poppins
+    summary: "Geometric sans (Latin and Devanagari) by Indian Type Foundry, Jonny Pinhorn and Ninad Kale, Thin to ExtraBold with italics."
+    licence: OFL-1.1
+    licence_url: https://github.com/google/fonts/tree/main/ofl/poppins
+    tags: [fonts, captions, sans]
+  - id: gf-inter
+    title: "Inter (Google Fonts)"
+    url: https://fonts.google.com/specimen/Inter
+    summary: "Variable screen sans by Rasmus Andersson with a tall x-height; clean UI and subtitle text."
+    licence: OFL-1.1
+    licence_url: https://github.com/google/fonts/tree/main/ofl/inter
+    tags: [fonts, ui, subtitles]
+  - id: gf-luckiest-guy
+    title: "Luckiest Guy (Google Fonts)"
+    url: https://fonts.google.com/specimen/Luckiest%2BGuy
+    summary: "Heavy 1950s-advertising-style display face by Astigmatic; playful hook titles."
+    licence: Apache-2.0
+    licence_url: https://github.com/google/fonts/tree/main/apache
+    tags: [fonts, display, playful]
+    cautions: ["Apache-2.0, not OFL: it sits in the apache/ folder of google/fonts. Keep the licence notice if you redistribute the font file."]
+  - id: gf-press-start-2p
+    title: "Press Start 2P (Google Fonts)"
+    url: https://fonts.google.com/specimen/Press+Start+2P
+    summary: "Bitmap font after 1980s Namco arcade games by CodeMan38; crisp at 8, 16 and other multiples of 8 px."
+    licence: OFL-1.1
+    licence_url: https://github.com/google/fonts/tree/main/ofl/pressstart2p
+    tags: [fonts, pixel, retro]
+  - id: gf-pixelify-sans
+    title: "Pixelify Sans (Google Fonts)"
+    url: https://fonts.google.com/specimen/Pixelify%2BSans
+    summary: "Variable pixel-style face (Regular to Bold) by Stefie Justprince for retro game captions."
+    licence: OFL-1.1
+    licence_url: https://github.com/google/fonts/tree/main/ofl/pixelifysans
+    tags: [fonts, pixel]
+  - id: gf-silkscreen
+    title: "Silkscreen (Google Fonts)"
+    url: https://fonts.google.com/specimen/Silkscreen
+    summary: "Small-size pixel typeface by Jason Kottke (Regular, Bold)."
+    licence: OFL-1.1
+    licence_url: https://github.com/google/fonts/tree/main/ofl/silkscreen
+    tags: [fonts, pixel]
+  - id: gf-vt323
+    title: "VT323 (Google Fonts)"
+    url: https://fonts.google.com/specimen/VT323
+    summary: "Terminal face modelled on the DEC VT320 by Peter Hull; for hacker/retro-computer scenes."
+    licence: OFL-1.1
+    licence_url: https://github.com/google/fonts/tree/main/ofl/vt323
+    tags: [fonts, terminal, retro]
+  - id: kenney-fonts
+    title: "Kenney Fonts (11 assets)"
+    url: https://kenney.nl/assets/kenney-fonts
+    summary: "Kenney's own game fonts (v1.0, 2014), CC0; matches Kenney UI packs."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [fonts, kenney, game-ui]
+  - id: kenney-input-prompts
+    title: "Kenney Input Prompts (1,500 assets)"
+    url: https://kenney.nl/assets/input-prompts
+    summary: "Keyboard, mouse, gamepad, Steam Deck and VR button glyphs (64x64) with sprite sheets and fonts, CC0; for tutorial overlays."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [icons, input, tutorial]
+    cautions: ["Platform button glyphs depict console makers' controllers; CC0 covers the art, not the trademarks. Do not imply endorsement."]
+  - id: kenney-input-prompts-pixel
+    title: "Kenney Input Prompts Pixel (800 assets, 16x16)"
+    url: https://kenney.nl/assets/input-prompts-pixel
+    summary: "16x16 pixel input glyphs for keyboard, mouse, Xbox, Nintendo, PlayStation, Steam Deck, arcade and touch, CC0."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [icons, input, pixel]
+    cautions: ["Trademarks of console makers are not licensed by CC0."]
+  - id: kenney-game-icons
+    title: "Kenney Game Icons (105) and Expansion (60)"
+    url: https://kenney.nl/assets/game-icons
+    summary: "105 CC0 interface/gamepad icons; an Expansion adds 60 more (kenney.nl/assets/game-icons-expansion)."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [icons, ui, kenney]
+  - id: kenney-pixel-ui-pack
+    title: "Kenney Pixel UI Pack"
+    url: https://kenney.nl/assets/pixel-ui-pack
+    summary: "Pixel-art panels, buttons and bars for retro HUDs and pixel caption boxes, CC0."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [ui, pixel, kenney]
+  - id: kenney-pattern-pack-pixel
+    title: "Kenney Pattern Pack Pixel"
+    url: https://kenney.nl/assets/pattern-pack-pixel
+    summary: "Tileable pixel patterns for scrolling backgrounds and texture layers, CC0."
+    licence: CC0-1.0
+    licence_url: https://kenney.nl/support
+    tags: [patterns, background, pixel]
+  - id: lospec-palette-list
+    title: "Lospec palette list"
+    url: https://lospec.com/palette-list
+    summary: "2,500+ pixel-art palettes downloadable as PNG, PAL (JASC), ASE, Paint.net TXT, GIMP GPL and HEX."
+    licence: "No licence stated on palette pages; credit the palette author"
+    licence_url: https://lospec.com/palette-list
+    tags: [palettes, pixel-art, index]
+    cautions: ["Palette pages name an author but state no licence; credit the author by convention and do not present a palette as your own."]
+  - id: lospec-pico-8
+    title: "PICO-8 palette (Lospec)"
+    url: https://lospec.com/palette-list/pico-8
+    summary: "The 16-colour palette of Lexaloffle's PICO-8 fantasy console."
+    licence: "No licence stated; credit Lexaloffle Games"
+    licence_url: https://lospec.com/palette-list/pico-8
+    tags: [palettes, 16-colours]
+    cautions: ["PICO-8 is a trademark of Lexaloffle; using the colours is common practice, naming the product implies nothing about endorsement."]
+  - id: lospec-endesga-32
+    title: "Endesga 32 palette (Lospec)"
+    url: https://lospec.com/palette-list/endesga-32
+    summary: "32-colour palette by ENDESGA, first made for NYKRA; one of Lospec's most used palettes."
+    licence: "No licence stated; credit ENDESGA"
+    licence_url: https://lospec.com/palette-list/endesga-32
+    tags: [palettes, 32-colours]
+  - id: lospec-resurrect-64
+    title: "Resurrect 64 palette (Lospec)"
+    url: https://lospec.com/palette-list/resurrect-64
+    summary: "64-colour palette by Kerrie Lake; among the most downloaded on Lospec."
+    licence: "No licence stated; credit Kerrie Lake"
+    licence_url: https://lospec.com/palette-list/resurrect-64
+    tags: [palettes, 64-colours]
+  - id: lospec-aap-64
+    title: "AAP-64 palette (Lospec)"
+    url: https://lospec.com/palette-list/aap-64
+    summary: "64-colour palette by Adigun A. Polack."
+    licence: "No licence stated; credit Adigun A. Polack"
+    licence_url: https://lospec.com/palette-list/aap-64
+    tags: [palettes, 64-colours]
+  - id: lospec-sweetie-16
+    title: "Sweetie 16 palette (Lospec)"
+    url: https://lospec.com/palette-list/sweetie-16
+    summary: "16-colour palette by GrafxKid (the basis of TIC-80's default palette, though not an exact clone)."
+    licence: "No licence stated; credit GrafxKid"
+    licence_url: https://lospec.com/palette-list/sweetie-16
+    tags: [palettes, 16-colours]
+  - id: lospec-lospec500
+    title: "Lospec500 palette"
+    url: https://lospec.com/palette-list/lospec500
+    summary: "42-colour community palette made by Lospec members."
+    licence: "No licence stated; credit Lospec community"
+    licence_url: https://lospec.com/palette-list/lospec500
+    tags: [palettes]
+  - id: lospec-gb
+    title: "Lospec GB palette"
+    url: https://lospec.com/palette-list/lospec-gb
+    summary: "4-colour handheld-style green palette for Game Boy look scenes."
+    licence: "No licence stated; credit Lospec"
+    licence_url: https://lospec.com/palette-list/lospec-gb
+    tags: [palettes, 4-colours, handheld]

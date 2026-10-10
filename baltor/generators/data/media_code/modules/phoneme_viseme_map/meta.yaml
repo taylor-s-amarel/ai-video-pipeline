@@ -1,0 +1,7 @@
+title: Phoneme to viseme mapping
+summary: Maps every ARPAbet phoneme to Rhubarb-style mouth letters (A-H, X) and turns timed phones into merged, flicker-free mouth cues for lip-sync animation.
+subkind: character-rig
+domain: audio
+tags: [audio, lip-sync, phonemes, visemes, animation, arpabet]
+step_kinds: [build, render]
+references: ["https://github.com/DanielSWolf/rhubarb-lip-sync"]

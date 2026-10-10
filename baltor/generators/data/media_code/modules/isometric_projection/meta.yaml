@@ -1,0 +1,6 @@
+title: Isometric and dimetric projection
+summary: True isometric and 2:1 pixel-art dimetric projection with ground unprojection, diamond tile picking and painter's-order depth sorting for 2.5D and top-down scenes.
+subkind: grid-system
+domain: video
+tags: [video, isometric, 2.5d, projection, tiles, game-art]
+step_kinds: [build, render]

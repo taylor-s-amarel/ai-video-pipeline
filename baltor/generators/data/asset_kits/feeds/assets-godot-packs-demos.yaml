@@ -1,0 +1,275 @@
+id: assets-godot-packs-demos
+title: "Godot asset packs, templates and official demos"
+description: >-
+  Where Godot 4 projects get ready-made scenes and assets: the new Godot Asset Store (successor to the
+  Asset Library), official demo projects (MIT code; check per-demo asset credits), Kenney starter kits
+  (MIT code, CC0 assets), GDQuest demos (MIT code, but some art is CC-BY-NC-SA) and import docs.
+tags: [godot, templates, demos, addons, import]
+defaults:
+  kind: repository
+  verification: fetched
+items:
+  - id: godot-asset-store
+    title: "Godot Asset Store"
+    url: https://store.godotengine.org/
+    summary: "Official successor to the Asset Library: community addons and template projects with reviews, versions and changelogs; integrated in the editor from Godot 4.7. Still marked beta on the home page."
+    licence: "Per asset (each listing names its licence)"
+    licence_url: https://docs.godotengine.org/en/stable/community/asset_store/what_is_asset_store.html
+    kind: service
+    verification: search-result
+    tags: [godot, store, addons, templates]
+    cautions: ["Assets were not migrated from the old Asset Library; authors must re-upload.", "Selling assets is on the roadmap; check whether a listing is free before planning on it."]
+  - id: godot-asset-store-docs
+    title: "Godot docs: About the Asset Store"
+    url: https://docs.godotengine.org/en/stable/community/asset_store/what_is_asset_store.html
+    summary: "Official docs: Templates (standalone projects shown in the Project Manager) versus addons (dropped into an existing project)."
+    licence: CC-BY-3.0
+    licence_url: https://github.com/godotengine/godot-docs
+    kind: guidance
+    verification: search-result
+    tags: [godot, store, docs]
+  - id: godot-asset-store-submitting
+    title: "Godot docs: Submitting to the Asset Store"
+    url: https://docs.godotengine.org/en/stable/community/asset_store/submitting_to_asset_store.html
+    summary: "Submission rules: the asset must work in the Godot version it lists; account required."
+    licence: CC-BY-3.0
+    licence_url: https://github.com/godotengine/godot-docs
+    kind: guidance
+    verification: search-result
+    tags: [godot, store, publishing]
+  - id: godot-asset-store-kenney
+    title: "Godot Asset Store: Kenney publisher page"
+    url: https://store.godotengine.org/publisher/kenney/
+    summary: "Kenney's starter kits (3D platformer, racing, FPS ...) as installable Asset Store templates."
+    licence: "MIT code, CC0 assets"
+    licence_url: https://github.com/KenneyNL/Starter-Kit-3D-Platformer
+    kind: service
+    verification: search-result
+    tags: [godot, kenney, templates]
+  - id: godot-asset-store-kenney-3d-platformer
+    title: "Godot Asset Store: Starter Kit 3D Platformer"
+    url: https://store.godotengine.org/asset/kenney/starter-kit-3d-platformer/
+    summary: "Store listing of Kenney's 3D platformer template."
+    licence: "MIT code, CC0 assets"
+    licence_url: https://github.com/KenneyNL/Starter-Kit-3D-Platformer
+    kind: service
+    verification: search-result
+    tags: [godot, platformer, template]
+  - id: godot-asset-store-godot-xr
+    title: "Godot Asset Store: Godot XR publisher page"
+    url: https://store.godotengine.org/publisher/godot-xr/
+    summary: "XR Tools and XR sample projects from the Godot XR team."
+    licence: "Per asset"
+    licence_url: https://docs.godotengine.org/en/stable/community/asset_store/what_is_asset_store.html
+    kind: service
+    verification: search-result
+    tags: [godot, xr]
+  - id: godot-asset-library-legacy
+    title: "Godot Asset Library (legacy)"
+    url: https://godotengine.org/asset-library/asset
+    summary: "The original Asset Library; being deprecated in favour of the Asset Store and expected to become read-only, but still the source for many Godot 3/4 addons."
+    licence: "Per asset"
+    licence_url: https://github.com/godotengine/godot-asset-library
+    kind: service
+    verification: search-result
+    tags: [godot, assetlib, legacy]
+    cautions: ["Deprecated: prefer the Asset Store for new work; older entries may target Godot 3."]
+  - id: godot-asset-library-repo
+    title: "godotengine/godot-asset-library (REST API + frontend)"
+    url: https://github.com/godotengine/godot-asset-library
+    summary: "PHP frontend and REST API behind the legacy Asset Library; MIT; in maintenance mode."
+    licence: MIT
+    licence_url: https://github.com/godotengine/godot-asset-library
+    tags: [godot, api]
+  - id: godot-asset-library-api-md
+    title: "Asset Library API reference (API.md)"
+    url: https://raw.githubusercontent.com/godotengine/godot-asset-library/master/API.md
+    summary: "Endpoints: GET /configure, GET /asset (type, category, support, filter, user, cost, godot_version, max_results 1-500, page/offset, sort, reverse), GET /asset/{id}, GET /asset/edit/{id}."
+    licence: MIT
+    licence_url: https://github.com/godotengine/godot-asset-library
+    kind: guidance
+    tags: [godot, api, reference]
+    cautions: ["Omitting godot_version lists only 2.1 assets and omitting type lists only addons; always pass both."]
+  - id: godot-demo-projects
+    title: "godotengine/godot-demo-projects"
+    url: https://github.com/godotengine/godot-demo-projects
+    summary: "Official demos (2d, 3d, audio, gui, networking, xr ...) distributed under MIT; many are also on the Asset Store."
+    licence: MIT
+    licence_url: https://github.com/godotengine/godot-demo-projects/blob/master/LICENSE.md
+    tags: [godot, demos, official]
+    cautions: ["MIT covers the code; some demos bundle third-party textures, fonts or music with their own licences (the voxel demo uses Minetest textures under CC BY-SA 3.0 and CC0). Read each demo's README credits."]
+  - id: godot-demo-2d-platformer
+    title: "Godot demo: 2D platformer"
+    url: https://github.com/godotengine/godot-demo-projects/tree/master/2d/platformer
+    summary: "Pixel-art side-scroller: character controller, enemies, physics bullets, one level (GDScript, Compatibility renderer). Music 'Pompy' by Hubert Lamontagne is credited in the README."
+    licence: MIT
+    licence_url: https://github.com/godotengine/godot-demo-projects/blob/master/LICENSE.md
+    tags: [godot, platformer, 2d]
+    cautions: ["Credit the music author if you reuse the track."]
+  - id: godot-demo-2d-isometric
+    title: "Godot demo: 2D isometric"
+    url: https://github.com/godotengine/godot-demo-projects/tree/master/2d/isometric
+    summary: "Traditional isometric view with depth sorting; the character slides along and is occluded by objects."
+    licence: MIT
+    licence_url: https://github.com/godotengine/godot-demo-projects/blob/master/LICENSE.md
+    tags: [godot, isometric, 2d]
+  - id: godot-demo-2d-navigation-astar
+    title: "Godot demo: grid navigation with AStarGrid2D"
+    url: https://github.com/godotengine/godot-demo-projects/tree/master/2d/navigation_astar
+    summary: "Grid-based pathfinding with AStarGrid2D plus steering; the building block for top-down maze shorts."
+    licence: MIT
+    licence_url: https://github.com/godotengine/godot-demo-projects/blob/master/LICENSE.md
+    tags: [godot, maze, pathfinding, top-down]
+  - id: godot-demo-2d-role-playing-game
+    title: "Godot demo: 2D role-playing game"
+    url: https://github.com/godotengine/godot-demo-projects/tree/master/2d/role_playing_game
+    summary: "Grid movement with simple JRPG dialogue and battle system."
+    licence: MIT
+    licence_url: https://github.com/godotengine/godot-demo-projects/blob/master/LICENSE.md
+    tags: [godot, rpg, dialogue]
+  - id: godot-demo-3d-platformer
+    title: "Godot demo: 3D platformer"
+    url: https://github.com/godotengine/godot-demo-projects/tree/master/3d/platformer
+    summary: "CharacterBody3D platformer mirroring the 2D demo's code (GDScript, Forward+); touch input via a third-party virtual joystick add-on."
+    licence: MIT
+    licence_url: https://github.com/godotengine/godot-demo-projects/blob/master/LICENSE.md
+    tags: [godot, platformer, 3d]
+  - id: godot-demo-3d-voxel
+    title: "Godot demo: 3D voxel"
+    url: https://github.com/godotengine/godot-demo-projects/tree/master/3d/voxel
+    summary: "Minimal Minecraft-like voxel demo: chunked terrain, place/break blocks, render-distance settings."
+    licence: "MIT code; textures CC BY-SA 3.0 / CC0 (Minetest Game); font CC BY"
+    licence_url: https://github.com/godotengine/godot-demo-projects/tree/master/3d/voxel
+    tags: [godot, voxel, 3d]
+    cautions: ["Textures include CC BY-SA 3.0 items (share-alike, credit each author listed in the README)."]
+  - id: godot-tps-demo
+    title: "godotengine/tps-demo (third-person shooter)"
+    url: https://github.com/godotengine/tps-demo
+    summary: "High-quality third-person shooter demo with lighting showcase; master branch tracks the latest Godot 4."
+    licence: "MIT code; assets and music CC-BY 3.0"
+    licence_url: https://raw.githubusercontent.com/godotengine/tps-demo/master/LICENSE.md
+    tags: [godot, 3d, demo, lighting]
+    cautions: ["Assets are CC-BY 3.0 (Juan Linietsky, Fernando Miguel Calabro; music by Christian Fernando Perucchi): credit them if you reuse."]
+  - id: kenney-starter-kits-page
+    title: "Kenney starter kits (Godot)"
+    url: https://kenney.nl/starter-kits
+    summary: "Kenney's Godot source-code starter kits: match-3, racing, 3D platformer, FPS, city builder and a basic scene."
+    licence: "MIT code, CC0 assets"
+    licence_url: https://github.com/KenneyNL/Starter-Kit-3D-Platformer
+    kind: media-source
+    verification: search-result
+    tags: [godot, kenney, templates]
+  - id: kenney-starter-kit-3d-platformer
+    title: "KenneyNL/Starter-Kit-3D-Platformer"
+    url: https://github.com/KenneyNL/Starter-Kit-3D-Platformer
+    summary: "Basic 3D platformer template for Godot 4.6; code MIT, sprites/models/sounds CC0."
+    licence: "MIT (code), CC0-1.0 (assets)"
+    licence_url: https://github.com/KenneyNL/Starter-Kit-3D-Platformer
+    tags: [godot, platformer, kenney]
+  - id: kenney-starter-kit-city-builder
+    title: "KenneyNL/Starter-Kit-City-Builder"
+    url: https://github.com/KenneyNL/Starter-Kit-City-Builder
+    summary: "3D city builder template for Godot 4.6: build/remove, smooth camera, dynamic MeshLibrary, save/load (F1/F2/F3). Code MIT, assets CC0."
+    licence: "MIT (code), CC0-1.0 (assets)"
+    licence_url: https://github.com/KenneyNL/Starter-Kit-City-Builder
+    tags: [godot, city-builder, isometric, kenney]
+  - id: kenney-starter-kit-racing
+    title: "KenneyNL/Starter-Kit-Racing"
+    url: https://github.com/KenneyNL/Starter-Kit-Racing
+    summary: "Racing template for Godot 4.6: arcade vehicle controls, smoke, GridMap tracks, CC0 models and sounds."
+    licence: "MIT (code), CC0-1.0 (assets)"
+    licence_url: https://github.com/KenneyNL/Starter-Kit-Racing
+    verification: search-result
+    tags: [godot, racing, kenney]
+  - id: kenney-starter-kit-fps
+    title: "KenneyNL/Starter-Kit-FPS"
+    url: https://github.com/KenneyNL/Starter-Kit-FPS
+    summary: "First-person shooter template for Godot 4.6: controller, weapon switching, enemies, CC0 sprites and models."
+    licence: "MIT (code), CC0-1.0 (assets)"
+    licence_url: https://github.com/KenneyNL/Starter-Kit-FPS
+    verification: search-result
+    tags: [godot, fps, kenney]
+  - id: gdquest-demos-org
+    title: "GDQuest demos (GitHub organisation)"
+    url: https://github.com/gdquest-demos
+    summary: "55 open-source Godot repos: 3D character controllers, premade characters (Sophia, Gobot, GDbot, Beetle Bot), shader tutorials, a Factorio-style 2D builder and a procedural dungeon."
+    licence: "Per repo (code usually MIT; art varies)"
+    licence_url: https://github.com/gdquest-demos
+    tags: [godot, gdquest, demos]
+    cautions: ["Art licences differ per repo; some 3D characters are CC-BY-NC-SA 4.0 (non-commercial)."]
+  - id: gdquest-godot-4-3d-characters
+    title: "GDQuest: godot-4-3D-Characters"
+    url: https://github.com/gdquest-demos/godot-4-3D-Characters
+    summary: "Drop-in animated 3D characters for Godot 4: GDBot, Sophia, Gobot, Round Bat, Bee Bot, Beetle Bot."
+    licence: "CC-BY-NC-SA-4.0 (art); MIT (code)"
+    licence_url: https://raw.githubusercontent.com/gdquest-demos/godot-4-3D-Characters/main/LICENSE
+    tags: [godot, characters, gdquest, non-commercial]
+    cautions: ["Non-commercial and share-alike: do not use in monetised shorts or commercial games; credit GDQuest."]
+  - id: gdquest-third-person-controller
+    title: "GDQuest: godot-4-3d-third-person-controller"
+    url: https://github.com/gdquest-demos/godot-4-3d-third-person-controller
+    summary: "Plug-and-play third-person shooter controller inspired by Ratchet and Clank. Code (scripts, scenes, shaders) MIT; textures and models CC-BY-NC-SA 4.0."
+    licence: "MIT (code); CC-BY-NC-SA-4.0 (art)"
+    licence_url: https://github.com/gdquest-demos/godot-4-3d-third-person-controller
+    tags: [godot, controller, gdquest]
+    cautions: ["Reuse the code freely under MIT but replace the art for commercial work."]
+  - id: godotshaders
+    title: "Godot Shaders (godotshaders.com)"
+    url: https://godotshaders.com/faq/
+    summary: "Community shader library; each shader is CC0, MIT or GPL-3.0 (stated at the bottom of the post). Images and videos in posts are not covered by the code licence."
+    licence: "Per shader: CC0, MIT or GPL-3.0"
+    licence_url: https://godotshaders.com/faq/
+    kind: media-source
+    verification: search-result
+    tags: [godot, shaders, vfx]
+    cautions: ["GPL-3.0 shaders impose GPL terms on derivative shader code; prefer CC0/MIT for packages."]
+  - id: terrain3d
+    title: "Terrain3D (TokisanGames)"
+    url: https://github.com/TokisanGames/Terrain3D
+    summary: "High-performance editable terrain system for Godot 4 (C++ GDExtension), MIT."
+    licence: MIT
+    licence_url: https://github.com/TokisanGames/Terrain3D
+    tags: [godot, terrain, addon]
+  - id: godot-aseprite-wizard
+    title: "Aseprite Wizard (Godot plugin)"
+    url: https://github.com/viniciusgerevini/godot-aseprite-wizard
+    summary: "Imports Aseprite animations into SpriteFrames, AnimatedSprite2D/3D and AnimationPlayer tracks for Sprite2D/Sprite3D/TextureRect; Godot 4 (Godot 3 on a branch). MIT."
+    licence: MIT
+    licence_url: https://github.com/viniciusgerevini/godot-aseprite-wizard
+    tags: [godot, aseprite, sprites, import]
+  - id: godot-docs-importing-images
+    title: "Godot docs: Importing images"
+    url: https://docs.godotengine.org/en/4.0/tutorials/assets_pipeline/importing_images.html
+    summary: "Compression modes (Lossless for 2D and pixel art; VRAM Compressed for 3D), Detect 3D behaviour, and where texture filter lives in Godot 4 (CanvasItem/material, not import)."
+    licence: CC-BY-3.0
+    licence_url: https://github.com/godotengine/godot-docs
+    kind: guidance
+    verification: search-result
+    tags: [godot, import, textures, pixel-art]
+  - id: godot-class-resourceimportertexture
+    title: "Godot class reference: ResourceImporterTexture"
+    url: https://docs.godotengine.org/en/latest/classes/class_resourceimportertexture.html
+    summary: "Every texture import option (compress/mode, mipmaps/generate, process/fix_alpha_border, detect_3d/compress_to ...) that appears in a .import file."
+    licence: MIT
+    licence_url: https://github.com/godotengine/godot-docs
+    kind: guidance
+    verification: search-result
+    tags: [godot, import, reference]
+  - id: godot-docs-available-3d-formats
+    title: "Godot docs: Available 3D formats"
+    url: https://docs.godotengine.org/en/stable/tutorials/assets_pipeline/importing_3d_scenes/available_formats.html
+    summary: "glTF 2.0 (.gltf/.glb) is recommended; .blend imports by calling Blender to export glTF; FBX via ufbx; OBJ is limited."
+    licence: CC-BY-3.0
+    licence_url: https://github.com/godotengine/godot-docs
+    kind: guidance
+    verification: search-result
+    tags: [godot, import, gltf, blender]
+  - id: godot-docs-3d-import-configuration
+    title: "Godot docs: 3D scene import configuration"
+    url: https://docs.godotengine.org/en/stable/tutorials/assets_pipeline/importing_3d_scenes/import_configuration.html
+    summary: "Import dock options (Root Type, Apply Root Scale, Ensure Tangents, animation FPS), Blender-specific options and the Advanced Import Settings dialog."
+    licence: CC-BY-3.0
+    licence_url: https://github.com/godotengine/godot-docs
+    kind: guidance
+    verification: search-result
+    tags: [godot, import, 3d]

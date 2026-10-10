@@ -1,0 +1,6 @@
+title: TTML caption writer and reader
+summary: Writes well-formed TTML 1.0 caption documents (styled bottom region, escaped text, line breaks) and reads clock-time or offset-time cues back.
+domain: captions
+tags: [captions, ttml, dfxp, xml, subtitles, delivery]
+step_kinds: [build, publish]
+references: ["https://www.w3.org/TR/ttml1/"]

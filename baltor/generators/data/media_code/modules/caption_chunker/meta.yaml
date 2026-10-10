@@ -1,0 +1,7 @@
+title: Phrase-aware caption chunker
+summary: Splits narration into single-line caption chunks of at most 7 words using dynamic programming that prefers punctuation and pauses, avoids function-word endings and keeps numbers with units.
+subkind: caption-style
+domain: captions
+tags: [captions, chunking, subtitles, shorts, readability]
+step_kinds: [build, render]
+examples: ["Chunk a narration script into <=7-word caption lines", "Group Whisper word timestamps into captions"]

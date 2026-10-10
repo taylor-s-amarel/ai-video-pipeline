@@ -1,0 +1,5 @@
+title: YouTube SBV caption format
+summary: Reads and writes the SBV caption format (H:MM:SS.mmm,H:MM:SS.mmm blocks) exported and accepted by YouTube Studio.
+domain: captions
+tags: [captions, sbv, youtube, subtitles]
+step_kinds: [build, publish]

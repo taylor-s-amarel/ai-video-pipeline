@@ -1,0 +1,6 @@
+title: Amplitude-driven lip sync
+summary: Per-frame mouth openness from narration loudness (gated, normalised, attack/release smoothed) quantised to Rhubarb-style mouth letters with a minimum hold.
+subkind: character-rig
+domain: audio
+tags: [audio, lip-sync, animation, character, narration, numpy]
+step_kinds: [build, render]

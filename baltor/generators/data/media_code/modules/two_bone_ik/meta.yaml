@@ -1,0 +1,6 @@
+title: Two-bone inverse kinematics
+summary: Analytic 2D two-bone IK for arms and legs with bend direction, unreachable-target handling and exact bone-length preservation, for stick figures and cut-out rigs.
+subkind: character-rig
+domain: video
+tags: [video, animation, ik, rig, stick-figure, character]
+step_kinds: [build, render]

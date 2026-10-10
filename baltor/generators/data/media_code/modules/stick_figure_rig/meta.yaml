@@ -1,0 +1,6 @@
+title: Stick-figure rig
+summary: Forward-kinematics stick-figure rig with relative joint angles, seven named poses (stand, wave, cheer, walk, think, shrug) and Pillow rendering capped at 98% opacity.
+subkind: character-rig
+domain: video
+tags: [video, stick-figure, rig, animation, character, pillow]
+step_kinds: [build, render]

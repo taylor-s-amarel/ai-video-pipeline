@@ -1,0 +1,5 @@
+title: SRT subtitle reader and writer
+summary: Tolerant SubRip parser (BOM, CRLF, dot milliseconds, missing blank lines) and strict writer with cue validation for overlaps, empty text and too-short cues.
+domain: captions
+tags: [captions, srt, subtitles, parser, writer]
+step_kinds: [build, render, verify]

@@ -1,0 +1,6 @@
+title: Looping rain and snow overlays
+summary: Deterministic, exactly looping rain streaks and swaying snow rendered as transparent Pillow overlays with depth-based size and opacity capped at 98%.
+subkind: overlay
+domain: video
+tags: [video, overlay, rain, snow, weather, loop, procedural]
+step_kinds: [build, render]

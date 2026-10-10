@@ -1,0 +1,6 @@
+title: Pose interpolation and walk cycles
+summary: Shortest-arc joint-angle pose blending with easing, looping pose cycles, a procedural walk cycle and pelvis bob, using stick_figure_rig joint names.
+subkind: character-rig
+domain: video
+tags: [video, animation, pose, walk-cycle, stick-figure, interpolation]
+step_kinds: [build, render]

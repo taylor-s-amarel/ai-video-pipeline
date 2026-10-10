@@ -1,0 +1,830 @@
+{
+  "spec": "baltor.video-re-detector-registry/v1",
+  "count": 90,
+  "families": [
+    "geometry",
+    "quality",
+    "color",
+    "effects",
+    "layers",
+    "motion",
+    "transitions",
+    "text",
+    "classify",
+    "audio",
+    "similarity",
+    "structure"
+  ],
+  "detectors": [
+    {
+      "identity": "video_re_detect_letterbox_pillarbox",
+      "family": "geometry",
+      "property": "letterbox_pillarbox",
+      "detects": "Bars top/bottom or left/right: sizes in px, colour, blurred-fill vs solid",
+      "payload_hint": "bars[{side,px,color,style}]",
+      "contract": "video_re_contract_letterbox_pillarbox",
+      "questions": "video_re_qbank_letterbox_pillarbox"
+    },
+    {
+      "identity": "video_re_detect_border_frame",
+      "family": "geometry",
+      "property": "border_frame",
+      "detects": "Decorative borders/padding around the content: width per side, colour or gradient, inner radius",
+      "payload_hint": "border{top,right,bottom,left,style,color}",
+      "contract": "video_re_contract_border_frame",
+      "questions": "video_re_qbank_border_frame"
+    },
+    {
+      "identity": "video_re_detect_true_resolution",
+      "family": "geometry",
+      "property": "true_resolution",
+      "detects": "Effective detail resolution vs container resolution (upscale detection via high-frequency energy)",
+      "payload_hint": "container{w,h}, effective{w,h}, upscale_factor",
+      "contract": "video_re_contract_true_resolution",
+      "questions": "video_re_qbank_true_resolution"
+    },
+    {
+      "identity": "video_re_detect_aspect_reframe",
+      "family": "geometry",
+      "property": "aspect_reframe",
+      "detects": "Content aspect inside the frame and reframing method (crop, fit, blur-pad, zoom)",
+      "payload_hint": "content_aspect, method",
+      "contract": "video_re_contract_aspect_reframe",
+      "questions": "video_re_qbank_aspect_reframe"
+    },
+    {
+      "identity": "video_re_detect_split_screen_layout",
+      "family": "geometry",
+      "property": "split_screen_layout",
+      "detects": "Grid and split layouts: 1x2, 2x1, 2x2, 3-up, with panel rects",
+      "payload_hint": "layout, panels[{x,y,w,h}]",
+      "contract": "video_re_contract_split_screen_layout",
+      "questions": "video_re_qbank_split_screen_layout"
+    },
+    {
+      "identity": "video_re_detect_picture_in_picture",
+      "family": "geometry",
+      "property": "picture_in_picture",
+      "detects": "Inset windows: rect, corner, border, shadow, duration",
+      "payload_hint": "insets[{bbox,corner,t_start_s,t_end_s}]",
+      "contract": "video_re_contract_picture_in_picture",
+      "questions": "video_re_qbank_picture_in_picture"
+    },
+    {
+      "identity": "video_re_detect_rounded_corners",
+      "family": "geometry",
+      "property": "rounded_corners",
+      "detects": "Corner radius of photos/panels estimated from alpha/edge curvature",
+      "payload_hint": "radius_px per element",
+      "contract": "video_re_contract_rounded_corners",
+      "questions": "video_re_qbank_rounded_corners"
+    },
+    {
+      "identity": "video_re_detect_safe_margin_usage",
+      "family": "geometry",
+      "property": "safe_margin_usage",
+      "detects": "How close important content and text get to platform UI zones",
+      "payload_hint": "min_margin_px{top,bottom,left,right}",
+      "contract": "video_re_contract_safe_margin_usage",
+      "questions": "video_re_qbank_safe_margin_usage"
+    },
+    {
+      "identity": "video_re_detect_frame_rate_cadence",
+      "family": "geometry",
+      "property": "frame_rate_cadence",
+      "detects": "Nominal vs effective fps, duplicate frames, pulldown, variable frame rate",
+      "payload_hint": "nominal_fps, effective_fps, duplicate_ratio",
+      "contract": "video_re_contract_frame_rate_cadence",
+      "questions": "video_re_qbank_frame_rate_cadence"
+    },
+    {
+      "identity": "video_re_detect_interlacing",
+      "family": "geometry",
+      "property": "interlacing",
+      "detects": "Combing artefacts and field order",
+      "payload_hint": "interlaced, field_order",
+      "contract": "video_re_contract_interlacing",
+      "questions": "video_re_qbank_interlacing"
+    },
+    {
+      "identity": "video_re_detect_sharpness_blur",
+      "family": "quality",
+      "property": "sharpness_blur",
+      "detects": "Per-shot sharpness (variance of Laplacian) and deliberate defocus",
+      "payload_hint": "sharpness per shot",
+      "contract": "video_re_contract_sharpness_blur",
+      "questions": "video_re_qbank_sharpness_blur"
+    },
+    {
+      "identity": "video_re_detect_compression_blockiness",
+      "family": "quality",
+      "property": "compression_blockiness",
+      "detects": "8x8 block-edge energy and ringing as an encode-quality estimate",
+      "payload_hint": "blockiness score",
+      "contract": "video_re_contract_compression_blockiness",
+      "questions": "video_re_qbank_compression_blockiness"
+    },
+    {
+      "identity": "video_re_detect_noise_grain",
+      "family": "quality",
+      "property": "noise_grain",
+      "detects": "Luma noise level and grain size; synthetic grain vs sensor noise hint",
+      "payload_hint": "noise_sigma, grain_size_px",
+      "contract": "video_re_contract_noise_grain",
+      "questions": "video_re_qbank_noise_grain"
+    },
+    {
+      "identity": "video_re_detect_banding",
+      "family": "quality",
+      "property": "banding",
+      "detects": "Gradient banding in smooth regions",
+      "payload_hint": "banding score, regions",
+      "contract": "video_re_contract_banding",
+      "questions": "video_re_qbank_banding"
+    },
+    {
+      "identity": "video_re_detect_color_range_space",
+      "family": "quality",
+      "property": "color_range_space",
+      "detects": "Limited vs full range, colour primaries/transfer from metadata and pixel stats",
+      "payload_hint": "range, primaries, transfer",
+      "contract": "video_re_contract_color_range_space",
+      "questions": "video_re_qbank_color_range_space"
+    },
+    {
+      "identity": "video_re_detect_exposure_clipping",
+      "family": "quality",
+      "property": "exposure_clipping",
+      "detects": "Highlight and shadow clipping percentages per shot",
+      "payload_hint": "clip_high_pct, clip_low_pct",
+      "contract": "video_re_contract_exposure_clipping",
+      "questions": "video_re_qbank_exposure_clipping"
+    },
+    {
+      "identity": "video_re_detect_color_temperature_tint",
+      "family": "color",
+      "property": "color_temperature_tint",
+      "detects": "Warm/cool and green/magenta balance per shot",
+      "payload_hint": "temperature_shift, tint_shift",
+      "contract": "video_re_contract_color_temperature_tint",
+      "questions": "video_re_qbank_color_temperature_tint"
+    },
+    {
+      "identity": "video_re_detect_saturation_contrast_profile",
+      "family": "color",
+      "property": "saturation_contrast_profile",
+      "detects": "Saturation and contrast distributions and their changes across the video",
+      "payload_hint": "sat_mean, contrast_rms",
+      "contract": "video_re_contract_saturation_contrast_profile",
+      "questions": "video_re_qbank_saturation_contrast_profile"
+    },
+    {
+      "identity": "video_re_detect_grade_curve_estimate",
+      "family": "color",
+      "property": "grade_curve_estimate",
+      "detects": "Per-channel tone curve estimate (lift/gamma/gain) relative to neutral",
+      "payload_hint": "curves{r,g,b} control points",
+      "contract": "video_re_contract_grade_curve_estimate",
+      "questions": "video_re_qbank_grade_curve_estimate"
+    },
+    {
+      "identity": "video_re_detect_vignette",
+      "family": "color",
+      "property": "vignette",
+      "detects": "Radial darkening strength and falloff",
+      "payload_hint": "strength, radius",
+      "contract": "video_re_contract_vignette",
+      "questions": "video_re_qbank_vignette"
+    },
+    {
+      "identity": "video_re_detect_duotone_monochrome",
+      "family": "color",
+      "property": "duotone_monochrome",
+      "detects": "Monochrome, duotone or limited-palette treatment",
+      "payload_hint": "mode, colors",
+      "contract": "video_re_contract_duotone_monochrome",
+      "questions": "video_re_qbank_duotone_monochrome"
+    },
+    {
+      "identity": "video_re_detect_palette_consistency",
+      "family": "color",
+      "property": "palette_consistency",
+      "detects": "Brand palette shared across shots and how strictly it repeats",
+      "payload_hint": "palette, consistency",
+      "contract": "video_re_contract_palette_consistency",
+      "questions": "video_re_qbank_palette_consistency"
+    },
+    {
+      "identity": "video_re_detect_light_leak_flare",
+      "family": "effects",
+      "property": "light_leak_flare",
+      "detects": "Light leaks, lens flares and light sweeps: timing, colour, direction",
+      "payload_hint": "events[{t_s,color,direction}]",
+      "contract": "video_re_contract_light_leak_flare",
+      "questions": "video_re_qbank_light_leak_flare"
+    },
+    {
+      "identity": "video_re_detect_glow_bloom",
+      "family": "effects",
+      "property": "glow_bloom",
+      "detects": "Glow around bright text/shapes",
+      "payload_hint": "glow_radius_px, strength",
+      "contract": "video_re_contract_glow_bloom",
+      "questions": "video_re_qbank_glow_bloom"
+    },
+    {
+      "identity": "video_re_detect_drop_shadow",
+      "family": "effects",
+      "property": "drop_shadow",
+      "detects": "Shadows under text, photos and panels: offset, blur, opacity",
+      "payload_hint": "offset{x,y}, blur_px, opacity",
+      "contract": "video_re_contract_drop_shadow",
+      "questions": "video_re_qbank_drop_shadow"
+    },
+    {
+      "identity": "video_re_detect_feathered_edges",
+      "family": "effects",
+      "property": "feathered_edges",
+      "detects": "Soft alpha edges on photos/panels vs hard cutouts",
+      "payload_hint": "feather_px, hard_edges",
+      "contract": "video_re_contract_feathered_edges",
+      "questions": "video_re_qbank_feathered_edges"
+    },
+    {
+      "identity": "video_re_detect_chromatic_aberration",
+      "family": "effects",
+      "property": "chromatic_aberration",
+      "detects": "Channel misregistration at edges",
+      "payload_hint": "shift_px",
+      "contract": "video_re_contract_chromatic_aberration",
+      "questions": "video_re_qbank_chromatic_aberration"
+    },
+    {
+      "identity": "video_re_detect_motion_blur",
+      "family": "effects",
+      "property": "motion_blur",
+      "detects": "Directional blur during moves",
+      "payload_hint": "blur_px, direction",
+      "contract": "video_re_contract_motion_blur",
+      "questions": "video_re_qbank_motion_blur"
+    },
+    {
+      "identity": "video_re_detect_camera_shake",
+      "family": "effects",
+      "property": "camera_shake",
+      "detects": "High-frequency jitter added to motion",
+      "payload_hint": "amplitude_px, frequency_hz",
+      "contract": "video_re_contract_camera_shake",
+      "questions": "video_re_qbank_camera_shake"
+    },
+    {
+      "identity": "video_re_detect_particles_overlay",
+      "family": "effects",
+      "property": "particles_overlay",
+      "detects": "Dust, bokeh, sparks, snow overlays: density and motion",
+      "payload_hint": "density, size_px, motion",
+      "contract": "video_re_contract_particles_overlay",
+      "questions": "video_re_qbank_particles_overlay"
+    },
+    {
+      "identity": "video_re_detect_glitch_effects",
+      "family": "effects",
+      "property": "glitch_effects",
+      "detects": "RGB split, slice displacement, datamosh-like frames",
+      "payload_hint": "events",
+      "contract": "video_re_contract_glitch_effects",
+      "questions": "video_re_qbank_glitch_effects"
+    },
+    {
+      "identity": "video_re_detect_film_damage_dust",
+      "family": "effects",
+      "property": "film_damage_dust",
+      "detects": "Scratches, dust, gate weave",
+      "payload_hint": "events",
+      "contract": "video_re_contract_film_damage_dust",
+      "questions": "video_re_qbank_film_damage_dust"
+    },
+    {
+      "identity": "video_re_detect_paper_halftone_texture",
+      "family": "effects",
+      "property": "paper_halftone_texture",
+      "detects": "Paper, canvas, halftone or print textures",
+      "payload_hint": "texture_type, strength",
+      "contract": "video_re_contract_paper_halftone_texture",
+      "questions": "video_re_qbank_paper_halftone_texture"
+    },
+    {
+      "identity": "video_re_detect_frosted_glass_panel",
+      "family": "effects",
+      "property": "frosted_glass_panel",
+      "detects": "Blurred, tinted backing panels behind text: rect, blur strength, tint, opacity",
+      "payload_hint": "panels[{bbox,blur_px,tint,opacity}]",
+      "contract": "video_re_contract_frosted_glass_panel",
+      "questions": "video_re_qbank_frosted_glass_panel"
+    },
+    {
+      "identity": "video_re_detect_static_overlay_regions",
+      "family": "layers",
+      "property": "static_overlay_regions",
+      "detects": "Regions that stay pixel-stable while content moves (frames, logos, watermarks, UI): rect and duration. Detection only; never removes them",
+      "payload_hint": "regions[{bbox,t_start_s,t_end_s}]",
+      "contract": "video_re_contract_static_overlay_regions",
+      "questions": "video_re_qbank_static_overlay_regions"
+    },
+    {
+      "identity": "video_re_detect_layer_count_estimate",
+      "family": "layers",
+      "property": "layer_count_estimate",
+      "detects": "Estimated number of independently moving layers per shot",
+      "payload_hint": "count per shot",
+      "contract": "video_re_contract_layer_count_estimate",
+      "questions": "video_re_qbank_layer_count_estimate"
+    },
+    {
+      "identity": "video_re_detect_parallax_depth_layers",
+      "family": "layers",
+      "property": "parallax_depth_layers",
+      "detects": "Layers moving at different speeds implying depth",
+      "payload_hint": "layers[{speed_ratio,region}]",
+      "contract": "video_re_contract_parallax_depth_layers",
+      "questions": "video_re_qbank_parallax_depth_layers"
+    },
+    {
+      "identity": "video_re_detect_semi_transparent_layers",
+      "family": "layers",
+      "property": "semi_transparent_layers",
+      "detects": "Regions where content shows through an overlay; estimated opacity",
+      "payload_hint": "regions[{bbox,opacity}]",
+      "contract": "video_re_contract_semi_transparent_layers",
+      "questions": "video_re_qbank_semi_transparent_layers"
+    },
+    {
+      "identity": "video_re_detect_background_motion_type",
+      "family": "layers",
+      "property": "background_motion_type",
+      "detects": "Background is video loop, still with pan/zoom, procedural motion or static",
+      "payload_hint": "type per shot",
+      "contract": "video_re_contract_background_motion_type",
+      "questions": "video_re_qbank_background_motion_type"
+    },
+    {
+      "identity": "video_re_detect_foreground_subject_mask",
+      "family": "layers",
+      "property": "foreground_subject_mask",
+      "detects": "Main subject region by saliency/edges: size and position ratios",
+      "payload_hint": "bbox, area_ratio",
+      "contract": "video_re_contract_foreground_subject_mask",
+      "questions": "video_re_qbank_foreground_subject_mask"
+    },
+    {
+      "identity": "video_re_detect_blend_mode_hint",
+      "family": "layers",
+      "property": "blend_mode_hint",
+      "detects": "Evidence of screen/multiply/add blending in overlays",
+      "payload_hint": "mode, confidence",
+      "contract": "video_re_contract_blend_mode_hint",
+      "questions": "video_re_qbank_blend_mode_hint"
+    },
+    {
+      "identity": "video_re_detect_ken_burns",
+      "family": "motion",
+      "property": "ken_burns",
+      "detects": "Slow pan/zoom on stills: direction, zoom rate, start/end crops",
+      "payload_hint": "moves[{shot,zoom_from,zoom_to,pan}]",
+      "contract": "video_re_contract_ken_burns",
+      "questions": "video_re_qbank_ken_burns"
+    },
+    {
+      "identity": "video_re_detect_zoom_punch_in",
+      "family": "motion",
+      "property": "zoom_punch_in",
+      "detects": "Sudden scale jumps on beats or emphasis",
+      "payload_hint": "events[{t_s,scale_jump}]",
+      "contract": "video_re_contract_zoom_punch_in",
+      "questions": "video_re_qbank_zoom_punch_in"
+    },
+    {
+      "identity": "video_re_detect_whip_pan",
+      "family": "motion",
+      "property": "whip_pan",
+      "detects": "Fast pans with blur used as transitions",
+      "payload_hint": "events",
+      "contract": "video_re_contract_whip_pan",
+      "questions": "video_re_qbank_whip_pan"
+    },
+    {
+      "identity": "video_re_detect_speed_ramp_freeze",
+      "family": "motion",
+      "property": "speed_ramp_freeze",
+      "detects": "Slow motion, speed ramps and freeze frames",
+      "payload_hint": "events[{t_start_s,t_end_s,rate}]",
+      "contract": "video_re_contract_speed_ramp_freeze",
+      "questions": "video_re_qbank_speed_ramp_freeze"
+    },
+    {
+      "identity": "video_re_detect_loop_seam",
+      "family": "motion",
+      "property": "loop_seam",
+      "detects": "Whether a background or whole video loops seamlessly and where",
+      "payload_hint": "loop_points",
+      "contract": "video_re_contract_loop_seam",
+      "questions": "video_re_qbank_loop_seam"
+    },
+    {
+      "identity": "video_re_detect_easing_profile",
+      "family": "motion",
+      "property": "easing_profile",
+      "detects": "Best-fit easing of measured motion curves (linear, ease-in-out, overshoot spring)",
+      "payload_hint": "easing, params",
+      "contract": "video_re_contract_easing_profile",
+      "questions": "video_re_qbank_easing_profile"
+    },
+    {
+      "identity": "video_re_detect_transition_type",
+      "family": "transitions",
+      "property": "transition_type",
+      "detects": "Classify each shot boundary: cut, dissolve, fade, wipe, slide, zoom, whip, match cut",
+      "payload_hint": "boundaries[{t_s,type,duration_s}]",
+      "contract": "video_re_contract_transition_type",
+      "questions": "video_re_qbank_transition_type"
+    },
+    {
+      "identity": "video_re_detect_fade_to_color",
+      "family": "transitions",
+      "property": "fade_to_color",
+      "detects": "Fades to black/white/colour and their duration",
+      "payload_hint": "events",
+      "contract": "video_re_contract_fade_to_color",
+      "questions": "video_re_qbank_fade_to_color"
+    },
+    {
+      "identity": "video_re_detect_flash_frames",
+      "family": "transitions",
+      "property": "flash_frames",
+      "detects": "Single bright/white frames used as impact",
+      "payload_hint": "events",
+      "contract": "video_re_contract_flash_frames",
+      "questions": "video_re_qbank_flash_frames"
+    },
+    {
+      "identity": "video_re_detect_text_presence_timeline",
+      "family": "text",
+      "property": "text_presence_timeline",
+      "detects": "When on-screen text is present and how much area it covers",
+      "payload_hint": "segments[{t_start_s,t_end_s,area_ratio}]",
+      "contract": "video_re_contract_text_presence_timeline",
+      "questions": "video_re_qbank_text_presence_timeline"
+    },
+    {
+      "identity": "video_re_detect_text_position_grid",
+      "family": "text",
+      "property": "text_position_grid",
+      "detects": "Where text sits on a 3x3 grid over time (title vs captions)",
+      "payload_hint": "grid_histogram",
+      "contract": "video_re_contract_text_position_grid",
+      "questions": "video_re_qbank_text_position_grid"
+    },
+    {
+      "identity": "video_re_detect_text_color_contrast",
+      "family": "text",
+      "property": "text_color_contrast",
+      "detects": "Text colour and measured contrast ratio against its backing",
+      "payload_hint": "color, contrast_ratio",
+      "contract": "video_re_contract_text_color_contrast",
+      "questions": "video_re_qbank_text_color_contrast"
+    },
+    {
+      "identity": "video_re_detect_text_outline_stroke",
+      "family": "text",
+      "property": "text_outline_stroke",
+      "detects": "Outline/stroke width and colour around glyphs",
+      "payload_hint": "stroke_px, color",
+      "contract": "video_re_contract_text_outline_stroke",
+      "questions": "video_re_qbank_text_outline_stroke"
+    },
+    {
+      "identity": "video_re_detect_text_box_backing",
+      "family": "text",
+      "property": "text_box_backing",
+      "detects": "Solid, frosted or no backing behind text; padding and radius",
+      "payload_hint": "backing, padding_px, radius_px",
+      "contract": "video_re_contract_text_box_backing",
+      "questions": "video_re_qbank_text_box_backing"
+    },
+    {
+      "identity": "video_re_detect_text_animation_type",
+      "family": "text",
+      "property": "text_animation_type",
+      "detects": "Pop with overshoot, typewriter, word-by-word, slide, fade, mask reveal (from bbox/scale over time)",
+      "payload_hint": "events[{t_s,type}]",
+      "contract": "video_re_contract_text_animation_type",
+      "questions": "video_re_qbank_text_animation_type"
+    },
+    {
+      "identity": "video_re_detect_karaoke_highlight",
+      "family": "text",
+      "property": "karaoke_highlight",
+      "detects": "Word-level highlight sweeping through a caption",
+      "payload_hint": "present, style",
+      "contract": "video_re_contract_karaoke_highlight",
+      "questions": "video_re_qbank_karaoke_highlight"
+    },
+    {
+      "identity": "video_re_detect_caption_line_count",
+      "family": "text",
+      "property": "caption_line_count",
+      "detects": "Lines and words on screen per caption",
+      "payload_hint": "lines, words",
+      "contract": "video_re_contract_caption_line_count",
+      "questions": "video_re_qbank_caption_line_count"
+    },
+    {
+      "identity": "video_re_detect_label_patterns",
+      "family": "text",
+      "property": "label_patterns",
+      "detects": "Repeated labels such as FACT N / TIP N / #N and their timing",
+      "payload_hint": "pattern, occurrences",
+      "contract": "video_re_contract_label_patterns",
+      "questions": "video_re_qbank_label_patterns"
+    },
+    {
+      "identity": "video_re_detect_number_reveals",
+      "family": "text",
+      "property": "number_reveals",
+      "detects": "Big numbers that count up or pop in",
+      "payload_hint": "events[{t_s,style}]",
+      "contract": "video_re_contract_number_reveals",
+      "questions": "video_re_qbank_number_reveals"
+    },
+    {
+      "identity": "video_re_detect_emoji_sticker_overlays",
+      "family": "text",
+      "property": "emoji_sticker_overlays",
+      "detects": "Emoji, stickers and icon overlays",
+      "payload_hint": "events",
+      "contract": "video_re_contract_emoji_sticker_overlays",
+      "questions": "video_re_qbank_emoji_sticker_overlays"
+    },
+    {
+      "identity": "video_re_detect_progress_bar",
+      "family": "text",
+      "property": "progress_bar",
+      "detects": "Progress or timer bars",
+      "payload_hint": "present, position",
+      "contract": "video_re_contract_progress_bar",
+      "questions": "video_re_qbank_progress_bar"
+    },
+    {
+      "identity": "video_re_detect_font_weight_class",
+      "family": "text",
+      "property": "font_weight_class",
+      "detects": "Weight class and width of display text from stroke-width estimates",
+      "payload_hint": "weight_class, condensed",
+      "contract": "video_re_contract_font_weight_class",
+      "questions": "video_re_qbank_font_weight_class"
+    },
+    {
+      "identity": "video_re_classify_animation_style",
+      "family": "classify",
+      "property": "animation_style",
+      "detects": "Stick figure, flat 2D, 2.5D cutout, low-poly 3D, pixel, voxel, sketch, photo slideshow, live action (feature-based classifier with confidence)",
+      "payload_hint": "label, scores",
+      "contract": "video_re_contract_animation_style",
+      "questions": "video_re_qbank_animation_style"
+    },
+    {
+      "identity": "video_re_classify_shot_scale",
+      "family": "classify",
+      "property": "shot_scale",
+      "detects": "Close-up / medium / wide from subject size",
+      "payload_hint": "label per shot",
+      "contract": "video_re_contract_shot_scale",
+      "questions": "video_re_qbank_shot_scale"
+    },
+    {
+      "identity": "video_re_classify_flat_vs_photographic",
+      "family": "classify",
+      "property": "flat_vs_photographic",
+      "detects": "Flat vector graphics vs photographic content per shot",
+      "payload_hint": "label per shot",
+      "contract": "video_re_contract_flat_vs_photographic",
+      "questions": "video_re_qbank_flat_vs_photographic"
+    },
+    {
+      "identity": "video_re_classify_format_family",
+      "family": "classify",
+      "property": "format_family",
+      "detects": "Nearest known format IR in the library (FACT N short, countdown, this-vs-that, ...)",
+      "payload_hint": "label, distance",
+      "contract": "video_re_contract_format_family",
+      "questions": "video_re_qbank_format_family"
+    },
+    {
+      "identity": "video_re_classify_face_presence",
+      "family": "classify",
+      "property": "face_presence",
+      "detects": "Whether a human face is on screen (presence only, never identity)",
+      "payload_hint": "segments",
+      "contract": "video_re_contract_face_presence",
+      "questions": "video_re_qbank_face_presence"
+    },
+    {
+      "identity": "video_re_classify_map_chart_graphics",
+      "family": "classify",
+      "property": "map_chart_graphics",
+      "detects": "Maps, charts, timelines and diagrams on screen",
+      "payload_hint": "segments[{type}]",
+      "contract": "video_re_contract_map_chart_graphics",
+      "questions": "video_re_qbank_map_chart_graphics"
+    },
+    {
+      "identity": "video_re_detect_music_presence",
+      "family": "audio",
+      "property": "music_presence",
+      "detects": "Music vs speech vs silence per segment",
+      "payload_hint": "segments[{type}]",
+      "contract": "video_re_contract_music_presence",
+      "questions": "video_re_qbank_music_presence"
+    },
+    {
+      "identity": "video_re_detect_ducking",
+      "family": "audio",
+      "property": "ducking",
+      "detects": "Music level dips under narration: depth dB and attack/release",
+      "payload_hint": "depth_db, attack_ms, release_ms",
+      "contract": "video_re_contract_ducking",
+      "questions": "video_re_qbank_ducking"
+    },
+    {
+      "identity": "video_re_detect_sfx_hits",
+      "family": "audio",
+      "property": "sfx_hits",
+      "detects": "Whooshes, pops, impacts, risers and their alignment to visual events",
+      "payload_hint": "events[{t_s,type}]",
+      "contract": "video_re_contract_sfx_hits",
+      "questions": "video_re_qbank_sfx_hits"
+    },
+    {
+      "identity": "video_re_detect_voice_pitch_pace",
+      "family": "audio",
+      "property": "voice_pitch_pace",
+      "detects": "Narration pitch range and pace statistics (never speaker identity)",
+      "payload_hint": "f0_median_hz, wpm",
+      "contract": "video_re_contract_voice_pitch_pace",
+      "questions": "video_re_qbank_voice_pitch_pace"
+    },
+    {
+      "identity": "video_re_detect_dynamics_compression",
+      "family": "audio",
+      "property": "dynamics_compression",
+      "detects": "Crest factor and loudness range; heavy vs light compression",
+      "payload_hint": "crest_db, lra",
+      "contract": "video_re_contract_dynamics_compression",
+      "questions": "video_re_qbank_dynamics_compression"
+    },
+    {
+      "identity": "video_re_detect_silence_gaps",
+      "family": "audio",
+      "property": "silence_gaps",
+      "detects": "Pauses and their placement relative to beats",
+      "payload_hint": "gaps",
+      "contract": "video_re_contract_silence_gaps",
+      "questions": "video_re_qbank_silence_gaps"
+    },
+    {
+      "identity": "video_re_detect_reverb_room",
+      "family": "audio",
+      "property": "reverb_room",
+      "detects": "Dry vs reverberant voice estimate",
+      "payload_hint": "rt60_estimate",
+      "contract": "video_re_contract_reverb_room",
+      "questions": "video_re_qbank_reverb_room"
+    },
+    {
+      "identity": "video_re_detect_stereo_width",
+      "family": "audio",
+      "property": "stereo_width",
+      "detects": "Mono vs wide stereo",
+      "payload_hint": "width",
+      "contract": "video_re_contract_stereo_width",
+      "questions": "video_re_qbank_stereo_width"
+    },
+    {
+      "identity": "video_re_detect_tempo_changes",
+      "family": "audio",
+      "property": "tempo_changes",
+      "detects": "Music tempo map and changes",
+      "payload_hint": "tempo_map",
+      "contract": "video_re_contract_tempo_changes",
+      "questions": "video_re_qbank_tempo_changes"
+    },
+    {
+      "identity": "video_re_similarity_perceptual_hash",
+      "family": "similarity",
+      "property": "perceptual_hash",
+      "detects": "aHash/dHash/pHash per keyframe and Hamming distances",
+      "payload_hint": "hashes",
+      "contract": "video_re_contract_perceptual_hash",
+      "questions": "video_re_qbank_perceptual_hash"
+    },
+    {
+      "identity": "video_re_similarity_ssim_compare",
+      "family": "similarity",
+      "property": "ssim_compare",
+      "detects": "SSIM between aligned frames of two videos",
+      "payload_hint": "ssim per pair",
+      "contract": "video_re_contract_ssim_compare",
+      "questions": "video_re_qbank_ssim_compare"
+    },
+    {
+      "identity": "video_re_similarity_shot_sequence_alignment",
+      "family": "similarity",
+      "property": "shot_sequence_alignment",
+      "detects": "Align two shot sequences by duration/colour features with DTW",
+      "payload_hint": "alignment, cost",
+      "contract": "video_re_contract_shot_sequence_alignment",
+      "questions": "video_re_qbank_shot_sequence_alignment"
+    },
+    {
+      "identity": "video_re_similarity_color_histogram_compare",
+      "family": "similarity",
+      "property": "color_histogram_compare",
+      "detects": "Histogram distance between shots or videos",
+      "payload_hint": "distance",
+      "contract": "video_re_contract_color_histogram_compare",
+      "questions": "video_re_qbank_color_histogram_compare"
+    },
+    {
+      "identity": "video_re_similarity_audio_fingerprint",
+      "family": "similarity",
+      "property": "audio_fingerprint",
+      "detects": "Chroma/spectral-peak fingerprints to compare audio",
+      "payload_hint": "fingerprint, match_ratio",
+      "contract": "video_re_contract_audio_fingerprint",
+      "questions": "video_re_qbank_audio_fingerprint"
+    },
+    {
+      "identity": "video_re_similarity_format_ir_distance",
+      "family": "similarity",
+      "property": "format_ir_distance",
+      "detects": "Distance between two format IRs per dimension",
+      "payload_hint": "distances",
+      "contract": "video_re_contract_format_ir_distance",
+      "questions": "video_re_qbank_format_ir_distance"
+    },
+    {
+      "identity": "video_re_similarity_reuse_risk",
+      "family": "similarity",
+      "property": "reuse_risk",
+      "detects": "How much of a new video reuses a source's frames or audio (originality check before publishing)",
+      "payload_hint": "frame_match_ratio, audio_match_ratio, verdict",
+      "contract": "video_re_contract_reuse_risk",
+      "questions": "video_re_qbank_reuse_risk"
+    },
+    {
+      "identity": "video_re_detect_hook_window_density",
+      "family": "structure",
+      "property": "hook_window_density",
+      "detects": "Events per second in the first 3 s vs the rest (cuts, text, sfx, motion)",
+      "payload_hint": "density_first3s, density_rest",
+      "contract": "video_re_contract_hook_window_density",
+      "questions": "video_re_qbank_hook_window_density"
+    },
+    {
+      "identity": "video_re_detect_beat_repetition",
+      "family": "structure",
+      "property": "beat_repetition",
+      "detects": "Repeating segment structure from a self-similarity matrix (item beats)",
+      "payload_hint": "period_s, repeats",
+      "contract": "video_re_contract_beat_repetition",
+      "questions": "video_re_qbank_beat_repetition"
+    },
+    {
+      "identity": "video_re_detect_loopability",
+      "family": "structure",
+      "property": "loopability",
+      "detects": "How well the end matches the start for looping",
+      "payload_hint": "score",
+      "contract": "video_re_contract_loopability",
+      "questions": "video_re_qbank_loopability"
+    },
+    {
+      "identity": "video_re_detect_cta_endcard",
+      "family": "structure",
+      "property": "cta_endcard",
+      "detects": "End cards, calls to action and their duration",
+      "payload_hint": "present, t_start_s",
+      "contract": "video_re_contract_cta_endcard",
+      "questions": "video_re_qbank_cta_endcard"
+    },
+    {
+      "identity": "video_re_detect_intro_outro_bumpers",
+      "family": "structure",
+      "property": "intro_outro_bumpers",
+      "detects": "Branded intros/outros and their length",
+      "payload_hint": "intro_s, outro_s",
+      "contract": "video_re_contract_intro_outro_bumpers",
+      "questions": "video_re_qbank_intro_outro_bumpers"
+    }
+  ]
+}

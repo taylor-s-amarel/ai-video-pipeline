@@ -1,0 +1,6 @@
+title: Deterministic particle emitter
+summary: Seeded 2D particle emitter with closed-form gravity and drag (random access to any frame), life-based size and opacity capped at 98%, and Pillow rendering for dust, sparks and embers.
+subkind: procedural-asset
+domain: video
+tags: [video, particles, background, procedural, overlay, pillow]
+step_kinds: [build, render]

@@ -1,0 +1,5 @@
+title: ASS subtitle parser
+summary: Parses .ass/.ssa scripts into info, styles and events using each section's Format line, with override-tag stripping to plain text and cue extraction for QA and transcripts.
+domain: captions
+tags: [captions, ass, ssa, parser, subtitles]
+step_kinds: [build, verify]

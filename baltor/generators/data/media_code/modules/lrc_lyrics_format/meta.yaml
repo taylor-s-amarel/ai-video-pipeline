@@ -1,0 +1,5 @@
+title: LRC lyrics format
+summary: Reads and writes LRC lyric files with metadata tags, offsets, repeated time tags and enhanced per-word timestamps for music videos and karaoke captions.
+domain: captions
+tags: [captions, lrc, lyrics, karaoke, music-video]
+step_kinds: [build, render]

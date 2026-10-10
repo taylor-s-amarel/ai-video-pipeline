@@ -1,0 +1,177 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/video-re-evidence",
+  "title": "Video reverse-engineering evidence (evidence.json)",
+  "description": "Hard measurements of one video, written by the video_re_evidence_bundle code module. It is the 'disassembly' that analyst subagents cite. Every measured value is null when its tool was unavailable or failed, and then 'errors' says why; values are never invented. Units and methods are given per field. evidence.json is a local working file: it can contain caption text and keyframe paths from the analysed video, so it must not be published, and nothing in it except technique and structure may be copied into a format IR.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["spec", "source", "shots", "shot_stats", "text_regions", "captions", "audio", "overlay", "safe_area", "tools", "errors"],
+  "$defs": {
+    "num": { "type": ["number", "null"] },
+    "seconds": { "type": "number", "minimum": 0 },
+    "hex": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+    "bbox": {
+      "type": "array", "minItems": 4, "maxItems": 4, "items": { "type": "number", "minimum": 0 },
+      "description": "[x, y, w, h] in source pixels, display orientation (rotation applied), origin top-left."
+    }
+  },
+  "properties": {
+    "spec": { "const": "baltor.video-evidence/v1" },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reference", "duration_s", "width", "height", "fps", "has_audio"],
+      "properties": {
+        "reference": { "type": "string", "description": "File name or URL the analyst was given. Never a copy of the media." },
+        "duration_s": { "$ref": "#/$defs/num", "description": "Container duration from ffprobe, seconds." },
+        "width": { "type": ["integer", "null"], "description": "Display width in pixels after rotation metadata is applied." },
+        "height": { "type": ["integer", "null"], "description": "Display height in pixels after rotation metadata is applied." },
+        "fps": { "$ref": "#/$defs/num", "description": "Average frame rate of the first video stream (avg_frame_rate, falling back to r_frame_rate)." },
+        "has_audio": { "type": ["boolean", "null"] }
+      }
+    },
+    "shots": {
+      "type": "array",
+      "description": "Shots from video_re_detect_shots (hard cuts and gradual transitions), in time order. Per-shot fields are null when their module was unavailable.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["index", "start_s", "end_s", "duration_s", "keyframe", "palette", "motion_energy", "camera"],
+        "properties": {
+          "index": { "type": "integer", "minimum": 0 },
+          "start_s": { "$ref": "#/$defs/seconds" },
+          "end_s": { "$ref": "#/$defs/seconds" },
+          "duration_s": { "$ref": "#/$defs/seconds" },
+          "keyframe": { "type": ["string", "null"], "description": "Path of the representative frame, relative to evidence.json (local analysis artefact; never redistributed)." },
+          "palette": {
+            "type": ["array", "null"], "items": { "$ref": "#/$defs/hex" },
+            "description": "Dominant colours by k-means over sampled frames, sorted by area share, largest first."
+          },
+          "motion_energy": {
+            "type": ["object", "null"],
+            "additionalProperties": false,
+            "required": ["center", "border"],
+            "description": "Mean absolute grey-level difference between consecutive frames (0-255 scale, analysis width 160 px). center = central box of 60% x 60% of the frame; border = the rest of the frame.",
+            "properties": { "center": { "$ref": "#/$defs/num" }, "border": { "$ref": "#/$defs/num" } }
+          },
+          "camera": {
+            "type": ["object", "null"],
+            "additionalProperties": false,
+            "required": ["pan_x", "pan_y", "zoom"],
+            "description": "Global image motion by phase correlation plus a scale search. pan_x: frame widths per second, positive = camera moves right (content travels left). pan_y: frame heights per second, positive = camera moves down (content travels up). zoom: natural-log scale change per second, positive = zoom in. null when no reliable estimate.",
+            "properties": { "pan_x": { "$ref": "#/$defs/num" }, "pan_y": { "$ref": "#/$defs/num" }, "zoom": { "$ref": "#/$defs/num" } }
+          }
+        }
+      }
+    },
+    "shot_stats": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["count", "median_s", "mean_s", "cut_rate_per_min"],
+      "properties": {
+        "count": { "type": ["integer", "null"], "minimum": 0 },
+        "median_s": { "$ref": "#/$defs/num" },
+        "mean_s": { "$ref": "#/$defs/num" },
+        "cut_rate_per_min": { "$ref": "#/$defs/num", "description": "Transitions (shots - 1) per minute of video." }
+      }
+    },
+    "text_regions": {
+      "type": "array",
+      "description": "Text-like regions from an edge-density heuristic, sampled over time (default 2 samples per second). Region proposals, not OCR: textures and grids can produce false positives.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["t_s", "bbox", "area_ratio", "y_center_ratio"],
+        "properties": {
+          "t_s": { "$ref": "#/$defs/seconds" },
+          "bbox": { "$ref": "#/$defs/bbox" },
+          "area_ratio": { "type": "number", "minimum": 0, "maximum": 1, "description": "w*h / (width*height)" },
+          "y_center_ratio": { "type": "number", "minimum": 0, "maximum": 1, "description": "(y + h/2) / height; 0 = top edge" }
+        }
+      }
+    },
+    "captions": {
+      "type": "array",
+      "description": "Caption events from an embedded subtitle stream, a sidecar file, or OCR of the caption band (see details/video_re_caption_track.json for which). Text may be masked ('WORD {n} word') when the bundle ran with --text-mode masked, or empty with --text-mode none.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["start_s", "end_s", "text"],
+        "properties": {
+          "start_s": { "$ref": "#/$defs/seconds" },
+          "end_s": { "$ref": "#/$defs/seconds" },
+          "text": { "type": "string" }
+        }
+      }
+    },
+    "audio": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["integrated_lufs", "loudness_range", "speech_segments", "onsets_s", "tempo_bpm", "speech_wpm", "cuts_on_beat_ratio"],
+      "properties": {
+        "integrated_lufs": { "$ref": "#/$defs/num", "description": "EBU R128 integrated loudness (ffmpeg ebur128), LUFS." },
+        "loudness_range": { "$ref": "#/$defs/num", "description": "EBU R128 loudness range, LU." },
+        "speech_segments": {
+          "type": ["array", "null"],
+          "description": "Speech-like segments from an energy/spectral heuristic (no neural VAD). Music with vocals or dense sound design can be counted as speech.",
+          "items": {
+            "type": "object", "additionalProperties": false, "required": ["start_s", "end_s"],
+            "properties": { "start_s": { "$ref": "#/$defs/seconds" }, "end_s": { "$ref": "#/$defs/seconds" } }
+          }
+        },
+        "onsets_s": { "type": ["array", "null"], "items": { "$ref": "#/$defs/seconds" }, "description": "Spectral-flux onsets, seconds." },
+        "tempo_bpm": { "$ref": "#/$defs/num", "description": "Tempo from autocorrelation of the onset envelope; null when no periodicity is found." },
+        "speech_wpm": { "$ref": "#/$defs/num", "description": "Words per minute of speaking time: counted from a transcript when one exists, otherwise a syllable-rate estimate (see details/video_re_speech_rate.json for the method)." },
+        "cuts_on_beat_ratio": { "$ref": "#/$defs/num", "description": "Share of cuts within the tolerance (default 70 ms) of a tracked beat." }
+      }
+    },
+    "overlay": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["semi_transparent_ratio"],
+      "properties": {
+        "semi_transparent_ratio": { "$ref": "#/$defs/num", "description": "Share of detected overlay-panel area whose estimated opacity is below 0.98 (the background visibly changes underneath). null when no panel was detected or the background never moves." }
+      }
+    },
+    "safe_area": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["violations"],
+      "properties": {
+        "violations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["t_s", "zone", "bbox", "overlap_ratio"],
+            "properties": {
+              "t_s": { "$ref": "#/$defs/seconds" },
+              "zone": { "type": "string" },
+              "bbox": { "$ref": "#/$defs/bbox" },
+              "overlap_ratio": { "type": "number", "minimum": 0, "maximum": 1, "description": "Share of the text region's area inside the zone." }
+            }
+          }
+        }
+      }
+    },
+    "tools": {
+      "type": "object",
+      "description": "name -> version for every external tool, Python package and video_re module that ran.",
+      "additionalProperties": { "type": "string" }
+    },
+    "errors": {
+      "type": "array",
+      "description": "One entry per measurement that is null or partial, and why.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["module", "message"],
+        "properties": {
+          "module": { "type": "string" },
+          "message": { "type": "string" },
+          "fields": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+title: WebVTT writer and reader
+summary: Writes WebVTT with identifiers, validated cue settings and entity escaping; reads cues while skipping NOTE/STYLE/REGION blocks and optionally stripping inline tags.
+domain: captions
+tags: [captions, webvtt, vtt, subtitles, html5]
+step_kinds: [build, render]
+references: ["https://www.w3.org/TR/webvtt1/"]
