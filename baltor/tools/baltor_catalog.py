@@ -389,11 +389,29 @@ def _validate_kind(pkg: Path, m: dict, rel_files: set[str], report: Report, deep
                     report.err(pkg, f"{rel} fails node --check: {proc.stderr.strip()[:200]}")
 
 
-def validate(paths: list[Path] | None = None, deep: bool = False) -> tuple[Report, list[tuple[Path, dict]]]:
+def packages_from_generator(generator: str) -> list[Path]:
+    gen = generator.removeprefix("baltor/")
+    out = []
+    for manifest in COMPONENTS_DIR.rglob("baltor.json"):
+        try:
+            if json.loads(manifest.read_text()).get("provenance", {}).get("generator") == gen:
+                out.append(manifest.parent)
+        except Exception:  # noqa: BLE001
+            out.append(manifest.parent)
+    return sorted(out)
+
+
+def validate(paths: list[Path] | None = None, deep: bool = False,
+             generator: str | None = None) -> tuple[Report, list[tuple[Path, dict]]]:
     report = Report()
     subkinds = known_subkinds()
     seen: dict[str, Path] = {}
     ok: list[tuple[Path, dict]] = []
+    if generator:
+        paths = packages_from_generator(generator)
+        if not paths:
+            report.errors.append(f"no packages from generator {generator}")
+            return report, ok
     for pkg in find_packages(paths):
         m = validate_package(pkg, report, subkinds, deep=deep)
         if not m:
@@ -880,6 +898,7 @@ def main(argv: list[str] | None = None) -> int:
     v.add_argument("--strict", action="store_true", help="treat warnings as errors")
     v.add_argument("--deep", action="store_true", help="also run node --check on JavaScript")
     v.add_argument("--quiet", action="store_true")
+    v.add_argument("--generator", help="only packages whose provenance.generator is this path, e.g. generators/video_styles.py")
     b = sub.add_parser("build")
     b.add_argument("--date")
     s = sub.add_parser("search")
@@ -902,8 +921,8 @@ def main(argv: list[str] | None = None) -> int:
     a = ap.parse_args(argv)
 
     if a.cmd == "validate":
-        report, ok = validate(a.paths or None, deep=a.deep)
-        feed_errors = validate_feeds() if not a.paths else []
+        report, ok = validate(a.paths or None, deep=a.deep, generator=a.generator)
+        feed_errors = validate_feeds() if not (a.paths or a.generator) else []
         report.errors += feed_errors
         if not a.quiet:
             for w in report.warnings[:300]:
