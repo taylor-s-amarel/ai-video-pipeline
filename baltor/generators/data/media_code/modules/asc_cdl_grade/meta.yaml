@@ -1,0 +1,7 @@
+title: ASC CDL grade
+summary: Applies ASC CDL slope/offset/power and Rec. 709 saturation to images, reads and writes .cc ColorCorrection XML, and emits the SOP part as an ffmpeg lutrgb filter.
+subkind: lut
+domain: video
+tags: [video, cdl, colour-grading, asc, ffmpeg, numpy]
+step_kinds: [build, render]
+depends_on: [ffmpeg]

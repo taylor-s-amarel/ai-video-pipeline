@@ -1186,14 +1186,17 @@ def check_envelope(env: dict, folder) -> list[str]:
     return errs
 
 
-def write_clip(path, frames, fps: float = 10.0) -> str:
-    """Encode (N,H,W,3) uint8 frames losslessly (FFV1 in Matroska, RGB) for command-line tests."""
+def write_clip(path, frames, fps: float = 10.0, pix_fmt: str = "bgr0", extra: list[str] | None = None) -> str:
+    """Encode (N,H,W,3) uint8 frames losslessly with FFV1 in Matroska for command-line tests.
+
+    pix_fmt "bgr0" keeps RGB exactly; YUV formats (e.g. "yuv444p") go through ffmpeg's RGB->YUV conversion, and
+    ``extra`` output options (e.g. ["-vf", "scale=out_range=full", "-color_range", "pc"]) control range flags."""
     exe = shutil.which("ffmpeg")
     if not exe:
         raise Unavailable("ffmpeg is not installed")
     f = np.ascontiguousarray(np.asarray(frames, dtype=np.uint8))
     n, h, w, _ = f.shape
     cmd = [exe, "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{w}x{h}", "-r", f"{fps:g}",
-           "-i", "-", "-c:v", "ffv1", "-pix_fmt", "bgr0", str(path)]
+           "-i", "-"] + list(extra or []) + ["-c:v", "ffv1", "-pix_fmt", pix_fmt, str(path)]
     subprocess.run(cmd, input=f.tobytes(), check=True, capture_output=True, timeout=120)
     return str(path)

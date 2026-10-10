@@ -1,0 +1,42 @@
+{
+  "type": "text-animation",
+  "id": "text_anim_typewriter",
+  "name": "Typewriter",
+  "version": 1,
+  "unit": "character",
+  "duration_ms": 1,
+  "stagger_ms": 55,
+  "tempo": "standard",
+  "use_when": [
+    "Archive documents",
+    "dates",
+    "code"
+  ],
+  "keyframes": [
+    {
+      "t": 0,
+      "opacity": 0.0
+    },
+    {
+      "t": 1.0,
+      "opacity": 1.0,
+      "ease": "step"
+    }
+  ],
+  "samples": [
+    [
+      0,
+      {
+        "scale": 1.0,
+        "opacity": 0.0
+      }
+    ],
+    [
+      1,
+      {
+        "scale": 1.0,
+        "opacity": 1.0
+      }
+    ]
+  ]
+}

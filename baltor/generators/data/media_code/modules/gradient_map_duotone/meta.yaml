@@ -1,0 +1,6 @@
+title: Gradient map and duotone
+summary: Recolours images by luma through multi-stop colour gradients (duotones and richer maps) with contrast and mix amount, for consistent branded looks across mismatched photos.
+subkind: palette
+domain: video
+tags: [video, duotone, gradient-map, colour, look, numpy]
+step_kinds: [build, render]

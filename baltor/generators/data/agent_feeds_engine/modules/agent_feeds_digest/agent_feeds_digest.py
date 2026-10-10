@@ -168,7 +168,10 @@ def build_digest(items: list[dict], watchlist: dict, *, project: str | None = No
     for it in ranked:  # best score first, so the first one per cluster is the representative
         by_cluster.setdefault(it.get("cluster_id") or it["id"], []).append(it)
     groups: dict[str, list[dict]] = {g: [] for g in GROUPS}
+    sev_known = lambda i: 0 if i.get("severity") in (None, "unknown") else 1  # noqa: E731
     for members in by_cluster.values():
+        # representative: best score, then a known severity, then the earliest (original) report
+        members.sort(key=lambda i: (-i["relevance"]["score"], -sev_known(i), i.get("published") or "9999"))
         rep = members[0]
         also = sorted({m.get("source_id", "") for m in members[1:]} | set(rep.get("sources") or []) - {rep.get("source_id")})
         g = group_for(rep)

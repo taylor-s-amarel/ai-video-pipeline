@@ -1,0 +1,21 @@
+{
+  "type": "transition",
+  "id": "transition_cover_up",
+  "name": "Cover up",
+  "version": 1,
+  "method": "xfade",
+  "duration_ms": 350,
+  "tempo": "standard",
+  "use_when": [
+    "Card-stack feel in lists",
+    "Vertical shorts"
+  ],
+  "avoid_when": [
+    "FFmpeg builds older than the tested 6.1.1 that lack the cover/reveal family"
+  ],
+  "xfade": "coverup",
+  "min_ffmpeg": "6.1",
+  "ffmpeg": {
+    "filter": "[a][b]xfade=transition=coverup:duration=0.35:offset=<A_DURATION-0.35>[v]"
+  }
+}

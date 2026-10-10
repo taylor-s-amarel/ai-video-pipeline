@@ -1,0 +1,21 @@
+{
+  "_comment": "Test fixture shaped like the wikifeeds onthisdayResponse definition. Text is placeholder test data, not historical claims.",
+  "selected": [
+    {"text": "Fixture event A: the Exampleton test bridge opens to traffic.", "year": 1926,
+     "pages": [{"type": "standard", "titles": {"normalized": "Exampleton Bridge", "display": "Exampleton Bridge"},
+                "description": "Fictional bridge used in tests", "extract": "Placeholder extract.",
+                "content_urls": {"desktop": {"page": "https://en.wikipedia.org/wiki/Exampleton_Bridge"}}},
+               {"type": "standard", "titles": {"normalized": "Exampleton"}, "extract": "Placeholder."}]},
+    {"text": "Fixture event B: a placeholder explosion opens a test canal.", "year": 1976, "pages": []},
+    {"text": "Fixture event C: a sample observatory is founded.", "year": 1990,
+     "pages": [{"titles": {"normalized": "Sample Observatory"}, "extract": "Placeholder."}]}
+  ],
+  "births": [{"text": "Fixture Person, placeholder inventor", "year": 1901, "pages": []}],
+  "deaths": [{"text": "Fixture Person Two, placeholder composer", "year": 2001, "pages": []}],
+  "events": [
+    {"text": "Fixture event D: a test parade is held.", "year": 2016, "pages": []},
+    {"text": "Fixture event E: a sample ferry crash; 12 people died (test data).", "year": 2001, "pages": []},
+    {"text": "Fixture event F: undated placeholder.", "pages": []}
+  ],
+  "holidays": [{"text": "Fixture Day (placeholder holiday)", "pages": []}]
+}

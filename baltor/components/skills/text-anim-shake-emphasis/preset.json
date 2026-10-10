@@ -1,0 +1,80 @@
+{
+  "type": "text-animation",
+  "id": "text_anim_shake_emphasis",
+  "name": "Shake emphasis",
+  "version": 1,
+  "unit": "word",
+  "duration_ms": 240,
+  "stagger_ms": 0,
+  "tempo": "standard",
+  "use_when": [
+    "Warnings",
+    "surprises"
+  ],
+  "keyframes": [
+    {
+      "t": 0,
+      "rotation_deg": 0
+    },
+    {
+      "t": 0.25,
+      "rotation_deg": 3,
+      "ease": "ease-out"
+    },
+    {
+      "t": 0.5,
+      "rotation_deg": -3,
+      "ease": "ease-in-out"
+    },
+    {
+      "t": 0.75,
+      "rotation_deg": 2,
+      "ease": "ease-in-out"
+    },
+    {
+      "t": 1.0,
+      "rotation_deg": 0,
+      "ease": "ease-out"
+    }
+  ],
+  "samples": [
+    [
+      0,
+      {
+        "scale": 1.0,
+        "opacity": 1.0
+      }
+    ],
+    [
+      60,
+      {
+        "scale": 1.0,
+        "opacity": 1.0,
+        "rotation_deg": 3.0
+      }
+    ],
+    [
+      120,
+      {
+        "scale": 1.0,
+        "opacity": 1.0,
+        "rotation_deg": -3.0
+      }
+    ],
+    [
+      180,
+      {
+        "scale": 1.0,
+        "opacity": 1.0,
+        "rotation_deg": 2.0
+      }
+    ],
+    [
+      240,
+      {
+        "scale": 1.0,
+        "opacity": 1.0
+      }
+    ]
+  ]
+}

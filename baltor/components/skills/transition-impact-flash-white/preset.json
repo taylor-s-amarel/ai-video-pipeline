@@ -1,0 +1,21 @@
+{
+  "type": "transition",
+  "id": "transition_impact_flash_white",
+  "name": "Impact flash to white",
+  "version": 1,
+  "method": "xfade",
+  "duration_ms": 240,
+  "tempo": "standard",
+  "use_when": [
+    "Punchlines",
+    "Big numbers",
+    "Cut to a reveal photo"
+  ],
+  "avoid_when": [
+    "Repeated flashing: keep to one flash every few seconds and never strobe, for viewers sensitive to flashes"
+  ],
+  "xfade": "fadewhite",
+  "ffmpeg": {
+    "filter": "[a][b]xfade=transition=fadewhite:duration=0.24:offset=<A_DURATION-0.24>[v]"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "transition",
+  "id": "transition_whip_pan_left",
+  "name": "Whip pan left",
+  "version": 1,
+  "method": "xfade",
+  "duration_ms": 180,
+  "tempo": "standard",
+  "use_when": [
+    "Energetic edits",
+    "Moving to the next item in a list"
+  ],
+  "avoid_when": [
+    "Calm looks"
+  ],
+  "xfade": "smoothleft",
+  "ffmpeg": {
+    "filter": "[a][b]xfade=transition=smoothleft:duration=0.18:offset=<A_DURATION-0.18>[v]"
+  }
+}

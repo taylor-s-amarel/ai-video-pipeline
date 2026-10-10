@@ -1,0 +1,67 @@
+{
+  "type": "camera-move",
+  "id": "camera_parallax_dolly",
+  "name": "Parallax dolly (2.5D)",
+  "version": 1,
+  "kind": "parallax-dolly",
+  "duration_s": 6,
+  "zoom": {
+    "from": 1.0,
+    "to": 1.06
+  },
+  "center": {
+    "from": [
+      0.47,
+      0.5
+    ],
+    "to": [
+      0.53,
+      0.5
+    ]
+  },
+  "easing": "sine-in-out",
+  "renderer": "overlay-expr",
+  "prescale": 4,
+  "output": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "intensity": "standard",
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "use_when": [
+    "Photos cut into layers: sky, middle, subject",
+    "Layered 2.5D animation style"
+  ],
+  "layers": [
+    {
+      "name": "background",
+      "speed": 0.3,
+      "zoom_extra": 0.02
+    },
+    {
+      "name": "midground",
+      "speed": 0.6,
+      "zoom_extra": 0.04
+    },
+    {
+      "name": "subject",
+      "speed": 1.0,
+      "zoom_extra": 0.06
+    }
+  ]
+}

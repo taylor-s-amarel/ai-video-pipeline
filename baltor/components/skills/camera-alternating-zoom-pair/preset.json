@@ -1,0 +1,70 @@
+{
+  "type": "camera-move",
+  "id": "camera_alternating_zoom_pair",
+  "name": "Alternating zoom pair",
+  "version": 1,
+  "kind": "alternating",
+  "duration_s": 3,
+  "zoom": {
+    "from": 1.0,
+    "to": 1.08
+  },
+  "center": {
+    "from": [
+      0.5,
+      0.5
+    ],
+    "to": [
+      0.5,
+      0.46
+    ]
+  },
+  "easing": "sine-in-out",
+  "renderer": "zoompan",
+  "prescale": 4,
+  "output": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "intensity": "standard",
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "use_when": [
+    "Quick cuts where consecutive shots alternate in and out",
+    "Keeping stills alive without repetition"
+  ],
+  "pair": {
+    "zoom": {
+      "from": 1.08,
+      "to": 1.0
+    },
+    "center": {
+      "from": [
+        0.5,
+        0.46
+      ],
+      "to": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "ffmpeg": {
+    "filter": "scale=4320:7680:force_original_aspect_ratio=increase,crop=4320:7680,zoompan=z='1+(0.08)*(0.5-0.5*cos(PI*((on/89))))':x='max(0,min(iw-iw/zoom,(0.5+(0)*(0.5-0.5*cos(PI*((on/89)))))*iw-iw/zoom/2))':y='max(0,min(ih-ih/zoom,(0.5+(-0.04)*(0.5-0.5*cos(PI*((on/89)))))*ih-ih/zoom/2))':d=90:s=1080x1920:fps=30,setsar=1",
+    "pair_filter": "scale=4320:7680:force_original_aspect_ratio=increase,crop=4320:7680,zoompan=z='1.08+(-0.08)*(0.5-0.5*cos(PI*((on/89))))':x='max(0,min(iw-iw/zoom,(0.5+(0)*(0.5-0.5*cos(PI*((on/89)))))*iw-iw/zoom/2))':y='max(0,min(ih-ih/zoom,(0.46+(0.04)*(0.5-0.5*cos(PI*((on/89)))))*ih-ih/zoom/2))':d=90:s=1080x1920:fps=30,setsar=1"
+  }
+}

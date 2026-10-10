@@ -1,0 +1,66 @@
+{
+  "type": "text-animation",
+  "id": "text_anim_keyword_pop_house",
+  "name": "House keyword pop",
+  "version": 1,
+  "unit": "word",
+  "duration_ms": 180,
+  "stagger_ms": 0,
+  "tempo": "standard",
+  "use_when": [
+    "The key word of each house caption"
+  ],
+  "keyframes": [
+    {
+      "t": 0,
+      "scale": 1.0
+    },
+    {
+      "t": 0.4,
+      "scale": 1.12,
+      "ease": "ease-out"
+    },
+    {
+      "t": 1.0,
+      "scale": 1.0,
+      "ease": "ease-in-out"
+    }
+  ],
+  "samples": [
+    [
+      0,
+      {
+        "scale": 1.0,
+        "opacity": 1.0
+      }
+    ],
+    [
+      45,
+      {
+        "scale": 1.114,
+        "opacity": 1.0
+      }
+    ],
+    [
+      90,
+      {
+        "scale": 1.118,
+        "opacity": 1.0
+      }
+    ],
+    [
+      135,
+      {
+        "scale": 1.035,
+        "opacity": 1.0
+      }
+    ],
+    [
+      180,
+      {
+        "scale": 1.0,
+        "opacity": 1.0
+      }
+    ]
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "type": "text-animation",
+  "id": "text_anim_bounce_in_from_below",
+  "name": "Bounce in from below",
+  "version": 1,
+  "unit": "text",
+  "duration_ms": 600,
+  "stagger_ms": 0,
+  "tempo": "standard",
+  "use_when": [
+    "Stickers",
+    "cartoon labels"
+  ],
+  "spring": {
+    "stiffness": 220.0,
+    "damping": 12.0,
+    "mass": 1
+  },
+  "spring_metrics": {
+    "damping_ratio": 0.405,
+    "peak": 1.249,
+    "peak_time_s": 0.232,
+    "settle_time_s": 0.566
+  },
+  "from": {
+    "dy_px": 120.0,
+    "opacity": 0.0
+  },
+  "to": {
+    "dy_px": 0.0,
+    "opacity": 1.0
+  },
+  "samples": [
+    [
+      0,
+      {
+        "scale": 1.0,
+        "opacity": 0.0,
+        "dy_px": 120.0
+      }
+    ],
+    [
+      150,
+      {
+        "scale": 1.0,
+        "opacity": 1.0,
+        "dy_px": -2.53
+      }
+    ],
+    [
+      232,
+      {
+        "scale": 1.0,
+        "opacity": 1.0,
+        "dy_px": -29.9
+      }
+    ],
+    [
+      300,
+      {
+        "scale": 1.0,
+        "opacity": 1.0,
+        "dy_px": -18.915
+      }
+    ],
+    [
+      450,
+      {
+        "scale": 1.0,
+        "opacity": 0.939,
+        "dy_px": 7.3
+      }
+    ],
+    [
+      600,
+      {
+        "scale": 1.0,
+        "opacity": 0.996,
+        "dy_px": 0.471
+      }
+    ]
+  ],
+  "ffmpeg": {
+    "alpha": "clip((0+(1)*(1-exp(-6.0000*max(0,t-T0))*(cos(13.5647*max(0,t-T0))+0.4423*sin(13.5647*max(0,t-T0))))),0,1)",
+    "y_offset": "(120+(-120)*(1-exp(-6.0000*max(0,t-T0))*(cos(13.5647*max(0,t-T0))+0.4423*sin(13.5647*max(0,t-T0)))))"
+  }
+}

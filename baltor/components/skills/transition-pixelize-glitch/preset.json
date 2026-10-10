@@ -1,0 +1,20 @@
+{
+  "type": "transition",
+  "id": "transition_pixelize_glitch",
+  "name": "Pixelize",
+  "version": 1,
+  "method": "xfade",
+  "duration_ms": 300,
+  "tempo": "standard",
+  "use_when": [
+    "Pixel-art and game looks",
+    "Tech glitches"
+  ],
+  "avoid_when": [
+    "Photos of people (looks like censoring)"
+  ],
+  "xfade": "pixelize",
+  "ffmpeg": {
+    "filter": "[a][b]xfade=transition=pixelize:duration=0.3:offset=<A_DURATION-0.3>[v]"
+  }
+}

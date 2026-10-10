@@ -1,0 +1,20 @@
+{
+  "type": "transition",
+  "id": "transition_slide_push_up",
+  "name": "Slide push up",
+  "version": 1,
+  "method": "xfade",
+  "duration_ms": 300,
+  "tempo": "standard",
+  "use_when": [
+    "Step-by-step tutorials",
+    "Lists"
+  ],
+  "avoid_when": [
+    "Footage with strong horizontal motion"
+  ],
+  "xfade": "slideup",
+  "ffmpeg": {
+    "filter": "[a][b]xfade=transition=slideup:duration=0.3:offset=<A_DURATION-0.3>[v]"
+  }
+}

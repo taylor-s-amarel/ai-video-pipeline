@@ -1,0 +1,72 @@
+{
+  "type": "text-animation",
+  "id": "text_anim_mask_reveal_up",
+  "name": "Mask reveal from the baseline",
+  "version": 1,
+  "unit": "line",
+  "duration_ms": 350,
+  "stagger_ms": 80,
+  "tempo": "standard",
+  "use_when": [
+    "Lower thirds",
+    "elegant captions"
+  ],
+  "keyframes": [
+    {
+      "t": 0,
+      "reveal": 0.0,
+      "dy_px": 24
+    },
+    {
+      "t": 1.0,
+      "reveal": 1.0,
+      "dy_px": 0,
+      "ease": "ease-out"
+    }
+  ],
+  "samples": [
+    [
+      0,
+      {
+        "scale": 1.0,
+        "opacity": 1.0,
+        "dy_px": 24.0,
+        "reveal": 0.0
+      }
+    ],
+    [
+      87,
+      {
+        "scale": 1.0,
+        "opacity": 1.0,
+        "dy_px": 10.183,
+        "reveal": 0.576
+      }
+    ],
+    [
+      175,
+      {
+        "scale": 1.0,
+        "opacity": 1.0,
+        "dy_px": 3.0,
+        "reveal": 0.875
+      }
+    ],
+    [
+      262,
+      {
+        "scale": 1.0,
+        "opacity": 1.0,
+        "dy_px": 0.381,
+        "reveal": 0.984
+      }
+    ],
+    [
+      350,
+      {
+        "scale": 1.0,
+        "opacity": 1.0
+      }
+    ]
+  ]
+}

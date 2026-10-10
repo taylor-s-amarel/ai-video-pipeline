@@ -1,0 +1,64 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "text_anim_blur_in_focus",
+  "title": "Blur in to focus",
+  "kind": "skill",
+  "subkind": "text-animation",
+  "version": "1.0.0",
+  "summary": "Blur in to focus per text, 350 ms.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "render",
+    "design"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "runs ffmpeg/ffprobe commands from SKILL.md that write render files into the working directory",
+      "scripts/check_preset.py reads preset.json and schema.json"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "video",
+    "shorts",
+    "text-animation",
+    "motion",
+    "springs",
+    "blur-in-focus",
+    "text"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "text_animation_preset_schema"
+    },
+    {
+      "identity": "short_style_preset_kit"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/video_styles.py",
+    "data": "generators/data/video_styles"
+  },
+  "review": {
+    "status": "unreviewed"
+  },
+  "evidence_stage": "headless-tested",
+  "evidence_notes": "Preset validated against its schema by the generator; contrast and opacity rules computed. No render recorded for this exact preset."
+}

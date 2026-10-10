@@ -1,0 +1,28 @@
+{
+  "type": "transition",
+  "id": "transition_light_leak_burn",
+  "name": "Light-leak burn",
+  "version": 1,
+  "method": "xfade+overlay",
+  "duration_ms": 320,
+  "tempo": "standard",
+  "use_when": [
+    "Warm",
+    "nostalgic and relationship looks",
+    "Chapter changes"
+  ],
+  "avoid_when": [
+    "Cool blueprint or neon looks"
+  ],
+  "xfade": "fadewhite",
+  "overlay": {
+    "source": "bg_layer_light_leaks",
+    "peak_opacity": 0.6,
+    "blend": "screen",
+    "ramp_ms": 320
+  },
+  "ffmpeg": {
+    "filter": "[a][b]xfade=transition=fadewhite:duration=0.32:offset=<A_DURATION-0.32>[v]",
+    "overlay_blend": "[v][leak]blend=all_expr='A+(255-A)*B/255*0.6*max(0,1-abs(T-(<OFFSET>+0.16))/0.16)'[vv]"
+  }
+}

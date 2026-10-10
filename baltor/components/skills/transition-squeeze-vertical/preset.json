@@ -1,0 +1,19 @@
+{
+  "type": "transition",
+  "id": "transition_squeeze_vertical",
+  "name": "Vertical squeeze",
+  "version": 1,
+  "method": "xfade",
+  "duration_ms": 350,
+  "tempo": "standard",
+  "use_when": [
+    "Playful cartoon edits"
+  ],
+  "avoid_when": [
+    "Serious topics"
+  ],
+  "xfade": "squeezev",
+  "ffmpeg": {
+    "filter": "[a][b]xfade=transition=squeezev:duration=0.35:offset=<A_DURATION-0.35>[v]"
+  }
+}

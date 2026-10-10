@@ -26,7 +26,9 @@ def test_groups_and_counts():
     sec = titles(dg, "security")
     assert sec[0].startswith("CVE-2099-0002")  # newest first
     assert any(t.startswith("GHSA-aaaa") for t in sec) and any("example-merge" in t for t in sec)
-    assert "GHSA-zzzz: safe-lib issue" in titles(dg, "fyi")  # not affected -> FYI
+    assert not any("safe-lib" in t for g in d.GROUPS for t in titles(dg, g))  # not affected: below min_score
+    low = d.build_digest(ITEMS, W, min_score=10, generated="2026-10-10T12:00:00Z")
+    assert "GHSA-zzzz: safe-lib issue" in titles(low, "fyi")  # shown as FYI when the threshold allows
     assert "Model X 2 is generally available" in titles(dg, "new_capability")
     assert "Example AI: Elevated errors on the Messages API" in titles(dg, "fyi")
     assert not any("crypto" in t for g in d.GROUPS for t in titles(dg, g))  # excluded topic
@@ -50,7 +52,9 @@ def test_suggested_actions():
     assert "by 2026-10-30" in kev["suggested_action"]
     assert "before 2027-01-15" in by_title["Legacy completions endpoint will be removed on 2027-01-15"]["suggested_action"]
     assert by_title["v3.0.0"]["suggested_action"].startswith("Read the migration notes before upgrading example-cli to 3.0.0")
-    assert by_title["GHSA-zzzz: safe-lib issue"]["suggested_action"].startswith("Not affected")
+    low = d.build_digest(ITEMS, W, min_score=10, generated="2026-10-10T12:00:00Z")
+    safe = next(e for e in low["groups"]["fyi"] if "safe-lib" in e["title"])
+    assert safe["suggested_action"].startswith("Not affected") and safe["affected"] == "no"
 
 
 def test_validates_against_contract_shape():

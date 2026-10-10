@@ -1,0 +1,20 @@
+{
+  "type": "transition",
+  "id": "transition_radial_wipe",
+  "name": "Radial clock wipe",
+  "version": 1,
+  "method": "xfade",
+  "duration_ms": 500,
+  "tempo": "standard",
+  "use_when": [
+    "Time passing",
+    "Before and after"
+  ],
+  "avoid_when": [
+    "More than once per video"
+  ],
+  "xfade": "radial",
+  "ffmpeg": {
+    "filter": "[a][b]xfade=transition=radial:duration=0.5:offset=<A_DURATION-0.5>[v]"
+  }
+}

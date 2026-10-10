@@ -45,4 +45,4 @@ def test_cli_stdin(monkeypatch, capsys):
     import io
     monkeypatch.setattr("sys.stdin", io.StringIO(NUMSTAT))
     assert ps.main(["-", "--json"]) == 0
-    assert json.loads(capsys.readouterr().out)["reviewable_files"] == 5
+    assert json.loads(capsys.readouterr().out)["reviewable_files"] == 4

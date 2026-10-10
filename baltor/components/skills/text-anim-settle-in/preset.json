@@ -1,0 +1,67 @@
+{
+  "type": "text-animation",
+  "id": "text_anim_settle_in",
+  "name": "Settle in (visible from frame 0)",
+  "version": 1,
+  "unit": "text",
+  "duration_ms": 300,
+  "stagger_ms": 0,
+  "tempo": "standard",
+  "use_when": [
+    "First-frame titles that must be readable at 0.0 s"
+  ],
+  "keyframes": [
+    {
+      "t": 0,
+      "scale": 1.04,
+      "opacity": 1.0
+    },
+    {
+      "t": 1.0,
+      "scale": 1.0,
+      "opacity": 1.0,
+      "ease": "ease-out"
+    }
+  ],
+  "samples": [
+    [
+      0,
+      {
+        "scale": 1.04,
+        "opacity": 1.0
+      }
+    ],
+    [
+      75,
+      {
+        "scale": 1.017,
+        "opacity": 1.0
+      }
+    ],
+    [
+      150,
+      {
+        "scale": 1.005,
+        "opacity": 1.0
+      }
+    ],
+    [
+      225,
+      {
+        "scale": 1.001,
+        "opacity": 1.0
+      }
+    ],
+    [
+      300,
+      {
+        "scale": 1.0,
+        "opacity": 1.0
+      }
+    ]
+  ],
+  "ffmpeg": {
+    "fontsize_factor": "if(lt(clip((t-T0)/0.3,0,1),0),1.04,if(lt(clip((t-T0)/0.3,0,1),1),(1.04+(-0.04)*(1-pow(1-(((clip((t-T0)/0.3,0,1))-0)/1),3))),1))",
+    "alpha": "if(lt(clip((t-T0)/0.3,0,1),0),1,if(lt(clip((t-T0)/0.3,0,1),1),(1+(0)*(1-pow(1-(((clip((t-T0)/0.3,0,1))-0)/1),3))),1))"
+  }
+}

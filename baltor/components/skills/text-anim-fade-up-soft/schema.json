@@ -1,0 +1,543 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/text-animation-preset-schema",
+  "title": "Text animation preset",
+  "description": "How text enters or emphasises: per text, line, word or character, with keyframes or a damped spring (stiffness, damping, mass) and the spring's computed overshoot and settle time.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "type",
+    "id",
+    "name",
+    "version",
+    "unit",
+    "duration_ms",
+    "stagger_ms",
+    "tempo"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "#/$defs/identity"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 3
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "notes": {
+      "type": "string"
+    },
+    "variant": {
+      "type": "object",
+      "description": "Present on variants: base identity and what changed."
+    },
+    "type": {
+      "const": "text-animation"
+    },
+    "unit": {
+      "enum": [
+        "text",
+        "line",
+        "word",
+        "character"
+      ]
+    },
+    "duration_ms": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 5000
+    },
+    "stagger_ms": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 2000
+    },
+    "tempo": {
+      "enum": [
+        "snappy",
+        "standard",
+        "gentle"
+      ]
+    },
+    "keyframes": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "t"
+        ],
+        "properties": {
+          "t": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "scale": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 4
+          },
+          "opacity": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Multiplier of the text layer's own opacity (itself <= 0.98)."
+          },
+          "dx_px": {
+            "type": "number"
+          },
+          "dy_px": {
+            "type": "number"
+          },
+          "rotation_deg": {
+            "type": "number",
+            "minimum": -45,
+            "maximum": 45
+          },
+          "blur_px": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 40
+          },
+          "reveal": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "ease": {
+            "enum": [
+              "linear",
+              "ease-in",
+              "ease-out",
+              "ease-in-out",
+              "sine-in-out",
+              "ease-out-back",
+              "ease-out-elastic",
+              "step"
+            ]
+          }
+        }
+      }
+    },
+    "spring": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "stiffness",
+        "damping"
+      ],
+      "properties": {
+        "stiffness": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "damping": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "mass": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      }
+    },
+    "spring_metrics": {
+      "type": "object"
+    },
+    "from": {
+      "type": "object"
+    },
+    "to": {
+      "type": "object"
+    },
+    "count": {
+      "type": "object",
+      "required": [
+        "from",
+        "easing"
+      ]
+    },
+    "shake": {
+      "type": "object"
+    },
+    "samples": {
+      "type": "array"
+    },
+    "ffmpeg": {
+      "type": "object"
+    },
+    "timing_source": {
+      "type": "string"
+    },
+    "applies_to": {
+      "type": "string"
+    },
+    "use_when": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "hex": {
+      "type": "string",
+      "pattern": "^#[0-9A-Fa-f]{6}$"
+    },
+    "opacity": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 0.98,
+      "description": "Layer or panel opacity. House rule: nothing above 0.98."
+    },
+    "fraction": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "identity": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(_[a-z0-9]+)*$"
+    },
+    "easing": {
+      "oneOf": [
+        {
+          "enum": [
+            "linear",
+            "ease-in",
+            "ease-out",
+            "ease-in-out",
+            "sine-in-out",
+            "ease-out-back",
+            "ease-out-elastic",
+            "step"
+          ]
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 4,
+          "maxItems": 4,
+          "description": "cubic-bezier(x1, y1, x2, y2)"
+        }
+      ]
+    },
+    "blend": {
+      "enum": [
+        "add",
+        "color-dodge",
+        "darken",
+        "difference",
+        "hard-light",
+        "lighten",
+        "multiply",
+        "normal",
+        "overlay",
+        "screen",
+        "soft-light"
+      ]
+    },
+    "font": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "family",
+        "weight",
+        "licence",
+        "file_url"
+      ],
+      "properties": {
+        "family": {
+          "type": "string",
+          "minLength": 2
+        },
+        "weight": {
+          "type": "integer",
+          "minimum": 100,
+          "maximum": 1000
+        },
+        "size_px": {
+          "type": "number",
+          "minimum": 8,
+          "maximum": 400
+        },
+        "min_size_px": {
+          "type": "number",
+          "minimum": 8,
+          "maximum": 400
+        },
+        "case": {
+          "enum": [
+            "as-written",
+            "upper",
+            "lower",
+            "title"
+          ]
+        },
+        "letter_spacing_em": {
+          "type": "number",
+          "minimum": -0.1,
+          "maximum": 0.5
+        },
+        "licence": {
+          "enum": [
+            "OFL-1.1",
+            "Apache-2.0"
+          ]
+        },
+        "file_url": {
+          "type": "string",
+          "pattern": "^https://raw\\.githubusercontent\\.com/google/fonts/main/"
+        },
+        "licence_url": {
+          "type": "string",
+          "pattern": "^https://raw\\.githubusercontent\\.com/google/fonts/main/"
+        },
+        "specimen_url": {
+          "type": "string",
+          "pattern": "^https://fonts\\.google\\.com/specimen/"
+        },
+        "avg_char_em": {
+          "type": "number",
+          "minimum": 0.2,
+          "maximum": 1.2
+        },
+        "variable_axes": {
+          "type": "object"
+        }
+      }
+    },
+    "contrast": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "basis",
+        "fg",
+        "bg",
+        "ratio",
+        "required"
+      ],
+      "properties": {
+        "basis": {
+          "enum": [
+            "panel-worst-case",
+            "stroke",
+            "solid"
+          ],
+          "description": "panel-worst-case: fg over a bg-tinted panel at `opacity` over any video (worst of black/white beneath)."
+        },
+        "fg": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$"
+        },
+        "bg": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$"
+        },
+        "opacity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 0.98
+        },
+        "ratio": {
+          "type": "number",
+          "minimum": 3.0,
+          "maximum": 21.0
+        },
+        "required": {
+          "enum": [
+            3.0,
+            4.5
+          ]
+        },
+        "size_px": {
+          "type": "number"
+        },
+        "weight": {
+          "type": "integer"
+        },
+        "level": {
+          "enum": [
+            "AA",
+            "AAA"
+          ]
+        },
+        "stroke_px": {
+          "type": "number"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "required": {
+                "const": 4.5
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "ratio": {
+                "minimum": 4.5
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "basis": {
+                "const": "panel-worst-case"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "opacity"
+            ]
+          }
+        }
+      ]
+    },
+    "margins": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "top",
+        "bottom",
+        "left",
+        "right"
+      ],
+      "properties": {
+        "top": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 0.5
+        },
+        "bottom": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 0.5
+        },
+        "left": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 0.5
+        },
+        "right": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 0.5
+        }
+      }
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "platform",
+        "aspect",
+        "width",
+        "height",
+        "safe_margins"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "platform": {
+          "enum": [
+            "generic",
+            "youtube-shorts",
+            "instagram-reels",
+            "tiktok",
+            "instagram-feed",
+            "youtube"
+          ]
+        },
+        "aspect": {
+          "enum": [
+            "9:16",
+            "4:5",
+            "1:1",
+            "16:9"
+          ]
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 256,
+          "maximum": 4096
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 256,
+          "maximum": 4096
+        },
+        "safe_margins": {
+          "$ref": "#/$defs/margins"
+        },
+        "margins_basis": {
+          "type": "string"
+        }
+      }
+    },
+    "motion": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "static",
+            "loop",
+            "drift",
+            "scroll",
+            "pan",
+            "zoom",
+            "rotate",
+            "parallax",
+            "rise",
+            "fall",
+            "sway",
+            "pulse",
+            "follow",
+            "keyframed",
+            "ken-burns",
+            "punch-in"
+          ]
+        },
+        "period_s": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      }
+    }
+  },
+  "oneOf": [
+    {
+      "required": [
+        "keyframes"
+      ]
+    },
+    {
+      "required": [
+        "spring",
+        "from",
+        "to"
+      ]
+    }
+  ]
+}

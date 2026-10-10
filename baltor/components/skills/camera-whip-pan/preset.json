@@ -1,0 +1,54 @@
+{
+  "type": "camera-move",
+  "id": "camera_whip_pan",
+  "name": "Whip pan across the photo",
+  "version": 1,
+  "kind": "whip",
+  "duration_s": 0.25,
+  "zoom": {
+    "from": 1.3,
+    "to": 1.3
+  },
+  "center": {
+    "from": [
+      0.3,
+      0.5
+    ],
+    "to": [
+      0.7,
+      0.5
+    ]
+  },
+  "easing": "ease-in-out",
+  "renderer": "zoompan",
+  "prescale": 4,
+  "output": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "intensity": "standard",
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "use_when": [
+    "Bridging two shots",
+    "Energetic edits"
+  ],
+  "motion_blur": "tmix=frames=3:weights='1 2 1'",
+  "ffmpeg": {
+    "filter": "scale=4320:7680:force_original_aspect_ratio=increase,crop=4320:7680,zoompan=z='1.3+(0)*if(lt((on/7),0.5),4*pow((on/7),3),1-pow(-2*((on/7))+2,3)/2)':x='max(0,min(iw-iw/zoom,(0.3+(0.4)*if(lt((on/7),0.5),4*pow((on/7),3),1-pow(-2*((on/7))+2,3)/2))*iw-iw/zoom/2))':y='max(0,min(ih-ih/zoom,(0.5+(0)*if(lt((on/7),0.5),4*pow((on/7),3),1-pow(-2*((on/7))+2,3)/2))*ih-ih/zoom/2))':d=8:s=1080x1920:fps=30,setsar=1,tmix=frames=3:weights='1 2 1'"
+  }
+}

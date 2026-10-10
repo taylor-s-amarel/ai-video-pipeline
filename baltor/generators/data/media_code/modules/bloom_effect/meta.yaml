@@ -1,0 +1,6 @@
+title: Bloom glow effect
+summary: Adds bloom to bright areas by soft-knee highlight extraction, multi-radius Gaussian blur and screen or add compositing, preserving alpha, for neon titles and light-leak looks.
+subkind: overlay
+domain: video
+tags: [video, bloom, glow, effects, pillow, numpy]
+step_kinds: [render]

@@ -1,0 +1,20 @@
+{
+  "type": "transition",
+  "id": "transition_zoom_into_next",
+  "name": "Zoom into the next shot",
+  "version": 1,
+  "method": "xfade",
+  "duration_ms": 350,
+  "tempo": "standard",
+  "use_when": [
+    "Going deeper into a detail",
+    "Hype intros"
+  ],
+  "avoid_when": [
+    "Back-to-back use (feels repetitive)"
+  ],
+  "xfade": "zoomin",
+  "ffmpeg": {
+    "filter": "[a][b]xfade=transition=zoomin:duration=0.35:offset=<A_DURATION-0.35>[v]"
+  }
+}

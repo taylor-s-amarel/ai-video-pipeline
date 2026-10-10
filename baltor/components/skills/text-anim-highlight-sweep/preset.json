@@ -1,0 +1,66 @@
+{
+  "type": "text-animation",
+  "id": "text_anim_highlight_sweep",
+  "name": "Highlighter sweep",
+  "version": 1,
+  "unit": "word",
+  "duration_ms": 300,
+  "stagger_ms": 0,
+  "tempo": "standard",
+  "use_when": [
+    "Tutorials and handwritten looks"
+  ],
+  "keyframes": [
+    {
+      "t": 0,
+      "reveal": 0.0
+    },
+    {
+      "t": 1.0,
+      "reveal": 1.0,
+      "ease": "ease-out"
+    }
+  ],
+  "applies_to": "highlight box behind the keyword (reveal = box width fraction)",
+  "samples": [
+    [
+      0,
+      {
+        "scale": 1.0,
+        "opacity": 1.0,
+        "reveal": 0.0
+      }
+    ],
+    [
+      75,
+      {
+        "scale": 1.0,
+        "opacity": 1.0,
+        "reveal": 0.578
+      }
+    ],
+    [
+      150,
+      {
+        "scale": 1.0,
+        "opacity": 1.0,
+        "reveal": 0.875
+      }
+    ],
+    [
+      225,
+      {
+        "scale": 1.0,
+        "opacity": 1.0,
+        "reveal": 0.984
+      }
+    ],
+    [
+      300,
+      {
+        "scale": 1.0,
+        "opacity": 1.0
+      }
+    ]
+  ]
+}

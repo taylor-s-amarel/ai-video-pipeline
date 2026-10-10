@@ -1,0 +1,52 @@
+{
+  "type": "camera-move",
+  "id": "camera_pull_back_reveal",
+  "name": "Pull-back reveal",
+  "version": 1,
+  "kind": "pull-back",
+  "duration_s": 1.5,
+  "zoom": {
+    "from": 1.35,
+    "to": 1.0
+  },
+  "center": {
+    "from": [
+      0.5,
+      0.45
+    ],
+    "to": [
+      0.5,
+      0.5
+    ]
+  },
+  "easing": "ease-out",
+  "renderer": "zoompan",
+  "prescale": 4,
+  "output": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "intensity": "standard",
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "use_when": [
+    "Show the bigger picture after a close detail"
+  ],
+  "ffmpeg": {
+    "filter": "scale=4320:7680:force_original_aspect_ratio=increase,crop=4320:7680,zoompan=z='1.35+(-0.35)*(1-pow(1-((on/44)),3))':x='max(0,min(iw-iw/zoom,(0.5+(0)*(1-pow(1-((on/44)),3)))*iw-iw/zoom/2))':y='max(0,min(ih-ih/zoom,(0.45+(0.05)*(1-pow(1-((on/44)),3)))*ih-ih/zoom/2))':d=45:s=1080x1920:fps=30,setsar=1"
+  }
+}

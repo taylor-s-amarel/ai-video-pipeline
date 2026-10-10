@@ -1,0 +1,64 @@
+{
+  "type": "text-animation",
+  "id": "text_anim_count_up_number",
+  "name": "Count-up number",
+  "version": 1,
+  "unit": "text",
+  "duration_ms": 700,
+  "stagger_ms": 0,
+  "tempo": "standard",
+  "use_when": [
+    "Key numbers under FACT labels, e.g. 14 DAYS or 50 FEET"
+  ],
+  "keyframes": [
+    {
+      "t": 0,
+      "opacity": 1.0
+    },
+    {
+      "t": 1.0,
+      "opacity": 1.0
+    }
+  ],
+  "count": {
+    "from": 0,
+    "easing": "ease-out"
+  },
+  "samples": [
+    [
+      0,
+      {
+        "scale": 1.0,
+        "opacity": 1.0
+      }
+    ],
+    [
+      175,
+      {
+        "scale": 1.0,
+        "opacity": 1.0
+      }
+    ],
+    [
+      350,
+      {
+        "scale": 1.0,
+        "opacity": 1.0
+      }
+    ],
+    [
+      525,
+      {
+        "scale": 1.0,
+        "opacity": 1.0
+      }
+    ],
+    [
+      700,
+      {
+        "scale": 1.0,
+        "opacity": 1.0
+      }
+    ]
+  ]
+}

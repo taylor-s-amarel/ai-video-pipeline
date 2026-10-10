@@ -34,7 +34,7 @@ transitions:
     xfade: fadewhite
     duration_ms: 240
     use_when: [Punchlines, Big numbers, Cut to a reveal photo]
-    avoid_when: [Viewers sensitive to flashes: keep to one flash per few seconds and never strobe]
+    avoid_when: ["Repeated flashing: keep to one flash every few seconds and never strobe, for viewers sensitive to flashes"]
   whip_pan_left:
     name: Whip pan left
     method: xfade

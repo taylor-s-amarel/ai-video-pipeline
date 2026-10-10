@@ -1,0 +1,54 @@
+{
+  "type": "camera-move",
+  "id": "camera_slow_rotate_drift",
+  "name": "Slow rotate drift",
+  "version": 1,
+  "kind": "rotate",
+  "duration_s": 6,
+  "zoom": {
+    "from": 1.12,
+    "to": 1.12
+  },
+  "center": {
+    "from": [
+      0.5,
+      0.5
+    ],
+    "to": [
+      0.5,
+      0.5
+    ]
+  },
+  "easing": "sine-in-out",
+  "rotation_deg": {
+    "from": -1.5,
+    "to": 1.5
+  },
+  "renderer": "pillow",
+  "prescale": 4,
+  "output": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "intensity": "standard",
+  "target": {
+    "id": "generic_9x16",
+    "label": "Vertical 9:16 (generic)",
+    "platform": "generic",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "safe_margins": {
+      "top": 0.08,
+      "bottom": 0.2,
+      "left": 0.06,
+      "right": 0.06
+    },
+    "margins_basis": "House margins (not a platform specification). Chosen to keep text clear of typical top bars, right-hand action buttons and bottom description areas. Not verified against platform documentation on 2026-10-10; preview on the platform before publishing."
+  },
+  "use_when": [
+    "Dreamy and relationship looks",
+    "Paper and collage looks"
+  ]
+}

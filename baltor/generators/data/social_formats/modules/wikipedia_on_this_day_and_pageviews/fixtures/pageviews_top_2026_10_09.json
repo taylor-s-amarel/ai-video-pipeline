@@ -1,0 +1,11 @@
+{"_comment": "Test fixture shaped like the AQS 'tops' definition. Titles are placeholders.",
+ "items": [{"project": "en.wikipedia", "access": "all-access", "year": "2026", "month": "10", "day": "09",
+   "articles": [
+     {"article": "Main_Page", "views": 5000000, "rank": 1},
+     {"article": "Special:Search", "views": 900000, "rank": 2},
+     {"article": "Example_Comet", "views": 250000, "rank": 3},
+     {"article": "Fixture_Film_(2026)", "views": 120000, "rank": 4},
+     {"article": "-", "views": 90000, "rank": 5},
+     {"article": "Sample_City", "views": 40000, "rank": 7},
+     {"article": "Old_Favourite", "views": 30000, "rank": 9}
+   ]}]}

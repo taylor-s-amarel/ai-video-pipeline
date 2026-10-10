@@ -1,0 +1,20 @@
+{
+  "type": "transition",
+  "id": "transition_horizontal_blur",
+  "name": "Horizontal blur",
+  "version": 1,
+  "method": "xfade",
+  "duration_ms": 300,
+  "tempo": "standard",
+  "use_when": [
+    "Smooth energetic edits",
+    "Motion-matched cuts"
+  ],
+  "avoid_when": [
+    "Text on screen during the transition"
+  ],
+  "xfade": "hblur",
+  "ffmpeg": {
+    "filter": "[a][b]xfade=transition=hblur:duration=0.3:offset=<A_DURATION-0.3>[v]"
+  }
+}

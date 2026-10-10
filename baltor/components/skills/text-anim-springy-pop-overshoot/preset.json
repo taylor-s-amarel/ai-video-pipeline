@@ -1,0 +1,76 @@
+{
+  "type": "text-animation",
+  "id": "text_anim_springy_pop_overshoot",
+  "name": "Springy pop with overshoot",
+  "version": 1,
+  "unit": "word",
+  "duration_ms": 450,
+  "stagger_ms": 60,
+  "tempo": "standard",
+  "use_when": [
+    "Captions and labels that should feel lively"
+  ],
+  "spring": {
+    "stiffness": 300.0,
+    "damping": 18.0,
+    "mass": 1
+  },
+  "spring_metrics": {
+    "damping_ratio": 0.52,
+    "peak": 1.148,
+    "peak_time_s": 0.212,
+    "settle_time_s": 0.45
+  },
+  "from": {
+    "scale": 0.0,
+    "opacity": 0.0
+  },
+  "to": {
+    "scale": 1.0,
+    "opacity": 1.0
+  },
+  "samples": [
+    [
+      0,
+      {
+        "scale": 0.0,
+        "opacity": 0.0
+      }
+    ],
+    [
+      112,
+      {
+        "scale": 0.81,
+        "opacity": 0.81
+      }
+    ],
+    [
+      212,
+      {
+        "scale": 1.148,
+        "opacity": 1.0
+      }
+    ],
+    [
+      225,
+      {
+        "scale": 1.145,
+        "opacity": 1.0
+      }
+    ],
+    [
+      337,
+      {
+        "scale": 1.015,
+        "opacity": 1.0
+      }
+    ],
+    [
+      450,
+      {
+        "scale": 0.98,
+        "opacity": 0.98
+      }
+    ]
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "type": "text-animation",
+  "id": "text_anim_kinetic_slam",
+  "name": "Kinetic slam",
+  "version": 1,
+  "unit": "text",
+  "duration_ms": 220,
+  "stagger_ms": 0,
+  "tempo": "standard",
+  "use_when": [
+    "Hooks",
+    "rank numbers",
+    "punchlines"
+  ],
+  "keyframes": [
+    {
+      "t": 0,
+      "scale": 2.4,
+      "opacity": 0.0
+    },
+    {
+      "t": 0.2,
+      "opacity": 1.0
+    },
+    {
+      "t": 0.7,
+      "scale": 0.94,
+      "ease": "ease-in"
+    },
+    {
+      "t": 1.0,
+      "scale": 1.0,
+      "ease": "ease-out"
+    }
+  ],
+  "shake": {
+    "amplitude_px": 6,
+    "frames": 3
+  },
+  "samples": [
+    [
+      0,
+      {
+        "scale": 2.4,
+        "opacity": 0.0
+      }
+    ],
+    [
+      55,
+      {
+        "scale": 2.333,
+        "opacity": 1.0
+      }
+    ],
+    [
+      110,
+      {
+        "scale": 1.868,
+        "opacity": 1.0
+      }
+    ],
+    [
+      165,
+      {
+        "scale": 0.965,
+        "opacity": 1.0
+      }
+    ],
+    [
+      220,
+      {
+        "scale": 1.0,
+        "opacity": 1.0
+      }
+    ]
+  ],
+  "ffmpeg": {
+    "fontsize_factor": "if(lt(clip((t-T0)/0.22,0,1),0),2.4,if(lt(clip((t-T0)/0.22,0,1),0.7),(2.4+(-1.46)*pow(((clip((t-T0)/0.22,0,1))-0)/0.7,3)),if(lt(clip((t-T0)/0.22,0,1),1),(0.94+(0.06)*(1-pow(1-(((clip((t-T0)/0.22,0,1))-0.7)/0.3),3))),1)))",
+    "alpha": "if(lt(clip((t-T0)/0.22,0,1),0),0,if(lt(clip((t-T0)/0.22,0,1),0.2),(0+(1)*(((clip((t-T0)/0.22,0,1))-0)/0.2)),1))"
+  }
+}

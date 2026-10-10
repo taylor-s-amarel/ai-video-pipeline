@@ -1,0 +1,20 @@
+{
+  "type": "transition",
+  "id": "transition_whip_pan_up",
+  "name": "Whip pan up",
+  "version": 1,
+  "method": "xfade",
+  "duration_ms": 180,
+  "tempo": "standard",
+  "use_when": [
+    "Vertical shorts (matches the swipe direction)",
+    "Next fact"
+  ],
+  "avoid_when": [
+    "Calm looks"
+  ],
+  "xfade": "smoothup",
+  "ffmpeg": {
+    "filter": "[a][b]xfade=transition=smoothup:duration=0.18:offset=<A_DURATION-0.18>[v]"
+  }
+}

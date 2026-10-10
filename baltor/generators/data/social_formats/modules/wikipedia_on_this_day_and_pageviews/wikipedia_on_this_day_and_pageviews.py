@@ -38,7 +38,7 @@ _PROJECT = re.compile(r"^[a-z0-9-]+\.[a-z]+$")
 # Pages that dominate "top" lists but are never topics.
 NOISE_PREFIXES = ("Special:", "Wikipedia:", "File:", "Portal:", "Help:", "Category:", "Template:", "Talk:",
                   "User:", "Draft:", "Module:", "MediaWiki:")
-NOISE_TITLES = frozenset({"Main_Page", "Main Page", "-", "Undefined", "Cleopatra_(disambiguation)"})
+NOISE_TITLES = frozenset({"Main_Page", "Main Page", "-", "Undefined"})
 # Words that mark an event as sensitive (needs a careful, respectful treatment or a different topic).
 SENSITIVE = re.compile(r"\b(killed|killing|massacre|murder|bomb|bombing|shooting|terror|attack|genocide|"
                        r"suicide|execution|executed|assassinat\w*|war crime|disaster|crash|died|deaths?)\b", re.I)

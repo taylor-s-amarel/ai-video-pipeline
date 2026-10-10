@@ -1,0 +1,20 @@
+{
+  "type": "transition",
+  "id": "transition_circle_reveal",
+  "name": "Circle reveal",
+  "version": 1,
+  "method": "xfade",
+  "duration_ms": 450,
+  "tempo": "standard",
+  "use_when": [
+    "Cartoon and comic looks",
+    "Revealing an answer"
+  ],
+  "avoid_when": [
+    "Documentary tone"
+  ],
+  "xfade": "circleopen",
+  "ffmpeg": {
+    "filter": "[a][b]xfade=transition=circleopen:duration=0.45:offset=<A_DURATION-0.45>[v]"
+  }
+}

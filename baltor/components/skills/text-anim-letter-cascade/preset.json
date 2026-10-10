@@ -1,0 +1,67 @@
+{
+  "type": "text-animation",
+  "id": "text_anim_letter_cascade",
+  "name": "Letter cascade",
+  "version": 1,
+  "unit": "character",
+  "duration_ms": 250,
+  "stagger_ms": 30,
+  "tempo": "standard",
+  "use_when": [
+    "Short titles of 3-12 letters"
+  ],
+  "keyframes": [
+    {
+      "t": 0,
+      "opacity": 0.0,
+      "dy_px": -40
+    },
+    {
+      "t": 1.0,
+      "opacity": 1.0,
+      "dy_px": 0,
+      "ease": "ease-out-back"
+    }
+  ],
+  "samples": [
+    [
+      0,
+      {
+        "scale": 1.0,
+        "opacity": 0.0,
+        "dy_px": -40.0
+      }
+    ],
+    [
+      62,
+      {
+        "scale": 1.0,
+        "opacity": 0.813,
+        "dy_px": -7.465
+      }
+    ],
+    [
+      125,
+      {
+        "scale": 1.0,
+        "opacity": 1.088,
+        "dy_px": 3.508
+      }
+    ],
+    [
+      187,
+      {
+        "scale": 1.0,
+        "opacity": 1.065,
+        "dy_px": 2.593
+      }
+    ],
+    [
+      250,
+      {
+        "scale": 1.0,
+        "opacity": 1.0
+      }
+    ]
+  ]
+}

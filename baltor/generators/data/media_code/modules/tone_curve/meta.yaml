@@ -1,0 +1,7 @@
+title: Tone curves (monotone cubic)
+summary: Tone curves from control points using Fritsch-Carlson monotone cubic interpolation (no overshoot), six presets, 256-entry LUTs, per-channel application and ffmpeg curves export.
+subkind: lut
+domain: video
+tags: [video, curves, tone, colour-grading, ffmpeg, numpy]
+step_kinds: [build, render]
+depends_on: [ffmpeg]
