@@ -785,17 +785,18 @@ def phase_correlation(a: np.ndarray, b: np.ndarray, window: bool = True,
         win = hann2d(H, W)
         a = a * win
         b = b * win
-    fa = np.fft.fft2(a)
-    fb = np.fft.fft2(b)
+    fa = np.fft.rfft2(a)
+    fb = np.fft.rfft2(b)
     r = fb * np.conj(fa)
     mag = np.abs(r)
     # whitened cross-power, weighted by a Gaussian low-pass (sigma = lowpass cycles/pixel) so that
     # noise-dominated high frequencies do not flatten the peak; normalised so a perfect match peaks at 1
     fy = np.fft.fftfreq(H)[:, None]
-    fx = np.fft.fftfreq(W)[None, :]
+    fx = np.fft.rfftfreq(W)[None, :]
     g = np.exp(-(fx ** 2 + fy ** 2) / (2 * lowpass ** 2)).astype(np.float32)
-    r = r / (mag + 1e-3 * (mag.mean(axis=(-2, -1), keepdims=True) + 1e-9)) * g * (H * W / float(g.sum()))
-    surf = np.fft.ifft2(r).real
+    gfull = np.exp(-(np.fft.fftfreq(W)[None, :] ** 2 + fy ** 2) / (2 * lowpass ** 2))
+    r = r / (mag + 1e-3 * (mag.mean(axis=(-2, -1), keepdims=True) + 1e-9)) * g * (H * W / float(gfull.sum()))
+    surf = np.fft.irfft2(r, s=(H, W))
     flat = surf.reshape(*surf.shape[:-2], H * W)
     idx = np.argmax(flat, axis=-1)
     py, px = np.divmod(idx, W)
@@ -1010,6 +1011,104 @@ def cluster_vectors(vecs: np.ndarray, tol: float, min_count: int = 2) -> list[np
         out.append(members)
         left = np.setdiff1d(left, members)
     return out
+
+
+def block_tracks(gray: np.ndarray, block: int = 32, step: int = 16, max_pairs: int = 30, stride: int = 1,
+                 min_peak: float = 0.35, min_texture: float = 3.0) -> dict:
+    """Per-block velocity statistics over a shot (grey frames of one shot).
+
+    Block motion is measured between frames i and i + stride for up to ``max_pairs`` evenly spaced
+    pairs. For each block: median velocity over reliable pairs (px/frame at the given stride),
+    share of pairs that were reliable, spread of the reliable vectors, texture and how much the
+    block changes (mean abs difference between paired frames).
+    """
+    g = np.asarray(gray, dtype=np.float32)
+    n = len(g)
+    idx = list(range(0, max(0, n - stride)))
+    if len(idx) > max_pairs:
+        idx = [idx[int(round(k))] for k in np.linspace(0, len(idx) - 1, max_pairs)]
+    vecs, rel, change, tex = [], [], [], []
+    centres = None
+    for i in idx:
+        bm = block_motion(g[i], g[i + stride], block, step)
+        centres = bm["centres"]
+        vecs.append(bm["vectors"] / stride)
+        rel.append(reliable_blocks(bm, min_peak, min_texture))
+        tex.append(bm["texture"])
+        H, W = g.shape[1:]
+        ys, xs = block_grid(H, W, block, step)
+        d = np.abs(g[i + stride] - g[i])
+        change.append(np.array([d[y:y + block, x:x + block].mean() for y in ys for x in xs]))
+    if centres is None:
+        return {"centres": np.zeros((0, 2)), "velocity": np.zeros((0, 2)), "reliable_share": np.zeros(0),
+                "spread": np.zeros(0), "texture": np.zeros(0), "change": np.zeros(0), "pairs": 0}
+    V, R = np.stack(vecs), np.stack(rel)
+    vel = np.zeros((V.shape[1], 2), dtype=np.float32)
+    spread = np.full(V.shape[1], np.inf, dtype=np.float32)
+    for b in range(V.shape[1]):
+        ok = R[:, b]
+        if ok.any():
+            vel[b] = np.median(V[ok, b], axis=0)
+            spread[b] = float(np.median(np.hypot(*(V[ok, b] - vel[b]).T)))
+    return {"centres": centres, "velocity": vel, "reliable_share": R.mean(axis=0), "spread": spread,
+            "texture": np.stack(tex).mean(axis=0), "change": np.stack(change).mean(axis=0), "pairs": len(idx),
+            "block": block}
+
+
+def _sim_predict(fit: dict, p: np.ndarray, center: tuple[float, float]) -> np.ndarray:
+    s, th = fit["scale"], math.radians(fit["rot_deg"])
+    a_, b_ = s * math.cos(th) - 1, s * math.sin(th)
+    X, Y = p[:, 0] - center[0], p[:, 1] - center[1]
+    return np.stack([a_ * X - b_ * Y + fit["tx"], b_ * X + a_ * Y + fit["ty"]], axis=1)
+
+
+def motion_layers(tracks: dict, frame_hw: tuple[int, int], tol: float = 0.6, min_blocks: int = 3,
+                  min_reliable: float = 0.6, max_spread: float = 0.75, min_texture: float = 4.0,
+                  nonrigid_change: float = 6.0) -> dict:
+    """Split a shot's blocks into coherent motion layers by sequential similarity fits.
+
+    Rigid blocks (reliable in >= ``min_reliable`` of pairs, vector spread <= ``max_spread`` px/frame)
+    are grouped greedily: seed with the densest velocity cluster, fit a similarity motion (pan +
+    zoom + rotation) to it, take every remaining block within ``tol`` px/frame of the model, refit,
+    repeat until fewer than ``min_blocks`` remain. Textured blocks that change a lot but are rarely
+    reliable are ``nonrigid`` (water, crowds, particles); low-texture blocks are ``flat``.
+    """
+    H, W = frame_hw
+    c = ((W - 1) / 2.0, (H - 1) / 2.0)
+    P, V = tracks["centres"], tracks["velocity"]
+    nb = len(P)
+    textured = tracks["texture"] >= min_texture
+    rigid = textured & (tracks["reliable_share"] >= min_reliable) & (tracks["spread"] <= max_spread)
+    nonrigid = textured & ~rigid & (tracks["reliable_share"] < 0.5) & (tracks["change"] >= nonrigid_change)
+    remaining = np.flatnonzero(rigid)
+    layers = []
+    while len(remaining) >= min_blocks:
+        clusters = cluster_vectors(V[remaining], tol, min_count=min(min_blocks, len(remaining)))
+        if not clusters:
+            break
+        members = remaining[max(clusters, key=len)]
+        fit = None
+        for _ in range(3):
+            if len(members) >= 6:
+                f = fit_similarity(P[members], V[members], center=c, trim=0.0, iters=1)
+            else:
+                m = V[members].mean(axis=0)
+                f = {"scale": 1.0, "rot_deg": 0.0, "tx": float(m[0]), "ty": float(m[1]), "rms": 0.0,
+                     "n": len(members), "inlier_ratio": 1.0}
+            if f is None:
+                break
+            err = np.hypot(*(_sim_predict(f, P[remaining], c) - V[remaining]).T)
+            grown = remaining[err <= tol]
+            fit = f
+            if len(grown) <= len(members) and set(grown.tolist()) == set(members.tolist()):
+                break
+            members = grown if len(grown) >= min_blocks else members
+        if fit is None or len(members) < min_blocks:
+            break
+        layers.append({"blocks": members, "fit": fit})
+        remaining = np.setdiff1d(remaining, members)
+    return {"layers": layers, "rigid": rigid, "nonrigid": nonrigid, "flat": ~textured,
+            "unassigned": remaining, "n_blocks": nb, "center": c}
 
 
 # =============================================================== text localisation

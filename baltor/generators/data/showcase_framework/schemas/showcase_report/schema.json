@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/showcase-report",
+  "title": "Showcase report",
+  "description": "The public bundle behind a showcase gallery: one entry per task with the prompt, every run (including failures and exclusions), per-metric differences with confidence intervals, win rates, effect sizes, verdicts, cost, the checked written summary, and mandatory disclosures. Rendered by showcase_report_site to Markdown and a single static HTML page.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["spec", "title", "generated_at", "generator", "tasks", "totals", "disclosures"],
+  "$defs": {
+    "num": {"type": ["number", "null"]},
+    "verdict": {"enum": ["baltor-better", "baseline-better", "no-clear-difference", "insufficient-data"]},
+    "metric_row": {
+      "type": "object", "additionalProperties": false,
+      "required": ["name", "kind", "direction", "primary", "baseline_mean", "baltor_mean", "n_baseline", "n_baltor",
+                   "difference", "ci_low", "ci_high", "win_rate", "cliffs_delta", "p_holm", "verdict"],
+      "properties": {
+        "name": {"type": "string"}, "kind": {"type": "string"}, "direction": {"enum": ["higher", "lower"]},
+        "primary": {"type": "boolean"},
+        "baseline_mean": {"$ref": "#/$defs/num"}, "baltor_mean": {"$ref": "#/$defs/num"},
+        "n_baseline": {"type": "integer"}, "n_baltor": {"type": "integer"},
+        "difference": {"$ref": "#/$defs/num"}, "ci_low": {"$ref": "#/$defs/num"}, "ci_high": {"$ref": "#/$defs/num"},
+        "win_rate": {"$ref": "#/$defs/num"}, "cliffs_delta": {"$ref": "#/$defs/num"}, "p_holm": {"$ref": "#/$defs/num"},
+        "verdict": {"$ref": "#/$defs/verdict"}
+      }
+    },
+    "run_row": {
+      "type": "object", "additionalProperties": false,
+      "required": ["run_id", "arm", "trial", "adapter", "status", "included", "success", "primary_value", "wall_s",
+                   "tool_calls", "tokens_total", "cost_usd", "outputs"],
+      "properties": {
+        "run_id": {"type": "string"}, "arm": {"enum": ["baseline", "baltor"]}, "trial": {"type": "integer"},
+        "adapter": {"type": "string"}, "status": {"type": "string"}, "included": {"type": "boolean"},
+        "exclusion_reason": {"type": ["string", "null"]},
+        "success": {"type": ["boolean", "null"]}, "primary_value": {"$ref": "#/$defs/num"},
+        "wall_s": {"$ref": "#/$defs/num"}, "tool_calls": {"$ref": "#/$defs/num"}, "tokens_total": {"$ref": "#/$defs/num"},
+        "cost_usd": {"$ref": "#/$defs/num"},
+        "catalogue_items": {"type": "array", "items": {"type": "string"}},
+        "outputs": {"type": "array", "items": {"type": "object", "required": ["path", "href"],
+                    "properties": {"path": {"type": "string"}, "href": {"type": "string"}, "size": {"type": "integer"}}}}
+      }
+    },
+    "claim": {
+      "type": "object", "additionalProperties": false, "required": ["text", "metric", "direction"],
+      "properties": {
+        "text": {"type": "string", "minLength": 10, "maxLength": 600},
+        "metric": {"type": "string"},
+        "direction": {"$ref": "#/$defs/verdict"},
+        "estimate": {"type": "number"}, "ci_low": {"type": "number"}, "ci_high": {"type": "number"}
+      }
+    }
+  },
+  "properties": {
+    "spec": {"const": "baltor.showcase-report/v1"},
+    "title": {"type": "string", "minLength": 3},
+    "generated_at": {"type": "string"},
+    "generator": {"type": "object", "required": ["module", "version"]},
+    "tasks": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["task_id", "title", "domain", "purpose", "task_type", "negative_control", "prompt", "spec_sha256",
+                     "preregistered_on", "comparison_path", "comparison_sha256", "trials_planned", "overall_verdict",
+                     "negative_control_status", "primary_metric", "metrics", "success", "cost", "runs", "runs_excluded",
+                     "summary", "warnings", "disclosures"],
+        "properties": {
+          "task_id": {"type": "string"}, "title": {"type": "string"}, "domain": {"type": "string"},
+          "purpose": {"enum": ["study", "pilot", "dry-run"]}, "task_type": {"enum": ["capability", "knowledge-access"]},
+          "negative_control": {"type": "boolean"}, "prompt": {"type": "string"},
+          "spec_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "preregistered_on": {"type": "string"},
+          "comparison_path": {"type": "string"},
+          "comparison_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "trials_planned": {"type": "integer", "minimum": 3},
+          "overall_verdict": {"$ref": "#/$defs/verdict"},
+          "negative_control_status": {"enum": ["passed", "failed", "baltor-hurt", "inconclusive", null]},
+          "primary_metric": {"type": ["string", "null"]},
+          "metrics": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/metric_row"}},
+          "success": {"type": "object", "required": ["baseline_rate", "baltor_rate"],
+                      "properties": {"baseline_rate": {"$ref": "#/$defs/num"}, "baltor_rate": {"$ref": "#/$defs/num"},
+                                     "threshold": {"type": ["object", "null"]}}},
+          "cost": {"type": "array", "items": {"type": "object", "required": ["name", "baseline_mean", "baltor_mean", "difference"]}},
+          "runs": {"type": "array", "items": {"$ref": "#/$defs/run_row"}},
+          "runs_excluded": {"type": "integer", "minimum": 0},
+          "summary": {
+            "type": ["object", "null"], "additionalProperties": false,
+            "required": ["headline", "claims", "accepted", "problems"],
+            "properties": {
+              "headline": {"type": "string", "maxLength": 300},
+              "body": {"type": "string", "maxLength": 4000},
+              "claims": {"type": "array", "items": {"$ref": "#/$defs/claim"}},
+              "accepted": {"type": "boolean"},
+              "problems": {"type": "array", "items": {"type": "string"}}
+            }
+          },
+          "warnings": {"type": "array", "items": {"type": "string"}},
+          "disclosures": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+        }
+      }
+    },
+    "totals": {
+      "type": "object", "additionalProperties": false,
+      "required": ["tasks", "runs", "runs_excluded", "negative_controls", "verdicts"],
+      "properties": {
+        "tasks": {"type": "integer", "minimum": 0}, "runs": {"type": "integer", "minimum": 0},
+        "runs_excluded": {"type": "integer", "minimum": 0}, "negative_controls": {"type": "integer", "minimum": 0},
+        "verdicts": {"type": "object", "additionalProperties": {"type": "integer"}}
+      }
+    },
+    "disclosures": {"type": "array", "minItems": 3, "items": {"type": "string", "minLength": 10}}
+  }
+}

@@ -17,7 +17,7 @@ def test_speechlike_segments_are_found_within_100_ms():
     for (a, b), (fa, fb) in zip(SEGS, found):
         assert abs(fa - a) <= 0.1 and abs(fb - b) <= 0.1
     assert res["speech_ratio"] == pytest.approx(3.0 / 5.5, abs=0.05)
-    assert all(s["syllabic_modulation"] > 0.4 for s in res["segments"])
+    assert all(s["syllabic_modulation"] > 3.0 for s in res["segments"])
 
 
 def test_steady_tone_has_low_syllabic_modulation():
@@ -26,7 +26,7 @@ def test_steady_tone_has_low_syllabic_modulation():
     x = np.concatenate([np.zeros(16000), tone, np.zeros(16000)]) + 0.001 * np.random.default_rng(0).standard_normal(5 * 16000)
     res = m.segments_from_audio(x, 16000)
     assert len(res["segments"]) == 1
-    assert res["segments"][0]["syllabic_modulation"] < 0.2
+    assert res["segments"][0]["syllabic_modulation"] < 1.0
 
 
 def test_noise_only_has_no_speech():
@@ -36,7 +36,7 @@ def test_noise_only_has_no_speech():
 
 @pytest.mark.skipif(not shutil.which("ffmpeg"), reason="ffmpeg not installed")
 def test_end_to_end_both_methods(tmp_path):
-    p = synth.write_wav(tmp_path / "s.wav", synth.speechlike(SEGS, 5.5, sr=16000), 16000)
+    p = synth.write_wav(tmp_path / "s.wav", synth.speechlike(SEGS, 5.5, sr=16000, noise=0.0005), 16000)
     res = m.run(str(p))
     assert res["status"] == "ok" and len(res["segments"]) == 2
     sd = m.run(str(p), method="silencedetect")

@@ -1,0 +1,8 @@
+title: Concat demuxer list writer
+summary: Writes ffmpeg concat-demuxer lists with correct quote escaping and in/out points, adds -safe 0 only when needed and checks clip compatibility before stream-copy joins.
+subkind: render-recipe
+domain: video
+tags: [video, ffmpeg, concat, editing, join]
+step_kinds: [render]
+depends_on: [ffmpeg]
+references: ["https://ffmpeg.org/ffmpeg-formats.html#concat-1"]

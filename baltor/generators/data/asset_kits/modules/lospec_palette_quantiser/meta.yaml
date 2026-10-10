@@ -1,0 +1,15 @@
+title: Palette quantiser and checker (Lospec .hex/.gpl/.pal/.txt/.png palettes)
+summary: Maps images to a fixed pixel-art palette in OKLab with optional Bayer or Floyd-Steinberg dithering and reports off-palette pixels, so mixed packs read as one art style.
+subkind: palette
+domain: asset-pipeline
+tags: [palette, pixel-art, lospec, dithering, quantise, style]
+step_kinds: [build, verify, render]
+effects:
+  filesystem: write
+  executes: python
+depends_on:
+  - {identity: pillow, external: true}
+  - {identity: numpy, external: true}
+description: No palettes are bundled; download one from its Lospec page and credit the palette author.
+examples:
+  - "python lospec_palette_quantiser.py quantise tiles.png --palette endesga-32.hex --out tiles_e32.png --dither bayer4"

@@ -1,0 +1,15 @@
+title: Sprite sheet slicer (grid, auto-detect, Aseprite JSON -> Godot SpriteFrames)
+summary: Slices sprite sheets by grid, by alpha connected components or from Aseprite JSON, exports frames and writes a Godot 4 SpriteFrames .tres using AtlasTexture regions.
+subkind: procedural-asset
+domain: asset-pipeline
+tags: [sprites, sprite-sheet, aseprite, godot, spriteframes, pillow]
+step_kinds: [build, render]
+effects:
+  filesystem: write
+  executes: python
+depends_on:
+  - {identity: pillow, external: true}
+  - {identity: numpy, external: true}
+examples:
+  - "python sprite_sheet_slicer.py grid kenney_sheet.png --size 16x16 --spacing 1 --out frames/"
+  - "python sprite_sheet_slicer.py aseprite hero.json --out frames/ --tres hero_frames.tres --res-path res://art/hero.png"

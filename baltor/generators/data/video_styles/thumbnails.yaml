@@ -1,0 +1,74 @@
+# Thumbnail and cover styles. Sizes per target: youtube = 1280x720 (YouTube Help recommends
+# 1280x720 with a minimum width of 640 px and a 16:9 ratio, under 2 MB for videos), vertical cover =
+# 1080x1920 frame chosen from the video. Text sizes are pixels at the target width.
+
+targets:
+  youtube_16x9:
+    size: [1280, 720]
+    label: YouTube custom thumbnail
+    max_bytes: 2000000
+    source: https://support.google.com/youtube/answer/72431
+    note: "YouTube Help: 1280x720 recommended (minimum width 640 px), 16:9, JPG/GIF/PNG, under 2 MB for videos. The same page says vertical videos with a 16:9 custom thumbnail may get an automatically generated 4:5 thumbnail on some surfaces."
+  vertical_cover:
+    size: [1080, 1920]
+    label: Vertical cover frame (Shorts, Reels, TikTok)
+    max_bytes: 0
+    note: "A frame from the video or an uploaded cover; keep the text inside the middle 1080x1350 so 4:5 and 1:1 crops still show it."
+
+styles:
+  house_yellow_hook_thumb:
+    name: House yellow hook thumbnail
+    default_palette: house_yellow_night
+    text: {max_words: 4, font: {family: Montserrat, weight: 900, case: upper}, size_frac: 0.12, fill_role: title, stroke_role: stroke, stroke_frac: 0.006}
+    panel: {type: frosted-glass, tint_role: panel_tint, blur_px: 24}
+    layout: {text_region: upper-third, subject: centre, subject_min_width_fraction: 0.8}
+    use_when: [Every house-style short]
+  big_number_thumb:
+    name: Big number
+    default_palette: news_contrast
+    text: {max_words: 2, font: {family: Anton, weight: 400, case: upper}, size_frac: 0.26, fill_role: keyword, stroke_role: stroke, stroke_frac: 0.01}
+    panel: {type: none}
+    layout: {text_region: left-half, subject: right-half, subject_min_width_fraction: 0.45}
+    use_when: [The hook is a number (14 DAYS, 1,000 DOGS)]
+  fact_card_thumb:
+    name: FACT card
+    default_palette: house_yellow_night
+    text: {max_words: 3, font: {family: Montserrat, weight: 900, case: upper}, size_frac: 0.1, fill_role: keyword, stroke_role: stroke, stroke_frac: 0.0}
+    panel: {type: frosted-glass, tint_role: panel_tint, blur_px: 20}
+    layout: {text_region: upper-left, subject: centre, subject_min_width_fraction: 0.7}
+    use_when: [Fact series]
+  question_curiosity_thumb:
+    name: Question curiosity
+    default_palette: sunset_coral
+    text: {max_words: 4, font: {family: Montserrat, weight: 900, case: upper}, size_frac: 0.11, fill_role: title, stroke_role: stroke, stroke_frac: 0.0}
+    panel: {type: frosted-glass, tint_role: panel_tint, blur_px: 24}
+    layout: {text_region: upper-third, subject: lower-two-thirds, subject_min_width_fraction: 0.7}
+    use_when: [Why/how hooks]
+  before_after_split_thumb:
+    name: Before / after split
+    default_palette: okabe_ito_safe
+    text: {max_words: 2, font: {family: Archivo Black, weight: 400, case: upper}, size_frac: 0.09, fill_role: text, stroke_role: stroke, stroke_frac: 0.006}
+    panel: {type: solid, tint_role: panel_tint}
+    layout: {text_region: top-band, subject: two-halves, subject_min_width_fraction: 0.45}
+    use_when: [Transformations and comparisons]
+  countdown_rank_thumb:
+    name: Countdown rank
+    default_palette: news_contrast
+    text: {max_words: 3, font: {family: Anton, weight: 400, case: upper}, size_frac: 0.22, fill_role: keyword, stroke_role: stroke, stroke_frac: 0.01}
+    panel: {type: none}
+    layout: {text_region: left-third, subject: right-two-thirds, subject_min_width_fraction: 0.6}
+    use_when: [Top-N lists]
+  minimal_outline_thumb:
+    name: Minimal outline text
+    default_palette: forest_canopy
+    text: {max_words: 3, font: {family: Oswald, weight: 700, case: upper}, size_frac: 0.12, fill_role: text, stroke_role: stroke, stroke_frac: 0.008}
+    panel: {type: none}
+    layout: {text_region: lower-third, subject: centre, subject_min_width_fraction: 0.8}
+    use_when: [Cinematic nature and calm topics]
+  comic_burst_thumb:
+    name: Comic burst
+    default_palette: comic_primary
+    text: {max_words: 3, font: {family: Bangers, weight: 400, case: upper}, size_frac: 0.14, fill_role: title, stroke_role: surface, stroke_frac: 0.008}
+    panel: {type: sticker, tint_role: accent_2, opacity: 0.95}
+    layout: {text_region: upper-third, subject: centre, subject_min_width_fraction: 0.6}
+    use_when: [Ridiculous stories and cartoons]

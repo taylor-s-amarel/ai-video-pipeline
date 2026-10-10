@@ -1,0 +1,10 @@
+title: Background motion checker
+summary: Pipes downscaled grayscale frames from ffmpeg into numpy and verifies the background region moves in every 2 s window (mean frame difference above 0.6), excluding the photo box.
+subkind: qa-check
+domain: video
+tags: [video, qa, motion, background, ffmpeg, numpy, house-rules]
+step_kinds: [verify]
+effects:
+  filesystem: read
+  side_effects: ["runs ffprobe and ffmpeg on the input video"]
+depends_on: [ffmpeg]

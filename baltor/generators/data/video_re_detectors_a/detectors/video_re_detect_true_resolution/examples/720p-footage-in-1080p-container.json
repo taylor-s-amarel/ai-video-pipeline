@@ -1,0 +1,10 @@
+{
+  "container": { "w": 1920, "h": 1080 },
+  "effective": { "w": 1284, "h": 731 },
+  "upscale_factor": 1.484,
+  "per_axis": { "x": 1.495, "y": 1.477 },
+  "cutoff_cycles_per_px": { "x": 0.3344, "y": 0.3385 },
+  "verdict": "upscaled",
+  "tiles": { "analysed": 68, "total": 80, "upscaled_share": 0.912 },
+  "frames_analysed": 8
+}

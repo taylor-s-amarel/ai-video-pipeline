@@ -1,0 +1,15 @@
+title: glTF/GLB inspector (counts, world bounds, extensions, licence fields)
+summary: Parses GLB/glTF JSON without a 3D library and reports mesh, material, node and animation counts, world-space bounds, risky required extensions (Draco, meshopt, KTX2) and asset.copyright.
+subkind: qa-check
+domain: asset-pipeline
+tags: [gltf, glb, 3d, inspection, godot, blender]
+step_kinds: [verify, build]
+effects:
+  filesystem: read
+  executes: python
+description: >-
+  Ships fixtures/tiny_cube.glb, a 1.3 KB cube with a one-second animation produced by make_cube_glb(),
+  and the builder itself so other tests can create GLBs. Checked during development against NASA's
+  Apollo Lunar Module GLB (Draco-compressed, WebP textures) and the Khronos Duck sample.
+examples:
+  - "python gltf_glb_inspector.py model.glb --deny-ext KHR_draco_mesh_compression --max-triangles 150000"

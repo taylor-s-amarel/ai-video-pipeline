@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/video-re-contract-split-screen-layout",
+  "title": "Split-screen layout payload",
+  "description": "Payload of video_re_detect_split_screen_layout. Layout names are rows x columns (1x2 = side by side, 2x1 = stacked). Pixel values are source pixels.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["layout", "rows", "cols", "panels", "gutter_px", "gutter_color", "seams", "frames_analysed"],
+  "properties": {
+    "layout": { "type": "string", "pattern": "^(single|[1-9]x[1-9]|3-up|custom-[0-9]+)$" },
+    "rows": { "type": ["integer", "null"], "minimum": 1 },
+    "cols": { "type": ["integer", "null"], "minimum": 1 },
+    "panels": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false, "required": ["x", "y", "w", "h"],
+        "properties": { "x": { "type": "integer", "minimum": 0 }, "y": { "type": "integer", "minimum": 0 }, "w": { "type": "integer", "minimum": 1 }, "h": { "type": "integer", "minimum": 1 } }
+      }
+    },
+    "gutter_px": { "type": ["number", "null"], "minimum": 0 },
+    "gutter_color": { "type": ["string", "null"], "pattern": "^#[0-9A-F]{6}$" },
+    "seams": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false, "required": ["orientation", "position_px", "span"],
+        "properties": {
+          "orientation": { "enum": ["vertical", "horizontal"] },
+          "position_px": { "type": "number", "minimum": 0 },
+          "span": { "type": "number", "minimum": 0, "maximum": 1, "description": "share of the split region's extent covered by the seam" }
+        }
+      }
+    },
+    "frames_analysed": { "type": "integer", "minimum": 1 }
+  }
+}

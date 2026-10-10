@@ -1,0 +1,7 @@
+title: WCAG contrast and readable text colour
+summary: WCAG 2.x relative luminance and contrast ratio with AA/AAA grading, worst-case readable text colour over moving backgrounds, and the minimum backing-panel opacity that reaches a target ratio.
+subkind: accessibility
+domain: video
+tags: [video, accessibility, wcag, contrast, captions, colour]
+step_kinds: [design, verify]
+references: ["https://www.w3.org/TR/WCAG21/#dfn-contrast-ratio"]

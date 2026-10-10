@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/video-re-contract-aspect-reframe",
+  "title": "Aspect and reframe payload",
+  "description": "Payload of video_re_detect_aspect_reframe. content_rect is in source pixels.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["frame_aspect", "frame_ratio", "content_aspect", "content_ratio", "content_rect", "method", "fill", "upscale_factor", "frames_analysed"],
+  "$defs": { "ratio_name": { "enum": ["9:16", "2:3", "3:4", "4:5", "1:1", "5:4", "4:3", "3:2", "16:10", "16:9", "1.85:1", "2:1", "2.39:1", "custom"] } },
+  "properties": {
+    "frame_aspect": { "$ref": "#/$defs/ratio_name" },
+    "frame_ratio": { "type": "number", "exclusiveMinimum": 0 },
+    "content_aspect": { "oneOf": [{ "$ref": "#/$defs/ratio_name" }, { "type": "null" }] },
+    "content_ratio": { "type": ["number", "null"], "exclusiveMinimum": 0 },
+    "content_rect": {
+      "type": "object", "additionalProperties": false, "required": ["x", "y", "w", "h"],
+      "properties": { "x": { "type": "integer", "minimum": 0 }, "y": { "type": "integer", "minimum": 0 }, "w": { "type": "integer", "minimum": 0 }, "h": { "type": "integer", "minimum": 0 } }
+    },
+    "method": { "enum": ["fit", "blur-pad", "static-pad", "crop-zoom", "full-frame"] },
+    "fill": {
+      "type": ["object", "null"], "additionalProperties": false, "required": ["style", "same_footage_corr"],
+      "properties": {
+        "style": { "enum": ["blurred-fill", "static-texture"] },
+        "same_footage_corr": { "type": ["number", "null"], "minimum": -1, "maximum": 1, "description": "correlation of the fill with a blurred, stretched copy of the content" }
+      }
+    },
+    "upscale_factor": { "type": ["number", "null"], "minimum": 0, "description": "only measured when there are no bars" },
+    "frames_analysed": { "type": "integer", "minimum": 1 }
+  }
+}

@@ -1,0 +1,11 @@
+title: Lottie / dotLottie inspector
+summary: Reports a Lottie or .lottie file's fps, length, canvas and aspect, layer types (spec core vs other), external images, fonts, expressions and 3D layers before it becomes a video overlay.
+subkind: qa-check
+domain: asset-pipeline
+tags: [lottie, dotlottie, motion, overlay, inspection]
+step_kinds: [verify, render]
+effects:
+  filesystem: read
+  executes: python
+examples:
+  - "python lottie_json_inspector.py confetti.json --target 1080x1920 --min-seconds 2"

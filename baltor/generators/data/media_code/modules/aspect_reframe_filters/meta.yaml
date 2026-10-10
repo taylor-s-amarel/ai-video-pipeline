@@ -1,0 +1,7 @@
+title: Aspect-ratio reframe filters
+summary: ffmpeg filter builders that reframe to any aspect ratio by cover-crop (with focus point), contain-pad, or blur-pad (sharp foreground over a blurred, darkened fill) with even sizes.
+subkind: aspect-format
+domain: video
+tags: [video, ffmpeg, aspect-ratio, reframe, 9x16, blur-pad]
+step_kinds: [build, render]
+depends_on: [ffmpeg]

@@ -1,0 +1,273 @@
+- id: retention_cta-001
+  question: "Which retention devices are present (open loop, countdown or ordinal progress, re-hook, pattern interrupt, teaser, cliffhanger, payoff promise), each with timestamps?"
+  why: "Fills timeline.retention_devices."
+  how: "Combine label sequences (text_regions), caption phrasing (analysis only), visual interrupts (F4) and audio hits; list each device with timestamps."
+  evidence: ["evidence.text_regions[]", "evidence.captions[] (analysis only)", "frames: F4"]
+  ir_path: "/timeline/retention_devices/-"
+  type: object
+  challenge: "Presence is observable, effect is not: reject any claim that a device 'increases retention'."
+
+- id: retention_cta-002
+  question: "How many open loops are opened, and when is each closed?"
+  why: "Becomes open-loop rules with open and close ratios."
+  how: "Find statements that withhold information and the later resolution; give both times as ratios."
+  evidence: ["evidence.captions[] (analysis only)"]
+  ir_path: "/timeline/retention_devices/-"
+  type: segments
+  challenge: "Each loop must have a resolution time or be marked unresolved."
+
+- id: retention_cta-003
+  question: "Does the viewer see progress through the list (ordinal labels, countdown numbers, 'N of M')?"
+  why: "Becomes a progress-cue parameter."
+  how: "Label crops (F3) per item."
+  evidence: ["frames: F3 labels"]
+  ir_path: "/timeline/retention_devices/-"
+  type: boolean
+  challenge: "Progress bars count too; say which form."
+
+- id: retention_cta-004
+  question: "Is there a mid-video re-hook (a new promise or teaser in the middle), and at what ratio?"
+  why: "Places a re-hook beat."
+  how: "Look between 35% and 65% of runtime for a teaser of what is coming."
+  evidence: ["evidence.captions[] (analysis only)", "frames: F1"]
+  ir_path: "/timeline/retention_devices/-"
+  type: ratio
+  challenge: "A plain transition to the next item is not a re-hook."
+
+- id: retention_cta-005
+  question: "Is there a call to action, and what kind (follow, comment, share, save, watch part 2, link)?"
+  choices: [follow, comment, share, save, part-2, link, multiple, none]
+  why: "Fills the CTA slot."
+  how: "Check the last 15% of captions and text crops."
+  evidence: ["evidence.captions[] (analysis only)", "frames: F3"]
+  ir_path: "/timeline/beats"
+  type: enum
+  challenge: "Spoken-only CTAs are easy to miss; check the audio transcript too."
+
+- id: retention_cta-006
+  question: "When does the CTA appear (ratio of runtime and seconds before the end)?"
+  why: "Places the CTA beat."
+  how: "First CTA cue time / duration; duration - time."
+  evidence: ["CTA cue time", "evidence.source.duration_s"]
+  ir_path: "/timeline/beats/*/start_ratio"
+  type: object
+  challenge: "Report both values."
+
+- id: retention_cta-007
+  question: "Is the CTA spoken, shown on screen, or both?"
+  choices: [spoken, on-screen, both, none]
+  why: "Fills CTA modality."
+  how: "Compare captions and text crops at the CTA time."
+  evidence: ["evidence.captions[] (analysis only)", "frames: F3"]
+  ir_path: "/timeline/beats"
+  type: enum
+  challenge: "Check both channels."
+
+- id: retention_cta-008
+  question: "How long does the CTA last?"
+  why: "Fills CTA beat length."
+  how: "From first to last CTA cue."
+  evidence: ["CTA cues"]
+  ir_path: "/timeline/beats"
+  type: seconds
+  challenge: "Recompute."
+
+- id: retention_cta-009
+  question: "Does the video ask a specific question to prompt comments?"
+  why: "Adds a comment-prompt slot."
+  how: "Questions in the last 20% of captions or text."
+  evidence: ["evidence.captions[] (analysis only)"]
+  ir_path: "/timeline/retention_devices/-"
+  type: boolean
+  challenge: "Rhetorical questions answered in the video do not count."
+
+- id: retention_cta-010
+  question: "Is the video framed as part of a series (part numbers, 'next episode' tease)?"
+  why: "Adds series fields to the format."
+  how: "Text crops and captions at the start and end."
+  evidence: ["frames: F3", "evidence.captions[] (analysis only)"]
+  ir_path: "/parameters/-"
+  type: boolean
+  challenge: "The series name must not be carried into the format."
+
+- id: retention_cta-011
+  question: "Does the last line or frame lead back into the first (seamless loop for rewatching)?"
+  why: "Becomes a loop-ending option."
+  how: "F10 between the last and first frames; compare the last caption's structure with the hook's (analysis only)."
+  evidence: ["frames: F10", "evidence.captions[] (analysis only)"]
+  ir_path: "/timeline/retention_devices/-"
+  type: boolean
+  challenge: "Visual similarity alone (same template) is not a loop; the sentence must continue too."
+
+- id: retention_cta-012
+  question: "Are visual progress indicators used (progress bar, dots, timeline)?"
+  why: "Records presence; some house styles forbid them, so the IR must say."
+  how: "F1 frames at 25%, 50%, 75% of runtime."
+  evidence: ["frames: F1"]
+  ir_path: "/timeline/retention_devices/-"
+  type: boolean
+  challenge: "Check all three frames."
+
+- id: retention_cta-013
+  question: "How many reasons to keep watching are stated in the hook (for example 'number 1 will surprise you', 'stay for the last one')?"
+  why: "Sets the count of hook promises."
+  how: "Count promise statements in the first 10% (captions, analysis only)."
+  evidence: ["evidence.captions[] (analysis only)"]
+  ir_path: "/timeline/retention_devices/-"
+  type: integer
+  challenge: "The topic statement itself is not a promise."
+
+- id: retention_cta-014
+  question: "Is the best item explicitly teased as saved for last?"
+  why: "Becomes a 'best last' ordering rule with a tease."
+  how: "Captions in the first half referencing the final item."
+  evidence: ["evidence.captions[] (analysis only)"]
+  ir_path: "/timeline/retention_devices/-"
+  type: boolean
+  challenge: "Give the timestamp of the tease."
+
+- id: retention_cta-015
+  question: "Are there interaction prompts mid-video (pause to guess, comment your answer, look closely)?"
+  why: "Adds interaction prompts."
+  how: "Captions and text crops in the middle 60%."
+  evidence: ["evidence.captions[] (analysis only)", "frames: F3"]
+  ir_path: "/timeline/retention_devices/-"
+  type: timestamps
+  challenge: "List each prompt."
+
+- id: retention_cta-016
+  question: "How many seconds pass between the payoff and the end of the video?"
+  why: "Sets a post-payoff limit."
+  how: "duration - payoff beat end (from structure)."
+  evidence: ["timeline beats", "evidence.source.duration_s"]
+  ir_path: "/generation_rules/-"
+  type: seconds
+  challenge: "Cross-check with the structure lens."
+
+- id: retention_cta-017
+  question: "How is the CTA drawn on screen (text only, button shape, arrow pointing at UI, animated icon)?"
+  choices: [text-only, button, arrow-to-ui, animated-icon, none]
+  why: "Fills CTA graphic style."
+  how: "F3 at the CTA."
+  evidence: ["frames: F3"]
+  ir_path: "/typography/labels/cta_style"
+  type: enum
+  challenge: "Platform-native UI is not part of the video."
+
+- id: retention_cta-018
+  question: "What is the median time between new-information moments (new fact, new number, new visual)?"
+  why: "Becomes a 'new information every N seconds' rule."
+  how: "Merge times of new labels, new key numbers and new assets; median gap."
+  evidence: ["evidence.text_regions[]", "evidence.shots[]"]
+  ir_path: "/generation_rules/-"
+  type: seconds
+  challenge: "New captions repeating the same idea are not new information."
+
+- id: retention_cta-019
+  question: "Which pattern interrupts occur (sudden zoom, sound hit, colour flash, layout change, silence), with timestamps?"
+  why: "Lists interrupt devices for the generator."
+  how: "Combine transitions, effects and audio drops; list with type."
+  evidence: ["frames: F8", "A3"]
+  ir_path: "/timeline/retention_devices/-"
+  type: object
+  challenge: "Ordinary cuts are not interrupts; each must break the established pattern."
+
+- id: retention_cta-020
+  question: "Is there a mid-video cliffhanger (an unresolved moment right before a section change)?"
+  why: "Adds a cliffhanger device."
+  how: "Captions near section ends with an unresolved question or reveal held across the boundary."
+  evidence: ["evidence.captions[] (analysis only)"]
+  ir_path: "/timeline/retention_devices/-"
+  type: timestamps
+  challenge: "The resolution must come after the boundary."
+
+- id: retention_cta-021
+  question: "How often is the viewer addressed directly on screen (text containing 'you' or an imperative)?"
+  why: "Sets on-screen address frequency."
+  how: "Count text crops with direct address / minute."
+  evidence: ["frames: F3", "evidence.captions[] (analysis only)"]
+  ir_path: "/timeline/retention_devices/-"
+  type: number
+  challenge: "Report the count and duration."
+
+- id: retention_cta-022
+  question: "Is the benefit to the viewer stated early (what they will learn or get), and when?"
+  why: "Adds a benefit statement slot."
+  how: "Captions in the first 15% with a benefit statement."
+  evidence: ["evidence.captions[] (analysis only)"]
+  ir_path: "/script/hook_pattern"
+  type: seconds
+  challenge: "Give the timestamp; topic mention is not a benefit."
+
+- id: retention_cta-023
+  question: "Are social proof cues used (counts of people, expert references, results achieved)?"
+  why: "Adds proof slots that require sourced numbers in variants."
+  how: "Captions and text crops with numbers about people or authority."
+  evidence: ["evidence.captions[] (analysis only)", "frames: F3"]
+  ir_path: "/script/claims_need_sources"
+  type: timestamps
+  challenge: "Every proof cue becomes a claim that needs a source in a variant."
+
+- id: retention_cta-024
+  question: "Write the retention placement rule (re-hook ratio, CTA ratio, interrupt interval) in terms of parameters."
+  why: "Gives the compiler procedural retention placement."
+  how: "Combine 004, 006 and 019, for example 're-hook at 0.45-0.55; CTA starts at duration - cta_s; interrupt every 8-12 s'."
+  evidence: ["retention answers"]
+  ir_path: "/generation_rules/-"
+  type: rule
+  challenge: "Re-derive the source's device times from the rule."
+
+- id: retention_cta-025
+  question: "Which retention parameters should a new video set (cta_kind, cta_text slot, rehook_at_ratio, open_loop)?"
+  why: "Feeds the parameteriser."
+  how: "Collect 004, 005, 006 and 002."
+  evidence: ["retention answers"]
+  ir_path: "/parameters/-"
+  type: list
+  challenge: "Each parameter needs derived_from."
+
+- id: retention_cta-026
+  question: "Does the CTA come before the payoff (interrupting content) or after it?"
+  choices: [before-payoff, after-payoff, no-cta]
+  why: "Becomes a CTA order rule."
+  how: "Compare CTA time with the payoff beat."
+  evidence: ["CTA time", "timeline beats"]
+  ir_path: "/generation_rules/-"
+  type: enum
+  challenge: "Cross-check with structure_beats-016."
+
+- id: retention_cta-027
+  question: "Which frames would work as thumbnails (clear subject, readable text, high contrast)?"
+  why: "Adds a thumbnail selection rule for the rendered variant."
+  how: "Pick 3 frames from F4 that meet the criteria; give timestamps and the measured text size and contrast."
+  evidence: ["frames: F4", "frames: F1"]
+  ir_path: "/generation_rules/-"
+  type: timestamps
+  challenge: "Thumbnails are never exported from the source; the rule applies to the variant."
+
+- id: retention_cta-028
+  question: "Which stretches have no new visual or verbal information for more than 4 seconds?"
+  why: "Becomes a negative rule (avoid dead stretches) with measured examples."
+  how: "Gaps in the merged event list (new text, new asset, new sentence) longer than 4 s."
+  evidence: ["merged event times"]
+  ir_path: "/generation_rules/-"
+  type: segments
+  challenge: "Report the event sources merged."
+
+- id: retention_cta-029
+  question: "Does the number of items delivered match the number promised in the hook?"
+  why: "A consistency rule for generated scripts."
+  how: "Compare the hook's promised count (title or captions) with n_items."
+  evidence: ["frames: F3 title", "n_items"]
+  ir_path: "/generation_rules/-"
+  type: boolean
+  challenge: "If no count was promised, answer not determinable."
+
+- id: retention_cta-030
+  question: "Is there an end card with additional prompts (next video, subscribe graphic), and how long?"
+  why: "Fills the end card beat."
+  how: "F8 over the last 3 s."
+  evidence: ["frames: F8"]
+  ir_path: "/timeline/beats"
+  type: seconds
+  challenge: "Cross-check with structure_beats-010."

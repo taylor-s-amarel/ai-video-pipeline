@@ -1,0 +1,271 @@
+- id: music_sfx_mix-001
+  question: "Is there music, and what share of the runtime does it cover?"
+  why: "Fills music coverage."
+  how: "A1 spectrograms in 5 s windows across the video (sustained tonal or rhythmic content); for stereo sources A5 side loudness above -50 LUFS also indicates music."
+  evidence: ["A1 per window", "A5"]
+  ir_path: "/audio/music/coverage_ratio"
+  type: ratio
+  challenge: "Ambience and room tone are not music; require tonal or rhythmic structure."
+
+- id: music_sfx_mix-002
+  question: "What is the music tempo in BPM?"
+  why: "Fills music tempo for beat-synced edits."
+  how: "Read evidence.audio.tempo_bpm (video_re_onsets_beats); verify by counting onsets on an A1 spectrogram over 10 s."
+  evidence: ["evidence.audio.tempo_bpm", "A1"]
+  ir_path: "/audio/music/tempo_bpm"
+  type: number
+  challenge: "Tempo estimators often double or halve; check the manual count."
+
+- id: music_sfx_mix-003
+  question: "What is the instrumentation class (piano, acoustic guitar, strings or orchestral, synth pads, electronic beat, lo-fi, percussion only)?"
+  why: "Fills the music brief for licensed or original replacement music; never identifies the track."
+  how: "Describe from A1 spectrograms (harmonic patterns, percussion transients) and frame-independent listening cues; method inferred."
+  evidence: ["A1"]
+  ir_path: "/audio/music/instrumentation"
+  type: list
+  challenge: "Answers that name the track, artist or album are rejected."
+
+- id: music_sfx_mix-004
+  question: "How many dB below the voice does the music sit during speech?"
+  why: "Fills music_under_voice_db (a common house target is about 18 dB)."
+  how: "Stereo: A5 side loudness versus mid loudness during speech segments (approximation). Otherwise compare A6 RMS in speech gaps (music only) with RMS during speech, noting the music level may change (ducking)."
+  evidence: ["A5", "A6", "evidence.audio.speech_segments"]
+  ir_path: "/audio/music_under_voice_db"
+  type: number
+  challenge: "State the method; ducking makes the gap method overestimate music under voice."
+
+- id: music_sfx_mix-005
+  question: "Is the music ducked under speech, and by how many dB?"
+  why: "Fills ducking depth."
+  how: "A5 side loudness (or music band energy on A1) just before and during speech onsets at 4 points."
+  evidence: ["A5", "A1"]
+  ir_path: "/audio/music/duck_db"
+  type: number
+  challenge: "Musical dynamics change on their own; check that drops align with speech onsets in most cases."
+
+- id: music_sfx_mix-006
+  question: "What is the integrated loudness of the whole mix?"
+  why: "Fills audio.integrated_lufs."
+  how: "Read evidence.audio.integrated_lufs (video_re_audio_loudness)."
+  evidence: ["evidence.audio.integrated_lufs"]
+  ir_path: "/audio/integrated_lufs"
+  type: number
+  challenge: "Recompute with ffmpeg ebur128 summary if the value looks implausible."
+
+- id: music_sfx_mix-007
+  question: "What is the loudness range (LRA)?"
+  why: "Sets dynamic range target."
+  how: "Read evidence.audio.loudness_range."
+  evidence: ["evidence.audio.loudness_range"]
+  ir_path: "/audio/music/loudness_range"
+  type: number
+  challenge: "Recompute with ebur128 if missing."
+
+- id: music_sfx_mix-008
+  question: "What is the true peak, and is there clipping?"
+  why: "Sets a peak limit in the mix recipe."
+  how: "ffmpeg -i SRC -af ebur128=peak=true -f null - (summary true peak); A2 waveform for flat tops."
+  evidence: ["ebur128 true peak", "A2"]
+  ir_path: "/audio/music/true_peak_dbtp"
+  type: number
+  challenge: "Lossy encoding can push true peak above 0; report the codec."
+
+- id: music_sfx_mix-009
+  question: "How does the music evolve (intro, build, drop at the hook or payoff, steady loop)?"
+  why: "Becomes a music structure rule aligned with beats."
+  how: "A3 momentary loudness of the side channel (or full mix in gaps) over time; mark rises and drops with timestamps."
+  evidence: ["A3", "A5"]
+  ir_path: "/audio/music/structure"
+  type: segments
+  challenge: "Separate voice-driven loudness from music changes."
+
+- id: music_sfx_mix-010
+  question: "Does the music change between beats (new track or section per item)?"
+  why: "Becomes a per-beat music rule."
+  how: "A1 spectrograms at beat boundaries: changes in key, instrumentation or tempo."
+  evidence: ["A1 at boundaries"]
+  ir_path: "/audio/music/per_beat_change"
+  type: boolean
+  challenge: "Check 3 boundaries."
+
+- id: music_sfx_mix-011
+  question: "Which sound effect types occur (whoosh, pop, click, ding, riser, impact, typewriter, camera shutter, swoosh-up), with counts?"
+  why: "Fills audio.sfx."
+  how: "A1 spectrograms with highpass=f=3000 at visual events (cuts, text pops); onsets not explained by music or speech."
+  evidence: ["A1 highpassed", "evidence.audio.onsets_s"]
+  ir_path: "/audio/sfx/-"
+  type: object
+  challenge: "Each type needs at least one timestamp; music percussion is not sfx."
+
+- id: music_sfx_mix-012
+  question: "How many sound effects per minute are used?"
+  why: "Sets sfx density."
+  how: "Count from 011 / duration x 60."
+  evidence: ["sfx timestamps"]
+  ir_path: "/audio/sfx/-"
+  type: number
+  challenge: "Report total count and duration."
+
+- id: music_sfx_mix-013
+  question: "What share of sound effects align with a visual event (within 80 ms)?"
+  why: "Becomes an sfx sync rule."
+  how: "Match sfx timestamps with cuts, text entrances and transitions."
+  evidence: ["sfx timestamps", "visual event times"]
+  ir_path: "/generation_rules/-"
+  type: ratio
+  challenge: "Report the matching tolerance and chance rate."
+
+- id: music_sfx_mix-014
+  question: "How does the music end (ends on a final hit with the video, fades out, cut mid-phrase)?"
+  choices: [button-ending, fade-out, cut-mid-phrase, no-music-at-end]
+  why: "Fills music ending."
+  how: "A1 and A3 over the last 3 s."
+  evidence: ["A1", "A3"]
+  ir_path: "/audio/music/ending"
+  type: enum
+  challenge: "Check whether the fade is in the music itself or applied in the mix (fade starts before content ends)."
+
+- id: music_sfx_mix-015
+  question: "What mood does the music support, described by measurable features (tempo, mode if apparent, density)?"
+  why: "Fills the music brief for replacement music."
+  how: "Combine tempo (002), instrumentation (003) and loudness (009); mode (major/minor) only if clearly audible from harmonic content; method inferred."
+  evidence: ["music answers"]
+  ir_path: "/audio/music/mood"
+  type: text
+  challenge: "Mood words must be tied to features; 'epic' alone is taste."
+
+- id: music_sfx_mix-016
+  question: "Is silence used as emphasis (music cut out right before a reveal)?"
+  why: "Adds a pre-reveal silence rule."
+  how: "A3 drops of over 10 LU lasting 0.2-1 s before payoff moments."
+  evidence: ["A3", "timeline beats"]
+  ir_path: "/generation_rules/-"
+  type: timestamps
+  challenge: "Each drop must be followed by a reveal within 1.5 s."
+
+- id: music_sfx_mix-017
+  question: "How wide is the music's stereo image (side/mid loudness ratio)?"
+  why: "Fills stereo width guidance."
+  how: "A5 side versus mid loudness in music-only gaps."
+  evidence: ["A5"]
+  ir_path: "/audio/music/stereo_width"
+  type: number
+  challenge: "Mono sources make this 0; check A7 channels."
+
+- id: music_sfx_mix-018
+  question: "How heavy is the low end (energy below 150 Hz relative to the full band)?"
+  why: "Guides music selection and EQ."
+  how: "A6 RMS with lowpass=f=150 versus unfiltered, in music-only gaps."
+  evidence: ["A6 filtered"]
+  ir_path: "/audio/music/low_end_db"
+  type: number
+  challenge: "Report both RMS values."
+
+- id: music_sfx_mix-019
+  question: "Are risers used before reveals, and how long are they?"
+  why: "Adds risers to the sfx plan."
+  how: "A1: rising pitch or noise sweeps ending at reveals."
+  evidence: ["A1"]
+  ir_path: "/audio/sfx/-"
+  type: object
+  challenge: "Report timestamps and lengths."
+
+- id: music_sfx_mix-020
+  question: "Are ambience beds used (ocean, crowd, wind, room) under the music or voice?"
+  why: "Adds an ambience layer."
+  how: "A1: broadband noise textures consistent with the scene; F1 frames for the matching visual."
+  evidence: ["A1", "frames: F1"]
+  ir_path: "/audio/sfx/-"
+  type: list
+  challenge: "Encoder noise is not ambience."
+
+- id: music_sfx_mix-021
+  question: "Does the music loop, and what is the loop length?"
+  why: "Fills loop length for music editing."
+  how: "Compare A1 spectrogram patterns in successive windows for repetition."
+  evidence: ["A1"]
+  ir_path: "/audio/music/loop_s"
+  type: seconds
+  challenge: "Report the repeat points."
+
+- id: music_sfx_mix-022
+  question: "Does the music mask the voice's intelligibility band (about 1-4 kHz) during speech?"
+  why: "Becomes an EQ rule (dip music in the voice band)."
+  how: "A1 during speech: music energy in 1-4 kHz relative to voice harmonics."
+  evidence: ["A1"]
+  ir_path: "/generation_rules/-"
+  type: boolean
+  challenge: "Inferred from images; confidence under 0.6."
+
+- id: music_sfx_mix-023
+  question: "Write the mix recipe (music level under voice, ducking, sfx level, target loudness, peak limit)."
+  why: "Gives the compiler a reproducible mix."
+  how: "Combine 004, 005, 006 and 008, for example 'music -18 dB under voice; duck 6 dB with 150 ms attack; sfx peaks 6 dB under voice; master to {target_lufs} LUFS integrated, -1 dBTP'."
+  evidence: ["mix answers"]
+  ir_path: "/generation_rules/-"
+  type: rule
+  challenge: "Every number must come from a measurement or be marked as a default."
+
+- id: music_sfx_mix-024
+  question: "Which audio parameters should a new video set (music track asset with licence, bpm range, music under voice, sfx set, target LUFS)?"
+  why: "Feeds the parameteriser."
+  how: "Collect 002, 004, 006 and 011; the track is an asset slot that requires a licence field."
+  evidence: ["mix answers"]
+  ir_path: "/parameters/-"
+  type: list
+  challenge: "No parameter may point to the source's music."
+
+- id: music_sfx_mix-025
+  question: "How long are audio fade-ins and fade-outs at the start and end?"
+  why: "Fills fade lengths."
+  how: "A3 at the first and last 3 s."
+  evidence: ["A3"]
+  ir_path: "/audio/music/fades"
+  type: object
+  challenge: "Report ms for both."
+
+- id: music_sfx_mix-026
+  question: "Do music downbeats or section changes coincide with item boundaries?"
+  why: "Becomes a music-to-structure alignment rule."
+  how: "Compare A3 or onset clusters with beat boundaries; share within 1/8 beat."
+  evidence: ["evidence.audio.onsets_s", "timeline beats"]
+  ir_path: "/generation_rules/-"
+  type: ratio
+  challenge: "Compare with chance."
+
+- id: music_sfx_mix-027
+  question: "What are the audio stream facts (codec, sample rate, channels, bitrate)?"
+  why: "Fills render audio settings."
+  how: "A7 stream info."
+  evidence: ["A7"]
+  ir_path: "/render_binding/mapping/audio_format"
+  type: object
+  challenge: "Copy values exactly from ffprobe."
+
+- id: music_sfx_mix-028
+  question: "Do any sound effects peak louder than the voice?"
+  why: "Becomes an sfx level limit."
+  how: "A6 RMS at sfx moments versus median speech RMS."
+  evidence: ["A6"]
+  ir_path: "/generation_rules/-"
+  type: boolean
+  challenge: "Report the levels."
+
+- id: music_sfx_mix-029
+  question: "Is there a sonic logo or jingle at the start or end?"
+  why: "Adds a sonic-logo slot a new series fills with its own sound."
+  how: "A1 at the first and last 3 s for a short distinctive motif."
+  evidence: ["A1"]
+  ir_path: "/audio/sfx/-"
+  type: boolean
+  challenge: "Never reuse the source's motif; the slot must be new."
+
+- id: music_sfx_mix-030
+  question: "Is the music a recognisable commercial track that cannot be reused?"
+  choices: [likely-commercial, likely-library, original-or-unknown, no-music]
+  why: "Sets the rights flag on the music slot."
+  how: "Do not identify the track. Classify only by cues (vocals with lyrics, high production with distinctive hook) and mark inferred; in all cases the variant uses separately licensed or original music."
+  evidence: ["A1"]
+  ir_path: "/audio/music/licence_status"
+  type: enum
+  challenge: "Any track name or artist in the answer is rejected."

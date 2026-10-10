@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/schemas/showcase-evaluation",
+  "title": "Baltor showcase evaluation result",
+  "description": "What evaluate.py prints for one run. A run record stores this object unchanged, together with the arm, trial, fixture seed and cost figures the harness measured.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["spec", "task_id", "spec_hash", "evaluator_sha256", "valid", "integrity_problems", "passed", "score",
+               "metrics", "normalised", "gates", "required_checks", "checks", "flags", "errors", "details"],
+  "properties": {
+    "spec": {"const": "baltor.showcase-evaluation/v1"},
+    "task_id": {"type": "string", "pattern": "^showcase_task_[a-z0-9_]+$"},
+    "spec_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "evaluator_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "valid": {"type": "boolean", "description": "false when task.json or a setup/evaluator file differs from the pre-registered version"},
+    "integrity_problems": {"type": "array", "items": {"type": "string"}},
+    "passed": {"type": "boolean"},
+    "score": {"type": "number", "minimum": 0, "maximum": 1},
+    "metrics": {"type": "object", "additionalProperties": {"type": ["number", "null", "boolean"]}},
+    "normalised": {"type": "object", "additionalProperties": {"type": "number", "minimum": 0, "maximum": 1}},
+    "gates": {"type": "array", "items": {
+      "type": "object", "required": ["metric", "op", "threshold", "value", "passed"],
+      "properties": {"metric": {"type": "string"}, "op": {"enum": [">=", "<="]}, "threshold": {"type": "number"},
+                     "value": {"type": ["number", "null"]}, "passed": {"type": "boolean"}}}},
+    "required_checks": {"type": "array", "items": {
+      "type": "object", "required": ["check", "passed"],
+      "properties": {"check": {"type": "string"}, "passed": {"type": "boolean"}}}},
+    "checks": {"type": "array", "items": {
+      "type": "object", "additionalProperties": false, "required": ["name", "passed", "detail"],
+      "properties": {"name": {"type": "string"}, "passed": {"type": "boolean"}, "detail": {"type": "string"}}}},
+    "flags": {"type": "array", "items": {"type": "string"}},
+    "errors": {"type": "array", "items": {"type": "string"}},
+    "details": {"type": "object"},
+    "evaluation_seconds": {"type": "number", "minimum": 0}
+  }
+}

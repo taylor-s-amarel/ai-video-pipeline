@@ -1,0 +1,10 @@
+{
+  "method": "block-phase-correlation+sequential-similarity-fit",
+  "shots": [
+    { "shot_index": 0, "t_start_s": 0.0, "t_end_s": 3.4, "layer_count": -1,
+      "layers": [ { "kind": "parallax", "velocity_fw_per_s": [0.1], "zoom_per_s": 0.0, "block_share": 1.4, "bbox": [0, 0, 10, 10] } ],
+      "pairs_used": 30, "flat_share": 0.06, "unassigned_share": 0.09 }
+  ],
+  "max_layer_count": 3,
+  "median_layer_count": 3.0
+}

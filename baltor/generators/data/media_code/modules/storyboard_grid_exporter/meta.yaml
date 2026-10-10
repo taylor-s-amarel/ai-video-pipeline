@@ -1,0 +1,6 @@
+title: Storyboard grid exporter
+summary: Builds storyboard/contact sheets with Pillow (frames in a grid with timestamp and note captions, optional title) plus timestamp pickers and the ffmpeg frame-extract command.
+subkind: qa-check
+domain: video
+tags: [video, storyboard, contact-sheet, review, pillow]
+step_kinds: [plan, review]

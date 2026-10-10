@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/showcase-blind-judgement",
+  "title": "Showcase blind judgement",
+  "description": "One judge's verdict on one anonymised A/B packet built by showcase_blind_judge_pack. The judge sees only the packet (prompt, rubric, outputs A and B); which arm produced A or B is in a hidden key the judge never sees. Scores use the packet's scale; the justification must cite concrete features of the outputs.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["spec", "packet_id", "task_id", "judge", "preference", "scores", "justification", "confidence"],
+  "properties": {
+    "spec": {"const": "baltor.showcase-judgement/v1"},
+    "packet_id": {"type": "string", "pattern": "^p[0-9a-f]{10}$"},
+    "task_id": {"type": "string", "pattern": "^[a-z][a-z0-9_]{2,63}$"},
+    "judge": {
+      "type": "object", "additionalProperties": false, "required": ["id", "type"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1, "maxLength": 80},
+        "type": {"enum": ["llm", "human", "scripted"]},
+        "model": {"type": "string"},
+        "harness": {"type": "string"}
+      }
+    },
+    "preference": {"enum": ["A", "B", "tie"]},
+    "scores": {
+      "type": "object", "minProperties": 1,
+      "additionalProperties": {
+        "type": "object", "additionalProperties": false, "required": ["A", "B"],
+        "properties": {"A": {"type": "number"}, "B": {"type": "number"}}
+      }
+    },
+    "justification": {"type": "string", "minLength": 40, "maxLength": 4000},
+    "confidence": {"enum": ["low", "medium", "high"]},
+    "flags": {"type": "array", "items": {"enum": ["arm-identifiable", "outputs-missing", "rubric-unclear", "unsafe-content"]}},
+    "judged_at": {"type": "string"}
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "showcase_task_control_unit_conversion_table",
+  "title": "Showcase task: Fill in a unit conversion table",
+  "kind": "skill",
+  "subkind": "evaluator",
+  "version": "1.0.0",
+  "summary": "Negative control. Fill the result column of conversions.csv to two decimals using exact conversion factors.",
+  "description": "Pre-registered 2026-10-10, spec hash c8de5b5f2a8846a994826f627bba09c296bc3f81a1c1f84114aea5929a3f0b5f. 5 paired trials per arm. A capable model solves this without outside help, and no catalogue component targets it. Any treatment advantage beyond noise points to a placebo or prompt effect; extra treatment-arm tokens or tool calls measure the overhead of searching when nothing useful exists.",
+  "domain": "negative-control",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "verify",
+    "measure",
+    "test"
+  ],
+  "effects": {
+    "filesystem": "write",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "setup writes a fresh workspace and a hidden ground-truth directory"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "showcase",
+    "showcase-task",
+    "preregistered",
+    "evaluator",
+    "negative-control",
+    "control-reasoning",
+    "placebo"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/showcase_tasks.py",
+    "data": "generators/data/showcase_tasks",
+    "parameters": {
+      "family": "controls",
+      "spec_hash": "c8de5b5f2a8846a994826f627bba09c296bc3f81a1c1f84114aea5929a3f0b5f",
+      "source": "negative_controls.yaml"
+    }
+  },
+  "examples": [
+    "Set up trial 1 of showcase_task_control_unit_conversion_table and score the agent's workspace",
+    "Print the run plan for this task: python3 showcase_eval.py ."
+  ],
+  "review": {
+    "status": "automated-passed",
+    "checked": "2026-10-10",
+    "notes": "Evaluator self-test proves a known-good output passes and a known-bad output fails."
+  }
+}

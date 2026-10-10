@@ -156,8 +156,10 @@ def trend_terms(current: list[dict], previous: list[dict], min_sources: int = 2,
     """Terms (unigrams/bigrams from titles) rising from the previous window to the current one.
 
     A term qualifies when it appears in at least ``min_count`` items from at least ``min_sources``
-    different feeds in the current window. Each trend lists the item URLs that support it.
+    (never fewer than two) different feeds in the current window, with at least two distinct URLs.
+    Each trend lists the item URLs that support it.
     """
+    min_sources = max(2, int(min_sources))  # a trend from a single feed is an anecdote, not a trend
     cur_items: dict[str, list[dict]] = defaultdict(list)
     for item in current:
         for term in _terms(item.get("title", "")):
@@ -179,6 +181,8 @@ def trend_terms(current: list[dict], previous: list[dict], min_sources: int = 2,
         for i in sorted(its, key=lambda x: x.get("published") or "", reverse=True):
             if i.get("url") and i["url"] not in citations:
                 citations.append(i["url"])
+        if len(citations) < 2:
+            continue
         trends.append({"term": term, "count": len(its), "previous_count": p, "change": round(ratio, 2),
                        "sources": len(sources), "citations": citations[:5]})
     # Prefer bigrams over the unigrams they contain when the counts are equal.

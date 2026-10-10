@@ -1,0 +1,172 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/showcase-run-record",
+  "title": "Showcase run record",
+  "description": "Everything about one trial of one arm of a pre-registered showcase task: the spec hash it ran under, harness and model versions, timing, usage and cost, budget breaches, every catalogue call with the identities and digests downloaded, the baseline-contamination scan, exit status, hashed outputs, transcript and evaluator results. Written by showcase_runner and completed by showcase_evaluators. Runs are never deleted: a contaminated run stays on disk with included=false and an exclusion_reason.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["spec", "run_id", "task_id", "spec_sha256", "purpose", "arm", "trial", "schedule_index", "adapter", "harness",
+               "model", "started_at", "ended_at", "wall_s", "usage", "budget", "catalogue", "contamination", "exit",
+               "start_manifest_sha256", "workspace", "outputs", "transcript", "evaluation", "included", "exclusion_reason"],
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "timestamp": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?(Z|[+-][0-9]{2}:[0-9]{2})$"},
+    "count": {"type": ["integer", "null"], "minimum": 0},
+    "catalogue_call": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["op", "ok", "source"],
+      "properties": {
+        "at": {"type": "string"},
+        "op": {"enum": ["search", "read", "place"]},
+        "query": {"type": "string"},
+        "kind": {"type": ["string", "null"]},
+        "results": {"type": "array", "items": {"type": "string"}},
+        "identity": {"type": "string"},
+        "version": {"type": "string"},
+        "digest": {"type": "string"},
+        "ok": {"type": "boolean"},
+        "error": {"type": "string"},
+        "source": {"enum": ["gateway-log", "transcript", "self-reported", "runner"]}
+      }
+    },
+    "item": {
+      "type": "object", "additionalProperties": false, "required": ["identity", "version", "digest"],
+      "properties": {"identity": {"type": "string"}, "version": {"type": "string"}, "digest": {"type": "string"},
+                     "verified": {"type": ["boolean", "null"]}}
+    }
+  },
+  "properties": {
+    "spec": {"const": "baltor.showcase-run/v1"},
+    "run_id": {"type": "string", "pattern": "^[a-z][a-z0-9_]{2,63}/(baseline|baltor)/[0-9]+$"},
+    "task_id": {"type": "string", "pattern": "^[a-z][a-z0-9_]{2,63}$"},
+    "spec_sha256": {"$ref": "#/$defs/sha256"},
+    "purpose": {"enum": ["study", "pilot", "dry-run"]},
+    "arm": {"enum": ["baseline", "baltor"]},
+    "trial": {"type": "integer", "minimum": 1},
+    "schedule_index": {"type": "integer", "minimum": 0},
+    "adapter": {"enum": ["claude-code", "codex", "opencode", "command", "manual"]},
+    "harness": {
+      "type": "object", "additionalProperties": false, "required": ["name", "version", "argv", "isolation"],
+      "properties": {
+        "name": {"type": "string"},
+        "version": {"type": ["string", "null"]},
+        "version_matches_spec": {"type": ["boolean", "null"]},
+        "argv": {"type": "array", "items": {"type": "string"}, "description": "Command line with the prompt replaced by <prompt>."},
+        "isolation": {"enum": ["none", "home"]},
+        "workspace_location": {"type": "string"}
+      }
+    },
+    "model": {
+      "type": "object", "additionalProperties": false, "required": ["requested", "reported"],
+      "properties": {"requested": {"type": "string"}, "reported": {"type": ["string", "null"]}}
+    },
+    "started_at": {"$ref": "#/$defs/timestamp"},
+    "ended_at": {"$ref": "#/$defs/timestamp"},
+    "wall_s": {"type": ["number", "null"], "minimum": 0},
+    "usage": {
+      "type": "object", "additionalProperties": false,
+      "required": ["tool_calls", "tokens_in", "tokens_out", "tokens_total", "cost_usd", "cost_source", "source"],
+      "properties": {
+        "tool_calls": {"$ref": "#/$defs/count"},
+        "tokens_in": {"$ref": "#/$defs/count"},
+        "tokens_out": {"$ref": "#/$defs/count"},
+        "tokens_cache_read": {"$ref": "#/$defs/count"},
+        "tokens_cache_write": {"$ref": "#/$defs/count"},
+        "tokens_total": {"$ref": "#/$defs/count"},
+        "turns": {"$ref": "#/$defs/count"},
+        "cost_usd": {"type": ["number", "null"], "minimum": 0},
+        "cost_source": {"enum": ["harness-reported", "price-table", "self-reported", "unknown"]},
+        "source": {"enum": ["stream-json", "codex-json", "opencode-json", "self-reported", "none"]},
+        "tool_names": {"type": "object", "additionalProperties": {"type": "integer"}}
+      }
+    },
+    "budget": {
+      "type": "object", "additionalProperties": false, "required": ["wall_s", "tool_calls", "tokens", "exceeded", "enforced"],
+      "properties": {
+        "wall_s": {"type": "integer"}, "tool_calls": {"type": "integer"}, "tokens": {"type": "integer"},
+        "usd": {"type": "number"},
+        "exceeded": {"type": "array", "items": {"enum": ["wall_s", "tool_calls", "tokens", "usd"]}, "uniqueItems": true},
+        "enforced": {"type": "array", "items": {"enum": ["wall_s", "tool_calls", "tokens", "usd"]}, "uniqueItems": true}
+      }
+    },
+    "catalogue": {
+      "type": "object", "additionalProperties": false, "required": ["mode", "release", "calls", "downloaded", "preplaced"],
+      "properties": {
+        "mode": {"enum": ["none", "search-read", "mcp", "preplaced"]},
+        "release": {"type": ["string", "null"]},
+        "calls": {"type": "array", "items": {"$ref": "#/$defs/catalogue_call"}},
+        "downloaded": {"type": "array", "items": {"$ref": "#/$defs/item"}},
+        "preplaced": {"type": "array", "items": {"$ref": "#/$defs/item"}},
+        "files_in_outputs": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "contamination": {
+      "type": "object", "additionalProperties": false, "required": ["checked", "clean", "findings"],
+      "properties": {"checked": {"type": "boolean"}, "clean": {"type": "boolean"},
+                     "findings": {"type": "array", "items": {"type": "string"}}}
+    },
+    "exit": {
+      "type": "object", "additionalProperties": false, "required": ["status", "code", "message"],
+      "properties": {
+        "status": {"enum": ["completed", "timeout", "budget-exceeded", "harness-error", "crashed", "imported", "not-run"]},
+        "code": {"type": ["integer", "null"]},
+        "message": {"type": "string"}
+      }
+    },
+    "start_manifest_sha256": {"$ref": "#/$defs/sha256"},
+    "start_verified": {"enum": ["exact", "inputs-match", "inputs-differ", "unknown"]},
+    "workspace": {"type": "string"},
+    "outputs": {
+      "type": "array",
+      "items": {"type": "object", "additionalProperties": false, "required": ["path", "size", "sha256", "change"],
+                "properties": {"path": {"type": "string"}, "size": {"type": "integer", "minimum": 0},
+                               "sha256": {"$ref": "#/$defs/sha256"},
+                               "change": {"enum": ["new", "modified", "unchanged"]}}}
+    },
+    "missing_required_outputs": {"type": "array", "items": {"type": "string"}},
+    "transcript": {
+      "type": "object", "additionalProperties": false, "required": ["path", "sha256", "format"],
+      "properties": {"path": {"type": ["string", "null"]}, "sha256": {"anyOf": [{"$ref": "#/$defs/sha256"}, {"type": "null"}]},
+                     "format": {"enum": ["stream-json", "codex-json", "opencode-json", "jsonl", "text", "none"]}}
+    },
+    "logs": {"type": "object", "properties": {"stderr": {"type": ["string", "null"]}}},
+    "evaluation": {
+      "type": "object", "additionalProperties": false, "required": ["status", "results", "success"],
+      "properties": {
+        "status": {"enum": ["pending", "done", "error"]},
+        "evaluated_at": {"type": "string"},
+        "evaluator_version": {"type": "string"},
+        "network_used": {"type": "boolean"},
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["metric", "value", "passed", "scored_as", "evaluator"],
+            "properties": {
+              "metric": {"type": "string"},
+              "value": {"type": ["number", "null"]},
+              "passed": {"type": ["boolean", "null"]},
+              "scored_as": {"enum": ["evaluated", "failure", "error", "derived"]},
+              "evaluator": {"type": "string"},
+              "details": {"type": "object"},
+              "error": {"type": ["string", "null"]}
+            }
+          }
+        },
+        "success": {"type": ["boolean", "null"]}
+      }
+    },
+    "included": {"type": "boolean"},
+    "exclusion_reason": {"type": ["string", "null"]},
+    "fixture": {"type": "boolean", "description": "true when the workspace was fabricated to test the pipeline (dry runs)."},
+    "environment": {"type": "object"},
+    "notes": {"type": "string"}
+  },
+  "allOf": [
+    {"if": {"properties": {"arm": {"const": "baseline"}}, "required": ["arm"]},
+     "then": {"properties": {"catalogue": {"properties": {"mode": {"const": "none"}, "downloaded": {"maxItems": 0}, "preplaced": {"maxItems": 0}}}}}},
+    {"if": {"properties": {"included": {"const": false}}, "required": ["included"]},
+     "then": {"properties": {"exclusion_reason": {"type": "string", "minLength": 3}}}}
+  ]
+}

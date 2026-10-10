@@ -1,0 +1,17 @@
+{
+  "shots": [
+    { "shot_index": 0, "t_start_s": 0.0, "t_end_s": 4.2, "parallax": true, "direction_deg": 180.4,
+      "layers": [
+        { "speed_px_s": 38.2, "speed_fw_per_s": 0.2122, "speed_ratio": 3.9, "direction_deg": 180.4, "depth_rank": 0, "block_share": 0.31,
+          "region": { "bbox": [0, 224, 180, 96], "bbox_ratio": [0.0, 0.7, 1.0, 0.3], "y_center_ratio": 0.85 } },
+        { "speed_px_s": 19.6, "speed_fw_per_s": 0.1089, "speed_ratio": 2.0, "direction_deg": 179.2, "depth_rank": 1, "block_share": 0.27,
+          "region": { "bbox": [0, 112, 180, 112], "bbox_ratio": [0.0, 0.35, 1.0, 0.35], "y_center_ratio": 0.525 } },
+        { "speed_px_s": 9.8, "speed_fw_per_s": 0.0544, "speed_ratio": 1.0, "direction_deg": 181.0, "depth_rank": 2, "block_share": 0.29,
+          "region": { "bbox": [0, 0, 180, 112], "bbox_ratio": [0.0, 0.0, 1.0, 0.35], "y_center_ratio": 0.175 } }
+      ],
+      "max_speed_ratio": 3.9, "other_moving_layers": 0 },
+    { "shot_index": 1, "t_start_s": 4.2, "t_end_s": 7.9, "parallax": false, "direction_deg": null, "layers": [], "max_speed_ratio": null, "other_moving_layers": 0 }
+  ],
+  "shots_with_parallax": 1,
+  "max_layers_in_parallax": 3
+}

@@ -1,0 +1,15 @@
+title: Asset licence checker for media packs
+summary: Checks a media pack manifest against a use profile (monetised video, open-source repo, DRM platform, AI training ...) and flags NC, ND, no-redistribution, missing credits and share-alike duties.
+subkind: rights-manifest
+domain: asset-pipeline
+tags: [licensing, cc-by, cc0, mixamo, attribution, compliance]
+step_kinds: [verify, review, secure]
+effects:
+  filesystem: read
+  executes: python
+depends_on:
+  - {identity: agent_media_pack_manifest}
+description: A rule checklist, not legal advice. Fair use is never treated as a licence.
+examples:
+  - "python asset_licence_checker.py pack.json --use monetised-video"
+  - "python asset_licence_checker.py pack.json --use open-source-repo --modified hero-sprite"

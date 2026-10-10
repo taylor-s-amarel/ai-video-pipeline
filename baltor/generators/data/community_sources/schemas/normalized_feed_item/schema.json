@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/normalized-feed-item",
+  "title": "Normalised feed item",
+  "description": "One entry from an RSS 2.0, RSS 1.0, Atom or JSON Feed document after normalisation by rss_atom_jsonfeed_reader: absolute canonical URL without tracking parameters, UTC timestamps, plain-text summary, and the feeds that carried it.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "guid",
+    "title",
+    "url",
+    "published",
+    "updated",
+    "authors",
+    "summary",
+    "tags",
+    "enclosures",
+    "source",
+    "also_in"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$",
+      "description": "SHA-256 of the canonical URL, or of feed URL + guid/title when the item has no link."
+    },
+    "guid": {
+      "type": "string",
+      "description": "The feed's own guid/id, unchanged."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500
+    },
+    "url": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https?://"
+        },
+        {
+          "const": ""
+        }
+      ]
+    },
+    "published": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "updated": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "authors": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "summary": {
+      "type": "string",
+      "maxLength": 600,
+      "description": "Plain text; HTML, scripts and styles removed."
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "enclosures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "url",
+          "type",
+          "length"
+        ],
+        "properties": {
+          "url": {
+            "type": "string",
+            "pattern": "^https?://"
+          },
+          "type": {
+            "type": "string"
+          },
+          "length": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "feed_url",
+        "feed_title",
+        "format"
+      ],
+      "properties": {
+        "feed_url": {
+          "type": "string"
+        },
+        "feed_title": {
+          "type": "string"
+        },
+        "format": {
+          "enum": [
+            "rss2",
+            "rss1",
+            "atom",
+            "jsonfeed"
+          ]
+        }
+      }
+    },
+    "also_in": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true,
+      "description": "Other feeds that carried the same item (filled by dedupe)."
+    }
+  }
+}

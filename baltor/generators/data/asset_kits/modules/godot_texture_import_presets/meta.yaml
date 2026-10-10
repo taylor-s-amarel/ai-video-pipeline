@@ -1,0 +1,16 @@
+title: Godot 4 texture import presets (.import sidecars, materials, project settings)
+summary: Writes Godot 4 .import sidecars, StandardMaterial3D .tres and project.godot settings for pixel-art versus smooth, 3D, normal-map and UI textures, and checks existing imports.
+subkind: godot
+domain: asset-pipeline
+tags: [godot, import, pixel-art, textures, tres]
+step_kinds: [build, verify]
+effects:
+  filesystem: write
+  executes: python
+description: >-
+  Option names and enum values were taken from Godot's own sources (ResourceImporterTexture,
+  BaseMaterial3D.TextureFilter/Transparency, Viewport.DefaultCanvasItemTextureFilter); the
+  official 2D platformer demo uses the same default_texture_filter=0 and integer stretch scaling.
+examples:
+  - "python godot_texture_import_presets.py apply mygame --preset pixel-art-2d --glob 'art/**/*.png'"
+  - "python godot_texture_import_presets.py check mygame --preset texture-3d --glob 'materials/**/*.jpg'"

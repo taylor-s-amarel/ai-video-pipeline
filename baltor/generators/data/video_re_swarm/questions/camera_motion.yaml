@@ -1,7 +1,7 @@
 - id: camera_motion-001
   question: "What share of shots have camera or virtual-camera motion (zoom, pan, tilt, rotation)?"
   why: "Sets how often the renderer applies a move."
-  how: "From evidence.shots[].camera, count shots with |zoom - 1| > 0.01 or |pan_x| or |pan_y| above 1% of width over the shot; confirm on F1 at shot start and end for 5 shots."
+  how: "From evidence.shots[].camera (video_re_camera_motion: zoom is the natural-log scale change per second, pan_x/pan_y are frame widths/heights per second), count shots with |zoom| > 0.01 or |pan_x| or |pan_y| > 0.01; confirm on F1 at shot start and end for 5 shots."
   evidence: ["evidence.shots[].camera", "frames: F1 at shot start and end"]
   ir_path: "/motion/camera_moves/-"
   type: ratio
@@ -19,7 +19,7 @@
 - id: camera_motion-003
   question: "How fast are zooms (scale change per second, median and range)?"
   why: "Becomes the zoom_per_s parameter."
-  how: "For zoom shots, (zoom_end / zoom_start)^(1/duration) - 1 per second from evidence camera values, or measure a feature width on F1 at shot start and end."
+  how: "For zoom shots, scale change per second = exp(camera.zoom) - 1 (camera.zoom is already a log rate per second); cross-check by measuring a feature width on F1 at shot start and end: (w_end / w_start)^(1 / duration_s) - 1."
   evidence: ["evidence.shots[].camera.zoom", "evidence.shots[].duration_s", "frames: F1 start/end"]
   ir_path: "/motion/camera_moves/-"
   type: range
@@ -28,7 +28,7 @@
 - id: camera_motion-004
   question: "Do zoom directions alternate between consecutive shots (in, out, in, out)?"
   why: "Becomes the zoom_alternate rule."
-  how: "Write the sign sequence of camera.zoom change per shot; count alternations / pairs."
+  how: "Write the sign sequence of evidence.shots[].camera.zoom (positive = zoom in); count sign alternations / consecutive pairs."
   evidence: ["evidence.shots[].camera.zoom"]
   ir_path: "/generation_rules/-"
   type: ratio
@@ -65,11 +65,11 @@
 - id: camera_motion-008
   question: "How fast are pans as a fraction of frame width per second?"
   why: "Becomes the pan speed parameter."
-  how: "From camera.pan_x / duration (or feature tracking on F1 start/end), normalised by width."
+  how: "Read evidence.shots[].camera.pan_x (already frame widths per second); cross-check one shot by tracking a feature on F1 at start and end: displacement_px / width / duration_s."
   evidence: ["evidence.shots[].camera.pan_x", "evidence.source.width"]
   ir_path: "/motion/camera_moves/-"
   type: range
-  challenge: "State the unit of pan_x from the evidence schema; normalise before comparing."
+  challenge: "Check the sign convention (positive pan_x = camera moves right, content travels left) and that the feature track agrees within 30%."
 
 - id: camera_motion-009
   question: "Does the move start right at the cut or after a delay?"
@@ -129,7 +129,7 @@
 - id: camera_motion-015
   question: "What is the maximum zoom factor reached on any shot?"
   why: "Bounds zoom so assets are not over-enlarged."
-  how: "Max over shots of zoom_end / zoom_start."
+  how: "Max over shots of exp(|camera.zoom| x duration_s), the total scale change across the shot."
   evidence: ["evidence.shots[].camera.zoom"]
   ir_path: "/parameters/-"
   type: number
@@ -256,7 +256,7 @@
 - id: camera_motion-029
   question: "What is the median absolute zoom change per second across all shots from the camera estimator?"
   why: "A single motion-intensity number for fidelity scoring."
-  how: "Median of |ln(zoom_end/zoom_start)| / duration_s over shots."
+  how: "Median of |evidence.shots[].camera.zoom| over shots with a non-null estimate (log scale change per second)."
   evidence: ["evidence.shots[].camera.zoom", "evidence.shots[].duration_s"]
   ir_path: "/motion/camera_moves/-"
   type: number

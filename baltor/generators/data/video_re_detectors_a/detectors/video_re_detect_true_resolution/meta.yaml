@@ -1,0 +1,16 @@
+title: Detect true (effective) resolution and upscaling
+summary: Estimates how much detail a video really holds versus its container size from the high-frequency power spectrum, per axis and per tile, and flags upscaled footage or native graphics over upscaled footage.
+description: >-
+  Decodes a native-resolution centre crop, computes row and column power spectra, fits a power law on the low band
+  and finds the frequency above which the spectrum is missing (10 dB below prediction). upscale_factor = 0.5 / cut-off.
+  Per-tile estimates separate native overlays from upscaled footage.
+tags: [resolution, upscaling, spectrum, sharpness]
+limits:
+  - Bicubic and Lanczos upscales are estimated within about 5% (median) on test images; bilinear less precisely.
+  - Denoising, defocus and low-bitrate encoding also lower the effective resolution.
+  - Sharpening after upscaling can hide the cut-off.
+references:
+  - "Power-law (1/f^a) amplitude spectra of natural images: Field, D. J. (1987), J. Opt. Soc. Am. A 4(12)."
+contract:
+  title: True resolution payload
+  summary: JSON Schema for the true-resolution detector payload - container and effective size, upscale factor per axis, spectral cut-off, verdict and per-tile share.

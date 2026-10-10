@@ -1,0 +1,6 @@
+title: QA report writer
+summary: Collects pass/fail/not-checked QA results and writes them as a Markdown table, JSON with totals and JUnit XML, never counting unchecked items as passes.
+subkind: qa-check
+domain: video
+tags: [video, qa, report, junit, markdown, ci]
+step_kinds: [verify, review]

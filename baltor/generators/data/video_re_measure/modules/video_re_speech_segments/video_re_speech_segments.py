@@ -13,10 +13,10 @@ Method 'energy' (default, numpy only), on mono 16 kHz audio in 25 ms frames ever
 3. gaps shorter than ``merge_gap_s`` (0.3 s) are bridged, segments shorter than ``min_segment_s``
    (0.2 s) dropped, and each segment padded by 50 ms.
 
-Each segment also gets ``syllabic_modulation``: the share of its band-energy envelope's modulation
-spectrum that falls between 2 and 8 Hz (speech is roughly 3-6 syllables per second). Values near 0
-suggest a sustained sound (a held music note) rather than speech; this is reported, not used to
-filter, because sung vocals and rhythmic music also modulate.
+Each segment also gets ``syllabic_modulation`` (dB): how much its voice-band energy rises and falls
+at 2-8 Hz, the syllable rate of speech (measured without the segment's first and last 100 ms).
+Speech is typically well above 3 dB; a sustained sound (a held music note) stays near 1 dB or less.
+It is reported, not used to filter, because sung vocals and rhythmic music also modulate.
 
 Method 'silencedetect' inverts ffmpeg's silencedetect (``-45 dB``, 0.3 s), which only says "not
 silent".
@@ -64,16 +64,18 @@ def _runs(mask: np.ndarray) -> list[tuple[int, int]]:
 
 
 def syllabic_modulation(env: np.ndarray, rate: float) -> float | None:
+    """Standard deviation, in dB, of the energy envelope after band-passing it to 2-8 Hz.
+
+    Speech goes up and down with every syllable (typically well over 3 dB); a held note or steady
+    noise stays within about 1 dB."""
     if len(env) < int(rate * 0.5):
         return None
-    e = np.log(env + 1e-9)
+    e = 10 * np.log10(env + 1e-12)
     e = e - e.mean()
-    p = np.abs(np.fft.rfft(e * np.hanning(len(e)))) ** 2
+    spec = np.fft.rfft(e)
     f = np.fft.rfftfreq(len(e), 1 / rate)
-    keep = (f >= 0.5) & (f <= 20)
-    if not keep.any() or p[keep].sum() <= 0:
-        return None
-    return float(p[(f >= 2) & (f <= 8)].sum() / p[keep].sum())
+    spec[(f < 2) | (f > 8)] = 0
+    return float(np.fft.irfft(spec, len(e)).std())
 
 
 def segments_from_audio(x: np.ndarray, sr: int = SR, **params) -> dict:
@@ -94,13 +96,15 @@ def segments_from_audio(x: np.ndarray, sr: int = SR, **params) -> dict:
         else:
             merged.append([a, b])
     duration = len(x) / sr
+    trim = int(round(0.1 / hop))  # leave onsets/offsets out of the modulation estimate
     segs = []
     for a, b in merged:
         if (b - a) * hop < p["min_segment_s"]:
             continue
         s, e = max(0.0, a * hop - p["pad_s"]), min(duration, b * hop + 0.025 + p["pad_s"])
         segs.append({"start_s": s, "end_s": e,
-                     "syllabic_modulation": syllabic_modulation(f["band_energy"][a:b], 1 / hop),
+                     "syllabic_modulation": syllabic_modulation(f["band_energy"][a + trim:b - trim] if b - a > 4 * trim
+                                                                else f["band_energy"][a:b], 1 / hop),
                      "mean_level_db": float(f["level_db"][a:b].mean())})
     speech = sum(s["end_s"] - s["start_s"] for s in segs)
     return {"segments": segs, "speech_ratio": speech / duration if duration else None, "speech_s": speech,

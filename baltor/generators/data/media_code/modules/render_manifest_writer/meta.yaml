@@ -1,0 +1,9 @@
+title: Render manifest writer
+summary: Records every render input and output with SHA-256 and size plus params, tool versions and credits; verifies files later and flags outputs re-delivered under a different job.
+subkind: rights-manifest
+domain: video
+tags: [video, manifest, sha256, reproducibility, credits, qa]
+step_kinds: [render, verify, publish]
+effects:
+  filesystem: write
+  side_effects: ["reads input/output files to hash them", "writes the manifest JSON atomically"]

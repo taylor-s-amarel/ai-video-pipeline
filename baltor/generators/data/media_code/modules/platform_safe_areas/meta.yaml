@@ -1,0 +1,7 @@
+title: Platform safe-area checker
+summary: Profile-driven safe areas for vertical and landscape video (house conservative defaults, custom JSON profiles) with text-box checks and a clamped caption band.
+subkind: aspect-format
+domain: video
+tags: [video, safe-area, shorts, reels, tiktok, layout, qa]
+step_kinds: [design, verify]
+description: "Built-in margins are this project's own conservative defaults, not platform specifications: platform UI guidance changes and could not be verified from official sources on 2026-10-10. Load current official numbers as a custom profile."

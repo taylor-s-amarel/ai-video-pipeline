@@ -1,0 +1,6 @@
+title: Scene change detector
+summary: Finds hard cuts with colour-histogram distance against an absolute and locally adaptive threshold (fades and motion ignored) and reports shot lengths for pacing checks.
+subkind: qa-check
+domain: video
+tags: [video, scene-detection, cuts, pacing, qa, numpy]
+step_kinds: [verify, research]

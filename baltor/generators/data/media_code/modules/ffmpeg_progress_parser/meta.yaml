@@ -1,0 +1,9 @@
+title: ffmpeg progress parser
+summary: Parses ffmpeg -progress key=value blocks into frame, fps, output time, speed, percent and ETA, and runs a render with a progress callback (no shell).
+subkind: worker
+domain: video
+tags: [video, ffmpeg, progress, render, monitoring]
+step_kinds: [render, operate]
+effects:
+  side_effects: ["run_with_progress starts the given ffmpeg command"]
+depends_on: [ffmpeg]

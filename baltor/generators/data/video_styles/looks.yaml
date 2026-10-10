@@ -1,0 +1,292 @@
+# Whole looks: a named combination of the other presets plus pacing. Every look keeps the
+# standing rules: 60 s or longer, no layer above 98% opacity, a moving background throughout.
+# Values are identities of components produced by the same generator.
+
+house_facts_frosted:
+  name: House facts (frosted, FACT N)
+  use_for: [Women-in-history and science facts, Numbered fact lists, Biographies with real numbers]
+  avoid: [Topics without sourced numbers]
+  palette: house_yellow_night
+  typography: type_pair_montserrat_inter
+  caption: caption_frosted_keyword_pop
+  title: title_house_yellow_hook
+  label: title_fact_number_label
+  stack: layer_stack_house_30_reference
+  text_in: text_anim_fade_up_soft
+  keyword: text_anim_keyword_pop_house
+  camera: [camera_ken_burns_in_upper_third, camera_alternating_zoom_pair, camera_impact_punch_in]
+  transitions: [transition_hard_cut_on_beat, transition_whip_pan_up, transition_impact_flash_white]
+  thumbnail: thumb_house_yellow_hook_thumb
+  pacing: {shot_s: [2.0, 4.0], words_per_minute: [140, 160], cut_on: sentence breaks and beats}
+  house: true
+relationship_soft_talk:
+  name: Relationship soft talk
+  use_for: [Trust, communication and feelings topics, Advice in five short points]
+  avoid: [Fast hype edits]
+  palette: relationship_blush
+  typography: type_pair_fredoka_nunito
+  caption: caption_pill_per_line
+  title: title_minimal_serif_white
+  label: title_fact_number_label
+  stack: layer_stack_dreamy_soft_18
+  text_in: text_anim_springy_pop_overshoot
+  keyword: text_anim_keyword_pop_house
+  camera: [camera_slow_rotate_drift, camera_ken_burns_slow_in_center]
+  transitions: [transition_crossfade_soft, transition_light_leak_burn]
+  thumbnail: thumb_question_curiosity_thumb
+  pacing: {shot_s: [3.0, 5.0], words_per_minute: [130, 150], cut_on: sentence breaks}
+today_in_history_archive:
+  name: Today in history (archive)
+  use_for: [Anniversaries, On-this-day stories, Archive photos]
+  avoid: [Dates you have not checked against a source]
+  palette: warm_paper_sepia
+  typography: type_pair_typewriter_archive
+  caption: caption_typewriter_mono
+  title: title_date_stamp_history
+  label: title_fact_number_label
+  stack: layer_stack_documentary_archive_16
+  text_in: text_anim_typewriter
+  keyword: text_anim_highlight_sweep
+  camera: [camera_diagonal_drift, camera_handheld_micro_shake, camera_tilt_down_reveal]
+  transitions: [transition_dissolve_film, transition_dip_to_black]
+  thumbnail: thumb_fact_card_thumb
+  pacing: {shot_s: [3.0, 6.0], words_per_minute: [135, 150], cut_on: sentence breaks}
+news_brief_clean:
+  name: News brief (clean)
+  use_for: [Explainers of current events with sources, Weekly roundups]
+  avoid: [Breaking news you cannot verify yet]
+  palette: news_contrast
+  typography: type_pair_robotoslab_roboto
+  caption: caption_subtitle_accessible
+  title: title_news_lower_third
+  label: title_step_card_center
+  stack: layer_stack_landscape_news_14
+  text_in: text_anim_mask_reveal_up
+  keyword: text_anim_highlight_sweep
+  camera: [camera_handheld_micro_shake, camera_push_in_fast]
+  transitions: [transition_hard_cut_on_beat, transition_slide_push_up]
+  thumbnail: thumb_big_number_thumb
+  pacing: {shot_s: [2.5, 4.5], words_per_minute: [145, 165], cut_on: sentence breaks}
+science_blueprint_explainer:
+  name: Science blueprint explainer
+  use_for: [How-it-works, Inventions, Engineering]
+  avoid: [Emotional stories]
+  palette: science_blueprint
+  typography: type_pair_sharetech_plex
+  caption: caption_two_tone_emphasis
+  title: title_step_card_center
+  label: title_fact_number_label
+  stack: layer_stack_multi_view_grid_12
+  text_in: text_anim_fade_up_soft
+  keyword: text_anim_keyword_pop_house
+  camera: [camera_push_in_fast, camera_pull_back_reveal, camera_pan_left_to_right]
+  transitions: [transition_slide_push_up, transition_diagonal_wipe]
+  thumbnail: thumb_fact_card_thumb
+  animation_style: anim_style_sketch_blueprint
+  pacing: {shot_s: [2.5, 5.0], words_per_minute: [140, 155], cut_on: each step}
+space_facts_starfield:
+  name: Space facts (starfield)
+  use_for: [Astronomy, Spaceflight history, Women in space]
+  avoid: [Claims about missions without an agency or peer-reviewed source]
+  palette: space_violet
+  typography: type_pair_montserrat_inter
+  caption: caption_frosted_keyword_pop
+  title: title_house_yellow_hook
+  label: title_fact_number_label
+  stack: layer_stack_house_30_reference
+  stack_theme: space
+  text_in: text_anim_fade_up_soft
+  keyword: text_anim_keyword_pop_house
+  camera: [camera_ken_burns_in_upper_third, camera_tilt_up_rise, camera_pull_back_reveal]
+  transitions: [transition_crossfade_soft, transition_zoom_into_next]
+  thumbnail: thumb_house_yellow_hook_thumb
+  pacing: {shot_s: [2.5, 4.5], words_per_minute: [140, 155], cut_on: sentence breaks}
+  house: true
+battle_history_map:
+  name: Battle history (map)
+  use_for: [Battles and campaigns, Expeditions, Routes and borders]
+  avoid: [Glorifying violence; keep to sourced facts and outcomes]
+  palette: history_archive
+  typography: type_pair_oswald_barlowcondensed
+  caption: caption_frosted_keyword_pop
+  title: title_stacked_two_line_hook
+  label: title_fact_number_label
+  stack: layer_stack_documentary_archive_16
+  text_in: text_anim_fade_up_soft
+  keyword: text_anim_keyword_pop_house
+  camera: [camera_diagonal_drift, camera_push_in_fast, camera_pan_right_to_left]
+  transitions: [transition_dissolve_film, transition_dip_to_black]
+  thumbnail: thumb_big_number_thumb
+  animation_style: anim_style_top_down
+  pacing: {shot_s: [2.5, 5.0], words_per_minute: [140, 160], cut_on: sentence breaks}
+ai_explainer_neon:
+  name: AI explainer (neon)
+  use_for: [AI and software explainers, Tech news with sources]
+  avoid: [Overclaiming what a model can do]
+  palette: neon_night
+  typography: type_pair_spacegrotesk_jetbrains
+  caption: caption_neon_glow
+  title: title_neon_sign_hook
+  label: title_step_card_center
+  stack: layer_stack_neon_explainer_20
+  text_in: text_anim_blur_in_focus
+  keyword: text_anim_keyword_pop_house
+  camera: [camera_push_in_fast, camera_whip_pan, camera_impact_punch_in]
+  transitions: [transition_whip_pan_left, transition_pixelize_glitch, transition_horizontal_blur]
+  thumbnail: thumb_question_curiosity_thumb
+  pacing: {shot_s: [1.5, 3.5], words_per_minute: [150, 170], cut_on: beats}
+ridiculous_story_comic:
+  name: Ridiculous story (comic)
+  use_for: [Absurd premises (stuck in a box, 1,000 dogs), Cartoon shorts]
+  avoid: [Real people in embarrassing situations]
+  palette: comic_primary
+  typography: type_pair_bangers_nunito
+  caption: caption_sticker_label
+  title: title_comic_burst_hook
+  label: title_top_n_rank
+  stack: layer_stack_comic_panel_14
+  text_in: text_anim_bounce_in_from_below
+  keyword: text_anim_shake_emphasis
+  camera: [camera_impact_punch_in, camera_whip_pan, camera_alternating_zoom_pair]
+  transitions: [transition_circle_reveal, transition_squeeze_vertical, transition_impact_flash_white]
+  thumbnail: thumb_comic_burst_thumb
+  animation_style: anim_style_cel_shaded_comic
+  pacing: {shot_s: [1.2, 3.0], words_per_minute: [150, 170], cut_on: beats and punchlines}
+cute_animals_sunny:
+  name: Cute animals (sunny)
+  use_for: [Pets and wildlife facts, Feel-good stories]
+  avoid: [Distressed animals]
+  palette: meadow_morning
+  typography: type_pair_fredoka_nunito
+  caption: caption_handwritten_note
+  title: title_question_hook
+  label: title_fact_number_label
+  stack: layer_stack_lean_12_layer
+  stack_theme: meadow
+  text_in: text_anim_mask_reveal_up
+  keyword: text_anim_highlight_sweep
+  camera: [camera_ken_burns_slow_in_center, camera_alternating_zoom_pair]
+  transitions: [transition_crossfade_soft, transition_circle_reveal]
+  thumbnail: thumb_question_curiosity_thumb
+  pacing: {shot_s: [2.0, 4.0], words_per_minute: [135, 155], cut_on: sentence breaks}
+lowpoly_story:
+  name: Low-poly story
+  use_for: [Narrative shorts, Geography and nature stories]
+  avoid: [Photoreal topics]
+  palette: house_yellow_night
+  typography: type_pair_montserrat_inter
+  caption: caption_frosted_keyword_pop
+  title: title_house_yellow_hook
+  label: title_fact_number_label
+  stack: layer_stack_lean_12_layer
+  text_in: text_anim_fade_up_soft
+  keyword: text_anim_keyword_pop_house
+  camera: [camera_parallax_dolly, camera_push_in_fast]
+  transitions: [transition_crossfade_soft, transition_zoom_into_next]
+  thumbnail: thumb_house_yellow_hook_thumb
+  animation_style: anim_style_faceted_low_poly
+  pacing: {shot_s: [2.5, 5.0], words_per_minute: [135, 155], cut_on: story beats}
+  house: true
+stick_figure_doodle:
+  name: Stick-figure doodle
+  use_for: [Funny everyday stories, Explaining a habit or idea with one character]
+  avoid: [Topics that need real imagery]
+  palette: warm_paper_sepia
+  typography: type_pair_marker_patrickhand
+  caption: caption_handwritten_note
+  title: title_question_hook
+  label: title_step_card_center
+  stack: layer_stack_minimal_8_layer
+  stack_theme: clouds
+  text_in: text_anim_mask_reveal_up
+  keyword: text_anim_highlight_sweep
+  camera: [camera_alternating_zoom_pair, camera_pan_left_to_right]
+  transitions: [transition_hard_cut_on_beat, transition_slide_push_up]
+  thumbnail: thumb_question_curiosity_thumb
+  animation_style: anim_style_side_view_2d
+  pacing: {shot_s: [1.5, 3.5], words_per_minute: [140, 160], cut_on: actions}
+top10_countdown:
+  name: Top-10 countdown
+  use_for: [Rankings with a clear measure, Countdowns]
+  avoid: [Rankings without a stated measure or source]
+  palette: news_contrast
+  typography: type_pair_anton_inter
+  caption: caption_boxed_keyword
+  title: title_kinetic_slam_hook
+  label: title_top_n_rank
+  stack: layer_stack_lean_12_layer
+  stack_theme: night_city
+  text_in: text_anim_springy_pop_overshoot
+  keyword: text_anim_keyword_pop_house
+  camera: [camera_impact_punch_in, camera_push_in_fast, camera_alternating_zoom_pair]
+  transitions: [transition_whip_pan_up, transition_impact_flash_white, transition_cover_up]
+  thumbnail: thumb_countdown_rank_thumb
+  pacing: {shot_s: [1.5, 3.0], words_per_minute: [150, 170], cut_on: each rank}
+quiz_question_hook:
+  name: Quiz question hook
+  use_for: [Quiz and guess-the-answer shorts]
+  avoid: [Questions with disputed answers]
+  palette: sunset_coral
+  typography: type_pair_montserrat_black
+  caption: caption_two_tone_emphasis
+  title: title_question_hook
+  label: title_step_card_center
+  stack: layer_stack_lean_12_layer
+  stack_theme: clouds
+  text_in: text_anim_fade_up_soft
+  keyword: text_anim_keyword_pop_house
+  camera: [camera_push_in_fast, camera_pull_back_reveal]
+  transitions: [transition_radial_wipe, transition_circle_reveal]
+  thumbnail: thumb_question_curiosity_thumb
+  pacing: {shot_s: [2.0, 4.0], words_per_minute: [140, 160], cut_on: question and answer}
+calm_nature_facts:
+  name: Calm nature facts
+  use_for: [Nature, oceans and weather facts]
+  avoid: [Hype edits]
+  palette: forest_canopy
+  typography: type_pair_playfair_sourcesans
+  caption: caption_gradient_scrim_minimal
+  title: title_minimal_serif_white
+  label: title_fact_number_label
+  stack: layer_stack_house_30_reference
+  stack_theme: forest
+  text_in: text_anim_fade_up_soft
+  keyword: text_anim_keyword_pop_house
+  camera: [camera_ken_burns_slow_in_center, camera_tilt_up_rise, camera_parallax_dolly]
+  transitions: [transition_crossfade_soft, transition_dissolve_film]
+  thumbnail: thumb_minimal_outline_thumb
+  pacing: {shot_s: [3.0, 6.0], words_per_minute: [130, 150], cut_on: sentence breaks}
+tutorial_steps_clear:
+  name: Tutorial steps (clear)
+  use_for: [How-tos and recipes, Small-business process explainers]
+  avoid: [Steps you have not tried]
+  palette: okabe_ito_safe
+  typography: type_pair_atkinson_hyperlegible
+  caption: caption_subtitle_accessible
+  title: title_step_card_center
+  label: title_step_card_center
+  stack: layer_stack_multi_view_grid_12
+  text_in: text_anim_fade_up_soft
+  keyword: text_anim_highlight_sweep
+  camera: [camera_push_in_fast, camera_ken_burns_slow_in_center]
+  transitions: [transition_slide_push_up, transition_hard_cut_on_beat]
+  thumbnail: thumb_before_after_split_thumb
+  animation_style: anim_style_multi_view_split
+  pacing: {shot_s: [2.5, 5.0], words_per_minute: [130, 150], cut_on: each step}
+pixel_retro_story:
+  name: Pixel retro story
+  use_for: [Game-style stories, Retro tech history]
+  avoid: [Photo-based topics]
+  palette: pixel_retro
+  typography: type_pair_pixel_pair
+  caption: caption_outline_bold_center
+  title: title_kinetic_slam_hook
+  label: title_top_n_rank
+  stack: layer_stack_pixel_retro_10
+  text_in: text_anim_typewriter
+  keyword: text_anim_shake_emphasis
+  camera: [camera_whip_pan, camera_impact_punch_in]
+  transitions: [transition_pixelize_glitch, transition_hard_cut_on_beat]
+  thumbnail: thumb_countdown_rank_thumb
+  animation_style: anim_style_pixel_art
+  pacing: {shot_s: [1.5, 3.0], words_per_minute: [145, 165], cut_on: beats}

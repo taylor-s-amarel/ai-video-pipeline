@@ -1,0 +1,13 @@
+title: Detect content aspect and reframing method
+summary: Finds the content rectangle inside the frame, names its aspect ratio and decides how it was reframed - fit with bars, blur-pad, static pad, crop-zoom or full frame - from bars, fill correlation and upscale evidence.
+description: >-
+  Uses the shared edge-bar scan for the content rectangle, correlates blurred fills with a stretched copy of the
+  content to confirm blur-padding, and uses the spectral upscale estimate on a native-resolution crop to separate
+  crop-zoom from native full-frame framing.
+tags: [aspect-ratio, reframe, blur-pad, crop, vertical-video]
+limits:
+  - A crop from a higher-resolution source looks the same as native framing.
+  - Soft footage can read as crop-zoom.
+contract:
+  title: Aspect and reframe payload
+  summary: JSON Schema for the aspect/reframe detector payload - frame and content aspect names and ratios, content rectangle, reframing method, fill evidence and upscale factor.

@@ -1,0 +1,11 @@
+{
+  "frame_aspect": "9:16",
+  "frame_ratio": 0.5625,
+  "content_aspect": "16:9",
+  "content_ratio": 1.7778,
+  "content_rect": { "x": 0, "y": 657, "w": 1080, "h": 607 },
+  "method": "stretch",
+  "fill": null,
+  "upscale_factor": null,
+  "frames_analysed": 45
+}

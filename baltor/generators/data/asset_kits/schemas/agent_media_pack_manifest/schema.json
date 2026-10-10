@@ -1,0 +1,516 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/agent-media-pack-manifest",
+  "title": "Agent media pack manifest",
+  "description": "A list of third-party (or original) media an agent may fetch for one project: where each file comes from, its licence and exact credit line, whether it may be redistributed, its SHA-256 once downloaded, and how to import it into Godot 4, Blender or a video render. Manifests point at sources; they never contain the media.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "spec",
+    "pack_id",
+    "title",
+    "purpose",
+    "status",
+    "assets"
+  ],
+  "properties": {
+    "spec": {
+      "const": "baltor.media-pack/v1"
+    },
+    "pack_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{2,63}$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 120
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 800
+    },
+    "status": {
+      "enum": [
+        "manifest-only",
+        "partially-fetched",
+        "fetched"
+      ],
+      "description": "manifest-only: nothing downloaded yet. Files are never part of the manifest itself."
+    },
+    "created": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "verified_on": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "description": "Date the source pages and licences were last checked."
+    },
+    "targets": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "godot-4",
+          "blender-4",
+          "ffmpeg-video",
+          "web",
+          "print"
+        ]
+      }
+    },
+    "frame": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "width": {
+          "type": "integer",
+          "minimum": 16
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 16
+        },
+        "fps": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      }
+    },
+    "licence_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "allow_non_commercial": {
+          "type": "boolean"
+        },
+        "allow_share_alike": {
+          "type": "boolean"
+        },
+        "require_redistributable": {
+          "type": "boolean"
+        },
+        "notes": {
+          "type": "string",
+          "maxLength": 600
+        }
+      }
+    },
+    "allowed_hosts": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^(\\*\\.)?[a-z0-9.-]+$"
+      },
+      "description": "Extra download hosts the fetcher may use when the operator passes --use-manifest-hosts."
+    },
+    "credits_file": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 600
+      }
+    },
+    "assets": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/asset"
+      }
+    }
+  },
+  "$defs": {
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "source_url",
+        "licence",
+        "licence_url",
+        "attribution",
+        "attribution_required",
+        "redistribution",
+        "format",
+        "intended_use",
+        "fetch"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]{1,63}$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 160
+        },
+        "creator": {
+          "type": "string",
+          "maxLength": 160
+        },
+        "source_url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https?://",
+          "description": "Human-readable page that shows the asset and its licence."
+        },
+        "download_url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        "licence": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 160,
+          "description": "SPDX id where one exists, otherwise a short name such as 'Adobe Mixamo terms'."
+        },
+        "licence_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "attribution": {
+          "type": "string",
+          "maxLength": 400,
+          "description": "Exact credit line to print in the video description, end card or CREDITS.md."
+        },
+        "attribution_required": {
+          "type": "boolean"
+        },
+        "redistribution": {
+          "enum": [
+            "allowed",
+            "allowed-with-licence",
+            "project-only",
+            "forbidden"
+          ],
+          "description": "project-only/forbidden: usable inside the finished work, never re-shared as files."
+        },
+        "commercial_use": {
+          "enum": [
+            "allowed",
+            "non-commercial-only",
+            "check-terms"
+          ]
+        },
+        "ai_training": {
+          "enum": [
+            "allowed",
+            "forbidden",
+            "unspecified"
+          ]
+        },
+        "restrictions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 300
+          }
+        },
+        "format": {
+          "enum": [
+            "glb",
+            "gltf",
+            "fbx",
+            "obj",
+            "blend",
+            "dae",
+            "lwo",
+            "vox",
+            "bvh",
+            "png",
+            "jpg",
+            "webp",
+            "svg",
+            "exr",
+            "hdr",
+            "gif",
+            "wav",
+            "ogg",
+            "mp3",
+            "flac",
+            "ttf",
+            "otf",
+            "woff2",
+            "json-lottie",
+            "dotlottie",
+            "riv",
+            "zip",
+            "tres",
+            "hex",
+            "gpl",
+            "pal",
+            "json",
+            "mixed"
+          ]
+        },
+        "file_name": {
+          "type": "string",
+          "pattern": "^[^/\\\\]{1,120}$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "intended_use": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "maxLength": 200
+          }
+        },
+        "will_modify": {
+          "type": "boolean"
+        },
+        "fetch": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "method",
+            "status"
+          ],
+          "properties": {
+            "method": {
+              "enum": [
+                "direct",
+                "manual-page",
+                "api",
+                "git"
+              ]
+            },
+            "status": {
+              "enum": [
+                "to-fetch",
+                "fetched",
+                "failed",
+                "manual"
+              ]
+            },
+            "fetched_on": {
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+            },
+            "notes": {
+              "type": "string",
+              "maxLength": 400
+            }
+          }
+        },
+        "import_hints": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "godot": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "importer": {
+                  "enum": [
+                    "texture",
+                    "scene",
+                    "font",
+                    "audio",
+                    "none"
+                  ]
+                },
+                "preset": {
+                  "enum": [
+                    "pixel-art-2d",
+                    "pixel-art-3d",
+                    "smooth-2d",
+                    "texture-3d",
+                    "normal-map-3d",
+                    "ui-lossless"
+                  ]
+                },
+                "root_type": {
+                  "type": "string",
+                  "maxLength": 60
+                },
+                "scale": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "notes": {
+                  "type": "string",
+                  "maxLength": 400
+                }
+              }
+            },
+            "blender": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "operator": {
+                  "type": "string",
+                  "pattern": "^bpy\\.ops\\.[a-z_]+\\.[a-z_]+$"
+                },
+                "scale": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "notes": {
+                  "type": "string",
+                  "maxLength": 400
+                }
+              }
+            },
+            "video": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "role": {
+                  "enum": [
+                    "background",
+                    "foreground",
+                    "overlay",
+                    "icon",
+                    "font",
+                    "sfx",
+                    "hdri-lighting",
+                    "character",
+                    "prop"
+                  ]
+                },
+                "notes": {
+                  "type": "string",
+                  "maxLength": 400
+                }
+              }
+            }
+          }
+        },
+        "verification": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "on",
+            "how"
+          ],
+          "properties": {
+            "on": {
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+            },
+            "how": {
+              "enum": [
+                "fetched",
+                "search-result",
+                "manual",
+                "unverified"
+              ]
+            }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "attribution_required": {
+                "const": true
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "attribution": {
+                "minLength": 3
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "licence": {
+                "pattern": "^(CC-BY|CC BY|OGA-BY)"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "attribution_required": {
+                "const": true
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "fetch": {
+                "properties": {
+                  "status": {
+                    "const": "fetched"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "sha256",
+              "bytes",
+              "file_name"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "fetch": {
+                "properties": {
+                  "method": {
+                    "const": "direct"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "download_url"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "redistribution": {
+                "const": "forbidden"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "fetch": {
+                "properties": {
+                  "method": {
+                    "not": {
+                      "const": "direct"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

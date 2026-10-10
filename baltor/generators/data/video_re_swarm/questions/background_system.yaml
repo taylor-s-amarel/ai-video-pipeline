@@ -20,11 +20,11 @@
 - id: background_system-003
   question: "What is the background motion level (mean absolute frame difference in background regions, median over shots)?"
   why: "Fills background_motion_level as a measurable number."
-  how: "Median of the F5 border-band means per shot, or evidence.shots[].motion_energy.border if it uses the same definition."
+  how: "Median over shots of evidence.shots[].motion_energy.border (video_re_motion_energy: mean absolute grey-level difference between consecutive frames, 0-255, at 160 px analysis width, outside the central 60% x 60% box). Cross-check 3 shots with F5 on text-free bands."
   evidence: ["F5", "evidence.shots[].motion_energy.border"]
   ir_path: "/motion/background_motion_level"
   type: number
-  challenge: "State the definition and scale; motion_energy may be normalised differently from F5."
+  challenge: "The border region includes captions and titles that animate; compare with F5 on a text-free band and report both."
 
 - id: background_system-004
   question: "Does the background change per beat, per shot, or stay the same for the whole video?"

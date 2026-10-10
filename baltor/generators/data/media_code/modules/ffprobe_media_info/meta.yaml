@@ -1,0 +1,10 @@
+title: ffprobe media info
+summary: Runs ffprobe without a shell and summarises streams into typed fields (duration, codecs, rotation-corrected size, fps, VFR flag, audio rate and channels), with a pure summariser for tests.
+subkind: qa-check
+domain: video
+tags: [video, ffprobe, metadata, qa, media-info]
+step_kinds: [verify, build]
+effects:
+  filesystem: read
+  side_effects: ["runs ffprobe on the given file"]
+depends_on: [ffmpeg]

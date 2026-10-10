@@ -1,0 +1,6 @@
+title: Saliency crop window
+summary: Chooses the crop window of a target aspect that keeps the most salient content (edges plus colour distinctness via integral images) and smooths it over time for jitter-free reframing.
+subkind: aspect-format
+domain: video
+tags: [video, reframe, saliency, crop, 9x16, numpy]
+step_kinds: [build, render]

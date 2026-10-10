@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/video-re-contract-parallax-depth-layers",
+  "title": "Parallax depth layers payload",
+  "description": "Payload of video_re_detect_parallax_depth_layers: per shot, the layers that move in one direction at different speeds, ranked by speed (faster = nearer under camera translation). Directions are image angles of content motion: 0 right, 90 down, 180 left, 270 up.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["shots", "shots_with_parallax", "max_layers_in_parallax"],
+  "$defs": {
+    "bbox": { "type": "array", "items": { "type": "number", "minimum": 0 }, "minItems": 4, "maxItems": 4 },
+    "ratio_box": { "type": "array", "items": { "type": "number", "minimum": 0, "maximum": 1 }, "minItems": 4, "maxItems": 4 },
+    "angle": { "type": ["number", "null"], "minimum": 0, "maximum": 360 }
+  },
+  "properties": {
+    "shots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["shot_index", "t_start_s", "t_end_s", "parallax", "direction_deg", "layers", "max_speed_ratio", "other_moving_layers"],
+        "properties": {
+          "shot_index": { "type": "integer", "minimum": 0 },
+          "t_start_s": { "type": "number", "minimum": 0 },
+          "t_end_s": { "type": "number", "minimum": 0 },
+          "parallax": { "type": ["boolean", "null"], "description": "null when the shot was too short to measure" },
+          "direction_deg": { "$ref": "#/$defs/angle" },
+          "layers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["speed_px_s", "speed_fw_per_s", "speed_ratio", "direction_deg", "depth_rank", "block_share", "region"],
+              "properties": {
+                "speed_px_s": { "type": "number", "minimum": 0, "description": "analysed-frame pixels per second" },
+                "speed_fw_per_s": { "type": "number", "minimum": 0, "description": "frame widths per second" },
+                "speed_ratio": { "type": "number", "minimum": 1, "description": "speed / slowest layer in the set" },
+                "direction_deg": { "type": "number", "minimum": 0, "maximum": 360 },
+                "depth_rank": { "type": "integer", "minimum": 0, "description": "0 = fastest = nearest" },
+                "block_share": { "type": "number", "minimum": 0, "maximum": 1 },
+                "region": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["bbox", "bbox_ratio", "y_center_ratio"],
+                  "properties": {
+                    "bbox": { "$ref": "#/$defs/bbox" },
+                    "bbox_ratio": { "$ref": "#/$defs/ratio_box" },
+                    "y_center_ratio": { "type": "number", "minimum": 0, "maximum": 1 }
+                  }
+                }
+              }
+            }
+          },
+          "max_speed_ratio": { "type": ["number", "null"], "minimum": 1 },
+          "other_moving_layers": { "type": "integer", "minimum": 0, "description": "moving layers outside the parallax direction" }
+        }
+      }
+    },
+    "shots_with_parallax": { "type": "integer", "minimum": 0 },
+    "max_layers_in_parallax": { "type": "integer", "minimum": 0 }
+  }
+}

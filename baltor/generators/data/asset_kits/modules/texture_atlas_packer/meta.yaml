@@ -1,0 +1,13 @@
+title: Texture atlas packer (MaxRects, padding, edge extrusion, Godot AtlasTexture)
+summary: Packs many small images into one power-of-two atlas with padding and edge extrusion, writing atlas PNG, TexturePacker-style JSON and optional Godot 4 AtlasTexture resources.
+subkind: procedural-asset
+domain: asset-pipeline
+tags: [atlas, sprites, texture-packing, godot, pillow]
+step_kinds: [build, render]
+effects:
+  filesystem: write
+  executes: python
+depends_on:
+  - {identity: pillow, external: true}
+examples:
+  - "python texture_atlas_packer.py icons/*.png --out build/icons_atlas --padding 2 --extrude 1 --godot-res res://ui/icons_atlas.png"

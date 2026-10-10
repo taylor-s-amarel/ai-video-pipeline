@@ -1,0 +1,256 @@
+# Animation styles. Each is guidance for producing a look with open-source tools (Blender, Godot,
+# Pillow, ffmpeg). Camera angles below are geometry, not measurements of any product:
+# true isometric elevation = atan(1/sqrt(2)) = 35.264 deg (Blender camera X rotation 54.736 deg, Z 45 deg);
+# 2:1 "pixel isometric" (dimetric) uses 30 deg elevation, because a ground tile then projects to
+# height/width = sin(30 deg) = 0.5 (Blender camera X rotation 60 deg, Z 45 deg).
+
+top_down:
+  name: Top-down
+  projection: orthographic-top
+  camera: {elevation_deg: 90, azimuth_deg: 0, orthographic: true}
+  shading: flat
+  outline: {enabled: false, width_px: 0}
+  timing: {render_fps: 30, animate_on: ones}
+  palette: {max_colors: 12, note: Strong value contrast between ground and moving subjects.}
+  best_for: [Maps and battles, Mazes and puzzles, Traffic, sports plays and logistics]
+  avoid: [Faces and emotions (the camera never sees them)]
+  look: Straight-down view; everything reads as shapes and paths, so motion paths tell the story.
+  recipe:
+    - "Blender: Camera > Type Orthographic, rotation (0, 0, 0) looking down -Z; set Orthographic Scale to the area you want in frame."
+    - "Godot: Camera2D over a TileMap, or Camera3D with Projection Orthogonal rotated -90 deg on X."
+    - "Draw paths first (arrows, trails), then animate subjects along them; add a drop shadow offset (6-12 px, 40% opacity) so subjects lift off the ground."
+    - "For maps, keep north up and label at most three places per shot."
+  pitfalls: [Tiny subjects at 1080 px wide; scale subjects to at least 5% of frame width, Busy ground textures that hide the subject]
+  tools: [Blender, Godot, Pillow]
+
+side_view_2d:
+  name: Side-view 2D
+  projection: orthographic-side
+  camera: {elevation_deg: 0, azimuth_deg: 0, orthographic: true}
+  shading: flat
+  outline: {enabled: true, width_px: 4}
+  timing: {render_fps: 30, animate_on: twos}
+  palette: {max_colors: 10, note: Darker foreground silhouettes, lighter distant layers.}
+  best_for: [Stick-figure and character stories, Platformer-style journeys, Processes moving left to right]
+  avoid: [Spatial layouts that need depth]
+  look: Flat side-on stage like a platformer or puppet theatre; characters move left and right.
+  recipe:
+    - "Godot: Camera2D with Smoothing on; put each depth band in a Parallax2D/ParallaxLayer (scroll scale 0.2, 0.5, 1.0)."
+    - "Pillow: draw characters as simple shapes and limbs as rotated rectangles; step the animation every 2 frames (12 poses per second at 24-30 fps) for a hand-made feel."
+    - "Keep the ground line at 70-75% of frame height in 9:16 so captions sit below it."
+  pitfalls: [Characters walking toward the right edge into the platform buttons in vertical video]
+  tools: [Godot, Pillow, Blender]
+
+isometric:
+  name: Isometric
+  projection: isometric
+  camera: {elevation_deg: 35.264, azimuth_deg: 45, orthographic: true}
+  shading: flat
+  outline: {enabled: false, width_px: 0}
+  timing: {render_fps: 30, animate_on: ones}
+  palette: {max_colors: 14, note: Three tones per material (top light, left mid, right dark).}
+  best_for: [Rooms, cities and factories, How-it-works builds, Small-business process explainers]
+  avoid: [Close-ups of faces]
+  look: Clean three-quarter view from above with parallel lines; looks like a diorama.
+  recipe:
+    - "Blender: Camera > Orthographic, rotation X 54.736 deg, Y 0, Z 45 deg; this gives true isometric. For 2:1 pixel-art tiles use X 60 deg instead (see the dimetric note)."
+    - "Light with a Sun lamp from one side so the three visible faces get three different values; or skip lighting and paint faces with flat colours."
+    - "Build on a grid (Blender: Snap to Increment) so every object lines up with the iso axes."
+  pitfalls: [Perspective cameras (lines stop being parallel), Text placed on the iso plane (keep captions screen-aligned)]
+  tools: [Blender, Godot]
+
+layered_parallax_25d:
+  name: Layered 2.5D parallax
+  projection: layered-2.5d
+  camera: {elevation_deg: 0, azimuth_deg: 0, orthographic: false}
+  shading: flat
+  outline: {enabled: false, width_px: 0}
+  timing: {render_fps: 30, animate_on: ones}
+  layers: [{name: sky/background, speed: 0.2}, {name: far scenery, speed: 0.4}, {name: midground, speed: 0.7}, {name: subject, speed: 1.0}, {name: foreground blur, speed: 1.4}]
+  palette: {max_colors: 0, note: Use atmospheric perspective - distant layers lighter and less saturated.}
+  best_for: [Bringing still photos to life, History photos, Landscapes]
+  avoid: [Photos with no clear subject edge]
+  look: A still photo split into depth layers that slide at different speeds as the camera drifts.
+  recipe:
+    - "Cut the photo into layers (subject, middle, background) in an image editor; fill the holes behind the subject with content-aware fill or a blurred copy."
+    - "Animate each layer with the parallax_dolly camera move: background 0.3x, midground 0.6x, subject 1.0x of the camera travel; a foreground layer may move 1.4x."
+    - "ffmpeg: overlay each layer with x='(W-w)/2 - SPEED*TRAVEL*t/DUR' on a slightly oversized canvas; keep total travel under 6% of width to avoid tearing."
+    - "Blender alternative: place each layer on a plane at a different distance from a perspective camera and dolly the camera."
+  pitfalls: [Hair and fine edges (feather masks 2-4 px), Travel so large that filled holes become visible]
+  tools: [ffmpeg, Blender, Pillow]
+
+faceted_low_poly:
+  name: Faceted low-poly
+  projection: perspective
+  camera: {elevation_deg: 20, azimuth_deg: 30, orthographic: false, fov_deg: 35}
+  shading: flat
+  outline: {enabled: false, width_px: 0}
+  timing: {render_fps: 30, animate_on: ones}
+  palette: {max_colors: 16, note: Gradient between two palette colours across the scene; one accent.}
+  best_for: [Story shorts, Nature and geography, Tech explainers]
+  avoid: [Photoreal subjects (people expect detail)]
+  look: Visible triangular facets with flat shading and soft gradient light.
+  recipe:
+    - "Blender: model simply, add a Decimate modifier (Collapse ratio 0.1-0.3, or Planar), then Object > Shade Flat."
+    - "Use one Sun lamp plus a soft world colour; facets read best with a 30-50 degree light angle."
+    - "Pair with the bg_layer_lowpoly_facets background and a slow camera orbit (10-20 degrees over the shot)."
+  pitfalls: [Over-decimating characters until silhouettes break]
+  tools: [Blender, Godot]
+
+textured_cutout:
+  name: Textured paper cutout
+  projection: orthographic-side
+  camera: {elevation_deg: 0, azimuth_deg: 0, orthographic: true}
+  shading: textured-paper
+  outline: {enabled: true, width_px: 3}
+  timing: {render_fps: 24, animate_on: twos}
+  palette: {max_colors: 10, note: Muted paper colours with one saturated accent.}
+  best_for: [History and explainers with a crafted feel, Kids topics]
+  avoid: [Fast action]
+  look: Shapes cut from textured paper with soft drop shadows, moving in small rotations and hops.
+  recipe:
+    - "Pillow: fill each shape with a paper texture (bg_layer_warm_paper frame), add a 2-4 px darker edge and a drop shadow (offset 6 px, blur 6 px, 35%)."
+    - "Animate on twos: change pose every 2 frames; limit rotations to +/-8 degrees and pivot at joints."
+    - "Add a 1-2 px random offset per held pose (seeded) so shapes feel hand-placed."
+  pitfalls: [Smooth 60 fps tweens (they look digital, not cut out)]
+  tools: [Pillow, Godot, Blender]
+
+clay_like:
+  name: Clay-like
+  projection: perspective
+  camera: {elevation_deg: 15, azimuth_deg: 20, orthographic: false, fov_deg: 30}
+  shading: soft-clay
+  outline: {enabled: false, width_px: 0}
+  timing: {render_fps: 24, animate_on: twos}
+  palette: {max_colors: 12, note: Saturated but slightly dusty colours.}
+  best_for: [Friendly characters, Science for kids, Product explainers]
+  avoid: [Very long renders on CPU (soft shadows are slow)]
+  look: Rounded forms with matte, slightly bumpy surfaces and soft shadows, stepped like stop motion.
+  recipe:
+    - "Blender: Subdivision Surface (2 levels) on simple shapes; material Roughness 0.6-0.8, Specular low; add a subtle noise texture into Bump (strength 0.05-0.15)."
+    - "Light with a large Area lamp (soft shadows) and a dim fill; depth of field with a low f-stop sells the miniature scale."
+    - "Animate on twos and change the bump texture offset each held pose to mimic fingerprints shifting."
+  pitfalls: [Plastic-looking highlights (raise roughness), Too smooth motion]
+  tools: [Blender]
+
+sketch_blueprint:
+  name: Sketch / blueprint
+  projection: orthographic-side
+  camera: {elevation_deg: 0, azimuth_deg: 0, orthographic: true}
+  shading: line-only
+  outline: {enabled: true, width_px: 3}
+  timing: {render_fps: 24, animate_on: twos}
+  palette: {max_colors: 3, note: White or light blue lines on blueprint blue, or graphite on paper.}
+  best_for: [Engineering and how-it-works, Inventions and patents, Plans and strategies]
+  avoid: [Emotional stories]
+  look: Line drawings that draw themselves on a grid, with dimension marks and labels.
+  recipe:
+    - "Background: bg_layer_blueprint_grid (dark) or bg_layer_warm_paper (graphite look)."
+    - "Draw-on effect: reveal each stroke by its length over 0.3-0.8 s (SVG stroke-dashoffset, or Pillow drawing the polyline up to the current length)."
+    - "Line boil: re-jitter every stroke by 0.5-1 px every 2-3 frames with a fixed seed per frame."
+    - "Blender: Freestyle line rendering or the Grease Pencil Line Art modifier for 3D models seen as drawings."
+  pitfalls: [Lines thinner than 2 px at 1080 wide disappear after platform compression]
+  tools: [Pillow, Blender, ffmpeg]
+
+cel_shaded_comic:
+  name: Cel-shaded comic
+  projection: perspective
+  camera: {elevation_deg: 10, azimuth_deg: 15, orthographic: false, fov_deg: 40}
+  shading: cel-3-tone
+  outline: {enabled: true, width_px: 5}
+  timing: {render_fps: 24, animate_on: twos}
+  palette: {max_colors: 12, note: Flat base colours with one shadow and one highlight tone each.}
+  best_for: [Ridiculous stories, Action and reveals, Superhero-style hooks]
+  avoid: [Documentary tone]
+  look: Flat colour bands, bold ink outlines and halftone shading like a printed comic.
+  recipe:
+    - "Blender (EEVEE): Diffuse BSDF -> Shader to RGB -> ColorRamp with Constant interpolation (2-3 stops) -> material output. Shader to RGB works in EEVEE only; in Cycles use the Toon BSDF instead."
+    - "Outlines: Freestyle, Line Art, or an inverted-hull outline (duplicate mesh, Solidify with flipped normals and a black backface-only material)."
+    - "Overlay bg_layer_halftone_drift at 10-20% multiply on shadows, and use the comic_sunburst background for reveals."
+  pitfalls: [Gradients sneaking in from soft lights (use a Sun lamp)]
+  tools: [Blender, Godot]
+
+pixel_art:
+  name: Pixel art
+  projection: orthographic-side
+  camera: {elevation_deg: 0, azimuth_deg: 0, orthographic: true}
+  shading: flat
+  outline: {enabled: true, width_px: 1}
+  timing: {render_fps: 30, animate_on: threes}
+  palette: {max_colors: 16, note: A fixed small palette; no anti-aliasing or blur.}
+  best_for: [Game-style stories, Retro tech, Simple character comedies]
+  avoid: [Detailed diagrams]
+  look: Low-resolution art scaled up by a whole number with hard pixel edges.
+  recipe:
+    - "Draw or render at a low base size that divides the output evenly, e.g. 270x480 or 180x320 for 1080x1920."
+    - "Upscale only by whole numbers with nearest-neighbour: ffmpeg -vf scale=iw*4:ih*4:flags=neighbor (or Pillow resize with Image.NEAREST)."
+    - "Move sprites in whole base pixels; animate sprite frames at 8-12 poses per second."
+    - "Godot: set the default texture filter to Nearest and render a small viewport scaled by an integer factor."
+    - "Add bg_layer_crt_scanlines at 10-20% overlay only if you want a CRT feel."
+  pitfalls: [Non-integer scaling (uneven pixels), Rotating sprites (breaks the grid), Platform compression smearing 1-pixel details]
+  tools: [Pillow, ffmpeg, Godot]
+
+voxel:
+  name: Voxel
+  projection: isometric
+  camera: {elevation_deg: 35.264, azimuth_deg: 45, orthographic: true}
+  shading: voxel-flat
+  outline: {enabled: false, width_px: 0}
+  timing: {render_fps: 30, animate_on: ones}
+  palette: {max_colors: 24, note: Per-face shading from one directional light; ambient occlusion in corners.}
+  best_for: [Building things block by block, Game-style worlds, Geography as blocks]
+  avoid: [Organic close-ups]
+  look: Scenes built from equal cubes, usually seen isometrically.
+  recipe:
+    - "Blender: Remesh modifier in Blocks mode (Octree Depth 5-7) turns any mesh into cubes; Shade Flat."
+    - "Or build directly from cubes with an Array modifier; Goxel is an open-source voxel editor if you prefer painting voxels."
+    - "Animate builds by revealing cubes in order (sort by height, then distance) at 20-60 cubes per second."
+  pitfalls: [Too many tiny voxels (looks like noise at phone size)]
+  tools: [Blender]
+
+cutaway_exploded:
+  name: Cutaway / exploded view
+  projection: perspective
+  camera: {elevation_deg: 25, azimuth_deg: 35, orthographic: false, fov_deg: 30}
+  shading: pbr-soft
+  outline: {enabled: true, width_px: 2}
+  timing: {render_fps: 30, animate_on: ones}
+  palette: {max_colors: 12, note: Neutral body colour; each part group gets one accent with labels in the same colour.}
+  best_for: [How machines and bodies work, Product explainers, Architecture]
+  avoid: [Topics without physical parts]
+  look: The object splits apart along its axes, or a section is cut away to show the inside.
+  recipe:
+    - "Blender: give each part an Empty parent; animate parts outward along their assembly axis with ease-in-out over 1-2 s, staggered 80-150 ms."
+    - "Cutaway: a Boolean modifier (Difference) with a box cutter; give the cut faces a contrasting material."
+    - "Label parts with leader lines that start on the part and end in a screen-aligned label inside the safe area."
+  pitfalls: [Labels drifting with the 3D motion (keep labels in screen space)]
+  tools: [Blender]
+
+multi_view_split:
+  name: Multi-viewpoint split screen
+  projection: multi-view
+  camera: {elevation_deg: 0, azimuth_deg: 0, orthographic: true}
+  shading: flat
+  outline: {enabled: true, width_px: 2}
+  timing: {render_fps: 30, animate_on: ones}
+  views: [top, front, side, perspective]
+  palette: {max_colors: 12, note: Same colours in every view so viewers can match parts.}
+  best_for: [Builds and assemblies, Sports plays, Comparing angles of one event]
+  avoid: [Single-subject emotional moments]
+  look: The same moment shown from four synced cameras in a 2x2 grid.
+  recipe:
+    - "Blender: add four cameras (top, front, side orthographic; one perspective); render each with the same frame range."
+    - "Combine with the grid_2x2_multi_viewpoint_split grid preset (gutter 12 px, feather 4 px, cells at 96% opacity)."
+    - "Keep a small view label (TOP, FRONT, SIDE, 3D) in each cell's top-left corner, at least 32 px tall."
+  pitfalls: [Views drifting out of sync (render all four from one timeline)]
+  tools: [Blender, Godot, ffmpeg]
+
+topics:
+  history: {label: History, palette: history_archive, background: topographic_lines, note: "Dates and names on screen must come from a cited source."}
+  science: {label: Science, palette: science_blueprint, background: blueprint_grid, note: "Label units on every number."}
+  space: {label: Space, palette: space_violet, background: starfield_drift, note: "Use agency imagery only under its stated media terms."}
+  relationships: {label: Relationships, palette: relationship_blush, background: silk_waves, note: "Show feelings with posture and colour, not text walls."}
+  animals: {label: Animals, palette: meadow_morning, background: meadow_wind, note: "Exaggerate poses, keep anatomy recognisable."}
+  ai_tech: {label: AI and tech, palette: neon_night, background: neon_grid, note: "Show inputs and outputs as objects moving between stations."}
+  ridiculous: {label: Ridiculous stories, palette: comic_primary, background: comic_sunburst, note: "One absurd premise, escalated in three beats."}
+  small_business: {label: Small business explainer, palette: okabe_ito_safe, background: gradient_drift, note: "One process from input to delivered result."}

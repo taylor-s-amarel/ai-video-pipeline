@@ -1,0 +1,10 @@
+{
+  "shots": [
+    { "shot_index": 0, "t_start_s": 0.0, "t_end_s": 4.2, "parallax": "yes", "direction_deg": 400,
+      "layers": [ { "speed_px_s": 9.8, "speed_fw_per_s": 0.0544, "speed_ratio": 0.5, "direction_deg": 181.0, "depth_rank": 0, "block_share": 0.29,
+          "region": { "bbox": [0, 0, 180, 112], "bbox_ratio": [0.0, 0.0, 1.0, 0.35], "y_center_ratio": 0.175 } } ],
+      "max_speed_ratio": 0.5, "other_moving_layers": 0 }
+  ],
+  "shots_with_parallax": 1,
+  "max_layers_in_parallax": 3
+}

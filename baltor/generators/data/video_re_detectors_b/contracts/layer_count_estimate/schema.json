@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/video-re-contract-layer-count-estimate",
+  "title": "Layer count estimate payload",
+  "description": "Payload of video_re_detect_layer_count_estimate: per shot, the coherent motion layers found by block phase correlation and sequential similarity fits. The count is a lower bound on composited layers (layers that move together, flat layers and fully covered layers are not separable).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["method", "shots", "max_layer_count", "median_layer_count"],
+  "$defs": {
+    "bbox": { "type": "array", "items": { "type": "number", "minimum": 0 }, "minItems": 4, "maxItems": 4 },
+    "share": { "type": ["number", "null"], "minimum": 0, "maximum": 1 }
+  },
+  "properties": {
+    "method": { "const": "block-phase-correlation+sequential-similarity-fit" },
+    "shots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["shot_index", "t_start_s", "t_end_s", "layer_count", "layers", "pairs_used", "flat_share", "unassigned_share"],
+        "properties": {
+          "shot_index": { "type": "integer", "minimum": 0 },
+          "t_start_s": { "type": "number", "minimum": 0 },
+          "t_end_s": { "type": "number", "minimum": 0 },
+          "layer_count": { "type": ["integer", "null"], "minimum": 0, "description": "null when the shot was too short to measure" },
+          "layers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["kind", "velocity_fw_per_s", "zoom_per_s", "block_share", "bbox"],
+              "properties": {
+                "kind": { "enum": ["static", "moving", "zooming", "nonrigid"] },
+                "velocity_fw_per_s": { "type": ["array", "null"], "items": { "type": "number" }, "minItems": 2, "maxItems": 2, "description": "content velocity: frame widths and frame heights per second (+x right, +y down); null for nonrigid" },
+                "zoom_per_s": { "type": ["number", "null"], "description": "natural-log scale change per second, positive = content grows; null for nonrigid" },
+                "block_share": { "type": "number", "minimum": 0, "maximum": 1, "description": "share of textured blocks in this layer" },
+                "bbox": { "$ref": "#/$defs/bbox", "description": "extent of the layer's blocks, analysed-frame pixels" }
+              }
+            }
+          },
+          "pairs_used": { "type": "integer", "minimum": 0 },
+          "flat_share": { "$ref": "#/$defs/share", "description": "share of blocks too flat to measure" },
+          "unassigned_share": { "$ref": "#/$defs/share", "description": "share of textured blocks in no layer" }
+        }
+      }
+    },
+    "max_layer_count": { "type": ["integer", "null"], "minimum": 0 },
+    "median_layer_count": { "type": ["number", "null"], "minimum": 0 }
+  }
+}

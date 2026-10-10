@@ -471,6 +471,53 @@ def radial_profile(power: np.ndarray, nbins: int = 64) -> tuple[np.ndarray, np.n
     return centers, sums / np.maximum(counts, 1)
 
 
+def axis_spectrum(gray_stack, axis: int) -> tuple[np.ndarray, np.ndarray]:
+    """Mean power spectrum along axis (-1 = rows/horizontal, -2 = columns/vertical) of (..., H, W) arrays,
+    Hann windowed, DC removed. Returns (frequencies in cycles/px excluding 0, power)."""
+    g = np.asarray(gray_stack, dtype=np.float64)
+    g = g - g.mean(axis=axis, keepdims=True)
+    n = g.shape[axis]
+    win = np.hanning(n)
+    shape = [1] * g.ndim
+    shape[axis] = n
+    P = np.abs(np.fft.rfft(g * win.reshape(shape), axis=axis)) ** 2
+    other = tuple(i for i in range(g.ndim) if i != (axis % g.ndim))
+    P = P.mean(axis=other)
+    f = np.fft.rfftfreq(n)
+    return f[1:], P[1:] + 1e-12
+
+
+def spectral_cutoff(f, P, fit_band=(0.015, 0.07), drop_db: float = 10.0, band_frac: float = 0.9):
+    """Frequency (cycles/px; 0.5 = none) above which at least band_frac of the 5-bin-smoothed spectrum lies
+    drop_db or more below a power law fitted on fit_band. Returns (cut-off, smoothed deviation in dB)."""
+    m = (f >= fit_band[0]) & (f <= fit_band[1])
+    if m.sum() < 3:
+        return 0.5, np.zeros_like(f)
+    b, a = np.polyfit(np.log(f[m]), np.log(P[m]), 1)
+    dev = 10 * np.log10(P) - (10 / np.log(10)) * (a + b * np.log(f))
+    devs = np.convolve(dev, np.ones(5) / 5, mode="same")
+    for c in f[f > fit_band[1]]:
+        if np.mean(devs[f >= c] < -drop_db) >= band_frac:
+            return float(c), devs
+    return 0.5, devs
+
+
+def upscale_factor_estimate(gray_frames, tile: int = 128, min_tile_std: float = 6.0, **kw) -> float | None:
+    """Geometric-mean upscale factor (0.5 / cut-off per axis) over textured tiles; None without texture."""
+    g = np.asarray(gray_frames, dtype=np.float32)
+    if g.ndim == 2:
+        g = g[None]
+    _, h, w = g.shape
+    tiles = [g[:, y:y + tile, x:x + tile] for y in range(0, h - tile + 1, tile) for x in range(0, w - tile + 1, tile)]
+    tiles = [t for t in tiles if t.std(axis=(1, 2)).mean() >= min_tile_std]
+    if len(tiles) < 2:
+        return None
+    st = np.stack(tiles).reshape(-1, tile, tile)
+    cx, _ = spectral_cutoff(*axis_spectrum(st, -1), **kw)
+    cy, _ = spectral_cutoff(*axis_spectrum(st, -2), **kw)
+    return float(np.sqrt((0.5 / cx) * (0.5 / cy)))
+
+
 # --------------------------------------------------------------------------------------------- colour
 
 

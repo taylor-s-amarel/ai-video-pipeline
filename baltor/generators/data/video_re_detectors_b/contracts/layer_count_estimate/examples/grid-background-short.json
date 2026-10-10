@@ -1,0 +1,15 @@
+{
+  "method": "block-phase-correlation+sequential-similarity-fit",
+  "shots": [
+    { "shot_index": 0, "t_start_s": 0.0, "t_end_s": 3.4, "layer_count": 3,
+      "layers": [
+        { "kind": "zooming", "velocity_fw_per_s": [0.0012, -0.0008], "zoom_per_s": 0.031, "block_share": 0.58, "bbox": [0, 0, 180, 196] },
+        { "kind": "moving", "velocity_fw_per_s": [-0.062, 0.0], "zoom_per_s": 0.0, "block_share": 0.21, "bbox": [0, 196, 180, 124] },
+        { "kind": "nonrigid", "velocity_fw_per_s": null, "zoom_per_s": null, "block_share": 0.12, "bbox": [16, 32, 148, 112] }
+      ],
+      "pairs_used": 30, "flat_share": 0.06, "unassigned_share": 0.09 },
+    { "shot_index": 1, "t_start_s": 3.4, "t_end_s": 3.5, "layer_count": null, "layers": [], "pairs_used": 0, "flat_share": null, "unassigned_share": null }
+  ],
+  "max_layer_count": 3,
+  "median_layer_count": 3.0
+}

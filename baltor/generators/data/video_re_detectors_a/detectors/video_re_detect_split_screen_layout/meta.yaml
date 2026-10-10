@@ -1,0 +1,14 @@
+title: Detect split-screen and grid layouts
+summary: Finds split-screen and grid layouts (1x2, 2x1, 2x2, 3-up, custom) and their panel rectangles, gutter width and colour from seams where neighbouring pixels belong to different pictures over time.
+description: >-
+  Builds time-averaged cross-boundary difference maps, keeps seam pixels that stand out from their neighbourhood,
+  and splits the frame recursively along seams that span the region, merging gutter edges. A striped-texture guard
+  keeps patterned backgrounds from being read as grids.
+tags: [split-screen, grid, layout, panels, 2x2]
+limits:
+  - Duplicated or mirrored panels leave no seam.
+  - A static scene with a straight full-height edge can be read as a seam.
+  - Insets that do not span the frame are picture-in-picture, measured by another detector.
+contract:
+  title: Split-screen layout payload
+  summary: JSON Schema for the split-screen layout payload - layout name (rows x columns, 3-up, custom), panel rectangles, gutter width and colour, and seams.

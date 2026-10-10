@@ -1,0 +1,59 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "showcase_preregistration_ledger",
+  "title": "Showcase pre-registration ledger",
+  "kind": "rules",
+  "subkind": "rule-set",
+  "version": "1.0.0",
+  "summary": "Fairness rules for with/without-Baltor showcases and the ledger of all 9 pre-registered tasks: id, spec hash, registration date, revision.",
+  "domain": "baltor",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "plan",
+    "verify",
+    "measure",
+    "review"
+  ],
+  "effects": {
+    "filesystem": "read",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "RULES.md",
+  "tags": [
+    "showcase",
+    "preregistration",
+    "ledger",
+    "fairness",
+    "evaluation",
+    "rules"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/showcase_tasks.py",
+    "data": "generators/data/showcase_tasks",
+    "parameters": {
+      "tasks": 9,
+      "negative_controls": 9
+    }
+  },
+  "examples": [
+    "Check that a run's spec hash matches the pre-registered one",
+    "python3 verify_ledger.py components/skills/showcase-task-*/"
+  ],
+  "review": {
+    "status": "unreviewed"
+  }
+}
