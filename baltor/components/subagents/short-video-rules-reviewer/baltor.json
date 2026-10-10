@@ -1,0 +1,47 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "short_video_rules_reviewer",
+  "title": "Short-video rules reviewer",
+  "kind": "subagent",
+  "subkind": "review-lens",
+  "version": "1.0.0",
+  "summary": "Reviews a rendered short and its spec against the house rules and returns pass/fail per rule with frame timestamps.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "review",
+    "verify"
+  ],
+  "effects": {
+    "filesystem": "read",
+    "network": "none",
+    "executes": "shell",
+    "secrets": [],
+    "side_effects": [
+      "runs ffmpeg/ffprobe to extract frames"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "opencode",
+    "baltor-harness"
+  ],
+  "entry": "agent.md",
+  "tags": [
+    "video",
+    "review",
+    "qa",
+    "subagent"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/exemplars.py"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

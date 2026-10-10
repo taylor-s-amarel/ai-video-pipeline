@@ -1,0 +1,41 @@
+{
+  "spec": "baltor.release/v1",
+  "release": "d3a2ca9a86f4",
+  "previous": null,
+  "created": "2026-10-10",
+  "packages": 12,
+  "files": 36,
+  "distinct_files": 35,
+  "bytes": 46178,
+  "added": [
+    "baltor_public_good_marketplace",
+    "baltor_service_mcp",
+    "block_staged_secrets",
+    "claude_code_media_project_settings",
+    "mp4_qa_probe",
+    "render_short",
+    "short_video_house_style",
+    "short_video_rules_reviewer",
+    "short_video_spec",
+    "short_video_standing_rules",
+    "short_video_studio_plugin",
+    "video_render_step_instructions"
+  ],
+  "changed": [],
+  "withdrawn": [],
+  "withdrawn_all": [],
+  "by_kind": {
+    "code-module": 1,
+    "command": 1,
+    "contract-schema": 1,
+    "harness-settings": 1,
+    "hook": 1,
+    "instruction-file": 1,
+    "plugin-manifest": 1,
+    "plugin-marketplace": 1,
+    "protocol-server-configuration": 1,
+    "rules": 1,
+    "skill": 1,
+    "subagent": 1
+  }
+}

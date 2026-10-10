@@ -1,0 +1,49 @@
+{
+  "min_duration_s": 60,
+  "aspect": "9:16",
+  "resolution": [
+    1080,
+    1920
+  ],
+  "max_layer_opacity": 0.98,
+  "title": {
+    "first_frame": true,
+    "position": "upper third, overlaid on the main photo",
+    "center_y_max_fraction": 0.4,
+    "color": "#FFD21F",
+    "weight": "bold",
+    "backing": "frosted glass: blurred background, 55-75% tint, feathered edges"
+  },
+  "captions": {
+    "lines_on_screen": 1,
+    "max_words": 7,
+    "sync_tolerance_ms": 150,
+    "keyword_pop": "scale 1.0 -> 1.12 -> 1.0 over 180 ms on the key word",
+    "backing": "frosted glass",
+    "forbidden": [
+      "progress bars",
+      "stacked label panels",
+      "repeated section labels"
+    ]
+  },
+  "background": {
+    "moving": true,
+    "min_mean_frame_diff": 0.6,
+    "layers_min": 5,
+    "edges": "feathered, no hard rectangular cutouts"
+  },
+  "photo": {
+    "min_frame_width_fraction": 0.8,
+    "never_shrink_for_title": true
+  },
+  "facts": {
+    "label": "FACT N",
+    "numbers_required": true,
+    "sources_required": true
+  },
+  "audio": {
+    "narration": "neural TTS timed to captions",
+    "music": "real instruments, credited when CC-BY",
+    "music_under_voice_db": -18
+  }
+}

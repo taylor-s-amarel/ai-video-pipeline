@@ -1,0 +1,45 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "video_render_step_instructions",
+  "title": "Instructions for a video render step",
+  "kind": "instruction-file",
+  "subkind": "step-template",
+  "version": "1.0.0",
+  "summary": "CLAUDE.md / AGENTS.md section for a step that renders video: deliver full exports, keep stated rules, verify before sending.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "INSTRUCTIONS.md",
+  "tags": [
+    "video",
+    "instructions",
+    "claude-md",
+    "agents-md"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/exemplars.py"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

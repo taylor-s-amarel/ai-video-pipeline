@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "baltor": {
+      "type": "http",
+      "url": "https://baltor.ai/mcp",
+      "headers": {
+        "Authorization": "Bearer ${BALTOR_SERVICE_TOKEN}"
+      }
+    }
+  }
+}

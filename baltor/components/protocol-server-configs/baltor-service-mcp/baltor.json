@@ -1,0 +1,51 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "baltor_service_mcp",
+  "title": "Baltor service MCP connection",
+  "kind": "protocol-server-configuration",
+  "subkind": "harness-adapter",
+  "version": "1.0.0",
+  "summary": "MCP entries that connect Claude Code, Codex and OpenCode to the Baltor endpoint over streamable HTTP with a bearer token from the environment.",
+  "domain": "baltor",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "research"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "declared",
+    "executes": "none",
+    "secrets": [
+      "BALTOR_SERVICE_TOKEN"
+    ],
+    "hosts": [
+      "baltor.ai"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "mcp.json",
+  "tags": [
+    "baltor",
+    "mcp",
+    "streamable-http",
+    "connection"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/exemplars.py"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

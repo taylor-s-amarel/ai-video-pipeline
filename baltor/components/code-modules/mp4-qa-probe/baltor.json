@@ -1,0 +1,55 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "mp4_qa_probe",
+  "title": "MP4 QA probe",
+  "kind": "code-module",
+  "subkind": "qa-check",
+  "version": "1.0.0",
+  "summary": "Checks an exported MP4 with ffprobe: minimum duration, 1080x1920, H.264/yuv420p, AAC audio present. Exit 1 on any failure.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "verify",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "read",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "runs ffprobe"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "mp4_qa_probe.py",
+  "tags": [
+    "video",
+    "qa",
+    "ffprobe",
+    "mp4"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "ffprobe",
+      "external": true
+    }
+  ],
+  "provenance": {
+    "generator": "generators/exemplars.py"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/schemas/feed-collection.schema.json",
+  "title": "Baltor feed source collection (feeds/<id>.json)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["spec", "id", "title", "description", "updated", "items"],
+  "properties": {
+    "spec": { "const": "baltor.feed-collection/v1" },
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]{2,60}$" },
+    "title": { "type": "string" },
+    "description": { "type": "string" },
+    "updated": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "items": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "title", "url", "summary", "kind", "verified_on"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,80}$" },
+          "title": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "summary": { "type": "string", "maxLength": 600 },
+          "kind": { "enum": ["tool", "model", "paper", "dataset", "media-source", "benchmark", "standard",
+                             "guidance", "library", "service", "article", "regulation", "repository"] },
+          "licence": { "type": "string", "description": "SPDX id, or a short description such as 'Public domain (US Gov work)' or 'Custom: see url'" },
+          "licence_url": { "type": "string", "format": "uri" },
+          "verified_on": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+          "verification": { "enum": ["fetched", "search-result", "from-prior-research", "unverified"] },
+          "date_published": { "type": "string" },
+          "tags": { "type": "array", "items": { "type": "string" } },
+          "notes": { "type": "string", "maxLength": 600 },
+          "cautions": { "type": "array", "items": { "type": "string", "maxLength": 300 } }
+        }
+      }
+    }
+  }
+}

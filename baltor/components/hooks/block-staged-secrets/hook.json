@@ -1,0 +1,8 @@
+{
+  "events": [
+    "PreToolUse"
+  ],
+  "matcher": "Bash",
+  "command": "python3 .baltor/hooks/block-staged-secrets/hook.py",
+  "timeout": 20
+}

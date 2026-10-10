@@ -1,0 +1,52 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "short_video_studio_plugin",
+  "title": "Short Video Studio plugin",
+  "kind": "plugin-manifest",
+  "subkind": "plugin-bundle",
+  "version": "1.0.0",
+  "summary": "Claude Code plugin manifest bundling the house-style skill, the rules reviewer subagent and the /render-short command.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code"
+  ],
+  "entry": "plugin.json",
+  "tags": [
+    "plugin",
+    "claude-code",
+    "video"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "short_video_house_style"
+    },
+    {
+      "identity": "short_video_rules_reviewer"
+    },
+    {
+      "identity": "render_short"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/exemplars.py"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

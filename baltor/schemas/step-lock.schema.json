@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/schemas/step-lock.schema.json",
+  "title": "Baltor step lock (.baltor/step.lock.json)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["spec", "release", "harness", "items"],
+  "properties": {
+    "spec": { "const": "baltor.step-lock/v1" },
+    "release": { "type": "string", "pattern": "^[0-9a-f]{12}$" },
+    "harness": { "type": "string" },
+    "created": { "type": "string" },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["identity", "version", "kind", "digest", "placed"],
+        "properties": {
+          "identity": { "type": "string" },
+          "version": { "type": "string" },
+          "kind": { "type": "string" },
+          "digest": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+          "licence": { "type": "string" },
+          "placed": { "type": "array", "items": { "type": "object", "required": ["path", "sha256"],
+                       "properties": { "path": { "type": "string" }, "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" } } } }
+        }
+      }
+    }
+  }
+}

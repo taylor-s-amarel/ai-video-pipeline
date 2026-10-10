@@ -1,0 +1,24 @@
+{
+  "name": "short-video-studio",
+  "version": "1.0.0",
+  "description": "House-style vertical shorts: plan, render, review and deliver full 60+ second videos.",
+  "author": {
+    "name": "Baltor"
+  },
+  "license": "MIT",
+  "keywords": [
+    "video",
+    "shorts",
+    "captions",
+    "ffmpeg"
+  ],
+  "commands": [
+    "./commands/render-short.md"
+  ],
+  "agents": [
+    "./agents/short-video-rules-reviewer.md"
+  ],
+  "skills": [
+    "./skills/short-video-house-style"
+  ]
+}

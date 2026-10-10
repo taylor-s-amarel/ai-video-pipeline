@@ -1,0 +1,45 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "baltor_public_good_marketplace",
+  "title": "Baltor Public Good plugin marketplace",
+  "kind": "plugin-marketplace",
+  "subkind": "plugin-bundle",
+  "version": "1.0.0",
+  "summary": "Marketplace listing for the free Public Good plugins in this repository, installable with /plugin marketplace add.",
+  "domain": "baltor",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code"
+  ],
+  "entry": "marketplace.json",
+  "tags": [
+    "plugin",
+    "marketplace",
+    "claude-code"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "short_video_studio_plugin"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/exemplars.py"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

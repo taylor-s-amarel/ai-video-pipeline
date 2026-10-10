@@ -1,0 +1,282 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "Baltor components in this repository",
+  "home_page_url": "https://github.com/taylor-s-amarel/ai-video-pipeline/tree/main/baltor",
+  "feed_url": "https://github.com/taylor-s-amarel/ai-video-pipeline/blob/main/baltor/catalog/feeds/components.json",
+  "description": "Base components in release d3a2ca9a86f4 (12 items; variants omitted).",
+  "items": [
+    {
+      "id": "components/baltor-public-good-marketplace",
+      "url": "https://github.com/taylor-s-amarel/ai-video-pipeline/tree/main/baltor/components/plugin-marketplaces/baltor-public-good-marketplace",
+      "title": "Baltor Public Good plugin marketplace",
+      "content_text": "Marketplace listing for the free Public Good plugins in this repository, installable with /plugin marketplace add.",
+      "summary": "Marketplace listing for the free Public Good plugins in this repository, installable with /plugin marketplace add.",
+      "date_published": "2026-10-10T00:00:00Z",
+      "tags": [
+        "plugin-marketplace",
+        "plugin-bundle",
+        "plugin",
+        "marketplace",
+        "claude-code",
+        "repository"
+      ],
+      "_baltor": {
+        "kind": "repository",
+        "licence": "MIT",
+        "verified_on": "2026-10-10",
+        "verification": "fetched"
+      }
+    },
+    {
+      "id": "components/baltor-service-mcp",
+      "url": "https://github.com/taylor-s-amarel/ai-video-pipeline/tree/main/baltor/components/protocol-server-configs/baltor-service-mcp",
+      "title": "Baltor service MCP connection",
+      "content_text": "MCP entries that connect Claude Code, Codex and OpenCode to the Baltor endpoint over streamable HTTP with a bearer token from the environment.",
+      "summary": "MCP entries that connect Claude Code, Codex and OpenCode to the Baltor endpoint over streamable HTTP with a bearer token from the environment.",
+      "date_published": "2026-10-10T00:00:00Z",
+      "tags": [
+        "protocol-server-configuration",
+        "harness-adapter",
+        "baltor",
+        "mcp",
+        "streamable-http",
+        "connection",
+        "repository"
+      ],
+      "_baltor": {
+        "kind": "repository",
+        "licence": "MIT",
+        "verified_on": "2026-10-10",
+        "verification": "fetched"
+      }
+    },
+    {
+      "id": "components/block-staged-secrets",
+      "url": "https://github.com/taylor-s-amarel/ai-video-pipeline/tree/main/baltor/components/hooks/block-staged-secrets",
+      "title": "Block commits that stage credentials",
+      "content_text": "PreToolUse hook that refuses a git commit when the staged diff contains something that looks like an API key or private key.",
+      "summary": "PreToolUse hook that refuses a git commit when the staged diff contains something that looks like an API key or private key.",
+      "date_published": "2026-10-10T00:00:00Z",
+      "tags": [
+        "hook",
+        "guardrail",
+        "security",
+        "git",
+        "secrets",
+        "guardrail",
+        "repository"
+      ],
+      "_baltor": {
+        "kind": "repository",
+        "licence": "MIT",
+        "verified_on": "2026-10-10",
+        "verification": "fetched"
+      }
+    },
+    {
+      "id": "components/claude-code-media-project-settings",
+      "url": "https://github.com/taylor-s-amarel/ai-video-pipeline/tree/main/baltor/components/harness-settings/claude-code-media-project-settings",
+      "title": "Claude Code settings for a media project",
+      "content_text": "Project settings that allow ffmpeg/ffprobe and the catalogue tool, deny reading .env and credentials, and wire the secrets hook.",
+      "summary": "Project settings that allow ffmpeg/ffprobe and the catalogue tool, deny reading .env and credentials, and wire the secrets hook.",
+      "date_published": "2026-10-10T00:00:00Z",
+      "tags": [
+        "harness-settings",
+        "settings-profile",
+        "claude-code",
+        "settings",
+        "permissions",
+        "video",
+        "repository"
+      ],
+      "_baltor": {
+        "kind": "repository",
+        "licence": "MIT",
+        "verified_on": "2026-10-10",
+        "verification": "fetched"
+      }
+    },
+    {
+      "id": "components/mp4-qa-probe",
+      "url": "https://github.com/taylor-s-amarel/ai-video-pipeline/tree/main/baltor/components/code-modules/mp4-qa-probe",
+      "title": "MP4 QA probe",
+      "content_text": "Checks an exported MP4 with ffprobe: minimum duration, 1080x1920, H.264/yuv420p, AAC audio present. Exit 1 on any failure.",
+      "summary": "Checks an exported MP4 with ffprobe: minimum duration, 1080x1920, H.264/yuv420p, AAC audio present. Exit 1 on any failure.",
+      "date_published": "2026-10-10T00:00:00Z",
+      "tags": [
+        "code-module",
+        "qa-check",
+        "video",
+        "qa",
+        "ffprobe",
+        "mp4",
+        "repository"
+      ],
+      "_baltor": {
+        "kind": "repository",
+        "licence": "MIT",
+        "verified_on": "2026-10-10",
+        "verification": "fetched"
+      }
+    },
+    {
+      "id": "components/render-short",
+      "url": "https://github.com/taylor-s-amarel/ai-video-pipeline/tree/main/baltor/components/commands/render-short",
+      "title": "/render-short",
+      "content_text": "Slash command that turns a topic into a full 60+ second house-style short: script with sources, spec, render, QA, then delivery.",
+      "summary": "Slash command that turns a topic into a full 60+ second house-style short: script with sources, spec, render, QA, then delivery.",
+      "date_published": "2026-10-10T00:00:00Z",
+      "tags": [
+        "command",
+        "workflow",
+        "video",
+        "command",
+        "workflow",
+        "repository"
+      ],
+      "_baltor": {
+        "kind": "repository",
+        "licence": "MIT",
+        "verified_on": "2026-10-10",
+        "verification": "fetched"
+      }
+    },
+    {
+      "id": "components/short-video-house-style",
+      "url": "https://github.com/taylor-s-amarel/ai-video-pipeline/tree/main/baltor/components/skills/short-video-house-style",
+      "title": "Short-video house style",
+      "content_text": "The settled look for 60+ second vertical shorts: bold yellow hook over the photo, frosted text, moving layered background, synced one-line captions.",
+      "summary": "The settled look for 60+ second vertical shorts: bold yellow hook over the photo, frosted text, moving layered background, synced one-line captions.",
+      "date_published": "2026-10-10T00:00:00Z",
+      "tags": [
+        "skill",
+        "style-preset",
+        "video",
+        "shorts",
+        "style",
+        "captions",
+        "house-rules",
+        "repository"
+      ],
+      "_baltor": {
+        "kind": "repository",
+        "licence": "MIT",
+        "verified_on": "2026-10-10",
+        "verification": "fetched"
+      }
+    },
+    {
+      "id": "components/short-video-rules-reviewer",
+      "url": "https://github.com/taylor-s-amarel/ai-video-pipeline/tree/main/baltor/components/subagents/short-video-rules-reviewer",
+      "title": "Short-video rules reviewer",
+      "content_text": "Reviews a rendered short and its spec against the house rules and returns pass/fail per rule with frame timestamps.",
+      "summary": "Reviews a rendered short and its spec against the house rules and returns pass/fail per rule with frame timestamps.",
+      "date_published": "2026-10-10T00:00:00Z",
+      "tags": [
+        "subagent",
+        "review-lens",
+        "video",
+        "review",
+        "qa",
+        "subagent",
+        "repository"
+      ],
+      "_baltor": {
+        "kind": "repository",
+        "licence": "MIT",
+        "verified_on": "2026-10-10",
+        "verification": "fetched"
+      }
+    },
+    {
+      "id": "components/short-video-spec",
+      "url": "https://github.com/taylor-s-amarel/ai-video-pipeline/tree/main/baltor/components/contract-schemas/short-video-spec",
+      "title": "Short video spec",
+      "content_text": "JSON Schema for one vertical short: hook title, 60+ s duration, scenes with layers capped at 98% opacity, captions, narration and credited music.",
+      "summary": "JSON Schema for one vertical short: hook title, 60+ s duration, scenes with layers capped at 98% opacity, captions, narration and credited music.",
+      "date_published": "2026-10-10T00:00:00Z",
+      "tags": [
+        "contract-schema",
+        "render-recipe",
+        "video",
+        "schema",
+        "render",
+        "contract",
+        "repository"
+      ],
+      "_baltor": {
+        "kind": "repository",
+        "licence": "MIT",
+        "verified_on": "2026-10-10",
+        "verification": "fetched"
+      }
+    },
+    {
+      "id": "components/short-video-standing-rules",
+      "url": "https://github.com/taylor-s-amarel/ai-video-pipeline/tree/main/baltor/components/rules/short-video-standing-rules",
+      "title": "Short-video standing rules",
+      "content_text": "Numbered, testable rule set for shorts with machine-readable thresholds (duration, opacity cap, title placement, caption sync).",
+      "summary": "Numbered, testable rule set for shorts with machine-readable thresholds (duration, opacity cap, title placement, caption sync).",
+      "date_published": "2026-10-10T00:00:00Z",
+      "tags": [
+        "rules",
+        "rule-set",
+        "video",
+        "rules",
+        "qa",
+        "repository"
+      ],
+      "_baltor": {
+        "kind": "repository",
+        "licence": "MIT",
+        "verified_on": "2026-10-10",
+        "verification": "fetched"
+      }
+    },
+    {
+      "id": "components/short-video-studio-plugin",
+      "url": "https://github.com/taylor-s-amarel/ai-video-pipeline/tree/main/baltor/components/plugin-manifests/short-video-studio-plugin",
+      "title": "Short Video Studio plugin",
+      "content_text": "Claude Code plugin manifest bundling the house-style skill, the rules reviewer subagent and the /render-short command.",
+      "summary": "Claude Code plugin manifest bundling the house-style skill, the rules reviewer subagent and the /render-short command.",
+      "date_published": "2026-10-10T00:00:00Z",
+      "tags": [
+        "plugin-manifest",
+        "plugin-bundle",
+        "plugin",
+        "claude-code",
+        "video",
+        "repository"
+      ],
+      "_baltor": {
+        "kind": "repository",
+        "licence": "MIT",
+        "verified_on": "2026-10-10",
+        "verification": "fetched"
+      }
+    },
+    {
+      "id": "components/video-render-step-instructions",
+      "url": "https://github.com/taylor-s-amarel/ai-video-pipeline/tree/main/baltor/components/instruction-files/video-render-step-instructions",
+      "title": "Instructions for a video render step",
+      "content_text": "CLAUDE.md / AGENTS.md section for a step that renders video: deliver full exports, keep stated rules, verify before sending.",
+      "summary": "CLAUDE.md / AGENTS.md section for a step that renders video: deliver full exports, keep stated rules, verify before sending.",
+      "date_published": "2026-10-10T00:00:00Z",
+      "tags": [
+        "instruction-file",
+        "step-template",
+        "video",
+        "instructions",
+        "claude-md",
+        "agents-md",
+        "repository"
+      ],
+      "_baltor": {
+        "kind": "repository",
+        "licence": "MIT",
+        "verified_on": "2026-10-10",
+        "verification": "fetched"
+      }
+    }
+  ]
+}

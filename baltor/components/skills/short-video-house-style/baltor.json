@@ -1,0 +1,52 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "short_video_house_style",
+  "title": "Short-video house style",
+  "kind": "skill",
+  "subkind": "style-preset",
+  "version": "1.0.0",
+  "summary": "The settled look for 60+ second vertical shorts: bold yellow hook over the photo, frosted text, moving layered background, synced one-line captions.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "plan",
+    "render",
+    "review"
+  ],
+  "effects": {
+    "filesystem": "read",
+    "network": "none",
+    "executes": "python",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "SKILL.md",
+  "tags": [
+    "video",
+    "shorts",
+    "style",
+    "captions",
+    "house-rules"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/exemplars.py"
+  },
+  "examples": [
+    "Render the Sylvia Earle short in house style",
+    "Review this export against the house rules"
+  ],
+  "review": {
+    "status": "unreviewed"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "block_staged_secrets",
+  "title": "Block commits that stage credentials",
+  "kind": "hook",
+  "subkind": "guardrail",
+  "version": "1.0.0",
+  "summary": "PreToolUse hook that refuses a git commit when the staged diff contains something that looks like an API key or private key.",
+  "domain": "security",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "secure",
+    "build"
+  ],
+  "effects": {
+    "filesystem": "read",
+    "network": "none",
+    "executes": "python",
+    "secrets": [],
+    "side_effects": [
+      "runs git diff --cached"
+    ]
+  },
+  "harnesses": [
+    "claude-code",
+    "codex",
+    "opencode",
+    "pi",
+    "baltor-harness"
+  ],
+  "entry": "hook.json",
+  "tags": [
+    "security",
+    "git",
+    "secrets",
+    "guardrail"
+  ],
+  "collection": "public-good",
+  "provenance": {
+    "generator": "generators/exemplars.py"
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

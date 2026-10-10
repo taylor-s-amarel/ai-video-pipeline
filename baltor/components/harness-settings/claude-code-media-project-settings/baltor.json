@@ -1,0 +1,54 @@
+{
+  "spec": "baltor.component/v1",
+  "identity": "claude_code_media_project_settings",
+  "title": "Claude Code settings for a media project",
+  "kind": "harness-settings",
+  "subkind": "settings-profile",
+  "version": "1.0.0",
+  "summary": "Project settings that allow ffmpeg/ffprobe and the catalogue tool, deny reading .env and credentials, and wire the secrets hook.",
+  "domain": "video",
+  "licence": "MIT",
+  "source": {
+    "type": "original",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "step_kinds": [
+    "build",
+    "render",
+    "secure"
+  ],
+  "effects": {
+    "filesystem": "none",
+    "network": "none",
+    "executes": "none",
+    "secrets": []
+  },
+  "harnesses": [
+    "claude-code"
+  ],
+  "entry": "settings.json",
+  "tags": [
+    "claude-code",
+    "settings",
+    "permissions",
+    "video"
+  ],
+  "collection": "public-good",
+  "depends_on": [
+    {
+      "identity": "block_staged_secrets"
+    }
+  ],
+  "provenance": {
+    "generator": "generators/exemplars.py"
+  },
+  "install": {
+    "claude-code": {
+      "path": ".baltor/settings/claude-code-media-project-settings/",
+      "merge_into": ".claude/settings.json"
+    }
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

@@ -1,0 +1,193 @@
+{
+  "title_hook": {
+    "text": "SHE LIVED UNDERWATER FOR 14 DAYS",
+    "color": "#FFD21F",
+    "position": "upper-third-over-photo",
+    "backing": "frosted-glass",
+    "hold_s": 2.2
+  },
+  "duration_s": 64,
+  "format": "1080x1920",
+  "scenes": [
+    {
+      "start_s": 0,
+      "end_s": 16,
+      "layers": [
+        {
+          "kind": "background-video",
+          "source": "ocean-waves-loop",
+          "opacity": 0.92,
+          "motion": "loop"
+        },
+        {
+          "kind": "grid-2x2",
+          "source": "four-motion-panels",
+          "opacity": 0.35,
+          "blend": "screen"
+        },
+        {
+          "kind": "light",
+          "source": "soft-light-sweep",
+          "opacity": 0.4,
+          "blend": "add"
+        },
+        {
+          "kind": "particles",
+          "source": "dust-bokeh",
+          "opacity": 0.3,
+          "blend": "screen"
+        },
+        {
+          "kind": "photo",
+          "source": "photo-01.jpg",
+          "opacity": 0.98,
+          "feather_px": 48,
+          "motion": "ken-burns-in"
+        }
+      ],
+      "label": "FACT 1",
+      "key_number": "14 days"
+    },
+    {
+      "start_s": 16,
+      "end_s": 32,
+      "layers": [
+        {
+          "kind": "background-video",
+          "source": "ocean-waves-loop",
+          "opacity": 0.92,
+          "motion": "loop"
+        },
+        {
+          "kind": "grid-2x2",
+          "source": "four-motion-panels",
+          "opacity": 0.35,
+          "blend": "screen"
+        },
+        {
+          "kind": "light",
+          "source": "soft-light-sweep",
+          "opacity": 0.4,
+          "blend": "add"
+        },
+        {
+          "kind": "particles",
+          "source": "dust-bokeh",
+          "opacity": 0.3,
+          "blend": "screen"
+        },
+        {
+          "kind": "photo",
+          "source": "photo-02.jpg",
+          "opacity": 0.98,
+          "feather_px": 48,
+          "motion": "ken-burns-in"
+        }
+      ],
+      "label": "FACT 2",
+      "key_number": "50 feet"
+    },
+    {
+      "start_s": 32,
+      "end_s": 48,
+      "layers": [
+        {
+          "kind": "background-video",
+          "source": "ocean-waves-loop",
+          "opacity": 0.92,
+          "motion": "loop"
+        },
+        {
+          "kind": "grid-2x2",
+          "source": "four-motion-panels",
+          "opacity": 0.35,
+          "blend": "screen"
+        },
+        {
+          "kind": "light",
+          "source": "soft-light-sweep",
+          "opacity": 0.4,
+          "blend": "add"
+        },
+        {
+          "kind": "particles",
+          "source": "dust-bokeh",
+          "opacity": 0.3,
+          "blend": "screen"
+        },
+        {
+          "kind": "photo",
+          "source": "photo-03.jpg",
+          "opacity": 0.98,
+          "feather_px": 48,
+          "motion": "ken-burns-in"
+        }
+      ],
+      "label": "FACT 3",
+      "key_number": "86 hours"
+    },
+    {
+      "start_s": 48,
+      "end_s": 64,
+      "layers": [
+        {
+          "kind": "background-video",
+          "source": "ocean-waves-loop",
+          "opacity": 0.92,
+          "motion": "loop"
+        },
+        {
+          "kind": "grid-2x2",
+          "source": "four-motion-panels",
+          "opacity": 0.35,
+          "blend": "screen"
+        },
+        {
+          "kind": "light",
+          "source": "soft-light-sweep",
+          "opacity": 0.4,
+          "blend": "add"
+        },
+        {
+          "kind": "particles",
+          "source": "dust-bokeh",
+          "opacity": 0.3,
+          "blend": "screen"
+        },
+        {
+          "kind": "photo",
+          "source": "photo-04.jpg",
+          "opacity": 0.98,
+          "feather_px": 48,
+          "motion": "ken-burns-in"
+        }
+      ],
+      "label": "FACT 4",
+      "key_number": "35 species"
+    }
+  ],
+  "captions": [
+    {
+      "start_s": 2.3,
+      "end_s": 4.1,
+      "text": "In 1970, five scientists",
+      "pop_word": "1970"
+    }
+  ],
+  "narration": {
+    "engine": "kokoro-82m",
+    "voice": "af_heart",
+    "words_per_minute": 150
+  },
+  "music": {
+    "title": "With These Hands",
+    "artist": "Scott Buckley",
+    "licence": "CC-BY-4.0",
+    "url": "https://www.scottbuckley.com.au/library/with-these-hands/",
+    "attribution": "Music: “With These Hands” by Scott Buckley, CC BY 4.0",
+    "gain_db": -18
+  },
+  "sources": [
+    "https://www.nasa.gov/"
+  ]
+}

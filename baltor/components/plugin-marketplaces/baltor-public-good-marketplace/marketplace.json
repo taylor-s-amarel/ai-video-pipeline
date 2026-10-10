@@ -1,0 +1,19 @@
+{
+  "name": "baltor-public-good",
+  "owner": {
+    "name": "Baltor",
+    "url": "https://github.com/taylor-s-amarel/ai-video-pipeline"
+  },
+  "metadata": {
+    "description": "Free plugins built from the Baltor Public Good collection.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "short-video-studio",
+      "source": "./plugins/short-video-studio",
+      "description": "House-style vertical shorts: plan, render, review, deliver.",
+      "version": "1.0.0"
+    }
+  ]
+}

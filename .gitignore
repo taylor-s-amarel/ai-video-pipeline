@@ -39,3 +39,10 @@ debug.log
 # OS
 Thumbs.db
 .DS_Store
+
+# Test caches
+.pytest_cache/
+
+# Baltor component payloads may include caption samples
+!baltor/**/*.srt
+!baltor/**/*.ass

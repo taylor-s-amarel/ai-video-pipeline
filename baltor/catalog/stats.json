@@ -1,0 +1,43 @@
+{
+  "packages": 12,
+  "by_kind": {
+    "code-module": 1,
+    "command": 1,
+    "contract-schema": 1,
+    "harness-settings": 1,
+    "hook": 1,
+    "instruction-file": 1,
+    "plugin-manifest": 1,
+    "plugin-marketplace": 1,
+    "protocol-server-configuration": 1,
+    "rules": 1,
+    "skill": 1,
+    "subagent": 1
+  },
+  "by_subkind": {
+    "plugin-bundle": 2,
+    "harness-adapter": 1,
+    "guardrail": 1,
+    "settings-profile": 1,
+    "qa-check": 1,
+    "workflow": 1,
+    "style-preset": 1,
+    "review-lens": 1,
+    "render-recipe": 1,
+    "rule-set": 1,
+    "step-template": 1
+  },
+  "by_domain": {
+    "video": 9,
+    "baltor": 2,
+    "security": 1
+  },
+  "by_licence": {
+    "MIT": 12
+  },
+  "by_collection": {
+    "public-good": 12
+  },
+  "variants": 0,
+  "base_items": 12
+}
