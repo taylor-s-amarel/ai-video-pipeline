@@ -1,0 +1,8 @@
+{
+  "regions": [
+    { "bbox": [22, 214, 136, 42], "bbox_ratio": [0.1222, 0.6688, 0.7556, 0.1313], "t_start_s": 0.0, "t_end_s": 33.0, "kind": "frosted", "opacity": 64, "tint_color": "white", "blurred_behind": "yes", "gradient_ratio": 0.12, "rectangularity": 0.93 }
+  ],
+  "windows_analysed": 11,
+  "max_opacity": 64,
+  "semi_transparent_count": 1
+}

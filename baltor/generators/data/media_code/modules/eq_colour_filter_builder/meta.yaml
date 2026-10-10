@@ -1,0 +1,7 @@
+title: Colour grade filter builder (eq, colorbalance, curves)
+summary: Builds range-checked ffmpeg colour chains from eq (brightness, contrast, saturation, gamma), colorbalance by tonal range, hue and built-in curves presets.
+subkind: ffmpeg-filter
+domain: video
+tags: [video, ffmpeg, colour-grading, eq, curves, colorbalance]
+step_kinds: [build, render]
+depends_on: [ffmpeg]

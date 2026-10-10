@@ -1,0 +1,10 @@
+title: ffmpeg detector log parser
+summary: Runs ffmpeg blackdetect, freezedetect and silencedetect in one pass (plus cropdetect) and parses their logs into events for QA of black gaps, frozen video, dead air and letterboxing.
+subkind: qa-check
+domain: video
+tags: [video, ffmpeg, qa, blackdetect, freezedetect, silencedetect, cropdetect]
+step_kinds: [verify]
+effects:
+  filesystem: read
+  side_effects: ["runs ffmpeg analysis over the input file"]
+depends_on: [ffmpeg]

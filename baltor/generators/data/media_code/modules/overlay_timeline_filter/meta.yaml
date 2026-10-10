@@ -1,0 +1,7 @@
+title: Overlay timeline filter
+summary: Schedules image/video overlays with time windows, alpha fade in/out shifted to each slot, opacity capped at 0.98 and a check for overlays that collide in space and time.
+subkind: overlay
+domain: video
+tags: [video, ffmpeg, overlay, timeline, labels, compositing]
+step_kinds: [build, render]
+depends_on: [ffmpeg]

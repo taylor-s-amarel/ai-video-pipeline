@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/taylor-s-amarel/ai-video-pipeline/baltor/contract-schemas/video-re-contract-semi-transparent-layers",
+  "title": "Semi-transparent layers payload",
+  "description": "Payload of video_re_detect_semi_transparent_layers: rectangular panels that moving content shows through, with opacity from the alpha model C = aO + (1-a)B (temporal std inside vs a ring outside), the implied tint and a frosted-backing flag.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["regions", "windows_analysed", "max_opacity", "semi_transparent_count"],
+  "$defs": {
+    "bbox": { "type": "array", "items": { "type": "number", "minimum": 0 }, "minItems": 4, "maxItems": 4 },
+    "ratio_box": { "type": "array", "items": { "type": "number", "minimum": 0, "maximum": 1 }, "minItems": 4, "maxItems": 4 }
+  },
+  "properties": {
+    "regions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["bbox", "bbox_ratio", "t_start_s", "t_end_s", "kind", "opacity", "tint_color", "blurred_behind", "gradient_ratio", "rectangularity"],
+        "properties": {
+          "bbox": { "$ref": "#/$defs/bbox" },
+          "bbox_ratio": { "$ref": "#/$defs/ratio_box" },
+          "t_start_s": { "type": "number", "minimum": 0 },
+          "t_end_s": { "type": "number", "minimum": 0 },
+          "kind": { "enum": ["semi_transparent", "opaque"] },
+          "opacity": { "type": "number", "minimum": 0, "maximum": 1, "description": "estimated alpha; an upper bound when blurred_behind is true" },
+          "tint_color": { "type": ["string", "null"], "pattern": "^#[0-9A-Fa-f]{6}$", "description": "panel colour O solved from the alpha model; null when opacity < 0.2" },
+          "blurred_behind": { "type": "boolean", "description": "edge energy inside fell well below (1 - opacity): frosted-glass backing" },
+          "gradient_ratio": { "type": "number", "minimum": 0, "description": "median gradient inside / in the ring" },
+          "rectangularity": { "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      }
+    },
+    "windows_analysed": { "type": "integer", "minimum": 0 },
+    "max_opacity": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+    "semi_transparent_count": { "type": "integer", "minimum": 0 }
+  }
+}

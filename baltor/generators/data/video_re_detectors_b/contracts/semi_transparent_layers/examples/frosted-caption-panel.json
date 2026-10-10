@@ -1,0 +1,9 @@
+{
+  "regions": [
+    { "bbox": [22, 214, 136, 42], "bbox_ratio": [0.1222, 0.6688, 0.7556, 0.1313], "t_start_s": 0.0, "t_end_s": 33.0, "kind": "semi_transparent", "opacity": 0.64, "tint_color": "#F2F2F4", "blurred_behind": true, "gradient_ratio": 0.12, "rectangularity": 0.93 },
+    { "bbox": [18, 40, 144, 64], "bbox_ratio": [0.1, 0.125, 0.8, 0.2], "t_start_s": 0.0, "t_end_s": 3.0, "kind": "semi_transparent", "opacity": 0.71, "tint_color": "#101014", "blurred_behind": false, "gradient_ratio": 0.3, "rectangularity": 0.97 }
+  ],
+  "windows_analysed": 11,
+  "max_opacity": 0.71,
+  "semi_transparent_count": 2
+}

@@ -1,0 +1,7 @@
+title: ffmpeg encode profiles
+summary: Named house encode profiles (vertical and landscape H.264 delivery with faststart and fixed GOP, small review proxy, lossless FFV1 master) that produce complete ffmpeg argv lists.
+subkind: render-recipe
+domain: video
+tags: [video, ffmpeg, encoding, h264, delivery, presets]
+step_kinds: [render, publish]
+depends_on: [ffmpeg]

@@ -43,7 +43,7 @@ DEFAULTS = {
     "max_area_ratio": 0.6,
     "ring_px": 6,
     "opaque_at": 0.98,
-    "blur_factor": 0.5,
+    "blur_factor": 0.7,
     "merge_iou": 0.5,
 }
 PARAM_DOCS = {

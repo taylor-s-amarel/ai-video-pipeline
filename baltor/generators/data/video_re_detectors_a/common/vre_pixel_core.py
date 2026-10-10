@@ -749,7 +749,7 @@ def edge_segments(E, axis: str, min_len: int, thr: float = 0.7, max_gap: int = 2
 
 
 def find_rectangles(Ev, Eh, min_w: int, min_h: int, tol: int = 3, corner_gap: int = 0,
-                    thr: float = 0.7) -> list[dict]:
+                    thr: float = 0.7, dedup_iou: float = 0.85) -> list[dict]:
     """Axis-aligned rectangles whose four sides are persistent edges.
 
     corner_gap allows sides that stop short of the corners (rounded corners). Each rectangle:
@@ -781,7 +781,7 @@ def find_rectangles(Ev, Eh, min_w: int, min_h: int, tol: int = 3, corner_gap: in
     rects.sort(key=lambda r: -r["support"])
     out: list[dict] = []
     for r in rects:
-        if any(iou(r["bbox"], o["bbox"]) > 0.85 for o in out):
+        if any(iou(r["bbox"], o["bbox"]) > dedup_iou for o in out):
             continue
         out.append(r)
     return out
